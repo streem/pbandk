@@ -1,5 +1,6 @@
 package pbandk
 
+import pbandk.gen.ListWithSize
 import pbandk.testpb.Bar
 import pbandk.testpb.Foo
 import kotlin.test.Test

@@ -1,5 +1,6 @@
-package pbandk
+package pbandk.gen
 
+import pbandk.PublicForGeneratedCode
 import kotlin.js.JsExport
 import kotlin.js.JsName
 

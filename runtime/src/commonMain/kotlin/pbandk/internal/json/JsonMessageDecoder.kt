@@ -10,10 +10,14 @@ import pbandk.InvalidProtocolBufferException
 import pbandk.Message
 import pbandk.MessageDecoder
 import pbandk.MessageDescriptor
+import pbandk.MutableMessage
 import pbandk.UnknownField
+import pbandk.gen.MutableMessageMap
 import pbandk.internal.underscoreToCamelCase
 import pbandk.json.JsonConfig
 import pbandk.wkt.Value
+import kotlin.reflect.KMutableProperty1
+import kotlin.reflect.KProperty1
 
 private val FieldDescriptor<*, *>.jsonNames: List<String>
     get() = listOf(
@@ -27,39 +31,20 @@ internal class JsonMessageDecoder internal constructor(
 ) : MessageDecoder {
     private val jsonValueDecoder = JsonValueDecoder(jsonConfig)
 
-    override fun <T : Message> readMessage(
-        messageCompanion: Message.Companion<T>,
-        fieldFn: (Int, Any) -> Unit
-    ): Map<Int, UnknownField> = try {
-        JsonMessageAdapters.getAdapter(messageCompanion)?.let {
-            readWithMessageAdapter(it, content.jsonObject, fieldFn)
-        } ?: readMessageObject(messageCompanion, content.jsonObject, fieldFn)
-        emptyMap()
+    override fun <T : Message> readMessage(messageCompanion: Message.Companion<T>): T = try {
+        JsonMessageAdapters.getAdapter(messageCompanion)
+            ?.decode(content.jsonObject, jsonValueDecoder)
+            ?: readMessageObject(messageCompanion, content.jsonObject)
     } catch (e: InvalidProtocolBufferException) {
         throw e
     } catch (e: Exception) {
         throw InvalidProtocolBufferException("unable to read message", e)
     }
 
-    // A hack until message decoding is done fully at runtime without the need of a custom `decodeWith()` method
-    // generated in each type.
-    private fun <T : Message> readWithMessageAdapter(
-        adapter: JsonMessageAdapter<T>,
-        content: JsonObject,
-        fieldFn: (Int, Any) -> Unit
-    ) {
-        val message = adapter.decode(content, jsonValueDecoder)
-        @Suppress("UNCHECKED_CAST")
-        for (field in (message.descriptor as MessageDescriptor<T>).fields) {
-            field.value.get(message)?.let { fieldFn(field.number, it) }
-        }
-    }
-
     private fun <T : Message> readMessageObject(
         messageCompanion: Message.Companion<T>,
-        content: JsonObject,
-        fieldFn: (Int, Any) -> Unit
-    ) {
+        content: JsonObject
+    ): T = messageCompanion.descriptor.builder {
         for ((key, jsonValue) in content) {
             val fd = messageCompanion.descriptor.fields.firstOrNull { key in it.jsonNames }
                 ?: if (jsonConfig.ignoreUnknownFieldsInInput) {
@@ -77,10 +62,31 @@ internal class JsonMessageDecoder internal constructor(
                         else -> fd.type.defaultValue
                     } ?: continue
 
-                    fieldFn(fd.number, defaultValue)
+                    @Suppress("UNCHECKED_CAST")
+                    (fd.mutableValue as KMutableProperty1<MutableMessage<T>, Any?>).set(this, defaultValue)
                 }
             } else {
-                jsonValueDecoder.readValue(jsonValue, fd.type)?.let { fieldFn(fd.number, it) }
+                jsonValueDecoder.readValue(jsonValue, fd.type)?.let { value ->
+                    when (fd.type) {
+                        is FieldDescriptor.Type.Repeated<*> -> {
+                            value as Sequence<*>
+                            @Suppress("UNCHECKED_CAST")
+                            ((fd.value as KProperty1<MutableMessage<T>, *>).get(this) as MutableList<Any?>).addAll(value)
+                        }
+                        is FieldDescriptor.Type.Map<*, *> -> {
+                            @Suppress("UNCHECKED_CAST")
+                            value as Sequence<Map.Entry<*, *>>
+                            @Suppress("UNCHECKED_CAST")
+                            ((fd.value as KProperty1<MutableMessage<T>, *>).get(this) as MutableMessageMap<Any?, Any?>).putAll(
+                                value
+                            )
+                        }
+                        else -> {
+                            @Suppress("UNCHECKED_CAST")
+                            (fd.mutableValue as KMutableProperty1<MutableMessage<T>, Any?>).set(this, value)
+                        }
+                    }
+                }
             }
         }
     }

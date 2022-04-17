@@ -1,8 +1,10 @@
 package pbandk
 
+import pbandk.gen.MessageMap
 import pbandk.internal.binary.WireType
 import pbandk.wkt.FieldOptions
 import kotlin.js.JsExport
+import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
@@ -14,6 +16,7 @@ public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor
     internal val number: Int,
     internal val type: Type,
     internal val value: KProperty1<M, T>,
+    internal val mutableValue: KMutableProperty1<out MutableMessage<M>, T>? = null,
     internal val oneofMember: Boolean = false,
     internal val jsonName: String? = null,
     @ExperimentalProtoReflection

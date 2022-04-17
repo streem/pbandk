@@ -24,6 +24,8 @@ public class MessageDescriptor<T : Message> @PublicForGeneratedCode constructor(
     @ExperimentalProtoReflection
     public val messageCompanion: Message.Companion<T>,
 
+    internal val builder: (MutableMessage<T>.() -> Unit) -> T,
+
     fields: Collection<FieldDescriptor<T, *>>
 ) {
     /** The message type's unqualified name. */

@@ -12,8 +12,9 @@ import pbandk.ByteArr
 import pbandk.FieldDescriptor
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
-import pbandk.MessageMap
-import pbandk.MutableMessageMapEntry
+import pbandk.gen.MessageMap
+import pbandk.gen.MutableMessageMapEntry
+import pbandk.decodeWith
 import pbandk.internal.Util
 import pbandk.json.JsonConfig
 import pbandk.wkt.BoolValue

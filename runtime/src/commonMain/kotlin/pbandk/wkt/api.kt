@@ -37,7 +37,6 @@ public sealed interface Api : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
         public val defaultInstance: pbandk.wkt.Api by lazy { pbandk.wkt.Api {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Api = pbandk.wkt.Api.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Api, *>>(7)
@@ -49,7 +48,8 @@ public sealed interface Api : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = pbandk.wkt.Api::name
+                        value = pbandk.wkt.Api::name,
+                        mutableValue = pbandk.wkt.MutableApi::name,
                     )
                 )
                 add(
@@ -59,7 +59,7 @@ public sealed interface Api : pbandk.Message {
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Method>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Method.Companion)),
                         jsonName = "methods",
-                        value = pbandk.wkt.Api::methods
+                        value = pbandk.wkt.Api::methods,
                     )
                 )
                 add(
@@ -69,7 +69,7 @@ public sealed interface Api : pbandk.Message {
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
                         jsonName = "options",
-                        value = pbandk.wkt.Api::options
+                        value = pbandk.wkt.Api::options,
                     )
                 )
                 add(
@@ -79,7 +79,8 @@ public sealed interface Api : pbandk.Message {
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "version",
-                        value = pbandk.wkt.Api::version
+                        value = pbandk.wkt.Api::version,
+                        mutableValue = pbandk.wkt.MutableApi::version,
                     )
                 )
                 add(
@@ -89,7 +90,8 @@ public sealed interface Api : pbandk.Message {
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceContext.Companion),
                         jsonName = "sourceContext",
-                        value = pbandk.wkt.Api::sourceContext
+                        value = pbandk.wkt.Api::sourceContext,
+                        mutableValue = pbandk.wkt.MutableApi::sourceContext,
                     )
                 )
                 add(
@@ -99,7 +101,7 @@ public sealed interface Api : pbandk.Message {
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Mixin>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Mixin.Companion)),
                         jsonName = "mixins",
-                        value = pbandk.wkt.Api::mixins
+                        value = pbandk.wkt.Api::mixins,
                     )
                 )
                 add(
@@ -109,7 +111,8 @@ public sealed interface Api : pbandk.Message {
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
                         jsonName = "syntax",
-                        value = pbandk.wkt.Api::syntax
+                        value = pbandk.wkt.Api::syntax,
+                        mutableValue = pbandk.wkt.MutableApi::syntax,
                     )
                 )
             }
@@ -117,13 +120,14 @@ public sealed interface Api : pbandk.Message {
                 fullName = "google.protobuf.Api",
                 messageClass = pbandk.wkt.Api::class,
                 messageCompanion = this,
+                builder = ::Api,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableApi : pbandk.wkt.Api, pbandk.MutableMessage {
+public sealed interface MutableApi : pbandk.wkt.Api, pbandk.MutableMessage<pbandk.wkt.Api> {
     public override var name: String
     public override val methods: MutableList<pbandk.wkt.Method>
     public override val options: MutableList<pbandk.wkt.Option>
@@ -168,7 +172,6 @@ public sealed interface Method : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
         public val defaultInstance: pbandk.wkt.Method by lazy { pbandk.wkt.Method {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Method = pbandk.wkt.Method.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Method, *>>(7)
@@ -180,7 +183,8 @@ public sealed interface Method : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = pbandk.wkt.Method::name
+                        value = pbandk.wkt.Method::name,
+                        mutableValue = pbandk.wkt.MutableMethod::name,
                     )
                 )
                 add(
@@ -190,7 +194,8 @@ public sealed interface Method : pbandk.Message {
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "requestTypeUrl",
-                        value = pbandk.wkt.Method::requestTypeUrl
+                        value = pbandk.wkt.Method::requestTypeUrl,
+                        mutableValue = pbandk.wkt.MutableMethod::requestTypeUrl,
                     )
                 )
                 add(
@@ -200,7 +205,8 @@ public sealed interface Method : pbandk.Message {
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
                         jsonName = "requestStreaming",
-                        value = pbandk.wkt.Method::requestStreaming
+                        value = pbandk.wkt.Method::requestStreaming,
+                        mutableValue = pbandk.wkt.MutableMethod::requestStreaming,
                     )
                 )
                 add(
@@ -210,7 +216,8 @@ public sealed interface Method : pbandk.Message {
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "responseTypeUrl",
-                        value = pbandk.wkt.Method::responseTypeUrl
+                        value = pbandk.wkt.Method::responseTypeUrl,
+                        mutableValue = pbandk.wkt.MutableMethod::responseTypeUrl,
                     )
                 )
                 add(
@@ -220,7 +227,8 @@ public sealed interface Method : pbandk.Message {
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
                         jsonName = "responseStreaming",
-                        value = pbandk.wkt.Method::responseStreaming
+                        value = pbandk.wkt.Method::responseStreaming,
+                        mutableValue = pbandk.wkt.MutableMethod::responseStreaming,
                     )
                 )
                 add(
@@ -230,7 +238,7 @@ public sealed interface Method : pbandk.Message {
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
                         jsonName = "options",
-                        value = pbandk.wkt.Method::options
+                        value = pbandk.wkt.Method::options,
                     )
                 )
                 add(
@@ -240,7 +248,8 @@ public sealed interface Method : pbandk.Message {
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
                         jsonName = "syntax",
-                        value = pbandk.wkt.Method::syntax
+                        value = pbandk.wkt.Method::syntax,
+                        mutableValue = pbandk.wkt.MutableMethod::syntax,
                     )
                 )
             }
@@ -248,13 +257,14 @@ public sealed interface Method : pbandk.Message {
                 fullName = "google.protobuf.Method",
                 messageClass = pbandk.wkt.Method::class,
                 messageCompanion = this,
+                builder = ::Method,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableMethod : pbandk.wkt.Method, pbandk.MutableMessage {
+public sealed interface MutableMethod : pbandk.wkt.Method, pbandk.MutableMessage<pbandk.wkt.Method> {
     public override var name: String
     public override var requestTypeUrl: String
     public override var requestStreaming: Boolean
@@ -289,7 +299,6 @@ public sealed interface Mixin : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
         public val defaultInstance: pbandk.wkt.Mixin by lazy { pbandk.wkt.Mixin {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Mixin = pbandk.wkt.Mixin.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Mixin, *>>(2)
@@ -301,7 +310,8 @@ public sealed interface Mixin : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = pbandk.wkt.Mixin::name
+                        value = pbandk.wkt.Mixin::name,
+                        mutableValue = pbandk.wkt.MutableMixin::name,
                     )
                 )
                 add(
@@ -311,7 +321,8 @@ public sealed interface Mixin : pbandk.Message {
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "root",
-                        value = pbandk.wkt.Mixin::root
+                        value = pbandk.wkt.Mixin::root,
+                        mutableValue = pbandk.wkt.MutableMixin::root,
                     )
                 )
             }
@@ -319,13 +330,14 @@ public sealed interface Mixin : pbandk.Message {
                 fullName = "google.protobuf.Mixin",
                 messageClass = pbandk.wkt.Mixin::class,
                 messageCompanion = this,
+                builder = ::Mixin,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableMixin : pbandk.wkt.Mixin, pbandk.MutableMessage {
+public sealed interface MutableMixin : pbandk.wkt.Mixin, pbandk.MutableMessage<pbandk.wkt.Mixin> {
     public override var name: String
     public override var root: String
 }
@@ -387,7 +399,7 @@ private class Api_Impl(
     override val mixins: List<pbandk.wkt.Mixin>,
     override val syntax: pbandk.wkt.Syntax,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Api, pbandk.GeneratedMessage<pbandk.wkt.Api>() {
+) : pbandk.wkt.Api, pbandk.gen.GeneratedMessage<pbandk.wkt.Api>() {
     override val descriptor get() = pbandk.wkt.Api.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableApi.() -> Unit) = pbandk.wkt.Api {
@@ -435,7 +447,7 @@ private class MutableApi_Impl(
     override val mixins: MutableList<pbandk.wkt.Mixin>,
     override var syntax: pbandk.wkt.Syntax,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableApi, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableApi>() {
+) : pbandk.wkt.MutableApi, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Api>() {
     override val descriptor get() = pbandk.wkt.Api.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableApi.() -> Unit) =
@@ -480,31 +492,6 @@ private fun Api.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Api {
         syntax = other.syntax
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Api {
-    var name = ""
-    var methods: pbandk.ListWithSize.Builder<pbandk.wkt.Method>? = null
-    var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
-    var version = ""
-    var sourceContext: pbandk.wkt.SourceContext? = null
-    var mixins: pbandk.ListWithSize.Builder<pbandk.wkt.Mixin>? = null
-    var syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0)
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> name = _fieldValue as String
-            2 -> methods = (methods ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Method> }
-            3 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
-            4 -> version = _fieldValue as String
-            5 -> sourceContext = _fieldValue as pbandk.wkt.SourceContext
-            6 -> mixins = (mixins ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Mixin> }
-            7 -> syntax = _fieldValue as pbandk.wkt.Syntax
-        }
-    }
-    return Api_Impl(name, pbandk.ListWithSize.Builder.fixed(methods), pbandk.ListWithSize.Builder.fixed(options), version,
-        sourceContext, pbandk.ListWithSize.Builder.fixed(mixins), syntax, unknownFields)
 }
 
 @Deprecated(
@@ -564,7 +551,7 @@ private class Method_Impl(
     override val options: List<pbandk.wkt.Option>,
     override val syntax: pbandk.wkt.Syntax,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Method, pbandk.GeneratedMessage<pbandk.wkt.Method>() {
+) : pbandk.wkt.Method, pbandk.gen.GeneratedMessage<pbandk.wkt.Method>() {
     override val descriptor get() = pbandk.wkt.Method.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableMethod.() -> Unit) = pbandk.wkt.Method {
@@ -612,7 +599,7 @@ private class MutableMethod_Impl(
     override val options: MutableList<pbandk.wkt.Option>,
     override var syntax: pbandk.wkt.Syntax,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableMethod, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableMethod>() {
+) : pbandk.wkt.MutableMethod, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Method>() {
     override val descriptor get() = pbandk.wkt.Method.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableMethod.() -> Unit) =
@@ -659,31 +646,6 @@ private fun Method.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Method {
     }
 }
 
-@Suppress("UNCHECKED_CAST")
-private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Method {
-    var name = ""
-    var requestTypeUrl = ""
-    var requestStreaming = false
-    var responseTypeUrl = ""
-    var responseStreaming = false
-    var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
-    var syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0)
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> name = _fieldValue as String
-            2 -> requestTypeUrl = _fieldValue as String
-            3 -> requestStreaming = _fieldValue as Boolean
-            4 -> responseTypeUrl = _fieldValue as String
-            5 -> responseStreaming = _fieldValue as Boolean
-            6 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
-            7 -> syntax = _fieldValue as pbandk.wkt.Syntax
-        }
-    }
-    return Method_Impl(name, requestTypeUrl, requestStreaming, responseTypeUrl,
-        responseStreaming, pbandk.ListWithSize.Builder.fixed(options), syntax, unknownFields)
-}
-
 @Deprecated(
     message = "Use Mixin { } instead",
     replaceWith = ReplaceWith(
@@ -721,7 +683,7 @@ private class Mixin_Impl(
     override val name: String,
     override val root: String,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Mixin, pbandk.GeneratedMessage<pbandk.wkt.Mixin>() {
+) : pbandk.wkt.Mixin, pbandk.gen.GeneratedMessage<pbandk.wkt.Mixin>() {
     override val descriptor get() = pbandk.wkt.Mixin.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableMixin.() -> Unit) = pbandk.wkt.Mixin {
@@ -749,7 +711,7 @@ private class MutableMixin_Impl(
     override var name: String,
     override var root: String,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableMixin, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableMixin>() {
+) : pbandk.wkt.MutableMixin, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Mixin>() {
     override val descriptor get() = pbandk.wkt.Mixin.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableMixin.() -> Unit) =
@@ -779,18 +741,4 @@ private fun Mixin.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Mixin {
         root = other.root
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun Mixin.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Mixin {
-    var name = ""
-    var root = ""
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> name = _fieldValue as String
-            2 -> root = _fieldValue as String
-        }
-    }
-    return Mixin_Impl(name, root, unknownFields)
 }

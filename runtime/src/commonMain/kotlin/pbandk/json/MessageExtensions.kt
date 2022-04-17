@@ -2,6 +2,7 @@ package pbandk.json
 
 import pbandk.ExperimentalProtoJson
 import pbandk.Message
+import pbandk.decodeWith
 import pbandk.internal.json.JsonMessageEncoder
 import pbandk.internal.json.JsonMessageDecoder
 import kotlin.js.JsExport

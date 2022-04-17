@@ -27,7 +27,6 @@ public sealed interface Duration : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
         public val defaultInstance: pbandk.wkt.Duration by lazy { pbandk.wkt.Duration {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Duration = pbandk.wkt.Duration.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Duration, *>>(2)
@@ -39,7 +38,8 @@ public sealed interface Duration : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
                         jsonName = "seconds",
-                        value = pbandk.wkt.Duration::seconds
+                        value = pbandk.wkt.Duration::seconds,
+                        mutableValue = pbandk.wkt.MutableDuration::seconds,
                     )
                 )
                 add(
@@ -49,7 +49,8 @@ public sealed interface Duration : pbandk.Message {
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "nanos",
-                        value = pbandk.wkt.Duration::nanos
+                        value = pbandk.wkt.Duration::nanos,
+                        mutableValue = pbandk.wkt.MutableDuration::nanos,
                     )
                 )
             }
@@ -57,13 +58,14 @@ public sealed interface Duration : pbandk.Message {
                 fullName = "google.protobuf.Duration",
                 messageClass = pbandk.wkt.Duration::class,
                 messageCompanion = this,
+                builder = ::Duration,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableDuration : pbandk.wkt.Duration, pbandk.MutableMessage {
+public sealed interface MutableDuration : pbandk.wkt.Duration, pbandk.MutableMessage<pbandk.wkt.Duration> {
     public override var seconds: Long
     public override var nanos: Int
 }
@@ -105,7 +107,7 @@ private class Duration_Impl(
     override val seconds: Long,
     override val nanos: Int,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Duration, pbandk.GeneratedMessage<pbandk.wkt.Duration>() {
+) : pbandk.wkt.Duration, pbandk.gen.GeneratedMessage<pbandk.wkt.Duration>() {
     override val descriptor get() = pbandk.wkt.Duration.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit) = pbandk.wkt.Duration {
@@ -133,7 +135,7 @@ private class MutableDuration_Impl(
     override var seconds: Long,
     override var nanos: Int,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableDuration, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableDuration>() {
+) : pbandk.wkt.MutableDuration, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Duration>() {
     override val descriptor get() = pbandk.wkt.Duration.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit) =
@@ -163,18 +165,4 @@ private fun Duration.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Duration
         nanos = other.nanos
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun Duration.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Duration {
-    var seconds = 0L
-    var nanos = 0
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> seconds = _fieldValue as Long
-            2 -> nanos = _fieldValue as Int
-        }
-    }
-    return Duration_Impl(seconds, nanos, unknownFields)
 }

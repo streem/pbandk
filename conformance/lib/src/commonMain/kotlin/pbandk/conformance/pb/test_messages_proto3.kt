@@ -345,7 +345,6 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto3> {
         public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto3 by lazy { pbandk.conformance.pb.TestAllTypesProto3 {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto3 = pbandk.conformance.pb.TestAllTypesProto3.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto3> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto3, *>>(149)
@@ -357,7 +356,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "optionalInt32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalInt32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalInt32,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalInt32,
                     )
                 )
                 add(
@@ -367,7 +367,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
                         jsonName = "optionalInt64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalInt64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalInt64,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalInt64,
                     )
                 )
                 add(
@@ -377,7 +378,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt32(),
                         jsonName = "optionalUint32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalUint32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalUint32,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalUint32,
                     )
                 )
                 add(
@@ -387,7 +389,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(),
                         jsonName = "optionalUint64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalUint64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalUint64,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalUint64,
                     )
                 )
                 add(
@@ -397,7 +400,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.SInt32(),
                         jsonName = "optionalSint32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalSint32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalSint32,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalSint32,
                     )
                 )
                 add(
@@ -407,7 +411,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Primitive.SInt64(),
                         jsonName = "optionalSint64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalSint64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalSint64,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalSint64,
                     )
                 )
                 add(
@@ -417,7 +422,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(),
                         jsonName = "optionalFixed32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalFixed32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalFixed32,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalFixed32,
                     )
                 )
                 add(
@@ -427,7 +433,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 8,
                         type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(),
                         jsonName = "optionalFixed64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalFixed64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalFixed64,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalFixed64,
                     )
                 )
                 add(
@@ -437,7 +444,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 9,
                         type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(),
                         jsonName = "optionalSfixed32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalSfixed32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalSfixed32,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalSfixed32,
                     )
                 )
                 add(
@@ -447,7 +455,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 10,
                         type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(),
                         jsonName = "optionalSfixed64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalSfixed64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalSfixed64,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalSfixed64,
                     )
                 )
                 add(
@@ -457,7 +466,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 11,
                         type = pbandk.FieldDescriptor.Type.Primitive.Float(),
                         jsonName = "optionalFloat",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalFloat
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalFloat,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalFloat,
                     )
                 )
                 add(
@@ -467,7 +477,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 12,
                         type = pbandk.FieldDescriptor.Type.Primitive.Double(),
                         jsonName = "optionalDouble",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalDouble
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalDouble,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalDouble,
                     )
                 )
                 add(
@@ -477,7 +488,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 13,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
                         jsonName = "optionalBool",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalBool
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalBool,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalBool,
                     )
                 )
                 add(
@@ -487,7 +499,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 14,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "optionalString",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalString
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalString,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalString,
                     )
                 )
                 add(
@@ -497,7 +510,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 15,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
                         jsonName = "optionalBytes",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalBytes
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalBytes,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalBytes,
                     )
                 )
                 add(
@@ -507,7 +521,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 18,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.Companion),
                         jsonName = "optionalNestedMessage",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalNestedMessage
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalNestedMessage,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalNestedMessage,
                     )
                 )
                 add(
@@ -517,7 +532,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 19,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessage.Companion),
                         jsonName = "optionalForeignMessage",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalForeignMessage
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalForeignMessage,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalForeignMessage,
                     )
                 )
                 add(
@@ -527,7 +543,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 21,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion),
                         jsonName = "optionalNestedEnum",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalNestedEnum
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalNestedEnum,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalNestedEnum,
                     )
                 )
                 add(
@@ -537,7 +554,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 22,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnum.Companion),
                         jsonName = "optionalForeignEnum",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalForeignEnum
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalForeignEnum,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalForeignEnum,
                     )
                 )
                 add(
@@ -547,7 +565,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 23,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum.Companion),
                         jsonName = "optionalAliasedEnum",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalAliasedEnum
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalAliasedEnum,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalAliasedEnum,
                     )
                 )
                 add(
@@ -557,7 +576,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 24,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "optionalStringPiece",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalStringPiece
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalStringPiece,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalStringPiece,
                     )
                 )
                 add(
@@ -567,7 +587,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 25,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "optionalCord",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalCord
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalCord,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalCord,
                     )
                 )
                 add(
@@ -577,7 +598,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 27,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto3.Companion),
                         jsonName = "recursiveMessage",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::recursiveMessage
+                        value = pbandk.conformance.pb.TestAllTypesProto3::recursiveMessage,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::recursiveMessage,
                     )
                 )
                 add(
@@ -587,7 +609,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 31,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
                         jsonName = "repeatedInt32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedInt32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedInt32,
                     )
                 )
                 add(
@@ -597,7 +619,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 32,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64(), packed = true),
                         jsonName = "repeatedInt64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedInt64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedInt64,
                     )
                 )
                 add(
@@ -607,7 +629,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 33,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), packed = true),
                         jsonName = "repeatedUint32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedUint32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedUint32,
                     )
                 )
                 add(
@@ -617,7 +639,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 34,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), packed = true),
                         jsonName = "repeatedUint64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedUint64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedUint64,
                     )
                 )
                 add(
@@ -627,7 +649,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 35,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), packed = true),
                         jsonName = "repeatedSint32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedSint32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedSint32,
                     )
                 )
                 add(
@@ -637,7 +659,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 36,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), packed = true),
                         jsonName = "repeatedSint64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedSint64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedSint64,
                     )
                 )
                 add(
@@ -647,7 +669,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 37,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), packed = true),
                         jsonName = "repeatedFixed32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedFixed32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedFixed32,
                     )
                 )
                 add(
@@ -657,7 +679,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 38,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), packed = true),
                         jsonName = "repeatedFixed64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedFixed64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedFixed64,
                     )
                 )
                 add(
@@ -667,7 +689,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 39,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), packed = true),
                         jsonName = "repeatedSfixed32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedSfixed32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedSfixed32,
                     )
                 )
                 add(
@@ -677,7 +699,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 40,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), packed = true),
                         jsonName = "repeatedSfixed64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedSfixed64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedSfixed64,
                     )
                 )
                 add(
@@ -687,7 +709,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 41,
                         type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float(), packed = true),
                         jsonName = "repeatedFloat",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedFloat
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedFloat,
                     )
                 )
                 add(
@@ -697,7 +719,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 42,
                         type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double(), packed = true),
                         jsonName = "repeatedDouble",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedDouble
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedDouble,
                     )
                 )
                 add(
@@ -707,7 +729,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 43,
                         type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool(), packed = true),
                         jsonName = "repeatedBool",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedBool
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedBool,
                     )
                 )
                 add(
@@ -717,7 +739,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 44,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "repeatedString",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedString
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedString,
                     )
                 )
                 add(
@@ -727,7 +749,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 45,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.ByteArr>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bytes()),
                         jsonName = "repeatedBytes",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedBytes
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedBytes,
                     )
                 )
                 add(
@@ -737,7 +759,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 48,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.Companion)),
                         jsonName = "repeatedNestedMessage",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedNestedMessage
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedNestedMessage,
                     )
                 )
                 add(
@@ -747,7 +769,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 49,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.ForeignMessage>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessage.Companion)),
                         jsonName = "repeatedForeignMessage",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedForeignMessage
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedForeignMessage,
                     )
                 )
                 add(
@@ -757,7 +779,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 51,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion), packed = true),
                         jsonName = "repeatedNestedEnum",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedNestedEnum
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedNestedEnum,
                     )
                 )
                 add(
@@ -767,7 +789,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 52,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.ForeignEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnum.Companion), packed = true),
                         jsonName = "repeatedForeignEnum",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedForeignEnum
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedForeignEnum,
                     )
                 )
                 add(
@@ -777,7 +799,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 54,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "repeatedStringPiece",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedStringPiece
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedStringPiece,
                     )
                 )
                 add(
@@ -787,7 +809,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 55,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "repeatedCord",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedCord
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedCord,
                     )
                 )
                 add(
@@ -797,7 +819,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 56,
                         type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
                         jsonName = "mapInt32Int32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapInt32Int32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapInt32Int32,
                     )
                 )
                 add(
@@ -807,7 +829,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 57,
                         type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int64(), valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
                         jsonName = "mapInt64Int64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapInt64Int64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapInt64Int64,
                     )
                 )
                 add(
@@ -817,7 +839,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 58,
                         type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
                         jsonName = "mapUint32Uint32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapUint32Uint32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapUint32Uint32,
                     )
                 )
                 add(
@@ -827,7 +849,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 59,
                         type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
                         jsonName = "mapUint64Uint64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapUint64Uint64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapUint64Uint64,
                     )
                 )
                 add(
@@ -837,7 +859,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 60,
                         type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
                         jsonName = "mapSint32Sint32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapSint32Sint32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapSint32Sint32,
                     )
                 )
                 add(
@@ -847,7 +869,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 61,
                         type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
                         jsonName = "mapSint64Sint64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapSint64Sint64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapSint64Sint64,
                     )
                 )
                 add(
@@ -857,7 +879,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 62,
                         type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
                         jsonName = "mapFixed32Fixed32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapFixed32Fixed32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapFixed32Fixed32,
                     )
                 )
                 add(
@@ -867,7 +889,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 63,
                         type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
                         jsonName = "mapFixed64Fixed64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapFixed64Fixed64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapFixed64Fixed64,
                     )
                 )
                 add(
@@ -877,7 +899,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 64,
                         type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
                         jsonName = "mapSfixed32Sfixed32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapSfixed32Sfixed32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapSfixed32Sfixed32,
                     )
                 )
                 add(
@@ -887,7 +909,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 65,
                         type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
                         jsonName = "mapSfixed64Sfixed64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapSfixed64Sfixed64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapSfixed64Sfixed64,
                     )
                 )
                 add(
@@ -897,7 +919,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 66,
                         type = pbandk.FieldDescriptor.Type.Map<Int, Float>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
                         jsonName = "mapInt32Float",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapInt32Float
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapInt32Float,
                     )
                 )
                 add(
@@ -907,7 +929,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 67,
                         type = pbandk.FieldDescriptor.Type.Map<Int, Double>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
                         jsonName = "mapInt32Double",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapInt32Double
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapInt32Double,
                     )
                 )
                 add(
@@ -917,7 +939,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 68,
                         type = pbandk.FieldDescriptor.Type.Map<Boolean, Boolean>(keyType = pbandk.FieldDescriptor.Type.Primitive.Bool(), valueType = pbandk.FieldDescriptor.Type.Primitive.Bool()),
                         jsonName = "mapBoolBool",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapBoolBool
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapBoolBool,
                     )
                 )
                 add(
@@ -927,7 +949,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 69,
                         type = pbandk.FieldDescriptor.Type.Map<String, String>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "mapStringString",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapStringString
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapStringString,
                     )
                 )
                 add(
@@ -937,7 +959,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 70,
                         type = pbandk.FieldDescriptor.Type.Map<String, pbandk.ByteArr>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Primitive.Bytes()),
                         jsonName = "mapStringBytes",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapStringBytes
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapStringBytes,
                     )
                 )
                 add(
@@ -947,7 +969,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 71,
                         type = pbandk.FieldDescriptor.Type.Map<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.Companion)),
                         jsonName = "mapStringNestedMessage",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapStringNestedMessage
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapStringNestedMessage,
                     )
                 )
                 add(
@@ -957,7 +979,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 72,
                         type = pbandk.FieldDescriptor.Type.Map<String, pbandk.conformance.pb.ForeignMessage?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessage.Companion)),
                         jsonName = "mapStringForeignMessage",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapStringForeignMessage
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapStringForeignMessage,
                     )
                 )
                 add(
@@ -967,7 +989,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 73,
                         type = pbandk.FieldDescriptor.Type.Map<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion)),
                         jsonName = "mapStringNestedEnum",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapStringNestedEnum
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapStringNestedEnum,
                     )
                 )
                 add(
@@ -977,7 +999,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 74,
                         type = pbandk.FieldDescriptor.Type.Map<String, pbandk.conformance.pb.ForeignEnum>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnum.Companion)),
                         jsonName = "mapStringForeignEnum",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::mapStringForeignEnum
+                        value = pbandk.conformance.pb.TestAllTypesProto3::mapStringForeignEnum,
                     )
                 )
                 add(
@@ -987,7 +1009,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 75,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
                         jsonName = "packedInt32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::packedInt32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::packedInt32,
                     )
                 )
                 add(
@@ -997,7 +1019,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 76,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64(), packed = true),
                         jsonName = "packedInt64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::packedInt64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::packedInt64,
                     )
                 )
                 add(
@@ -1007,7 +1029,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 77,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), packed = true),
                         jsonName = "packedUint32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::packedUint32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::packedUint32,
                     )
                 )
                 add(
@@ -1017,7 +1039,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 78,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), packed = true),
                         jsonName = "packedUint64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::packedUint64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::packedUint64,
                     )
                 )
                 add(
@@ -1027,7 +1049,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 79,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), packed = true),
                         jsonName = "packedSint32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::packedSint32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::packedSint32,
                     )
                 )
                 add(
@@ -1037,7 +1059,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 80,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), packed = true),
                         jsonName = "packedSint64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::packedSint64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::packedSint64,
                     )
                 )
                 add(
@@ -1047,7 +1069,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 81,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), packed = true),
                         jsonName = "packedFixed32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::packedFixed32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::packedFixed32,
                     )
                 )
                 add(
@@ -1057,7 +1079,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 82,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), packed = true),
                         jsonName = "packedFixed64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::packedFixed64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::packedFixed64,
                     )
                 )
                 add(
@@ -1067,7 +1089,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 83,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), packed = true),
                         jsonName = "packedSfixed32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::packedSfixed32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::packedSfixed32,
                     )
                 )
                 add(
@@ -1077,7 +1099,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 84,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), packed = true),
                         jsonName = "packedSfixed64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::packedSfixed64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::packedSfixed64,
                     )
                 )
                 add(
@@ -1087,7 +1109,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 85,
                         type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float(), packed = true),
                         jsonName = "packedFloat",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::packedFloat
+                        value = pbandk.conformance.pb.TestAllTypesProto3::packedFloat,
                     )
                 )
                 add(
@@ -1097,7 +1119,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 86,
                         type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double(), packed = true),
                         jsonName = "packedDouble",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::packedDouble
+                        value = pbandk.conformance.pb.TestAllTypesProto3::packedDouble,
                     )
                 )
                 add(
@@ -1107,7 +1129,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 87,
                         type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool(), packed = true),
                         jsonName = "packedBool",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::packedBool
+                        value = pbandk.conformance.pb.TestAllTypesProto3::packedBool,
                     )
                 )
                 add(
@@ -1117,7 +1139,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 88,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion), packed = true),
                         jsonName = "packedNestedEnum",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::packedNestedEnum
+                        value = pbandk.conformance.pb.TestAllTypesProto3::packedNestedEnum,
                     )
                 )
                 add(
@@ -1127,7 +1149,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 89,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
                         jsonName = "unpackedInt32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedInt32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedInt32,
                     )
                 )
                 add(
@@ -1137,7 +1159,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 90,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
                         jsonName = "unpackedInt64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedInt64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedInt64,
                     )
                 )
                 add(
@@ -1147,7 +1169,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 91,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
                         jsonName = "unpackedUint32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedUint32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedUint32,
                     )
                 )
                 add(
@@ -1157,7 +1179,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 92,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
                         jsonName = "unpackedUint64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedUint64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedUint64,
                     )
                 )
                 add(
@@ -1167,7 +1189,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 93,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
                         jsonName = "unpackedSint32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedSint32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedSint32,
                     )
                 )
                 add(
@@ -1177,7 +1199,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 94,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
                         jsonName = "unpackedSint64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedSint64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedSint64,
                     )
                 )
                 add(
@@ -1187,7 +1209,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 95,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
                         jsonName = "unpackedFixed32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedFixed32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedFixed32,
                     )
                 )
                 add(
@@ -1197,7 +1219,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 96,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
                         jsonName = "unpackedFixed64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedFixed64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedFixed64,
                     )
                 )
                 add(
@@ -1207,7 +1229,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 97,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
                         jsonName = "unpackedSfixed32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedSfixed32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedSfixed32,
                     )
                 )
                 add(
@@ -1217,7 +1239,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 98,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
                         jsonName = "unpackedSfixed64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedSfixed64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedSfixed64,
                     )
                 )
                 add(
@@ -1227,7 +1249,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 99,
                         type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
                         jsonName = "unpackedFloat",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedFloat
+                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedFloat,
                     )
                 )
                 add(
@@ -1237,7 +1259,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 100,
                         type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
                         jsonName = "unpackedDouble",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedDouble
+                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedDouble,
                     )
                 )
                 add(
@@ -1247,7 +1269,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 101,
                         type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool()),
                         jsonName = "unpackedBool",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedBool
+                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedBool,
                     )
                 )
                 add(
@@ -1257,7 +1279,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 102,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion)),
                         jsonName = "unpackedNestedEnum",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedNestedEnum
+                        value = pbandk.conformance.pb.TestAllTypesProto3::unpackedNestedEnum,
                     )
                 )
                 add(
@@ -1268,7 +1290,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofUint32",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofUint32
+                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofUint32,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::oneofUint32,
                     )
                 )
                 add(
@@ -1279,7 +1302,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.Companion),
                         oneofMember = true,
                         jsonName = "oneofNestedMessage",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofNestedMessage
+                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofNestedMessage,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::oneofNestedMessage,
                     )
                 )
                 add(
@@ -1290,7 +1314,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofString",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofString
+                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofString,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::oneofString,
                     )
                 )
                 add(
@@ -1301,7 +1326,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofBytes",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofBytes
+                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofBytes,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::oneofBytes,
                     )
                 )
                 add(
@@ -1312,7 +1338,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofBool",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofBool
+                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofBool,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::oneofBool,
                     )
                 )
                 add(
@@ -1323,7 +1350,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofUint64",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofUint64
+                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofUint64,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::oneofUint64,
                     )
                 )
                 add(
@@ -1334,7 +1362,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofFloat",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofFloat
+                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofFloat,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::oneofFloat,
                     )
                 )
                 add(
@@ -1345,7 +1374,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofDouble",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofDouble
+                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofDouble,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::oneofDouble,
                     )
                 )
                 add(
@@ -1356,7 +1386,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion, hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofEnum",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofEnum
+                        value = pbandk.conformance.pb.TestAllTypesProto3::oneofEnum,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::oneofEnum,
                     )
                 )
                 add(
@@ -1366,7 +1397,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 201,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BoolValue.Companion),
                         jsonName = "optionalBoolWrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalBoolWrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalBoolWrapper,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalBoolWrapper,
                     )
                 )
                 add(
@@ -1376,7 +1408,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 202,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int32Value.Companion),
                         jsonName = "optionalInt32Wrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalInt32Wrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalInt32Wrapper,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalInt32Wrapper,
                     )
                 )
                 add(
@@ -1386,7 +1419,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 203,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int64Value.Companion),
                         jsonName = "optionalInt64Wrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalInt64Wrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalInt64Wrapper,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalInt64Wrapper,
                     )
                 )
                 add(
@@ -1396,7 +1430,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 204,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt32Value.Companion),
                         jsonName = "optionalUint32Wrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalUint32Wrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalUint32Wrapper,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalUint32Wrapper,
                     )
                 )
                 add(
@@ -1406,7 +1441,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 205,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt64Value.Companion),
                         jsonName = "optionalUint64Wrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalUint64Wrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalUint64Wrapper,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalUint64Wrapper,
                     )
                 )
                 add(
@@ -1416,7 +1452,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 206,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FloatValue.Companion),
                         jsonName = "optionalFloatWrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalFloatWrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalFloatWrapper,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalFloatWrapper,
                     )
                 )
                 add(
@@ -1426,7 +1463,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 207,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DoubleValue.Companion),
                         jsonName = "optionalDoubleWrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalDoubleWrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalDoubleWrapper,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalDoubleWrapper,
                     )
                 )
                 add(
@@ -1436,7 +1474,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 208,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.StringValue.Companion),
                         jsonName = "optionalStringWrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalStringWrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalStringWrapper,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalStringWrapper,
                     )
                 )
                 add(
@@ -1446,7 +1485,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 209,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BytesValue.Companion),
                         jsonName = "optionalBytesWrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalBytesWrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalBytesWrapper,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalBytesWrapper,
                     )
                 )
                 add(
@@ -1456,7 +1496,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 211,
                         type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BoolValue.Companion)),
                         jsonName = "repeatedBoolWrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedBoolWrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedBoolWrapper,
                     )
                 )
                 add(
@@ -1466,7 +1506,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 212,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int32Value.Companion)),
                         jsonName = "repeatedInt32Wrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedInt32Wrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedInt32Wrapper,
                     )
                 )
                 add(
@@ -1476,7 +1516,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 213,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int64Value.Companion)),
                         jsonName = "repeatedInt64Wrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedInt64Wrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedInt64Wrapper,
                     )
                 )
                 add(
@@ -1486,7 +1526,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 214,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt32Value.Companion)),
                         jsonName = "repeatedUint32Wrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedUint32Wrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedUint32Wrapper,
                     )
                 )
                 add(
@@ -1496,7 +1536,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 215,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt64Value.Companion)),
                         jsonName = "repeatedUint64Wrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedUint64Wrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedUint64Wrapper,
                     )
                 )
                 add(
@@ -1506,7 +1546,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 216,
                         type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FloatValue.Companion)),
                         jsonName = "repeatedFloatWrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedFloatWrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedFloatWrapper,
                     )
                 )
                 add(
@@ -1516,7 +1556,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 217,
                         type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DoubleValue.Companion)),
                         jsonName = "repeatedDoubleWrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedDoubleWrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedDoubleWrapper,
                     )
                 )
                 add(
@@ -1526,7 +1566,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 218,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.StringValue.Companion)),
                         jsonName = "repeatedStringWrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedStringWrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedStringWrapper,
                     )
                 )
                 add(
@@ -1536,7 +1576,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 219,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.ByteArr>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BytesValue.Companion)),
                         jsonName = "repeatedBytesWrapper",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedBytesWrapper
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedBytesWrapper,
                     )
                 )
                 add(
@@ -1546,7 +1586,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 301,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion),
                         jsonName = "optionalDuration",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalDuration
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalDuration,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalDuration,
                     )
                 )
                 add(
@@ -1556,7 +1597,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 302,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
                         jsonName = "optionalTimestamp",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalTimestamp
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalTimestamp,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalTimestamp,
                     )
                 )
                 add(
@@ -1566,7 +1608,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 303,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldMask.Companion),
                         jsonName = "optionalFieldMask",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalFieldMask
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalFieldMask,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalFieldMask,
                     )
                 )
                 add(
@@ -1576,7 +1619,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 304,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Struct.Companion),
                         jsonName = "optionalStruct",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalStruct
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalStruct,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalStruct,
                     )
                 )
                 add(
@@ -1586,7 +1630,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 305,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Any.Companion),
                         jsonName = "optionalAny",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalAny
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalAny,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalAny,
                     )
                 )
                 add(
@@ -1596,7 +1641,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 306,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion),
                         jsonName = "optionalValue",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalValue
+                        value = pbandk.conformance.pb.TestAllTypesProto3::optionalValue,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::optionalValue,
                     )
                 )
                 add(
@@ -1606,7 +1652,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 311,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Duration>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion)),
                         jsonName = "repeatedDuration",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedDuration
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedDuration,
                     )
                 )
                 add(
@@ -1616,7 +1662,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 312,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Timestamp>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion)),
                         jsonName = "repeatedTimestamp",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedTimestamp
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedTimestamp,
                     )
                 )
                 add(
@@ -1626,7 +1672,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 313,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FieldMask>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldMask.Companion)),
                         jsonName = "repeatedFieldmask",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedFieldmask
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedFieldmask,
                     )
                 )
                 add(
@@ -1636,7 +1682,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 315,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Any>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Any.Companion)),
                         jsonName = "repeatedAny",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedAny
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedAny,
                     )
                 )
                 add(
@@ -1646,7 +1692,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 316,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Value>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion)),
                         jsonName = "repeatedValue",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedValue
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedValue,
                     )
                 )
                 add(
@@ -1656,7 +1702,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 317,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.ListValue>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ListValue.Companion)),
                         jsonName = "repeatedListValue",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedListValue
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedListValue,
                     )
                 )
                 add(
@@ -1666,7 +1712,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 324,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Struct>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Struct.Companion)),
                         jsonName = "repeatedStruct",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedStruct
+                        value = pbandk.conformance.pb.TestAllTypesProto3::repeatedStruct,
                     )
                 )
                 add(
@@ -1676,7 +1722,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 401,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldname1",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldname1
+                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldname1,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::fieldname1,
                     )
                 )
                 add(
@@ -1686,7 +1733,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 402,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldName2",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName2
+                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName2,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::fieldName2,
                     )
                 )
                 add(
@@ -1696,7 +1744,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 403,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FieldName3",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName3
+                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName3,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::fieldName3,
                     )
                 )
                 add(
@@ -1706,7 +1755,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 404,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldName4",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::field_name4
+                        value = pbandk.conformance.pb.TestAllTypesProto3::field_name4,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::field_name4,
                     )
                 )
                 add(
@@ -1716,7 +1766,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 405,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "field0name5",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::field0name5
+                        value = pbandk.conformance.pb.TestAllTypesProto3::field0name5,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::field0name5,
                     )
                 )
                 add(
@@ -1726,7 +1777,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 406,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "field0Name6",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::field0Name6
+                        value = pbandk.conformance.pb.TestAllTypesProto3::field0Name6,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::field0Name6,
                     )
                 )
                 add(
@@ -1736,7 +1788,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 407,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldName7",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName7
+                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName7,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::fieldName7,
                     )
                 )
                 add(
@@ -1746,7 +1799,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 408,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FieldName8",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName8
+                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName8,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::fieldName8,
                     )
                 )
                 add(
@@ -1756,7 +1810,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 409,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldName9",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName9
+                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName9,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::fieldName9,
                     )
                 )
                 add(
@@ -1766,7 +1821,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 410,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FieldName10",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName10
+                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName10,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::fieldName10,
                     )
                 )
                 add(
@@ -1776,7 +1832,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 411,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FIELDNAME11",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::fIELDNAME11
+                        value = pbandk.conformance.pb.TestAllTypesProto3::fIELDNAME11,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::fIELDNAME11,
                     )
                 )
                 add(
@@ -1786,7 +1843,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 412,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FIELDName12",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::fIELDName12
+                        value = pbandk.conformance.pb.TestAllTypesProto3::fIELDName12,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::fIELDName12,
                     )
                 )
                 add(
@@ -1796,7 +1854,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 413,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FieldName13",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::_fieldName13
+                        value = pbandk.conformance.pb.TestAllTypesProto3::_fieldName13,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::_fieldName13,
                     )
                 )
                 add(
@@ -1806,7 +1865,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 414,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FieldName14",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::_FieldName14
+                        value = pbandk.conformance.pb.TestAllTypesProto3::_FieldName14,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::_FieldName14,
                     )
                 )
                 add(
@@ -1816,7 +1876,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 415,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldName15",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::field_name15
+                        value = pbandk.conformance.pb.TestAllTypesProto3::field_name15,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::field_name15,
                     )
                 )
                 add(
@@ -1826,7 +1887,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 416,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldName16",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::field_Name16
+                        value = pbandk.conformance.pb.TestAllTypesProto3::field_Name16,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::field_Name16,
                     )
                 )
                 add(
@@ -1836,7 +1898,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 417,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldName17",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName17_
+                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName17_,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::fieldName17_,
                     )
                 )
                 add(
@@ -1846,7 +1909,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                         number = 418,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FieldName18",
-                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName18_
+                        value = pbandk.conformance.pb.TestAllTypesProto3::fieldName18_,
+                        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto3::fieldName18_,
                     )
                 )
             }
@@ -1854,6 +1918,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 fullName = "protobuf_test_messages.proto3.TestAllTypesProto3",
                 messageClass = pbandk.conformance.pb.TestAllTypesProto3::class,
                 messageCompanion = this,
+                builder = ::TestAllTypesProto3,
                 fields = fieldsList
             )
         }
@@ -1922,7 +1987,6 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage> {
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto3.NestedMessage by lazy { pbandk.conformance.pb.TestAllTypesProto3.NestedMessage {} }
-            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto3.NestedMessage = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage> by lazy {
                 val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage, *>>(2)
@@ -1934,7 +1998,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                             jsonName = "a",
-                            value = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage::a
+                            value = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage::a,
+                            mutableValue = pbandk.conformance.pb.TestAllTypesProto3.MutableNestedMessage::a,
                         )
                     )
                     add(
@@ -1944,7 +2009,8 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto3.Companion),
                             jsonName = "corecursive",
-                            value = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage::corecursive
+                            value = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage::corecursive,
+                            mutableValue = pbandk.conformance.pb.TestAllTypesProto3.MutableNestedMessage::corecursive,
                         )
                     )
                 }
@@ -1952,19 +2018,20 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                     fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage::class,
                     messageCompanion = this,
+                    builder = TestAllTypesProto3.Companion::NestedMessage,
                     fields = fieldsList
                 )
             }
         }
     }
 
-    public sealed interface MutableNestedMessage : pbandk.conformance.pb.TestAllTypesProto3.NestedMessage, pbandk.MutableMessage {
+    public sealed interface MutableNestedMessage : pbandk.conformance.pb.TestAllTypesProto3.NestedMessage, pbandk.MutableMessage<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage> {
         public override var a: Int
         public override var corecursive: pbandk.conformance.pb.TestAllTypesProto3?
     }
 }
 
-public sealed interface MutableTestAllTypesProto3 : pbandk.conformance.pb.TestAllTypesProto3, pbandk.MutableMessage {
+public sealed interface MutableTestAllTypesProto3 : pbandk.conformance.pb.TestAllTypesProto3, pbandk.MutableMessage<pbandk.conformance.pb.TestAllTypesProto3> {
     public override var optionalInt32: Int
     public override var optionalInt64: Long
     public override var optionalUint32: Int
@@ -2141,7 +2208,6 @@ public sealed interface ForeignMessage : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ForeignMessage> {
         public val defaultInstance: pbandk.conformance.pb.ForeignMessage by lazy { pbandk.conformance.pb.ForeignMessage {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ForeignMessage = pbandk.conformance.pb.ForeignMessage.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ForeignMessage> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.ForeignMessage, *>>(1)
@@ -2153,7 +2219,8 @@ public sealed interface ForeignMessage : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "c",
-                        value = pbandk.conformance.pb.ForeignMessage::c
+                        value = pbandk.conformance.pb.ForeignMessage::c,
+                        mutableValue = pbandk.conformance.pb.MutableForeignMessage::c,
                     )
                 )
             }
@@ -2161,13 +2228,14 @@ public sealed interface ForeignMessage : pbandk.Message {
                 fullName = "protobuf_test_messages.proto3.ForeignMessage",
                 messageClass = pbandk.conformance.pb.ForeignMessage::class,
                 messageCompanion = this,
+                builder = ::ForeignMessage,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableForeignMessage : pbandk.conformance.pb.ForeignMessage, pbandk.MutableMessage {
+public sealed interface MutableForeignMessage : pbandk.conformance.pb.ForeignMessage, pbandk.MutableMessage<pbandk.conformance.pb.ForeignMessage> {
     public override var c: Int
 }
 
@@ -2545,25 +2613,25 @@ public fun TestAllTypesProto3(builderAction: pbandk.conformance.pb.MutableTestAl
     unpackedDouble = mutableListOf(),
     unpackedBool = mutableListOf(),
     unpackedNestedEnum = mutableListOf(),
-    mapInt32Int32 = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[56]),
-    mapInt64Int64 = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[57]),
-    mapUint32Uint32 = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[58]),
-    mapUint64Uint64 = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[59]),
-    mapSint32Sint32 = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[60]),
-    mapSint64Sint64 = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[61]),
-    mapFixed32Fixed32 = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[62]),
-    mapFixed64Fixed64 = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[63]),
-    mapSfixed32Sfixed32 = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[64]),
-    mapSfixed64Sfixed64 = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[65]),
-    mapInt32Float = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[66]),
-    mapInt32Double = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[67]),
-    mapBoolBool = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[68]),
-    mapStringString = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[69]),
-    mapStringBytes = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[70]),
-    mapStringNestedMessage = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[71]),
-    mapStringForeignMessage = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[72]),
-    mapStringNestedEnum = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[73]),
-    mapStringForeignEnum = pbandk.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[74]),
+    mapInt32Int32 = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[56]),
+    mapInt64Int64 = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[57]),
+    mapUint32Uint32 = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[58]),
+    mapUint64Uint64 = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[59]),
+    mapSint32Sint32 = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[60]),
+    mapSint64Sint64 = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[61]),
+    mapFixed32Fixed32 = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[62]),
+    mapFixed64Fixed64 = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[63]),
+    mapSfixed32Sfixed32 = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[64]),
+    mapSfixed64Sfixed64 = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[65]),
+    mapInt32Float = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[66]),
+    mapInt32Double = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[67]),
+    mapBoolBool = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[68]),
+    mapStringString = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[69]),
+    mapStringBytes = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[70]),
+    mapStringNestedMessage = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[71]),
+    mapStringForeignMessage = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[72]),
+    mapStringNestedEnum = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[73]),
+    mapStringForeignEnum = pbandk.gen.MutableMessageMap(pbandk.conformance.pb.TestAllTypesProto3.descriptor.fields[74]),
     optionalBoolWrapper = null,
     optionalInt32Wrapper = null,
     optionalInt64Wrapper = null,
@@ -2694,25 +2762,25 @@ private class TestAllTypesProto3_Impl(
     override val unpackedDouble: List<Double>,
     override val unpackedBool: List<Boolean>,
     override val unpackedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>,
-    override val mapInt32Int32: pbandk.MessageMap<Int, Int>,
-    override val mapInt64Int64: pbandk.MessageMap<Long, Long>,
-    override val mapUint32Uint32: pbandk.MessageMap<Int, Int>,
-    override val mapUint64Uint64: pbandk.MessageMap<Long, Long>,
-    override val mapSint32Sint32: pbandk.MessageMap<Int, Int>,
-    override val mapSint64Sint64: pbandk.MessageMap<Long, Long>,
-    override val mapFixed32Fixed32: pbandk.MessageMap<Int, Int>,
-    override val mapFixed64Fixed64: pbandk.MessageMap<Long, Long>,
-    override val mapSfixed32Sfixed32: pbandk.MessageMap<Int, Int>,
-    override val mapSfixed64Sfixed64: pbandk.MessageMap<Long, Long>,
-    override val mapInt32Float: pbandk.MessageMap<Int, Float>,
-    override val mapInt32Double: pbandk.MessageMap<Int, Double>,
-    override val mapBoolBool: pbandk.MessageMap<Boolean, Boolean>,
-    override val mapStringString: pbandk.MessageMap<String, String>,
-    override val mapStringBytes: pbandk.MessageMap<String, pbandk.ByteArr>,
-    override val mapStringNestedMessage: pbandk.MessageMap<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?>,
-    override val mapStringForeignMessage: pbandk.MessageMap<String, pbandk.conformance.pb.ForeignMessage?>,
-    override val mapStringNestedEnum: pbandk.MessageMap<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>,
-    override val mapStringForeignEnum: pbandk.MessageMap<String, pbandk.conformance.pb.ForeignEnum>,
+    override val mapInt32Int32: pbandk.gen.MessageMap<Int, Int>,
+    override val mapInt64Int64: pbandk.gen.MessageMap<Long, Long>,
+    override val mapUint32Uint32: pbandk.gen.MessageMap<Int, Int>,
+    override val mapUint64Uint64: pbandk.gen.MessageMap<Long, Long>,
+    override val mapSint32Sint32: pbandk.gen.MessageMap<Int, Int>,
+    override val mapSint64Sint64: pbandk.gen.MessageMap<Long, Long>,
+    override val mapFixed32Fixed32: pbandk.gen.MessageMap<Int, Int>,
+    override val mapFixed64Fixed64: pbandk.gen.MessageMap<Long, Long>,
+    override val mapSfixed32Sfixed32: pbandk.gen.MessageMap<Int, Int>,
+    override val mapSfixed64Sfixed64: pbandk.gen.MessageMap<Long, Long>,
+    override val mapInt32Float: pbandk.gen.MessageMap<Int, Float>,
+    override val mapInt32Double: pbandk.gen.MessageMap<Int, Double>,
+    override val mapBoolBool: pbandk.gen.MessageMap<Boolean, Boolean>,
+    override val mapStringString: pbandk.gen.MessageMap<String, String>,
+    override val mapStringBytes: pbandk.gen.MessageMap<String, pbandk.ByteArr>,
+    override val mapStringNestedMessage: pbandk.gen.MessageMap<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?>,
+    override val mapStringForeignMessage: pbandk.gen.MessageMap<String, pbandk.conformance.pb.ForeignMessage?>,
+    override val mapStringNestedEnum: pbandk.gen.MessageMap<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>,
+    override val mapStringForeignEnum: pbandk.gen.MessageMap<String, pbandk.conformance.pb.ForeignEnum>,
     override val optionalBoolWrapper: Boolean?,
     override val optionalInt32Wrapper: Int?,
     override val optionalInt64Wrapper: Long?,
@@ -2764,7 +2832,7 @@ private class TestAllTypesProto3_Impl(
     override val fieldName18_: Int,
     override val oneofField: pbandk.conformance.pb.TestAllTypesProto3.OneofField<*>?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.conformance.pb.TestAllTypesProto3, pbandk.GeneratedMessage<pbandk.conformance.pb.TestAllTypesProto3>() {
+) : pbandk.conformance.pb.TestAllTypesProto3, pbandk.gen.GeneratedMessage<pbandk.conformance.pb.TestAllTypesProto3>() {
     override val descriptor get() = pbandk.conformance.pb.TestAllTypesProto3.descriptor
 
     override val oneofUint32: Int?
@@ -3297,25 +3365,25 @@ private class MutableTestAllTypesProto3_Impl(
     override val unpackedDouble: MutableList<Double>,
     override val unpackedBool: MutableList<Boolean>,
     override val unpackedNestedEnum: MutableList<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>,
-    override val mapInt32Int32: pbandk.MutableMessageMap<Int, Int>,
-    override val mapInt64Int64: pbandk.MutableMessageMap<Long, Long>,
-    override val mapUint32Uint32: pbandk.MutableMessageMap<Int, Int>,
-    override val mapUint64Uint64: pbandk.MutableMessageMap<Long, Long>,
-    override val mapSint32Sint32: pbandk.MutableMessageMap<Int, Int>,
-    override val mapSint64Sint64: pbandk.MutableMessageMap<Long, Long>,
-    override val mapFixed32Fixed32: pbandk.MutableMessageMap<Int, Int>,
-    override val mapFixed64Fixed64: pbandk.MutableMessageMap<Long, Long>,
-    override val mapSfixed32Sfixed32: pbandk.MutableMessageMap<Int, Int>,
-    override val mapSfixed64Sfixed64: pbandk.MutableMessageMap<Long, Long>,
-    override val mapInt32Float: pbandk.MutableMessageMap<Int, Float>,
-    override val mapInt32Double: pbandk.MutableMessageMap<Int, Double>,
-    override val mapBoolBool: pbandk.MutableMessageMap<Boolean, Boolean>,
-    override val mapStringString: pbandk.MutableMessageMap<String, String>,
-    override val mapStringBytes: pbandk.MutableMessageMap<String, pbandk.ByteArr>,
-    override val mapStringNestedMessage: pbandk.MutableMessageMap<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?>,
-    override val mapStringForeignMessage: pbandk.MutableMessageMap<String, pbandk.conformance.pb.ForeignMessage?>,
-    override val mapStringNestedEnum: pbandk.MutableMessageMap<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>,
-    override val mapStringForeignEnum: pbandk.MutableMessageMap<String, pbandk.conformance.pb.ForeignEnum>,
+    override val mapInt32Int32: pbandk.gen.MutableMessageMap<Int, Int>,
+    override val mapInt64Int64: pbandk.gen.MutableMessageMap<Long, Long>,
+    override val mapUint32Uint32: pbandk.gen.MutableMessageMap<Int, Int>,
+    override val mapUint64Uint64: pbandk.gen.MutableMessageMap<Long, Long>,
+    override val mapSint32Sint32: pbandk.gen.MutableMessageMap<Int, Int>,
+    override val mapSint64Sint64: pbandk.gen.MutableMessageMap<Long, Long>,
+    override val mapFixed32Fixed32: pbandk.gen.MutableMessageMap<Int, Int>,
+    override val mapFixed64Fixed64: pbandk.gen.MutableMessageMap<Long, Long>,
+    override val mapSfixed32Sfixed32: pbandk.gen.MutableMessageMap<Int, Int>,
+    override val mapSfixed64Sfixed64: pbandk.gen.MutableMessageMap<Long, Long>,
+    override val mapInt32Float: pbandk.gen.MutableMessageMap<Int, Float>,
+    override val mapInt32Double: pbandk.gen.MutableMessageMap<Int, Double>,
+    override val mapBoolBool: pbandk.gen.MutableMessageMap<Boolean, Boolean>,
+    override val mapStringString: pbandk.gen.MutableMessageMap<String, String>,
+    override val mapStringBytes: pbandk.gen.MutableMessageMap<String, pbandk.ByteArr>,
+    override val mapStringNestedMessage: pbandk.gen.MutableMessageMap<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?>,
+    override val mapStringForeignMessage: pbandk.gen.MutableMessageMap<String, pbandk.conformance.pb.ForeignMessage?>,
+    override val mapStringNestedEnum: pbandk.gen.MutableMessageMap<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>,
+    override val mapStringForeignEnum: pbandk.gen.MutableMessageMap<String, pbandk.conformance.pb.ForeignEnum>,
     override var optionalBoolWrapper: Boolean?,
     override var optionalInt32Wrapper: Int?,
     override var optionalInt64Wrapper: Long?,
@@ -3367,7 +3435,7 @@ private class MutableTestAllTypesProto3_Impl(
     override var fieldName18_: Int,
     override var oneofField: pbandk.conformance.pb.TestAllTypesProto3.OneofField<*>?,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.conformance.pb.MutableTestAllTypesProto3, pbandk.MutableGeneratedMessage<pbandk.conformance.pb.MutableTestAllTypesProto3>() {
+) : pbandk.conformance.pb.MutableTestAllTypesProto3, pbandk.gen.MutableGeneratedMessage<pbandk.conformance.pb.TestAllTypesProto3>() {
     override val descriptor get() = pbandk.conformance.pb.TestAllTypesProto3.descriptor
 
     override var oneofUint32: Int?
@@ -3855,341 +3923,6 @@ private fun TestAllTypesProto3.protoMergeImpl(other: pbandk.Message?): pbandk.co
     }
 }
 
-@Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto3.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto3 {
-    var optionalInt32 = 0
-    var optionalInt64 = 0L
-    var optionalUint32 = 0
-    var optionalUint64 = 0L
-    var optionalSint32 = 0
-    var optionalSint64 = 0L
-    var optionalFixed32 = 0
-    var optionalFixed64 = 0L
-    var optionalSfixed32 = 0
-    var optionalSfixed64 = 0L
-    var optionalFloat = 0.0F
-    var optionalDouble = 0.0
-    var optionalBool = false
-    var optionalString = ""
-    var optionalBytes: pbandk.ByteArr = pbandk.ByteArr.empty
-    var optionalNestedMessage: pbandk.conformance.pb.TestAllTypesProto3.NestedMessage? = null
-    var optionalForeignMessage: pbandk.conformance.pb.ForeignMessage? = null
-    var optionalNestedEnum: pbandk.conformance.pb.TestAllTypesProto3.NestedEnum = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromValue(0)
-    var optionalForeignEnum: pbandk.conformance.pb.ForeignEnum = pbandk.conformance.pb.ForeignEnum.fromValue(0)
-    var optionalAliasedEnum: pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum = pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum.fromValue(0)
-    var optionalStringPiece = ""
-    var optionalCord = ""
-    var recursiveMessage: pbandk.conformance.pb.TestAllTypesProto3? = null
-    var repeatedInt32: pbandk.ListWithSize.Builder<Int>? = null
-    var repeatedInt64: pbandk.ListWithSize.Builder<Long>? = null
-    var repeatedUint32: pbandk.ListWithSize.Builder<Int>? = null
-    var repeatedUint64: pbandk.ListWithSize.Builder<Long>? = null
-    var repeatedSint32: pbandk.ListWithSize.Builder<Int>? = null
-    var repeatedSint64: pbandk.ListWithSize.Builder<Long>? = null
-    var repeatedFixed32: pbandk.ListWithSize.Builder<Int>? = null
-    var repeatedFixed64: pbandk.ListWithSize.Builder<Long>? = null
-    var repeatedSfixed32: pbandk.ListWithSize.Builder<Int>? = null
-    var repeatedSfixed64: pbandk.ListWithSize.Builder<Long>? = null
-    var repeatedFloat: pbandk.ListWithSize.Builder<Float>? = null
-    var repeatedDouble: pbandk.ListWithSize.Builder<Double>? = null
-    var repeatedBool: pbandk.ListWithSize.Builder<Boolean>? = null
-    var repeatedString: pbandk.ListWithSize.Builder<String>? = null
-    var repeatedBytes: pbandk.ListWithSize.Builder<pbandk.ByteArr>? = null
-    var repeatedNestedMessage: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage>? = null
-    var repeatedForeignMessage: pbandk.ListWithSize.Builder<pbandk.conformance.pb.ForeignMessage>? = null
-    var repeatedNestedEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>? = null
-    var repeatedForeignEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.ForeignEnum>? = null
-    var repeatedStringPiece: pbandk.ListWithSize.Builder<String>? = null
-    var repeatedCord: pbandk.ListWithSize.Builder<String>? = null
-    var packedInt32: pbandk.ListWithSize.Builder<Int>? = null
-    var packedInt64: pbandk.ListWithSize.Builder<Long>? = null
-    var packedUint32: pbandk.ListWithSize.Builder<Int>? = null
-    var packedUint64: pbandk.ListWithSize.Builder<Long>? = null
-    var packedSint32: pbandk.ListWithSize.Builder<Int>? = null
-    var packedSint64: pbandk.ListWithSize.Builder<Long>? = null
-    var packedFixed32: pbandk.ListWithSize.Builder<Int>? = null
-    var packedFixed64: pbandk.ListWithSize.Builder<Long>? = null
-    var packedSfixed32: pbandk.ListWithSize.Builder<Int>? = null
-    var packedSfixed64: pbandk.ListWithSize.Builder<Long>? = null
-    var packedFloat: pbandk.ListWithSize.Builder<Float>? = null
-    var packedDouble: pbandk.ListWithSize.Builder<Double>? = null
-    var packedBool: pbandk.ListWithSize.Builder<Boolean>? = null
-    var packedNestedEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>? = null
-    var unpackedInt32: pbandk.ListWithSize.Builder<Int>? = null
-    var unpackedInt64: pbandk.ListWithSize.Builder<Long>? = null
-    var unpackedUint32: pbandk.ListWithSize.Builder<Int>? = null
-    var unpackedUint64: pbandk.ListWithSize.Builder<Long>? = null
-    var unpackedSint32: pbandk.ListWithSize.Builder<Int>? = null
-    var unpackedSint64: pbandk.ListWithSize.Builder<Long>? = null
-    var unpackedFixed32: pbandk.ListWithSize.Builder<Int>? = null
-    var unpackedFixed64: pbandk.ListWithSize.Builder<Long>? = null
-    var unpackedSfixed32: pbandk.ListWithSize.Builder<Int>? = null
-    var unpackedSfixed64: pbandk.ListWithSize.Builder<Long>? = null
-    var unpackedFloat: pbandk.ListWithSize.Builder<Float>? = null
-    var unpackedDouble: pbandk.ListWithSize.Builder<Double>? = null
-    var unpackedBool: pbandk.ListWithSize.Builder<Boolean>? = null
-    var unpackedNestedEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>? = null
-    var mapInt32Int32: pbandk.MutableMessageMap<Int, Int>? = null
-    var mapInt64Int64: pbandk.MutableMessageMap<Long, Long>? = null
-    var mapUint32Uint32: pbandk.MutableMessageMap<Int, Int>? = null
-    var mapUint64Uint64: pbandk.MutableMessageMap<Long, Long>? = null
-    var mapSint32Sint32: pbandk.MutableMessageMap<Int, Int>? = null
-    var mapSint64Sint64: pbandk.MutableMessageMap<Long, Long>? = null
-    var mapFixed32Fixed32: pbandk.MutableMessageMap<Int, Int>? = null
-    var mapFixed64Fixed64: pbandk.MutableMessageMap<Long, Long>? = null
-    var mapSfixed32Sfixed32: pbandk.MutableMessageMap<Int, Int>? = null
-    var mapSfixed64Sfixed64: pbandk.MutableMessageMap<Long, Long>? = null
-    var mapInt32Float: pbandk.MutableMessageMap<Int, Float>? = null
-    var mapInt32Double: pbandk.MutableMessageMap<Int, Double>? = null
-    var mapBoolBool: pbandk.MutableMessageMap<Boolean, Boolean>? = null
-    var mapStringString: pbandk.MutableMessageMap<String, String>? = null
-    var mapStringBytes: pbandk.MutableMessageMap<String, pbandk.ByteArr>? = null
-    var mapStringNestedMessage: pbandk.MutableMessageMap<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?>? = null
-    var mapStringForeignMessage: pbandk.MutableMessageMap<String, pbandk.conformance.pb.ForeignMessage?>? = null
-    var mapStringNestedEnum: pbandk.MutableMessageMap<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>? = null
-    var mapStringForeignEnum: pbandk.MutableMessageMap<String, pbandk.conformance.pb.ForeignEnum>? = null
-    var optionalBoolWrapper: Boolean? = null
-    var optionalInt32Wrapper: Int? = null
-    var optionalInt64Wrapper: Long? = null
-    var optionalUint32Wrapper: Int? = null
-    var optionalUint64Wrapper: Long? = null
-    var optionalFloatWrapper: Float? = null
-    var optionalDoubleWrapper: Double? = null
-    var optionalStringWrapper: String? = null
-    var optionalBytesWrapper: pbandk.ByteArr? = null
-    var repeatedBoolWrapper: pbandk.ListWithSize.Builder<Boolean>? = null
-    var repeatedInt32Wrapper: pbandk.ListWithSize.Builder<Int>? = null
-    var repeatedInt64Wrapper: pbandk.ListWithSize.Builder<Long>? = null
-    var repeatedUint32Wrapper: pbandk.ListWithSize.Builder<Int>? = null
-    var repeatedUint64Wrapper: pbandk.ListWithSize.Builder<Long>? = null
-    var repeatedFloatWrapper: pbandk.ListWithSize.Builder<Float>? = null
-    var repeatedDoubleWrapper: pbandk.ListWithSize.Builder<Double>? = null
-    var repeatedStringWrapper: pbandk.ListWithSize.Builder<String>? = null
-    var repeatedBytesWrapper: pbandk.ListWithSize.Builder<pbandk.ByteArr>? = null
-    var optionalDuration: pbandk.wkt.Duration? = null
-    var optionalTimestamp: pbandk.wkt.Timestamp? = null
-    var optionalFieldMask: pbandk.wkt.FieldMask? = null
-    var optionalStruct: pbandk.wkt.Struct? = null
-    var optionalAny: pbandk.wkt.Any? = null
-    var optionalValue: pbandk.wkt.Value? = null
-    var repeatedDuration: pbandk.ListWithSize.Builder<pbandk.wkt.Duration>? = null
-    var repeatedTimestamp: pbandk.ListWithSize.Builder<pbandk.wkt.Timestamp>? = null
-    var repeatedFieldmask: pbandk.ListWithSize.Builder<pbandk.wkt.FieldMask>? = null
-    var repeatedStruct: pbandk.ListWithSize.Builder<pbandk.wkt.Struct>? = null
-    var repeatedAny: pbandk.ListWithSize.Builder<pbandk.wkt.Any>? = null
-    var repeatedValue: pbandk.ListWithSize.Builder<pbandk.wkt.Value>? = null
-    var repeatedListValue: pbandk.ListWithSize.Builder<pbandk.wkt.ListValue>? = null
-    var fieldname1 = 0
-    var fieldName2 = 0
-    var fieldName3 = 0
-    var field_name4 = 0
-    var field0name5 = 0
-    var field0Name6 = 0
-    var fieldName7 = 0
-    var fieldName8 = 0
-    var fieldName9 = 0
-    var fieldName10 = 0
-    var fIELDNAME11 = 0
-    var fIELDName12 = 0
-    var _fieldName13 = 0
-    var _FieldName14 = 0
-    var field_name15 = 0
-    var field_Name16 = 0
-    var fieldName17_ = 0
-    var fieldName18_ = 0
-    var oneofField: TestAllTypesProto3.OneofField<*>? = null
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> optionalInt32 = _fieldValue as Int
-            2 -> optionalInt64 = _fieldValue as Long
-            3 -> optionalUint32 = _fieldValue as Int
-            4 -> optionalUint64 = _fieldValue as Long
-            5 -> optionalSint32 = _fieldValue as Int
-            6 -> optionalSint64 = _fieldValue as Long
-            7 -> optionalFixed32 = _fieldValue as Int
-            8 -> optionalFixed64 = _fieldValue as Long
-            9 -> optionalSfixed32 = _fieldValue as Int
-            10 -> optionalSfixed64 = _fieldValue as Long
-            11 -> optionalFloat = _fieldValue as Float
-            12 -> optionalDouble = _fieldValue as Double
-            13 -> optionalBool = _fieldValue as Boolean
-            14 -> optionalString = _fieldValue as String
-            15 -> optionalBytes = _fieldValue as pbandk.ByteArr
-            18 -> optionalNestedMessage = _fieldValue as pbandk.conformance.pb.TestAllTypesProto3.NestedMessage
-            19 -> optionalForeignMessage = _fieldValue as pbandk.conformance.pb.ForeignMessage
-            21 -> optionalNestedEnum = _fieldValue as pbandk.conformance.pb.TestAllTypesProto3.NestedEnum
-            22 -> optionalForeignEnum = _fieldValue as pbandk.conformance.pb.ForeignEnum
-            23 -> optionalAliasedEnum = _fieldValue as pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum
-            24 -> optionalStringPiece = _fieldValue as String
-            25 -> optionalCord = _fieldValue as String
-            27 -> recursiveMessage = _fieldValue as pbandk.conformance.pb.TestAllTypesProto3
-            31 -> repeatedInt32 = (repeatedInt32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            32 -> repeatedInt64 = (repeatedInt64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            33 -> repeatedUint32 = (repeatedUint32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            34 -> repeatedUint64 = (repeatedUint64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            35 -> repeatedSint32 = (repeatedSint32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            36 -> repeatedSint64 = (repeatedSint64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            37 -> repeatedFixed32 = (repeatedFixed32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            38 -> repeatedFixed64 = (repeatedFixed64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            39 -> repeatedSfixed32 = (repeatedSfixed32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            40 -> repeatedSfixed64 = (repeatedSfixed64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            41 -> repeatedFloat = (repeatedFloat ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Float> }
-            42 -> repeatedDouble = (repeatedDouble ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Double> }
-            43 -> repeatedBool = (repeatedBool ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Boolean> }
-            44 -> repeatedString = (repeatedString ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
-            45 -> repeatedBytes = (repeatedBytes ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.ByteArr> }
-            48 -> repeatedNestedMessage = (repeatedNestedMessage ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage> }
-            49 -> repeatedForeignMessage = (repeatedForeignMessage ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.conformance.pb.ForeignMessage> }
-            51 -> repeatedNestedEnum = (repeatedNestedEnum ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum> }
-            52 -> repeatedForeignEnum = (repeatedForeignEnum ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.conformance.pb.ForeignEnum> }
-            54 -> repeatedStringPiece = (repeatedStringPiece ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
-            55 -> repeatedCord = (repeatedCord ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
-            56 -> mapInt32Int32 = (mapInt32Int32 ?: pbandk.MutableMessageMap(descriptor.fields[56])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<Int, Int>>) }
-            57 -> mapInt64Int64 = (mapInt64Int64 ?: pbandk.MutableMessageMap(descriptor.fields[57])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<Long, Long>>) }
-            58 -> mapUint32Uint32 = (mapUint32Uint32 ?: pbandk.MutableMessageMap(descriptor.fields[58])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<Int, Int>>) }
-            59 -> mapUint64Uint64 = (mapUint64Uint64 ?: pbandk.MutableMessageMap(descriptor.fields[59])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<Long, Long>>) }
-            60 -> mapSint32Sint32 = (mapSint32Sint32 ?: pbandk.MutableMessageMap(descriptor.fields[60])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<Int, Int>>) }
-            61 -> mapSint64Sint64 = (mapSint64Sint64 ?: pbandk.MutableMessageMap(descriptor.fields[61])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<Long, Long>>) }
-            62 -> mapFixed32Fixed32 = (mapFixed32Fixed32 ?: pbandk.MutableMessageMap(descriptor.fields[62])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<Int, Int>>) }
-            63 -> mapFixed64Fixed64 = (mapFixed64Fixed64 ?: pbandk.MutableMessageMap(descriptor.fields[63])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<Long, Long>>) }
-            64 -> mapSfixed32Sfixed32 = (mapSfixed32Sfixed32 ?: pbandk.MutableMessageMap(descriptor.fields[64])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<Int, Int>>) }
-            65 -> mapSfixed64Sfixed64 = (mapSfixed64Sfixed64 ?: pbandk.MutableMessageMap(descriptor.fields[65])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<Long, Long>>) }
-            66 -> mapInt32Float = (mapInt32Float ?: pbandk.MutableMessageMap(descriptor.fields[66])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<Int, Float>>) }
-            67 -> mapInt32Double = (mapInt32Double ?: pbandk.MutableMessageMap(descriptor.fields[67])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<Int, Double>>) }
-            68 -> mapBoolBool = (mapBoolBool ?: pbandk.MutableMessageMap(descriptor.fields[68])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<Boolean, Boolean>>) }
-            69 -> mapStringString = (mapStringString ?: pbandk.MutableMessageMap(descriptor.fields[69])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<String, String>>) }
-            70 -> mapStringBytes = (mapStringBytes ?: pbandk.MutableMessageMap(descriptor.fields[70])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.ByteArr>>) }
-            71 -> mapStringNestedMessage = (mapStringNestedMessage ?: pbandk.MutableMessageMap(descriptor.fields[71])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?>>) }
-            72 -> mapStringForeignMessage = (mapStringForeignMessage ?: pbandk.MutableMessageMap(descriptor.fields[72])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.conformance.pb.ForeignMessage?>>) }
-            73 -> mapStringNestedEnum = (mapStringNestedEnum ?: pbandk.MutableMessageMap(descriptor.fields[73])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>>) }
-            74 -> mapStringForeignEnum = (mapStringForeignEnum ?: pbandk.MutableMessageMap(descriptor.fields[74])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.conformance.pb.ForeignEnum>>) }
-            75 -> packedInt32 = (packedInt32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            76 -> packedInt64 = (packedInt64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            77 -> packedUint32 = (packedUint32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            78 -> packedUint64 = (packedUint64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            79 -> packedSint32 = (packedSint32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            80 -> packedSint64 = (packedSint64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            81 -> packedFixed32 = (packedFixed32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            82 -> packedFixed64 = (packedFixed64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            83 -> packedSfixed32 = (packedSfixed32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            84 -> packedSfixed64 = (packedSfixed64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            85 -> packedFloat = (packedFloat ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Float> }
-            86 -> packedDouble = (packedDouble ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Double> }
-            87 -> packedBool = (packedBool ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Boolean> }
-            88 -> packedNestedEnum = (packedNestedEnum ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum> }
-            89 -> unpackedInt32 = (unpackedInt32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            90 -> unpackedInt64 = (unpackedInt64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            91 -> unpackedUint32 = (unpackedUint32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            92 -> unpackedUint64 = (unpackedUint64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            93 -> unpackedSint32 = (unpackedSint32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            94 -> unpackedSint64 = (unpackedSint64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            95 -> unpackedFixed32 = (unpackedFixed32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            96 -> unpackedFixed64 = (unpackedFixed64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            97 -> unpackedSfixed32 = (unpackedSfixed32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            98 -> unpackedSfixed64 = (unpackedSfixed64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            99 -> unpackedFloat = (unpackedFloat ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Float> }
-            100 -> unpackedDouble = (unpackedDouble ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Double> }
-            101 -> unpackedBool = (unpackedBool ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Boolean> }
-            102 -> unpackedNestedEnum = (unpackedNestedEnum ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum> }
-            111 -> oneofField = TestAllTypesProto3.OneofField.OneofUint32(_fieldValue as Int)
-            112 -> oneofField = TestAllTypesProto3.OneofField.OneofNestedMessage(_fieldValue as pbandk.conformance.pb.TestAllTypesProto3.NestedMessage)
-            113 -> oneofField = TestAllTypesProto3.OneofField.OneofString(_fieldValue as String)
-            114 -> oneofField = TestAllTypesProto3.OneofField.OneofBytes(_fieldValue as pbandk.ByteArr)
-            115 -> oneofField = TestAllTypesProto3.OneofField.OneofBool(_fieldValue as Boolean)
-            116 -> oneofField = TestAllTypesProto3.OneofField.OneofUint64(_fieldValue as Long)
-            117 -> oneofField = TestAllTypesProto3.OneofField.OneofFloat(_fieldValue as Float)
-            118 -> oneofField = TestAllTypesProto3.OneofField.OneofDouble(_fieldValue as Double)
-            119 -> oneofField = TestAllTypesProto3.OneofField.OneofEnum(_fieldValue as pbandk.conformance.pb.TestAllTypesProto3.NestedEnum)
-            201 -> optionalBoolWrapper = _fieldValue as Boolean
-            202 -> optionalInt32Wrapper = _fieldValue as Int
-            203 -> optionalInt64Wrapper = _fieldValue as Long
-            204 -> optionalUint32Wrapper = _fieldValue as Int
-            205 -> optionalUint64Wrapper = _fieldValue as Long
-            206 -> optionalFloatWrapper = _fieldValue as Float
-            207 -> optionalDoubleWrapper = _fieldValue as Double
-            208 -> optionalStringWrapper = _fieldValue as String
-            209 -> optionalBytesWrapper = _fieldValue as pbandk.ByteArr
-            211 -> repeatedBoolWrapper = (repeatedBoolWrapper ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Boolean> }
-            212 -> repeatedInt32Wrapper = (repeatedInt32Wrapper ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            213 -> repeatedInt64Wrapper = (repeatedInt64Wrapper ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            214 -> repeatedUint32Wrapper = (repeatedUint32Wrapper ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            215 -> repeatedUint64Wrapper = (repeatedUint64Wrapper ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            216 -> repeatedFloatWrapper = (repeatedFloatWrapper ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Float> }
-            217 -> repeatedDoubleWrapper = (repeatedDoubleWrapper ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Double> }
-            218 -> repeatedStringWrapper = (repeatedStringWrapper ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
-            219 -> repeatedBytesWrapper = (repeatedBytesWrapper ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.ByteArr> }
-            301 -> optionalDuration = _fieldValue as pbandk.wkt.Duration
-            302 -> optionalTimestamp = _fieldValue as pbandk.wkt.Timestamp
-            303 -> optionalFieldMask = _fieldValue as pbandk.wkt.FieldMask
-            304 -> optionalStruct = _fieldValue as pbandk.wkt.Struct
-            305 -> optionalAny = _fieldValue as pbandk.wkt.Any
-            306 -> optionalValue = _fieldValue as pbandk.wkt.Value
-            311 -> repeatedDuration = (repeatedDuration ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Duration> }
-            312 -> repeatedTimestamp = (repeatedTimestamp ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Timestamp> }
-            313 -> repeatedFieldmask = (repeatedFieldmask ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.FieldMask> }
-            315 -> repeatedAny = (repeatedAny ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Any> }
-            316 -> repeatedValue = (repeatedValue ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Value> }
-            317 -> repeatedListValue = (repeatedListValue ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.ListValue> }
-            324 -> repeatedStruct = (repeatedStruct ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Struct> }
-            401 -> fieldname1 = _fieldValue as Int
-            402 -> fieldName2 = _fieldValue as Int
-            403 -> fieldName3 = _fieldValue as Int
-            404 -> field_name4 = _fieldValue as Int
-            405 -> field0name5 = _fieldValue as Int
-            406 -> field0Name6 = _fieldValue as Int
-            407 -> fieldName7 = _fieldValue as Int
-            408 -> fieldName8 = _fieldValue as Int
-            409 -> fieldName9 = _fieldValue as Int
-            410 -> fieldName10 = _fieldValue as Int
-            411 -> fIELDNAME11 = _fieldValue as Int
-            412 -> fIELDName12 = _fieldValue as Int
-            413 -> _fieldName13 = _fieldValue as Int
-            414 -> _FieldName14 = _fieldValue as Int
-            415 -> field_name15 = _fieldValue as Int
-            416 -> field_Name16 = _fieldValue as Int
-            417 -> fieldName17_ = _fieldValue as Int
-            418 -> fieldName18_ = _fieldValue as Int
-        }
-    }
-    return TestAllTypesProto3_Impl(optionalInt32, optionalInt64, optionalUint32, optionalUint64,
-        optionalSint32, optionalSint64, optionalFixed32, optionalFixed64,
-        optionalSfixed32, optionalSfixed64, optionalFloat, optionalDouble,
-        optionalBool, optionalString, optionalBytes, optionalNestedMessage,
-        optionalForeignMessage, optionalNestedEnum, optionalForeignEnum, optionalAliasedEnum,
-        optionalStringPiece, optionalCord, recursiveMessage, pbandk.ListWithSize.Builder.fixed(repeatedInt32),
-        pbandk.ListWithSize.Builder.fixed(repeatedInt64), pbandk.ListWithSize.Builder.fixed(repeatedUint32), pbandk.ListWithSize.Builder.fixed(repeatedUint64), pbandk.ListWithSize.Builder.fixed(repeatedSint32),
-        pbandk.ListWithSize.Builder.fixed(repeatedSint64), pbandk.ListWithSize.Builder.fixed(repeatedFixed32), pbandk.ListWithSize.Builder.fixed(repeatedFixed64), pbandk.ListWithSize.Builder.fixed(repeatedSfixed32),
-        pbandk.ListWithSize.Builder.fixed(repeatedSfixed64), pbandk.ListWithSize.Builder.fixed(repeatedFloat), pbandk.ListWithSize.Builder.fixed(repeatedDouble), pbandk.ListWithSize.Builder.fixed(repeatedBool),
-        pbandk.ListWithSize.Builder.fixed(repeatedString), pbandk.ListWithSize.Builder.fixed(repeatedBytes), pbandk.ListWithSize.Builder.fixed(repeatedNestedMessage), pbandk.ListWithSize.Builder.fixed(repeatedForeignMessage),
-        pbandk.ListWithSize.Builder.fixed(repeatedNestedEnum), pbandk.ListWithSize.Builder.fixed(repeatedForeignEnum), pbandk.ListWithSize.Builder.fixed(repeatedStringPiece), pbandk.ListWithSize.Builder.fixed(repeatedCord),
-        pbandk.ListWithSize.Builder.fixed(packedInt32), pbandk.ListWithSize.Builder.fixed(packedInt64), pbandk.ListWithSize.Builder.fixed(packedUint32), pbandk.ListWithSize.Builder.fixed(packedUint64),
-        pbandk.ListWithSize.Builder.fixed(packedSint32), pbandk.ListWithSize.Builder.fixed(packedSint64), pbandk.ListWithSize.Builder.fixed(packedFixed32), pbandk.ListWithSize.Builder.fixed(packedFixed64),
-        pbandk.ListWithSize.Builder.fixed(packedSfixed32), pbandk.ListWithSize.Builder.fixed(packedSfixed64), pbandk.ListWithSize.Builder.fixed(packedFloat), pbandk.ListWithSize.Builder.fixed(packedDouble),
-        pbandk.ListWithSize.Builder.fixed(packedBool), pbandk.ListWithSize.Builder.fixed(packedNestedEnum), pbandk.ListWithSize.Builder.fixed(unpackedInt32), pbandk.ListWithSize.Builder.fixed(unpackedInt64),
-        pbandk.ListWithSize.Builder.fixed(unpackedUint32), pbandk.ListWithSize.Builder.fixed(unpackedUint64), pbandk.ListWithSize.Builder.fixed(unpackedSint32), pbandk.ListWithSize.Builder.fixed(unpackedSint64),
-        pbandk.ListWithSize.Builder.fixed(unpackedFixed32), pbandk.ListWithSize.Builder.fixed(unpackedFixed64), pbandk.ListWithSize.Builder.fixed(unpackedSfixed32), pbandk.ListWithSize.Builder.fixed(unpackedSfixed64),
-        pbandk.ListWithSize.Builder.fixed(unpackedFloat), pbandk.ListWithSize.Builder.fixed(unpackedDouble), pbandk.ListWithSize.Builder.fixed(unpackedBool), pbandk.ListWithSize.Builder.fixed(unpackedNestedEnum),
-        pbandk.MessageMap.from(mapInt32Int32), pbandk.MessageMap.from(mapInt64Int64), pbandk.MessageMap.from(mapUint32Uint32), pbandk.MessageMap.from(mapUint64Uint64),
-        pbandk.MessageMap.from(mapSint32Sint32), pbandk.MessageMap.from(mapSint64Sint64), pbandk.MessageMap.from(mapFixed32Fixed32), pbandk.MessageMap.from(mapFixed64Fixed64),
-        pbandk.MessageMap.from(mapSfixed32Sfixed32), pbandk.MessageMap.from(mapSfixed64Sfixed64), pbandk.MessageMap.from(mapInt32Float), pbandk.MessageMap.from(mapInt32Double),
-        pbandk.MessageMap.from(mapBoolBool), pbandk.MessageMap.from(mapStringString), pbandk.MessageMap.from(mapStringBytes), pbandk.MessageMap.from(mapStringNestedMessage),
-        pbandk.MessageMap.from(mapStringForeignMessage), pbandk.MessageMap.from(mapStringNestedEnum), pbandk.MessageMap.from(mapStringForeignEnum), optionalBoolWrapper,
-        optionalInt32Wrapper, optionalInt64Wrapper, optionalUint32Wrapper, optionalUint64Wrapper,
-        optionalFloatWrapper, optionalDoubleWrapper, optionalStringWrapper, optionalBytesWrapper,
-        pbandk.ListWithSize.Builder.fixed(repeatedBoolWrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt32Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedUint32Wrapper),
-        pbandk.ListWithSize.Builder.fixed(repeatedUint64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedFloatWrapper), pbandk.ListWithSize.Builder.fixed(repeatedDoubleWrapper), pbandk.ListWithSize.Builder.fixed(repeatedStringWrapper),
-        pbandk.ListWithSize.Builder.fixed(repeatedBytesWrapper), optionalDuration, optionalTimestamp, optionalFieldMask,
-        optionalStruct, optionalAny, optionalValue, pbandk.ListWithSize.Builder.fixed(repeatedDuration),
-        pbandk.ListWithSize.Builder.fixed(repeatedTimestamp), pbandk.ListWithSize.Builder.fixed(repeatedFieldmask), pbandk.ListWithSize.Builder.fixed(repeatedStruct), pbandk.ListWithSize.Builder.fixed(repeatedAny),
-        pbandk.ListWithSize.Builder.fixed(repeatedValue), pbandk.ListWithSize.Builder.fixed(repeatedListValue), fieldname1, fieldName2,
-        fieldName3, field_name4, field0name5, field0Name6,
-        fieldName7, fieldName8, fieldName9, fieldName10,
-        fIELDNAME11, fIELDName12, _fieldName13, _FieldName14,
-        field_name15, field_Name16, fieldName17_, fieldName18_,
-        oneofField, unknownFields)
-}
-
 @Deprecated(
     message = "Use TestAllTypesProto3.NestedMessage { } instead",
     replaceWith = ReplaceWith(
@@ -4234,7 +3967,7 @@ private class TestAllTypesProto3_NestedMessage_Impl(
     override val a: Int,
     override val corecursive: pbandk.conformance.pb.TestAllTypesProto3?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.conformance.pb.TestAllTypesProto3.NestedMessage, pbandk.GeneratedMessage<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage>() {
+) : pbandk.conformance.pb.TestAllTypesProto3.NestedMessage, pbandk.gen.GeneratedMessage<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage>() {
     override val descriptor get() = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.descriptor
 
     override fun copy(builderAction: pbandk.conformance.pb.TestAllTypesProto3.MutableNestedMessage.() -> Unit) = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage {
@@ -4262,7 +3995,7 @@ private class TestAllTypesProto3_MutableNestedMessage_Impl(
     override var a: Int,
     override var corecursive: pbandk.conformance.pb.TestAllTypesProto3?,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.conformance.pb.TestAllTypesProto3.MutableNestedMessage, pbandk.MutableGeneratedMessage<pbandk.conformance.pb.TestAllTypesProto3.MutableNestedMessage>() {
+) : pbandk.conformance.pb.TestAllTypesProto3.MutableNestedMessage, pbandk.gen.MutableGeneratedMessage<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage>() {
     override val descriptor get() = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.descriptor
 
     override fun copy(builderAction: pbandk.conformance.pb.TestAllTypesProto3.MutableNestedMessage.() -> Unit) =
@@ -4292,20 +4025,6 @@ private fun TestAllTypesProto3.NestedMessage.protoMergeImpl(other: pbandk.Messag
         corecursive = corecursive?.plus(other.corecursive) ?: other.corecursive
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto3.NestedMessage.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto3.NestedMessage {
-    var a = 0
-    var corecursive: pbandk.conformance.pb.TestAllTypesProto3? = null
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> a = _fieldValue as Int
-            2 -> corecursive = _fieldValue as pbandk.conformance.pb.TestAllTypesProto3
-        }
-    }
-    return TestAllTypesProto3_NestedMessage_Impl(a, corecursive, unknownFields)
 }
 
 @Deprecated(
@@ -4341,7 +4060,7 @@ public fun ForeignMessage?.orDefault(): pbandk.conformance.pb.ForeignMessage = t
 private class ForeignMessage_Impl(
     override val c: Int,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.conformance.pb.ForeignMessage, pbandk.GeneratedMessage<pbandk.conformance.pb.ForeignMessage>() {
+) : pbandk.conformance.pb.ForeignMessage, pbandk.gen.GeneratedMessage<pbandk.conformance.pb.ForeignMessage>() {
     override val descriptor get() = pbandk.conformance.pb.ForeignMessage.descriptor
 
     override fun copy(builderAction: pbandk.conformance.pb.MutableForeignMessage.() -> Unit) = pbandk.conformance.pb.ForeignMessage {
@@ -4365,7 +4084,7 @@ private class ForeignMessage_Impl(
 private class MutableForeignMessage_Impl(
     override var c: Int,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.conformance.pb.MutableForeignMessage, pbandk.MutableGeneratedMessage<pbandk.conformance.pb.MutableForeignMessage>() {
+) : pbandk.conformance.pb.MutableForeignMessage, pbandk.gen.MutableGeneratedMessage<pbandk.conformance.pb.ForeignMessage>() {
     override val descriptor get() = pbandk.conformance.pb.ForeignMessage.descriptor
 
     override fun copy(builderAction: pbandk.conformance.pb.MutableForeignMessage.() -> Unit) =
@@ -4392,16 +4111,4 @@ private fun ForeignMessage.protoMergeImpl(other: pbandk.Message?): pbandk.confor
         c = other.c
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun ForeignMessage.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.conformance.pb.ForeignMessage {
-    var c = 0
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> c = _fieldValue as Int
-        }
-    }
-    return ForeignMessage_Impl(c, unknownFields)
 }

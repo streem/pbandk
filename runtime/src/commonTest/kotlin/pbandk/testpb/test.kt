@@ -25,7 +25,6 @@ public sealed interface Foo : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Foo> {
         public val defaultInstance: pbandk.testpb.Foo by lazy { pbandk.testpb.Foo {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Foo = pbandk.testpb.Foo.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Foo> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Foo, *>>(1)
@@ -37,7 +36,8 @@ public sealed interface Foo : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "val",
-                        value = pbandk.testpb.Foo::`val`
+                        value = pbandk.testpb.Foo::`val`,
+                        mutableValue = pbandk.testpb.MutableFoo::`val`,
                     )
                 )
             }
@@ -45,13 +45,14 @@ public sealed interface Foo : pbandk.Message {
                 fullName = "testpb.Foo",
                 messageClass = pbandk.testpb.Foo::class,
                 messageCompanion = this,
+                builder = ::Foo,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableFoo : pbandk.testpb.Foo, pbandk.MutableMessage {
+public sealed interface MutableFoo : pbandk.testpb.Foo, pbandk.MutableMessage<pbandk.testpb.Foo> {
     public override var `val`: String
 }
 
@@ -80,7 +81,6 @@ public sealed interface Bar : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Bar> {
         public val defaultInstance: pbandk.testpb.Bar by lazy { pbandk.testpb.Bar {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Bar = pbandk.testpb.Bar.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Bar> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Bar, *>>(2)
@@ -92,7 +92,7 @@ public sealed interface Bar : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.Foo>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion)),
                         jsonName = "foos",
-                        value = pbandk.testpb.Bar::foos
+                        value = pbandk.testpb.Bar::foos,
                     )
                 )
                 add(
@@ -102,7 +102,8 @@ public sealed interface Bar : pbandk.Message {
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion),
                         jsonName = "singleFoo",
-                        value = pbandk.testpb.Bar::singleFoo
+                        value = pbandk.testpb.Bar::singleFoo,
+                        mutableValue = pbandk.testpb.MutableBar::singleFoo,
                     )
                 )
             }
@@ -110,13 +111,14 @@ public sealed interface Bar : pbandk.Message {
                 fullName = "testpb.Bar",
                 messageClass = pbandk.testpb.Bar::class,
                 messageCompanion = this,
+                builder = ::Bar,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableBar : pbandk.testpb.Bar, pbandk.MutableMessage {
+public sealed interface MutableBar : pbandk.testpb.Bar, pbandk.MutableMessage<pbandk.testpb.Bar> {
     public override val foos: MutableList<pbandk.testpb.Foo>
     public override var singleFoo: pbandk.testpb.Foo?
 }
@@ -144,7 +146,6 @@ public sealed interface MessageWithMap : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithMap> {
         public val defaultInstance: pbandk.testpb.MessageWithMap by lazy { pbandk.testpb.MessageWithMap {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithMap = pbandk.testpb.MessageWithMap.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithMap, *>>(1)
@@ -156,7 +157,7 @@ public sealed interface MessageWithMap : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Map<String, String>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "map",
-                        value = pbandk.testpb.MessageWithMap::map
+                        value = pbandk.testpb.MessageWithMap::map,
                     )
                 )
             }
@@ -164,13 +165,14 @@ public sealed interface MessageWithMap : pbandk.Message {
                 fullName = "testpb.MessageWithMap",
                 messageClass = pbandk.testpb.MessageWithMap::class,
                 messageCompanion = this,
+                builder = ::MessageWithMap,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableMessageWithMap : pbandk.testpb.MessageWithMap, pbandk.MutableMessage {
+public sealed interface MutableMessageWithMap : pbandk.testpb.MessageWithMap, pbandk.MutableMessage<pbandk.testpb.MessageWithMap> {
     public override val map: MutableMap<String, String>
 }
 
@@ -197,7 +199,6 @@ public sealed interface FooMap : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FooMap> {
         public val defaultInstance: pbandk.testpb.FooMap by lazy { pbandk.testpb.FooMap {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMap = pbandk.testpb.FooMap.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMap, *>>(1)
@@ -209,7 +210,7 @@ public sealed interface FooMap : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Map<String, pbandk.testpb.Foo?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion)),
                         jsonName = "map",
-                        value = pbandk.testpb.FooMap::map
+                        value = pbandk.testpb.FooMap::map,
                     )
                 )
             }
@@ -217,13 +218,14 @@ public sealed interface FooMap : pbandk.Message {
                 fullName = "testpb.FooMap",
                 messageClass = pbandk.testpb.FooMap::class,
                 messageCompanion = this,
+                builder = ::FooMap,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableFooMap : pbandk.testpb.FooMap, pbandk.MutableMessage {
+public sealed interface MutableFooMap : pbandk.testpb.FooMap, pbandk.MutableMessage<pbandk.testpb.FooMap> {
     public override val map: MutableMap<String, pbandk.testpb.Foo?>
 }
 
@@ -250,7 +252,6 @@ public sealed interface FooMapEntries : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries> {
         public val defaultInstance: pbandk.testpb.FooMapEntries by lazy { pbandk.testpb.FooMapEntries {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries = pbandk.testpb.FooMapEntries.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries, *>>(1)
@@ -262,7 +263,7 @@ public sealed interface FooMapEntries : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.FooMapEntries.MapEntry>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.FooMapEntries.MapEntry.Companion)),
                         jsonName = "map",
-                        value = pbandk.testpb.FooMapEntries::map
+                        value = pbandk.testpb.FooMapEntries::map,
                     )
                 )
             }
@@ -270,6 +271,7 @@ public sealed interface FooMapEntries : pbandk.Message {
                 fullName = "testpb.FooMapEntries",
                 messageClass = pbandk.testpb.FooMapEntries::class,
                 messageCompanion = this,
+                builder = ::FooMapEntries,
                 fields = fieldsList
             )
         }
@@ -300,7 +302,6 @@ public sealed interface FooMapEntries : pbandk.Message {
 
         public companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries.MapEntry> {
             public val defaultInstance: pbandk.testpb.FooMapEntries.MapEntry by lazy { pbandk.testpb.FooMapEntries.MapEntry {} }
-            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries.MapEntry = pbandk.testpb.FooMapEntries.MapEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries.MapEntry> by lazy {
                 val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries.MapEntry, *>>(2)
@@ -312,7 +313,8 @@ public sealed interface FooMapEntries : pbandk.Message {
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(),
                             jsonName = "key",
-                            value = pbandk.testpb.FooMapEntries.MapEntry::key
+                            value = pbandk.testpb.FooMapEntries.MapEntry::key,
+                            mutableValue = pbandk.testpb.FooMapEntries.MutableMapEntry::key,
                         )
                     )
                     add(
@@ -322,7 +324,8 @@ public sealed interface FooMapEntries : pbandk.Message {
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion),
                             jsonName = "value",
-                            value = pbandk.testpb.FooMapEntries.MapEntry::value
+                            value = pbandk.testpb.FooMapEntries.MapEntry::value,
+                            mutableValue = pbandk.testpb.FooMapEntries.MutableMapEntry::value,
                         )
                     )
                 }
@@ -330,19 +333,20 @@ public sealed interface FooMapEntries : pbandk.Message {
                     fullName = "testpb.FooMapEntries.MapEntry",
                     messageClass = pbandk.testpb.FooMapEntries.MapEntry::class,
                     messageCompanion = this,
+                    builder = FooMapEntries.Companion::MapEntry,
                     fields = fieldsList
                 )
             }
         }
     }
 
-    public sealed interface MutableMapEntry : pbandk.testpb.FooMapEntries.MapEntry, pbandk.MutableMessage {
+    public sealed interface MutableMapEntry : pbandk.testpb.FooMapEntries.MapEntry, pbandk.MutableMessage<pbandk.testpb.FooMapEntries.MapEntry> {
         public override var key: String
         public override var value: pbandk.testpb.Foo?
     }
 }
 
-public sealed interface MutableFooMapEntries : pbandk.testpb.FooMapEntries, pbandk.MutableMessage {
+public sealed interface MutableFooMapEntries : pbandk.testpb.FooMapEntries, pbandk.MutableMessage<pbandk.testpb.FooMapEntries> {
     public override val map: MutableList<pbandk.testpb.FooMapEntries.MapEntry>
 }
 
@@ -371,7 +375,6 @@ public sealed interface Wrappers : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Wrappers> {
         public val defaultInstance: pbandk.testpb.Wrappers by lazy { pbandk.testpb.Wrappers {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Wrappers = pbandk.testpb.Wrappers.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Wrappers> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Wrappers, *>>(2)
@@ -383,7 +386,8 @@ public sealed interface Wrappers : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.StringValue.Companion),
                         jsonName = "stringValue",
-                        value = pbandk.testpb.Wrappers::stringValue
+                        value = pbandk.testpb.Wrappers::stringValue,
+                        mutableValue = pbandk.testpb.MutableWrappers::stringValue,
                     )
                 )
                 add(
@@ -393,7 +397,7 @@ public sealed interface Wrappers : pbandk.Message {
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt64Value.Companion)),
                         jsonName = "uint64Values",
-                        value = pbandk.testpb.Wrappers::uint64Values
+                        value = pbandk.testpb.Wrappers::uint64Values,
                     )
                 )
             }
@@ -401,13 +405,14 @@ public sealed interface Wrappers : pbandk.Message {
                 fullName = "testpb.Wrappers",
                 messageClass = pbandk.testpb.Wrappers::class,
                 messageCompanion = this,
+                builder = ::Wrappers,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableWrappers : pbandk.testpb.Wrappers, pbandk.MutableMessage {
+public sealed interface MutableWrappers : pbandk.testpb.Wrappers, pbandk.MutableMessage<pbandk.testpb.Wrappers> {
     public override var stringValue: String?
     public override val uint64Values: MutableList<Long>
 }
@@ -445,7 +450,7 @@ public fun Foo?.orDefault(): pbandk.testpb.Foo = this ?: pbandk.testpb.Foo.defau
 private class Foo_Impl(
     override val `val`: String,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.testpb.Foo, pbandk.GeneratedMessage<pbandk.testpb.Foo>() {
+) : pbandk.testpb.Foo, pbandk.gen.GeneratedMessage<pbandk.testpb.Foo>() {
     override val descriptor get() = pbandk.testpb.Foo.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableFoo.() -> Unit) = pbandk.testpb.Foo {
@@ -469,7 +474,7 @@ private class Foo_Impl(
 private class MutableFoo_Impl(
     override var `val`: String,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.testpb.MutableFoo, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableFoo>() {
+) : pbandk.testpb.MutableFoo, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.Foo>() {
     override val descriptor get() = pbandk.testpb.Foo.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableFoo.() -> Unit) =
@@ -496,18 +501,6 @@ private fun Foo.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Foo {
         `val` = other.`val`
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun Foo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.Foo {
-    var `val` = ""
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> `val` = _fieldValue as String
-        }
-    }
-    return Foo_Impl(`val`, unknownFields)
 }
 
 @Deprecated(
@@ -547,7 +540,7 @@ private class Bar_Impl(
     override val foos: List<pbandk.testpb.Foo>,
     override val singleFoo: pbandk.testpb.Foo?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.testpb.Bar, pbandk.GeneratedMessage<pbandk.testpb.Bar>() {
+) : pbandk.testpb.Bar, pbandk.gen.GeneratedMessage<pbandk.testpb.Bar>() {
     override val descriptor get() = pbandk.testpb.Bar.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableBar.() -> Unit) = pbandk.testpb.Bar {
@@ -575,7 +568,7 @@ private class MutableBar_Impl(
     override val foos: MutableList<pbandk.testpb.Foo>,
     override var singleFoo: pbandk.testpb.Foo?,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.testpb.MutableBar, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableBar>() {
+) : pbandk.testpb.MutableBar, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.Bar>() {
     override val descriptor get() = pbandk.testpb.Bar.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableBar.() -> Unit) =
@@ -607,20 +600,6 @@ private fun Bar.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Bar {
     }
 }
 
-@Suppress("UNCHECKED_CAST")
-private fun Bar.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.Bar {
-    var foos: pbandk.ListWithSize.Builder<pbandk.testpb.Foo>? = null
-    var singleFoo: pbandk.testpb.Foo? = null
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> foos = (foos ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.testpb.Foo> }
-            2 -> singleFoo = _fieldValue as pbandk.testpb.Foo
-        }
-    }
-    return Bar_Impl(pbandk.ListWithSize.Builder.fixed(foos), singleFoo, unknownFields)
-}
-
 @Deprecated(
     message = "Use MessageWithMap { } instead",
     replaceWith = ReplaceWith(
@@ -643,7 +622,7 @@ public fun MessageWithMap(
 @pbandk.Export
 @pbandk.JsName("buildMessageWithMap")
 public fun MessageWithMap(builderAction: pbandk.testpb.MutableMessageWithMap.() -> Unit): pbandk.testpb.MessageWithMap = pbandk.testpb.MutableMessageWithMap_Impl(
-    map = pbandk.MutableMessageMap(pbandk.testpb.MessageWithMap.descriptor.fields[1]),
+    map = pbandk.gen.MutableMessageMap(pbandk.testpb.MessageWithMap.descriptor.fields[1]),
     unknownFields = mutableMapOf()
 ).also(builderAction).toMessageWithMap()
 
@@ -652,9 +631,9 @@ public fun MessageWithMap(builderAction: pbandk.testpb.MutableMessageWithMap.() 
 public fun MessageWithMap?.orDefault(): pbandk.testpb.MessageWithMap = this ?: pbandk.testpb.MessageWithMap.defaultInstance
 
 private class MessageWithMap_Impl(
-    override val map: pbandk.MessageMap<String, String>,
+    override val map: pbandk.gen.MessageMap<String, String>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.testpb.MessageWithMap, pbandk.GeneratedMessage<pbandk.testpb.MessageWithMap>() {
+) : pbandk.testpb.MessageWithMap, pbandk.gen.GeneratedMessage<pbandk.testpb.MessageWithMap>() {
     override val descriptor get() = pbandk.testpb.MessageWithMap.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableMessageWithMap.() -> Unit) = pbandk.testpb.MessageWithMap {
@@ -676,9 +655,9 @@ private class MessageWithMap_Impl(
 }
 
 private class MutableMessageWithMap_Impl(
-    override val map: pbandk.MutableMessageMap<String, String>,
+    override val map: pbandk.gen.MutableMessageMap<String, String>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.testpb.MutableMessageWithMap, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableMessageWithMap>() {
+) : pbandk.testpb.MutableMessageWithMap, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.MessageWithMap>() {
     override val descriptor get() = pbandk.testpb.MessageWithMap.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableMessageWithMap.() -> Unit) =
@@ -707,18 +686,6 @@ private fun MessageWithMap.protoMergeImpl(other: pbandk.Message?): pbandk.testpb
     }
 }
 
-@Suppress("UNCHECKED_CAST")
-private fun MessageWithMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithMap {
-    var map: pbandk.MutableMessageMap<String, String>? = null
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> map = (map ?: pbandk.MutableMessageMap(descriptor.fields[1])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<String, String>>) }
-        }
-    }
-    return MessageWithMap_Impl(pbandk.MessageMap.from(map), unknownFields)
-}
-
 @Deprecated(
     message = "Use FooMap { } instead",
     replaceWith = ReplaceWith(
@@ -741,7 +708,7 @@ public fun FooMap(
 @pbandk.Export
 @pbandk.JsName("buildFooMap")
 public fun FooMap(builderAction: pbandk.testpb.MutableFooMap.() -> Unit): pbandk.testpb.FooMap = pbandk.testpb.MutableFooMap_Impl(
-    map = pbandk.MutableMessageMap(pbandk.testpb.FooMap.descriptor.fields[1]),
+    map = pbandk.gen.MutableMessageMap(pbandk.testpb.FooMap.descriptor.fields[1]),
     unknownFields = mutableMapOf()
 ).also(builderAction).toFooMap()
 
@@ -750,9 +717,9 @@ public fun FooMap(builderAction: pbandk.testpb.MutableFooMap.() -> Unit): pbandk
 public fun FooMap?.orDefault(): pbandk.testpb.FooMap = this ?: pbandk.testpb.FooMap.defaultInstance
 
 private class FooMap_Impl(
-    override val map: pbandk.MessageMap<String, pbandk.testpb.Foo?>,
+    override val map: pbandk.gen.MessageMap<String, pbandk.testpb.Foo?>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.testpb.FooMap, pbandk.GeneratedMessage<pbandk.testpb.FooMap>() {
+) : pbandk.testpb.FooMap, pbandk.gen.GeneratedMessage<pbandk.testpb.FooMap>() {
     override val descriptor get() = pbandk.testpb.FooMap.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableFooMap.() -> Unit) = pbandk.testpb.FooMap {
@@ -774,9 +741,9 @@ private class FooMap_Impl(
 }
 
 private class MutableFooMap_Impl(
-    override val map: pbandk.MutableMessageMap<String, pbandk.testpb.Foo?>,
+    override val map: pbandk.gen.MutableMessageMap<String, pbandk.testpb.Foo?>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.testpb.MutableFooMap, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableFooMap>() {
+) : pbandk.testpb.MutableFooMap, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.FooMap>() {
     override val descriptor get() = pbandk.testpb.FooMap.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableFooMap.() -> Unit) =
@@ -803,18 +770,6 @@ private fun FooMap.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.FooMap 
         map += other.map
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun FooMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.FooMap {
-    var map: pbandk.MutableMessageMap<String, pbandk.testpb.Foo?>? = null
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> map = (map ?: pbandk.MutableMessageMap(descriptor.fields[1])).apply { putAll(_fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.testpb.Foo?>>) }
-        }
-    }
-    return FooMap_Impl(pbandk.MessageMap.from(map), unknownFields)
 }
 
 @Deprecated(
@@ -850,7 +805,7 @@ public fun FooMapEntries?.orDefault(): pbandk.testpb.FooMapEntries = this ?: pba
 private class FooMapEntries_Impl(
     override val map: List<pbandk.testpb.FooMapEntries.MapEntry>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.testpb.FooMapEntries, pbandk.GeneratedMessage<pbandk.testpb.FooMapEntries>() {
+) : pbandk.testpb.FooMapEntries, pbandk.gen.GeneratedMessage<pbandk.testpb.FooMapEntries>() {
     override val descriptor get() = pbandk.testpb.FooMapEntries.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableFooMapEntries.() -> Unit) = pbandk.testpb.FooMapEntries {
@@ -874,7 +829,7 @@ private class FooMapEntries_Impl(
 private class MutableFooMapEntries_Impl(
     override val map: MutableList<pbandk.testpb.FooMapEntries.MapEntry>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.testpb.MutableFooMapEntries, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableFooMapEntries>() {
+) : pbandk.testpb.MutableFooMapEntries, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.FooMapEntries>() {
     override val descriptor get() = pbandk.testpb.FooMapEntries.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableFooMapEntries.() -> Unit) =
@@ -901,18 +856,6 @@ private fun FooMapEntries.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.
         map += other.map
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun FooMapEntries.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries {
-    var map: pbandk.ListWithSize.Builder<pbandk.testpb.FooMapEntries.MapEntry>? = null
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> map = (map ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.testpb.FooMapEntries.MapEntry> }
-        }
-    }
-    return FooMapEntries_Impl(pbandk.ListWithSize.Builder.fixed(map), unknownFields)
 }
 
 @Deprecated(
@@ -959,7 +902,7 @@ private class FooMapEntries_MapEntry_Impl(
     override val key: String,
     override val value: pbandk.testpb.Foo?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.testpb.FooMapEntries.MapEntry, pbandk.GeneratedMessage<pbandk.testpb.FooMapEntries.MapEntry>() {
+) : pbandk.testpb.FooMapEntries.MapEntry, pbandk.gen.GeneratedMessage<pbandk.testpb.FooMapEntries.MapEntry>() {
     override val descriptor get() = pbandk.testpb.FooMapEntries.MapEntry.descriptor
 
     override fun copy(builderAction: pbandk.testpb.FooMapEntries.MutableMapEntry.() -> Unit) = pbandk.testpb.FooMapEntries.MapEntry {
@@ -987,7 +930,7 @@ private class FooMapEntries_MutableMapEntry_Impl(
     override var key: String,
     override var value: pbandk.testpb.Foo?,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.testpb.FooMapEntries.MutableMapEntry, pbandk.MutableGeneratedMessage<pbandk.testpb.FooMapEntries.MutableMapEntry>() {
+) : pbandk.testpb.FooMapEntries.MutableMapEntry, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.FooMapEntries.MapEntry>() {
     override val descriptor get() = pbandk.testpb.FooMapEntries.MapEntry.descriptor
 
     override fun copy(builderAction: pbandk.testpb.FooMapEntries.MutableMapEntry.() -> Unit) =
@@ -1017,20 +960,6 @@ private fun FooMapEntries.MapEntry.protoMergeImpl(other: pbandk.Message?): pband
         value = value?.plus(other.value) ?: other.value
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun FooMapEntries.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries.MapEntry {
-    var key = ""
-    var value: pbandk.testpb.Foo? = null
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> key = _fieldValue as String
-            2 -> value = _fieldValue as pbandk.testpb.Foo
-        }
-    }
-    return FooMapEntries_MapEntry_Impl(key, value, unknownFields)
 }
 
 @Deprecated(
@@ -1070,7 +999,7 @@ private class Wrappers_Impl(
     override val stringValue: String?,
     override val uint64Values: List<Long>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.testpb.Wrappers, pbandk.GeneratedMessage<pbandk.testpb.Wrappers>() {
+) : pbandk.testpb.Wrappers, pbandk.gen.GeneratedMessage<pbandk.testpb.Wrappers>() {
     override val descriptor get() = pbandk.testpb.Wrappers.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableWrappers.() -> Unit) = pbandk.testpb.Wrappers {
@@ -1098,7 +1027,7 @@ private class MutableWrappers_Impl(
     override var stringValue: String?,
     override val uint64Values: MutableList<Long>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.testpb.MutableWrappers, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableWrappers>() {
+) : pbandk.testpb.MutableWrappers, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.Wrappers>() {
     override val descriptor get() = pbandk.testpb.Wrappers.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableWrappers.() -> Unit) =
@@ -1128,18 +1057,4 @@ private fun Wrappers.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Wrapp
         uint64Values += other.uint64Values
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun Wrappers.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.Wrappers {
-    var stringValue: String? = null
-    var uint64Values: pbandk.ListWithSize.Builder<Long>? = null
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> stringValue = _fieldValue as String
-            2 -> uint64Values = (uint64Values ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-        }
-    }
-    return Wrappers_Impl(stringValue, pbandk.ListWithSize.Builder.fixed(uint64Values), unknownFields)
 }

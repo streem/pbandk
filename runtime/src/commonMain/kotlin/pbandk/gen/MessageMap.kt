@@ -1,6 +1,11 @@
-package pbandk
+package pbandk.gen
 
-import kotlin.js.JsExport
+import pbandk.FieldDescriptor
+import pbandk.Message
+import pbandk.MessageDescriptor
+import pbandk.MutableMessage
+import pbandk.PublicForGeneratedCode
+import pbandk.UnknownField
 import kotlin.reflect.KClass
 
 @PublicForGeneratedCode
@@ -50,38 +55,32 @@ public class MessageMap<K, V> internal constructor(entries: Collection<Entry<K, 
             internal val keyType: FieldDescriptor.Type, internal val valueType: FieldDescriptor.Type
         ) : Message.Companion<Entry<K, V>> {
             @Suppress("UNCHECKED_CAST")
-            override fun decodeWith(u: MessageDecoder): Entry<K, V> {
-                var key: K = keyType.defaultValue as K
-                var value: V = valueType.defaultValue as V
-
-                val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-                    when (_fieldNumber) {
-                        1 -> key = _fieldValue as K
-                        2 -> value = _fieldValue as V
-                    }
-                }
-                return MutableMessageMapEntry(key, value, this, unknownFields)
-            }
+            private fun entryBuilder(builderAction: MutableMessageMap.MutableEntry<K, V>.() -> Unit): Entry<K, V> =
+                MutableMessageMapEntry(keyType.defaultValue as K, valueType.defaultValue as V, this)
+                    .also(builderAction)
 
             @Suppress("UNCHECKED_CAST")
             override val descriptor: MessageDescriptor<Entry<K, V>> = MessageDescriptor(
                 fullName = "MapFieldEntry",
                 messageClass = Entry::class as KClass<Entry<K, V>>,
                 messageCompanion = this,
+                builder = ::entryBuilder,
                 fields = listOf(
                     FieldDescriptor(
                         messageDescriptor = this::descriptor,
                         name = "key",
                         number = 1,
                         type = keyType,
-                        value = Entry<K, V>::key
+                        value = Entry<K, V>::key,
+                        mutableValue = MutableMessageMap.MutableEntry<K, V>::key,
                     ),
                     FieldDescriptor(
                         messageDescriptor = this::descriptor,
                         name = "value",
                         number = 2,
                         type = valueType,
-                        value = Entry<K, V>::value
+                        value = Entry<K, V>::value,
+                        mutableValue = MutableMessageMap.MutableEntry<K, V>::value,
                     )
                 )
             )
@@ -243,24 +242,24 @@ public class MutableMessageMap<K, V>(private val entryCompanion: MessageMap.Entr
         "${it.key}=${it.value}" + if (it.unknownFields.isNotEmpty()) " (has unknown fields)" else ""
     }
 
-    internal interface MutableEntry<K, V> : MutableMap.MutableEntry<K, V>, MessageMap.Entry<K, V>
+    internal interface MutableEntry<K, V> : MutableMap.MutableEntry<K, V>, MessageMap.Entry<K, V>, MutableMessage<MessageMap.Entry<K, V>> {
+        override var key: K
+        override var value: V
+    }
 
     public fun toMessageMap(): MessageMap<K, V> = if (isEmpty()) MessageMap.empty() else MessageMap(delegate.values)
 
 }
 
 internal class MutableMessageMapEntry<K, V>(
-    override val key: K,
-    value: V,
+    override var key: K,
+    override var value: V,
     companion: MessageMap.Entry.Companion<K, V>,
-    override val unknownFields: Map<Int, UnknownField> = emptyMap()
-) : MutableMessageMap.MutableEntry<K, V>, GeneratedMessage<MessageMap.Entry<K, V>>() {
-    private var _value: V = value
-    override val value: V get() = _value
-
+    override val unknownFields: MutableMap<Int, UnknownField> = mutableMapOf()
+) : MutableMessageMap.MutableEntry<K, V>, MutableGeneratedMessage<MessageMap.Entry<K, V>>() {
     override fun setValue(newValue: V): V {
-        val oldValue = _value
-        _value = newValue
+        val oldValue = value
+        value = newValue
         return oldValue
     }
 

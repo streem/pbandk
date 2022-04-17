@@ -25,7 +25,6 @@ public sealed interface DoubleValue : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.DoubleValue> {
         public val defaultInstance: pbandk.wkt.DoubleValue by lazy { pbandk.wkt.DoubleValue {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DoubleValue = pbandk.wkt.DoubleValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DoubleValue> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.DoubleValue, *>>(1)
@@ -37,7 +36,8 @@ public sealed interface DoubleValue : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Double(),
                         jsonName = "value",
-                        value = pbandk.wkt.DoubleValue::value
+                        value = pbandk.wkt.DoubleValue::value,
+                        mutableValue = pbandk.wkt.MutableDoubleValue::value,
                     )
                 )
             }
@@ -45,13 +45,14 @@ public sealed interface DoubleValue : pbandk.Message {
                 fullName = "google.protobuf.DoubleValue",
                 messageClass = pbandk.wkt.DoubleValue::class,
                 messageCompanion = this,
+                builder = ::DoubleValue,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableDoubleValue : pbandk.wkt.DoubleValue, pbandk.MutableMessage {
+public sealed interface MutableDoubleValue : pbandk.wkt.DoubleValue, pbandk.MutableMessage<pbandk.wkt.DoubleValue> {
     public override var value: Double
 }
 
@@ -78,7 +79,6 @@ public sealed interface FloatValue : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FloatValue> {
         public val defaultInstance: pbandk.wkt.FloatValue by lazy { pbandk.wkt.FloatValue {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FloatValue = pbandk.wkt.FloatValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FloatValue> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FloatValue, *>>(1)
@@ -90,7 +90,8 @@ public sealed interface FloatValue : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Float(),
                         jsonName = "value",
-                        value = pbandk.wkt.FloatValue::value
+                        value = pbandk.wkt.FloatValue::value,
+                        mutableValue = pbandk.wkt.MutableFloatValue::value,
                     )
                 )
             }
@@ -98,13 +99,14 @@ public sealed interface FloatValue : pbandk.Message {
                 fullName = "google.protobuf.FloatValue",
                 messageClass = pbandk.wkt.FloatValue::class,
                 messageCompanion = this,
+                builder = ::FloatValue,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableFloatValue : pbandk.wkt.FloatValue, pbandk.MutableMessage {
+public sealed interface MutableFloatValue : pbandk.wkt.FloatValue, pbandk.MutableMessage<pbandk.wkt.FloatValue> {
     public override var value: Float
 }
 
@@ -131,7 +133,6 @@ public sealed interface Int64Value : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Int64Value> {
         public val defaultInstance: pbandk.wkt.Int64Value by lazy { pbandk.wkt.Int64Value {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int64Value = pbandk.wkt.Int64Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int64Value> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Int64Value, *>>(1)
@@ -143,7 +144,8 @@ public sealed interface Int64Value : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
                         jsonName = "value",
-                        value = pbandk.wkt.Int64Value::value
+                        value = pbandk.wkt.Int64Value::value,
+                        mutableValue = pbandk.wkt.MutableInt64Value::value,
                     )
                 )
             }
@@ -151,13 +153,14 @@ public sealed interface Int64Value : pbandk.Message {
                 fullName = "google.protobuf.Int64Value",
                 messageClass = pbandk.wkt.Int64Value::class,
                 messageCompanion = this,
+                builder = ::Int64Value,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableInt64Value : pbandk.wkt.Int64Value, pbandk.MutableMessage {
+public sealed interface MutableInt64Value : pbandk.wkt.Int64Value, pbandk.MutableMessage<pbandk.wkt.Int64Value> {
     public override var value: Long
 }
 
@@ -184,7 +187,6 @@ public sealed interface UInt64Value : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UInt64Value> {
         public val defaultInstance: pbandk.wkt.UInt64Value by lazy { pbandk.wkt.UInt64Value {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt64Value = pbandk.wkt.UInt64Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt64Value> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.UInt64Value, *>>(1)
@@ -196,7 +198,8 @@ public sealed interface UInt64Value : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(),
                         jsonName = "value",
-                        value = pbandk.wkt.UInt64Value::value
+                        value = pbandk.wkt.UInt64Value::value,
+                        mutableValue = pbandk.wkt.MutableUInt64Value::value,
                     )
                 )
             }
@@ -204,13 +207,14 @@ public sealed interface UInt64Value : pbandk.Message {
                 fullName = "google.protobuf.UInt64Value",
                 messageClass = pbandk.wkt.UInt64Value::class,
                 messageCompanion = this,
+                builder = ::UInt64Value,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableUInt64Value : pbandk.wkt.UInt64Value, pbandk.MutableMessage {
+public sealed interface MutableUInt64Value : pbandk.wkt.UInt64Value, pbandk.MutableMessage<pbandk.wkt.UInt64Value> {
     public override var value: Long
 }
 
@@ -237,7 +241,6 @@ public sealed interface Int32Value : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Int32Value> {
         public val defaultInstance: pbandk.wkt.Int32Value by lazy { pbandk.wkt.Int32Value {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int32Value = pbandk.wkt.Int32Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int32Value> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Int32Value, *>>(1)
@@ -249,7 +252,8 @@ public sealed interface Int32Value : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "value",
-                        value = pbandk.wkt.Int32Value::value
+                        value = pbandk.wkt.Int32Value::value,
+                        mutableValue = pbandk.wkt.MutableInt32Value::value,
                     )
                 )
             }
@@ -257,13 +261,14 @@ public sealed interface Int32Value : pbandk.Message {
                 fullName = "google.protobuf.Int32Value",
                 messageClass = pbandk.wkt.Int32Value::class,
                 messageCompanion = this,
+                builder = ::Int32Value,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableInt32Value : pbandk.wkt.Int32Value, pbandk.MutableMessage {
+public sealed interface MutableInt32Value : pbandk.wkt.Int32Value, pbandk.MutableMessage<pbandk.wkt.Int32Value> {
     public override var value: Int
 }
 
@@ -290,7 +295,6 @@ public sealed interface UInt32Value : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UInt32Value> {
         public val defaultInstance: pbandk.wkt.UInt32Value by lazy { pbandk.wkt.UInt32Value {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt32Value = pbandk.wkt.UInt32Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt32Value> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.UInt32Value, *>>(1)
@@ -302,7 +306,8 @@ public sealed interface UInt32Value : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt32(),
                         jsonName = "value",
-                        value = pbandk.wkt.UInt32Value::value
+                        value = pbandk.wkt.UInt32Value::value,
+                        mutableValue = pbandk.wkt.MutableUInt32Value::value,
                     )
                 )
             }
@@ -310,13 +315,14 @@ public sealed interface UInt32Value : pbandk.Message {
                 fullName = "google.protobuf.UInt32Value",
                 messageClass = pbandk.wkt.UInt32Value::class,
                 messageCompanion = this,
+                builder = ::UInt32Value,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableUInt32Value : pbandk.wkt.UInt32Value, pbandk.MutableMessage {
+public sealed interface MutableUInt32Value : pbandk.wkt.UInt32Value, pbandk.MutableMessage<pbandk.wkt.UInt32Value> {
     public override var value: Int
 }
 
@@ -343,7 +349,6 @@ public sealed interface BoolValue : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.BoolValue> {
         public val defaultInstance: pbandk.wkt.BoolValue by lazy { pbandk.wkt.BoolValue {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BoolValue = pbandk.wkt.BoolValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BoolValue> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.BoolValue, *>>(1)
@@ -355,7 +360,8 @@ public sealed interface BoolValue : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
                         jsonName = "value",
-                        value = pbandk.wkt.BoolValue::value
+                        value = pbandk.wkt.BoolValue::value,
+                        mutableValue = pbandk.wkt.MutableBoolValue::value,
                     )
                 )
             }
@@ -363,13 +369,14 @@ public sealed interface BoolValue : pbandk.Message {
                 fullName = "google.protobuf.BoolValue",
                 messageClass = pbandk.wkt.BoolValue::class,
                 messageCompanion = this,
+                builder = ::BoolValue,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableBoolValue : pbandk.wkt.BoolValue, pbandk.MutableMessage {
+public sealed interface MutableBoolValue : pbandk.wkt.BoolValue, pbandk.MutableMessage<pbandk.wkt.BoolValue> {
     public override var value: Boolean
 }
 
@@ -396,7 +403,6 @@ public sealed interface StringValue : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.StringValue> {
         public val defaultInstance: pbandk.wkt.StringValue by lazy { pbandk.wkt.StringValue {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.StringValue = pbandk.wkt.StringValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.StringValue> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.StringValue, *>>(1)
@@ -408,7 +414,8 @@ public sealed interface StringValue : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "value",
-                        value = pbandk.wkt.StringValue::value
+                        value = pbandk.wkt.StringValue::value,
+                        mutableValue = pbandk.wkt.MutableStringValue::value,
                     )
                 )
             }
@@ -416,13 +423,14 @@ public sealed interface StringValue : pbandk.Message {
                 fullName = "google.protobuf.StringValue",
                 messageClass = pbandk.wkt.StringValue::class,
                 messageCompanion = this,
+                builder = ::StringValue,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableStringValue : pbandk.wkt.StringValue, pbandk.MutableMessage {
+public sealed interface MutableStringValue : pbandk.wkt.StringValue, pbandk.MutableMessage<pbandk.wkt.StringValue> {
     public override var value: String
 }
 
@@ -449,7 +457,6 @@ public sealed interface BytesValue : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.BytesValue> {
         public val defaultInstance: pbandk.wkt.BytesValue by lazy { pbandk.wkt.BytesValue {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BytesValue = pbandk.wkt.BytesValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BytesValue> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.BytesValue, *>>(1)
@@ -461,7 +468,8 @@ public sealed interface BytesValue : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
                         jsonName = "value",
-                        value = pbandk.wkt.BytesValue::value
+                        value = pbandk.wkt.BytesValue::value,
+                        mutableValue = pbandk.wkt.MutableBytesValue::value,
                     )
                 )
             }
@@ -469,13 +477,14 @@ public sealed interface BytesValue : pbandk.Message {
                 fullName = "google.protobuf.BytesValue",
                 messageClass = pbandk.wkt.BytesValue::class,
                 messageCompanion = this,
+                builder = ::BytesValue,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableBytesValue : pbandk.wkt.BytesValue, pbandk.MutableMessage {
+public sealed interface MutableBytesValue : pbandk.wkt.BytesValue, pbandk.MutableMessage<pbandk.wkt.BytesValue> {
     public override var value: pbandk.ByteArr
 }
 
@@ -512,7 +521,7 @@ public fun DoubleValue?.orDefault(): pbandk.wkt.DoubleValue = this ?: pbandk.wkt
 private class DoubleValue_Impl(
     override val value: Double,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.DoubleValue, pbandk.GeneratedMessage<pbandk.wkt.DoubleValue>() {
+) : pbandk.wkt.DoubleValue, pbandk.gen.GeneratedMessage<pbandk.wkt.DoubleValue>() {
     override val descriptor get() = pbandk.wkt.DoubleValue.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableDoubleValue.() -> Unit) = pbandk.wkt.DoubleValue {
@@ -536,7 +545,7 @@ private class DoubleValue_Impl(
 private class MutableDoubleValue_Impl(
     override var value: Double,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableDoubleValue, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableDoubleValue>() {
+) : pbandk.wkt.MutableDoubleValue, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.DoubleValue>() {
     override val descriptor get() = pbandk.wkt.DoubleValue.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableDoubleValue.() -> Unit) =
@@ -563,18 +572,6 @@ private fun DoubleValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Doubl
         value = other.value
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun DoubleValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.DoubleValue {
-    var value = 0.0
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> value = _fieldValue as Double
-        }
-    }
-    return DoubleValue_Impl(value, unknownFields)
 }
 
 @Deprecated(
@@ -610,7 +607,7 @@ public fun FloatValue?.orDefault(): pbandk.wkt.FloatValue = this ?: pbandk.wkt.F
 private class FloatValue_Impl(
     override val value: Float,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.FloatValue, pbandk.GeneratedMessage<pbandk.wkt.FloatValue>() {
+) : pbandk.wkt.FloatValue, pbandk.gen.GeneratedMessage<pbandk.wkt.FloatValue>() {
     override val descriptor get() = pbandk.wkt.FloatValue.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableFloatValue.() -> Unit) = pbandk.wkt.FloatValue {
@@ -634,7 +631,7 @@ private class FloatValue_Impl(
 private class MutableFloatValue_Impl(
     override var value: Float,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableFloatValue, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableFloatValue>() {
+) : pbandk.wkt.MutableFloatValue, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.FloatValue>() {
     override val descriptor get() = pbandk.wkt.FloatValue.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableFloatValue.() -> Unit) =
@@ -661,18 +658,6 @@ private fun FloatValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.FloatV
         value = other.value
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun FloatValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.FloatValue {
-    var value = 0.0F
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> value = _fieldValue as Float
-        }
-    }
-    return FloatValue_Impl(value, unknownFields)
 }
 
 @Deprecated(
@@ -708,7 +693,7 @@ public fun Int64Value?.orDefault(): pbandk.wkt.Int64Value = this ?: pbandk.wkt.I
 private class Int64Value_Impl(
     override val value: Long,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Int64Value, pbandk.GeneratedMessage<pbandk.wkt.Int64Value>() {
+) : pbandk.wkt.Int64Value, pbandk.gen.GeneratedMessage<pbandk.wkt.Int64Value>() {
     override val descriptor get() = pbandk.wkt.Int64Value.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableInt64Value.() -> Unit) = pbandk.wkt.Int64Value {
@@ -732,7 +717,7 @@ private class Int64Value_Impl(
 private class MutableInt64Value_Impl(
     override var value: Long,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableInt64Value, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableInt64Value>() {
+) : pbandk.wkt.MutableInt64Value, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Int64Value>() {
     override val descriptor get() = pbandk.wkt.Int64Value.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableInt64Value.() -> Unit) =
@@ -759,18 +744,6 @@ private fun Int64Value.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Int64V
         value = other.value
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun Int64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Int64Value {
-    var value = 0L
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> value = _fieldValue as Long
-        }
-    }
-    return Int64Value_Impl(value, unknownFields)
 }
 
 @Deprecated(
@@ -806,7 +779,7 @@ public fun UInt64Value?.orDefault(): pbandk.wkt.UInt64Value = this ?: pbandk.wkt
 private class UInt64Value_Impl(
     override val value: Long,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.UInt64Value, pbandk.GeneratedMessage<pbandk.wkt.UInt64Value>() {
+) : pbandk.wkt.UInt64Value, pbandk.gen.GeneratedMessage<pbandk.wkt.UInt64Value>() {
     override val descriptor get() = pbandk.wkt.UInt64Value.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableUInt64Value.() -> Unit) = pbandk.wkt.UInt64Value {
@@ -830,7 +803,7 @@ private class UInt64Value_Impl(
 private class MutableUInt64Value_Impl(
     override var value: Long,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableUInt64Value, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableUInt64Value>() {
+) : pbandk.wkt.MutableUInt64Value, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.UInt64Value>() {
     override val descriptor get() = pbandk.wkt.UInt64Value.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableUInt64Value.() -> Unit) =
@@ -857,18 +830,6 @@ private fun UInt64Value.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.UInt6
         value = other.value
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun UInt64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.UInt64Value {
-    var value = 0L
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> value = _fieldValue as Long
-        }
-    }
-    return UInt64Value_Impl(value, unknownFields)
 }
 
 @Deprecated(
@@ -904,7 +865,7 @@ public fun Int32Value?.orDefault(): pbandk.wkt.Int32Value = this ?: pbandk.wkt.I
 private class Int32Value_Impl(
     override val value: Int,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Int32Value, pbandk.GeneratedMessage<pbandk.wkt.Int32Value>() {
+) : pbandk.wkt.Int32Value, pbandk.gen.GeneratedMessage<pbandk.wkt.Int32Value>() {
     override val descriptor get() = pbandk.wkt.Int32Value.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableInt32Value.() -> Unit) = pbandk.wkt.Int32Value {
@@ -928,7 +889,7 @@ private class Int32Value_Impl(
 private class MutableInt32Value_Impl(
     override var value: Int,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableInt32Value, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableInt32Value>() {
+) : pbandk.wkt.MutableInt32Value, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Int32Value>() {
     override val descriptor get() = pbandk.wkt.Int32Value.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableInt32Value.() -> Unit) =
@@ -955,18 +916,6 @@ private fun Int32Value.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Int32V
         value = other.value
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun Int32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Int32Value {
-    var value = 0
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> value = _fieldValue as Int
-        }
-    }
-    return Int32Value_Impl(value, unknownFields)
 }
 
 @Deprecated(
@@ -1002,7 +951,7 @@ public fun UInt32Value?.orDefault(): pbandk.wkt.UInt32Value = this ?: pbandk.wkt
 private class UInt32Value_Impl(
     override val value: Int,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.UInt32Value, pbandk.GeneratedMessage<pbandk.wkt.UInt32Value>() {
+) : pbandk.wkt.UInt32Value, pbandk.gen.GeneratedMessage<pbandk.wkt.UInt32Value>() {
     override val descriptor get() = pbandk.wkt.UInt32Value.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableUInt32Value.() -> Unit) = pbandk.wkt.UInt32Value {
@@ -1026,7 +975,7 @@ private class UInt32Value_Impl(
 private class MutableUInt32Value_Impl(
     override var value: Int,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableUInt32Value, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableUInt32Value>() {
+) : pbandk.wkt.MutableUInt32Value, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.UInt32Value>() {
     override val descriptor get() = pbandk.wkt.UInt32Value.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableUInt32Value.() -> Unit) =
@@ -1053,18 +1002,6 @@ private fun UInt32Value.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.UInt3
         value = other.value
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun UInt32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.UInt32Value {
-    var value = 0
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> value = _fieldValue as Int
-        }
-    }
-    return UInt32Value_Impl(value, unknownFields)
 }
 
 @Deprecated(
@@ -1100,7 +1037,7 @@ public fun BoolValue?.orDefault(): pbandk.wkt.BoolValue = this ?: pbandk.wkt.Boo
 private class BoolValue_Impl(
     override val value: Boolean,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.BoolValue, pbandk.GeneratedMessage<pbandk.wkt.BoolValue>() {
+) : pbandk.wkt.BoolValue, pbandk.gen.GeneratedMessage<pbandk.wkt.BoolValue>() {
     override val descriptor get() = pbandk.wkt.BoolValue.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableBoolValue.() -> Unit) = pbandk.wkt.BoolValue {
@@ -1124,7 +1061,7 @@ private class BoolValue_Impl(
 private class MutableBoolValue_Impl(
     override var value: Boolean,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableBoolValue, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableBoolValue>() {
+) : pbandk.wkt.MutableBoolValue, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.BoolValue>() {
     override val descriptor get() = pbandk.wkt.BoolValue.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableBoolValue.() -> Unit) =
@@ -1151,18 +1088,6 @@ private fun BoolValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.BoolVal
         value = other.value
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun BoolValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.BoolValue {
-    var value = false
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> value = _fieldValue as Boolean
-        }
-    }
-    return BoolValue_Impl(value, unknownFields)
 }
 
 @Deprecated(
@@ -1198,7 +1123,7 @@ public fun StringValue?.orDefault(): pbandk.wkt.StringValue = this ?: pbandk.wkt
 private class StringValue_Impl(
     override val value: String,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.StringValue, pbandk.GeneratedMessage<pbandk.wkt.StringValue>() {
+) : pbandk.wkt.StringValue, pbandk.gen.GeneratedMessage<pbandk.wkt.StringValue>() {
     override val descriptor get() = pbandk.wkt.StringValue.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableStringValue.() -> Unit) = pbandk.wkt.StringValue {
@@ -1222,7 +1147,7 @@ private class StringValue_Impl(
 private class MutableStringValue_Impl(
     override var value: String,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableStringValue, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableStringValue>() {
+) : pbandk.wkt.MutableStringValue, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.StringValue>() {
     override val descriptor get() = pbandk.wkt.StringValue.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableStringValue.() -> Unit) =
@@ -1249,18 +1174,6 @@ private fun StringValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Strin
         value = other.value
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun StringValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.StringValue {
-    var value = ""
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> value = _fieldValue as String
-        }
-    }
-    return StringValue_Impl(value, unknownFields)
 }
 
 @Deprecated(
@@ -1296,7 +1209,7 @@ public fun BytesValue?.orDefault(): pbandk.wkt.BytesValue = this ?: pbandk.wkt.B
 private class BytesValue_Impl(
     override val value: pbandk.ByteArr,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.BytesValue, pbandk.GeneratedMessage<pbandk.wkt.BytesValue>() {
+) : pbandk.wkt.BytesValue, pbandk.gen.GeneratedMessage<pbandk.wkt.BytesValue>() {
     override val descriptor get() = pbandk.wkt.BytesValue.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableBytesValue.() -> Unit) = pbandk.wkt.BytesValue {
@@ -1320,7 +1233,7 @@ private class BytesValue_Impl(
 private class MutableBytesValue_Impl(
     override var value: pbandk.ByteArr,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableBytesValue, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableBytesValue>() {
+) : pbandk.wkt.MutableBytesValue, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.BytesValue>() {
     override val descriptor get() = pbandk.wkt.BytesValue.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableBytesValue.() -> Unit) =
@@ -1347,16 +1260,4 @@ private fun BytesValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.BytesV
         value = other.value
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun BytesValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.BytesValue {
-    var value: pbandk.ByteArr = pbandk.ByteArr.empty
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> value = _fieldValue as pbandk.ByteArr
-        }
-    }
-    return BytesValue_Impl(value, unknownFields)
 }

@@ -1,12 +1,15 @@
 package pbandk
 
+import pbandk.gen.MutableMessageMap
 import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.Sizer
 import pbandk.internal.binary.WireType
 import pbandk.internal.binary.allowedWireType
 import pbandk.internal.binary.binaryReadFn
 import pbandk.internal.binary.kotlin.ByteArrayWireReader
+import pbandk.internal.binary.kotlin.ByteArrayWireWriter
 import pbandk.internal.binary.kotlin.KotlinBinaryWireDecoder
+import pbandk.internal.binary.kotlin.KotlinBinaryWireEncoder
 import kotlin.js.JsExport
 import kotlin.js.JsName
 
@@ -21,8 +24,22 @@ public data class UnknownField @PublicForGeneratedCode constructor(val fieldNum:
         public constructor(wireType: Int, rawBytes: ByteArray) : this(wireType, ByteArr(rawBytes))
 
         internal val size get() = rawBytes.array.size
+
+        internal companion object
     }
+
+    internal companion object
 }
+
+/*
+internal fun <M : Message, T> UnknownField.Companion.encode(fieldDescriptor: FieldDescriptor<M, T>, value: T): UnknownField {
+    return UnknownField(fieldDescriptor.number, listOf(UnknownField.Value.encode(fieldDescriptor.type, value)))
+}
+
+private fun <T> UnknownField.Value.Companion.encode(type: FieldDescriptor.Type, value: T): UnknownField.Value {
+    val encoder = KotlinBinaryWireEncoder(ByteArrayWireWriter.allocate(100))
+}
+ */
 
 @Suppress("UNCHECKED_CAST")
 internal fun <M : Message, T> UnknownField.decodeAs(fieldDescriptor: FieldDescriptor<M, T>): T =

@@ -30,6 +30,7 @@
 package pbandk.internal.binary.kotlin
 
 import pbandk.*
+import pbandk.gen.ListWithSize
 import pbandk.internal.binary.*
 import pbandk.internal.binary.BinaryWireEncoder
 import pbandk.internal.binary.WireType

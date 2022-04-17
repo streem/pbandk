@@ -35,7 +35,6 @@ public sealed interface Value : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
         public val defaultInstance: pbandk.testpb.Value by lazy { pbandk.testpb.Value {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Value = pbandk.testpb.Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Value, *>>(3)
@@ -48,7 +47,8 @@ public sealed interface Value : pbandk.Message {
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         oneofMember = true,
                         jsonName = "stringValue",
-                        value = pbandk.testpb.Value::stringValue
+                        value = pbandk.testpb.Value::stringValue,
+                        mutableValue = pbandk.testpb.MutableValue::stringValue,
                     )
                 )
                 add(
@@ -59,7 +59,8 @@ public sealed interface Value : pbandk.Message {
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "booleanValue",
-                        value = pbandk.testpb.Value::booleanValue
+                        value = pbandk.testpb.Value::booleanValue,
+                        mutableValue = pbandk.testpb.MutableValue::booleanValue,
                     )
                 )
                 add(
@@ -70,7 +71,8 @@ public sealed interface Value : pbandk.Message {
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "integerValue",
-                        value = pbandk.testpb.Value::integerValue
+                        value = pbandk.testpb.Value::integerValue,
+                        mutableValue = pbandk.testpb.MutableValue::integerValue,
                     )
                 )
             }
@@ -78,13 +80,14 @@ public sealed interface Value : pbandk.Message {
                 fullName = "testpb.Value",
                 messageClass = pbandk.testpb.Value::class,
                 messageCompanion = this,
+                builder = ::Value,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableValue : pbandk.testpb.Value, pbandk.MutableMessage {
+public sealed interface MutableValue : pbandk.testpb.Value, pbandk.MutableMessage<pbandk.testpb.Value> {
     public override var value: Value.Value<*>?
 
     public override var stringValue: String?
@@ -125,7 +128,7 @@ public fun Value?.orDefault(): pbandk.testpb.Value = this ?: pbandk.testpb.Value
 private class Value_Impl(
     override val value: pbandk.testpb.Value.Value<*>?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.testpb.Value, pbandk.GeneratedMessage<pbandk.testpb.Value>() {
+) : pbandk.testpb.Value, pbandk.gen.GeneratedMessage<pbandk.testpb.Value>() {
     override val descriptor get() = pbandk.testpb.Value.descriptor
 
     override val stringValue: String?
@@ -156,7 +159,7 @@ private class Value_Impl(
 private class MutableValue_Impl(
     override var value: pbandk.testpb.Value.Value<*>?,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.testpb.MutableValue, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableValue>() {
+) : pbandk.testpb.MutableValue, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.Value>() {
     override val descriptor get() = pbandk.testpb.Value.descriptor
 
     override var stringValue: String?
@@ -198,18 +201,4 @@ private fun Value.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Value {
         }
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.Value {
-    var value: Value.Value<*>? = null
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> value = Value.Value.StringValue(_fieldValue as String)
-            2 -> value = Value.Value.BooleanValue(_fieldValue as Boolean)
-            3 -> value = Value.Value.IntegerValue(_fieldValue as Int)
-        }
-    }
-    return Value_Impl(value, unknownFields)
 }

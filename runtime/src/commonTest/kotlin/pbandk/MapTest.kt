@@ -1,5 +1,6 @@
 package pbandk
 
+import pbandk.gen.MessageMap
 import pbandk.testpb.Foo
 import pbandk.testpb.FooMap
 import pbandk.testpb.FooMapEntries

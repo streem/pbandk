@@ -1,6 +1,7 @@
 package pbandk
 
 import com.google.protobuf_test_messages.proto3.TestMessagesProto3
+import pbandk.gen.MessageMap
 import pbandk.testpb.ForeignEnum
 import pbandk.testpb.MessageWithMap
 import pbandk.testpb.TestAllTypesProto3

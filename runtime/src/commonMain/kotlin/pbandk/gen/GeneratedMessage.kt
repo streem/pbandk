@@ -1,5 +1,10 @@
-package pbandk
+package pbandk.gen
 
+import pbandk.FieldDescriptor
+import pbandk.Message
+import pbandk.MessageDescriptor
+import pbandk.MutableMessage
+import pbandk.PublicForGeneratedCode
 import pbandk.internal.binary.Sizer
 
 @Suppress("UNCHECKED_CAST")
@@ -66,7 +71,7 @@ public abstract class GeneratedMessage<T : Message> : Message {
 
 @Suppress("EqualsOrHashCode")
 @PublicForGeneratedCode
-public abstract class MutableGeneratedMessage<T : MutableMessage> : GeneratedMessage<T>(), MutableMessage {
+public abstract class MutableGeneratedMessage<T : Message> : GeneratedMessage<T>(), MutableMessage<T> {
     override val protoSize: Int get() = Sizer.rawMessageSize(this)
 
     override fun hashCode(): Int {

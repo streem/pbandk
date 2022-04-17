@@ -2,7 +2,7 @@ package pbandk.protobufjs
 
 import pbandk.ByteArr
 import pbandk.FieldDescriptor
-import pbandk.ListWithSize
+import pbandk.gen.ListWithSize
 import pbandk.Message
 import pbandk.internal.asUint8Array
 import pbandk.internal.binary.BinaryWireEncoder

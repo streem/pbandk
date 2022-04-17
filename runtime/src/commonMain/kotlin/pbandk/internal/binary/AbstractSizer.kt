@@ -30,6 +30,8 @@
 package pbandk.internal.binary
 
 import pbandk.*
+import pbandk.gen.ListWithSize
+import pbandk.gen.MessageMap
 import pbandk.wkt.*
 import kotlin.Any
 import kotlin.reflect.KProperty1

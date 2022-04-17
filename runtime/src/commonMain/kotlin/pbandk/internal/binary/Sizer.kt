@@ -3,7 +3,7 @@ package pbandk.internal.binary
 import pbandk.ByteArr
 import pbandk.FieldDescriptor
 import pbandk.Message
-import pbandk.MessageMap
+import pbandk.gen.MessageMap
 
 internal const val MAX_VARINT_SIZE = 10
 

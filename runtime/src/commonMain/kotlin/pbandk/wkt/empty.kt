@@ -23,7 +23,6 @@ public sealed interface Empty : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Empty> {
         public val defaultInstance: pbandk.wkt.Empty by lazy { pbandk.wkt.Empty {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Empty = pbandk.wkt.Empty.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Empty> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Empty, *>>(0)
@@ -33,13 +32,14 @@ public sealed interface Empty : pbandk.Message {
                 fullName = "google.protobuf.Empty",
                 messageClass = pbandk.wkt.Empty::class,
                 messageCompanion = this,
+                builder = ::Empty,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableEmpty : pbandk.wkt.Empty, pbandk.MutableMessage {
+public sealed interface MutableEmpty : pbandk.wkt.Empty, pbandk.MutableMessage<pbandk.wkt.Empty> {
 }
 
 @Deprecated(
@@ -71,7 +71,7 @@ public fun Empty?.orDefault(): pbandk.wkt.Empty = this ?: pbandk.wkt.Empty.defau
 
 private class Empty_Impl(
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Empty, pbandk.GeneratedMessage<pbandk.wkt.Empty>() {
+) : pbandk.wkt.Empty, pbandk.gen.GeneratedMessage<pbandk.wkt.Empty>() {
     override val descriptor get() = pbandk.wkt.Empty.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit) = pbandk.wkt.Empty {
@@ -91,7 +91,7 @@ private class Empty_Impl(
 
 private class MutableEmpty_Impl(
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableEmpty, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableEmpty>() {
+) : pbandk.wkt.MutableEmpty, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Empty>() {
     override val descriptor get() = pbandk.wkt.Empty.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit) =
@@ -115,11 +115,4 @@ private fun Empty.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Empty {
     return copy {
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun Empty.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Empty {
-
-    val unknownFields = u.readMessage(this) { _, _ -> }
-    return Empty_Impl(unknownFields)
 }

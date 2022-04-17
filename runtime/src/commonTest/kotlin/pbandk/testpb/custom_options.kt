@@ -25,7 +25,6 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SingleRequiredCustomOption> {
         public val defaultInstance: pbandk.testpb.SingleRequiredCustomOption by lazy { pbandk.testpb.SingleRequiredCustomOption {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SingleRequiredCustomOption = pbandk.testpb.SingleRequiredCustomOption.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SingleRequiredCustomOption> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.SingleRequiredCustomOption, *>>(1)
@@ -47,7 +46,8 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
                                 )
                             )
                         },
-                        value = pbandk.testpb.SingleRequiredCustomOption::single
+                        value = pbandk.testpb.SingleRequiredCustomOption::single,
+                        mutableValue = pbandk.testpb.MutableSingleRequiredCustomOption::single,
                     )
                 )
             }
@@ -55,13 +55,14 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
                 fullName = "pbandk.testpb.SingleRequiredCustomOption",
                 messageClass = pbandk.testpb.SingleRequiredCustomOption::class,
                 messageCompanion = this,
+                builder = ::SingleRequiredCustomOption,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableSingleRequiredCustomOption : pbandk.testpb.SingleRequiredCustomOption, pbandk.MutableMessage {
+public sealed interface MutableSingleRequiredCustomOption : pbandk.testpb.SingleRequiredCustomOption, pbandk.MutableMessage<pbandk.testpb.SingleRequiredCustomOption> {
     public override var single: String
 }
 
@@ -88,7 +89,6 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptions> {
         public val defaultInstance: pbandk.testpb.MultipleCustomOptions by lazy { pbandk.testpb.MultipleCustomOptions {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptions = pbandk.testpb.MultipleCustomOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptions> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptions, *>>(1)
@@ -111,7 +111,8 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
                                 )
                             )
                         },
-                        value = pbandk.testpb.MultipleCustomOptions::multiple
+                        value = pbandk.testpb.MultipleCustomOptions::multiple,
+                        mutableValue = pbandk.testpb.MutableMultipleCustomOptions::multiple,
                     )
                 )
             }
@@ -119,13 +120,14 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
                 fullName = "pbandk.testpb.MultipleCustomOptions",
                 messageClass = pbandk.testpb.MultipleCustomOptions::class,
                 messageCompanion = this,
+                builder = ::MultipleCustomOptions,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableMultipleCustomOptions : pbandk.testpb.MultipleCustomOptions, pbandk.MutableMessage {
+public sealed interface MutableMultipleCustomOptions : pbandk.testpb.MultipleCustomOptions, pbandk.MutableMessage<pbandk.testpb.MultipleCustomOptions> {
     public override var multiple: String
 }
 
@@ -153,7 +155,6 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> {
         public val defaultInstance: pbandk.testpb.MultipleCustomOptionsPlusDeprecated by lazy { pbandk.testpb.MultipleCustomOptionsPlusDeprecated {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated, *>>(1)
@@ -178,7 +179,8 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
                                 )
                             )
                         },
-                        value = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::multipleDeprecated
+                        value = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::multipleDeprecated,
+                        mutableValue = pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated::multipleDeprecated,
                     )
                 )
             }
@@ -186,13 +188,14 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
                 fullName = "pbandk.testpb.MultipleCustomOptionsPlusDeprecated",
                 messageClass = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::class,
                 messageCompanion = this,
+                builder = ::MultipleCustomOptionsPlusDeprecated,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableMultipleCustomOptionsPlusDeprecated : pbandk.testpb.MultipleCustomOptionsPlusDeprecated, pbandk.MutableMessage {
+public sealed interface MutableMultipleCustomOptionsPlusDeprecated : pbandk.testpb.MultipleCustomOptionsPlusDeprecated, pbandk.MutableMessage<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> {
     @Deprecated(message = "Field marked deprecated in pbandk/testpb/custom_options.proto")
     public override var multipleDeprecated: String
 }
@@ -230,7 +233,7 @@ public fun SingleRequiredCustomOption?.orDefault(): pbandk.testpb.SingleRequired
 private class SingleRequiredCustomOption_Impl(
     override val single: String,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.testpb.SingleRequiredCustomOption, pbandk.GeneratedMessage<pbandk.testpb.SingleRequiredCustomOption>() {
+) : pbandk.testpb.SingleRequiredCustomOption, pbandk.gen.GeneratedMessage<pbandk.testpb.SingleRequiredCustomOption>() {
     override val descriptor get() = pbandk.testpb.SingleRequiredCustomOption.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableSingleRequiredCustomOption.() -> Unit) = pbandk.testpb.SingleRequiredCustomOption {
@@ -254,7 +257,7 @@ private class SingleRequiredCustomOption_Impl(
 private class MutableSingleRequiredCustomOption_Impl(
     override var single: String,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.testpb.MutableSingleRequiredCustomOption, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableSingleRequiredCustomOption>() {
+) : pbandk.testpb.MutableSingleRequiredCustomOption, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.SingleRequiredCustomOption>() {
     override val descriptor get() = pbandk.testpb.SingleRequiredCustomOption.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableSingleRequiredCustomOption.() -> Unit) =
@@ -281,18 +284,6 @@ private fun SingleRequiredCustomOption.protoMergeImpl(other: pbandk.Message?): p
         single = other.single
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun SingleRequiredCustomOption.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.SingleRequiredCustomOption {
-    var single = ""
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> single = _fieldValue as String
-        }
-    }
-    return SingleRequiredCustomOption_Impl(single, unknownFields)
 }
 
 @Deprecated(
@@ -328,7 +319,7 @@ public fun MultipleCustomOptions?.orDefault(): pbandk.testpb.MultipleCustomOptio
 private class MultipleCustomOptions_Impl(
     override val multiple: String,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.testpb.MultipleCustomOptions, pbandk.GeneratedMessage<pbandk.testpb.MultipleCustomOptions>() {
+) : pbandk.testpb.MultipleCustomOptions, pbandk.gen.GeneratedMessage<pbandk.testpb.MultipleCustomOptions>() {
     override val descriptor get() = pbandk.testpb.MultipleCustomOptions.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptions.() -> Unit) = pbandk.testpb.MultipleCustomOptions {
@@ -352,7 +343,7 @@ private class MultipleCustomOptions_Impl(
 private class MutableMultipleCustomOptions_Impl(
     override var multiple: String,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.testpb.MutableMultipleCustomOptions, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableMultipleCustomOptions>() {
+) : pbandk.testpb.MutableMultipleCustomOptions, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.MultipleCustomOptions>() {
     override val descriptor get() = pbandk.testpb.MultipleCustomOptions.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptions.() -> Unit) =
@@ -379,18 +370,6 @@ private fun MultipleCustomOptions.protoMergeImpl(other: pbandk.Message?): pbandk
         multiple = other.multiple
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun MultipleCustomOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptions {
-    var multiple = ""
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> multiple = _fieldValue as String
-        }
-    }
-    return MultipleCustomOptions_Impl(multiple, unknownFields)
 }
 
 @Deprecated(
@@ -427,7 +406,7 @@ public fun MultipleCustomOptionsPlusDeprecated?.orDefault(): pbandk.testpb.Multi
 private class MultipleCustomOptionsPlusDeprecated_Impl(
     override val multipleDeprecated: String,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.testpb.MultipleCustomOptionsPlusDeprecated, pbandk.GeneratedMessage<pbandk.testpb.MultipleCustomOptionsPlusDeprecated>() {
+) : pbandk.testpb.MultipleCustomOptionsPlusDeprecated, pbandk.gen.GeneratedMessage<pbandk.testpb.MultipleCustomOptionsPlusDeprecated>() {
     override val descriptor get() = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit) = pbandk.testpb.MultipleCustomOptionsPlusDeprecated {
@@ -454,7 +433,7 @@ private class MultipleCustomOptionsPlusDeprecated_Impl(
 private class MutableMultipleCustomOptionsPlusDeprecated_Impl(
     override var multipleDeprecated: String,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated>() {
+) : pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.MultipleCustomOptionsPlusDeprecated>() {
     override val descriptor get() = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit) =
@@ -483,16 +462,4 @@ private fun MultipleCustomOptionsPlusDeprecated.protoMergeImpl(other: pbandk.Mes
         multipleDeprecated = other.multipleDeprecated
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun MultipleCustomOptionsPlusDeprecated.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptionsPlusDeprecated {
-    var multipleDeprecated = ""
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> multipleDeprecated = _fieldValue as String
-        }
-    }
-    return MultipleCustomOptionsPlusDeprecated_Impl(multipleDeprecated, unknownFields)
 }

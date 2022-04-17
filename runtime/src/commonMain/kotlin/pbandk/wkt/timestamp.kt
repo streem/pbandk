@@ -27,7 +27,6 @@ public sealed interface Timestamp : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Timestamp> {
         public val defaultInstance: pbandk.wkt.Timestamp by lazy { pbandk.wkt.Timestamp {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Timestamp = pbandk.wkt.Timestamp.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Timestamp, *>>(2)
@@ -39,7 +38,8 @@ public sealed interface Timestamp : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
                         jsonName = "seconds",
-                        value = pbandk.wkt.Timestamp::seconds
+                        value = pbandk.wkt.Timestamp::seconds,
+                        mutableValue = pbandk.wkt.MutableTimestamp::seconds,
                     )
                 )
                 add(
@@ -49,7 +49,8 @@ public sealed interface Timestamp : pbandk.Message {
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "nanos",
-                        value = pbandk.wkt.Timestamp::nanos
+                        value = pbandk.wkt.Timestamp::nanos,
+                        mutableValue = pbandk.wkt.MutableTimestamp::nanos,
                     )
                 )
             }
@@ -57,13 +58,14 @@ public sealed interface Timestamp : pbandk.Message {
                 fullName = "google.protobuf.Timestamp",
                 messageClass = pbandk.wkt.Timestamp::class,
                 messageCompanion = this,
+                builder = ::Timestamp,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableTimestamp : pbandk.wkt.Timestamp, pbandk.MutableMessage {
+public sealed interface MutableTimestamp : pbandk.wkt.Timestamp, pbandk.MutableMessage<pbandk.wkt.Timestamp> {
     public override var seconds: Long
     public override var nanos: Int
 }
@@ -105,7 +107,7 @@ private class Timestamp_Impl(
     override val seconds: Long,
     override val nanos: Int,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Timestamp, pbandk.GeneratedMessage<pbandk.wkt.Timestamp>() {
+) : pbandk.wkt.Timestamp, pbandk.gen.GeneratedMessage<pbandk.wkt.Timestamp>() {
     override val descriptor get() = pbandk.wkt.Timestamp.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit) = pbandk.wkt.Timestamp {
@@ -133,7 +135,7 @@ private class MutableTimestamp_Impl(
     override var seconds: Long,
     override var nanos: Int,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableTimestamp, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableTimestamp>() {
+) : pbandk.wkt.MutableTimestamp, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Timestamp>() {
     override val descriptor get() = pbandk.wkt.Timestamp.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit) =
@@ -163,18 +165,4 @@ private fun Timestamp.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Timesta
         nanos = other.nanos
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun Timestamp.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Timestamp {
-    var seconds = 0L
-    var nanos = 0
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> seconds = _fieldValue as Long
-            2 -> nanos = _fieldValue as Int
-        }
-    }
-    return Timestamp_Impl(seconds, nanos, unknownFields)
 }

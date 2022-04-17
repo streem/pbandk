@@ -52,7 +52,6 @@ public sealed interface Type : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Type> {
         public val defaultInstance: pbandk.wkt.Type by lazy { pbandk.wkt.Type {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Type = pbandk.wkt.Type.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Type> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Type, *>>(6)
@@ -64,7 +63,8 @@ public sealed interface Type : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = pbandk.wkt.Type::name
+                        value = pbandk.wkt.Type::name,
+                        mutableValue = pbandk.wkt.MutableType::name,
                     )
                 )
                 add(
@@ -74,7 +74,7 @@ public sealed interface Type : pbandk.Message {
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Field>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Field.Companion)),
                         jsonName = "fields",
-                        value = pbandk.wkt.Type::fields
+                        value = pbandk.wkt.Type::fields,
                     )
                 )
                 add(
@@ -84,7 +84,7 @@ public sealed interface Type : pbandk.Message {
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "oneofs",
-                        value = pbandk.wkt.Type::oneofs
+                        value = pbandk.wkt.Type::oneofs,
                     )
                 )
                 add(
@@ -94,7 +94,7 @@ public sealed interface Type : pbandk.Message {
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
                         jsonName = "options",
-                        value = pbandk.wkt.Type::options
+                        value = pbandk.wkt.Type::options,
                     )
                 )
                 add(
@@ -104,7 +104,8 @@ public sealed interface Type : pbandk.Message {
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceContext.Companion),
                         jsonName = "sourceContext",
-                        value = pbandk.wkt.Type::sourceContext
+                        value = pbandk.wkt.Type::sourceContext,
+                        mutableValue = pbandk.wkt.MutableType::sourceContext,
                     )
                 )
                 add(
@@ -114,7 +115,8 @@ public sealed interface Type : pbandk.Message {
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
                         jsonName = "syntax",
-                        value = pbandk.wkt.Type::syntax
+                        value = pbandk.wkt.Type::syntax,
+                        mutableValue = pbandk.wkt.MutableType::syntax,
                     )
                 )
             }
@@ -122,13 +124,14 @@ public sealed interface Type : pbandk.Message {
                 fullName = "google.protobuf.Type",
                 messageClass = pbandk.wkt.Type::class,
                 messageCompanion = this,
+                builder = ::Type,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableType : pbandk.wkt.Type, pbandk.MutableMessage {
+public sealed interface MutableType : pbandk.wkt.Type, pbandk.MutableMessage<pbandk.wkt.Type> {
     public override var name: String
     public override val fields: MutableList<pbandk.wkt.Field>
     public override val oneofs: MutableList<String>
@@ -178,7 +181,6 @@ public sealed interface Field : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Field> {
         public val defaultInstance: pbandk.wkt.Field by lazy { pbandk.wkt.Field {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Field = pbandk.wkt.Field.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Field> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Field, *>>(10)
@@ -190,7 +192,8 @@ public sealed interface Field : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Field.Kind.Companion),
                         jsonName = "kind",
-                        value = pbandk.wkt.Field::kind
+                        value = pbandk.wkt.Field::kind,
+                        mutableValue = pbandk.wkt.MutableField::kind,
                     )
                 )
                 add(
@@ -200,7 +203,8 @@ public sealed interface Field : pbandk.Message {
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Field.Cardinality.Companion),
                         jsonName = "cardinality",
-                        value = pbandk.wkt.Field::cardinality
+                        value = pbandk.wkt.Field::cardinality,
+                        mutableValue = pbandk.wkt.MutableField::cardinality,
                     )
                 )
                 add(
@@ -210,7 +214,8 @@ public sealed interface Field : pbandk.Message {
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "number",
-                        value = pbandk.wkt.Field::number
+                        value = pbandk.wkt.Field::number,
+                        mutableValue = pbandk.wkt.MutableField::number,
                     )
                 )
                 add(
@@ -220,7 +225,8 @@ public sealed interface Field : pbandk.Message {
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = pbandk.wkt.Field::name
+                        value = pbandk.wkt.Field::name,
+                        mutableValue = pbandk.wkt.MutableField::name,
                     )
                 )
                 add(
@@ -230,7 +236,8 @@ public sealed interface Field : pbandk.Message {
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "typeUrl",
-                        value = pbandk.wkt.Field::typeUrl
+                        value = pbandk.wkt.Field::typeUrl,
+                        mutableValue = pbandk.wkt.MutableField::typeUrl,
                     )
                 )
                 add(
@@ -240,7 +247,8 @@ public sealed interface Field : pbandk.Message {
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "oneofIndex",
-                        value = pbandk.wkt.Field::oneofIndex
+                        value = pbandk.wkt.Field::oneofIndex,
+                        mutableValue = pbandk.wkt.MutableField::oneofIndex,
                     )
                 )
                 add(
@@ -250,7 +258,8 @@ public sealed interface Field : pbandk.Message {
                         number = 8,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
                         jsonName = "packed",
-                        value = pbandk.wkt.Field::packed
+                        value = pbandk.wkt.Field::packed,
+                        mutableValue = pbandk.wkt.MutableField::packed,
                     )
                 )
                 add(
@@ -260,7 +269,7 @@ public sealed interface Field : pbandk.Message {
                         number = 9,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
                         jsonName = "options",
-                        value = pbandk.wkt.Field::options
+                        value = pbandk.wkt.Field::options,
                     )
                 )
                 add(
@@ -270,7 +279,8 @@ public sealed interface Field : pbandk.Message {
                         number = 10,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "jsonName",
-                        value = pbandk.wkt.Field::jsonName
+                        value = pbandk.wkt.Field::jsonName,
+                        mutableValue = pbandk.wkt.MutableField::jsonName,
                     )
                 )
                 add(
@@ -280,7 +290,8 @@ public sealed interface Field : pbandk.Message {
                         number = 11,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "defaultValue",
-                        value = pbandk.wkt.Field::defaultValue
+                        value = pbandk.wkt.Field::defaultValue,
+                        mutableValue = pbandk.wkt.MutableField::defaultValue,
                     )
                 )
             }
@@ -288,6 +299,7 @@ public sealed interface Field : pbandk.Message {
                 fullName = "google.protobuf.Field",
                 messageClass = pbandk.wkt.Field::class,
                 messageCompanion = this,
+                builder = ::Field,
                 fields = fieldsList
             )
         }
@@ -345,7 +357,7 @@ public sealed interface Field : pbandk.Message {
     }
 }
 
-public sealed interface MutableField : pbandk.wkt.Field, pbandk.MutableMessage {
+public sealed interface MutableField : pbandk.wkt.Field, pbandk.MutableMessage<pbandk.wkt.Field> {
     public override var kind: pbandk.wkt.Field.Kind
     public override var cardinality: pbandk.wkt.Field.Cardinality
     public override var number: Int
@@ -389,7 +401,6 @@ public sealed interface Enum : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Enum> {
         public val defaultInstance: pbandk.wkt.Enum by lazy { pbandk.wkt.Enum {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Enum = pbandk.wkt.Enum.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Enum> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Enum, *>>(5)
@@ -401,7 +412,8 @@ public sealed interface Enum : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = pbandk.wkt.Enum::name
+                        value = pbandk.wkt.Enum::name,
+                        mutableValue = pbandk.wkt.MutableEnum::name,
                     )
                 )
                 add(
@@ -411,7 +423,7 @@ public sealed interface Enum : pbandk.Message {
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.EnumValue>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumValue.Companion)),
                         jsonName = "enumvalue",
-                        value = pbandk.wkt.Enum::enumvalue
+                        value = pbandk.wkt.Enum::enumvalue,
                     )
                 )
                 add(
@@ -421,7 +433,7 @@ public sealed interface Enum : pbandk.Message {
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
                         jsonName = "options",
-                        value = pbandk.wkt.Enum::options
+                        value = pbandk.wkt.Enum::options,
                     )
                 )
                 add(
@@ -431,7 +443,8 @@ public sealed interface Enum : pbandk.Message {
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceContext.Companion),
                         jsonName = "sourceContext",
-                        value = pbandk.wkt.Enum::sourceContext
+                        value = pbandk.wkt.Enum::sourceContext,
+                        mutableValue = pbandk.wkt.MutableEnum::sourceContext,
                     )
                 )
                 add(
@@ -441,7 +454,8 @@ public sealed interface Enum : pbandk.Message {
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
                         jsonName = "syntax",
-                        value = pbandk.wkt.Enum::syntax
+                        value = pbandk.wkt.Enum::syntax,
+                        mutableValue = pbandk.wkt.MutableEnum::syntax,
                     )
                 )
             }
@@ -449,13 +463,14 @@ public sealed interface Enum : pbandk.Message {
                 fullName = "google.protobuf.Enum",
                 messageClass = pbandk.wkt.Enum::class,
                 messageCompanion = this,
+                builder = ::Enum,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableEnum : pbandk.wkt.Enum, pbandk.MutableMessage {
+public sealed interface MutableEnum : pbandk.wkt.Enum, pbandk.MutableMessage<pbandk.wkt.Enum> {
     public override var name: String
     public override val enumvalue: MutableList<pbandk.wkt.EnumValue>
     public override val options: MutableList<pbandk.wkt.Option>
@@ -490,7 +505,6 @@ public sealed interface EnumValue : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValue> {
         public val defaultInstance: pbandk.wkt.EnumValue by lazy { pbandk.wkt.EnumValue {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValue = pbandk.wkt.EnumValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValue> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.EnumValue, *>>(3)
@@ -502,7 +516,8 @@ public sealed interface EnumValue : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = pbandk.wkt.EnumValue::name
+                        value = pbandk.wkt.EnumValue::name,
+                        mutableValue = pbandk.wkt.MutableEnumValue::name,
                     )
                 )
                 add(
@@ -512,7 +527,8 @@ public sealed interface EnumValue : pbandk.Message {
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "number",
-                        value = pbandk.wkt.EnumValue::number
+                        value = pbandk.wkt.EnumValue::number,
+                        mutableValue = pbandk.wkt.MutableEnumValue::number,
                     )
                 )
                 add(
@@ -522,7 +538,7 @@ public sealed interface EnumValue : pbandk.Message {
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
                         jsonName = "options",
-                        value = pbandk.wkt.EnumValue::options
+                        value = pbandk.wkt.EnumValue::options,
                     )
                 )
             }
@@ -530,13 +546,14 @@ public sealed interface EnumValue : pbandk.Message {
                 fullName = "google.protobuf.EnumValue",
                 messageClass = pbandk.wkt.EnumValue::class,
                 messageCompanion = this,
+                builder = ::EnumValue,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableEnumValue : pbandk.wkt.EnumValue, pbandk.MutableMessage {
+public sealed interface MutableEnumValue : pbandk.wkt.EnumValue, pbandk.MutableMessage<pbandk.wkt.EnumValue> {
     public override var name: String
     public override var number: Int
     public override val options: MutableList<pbandk.wkt.Option>
@@ -567,7 +584,6 @@ public sealed interface Option : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Option> {
         public val defaultInstance: pbandk.wkt.Option by lazy { pbandk.wkt.Option {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Option = pbandk.wkt.Option.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Option> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Option, *>>(2)
@@ -579,7 +595,8 @@ public sealed interface Option : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = pbandk.wkt.Option::name
+                        value = pbandk.wkt.Option::name,
+                        mutableValue = pbandk.wkt.MutableOption::name,
                     )
                 )
                 add(
@@ -589,7 +606,8 @@ public sealed interface Option : pbandk.Message {
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Any.Companion),
                         jsonName = "value",
-                        value = pbandk.wkt.Option::value
+                        value = pbandk.wkt.Option::value,
+                        mutableValue = pbandk.wkt.MutableOption::value,
                     )
                 )
             }
@@ -597,13 +615,14 @@ public sealed interface Option : pbandk.Message {
                 fullName = "google.protobuf.Option",
                 messageClass = pbandk.wkt.Option::class,
                 messageCompanion = this,
+                builder = ::Option,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableOption : pbandk.wkt.Option, pbandk.MutableMessage {
+public sealed interface MutableOption : pbandk.wkt.Option, pbandk.MutableMessage<pbandk.wkt.Option> {
     public override var name: String
     public override var value: pbandk.wkt.Any?
 }
@@ -661,7 +680,7 @@ private class Type_Impl(
     override val sourceContext: pbandk.wkt.SourceContext?,
     override val syntax: pbandk.wkt.Syntax,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Type, pbandk.GeneratedMessage<pbandk.wkt.Type>() {
+) : pbandk.wkt.Type, pbandk.gen.GeneratedMessage<pbandk.wkt.Type>() {
     override val descriptor get() = pbandk.wkt.Type.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableType.() -> Unit) = pbandk.wkt.Type {
@@ -705,7 +724,7 @@ private class MutableType_Impl(
     override var sourceContext: pbandk.wkt.SourceContext?,
     override var syntax: pbandk.wkt.Syntax,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableType, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableType>() {
+) : pbandk.wkt.MutableType, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Type>() {
     override val descriptor get() = pbandk.wkt.Type.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableType.() -> Unit) =
@@ -747,29 +766,6 @@ private fun Type.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Type {
         syntax = other.syntax
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Type {
-    var name = ""
-    var fields: pbandk.ListWithSize.Builder<pbandk.wkt.Field>? = null
-    var oneofs: pbandk.ListWithSize.Builder<String>? = null
-    var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
-    var sourceContext: pbandk.wkt.SourceContext? = null
-    var syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0)
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> name = _fieldValue as String
-            2 -> fields = (fields ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Field> }
-            3 -> oneofs = (oneofs ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
-            4 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
-            5 -> sourceContext = _fieldValue as pbandk.wkt.SourceContext
-            6 -> syntax = _fieldValue as pbandk.wkt.Syntax
-        }
-    }
-    return Type_Impl(name, pbandk.ListWithSize.Builder.fixed(fields), pbandk.ListWithSize.Builder.fixed(oneofs), pbandk.ListWithSize.Builder.fixed(options),
-        sourceContext, syntax, unknownFields)
 }
 
 @Deprecated(
@@ -841,7 +837,7 @@ private class Field_Impl(
     override val jsonName: String,
     override val defaultValue: String,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Field, pbandk.GeneratedMessage<pbandk.wkt.Field>() {
+) : pbandk.wkt.Field, pbandk.gen.GeneratedMessage<pbandk.wkt.Field>() {
     override val descriptor get() = pbandk.wkt.Field.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableField.() -> Unit) = pbandk.wkt.Field {
@@ -901,7 +897,7 @@ private class MutableField_Impl(
     override var jsonName: String,
     override var defaultValue: String,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableField, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableField>() {
+) : pbandk.wkt.MutableField, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Field>() {
     override val descriptor get() = pbandk.wkt.Field.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableField.() -> Unit) =
@@ -957,38 +953,6 @@ private fun Field.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Field {
     }
 }
 
-@Suppress("UNCHECKED_CAST")
-private fun Field.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Field {
-    var kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0)
-    var cardinality: pbandk.wkt.Field.Cardinality = pbandk.wkt.Field.Cardinality.fromValue(0)
-    var number = 0
-    var name = ""
-    var typeUrl = ""
-    var oneofIndex = 0
-    var packed = false
-    var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
-    var jsonName = ""
-    var defaultValue = ""
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> kind = _fieldValue as pbandk.wkt.Field.Kind
-            2 -> cardinality = _fieldValue as pbandk.wkt.Field.Cardinality
-            3 -> number = _fieldValue as Int
-            4 -> name = _fieldValue as String
-            6 -> typeUrl = _fieldValue as String
-            7 -> oneofIndex = _fieldValue as Int
-            8 -> packed = _fieldValue as Boolean
-            9 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
-            10 -> jsonName = _fieldValue as String
-            11 -> defaultValue = _fieldValue as String
-        }
-    }
-    return Field_Impl(kind, cardinality, number, name,
-        typeUrl, oneofIndex, packed, pbandk.ListWithSize.Builder.fixed(options),
-        jsonName, defaultValue, unknownFields)
-}
-
 @Deprecated(
     message = "Use Enum { } instead",
     replaceWith = ReplaceWith(
@@ -1038,7 +1002,7 @@ private class Enum_Impl(
     override val sourceContext: pbandk.wkt.SourceContext?,
     override val syntax: pbandk.wkt.Syntax,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Enum, pbandk.GeneratedMessage<pbandk.wkt.Enum>() {
+) : pbandk.wkt.Enum, pbandk.gen.GeneratedMessage<pbandk.wkt.Enum>() {
     override val descriptor get() = pbandk.wkt.Enum.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableEnum.() -> Unit) = pbandk.wkt.Enum {
@@ -1078,7 +1042,7 @@ private class MutableEnum_Impl(
     override var sourceContext: pbandk.wkt.SourceContext?,
     override var syntax: pbandk.wkt.Syntax,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableEnum, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableEnum>() {
+) : pbandk.wkt.MutableEnum, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Enum>() {
     override val descriptor get() = pbandk.wkt.Enum.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableEnum.() -> Unit) =
@@ -1117,27 +1081,6 @@ private fun Enum.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Enum {
         syntax = other.syntax
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Enum {
-    var name = ""
-    var enumvalue: pbandk.ListWithSize.Builder<pbandk.wkt.EnumValue>? = null
-    var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
-    var sourceContext: pbandk.wkt.SourceContext? = null
-    var syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0)
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> name = _fieldValue as String
-            2 -> enumvalue = (enumvalue ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.EnumValue> }
-            3 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
-            4 -> sourceContext = _fieldValue as pbandk.wkt.SourceContext
-            5 -> syntax = _fieldValue as pbandk.wkt.Syntax
-        }
-    }
-    return Enum_Impl(name, pbandk.ListWithSize.Builder.fixed(enumvalue), pbandk.ListWithSize.Builder.fixed(options), sourceContext,
-        syntax, unknownFields)
 }
 
 @Deprecated(
@@ -1181,7 +1124,7 @@ private class EnumValue_Impl(
     override val number: Int,
     override val options: List<pbandk.wkt.Option>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.EnumValue, pbandk.GeneratedMessage<pbandk.wkt.EnumValue>() {
+) : pbandk.wkt.EnumValue, pbandk.gen.GeneratedMessage<pbandk.wkt.EnumValue>() {
     override val descriptor get() = pbandk.wkt.EnumValue.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableEnumValue.() -> Unit) = pbandk.wkt.EnumValue {
@@ -1213,7 +1156,7 @@ private class MutableEnumValue_Impl(
     override var number: Int,
     override val options: MutableList<pbandk.wkt.Option>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableEnumValue, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableEnumValue>() {
+) : pbandk.wkt.MutableEnumValue, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.EnumValue>() {
     override val descriptor get() = pbandk.wkt.EnumValue.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableEnumValue.() -> Unit) =
@@ -1246,22 +1189,6 @@ private fun EnumValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.EnumVal
         options += other.options
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun EnumValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.EnumValue {
-    var name = ""
-    var number = 0
-    var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> name = _fieldValue as String
-            2 -> number = _fieldValue as Int
-            3 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
-        }
-    }
-    return EnumValue_Impl(name, number, pbandk.ListWithSize.Builder.fixed(options), unknownFields)
 }
 
 @Deprecated(
@@ -1301,7 +1228,7 @@ private class Option_Impl(
     override val name: String,
     override val value: pbandk.wkt.Any?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Option, pbandk.GeneratedMessage<pbandk.wkt.Option>() {
+) : pbandk.wkt.Option, pbandk.gen.GeneratedMessage<pbandk.wkt.Option>() {
     override val descriptor get() = pbandk.wkt.Option.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableOption.() -> Unit) = pbandk.wkt.Option {
@@ -1329,7 +1256,7 @@ private class MutableOption_Impl(
     override var name: String,
     override var value: pbandk.wkt.Any?,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableOption, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableOption>() {
+) : pbandk.wkt.MutableOption, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Option>() {
     override val descriptor get() = pbandk.wkt.Option.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableOption.() -> Unit) =
@@ -1359,18 +1286,4 @@ private fun Option.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Option {
         value = value?.plus(other.value) ?: other.value
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun Option.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Option {
-    var name = ""
-    var value: pbandk.wkt.Any? = null
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> name = _fieldValue as String
-            2 -> value = _fieldValue as pbandk.wkt.Any
-        }
-    }
-    return Option_Impl(name, value, unknownFields)
 }

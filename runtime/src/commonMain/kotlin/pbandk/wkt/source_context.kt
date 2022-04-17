@@ -25,7 +25,6 @@ public sealed interface SourceContext : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
         public val defaultInstance: pbandk.wkt.SourceContext by lazy { pbandk.wkt.SourceContext {} }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceContext = pbandk.wkt.SourceContext.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.SourceContext, *>>(1)
@@ -37,7 +36,8 @@ public sealed interface SourceContext : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "fileName",
-                        value = pbandk.wkt.SourceContext::fileName
+                        value = pbandk.wkt.SourceContext::fileName,
+                        mutableValue = pbandk.wkt.MutableSourceContext::fileName,
                     )
                 )
             }
@@ -45,13 +45,14 @@ public sealed interface SourceContext : pbandk.Message {
                 fullName = "google.protobuf.SourceContext",
                 messageClass = pbandk.wkt.SourceContext::class,
                 messageCompanion = this,
+                builder = ::SourceContext,
                 fields = fieldsList
             )
         }
     }
 }
 
-public sealed interface MutableSourceContext : pbandk.wkt.SourceContext, pbandk.MutableMessage {
+public sealed interface MutableSourceContext : pbandk.wkt.SourceContext, pbandk.MutableMessage<pbandk.wkt.SourceContext> {
     public override var fileName: String
 }
 
@@ -88,7 +89,7 @@ public fun SourceContext?.orDefault(): pbandk.wkt.SourceContext = this ?: pbandk
 private class SourceContext_Impl(
     override val fileName: String,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.SourceContext, pbandk.GeneratedMessage<pbandk.wkt.SourceContext>() {
+) : pbandk.wkt.SourceContext, pbandk.gen.GeneratedMessage<pbandk.wkt.SourceContext>() {
     override val descriptor get() = pbandk.wkt.SourceContext.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableSourceContext.() -> Unit) = pbandk.wkt.SourceContext {
@@ -112,7 +113,7 @@ private class SourceContext_Impl(
 private class MutableSourceContext_Impl(
     override var fileName: String,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : pbandk.wkt.MutableSourceContext, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableSourceContext>() {
+) : pbandk.wkt.MutableSourceContext, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.SourceContext>() {
     override val descriptor get() = pbandk.wkt.SourceContext.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableSourceContext.() -> Unit) =
@@ -139,16 +140,4 @@ private fun SourceContext.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Sou
         fileName = other.fileName
         unknownFields += other.unknownFields
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun SourceContext.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.SourceContext {
-    var fileName = ""
-
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> fileName = _fieldValue as String
-        }
-    }
-    return SourceContext_Impl(fileName, unknownFields)
 }

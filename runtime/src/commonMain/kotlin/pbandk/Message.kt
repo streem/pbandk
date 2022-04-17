@@ -17,8 +17,6 @@ public interface Message {
     public operator fun plus(other: Message?): Message
 
     public interface Companion<T : Message> {
-        public fun decodeWith(u: MessageDecoder): T
-
         public val descriptor: MessageDescriptor<T>
     }
 
@@ -43,16 +41,11 @@ public interface Message {
 
 }
 
-@DslMarker
-public annotation class MessageBuilderMarker
-
-@MessageBuilderMarker
-public interface MutableMessage : Message {
-    public override val unknownFields: MutableMap<Int, UnknownField>
-}
-
 @JsExport
 public fun <T : Message> T.encodeWith(m: MessageEncoder): Unit = m.writeMessage(this)
+
+@JsExport
+public fun <T : Message> Message.Companion<T>.decodeWith(m: MessageDecoder): T = m.readMessage(this)
 
 /**
  * Encode this message to a ByteArray using the protocol buffer binary encoding.

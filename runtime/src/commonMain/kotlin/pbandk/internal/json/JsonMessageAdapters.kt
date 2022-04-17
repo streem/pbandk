@@ -10,8 +10,7 @@ import kotlinx.serialization.json.jsonPrimitive
 import pbandk.FieldDescriptor
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
-import pbandk.MessageMap
-import pbandk.MutableMessageMap
+import pbandk.gen.MutableMessageMap
 import pbandk.getTypeNameFromTypeUrl
 import pbandk.getTypePrefixFromTypeUrl
 import pbandk.getTypeUrl
