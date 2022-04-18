@@ -3804,8 +3804,8 @@ public fun FloatRules(builderAction: pbandk.testpb.MutableFloatRules.() -> Unit)
     lte = null,
     gt = null,
     gte = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toFloatRules()
 
@@ -3819,8 +3819,8 @@ private class FloatRules_Impl(
     override val lte: Float?,
     override val gt: Float?,
     override val gte: Float?,
-    override val `in`: List<Float>,
-    override val notIn: List<Float>,
+    override val `in`: pbandk.gen.ListField<Float>,
+    override val notIn: pbandk.gen.ListField<Float>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.FloatRules, pbandk.gen.GeneratedMessage<pbandk.testpb.FloatRules>() {
     override val descriptor get() = pbandk.testpb.FloatRules.descriptor
@@ -3867,8 +3867,8 @@ private class MutableFloatRules_Impl(
     override var lte: Float?,
     override var gt: Float?,
     override var gte: Float?,
-    override val `in`: MutableList<Float>,
-    override val notIn: MutableList<Float>,
+    override val `in`: pbandk.gen.MutableListField<Float>,
+    override val notIn: pbandk.gen.MutableListField<Float>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableFloatRules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.FloatRules>() {
     override val descriptor get() = pbandk.testpb.FloatRules.descriptor
@@ -3896,8 +3896,8 @@ private class MutableFloatRules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -3956,8 +3956,8 @@ public fun DoubleRules(builderAction: pbandk.testpb.MutableDoubleRules.() -> Uni
     lte = null,
     gt = null,
     gte = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toDoubleRules()
 
@@ -3971,8 +3971,8 @@ private class DoubleRules_Impl(
     override val lte: Double?,
     override val gt: Double?,
     override val gte: Double?,
-    override val `in`: List<Double>,
-    override val notIn: List<Double>,
+    override val `in`: pbandk.gen.ListField<Double>,
+    override val notIn: pbandk.gen.ListField<Double>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.DoubleRules, pbandk.gen.GeneratedMessage<pbandk.testpb.DoubleRules>() {
     override val descriptor get() = pbandk.testpb.DoubleRules.descriptor
@@ -4019,8 +4019,8 @@ private class MutableDoubleRules_Impl(
     override var lte: Double?,
     override var gt: Double?,
     override var gte: Double?,
-    override val `in`: MutableList<Double>,
-    override val notIn: MutableList<Double>,
+    override val `in`: pbandk.gen.MutableListField<Double>,
+    override val notIn: pbandk.gen.MutableListField<Double>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableDoubleRules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.DoubleRules>() {
     override val descriptor get() = pbandk.testpb.DoubleRules.descriptor
@@ -4048,8 +4048,8 @@ private class MutableDoubleRules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -4108,8 +4108,8 @@ public fun Int32Rules(builderAction: pbandk.testpb.MutableInt32Rules.() -> Unit)
     lte = null,
     gt = null,
     gte = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toInt32Rules()
 
@@ -4123,8 +4123,8 @@ private class Int32Rules_Impl(
     override val lte: Int?,
     override val gt: Int?,
     override val gte: Int?,
-    override val `in`: List<Int>,
-    override val notIn: List<Int>,
+    override val `in`: pbandk.gen.ListField<Int>,
+    override val notIn: pbandk.gen.ListField<Int>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.Int32Rules, pbandk.gen.GeneratedMessage<pbandk.testpb.Int32Rules>() {
     override val descriptor get() = pbandk.testpb.Int32Rules.descriptor
@@ -4171,8 +4171,8 @@ private class MutableInt32Rules_Impl(
     override var lte: Int?,
     override var gt: Int?,
     override var gte: Int?,
-    override val `in`: MutableList<Int>,
-    override val notIn: MutableList<Int>,
+    override val `in`: pbandk.gen.MutableListField<Int>,
+    override val notIn: pbandk.gen.MutableListField<Int>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableInt32Rules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.Int32Rules>() {
     override val descriptor get() = pbandk.testpb.Int32Rules.descriptor
@@ -4200,8 +4200,8 @@ private class MutableInt32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -4260,8 +4260,8 @@ public fun Int64Rules(builderAction: pbandk.testpb.MutableInt64Rules.() -> Unit)
     lte = null,
     gt = null,
     gte = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toInt64Rules()
 
@@ -4275,8 +4275,8 @@ private class Int64Rules_Impl(
     override val lte: Long?,
     override val gt: Long?,
     override val gte: Long?,
-    override val `in`: List<Long>,
-    override val notIn: List<Long>,
+    override val `in`: pbandk.gen.ListField<Long>,
+    override val notIn: pbandk.gen.ListField<Long>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.Int64Rules, pbandk.gen.GeneratedMessage<pbandk.testpb.Int64Rules>() {
     override val descriptor get() = pbandk.testpb.Int64Rules.descriptor
@@ -4323,8 +4323,8 @@ private class MutableInt64Rules_Impl(
     override var lte: Long?,
     override var gt: Long?,
     override var gte: Long?,
-    override val `in`: MutableList<Long>,
-    override val notIn: MutableList<Long>,
+    override val `in`: pbandk.gen.MutableListField<Long>,
+    override val notIn: pbandk.gen.MutableListField<Long>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableInt64Rules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.Int64Rules>() {
     override val descriptor get() = pbandk.testpb.Int64Rules.descriptor
@@ -4352,8 +4352,8 @@ private class MutableInt64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -4412,8 +4412,8 @@ public fun UInt32Rules(builderAction: pbandk.testpb.MutableUInt32Rules.() -> Uni
     lte = null,
     gt = null,
     gte = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toUInt32Rules()
 
@@ -4427,8 +4427,8 @@ private class UInt32Rules_Impl(
     override val lte: Int?,
     override val gt: Int?,
     override val gte: Int?,
-    override val `in`: List<Int>,
-    override val notIn: List<Int>,
+    override val `in`: pbandk.gen.ListField<Int>,
+    override val notIn: pbandk.gen.ListField<Int>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.UInt32Rules, pbandk.gen.GeneratedMessage<pbandk.testpb.UInt32Rules>() {
     override val descriptor get() = pbandk.testpb.UInt32Rules.descriptor
@@ -4475,8 +4475,8 @@ private class MutableUInt32Rules_Impl(
     override var lte: Int?,
     override var gt: Int?,
     override var gte: Int?,
-    override val `in`: MutableList<Int>,
-    override val notIn: MutableList<Int>,
+    override val `in`: pbandk.gen.MutableListField<Int>,
+    override val notIn: pbandk.gen.MutableListField<Int>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableUInt32Rules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.UInt32Rules>() {
     override val descriptor get() = pbandk.testpb.UInt32Rules.descriptor
@@ -4504,8 +4504,8 @@ private class MutableUInt32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -4564,8 +4564,8 @@ public fun UInt64Rules(builderAction: pbandk.testpb.MutableUInt64Rules.() -> Uni
     lte = null,
     gt = null,
     gte = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toUInt64Rules()
 
@@ -4579,8 +4579,8 @@ private class UInt64Rules_Impl(
     override val lte: Long?,
     override val gt: Long?,
     override val gte: Long?,
-    override val `in`: List<Long>,
-    override val notIn: List<Long>,
+    override val `in`: pbandk.gen.ListField<Long>,
+    override val notIn: pbandk.gen.ListField<Long>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.UInt64Rules, pbandk.gen.GeneratedMessage<pbandk.testpb.UInt64Rules>() {
     override val descriptor get() = pbandk.testpb.UInt64Rules.descriptor
@@ -4627,8 +4627,8 @@ private class MutableUInt64Rules_Impl(
     override var lte: Long?,
     override var gt: Long?,
     override var gte: Long?,
-    override val `in`: MutableList<Long>,
-    override val notIn: MutableList<Long>,
+    override val `in`: pbandk.gen.MutableListField<Long>,
+    override val notIn: pbandk.gen.MutableListField<Long>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableUInt64Rules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.UInt64Rules>() {
     override val descriptor get() = pbandk.testpb.UInt64Rules.descriptor
@@ -4656,8 +4656,8 @@ private class MutableUInt64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -4716,8 +4716,8 @@ public fun SInt32Rules(builderAction: pbandk.testpb.MutableSInt32Rules.() -> Uni
     lte = null,
     gt = null,
     gte = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toSInt32Rules()
 
@@ -4731,8 +4731,8 @@ private class SInt32Rules_Impl(
     override val lte: Int?,
     override val gt: Int?,
     override val gte: Int?,
-    override val `in`: List<Int>,
-    override val notIn: List<Int>,
+    override val `in`: pbandk.gen.ListField<Int>,
+    override val notIn: pbandk.gen.ListField<Int>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.SInt32Rules, pbandk.gen.GeneratedMessage<pbandk.testpb.SInt32Rules>() {
     override val descriptor get() = pbandk.testpb.SInt32Rules.descriptor
@@ -4779,8 +4779,8 @@ private class MutableSInt32Rules_Impl(
     override var lte: Int?,
     override var gt: Int?,
     override var gte: Int?,
-    override val `in`: MutableList<Int>,
-    override val notIn: MutableList<Int>,
+    override val `in`: pbandk.gen.MutableListField<Int>,
+    override val notIn: pbandk.gen.MutableListField<Int>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableSInt32Rules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.SInt32Rules>() {
     override val descriptor get() = pbandk.testpb.SInt32Rules.descriptor
@@ -4808,8 +4808,8 @@ private class MutableSInt32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -4868,8 +4868,8 @@ public fun SInt64Rules(builderAction: pbandk.testpb.MutableSInt64Rules.() -> Uni
     lte = null,
     gt = null,
     gte = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toSInt64Rules()
 
@@ -4883,8 +4883,8 @@ private class SInt64Rules_Impl(
     override val lte: Long?,
     override val gt: Long?,
     override val gte: Long?,
-    override val `in`: List<Long>,
-    override val notIn: List<Long>,
+    override val `in`: pbandk.gen.ListField<Long>,
+    override val notIn: pbandk.gen.ListField<Long>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.SInt64Rules, pbandk.gen.GeneratedMessage<pbandk.testpb.SInt64Rules>() {
     override val descriptor get() = pbandk.testpb.SInt64Rules.descriptor
@@ -4931,8 +4931,8 @@ private class MutableSInt64Rules_Impl(
     override var lte: Long?,
     override var gt: Long?,
     override var gte: Long?,
-    override val `in`: MutableList<Long>,
-    override val notIn: MutableList<Long>,
+    override val `in`: pbandk.gen.MutableListField<Long>,
+    override val notIn: pbandk.gen.MutableListField<Long>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableSInt64Rules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.SInt64Rules>() {
     override val descriptor get() = pbandk.testpb.SInt64Rules.descriptor
@@ -4960,8 +4960,8 @@ private class MutableSInt64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -5020,8 +5020,8 @@ public fun Fixed32Rules(builderAction: pbandk.testpb.MutableFixed32Rules.() -> U
     lte = null,
     gt = null,
     gte = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toFixed32Rules()
 
@@ -5035,8 +5035,8 @@ private class Fixed32Rules_Impl(
     override val lte: Int?,
     override val gt: Int?,
     override val gte: Int?,
-    override val `in`: List<Int>,
-    override val notIn: List<Int>,
+    override val `in`: pbandk.gen.ListField<Int>,
+    override val notIn: pbandk.gen.ListField<Int>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.Fixed32Rules, pbandk.gen.GeneratedMessage<pbandk.testpb.Fixed32Rules>() {
     override val descriptor get() = pbandk.testpb.Fixed32Rules.descriptor
@@ -5083,8 +5083,8 @@ private class MutableFixed32Rules_Impl(
     override var lte: Int?,
     override var gt: Int?,
     override var gte: Int?,
-    override val `in`: MutableList<Int>,
-    override val notIn: MutableList<Int>,
+    override val `in`: pbandk.gen.MutableListField<Int>,
+    override val notIn: pbandk.gen.MutableListField<Int>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableFixed32Rules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.Fixed32Rules>() {
     override val descriptor get() = pbandk.testpb.Fixed32Rules.descriptor
@@ -5112,8 +5112,8 @@ private class MutableFixed32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -5172,8 +5172,8 @@ public fun Fixed64Rules(builderAction: pbandk.testpb.MutableFixed64Rules.() -> U
     lte = null,
     gt = null,
     gte = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toFixed64Rules()
 
@@ -5187,8 +5187,8 @@ private class Fixed64Rules_Impl(
     override val lte: Long?,
     override val gt: Long?,
     override val gte: Long?,
-    override val `in`: List<Long>,
-    override val notIn: List<Long>,
+    override val `in`: pbandk.gen.ListField<Long>,
+    override val notIn: pbandk.gen.ListField<Long>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.Fixed64Rules, pbandk.gen.GeneratedMessage<pbandk.testpb.Fixed64Rules>() {
     override val descriptor get() = pbandk.testpb.Fixed64Rules.descriptor
@@ -5235,8 +5235,8 @@ private class MutableFixed64Rules_Impl(
     override var lte: Long?,
     override var gt: Long?,
     override var gte: Long?,
-    override val `in`: MutableList<Long>,
-    override val notIn: MutableList<Long>,
+    override val `in`: pbandk.gen.MutableListField<Long>,
+    override val notIn: pbandk.gen.MutableListField<Long>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableFixed64Rules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.Fixed64Rules>() {
     override val descriptor get() = pbandk.testpb.Fixed64Rules.descriptor
@@ -5264,8 +5264,8 @@ private class MutableFixed64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -5324,8 +5324,8 @@ public fun SFixed32Rules(builderAction: pbandk.testpb.MutableSFixed32Rules.() ->
     lte = null,
     gt = null,
     gte = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toSFixed32Rules()
 
@@ -5339,8 +5339,8 @@ private class SFixed32Rules_Impl(
     override val lte: Int?,
     override val gt: Int?,
     override val gte: Int?,
-    override val `in`: List<Int>,
-    override val notIn: List<Int>,
+    override val `in`: pbandk.gen.ListField<Int>,
+    override val notIn: pbandk.gen.ListField<Int>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.SFixed32Rules, pbandk.gen.GeneratedMessage<pbandk.testpb.SFixed32Rules>() {
     override val descriptor get() = pbandk.testpb.SFixed32Rules.descriptor
@@ -5387,8 +5387,8 @@ private class MutableSFixed32Rules_Impl(
     override var lte: Int?,
     override var gt: Int?,
     override var gte: Int?,
-    override val `in`: MutableList<Int>,
-    override val notIn: MutableList<Int>,
+    override val `in`: pbandk.gen.MutableListField<Int>,
+    override val notIn: pbandk.gen.MutableListField<Int>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableSFixed32Rules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.SFixed32Rules>() {
     override val descriptor get() = pbandk.testpb.SFixed32Rules.descriptor
@@ -5416,8 +5416,8 @@ private class MutableSFixed32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -5476,8 +5476,8 @@ public fun SFixed64Rules(builderAction: pbandk.testpb.MutableSFixed64Rules.() ->
     lte = null,
     gt = null,
     gte = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toSFixed64Rules()
 
@@ -5491,8 +5491,8 @@ private class SFixed64Rules_Impl(
     override val lte: Long?,
     override val gt: Long?,
     override val gte: Long?,
-    override val `in`: List<Long>,
-    override val notIn: List<Long>,
+    override val `in`: pbandk.gen.ListField<Long>,
+    override val notIn: pbandk.gen.ListField<Long>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.SFixed64Rules, pbandk.gen.GeneratedMessage<pbandk.testpb.SFixed64Rules>() {
     override val descriptor get() = pbandk.testpb.SFixed64Rules.descriptor
@@ -5539,8 +5539,8 @@ private class MutableSFixed64Rules_Impl(
     override var lte: Long?,
     override var gt: Long?,
     override var gte: Long?,
-    override val `in`: MutableList<Long>,
-    override val notIn: MutableList<Long>,
+    override val `in`: pbandk.gen.MutableListField<Long>,
+    override val notIn: pbandk.gen.MutableListField<Long>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableSFixed64Rules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.SFixed64Rules>() {
     override val descriptor get() = pbandk.testpb.SFixed64Rules.descriptor
@@ -5568,8 +5568,8 @@ private class MutableSFixed64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -5739,8 +5739,8 @@ public fun StringRules(builderAction: pbandk.testpb.MutableStringRules.() -> Uni
     suffix = null,
     contains = null,
     notContains = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     strict = null,
     wellKnown = null,
     unknownFields = mutableMapOf()
@@ -5763,8 +5763,8 @@ private class StringRules_Impl(
     override val suffix: String?,
     override val contains: String?,
     override val notContains: String?,
-    override val `in`: List<String>,
-    override val notIn: List<String>,
+    override val `in`: pbandk.gen.ListField<String>,
+    override val notIn: pbandk.gen.ListField<String>,
     override val strict: Boolean?,
     override val wellKnown: pbandk.testpb.StringRules.WellKnown<*>?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
@@ -5868,8 +5868,8 @@ private class MutableStringRules_Impl(
     override var suffix: String?,
     override var contains: String?,
     override var notContains: String?,
-    override val `in`: MutableList<String>,
-    override val notIn: MutableList<String>,
+    override val `in`: pbandk.gen.MutableListField<String>,
+    override val notIn: pbandk.gen.MutableListField<String>,
     override var strict: Boolean?,
     override var wellKnown: pbandk.testpb.StringRules.WellKnown<*>?,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
@@ -5946,8 +5946,8 @@ private class MutableStringRules_Impl(
         suffix = suffix,
         contains = contains,
         notContains = notContains,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         strict = strict,
         wellKnown = wellKnown,
         unknownFields = unknownFields.toMap()
@@ -6040,8 +6040,8 @@ public fun BytesRules(builderAction: pbandk.testpb.MutableBytesRules.() -> Unit)
     prefix = null,
     suffix = null,
     contains = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     wellKnown = null,
     unknownFields = mutableMapOf()
 ).also(builderAction).toBytesRules()
@@ -6059,8 +6059,8 @@ private class BytesRules_Impl(
     override val prefix: pbandk.ByteArr?,
     override val suffix: pbandk.ByteArr?,
     override val contains: pbandk.ByteArr?,
-    override val `in`: List<pbandk.ByteArr>,
-    override val notIn: List<pbandk.ByteArr>,
+    override val `in`: pbandk.gen.ListField<pbandk.ByteArr>,
+    override val notIn: pbandk.gen.ListField<pbandk.ByteArr>,
     override val wellKnown: pbandk.testpb.BytesRules.WellKnown<*>?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.BytesRules, pbandk.gen.GeneratedMessage<pbandk.testpb.BytesRules>() {
@@ -6130,8 +6130,8 @@ private class MutableBytesRules_Impl(
     override var prefix: pbandk.ByteArr?,
     override var suffix: pbandk.ByteArr?,
     override var contains: pbandk.ByteArr?,
-    override val `in`: MutableList<pbandk.ByteArr>,
-    override val notIn: MutableList<pbandk.ByteArr>,
+    override val `in`: pbandk.gen.MutableListField<pbandk.ByteArr>,
+    override val notIn: pbandk.gen.MutableListField<pbandk.ByteArr>,
     override var wellKnown: pbandk.testpb.BytesRules.WellKnown<*>?,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableBytesRules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.BytesRules>() {
@@ -6177,8 +6177,8 @@ private class MutableBytesRules_Impl(
         prefix = prefix,
         suffix = suffix,
         contains = contains,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         wellKnown = wellKnown,
         unknownFields = unknownFields.toMap()
     )
@@ -6238,8 +6238,8 @@ public fun EnumRules(
 public fun EnumRules(builderAction: pbandk.testpb.MutableEnumRules.() -> Unit): pbandk.testpb.EnumRules = pbandk.testpb.MutableEnumRules_Impl(
     const = null,
     definedOnly = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toEnumRules()
 
@@ -6250,8 +6250,8 @@ public fun EnumRules?.orDefault(): pbandk.testpb.EnumRules = this ?: pbandk.test
 private class EnumRules_Impl(
     override val const: Int?,
     override val definedOnly: Boolean?,
-    override val `in`: List<Int>,
-    override val notIn: List<Int>,
+    override val `in`: pbandk.gen.ListField<Int>,
+    override val notIn: pbandk.gen.ListField<Int>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.EnumRules, pbandk.gen.GeneratedMessage<pbandk.testpb.EnumRules>() {
     override val descriptor get() = pbandk.testpb.EnumRules.descriptor
@@ -6286,8 +6286,8 @@ private class EnumRules_Impl(
 private class MutableEnumRules_Impl(
     override var const: Int?,
     override var definedOnly: Boolean?,
-    override val `in`: MutableList<Int>,
-    override val notIn: MutableList<Int>,
+    override val `in`: pbandk.gen.MutableListField<Int>,
+    override val notIn: pbandk.gen.MutableListField<Int>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableEnumRules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.EnumRules>() {
     override val descriptor get() = pbandk.testpb.EnumRules.descriptor
@@ -6309,8 +6309,8 @@ private class MutableEnumRules_Impl(
     fun toEnumRules() = EnumRules_Impl(
         const = const,
         definedOnly = definedOnly,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -6700,8 +6700,8 @@ public fun AnyRules(
 @pbandk.JsName("buildAnyRules")
 public fun AnyRules(builderAction: pbandk.testpb.MutableAnyRules.() -> Unit): pbandk.testpb.AnyRules = pbandk.testpb.MutableAnyRules_Impl(
     required = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toAnyRules()
 
@@ -6711,8 +6711,8 @@ public fun AnyRules?.orDefault(): pbandk.testpb.AnyRules = this ?: pbandk.testpb
 
 private class AnyRules_Impl(
     override val required: Boolean?,
-    override val `in`: List<String>,
-    override val notIn: List<String>,
+    override val `in`: pbandk.gen.ListField<String>,
+    override val notIn: pbandk.gen.ListField<String>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.AnyRules, pbandk.gen.GeneratedMessage<pbandk.testpb.AnyRules>() {
     override val descriptor get() = pbandk.testpb.AnyRules.descriptor
@@ -6743,8 +6743,8 @@ private class AnyRules_Impl(
 
 private class MutableAnyRules_Impl(
     override var required: Boolean?,
-    override val `in`: MutableList<String>,
-    override val notIn: MutableList<String>,
+    override val `in`: pbandk.gen.MutableListField<String>,
+    override val notIn: pbandk.gen.MutableListField<String>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableAnyRules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.AnyRules>() {
     override val descriptor get() = pbandk.testpb.AnyRules.descriptor
@@ -6764,8 +6764,8 @@ private class MutableAnyRules_Impl(
 
     fun toAnyRules() = AnyRules_Impl(
         required = required,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -6823,8 +6823,8 @@ public fun DurationRules(builderAction: pbandk.testpb.MutableDurationRules.() ->
     lte = null,
     gt = null,
     gte = null,
-    `in` = mutableListOf(),
-    notIn = mutableListOf(),
+    `in` = pbandk.gen.MutableListField(),
+    notIn = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toDurationRules()
 
@@ -6839,8 +6839,8 @@ private class DurationRules_Impl(
     override val lte: pbandk.wkt.Duration?,
     override val gt: pbandk.wkt.Duration?,
     override val gte: pbandk.wkt.Duration?,
-    override val `in`: List<pbandk.wkt.Duration>,
-    override val notIn: List<pbandk.wkt.Duration>,
+    override val `in`: pbandk.gen.ListField<pbandk.wkt.Duration>,
+    override val notIn: pbandk.gen.ListField<pbandk.wkt.Duration>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.DurationRules, pbandk.gen.GeneratedMessage<pbandk.testpb.DurationRules>() {
     override val descriptor get() = pbandk.testpb.DurationRules.descriptor
@@ -6891,8 +6891,8 @@ private class MutableDurationRules_Impl(
     override var lte: pbandk.wkt.Duration?,
     override var gt: pbandk.wkt.Duration?,
     override var gte: pbandk.wkt.Duration?,
-    override val `in`: MutableList<pbandk.wkt.Duration>,
-    override val notIn: MutableList<pbandk.wkt.Duration>,
+    override val `in`: pbandk.gen.MutableListField<pbandk.wkt.Duration>,
+    override val notIn: pbandk.gen.MutableListField<pbandk.wkt.Duration>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableDurationRules, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.DurationRules>() {
     override val descriptor get() = pbandk.testpb.DurationRules.descriptor
@@ -6922,8 +6922,8 @@ private class MutableDurationRules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`.toList(),
-        notIn = notIn.toList(),
+        `in` = `in`.toListField(),
+        notIn = notIn.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }

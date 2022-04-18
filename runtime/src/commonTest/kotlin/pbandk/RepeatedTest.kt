@@ -1,6 +1,6 @@
 package pbandk
 
-import pbandk.gen.ListWithSize
+import pbandk.gen.MutableListField
 import pbandk.testpb.Bar
 import pbandk.testpb.Foo
 import kotlin.test.Test
@@ -21,11 +21,11 @@ class RepeatedTest {
     @Test
     fun testListWithSizeEquality() {
         val list1 = listOf(1, 2, 3)
-        val list2 = ListWithSize.Builder<Int>().apply {
+        val list2 = MutableListField<Int>().apply {
             add(1)
             add(2)
             add(3)
-        }.fixed()
+        }.toListField()
         // This used to fail because `ListWithSize` didn't properly delegate equality to the underlying list.
         // It only failed on Kotlin/JS and not on Kotlin/JVM because on Kotlin/JVM the `List` interface delegates to the
         // JVM version of `List`, which defines a correct version of the `equals()` method. Whereas the pure Kotlin

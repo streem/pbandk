@@ -660,9 +660,9 @@ public fun Type(
 @pbandk.JsName("buildType")
 public fun Type(builderAction: pbandk.wkt.MutableType.() -> Unit): pbandk.wkt.Type = pbandk.wkt.MutableType_Impl(
     name = "",
-    fields = mutableListOf(),
-    oneofs = mutableListOf(),
-    options = mutableListOf(),
+    fields = pbandk.gen.MutableListField(),
+    oneofs = pbandk.gen.MutableListField(),
+    options = pbandk.gen.MutableListField(),
     sourceContext = null,
     syntax = pbandk.wkt.Syntax.fromValue(0),
     unknownFields = mutableMapOf()
@@ -674,9 +674,9 @@ public fun Type?.orDefault(): pbandk.wkt.Type = this ?: pbandk.wkt.Type.defaultI
 
 private class Type_Impl(
     override val name: String,
-    override val fields: List<pbandk.wkt.Field>,
-    override val oneofs: List<String>,
-    override val options: List<pbandk.wkt.Option>,
+    override val fields: pbandk.gen.ListField<pbandk.wkt.Field>,
+    override val oneofs: pbandk.gen.ListField<String>,
+    override val options: pbandk.gen.ListField<pbandk.wkt.Option>,
     override val sourceContext: pbandk.wkt.SourceContext?,
     override val syntax: pbandk.wkt.Syntax,
     override val unknownFields: Map<Int, pbandk.UnknownField>
@@ -718,9 +718,9 @@ private class Type_Impl(
 
 private class MutableType_Impl(
     override var name: String,
-    override val fields: MutableList<pbandk.wkt.Field>,
-    override val oneofs: MutableList<String>,
-    override val options: MutableList<pbandk.wkt.Option>,
+    override val fields: pbandk.gen.MutableListField<pbandk.wkt.Field>,
+    override val oneofs: pbandk.gen.MutableListField<String>,
+    override val options: pbandk.gen.MutableListField<pbandk.wkt.Option>,
     override var sourceContext: pbandk.wkt.SourceContext?,
     override var syntax: pbandk.wkt.Syntax,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
@@ -745,9 +745,9 @@ private class MutableType_Impl(
 
     fun toType() = Type_Impl(
         name = name,
-        fields = fields.toList(),
-        oneofs = oneofs.toList(),
-        options = options.toList(),
+        fields = fields.toListField(),
+        oneofs = oneofs.toListField(),
+        options = options.toListField(),
         sourceContext = sourceContext,
         syntax = syntax,
         unknownFields = unknownFields.toMap()
@@ -815,7 +815,7 @@ public fun Field(builderAction: pbandk.wkt.MutableField.() -> Unit): pbandk.wkt.
     typeUrl = "",
     oneofIndex = 0,
     packed = false,
-    options = mutableListOf(),
+    options = pbandk.gen.MutableListField(),
     jsonName = "",
     defaultValue = "",
     unknownFields = mutableMapOf()
@@ -833,7 +833,7 @@ private class Field_Impl(
     override val typeUrl: String,
     override val oneofIndex: Int,
     override val packed: Boolean,
-    override val options: List<pbandk.wkt.Option>,
+    override val options: pbandk.gen.ListField<pbandk.wkt.Option>,
     override val jsonName: String,
     override val defaultValue: String,
     override val unknownFields: Map<Int, pbandk.UnknownField>
@@ -893,7 +893,7 @@ private class MutableField_Impl(
     override var typeUrl: String,
     override var oneofIndex: Int,
     override var packed: Boolean,
-    override val options: MutableList<pbandk.wkt.Option>,
+    override val options: pbandk.gen.MutableListField<pbandk.wkt.Option>,
     override var jsonName: String,
     override var defaultValue: String,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
@@ -928,7 +928,7 @@ private class MutableField_Impl(
         typeUrl = typeUrl,
         oneofIndex = oneofIndex,
         packed = packed,
-        options = options.toList(),
+        options = options.toListField(),
         jsonName = jsonName,
         defaultValue = defaultValue,
         unknownFields = unknownFields.toMap()
@@ -984,8 +984,8 @@ public fun Enum(
 @pbandk.JsName("buildEnum")
 public fun Enum(builderAction: pbandk.wkt.MutableEnum.() -> Unit): pbandk.wkt.Enum = pbandk.wkt.MutableEnum_Impl(
     name = "",
-    enumvalue = mutableListOf(),
-    options = mutableListOf(),
+    enumvalue = pbandk.gen.MutableListField(),
+    options = pbandk.gen.MutableListField(),
     sourceContext = null,
     syntax = pbandk.wkt.Syntax.fromValue(0),
     unknownFields = mutableMapOf()
@@ -997,8 +997,8 @@ public fun Enum?.orDefault(): pbandk.wkt.Enum = this ?: pbandk.wkt.Enum.defaultI
 
 private class Enum_Impl(
     override val name: String,
-    override val enumvalue: List<pbandk.wkt.EnumValue>,
-    override val options: List<pbandk.wkt.Option>,
+    override val enumvalue: pbandk.gen.ListField<pbandk.wkt.EnumValue>,
+    override val options: pbandk.gen.ListField<pbandk.wkt.Option>,
     override val sourceContext: pbandk.wkt.SourceContext?,
     override val syntax: pbandk.wkt.Syntax,
     override val unknownFields: Map<Int, pbandk.UnknownField>
@@ -1037,8 +1037,8 @@ private class Enum_Impl(
 
 private class MutableEnum_Impl(
     override var name: String,
-    override val enumvalue: MutableList<pbandk.wkt.EnumValue>,
-    override val options: MutableList<pbandk.wkt.Option>,
+    override val enumvalue: pbandk.gen.MutableListField<pbandk.wkt.EnumValue>,
+    override val options: pbandk.gen.MutableListField<pbandk.wkt.Option>,
     override var sourceContext: pbandk.wkt.SourceContext?,
     override var syntax: pbandk.wkt.Syntax,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
@@ -1062,8 +1062,8 @@ private class MutableEnum_Impl(
 
     fun toEnum() = Enum_Impl(
         name = name,
-        enumvalue = enumvalue.toList(),
-        options = options.toList(),
+        enumvalue = enumvalue.toListField(),
+        options = options.toListField(),
         sourceContext = sourceContext,
         syntax = syntax,
         unknownFields = unknownFields.toMap()
@@ -1111,7 +1111,7 @@ public fun EnumValue(
 public fun EnumValue(builderAction: pbandk.wkt.MutableEnumValue.() -> Unit): pbandk.wkt.EnumValue = pbandk.wkt.MutableEnumValue_Impl(
     name = "",
     number = 0,
-    options = mutableListOf(),
+    options = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toEnumValue()
 
@@ -1122,7 +1122,7 @@ public fun EnumValue?.orDefault(): pbandk.wkt.EnumValue = this ?: pbandk.wkt.Enu
 private class EnumValue_Impl(
     override val name: String,
     override val number: Int,
-    override val options: List<pbandk.wkt.Option>,
+    override val options: pbandk.gen.ListField<pbandk.wkt.Option>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.EnumValue, pbandk.gen.GeneratedMessage<pbandk.wkt.EnumValue>() {
     override val descriptor get() = pbandk.wkt.EnumValue.descriptor
@@ -1154,7 +1154,7 @@ private class EnumValue_Impl(
 private class MutableEnumValue_Impl(
     override var name: String,
     override var number: Int,
-    override val options: MutableList<pbandk.wkt.Option>,
+    override val options: pbandk.gen.MutableListField<pbandk.wkt.Option>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableEnumValue, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.EnumValue>() {
     override val descriptor get() = pbandk.wkt.EnumValue.descriptor
@@ -1175,7 +1175,7 @@ private class MutableEnumValue_Impl(
     fun toEnumValue() = EnumValue_Impl(
         name = name,
         number = number,
-        options = options.toList(),
+        options = options.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }

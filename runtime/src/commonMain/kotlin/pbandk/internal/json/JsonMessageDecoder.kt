@@ -9,10 +9,8 @@ import pbandk.FieldDescriptor
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
 import pbandk.MessageDecoder
-import pbandk.MessageDescriptor
 import pbandk.MutableMessage
-import pbandk.UnknownField
-import pbandk.gen.MutableMessageMap
+import pbandk.gen.MutableMapField
 import pbandk.internal.underscoreToCamelCase
 import pbandk.json.JsonConfig
 import pbandk.wkt.Value
@@ -77,7 +75,7 @@ internal class JsonMessageDecoder internal constructor(
                             @Suppress("UNCHECKED_CAST")
                             value as Sequence<Map.Entry<*, *>>
                             @Suppress("UNCHECKED_CAST")
-                            ((fd.value as KProperty1<MutableMessage<T>, *>).get(this) as MutableMessageMap<Any?, Any?>).putAll(
+                            ((fd.value as KProperty1<MutableMessage<T>, *>).get(this) as MutableMapField<Any?, Any?>).putAll(
                                 value
                             )
                         }

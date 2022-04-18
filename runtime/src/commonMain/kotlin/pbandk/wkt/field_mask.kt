@@ -77,7 +77,7 @@ public fun FieldMask(
 @pbandk.Export
 @pbandk.JsName("buildFieldMask")
 public fun FieldMask(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit): pbandk.wkt.FieldMask = pbandk.wkt.MutableFieldMask_Impl(
-    paths = mutableListOf(),
+    paths = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toFieldMask()
 
@@ -86,7 +86,7 @@ public fun FieldMask(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit): pba
 public fun FieldMask?.orDefault(): pbandk.wkt.FieldMask = this ?: pbandk.wkt.FieldMask.defaultInstance
 
 private class FieldMask_Impl(
-    override val paths: List<String>,
+    override val paths: pbandk.gen.ListField<String>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.FieldMask, pbandk.gen.GeneratedMessage<pbandk.wkt.FieldMask>() {
     override val descriptor get() = pbandk.wkt.FieldMask.descriptor
@@ -110,7 +110,7 @@ private class FieldMask_Impl(
 }
 
 private class MutableFieldMask_Impl(
-    override val paths: MutableList<String>,
+    override val paths: pbandk.gen.MutableListField<String>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableFieldMask, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.FieldMask>() {
     override val descriptor get() = pbandk.wkt.FieldMask.descriptor
@@ -127,7 +127,7 @@ private class MutableFieldMask_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toFieldMask() = FieldMask_Impl(
-        paths = paths.toList(),
+        paths = paths.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }

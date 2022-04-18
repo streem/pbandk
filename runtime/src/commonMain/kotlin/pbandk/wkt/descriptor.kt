@@ -2941,7 +2941,7 @@ public fun FileDescriptorSet(
 @pbandk.Export
 @pbandk.JsName("buildFileDescriptorSet")
 public fun FileDescriptorSet(builderAction: pbandk.wkt.MutableFileDescriptorSet.() -> Unit): pbandk.wkt.FileDescriptorSet = pbandk.wkt.MutableFileDescriptorSet_Impl(
-    file = mutableListOf(),
+    file = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toFileDescriptorSet()
 
@@ -2950,7 +2950,7 @@ public fun FileDescriptorSet(builderAction: pbandk.wkt.MutableFileDescriptorSet.
 public fun FileDescriptorSet?.orDefault(): pbandk.wkt.FileDescriptorSet = this ?: pbandk.wkt.FileDescriptorSet.defaultInstance
 
 private class FileDescriptorSet_Impl(
-    override val file: List<pbandk.wkt.FileDescriptorProto>,
+    override val file: pbandk.gen.ListField<pbandk.wkt.FileDescriptorProto>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.FileDescriptorSet, pbandk.gen.GeneratedMessage<pbandk.wkt.FileDescriptorSet>() {
     override val descriptor get() = pbandk.wkt.FileDescriptorSet.descriptor
@@ -2974,7 +2974,7 @@ private class FileDescriptorSet_Impl(
 }
 
 private class MutableFileDescriptorSet_Impl(
-    override val file: MutableList<pbandk.wkt.FileDescriptorProto>,
+    override val file: pbandk.gen.MutableListField<pbandk.wkt.FileDescriptorProto>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableFileDescriptorSet, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.FileDescriptorSet>() {
     override val descriptor get() = pbandk.wkt.FileDescriptorSet.descriptor
@@ -2991,7 +2991,7 @@ private class MutableFileDescriptorSet_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toFileDescriptorSet() = FileDescriptorSet_Impl(
-        file = file.toList(),
+        file = file.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -3051,13 +3051,13 @@ public fun FileDescriptorProto(
 public fun FileDescriptorProto(builderAction: pbandk.wkt.MutableFileDescriptorProto.() -> Unit): pbandk.wkt.FileDescriptorProto = pbandk.wkt.MutableFileDescriptorProto_Impl(
     name = null,
     `package` = null,
-    dependency = mutableListOf(),
-    publicDependency = mutableListOf(),
-    weakDependency = mutableListOf(),
-    messageType = mutableListOf(),
-    enumType = mutableListOf(),
-    service = mutableListOf(),
-    extension = mutableListOf(),
+    dependency = pbandk.gen.MutableListField(),
+    publicDependency = pbandk.gen.MutableListField(),
+    weakDependency = pbandk.gen.MutableListField(),
+    messageType = pbandk.gen.MutableListField(),
+    enumType = pbandk.gen.MutableListField(),
+    service = pbandk.gen.MutableListField(),
+    extension = pbandk.gen.MutableListField(),
     options = null,
     sourceCodeInfo = null,
     syntax = null,
@@ -3071,13 +3071,13 @@ public fun FileDescriptorProto?.orDefault(): pbandk.wkt.FileDescriptorProto = th
 private class FileDescriptorProto_Impl(
     override val name: String?,
     override val `package`: String?,
-    override val dependency: List<String>,
-    override val publicDependency: List<Int>,
-    override val weakDependency: List<Int>,
-    override val messageType: List<pbandk.wkt.DescriptorProto>,
-    override val enumType: List<pbandk.wkt.EnumDescriptorProto>,
-    override val service: List<pbandk.wkt.ServiceDescriptorProto>,
-    override val extension: List<pbandk.wkt.FieldDescriptorProto>,
+    override val dependency: pbandk.gen.ListField<String>,
+    override val publicDependency: pbandk.gen.ListField<Int>,
+    override val weakDependency: pbandk.gen.ListField<Int>,
+    override val messageType: pbandk.gen.ListField<pbandk.wkt.DescriptorProto>,
+    override val enumType: pbandk.gen.ListField<pbandk.wkt.EnumDescriptorProto>,
+    override val service: pbandk.gen.ListField<pbandk.wkt.ServiceDescriptorProto>,
+    override val extension: pbandk.gen.ListField<pbandk.wkt.FieldDescriptorProto>,
     override val options: pbandk.wkt.FileOptions?,
     override val sourceCodeInfo: pbandk.wkt.SourceCodeInfo?,
     override val syntax: String?,
@@ -3139,13 +3139,13 @@ private class FileDescriptorProto_Impl(
 private class MutableFileDescriptorProto_Impl(
     override var name: String?,
     override var `package`: String?,
-    override val dependency: MutableList<String>,
-    override val publicDependency: MutableList<Int>,
-    override val weakDependency: MutableList<Int>,
-    override val messageType: MutableList<pbandk.wkt.DescriptorProto>,
-    override val enumType: MutableList<pbandk.wkt.EnumDescriptorProto>,
-    override val service: MutableList<pbandk.wkt.ServiceDescriptorProto>,
-    override val extension: MutableList<pbandk.wkt.FieldDescriptorProto>,
+    override val dependency: pbandk.gen.MutableListField<String>,
+    override val publicDependency: pbandk.gen.MutableListField<Int>,
+    override val weakDependency: pbandk.gen.MutableListField<Int>,
+    override val messageType: pbandk.gen.MutableListField<pbandk.wkt.DescriptorProto>,
+    override val enumType: pbandk.gen.MutableListField<pbandk.wkt.EnumDescriptorProto>,
+    override val service: pbandk.gen.MutableListField<pbandk.wkt.ServiceDescriptorProto>,
+    override val extension: pbandk.gen.MutableListField<pbandk.wkt.FieldDescriptorProto>,
     override var options: pbandk.wkt.FileOptions?,
     override var sourceCodeInfo: pbandk.wkt.SourceCodeInfo?,
     override var syntax: String?,
@@ -3178,13 +3178,13 @@ private class MutableFileDescriptorProto_Impl(
     fun toFileDescriptorProto() = FileDescriptorProto_Impl(
         name = name,
         `package` = `package`,
-        dependency = dependency.toList(),
-        publicDependency = publicDependency.toList(),
-        weakDependency = weakDependency.toList(),
-        messageType = messageType.toList(),
-        enumType = enumType.toList(),
-        service = service.toList(),
-        extension = extension.toList(),
+        dependency = dependency.toListField(),
+        publicDependency = publicDependency.toListField(),
+        weakDependency = weakDependency.toListField(),
+        messageType = messageType.toListField(),
+        enumType = enumType.toListField(),
+        service = service.toListField(),
+        extension = extension.toListField(),
         options = options,
         sourceCodeInfo = sourceCodeInfo,
         syntax = syntax,
@@ -3253,15 +3253,15 @@ public fun DescriptorProto(
 @pbandk.JsName("buildDescriptorProto")
 public fun DescriptorProto(builderAction: pbandk.wkt.MutableDescriptorProto.() -> Unit): pbandk.wkt.DescriptorProto = pbandk.wkt.MutableDescriptorProto_Impl(
     name = null,
-    field = mutableListOf(),
-    extension = mutableListOf(),
-    nestedType = mutableListOf(),
-    enumType = mutableListOf(),
-    extensionRange = mutableListOf(),
-    oneofDecl = mutableListOf(),
+    field = pbandk.gen.MutableListField(),
+    extension = pbandk.gen.MutableListField(),
+    nestedType = pbandk.gen.MutableListField(),
+    enumType = pbandk.gen.MutableListField(),
+    extensionRange = pbandk.gen.MutableListField(),
+    oneofDecl = pbandk.gen.MutableListField(),
     options = null,
-    reservedRange = mutableListOf(),
-    reservedName = mutableListOf(),
+    reservedRange = pbandk.gen.MutableListField(),
+    reservedName = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toDescriptorProto()
 
@@ -3271,15 +3271,15 @@ public fun DescriptorProto?.orDefault(): pbandk.wkt.DescriptorProto = this ?: pb
 
 private class DescriptorProto_Impl(
     override val name: String?,
-    override val field: List<pbandk.wkt.FieldDescriptorProto>,
-    override val extension: List<pbandk.wkt.FieldDescriptorProto>,
-    override val nestedType: List<pbandk.wkt.DescriptorProto>,
-    override val enumType: List<pbandk.wkt.EnumDescriptorProto>,
-    override val extensionRange: List<pbandk.wkt.DescriptorProto.ExtensionRange>,
-    override val oneofDecl: List<pbandk.wkt.OneofDescriptorProto>,
+    override val field: pbandk.gen.ListField<pbandk.wkt.FieldDescriptorProto>,
+    override val extension: pbandk.gen.ListField<pbandk.wkt.FieldDescriptorProto>,
+    override val nestedType: pbandk.gen.ListField<pbandk.wkt.DescriptorProto>,
+    override val enumType: pbandk.gen.ListField<pbandk.wkt.EnumDescriptorProto>,
+    override val extensionRange: pbandk.gen.ListField<pbandk.wkt.DescriptorProto.ExtensionRange>,
+    override val oneofDecl: pbandk.gen.ListField<pbandk.wkt.OneofDescriptorProto>,
     override val options: pbandk.wkt.MessageOptions?,
-    override val reservedRange: List<pbandk.wkt.DescriptorProto.ReservedRange>,
-    override val reservedName: List<String>,
+    override val reservedRange: pbandk.gen.ListField<pbandk.wkt.DescriptorProto.ReservedRange>,
+    override val reservedName: pbandk.gen.ListField<String>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.DescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.DescriptorProto>() {
     override val descriptor get() = pbandk.wkt.DescriptorProto.descriptor
@@ -3331,15 +3331,15 @@ private class DescriptorProto_Impl(
 
 private class MutableDescriptorProto_Impl(
     override var name: String?,
-    override val field: MutableList<pbandk.wkt.FieldDescriptorProto>,
-    override val extension: MutableList<pbandk.wkt.FieldDescriptorProto>,
-    override val nestedType: MutableList<pbandk.wkt.DescriptorProto>,
-    override val enumType: MutableList<pbandk.wkt.EnumDescriptorProto>,
-    override val extensionRange: MutableList<pbandk.wkt.DescriptorProto.ExtensionRange>,
-    override val oneofDecl: MutableList<pbandk.wkt.OneofDescriptorProto>,
+    override val field: pbandk.gen.MutableListField<pbandk.wkt.FieldDescriptorProto>,
+    override val extension: pbandk.gen.MutableListField<pbandk.wkt.FieldDescriptorProto>,
+    override val nestedType: pbandk.gen.MutableListField<pbandk.wkt.DescriptorProto>,
+    override val enumType: pbandk.gen.MutableListField<pbandk.wkt.EnumDescriptorProto>,
+    override val extensionRange: pbandk.gen.MutableListField<pbandk.wkt.DescriptorProto.ExtensionRange>,
+    override val oneofDecl: pbandk.gen.MutableListField<pbandk.wkt.OneofDescriptorProto>,
     override var options: pbandk.wkt.MessageOptions?,
-    override val reservedRange: MutableList<pbandk.wkt.DescriptorProto.ReservedRange>,
-    override val reservedName: MutableList<String>,
+    override val reservedRange: pbandk.gen.MutableListField<pbandk.wkt.DescriptorProto.ReservedRange>,
+    override val reservedName: pbandk.gen.MutableListField<String>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableDescriptorProto, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.DescriptorProto>() {
     override val descriptor get() = pbandk.wkt.DescriptorProto.descriptor
@@ -3366,15 +3366,15 @@ private class MutableDescriptorProto_Impl(
 
     fun toDescriptorProto() = DescriptorProto_Impl(
         name = name,
-        field = field.toList(),
-        extension = extension.toList(),
-        nestedType = nestedType.toList(),
-        enumType = enumType.toList(),
-        extensionRange = extensionRange.toList(),
-        oneofDecl = oneofDecl.toList(),
+        field = field.toListField(),
+        extension = extension.toListField(),
+        nestedType = nestedType.toListField(),
+        enumType = enumType.toListField(),
+        extensionRange = extensionRange.toListField(),
+        oneofDecl = oneofDecl.toListField(),
         options = options,
-        reservedRange = reservedRange.toList(),
-        reservedName = reservedName.toList(),
+        reservedRange = reservedRange.toListField(),
+        reservedName = reservedName.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -3638,7 +3638,7 @@ public fun ExtensionRangeOptions(
 @pbandk.Export
 @pbandk.JsName("buildExtensionRangeOptions")
 public fun ExtensionRangeOptions(builderAction: pbandk.wkt.MutableExtensionRangeOptions.() -> Unit): pbandk.wkt.ExtensionRangeOptions = pbandk.wkt.MutableExtensionRangeOptions_Impl(
-    uninterpretedOption = mutableListOf(),
+    uninterpretedOption = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toExtensionRangeOptions()
 
@@ -3647,7 +3647,7 @@ public fun ExtensionRangeOptions(builderAction: pbandk.wkt.MutableExtensionRange
 public fun ExtensionRangeOptions?.orDefault(): pbandk.wkt.ExtensionRangeOptions = this ?: pbandk.wkt.ExtensionRangeOptions.defaultInstance
 
 private class ExtensionRangeOptions_Impl(
-    override val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.ExtensionRangeOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.ExtensionRangeOptions>() {
     override val descriptor get() = pbandk.wkt.ExtensionRangeOptions.descriptor
@@ -3671,7 +3671,7 @@ private class ExtensionRangeOptions_Impl(
 }
 
 private class MutableExtensionRangeOptions_Impl(
-    override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableExtensionRangeOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.ExtensionRangeOptions>() {
     override val descriptor get() = pbandk.wkt.ExtensionRangeOptions.descriptor
@@ -3688,7 +3688,7 @@ private class MutableExtensionRangeOptions_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toExtensionRangeOptions() = ExtensionRangeOptions_Impl(
-        uninterpretedOption = uninterpretedOption.toList(),
+        uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -4026,10 +4026,10 @@ public fun EnumDescriptorProto(
 @pbandk.JsName("buildEnumDescriptorProto")
 public fun EnumDescriptorProto(builderAction: pbandk.wkt.MutableEnumDescriptorProto.() -> Unit): pbandk.wkt.EnumDescriptorProto = pbandk.wkt.MutableEnumDescriptorProto_Impl(
     name = null,
-    value = mutableListOf(),
+    value = pbandk.gen.MutableListField(),
     options = null,
-    reservedRange = mutableListOf(),
-    reservedName = mutableListOf(),
+    reservedRange = pbandk.gen.MutableListField(),
+    reservedName = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toEnumDescriptorProto()
 
@@ -4039,10 +4039,10 @@ public fun EnumDescriptorProto?.orDefault(): pbandk.wkt.EnumDescriptorProto = th
 
 private class EnumDescriptorProto_Impl(
     override val name: String?,
-    override val value: List<pbandk.wkt.EnumValueDescriptorProto>,
+    override val value: pbandk.gen.ListField<pbandk.wkt.EnumValueDescriptorProto>,
     override val options: pbandk.wkt.EnumOptions?,
-    override val reservedRange: List<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>,
-    override val reservedName: List<String>,
+    override val reservedRange: pbandk.gen.ListField<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>,
+    override val reservedName: pbandk.gen.ListField<String>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.EnumDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.EnumDescriptorProto>() {
     override val descriptor get() = pbandk.wkt.EnumDescriptorProto.descriptor
@@ -4079,10 +4079,10 @@ private class EnumDescriptorProto_Impl(
 
 private class MutableEnumDescriptorProto_Impl(
     override var name: String?,
-    override val value: MutableList<pbandk.wkt.EnumValueDescriptorProto>,
+    override val value: pbandk.gen.MutableListField<pbandk.wkt.EnumValueDescriptorProto>,
     override var options: pbandk.wkt.EnumOptions?,
-    override val reservedRange: MutableList<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>,
-    override val reservedName: MutableList<String>,
+    override val reservedRange: pbandk.gen.MutableListField<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>,
+    override val reservedName: pbandk.gen.MutableListField<String>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableEnumDescriptorProto, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.EnumDescriptorProto>() {
     override val descriptor get() = pbandk.wkt.EnumDescriptorProto.descriptor
@@ -4104,10 +4104,10 @@ private class MutableEnumDescriptorProto_Impl(
 
     fun toEnumDescriptorProto() = EnumDescriptorProto_Impl(
         name = name,
-        value = value.toList(),
+        value = value.toListField(),
         options = options,
-        reservedRange = reservedRange.toList(),
-        reservedName = reservedName.toList(),
+        reservedRange = reservedRange.toListField(),
+        reservedName = reservedName.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -4364,7 +4364,7 @@ public fun ServiceDescriptorProto(
 @pbandk.JsName("buildServiceDescriptorProto")
 public fun ServiceDescriptorProto(builderAction: pbandk.wkt.MutableServiceDescriptorProto.() -> Unit): pbandk.wkt.ServiceDescriptorProto = pbandk.wkt.MutableServiceDescriptorProto_Impl(
     name = null,
-    method = mutableListOf(),
+    method = pbandk.gen.MutableListField(),
     options = null,
     unknownFields = mutableMapOf()
 ).also(builderAction).toServiceDescriptorProto()
@@ -4375,7 +4375,7 @@ public fun ServiceDescriptorProto?.orDefault(): pbandk.wkt.ServiceDescriptorProt
 
 private class ServiceDescriptorProto_Impl(
     override val name: String?,
-    override val method: List<pbandk.wkt.MethodDescriptorProto>,
+    override val method: pbandk.gen.ListField<pbandk.wkt.MethodDescriptorProto>,
     override val options: pbandk.wkt.ServiceOptions?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.ServiceDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.ServiceDescriptorProto>() {
@@ -4407,7 +4407,7 @@ private class ServiceDescriptorProto_Impl(
 
 private class MutableServiceDescriptorProto_Impl(
     override var name: String?,
-    override val method: MutableList<pbandk.wkt.MethodDescriptorProto>,
+    override val method: pbandk.gen.MutableListField<pbandk.wkt.MethodDescriptorProto>,
     override var options: pbandk.wkt.ServiceOptions?,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableServiceDescriptorProto, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.ServiceDescriptorProto>() {
@@ -4428,7 +4428,7 @@ private class MutableServiceDescriptorProto_Impl(
 
     fun toServiceDescriptorProto() = ServiceDescriptorProto_Impl(
         name = name,
-        method = method.toList(),
+        method = method.toListField(),
         options = options,
         unknownFields = unknownFields.toMap()
     )
@@ -4669,7 +4669,7 @@ public fun FileOptions(builderAction: pbandk.wkt.MutableFileOptions.() -> Unit):
     phpNamespace = null,
     phpMetadataNamespace = null,
     rubyPackage = null,
-    uninterpretedOption = mutableListOf(),
+    uninterpretedOption = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toFileOptions()
 
@@ -4698,7 +4698,7 @@ private class FileOptions_Impl(
     override val phpNamespace: String?,
     override val phpMetadataNamespace: String?,
     override val rubyPackage: String?,
-    override val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.FileOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.FileOptions>() {
     override val descriptor get() = pbandk.wkt.FileOptions.descriptor
@@ -4805,7 +4805,7 @@ private class MutableFileOptions_Impl(
     override var phpNamespace: String?,
     override var phpMetadataNamespace: String?,
     override var rubyPackage: String?,
-    override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableFileOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.FileOptions>() {
     override val descriptor get() = pbandk.wkt.FileOptions.descriptor
@@ -4863,7 +4863,7 @@ private class MutableFileOptions_Impl(
         phpNamespace = phpNamespace,
         phpMetadataNamespace = phpMetadataNamespace,
         rubyPackage = rubyPackage,
-        uninterpretedOption = uninterpretedOption.toList(),
+        uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -4932,7 +4932,7 @@ public fun MessageOptions(builderAction: pbandk.wkt.MutableMessageOptions.() -> 
     noStandardDescriptorAccessor = null,
     deprecated = null,
     mapEntry = null,
-    uninterpretedOption = mutableListOf(),
+    uninterpretedOption = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toMessageOptions()
 
@@ -4945,7 +4945,7 @@ private class MessageOptions_Impl(
     override val noStandardDescriptorAccessor: Boolean?,
     override val deprecated: Boolean?,
     override val mapEntry: Boolean?,
-    override val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MessageOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.MessageOptions>() {
     override val descriptor get() = pbandk.wkt.MessageOptions.descriptor
@@ -4985,7 +4985,7 @@ private class MutableMessageOptions_Impl(
     override var noStandardDescriptorAccessor: Boolean?,
     override var deprecated: Boolean?,
     override var mapEntry: Boolean?,
-    override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableMessageOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.MessageOptions>() {
     override val descriptor get() = pbandk.wkt.MessageOptions.descriptor
@@ -5010,7 +5010,7 @@ private class MutableMessageOptions_Impl(
         noStandardDescriptorAccessor = noStandardDescriptorAccessor,
         deprecated = deprecated,
         mapEntry = mapEntry,
-        uninterpretedOption = uninterpretedOption.toList(),
+        uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -5068,7 +5068,7 @@ public fun FieldOptions(builderAction: pbandk.wkt.MutableFieldOptions.() -> Unit
     lazy = null,
     deprecated = null,
     weak = null,
-    uninterpretedOption = mutableListOf(),
+    uninterpretedOption = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toFieldOptions()
 
@@ -5083,7 +5083,7 @@ private class FieldOptions_Impl(
     override val lazy: Boolean?,
     override val deprecated: Boolean?,
     override val weak: Boolean?,
-    override val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.FieldOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.FieldOptions>() {
     override val descriptor get() = pbandk.wkt.FieldOptions.descriptor
@@ -5131,7 +5131,7 @@ private class MutableFieldOptions_Impl(
     override var lazy: Boolean?,
     override var deprecated: Boolean?,
     override var weak: Boolean?,
-    override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableFieldOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.FieldOptions>() {
     override val descriptor get() = pbandk.wkt.FieldOptions.descriptor
@@ -5160,7 +5160,7 @@ private class MutableFieldOptions_Impl(
         lazy = lazy,
         deprecated = deprecated,
         weak = weak,
-        uninterpretedOption = uninterpretedOption.toList(),
+        uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -5202,7 +5202,7 @@ public fun OneofOptions(
 @pbandk.Export
 @pbandk.JsName("buildOneofOptions")
 public fun OneofOptions(builderAction: pbandk.wkt.MutableOneofOptions.() -> Unit): pbandk.wkt.OneofOptions = pbandk.wkt.MutableOneofOptions_Impl(
-    uninterpretedOption = mutableListOf(),
+    uninterpretedOption = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toOneofOptions()
 
@@ -5211,7 +5211,7 @@ public fun OneofOptions(builderAction: pbandk.wkt.MutableOneofOptions.() -> Unit
 public fun OneofOptions?.orDefault(): pbandk.wkt.OneofOptions = this ?: pbandk.wkt.OneofOptions.defaultInstance
 
 private class OneofOptions_Impl(
-    override val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.OneofOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.OneofOptions>() {
     override val descriptor get() = pbandk.wkt.OneofOptions.descriptor
@@ -5235,7 +5235,7 @@ private class OneofOptions_Impl(
 }
 
 private class MutableOneofOptions_Impl(
-    override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableOneofOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.OneofOptions>() {
     override val descriptor get() = pbandk.wkt.OneofOptions.descriptor
@@ -5252,7 +5252,7 @@ private class MutableOneofOptions_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toOneofOptions() = OneofOptions_Impl(
-        uninterpretedOption = uninterpretedOption.toList(),
+        uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -5294,7 +5294,7 @@ public fun EnumOptions(
 public fun EnumOptions(builderAction: pbandk.wkt.MutableEnumOptions.() -> Unit): pbandk.wkt.EnumOptions = pbandk.wkt.MutableEnumOptions_Impl(
     allowAlias = null,
     deprecated = null,
-    uninterpretedOption = mutableListOf(),
+    uninterpretedOption = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toEnumOptions()
 
@@ -5305,7 +5305,7 @@ public fun EnumOptions?.orDefault(): pbandk.wkt.EnumOptions = this ?: pbandk.wkt
 private class EnumOptions_Impl(
     override val allowAlias: Boolean?,
     override val deprecated: Boolean?,
-    override val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.EnumOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.EnumOptions>() {
     override val descriptor get() = pbandk.wkt.EnumOptions.descriptor
@@ -5337,7 +5337,7 @@ private class EnumOptions_Impl(
 private class MutableEnumOptions_Impl(
     override var allowAlias: Boolean?,
     override var deprecated: Boolean?,
-    override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableEnumOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.EnumOptions>() {
     override val descriptor get() = pbandk.wkt.EnumOptions.descriptor
@@ -5358,7 +5358,7 @@ private class MutableEnumOptions_Impl(
     fun toEnumOptions() = EnumOptions_Impl(
         allowAlias = allowAlias,
         deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption.toList(),
+        uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -5399,7 +5399,7 @@ public fun EnumValueOptions(
 @pbandk.JsName("buildEnumValueOptions")
 public fun EnumValueOptions(builderAction: pbandk.wkt.MutableEnumValueOptions.() -> Unit): pbandk.wkt.EnumValueOptions = pbandk.wkt.MutableEnumValueOptions_Impl(
     deprecated = null,
-    uninterpretedOption = mutableListOf(),
+    uninterpretedOption = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toEnumValueOptions()
 
@@ -5409,7 +5409,7 @@ public fun EnumValueOptions?.orDefault(): pbandk.wkt.EnumValueOptions = this ?: 
 
 private class EnumValueOptions_Impl(
     override val deprecated: Boolean?,
-    override val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.EnumValueOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.EnumValueOptions>() {
     override val descriptor get() = pbandk.wkt.EnumValueOptions.descriptor
@@ -5437,7 +5437,7 @@ private class EnumValueOptions_Impl(
 
 private class MutableEnumValueOptions_Impl(
     override var deprecated: Boolean?,
-    override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableEnumValueOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.EnumValueOptions>() {
     override val descriptor get() = pbandk.wkt.EnumValueOptions.descriptor
@@ -5456,7 +5456,7 @@ private class MutableEnumValueOptions_Impl(
 
     fun toEnumValueOptions() = EnumValueOptions_Impl(
         deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption.toList(),
+        uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -5496,7 +5496,7 @@ public fun ServiceOptions(
 @pbandk.JsName("buildServiceOptions")
 public fun ServiceOptions(builderAction: pbandk.wkt.MutableServiceOptions.() -> Unit): pbandk.wkt.ServiceOptions = pbandk.wkt.MutableServiceOptions_Impl(
     deprecated = null,
-    uninterpretedOption = mutableListOf(),
+    uninterpretedOption = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toServiceOptions()
 
@@ -5506,7 +5506,7 @@ public fun ServiceOptions?.orDefault(): pbandk.wkt.ServiceOptions = this ?: pban
 
 private class ServiceOptions_Impl(
     override val deprecated: Boolean?,
-    override val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.ServiceOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.ServiceOptions>() {
     override val descriptor get() = pbandk.wkt.ServiceOptions.descriptor
@@ -5534,7 +5534,7 @@ private class ServiceOptions_Impl(
 
 private class MutableServiceOptions_Impl(
     override var deprecated: Boolean?,
-    override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableServiceOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.ServiceOptions>() {
     override val descriptor get() = pbandk.wkt.ServiceOptions.descriptor
@@ -5553,7 +5553,7 @@ private class MutableServiceOptions_Impl(
 
     fun toServiceOptions() = ServiceOptions_Impl(
         deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption.toList(),
+        uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -5596,7 +5596,7 @@ public fun MethodOptions(
 public fun MethodOptions(builderAction: pbandk.wkt.MutableMethodOptions.() -> Unit): pbandk.wkt.MethodOptions = pbandk.wkt.MutableMethodOptions_Impl(
     deprecated = null,
     idempotencyLevel = null,
-    uninterpretedOption = mutableListOf(),
+    uninterpretedOption = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toMethodOptions()
 
@@ -5607,7 +5607,7 @@ public fun MethodOptions?.orDefault(): pbandk.wkt.MethodOptions = this ?: pbandk
 private class MethodOptions_Impl(
     override val deprecated: Boolean?,
     override val idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?,
-    override val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MethodOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.MethodOptions>() {
     override val descriptor get() = pbandk.wkt.MethodOptions.descriptor
@@ -5639,7 +5639,7 @@ private class MethodOptions_Impl(
 private class MutableMethodOptions_Impl(
     override var deprecated: Boolean?,
     override var idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?,
-    override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>,
+    override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableMethodOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.MethodOptions>() {
     override val descriptor get() = pbandk.wkt.MethodOptions.descriptor
@@ -5660,7 +5660,7 @@ private class MutableMethodOptions_Impl(
     fun toMethodOptions() = MethodOptions_Impl(
         deprecated = deprecated,
         idempotencyLevel = idempotencyLevel,
-        uninterpretedOption = uninterpretedOption.toList(),
+        uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -5710,7 +5710,7 @@ public fun UninterpretedOption(
 @pbandk.Export
 @pbandk.JsName("buildUninterpretedOption")
 public fun UninterpretedOption(builderAction: pbandk.wkt.MutableUninterpretedOption.() -> Unit): pbandk.wkt.UninterpretedOption = pbandk.wkt.MutableUninterpretedOption_Impl(
-    name = mutableListOf(),
+    name = pbandk.gen.MutableListField(),
     identifierValue = null,
     positiveIntValue = null,
     negativeIntValue = null,
@@ -5725,7 +5725,7 @@ public fun UninterpretedOption(builderAction: pbandk.wkt.MutableUninterpretedOpt
 public fun UninterpretedOption?.orDefault(): pbandk.wkt.UninterpretedOption = this ?: pbandk.wkt.UninterpretedOption.defaultInstance
 
 private class UninterpretedOption_Impl(
-    override val name: List<pbandk.wkt.UninterpretedOption.NamePart>,
+    override val name: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption.NamePart>,
     override val identifierValue: String?,
     override val positiveIntValue: Long?,
     override val negativeIntValue: Long?,
@@ -5773,7 +5773,7 @@ private class UninterpretedOption_Impl(
 }
 
 private class MutableUninterpretedOption_Impl(
-    override val name: MutableList<pbandk.wkt.UninterpretedOption.NamePart>,
+    override val name: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption.NamePart>,
     override var identifierValue: String?,
     override var positiveIntValue: Long?,
     override var negativeIntValue: Long?,
@@ -5802,7 +5802,7 @@ private class MutableUninterpretedOption_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toUninterpretedOption() = UninterpretedOption_Impl(
-        name = name.toList(),
+        name = name.toListField(),
         identifierValue = identifierValue,
         positiveIntValue = positiveIntValue,
         negativeIntValue = negativeIntValue,
@@ -5954,7 +5954,7 @@ public fun SourceCodeInfo(
 @pbandk.Export
 @pbandk.JsName("buildSourceCodeInfo")
 public fun SourceCodeInfo(builderAction: pbandk.wkt.MutableSourceCodeInfo.() -> Unit): pbandk.wkt.SourceCodeInfo = pbandk.wkt.MutableSourceCodeInfo_Impl(
-    location = mutableListOf(),
+    location = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toSourceCodeInfo()
 
@@ -5963,7 +5963,7 @@ public fun SourceCodeInfo(builderAction: pbandk.wkt.MutableSourceCodeInfo.() -> 
 public fun SourceCodeInfo?.orDefault(): pbandk.wkt.SourceCodeInfo = this ?: pbandk.wkt.SourceCodeInfo.defaultInstance
 
 private class SourceCodeInfo_Impl(
-    override val location: List<pbandk.wkt.SourceCodeInfo.Location>,
+    override val location: pbandk.gen.ListField<pbandk.wkt.SourceCodeInfo.Location>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.SourceCodeInfo, pbandk.gen.GeneratedMessage<pbandk.wkt.SourceCodeInfo>() {
     override val descriptor get() = pbandk.wkt.SourceCodeInfo.descriptor
@@ -5987,7 +5987,7 @@ private class SourceCodeInfo_Impl(
 }
 
 private class MutableSourceCodeInfo_Impl(
-    override val location: MutableList<pbandk.wkt.SourceCodeInfo.Location>,
+    override val location: pbandk.gen.MutableListField<pbandk.wkt.SourceCodeInfo.Location>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableSourceCodeInfo, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.SourceCodeInfo>() {
     override val descriptor get() = pbandk.wkt.SourceCodeInfo.descriptor
@@ -6004,7 +6004,7 @@ private class MutableSourceCodeInfo_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toSourceCodeInfo() = SourceCodeInfo_Impl(
-        location = location.toList(),
+        location = location.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -6048,11 +6048,11 @@ public fun SourceCodeInfo.Companion.Location(
 @pbandk.Export
 @pbandk.JsName("buildSourceCodeInfoLocation")
 public fun SourceCodeInfo.Companion.Location(builderAction: pbandk.wkt.SourceCodeInfo.MutableLocation.() -> Unit): pbandk.wkt.SourceCodeInfo.Location = pbandk.wkt.SourceCodeInfo_MutableLocation_Impl(
-    path = mutableListOf(),
-    span = mutableListOf(),
+    path = pbandk.gen.MutableListField(),
+    span = pbandk.gen.MutableListField(),
     leadingComments = null,
     trailingComments = null,
-    leadingDetachedComments = mutableListOf(),
+    leadingDetachedComments = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toLocation()
 
@@ -6068,11 +6068,11 @@ public fun MutableSourceCodeInfo.Location(builderAction: pbandk.wkt.SourceCodeIn
 public fun SourceCodeInfo.Location?.orDefault(): pbandk.wkt.SourceCodeInfo.Location = this ?: pbandk.wkt.SourceCodeInfo.Location.defaultInstance
 
 private class SourceCodeInfo_Location_Impl(
-    override val path: List<Int>,
-    override val span: List<Int>,
+    override val path: pbandk.gen.ListField<Int>,
+    override val span: pbandk.gen.ListField<Int>,
     override val leadingComments: String?,
     override val trailingComments: String?,
-    override val leadingDetachedComments: List<String>,
+    override val leadingDetachedComments: pbandk.gen.ListField<String>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.SourceCodeInfo.Location, pbandk.gen.GeneratedMessage<pbandk.wkt.SourceCodeInfo.Location>() {
     override val descriptor get() = pbandk.wkt.SourceCodeInfo.Location.descriptor
@@ -6108,11 +6108,11 @@ private class SourceCodeInfo_Location_Impl(
 }
 
 private class SourceCodeInfo_MutableLocation_Impl(
-    override val path: MutableList<Int>,
-    override val span: MutableList<Int>,
+    override val path: pbandk.gen.MutableListField<Int>,
+    override val span: pbandk.gen.MutableListField<Int>,
     override var leadingComments: String?,
     override var trailingComments: String?,
-    override val leadingDetachedComments: MutableList<String>,
+    override val leadingDetachedComments: pbandk.gen.MutableListField<String>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.SourceCodeInfo.MutableLocation, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.SourceCodeInfo.Location>() {
     override val descriptor get() = pbandk.wkt.SourceCodeInfo.Location.descriptor
@@ -6133,11 +6133,11 @@ private class SourceCodeInfo_MutableLocation_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toLocation() = SourceCodeInfo_Location_Impl(
-        path = path.toList(),
-        span = span.toList(),
+        path = path.toListField(),
+        span = span.toListField(),
         leadingComments = leadingComments,
         trailingComments = trailingComments,
-        leadingDetachedComments = leadingDetachedComments.toList(),
+        leadingDetachedComments = leadingDetachedComments.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -6177,7 +6177,7 @@ public fun GeneratedCodeInfo(
 @pbandk.Export
 @pbandk.JsName("buildGeneratedCodeInfo")
 public fun GeneratedCodeInfo(builderAction: pbandk.wkt.MutableGeneratedCodeInfo.() -> Unit): pbandk.wkt.GeneratedCodeInfo = pbandk.wkt.MutableGeneratedCodeInfo_Impl(
-    annotation = mutableListOf(),
+    annotation = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toGeneratedCodeInfo()
 
@@ -6186,7 +6186,7 @@ public fun GeneratedCodeInfo(builderAction: pbandk.wkt.MutableGeneratedCodeInfo.
 public fun GeneratedCodeInfo?.orDefault(): pbandk.wkt.GeneratedCodeInfo = this ?: pbandk.wkt.GeneratedCodeInfo.defaultInstance
 
 private class GeneratedCodeInfo_Impl(
-    override val annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation>,
+    override val annotation: pbandk.gen.ListField<pbandk.wkt.GeneratedCodeInfo.Annotation>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.GeneratedCodeInfo, pbandk.gen.GeneratedMessage<pbandk.wkt.GeneratedCodeInfo>() {
     override val descriptor get() = pbandk.wkt.GeneratedCodeInfo.descriptor
@@ -6210,7 +6210,7 @@ private class GeneratedCodeInfo_Impl(
 }
 
 private class MutableGeneratedCodeInfo_Impl(
-    override val annotation: MutableList<pbandk.wkt.GeneratedCodeInfo.Annotation>,
+    override val annotation: pbandk.gen.MutableListField<pbandk.wkt.GeneratedCodeInfo.Annotation>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableGeneratedCodeInfo, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.GeneratedCodeInfo>() {
     override val descriptor get() = pbandk.wkt.GeneratedCodeInfo.descriptor
@@ -6227,7 +6227,7 @@ private class MutableGeneratedCodeInfo_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toGeneratedCodeInfo() = GeneratedCodeInfo_Impl(
-        annotation = annotation.toList(),
+        annotation = annotation.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -6269,7 +6269,7 @@ public fun GeneratedCodeInfo.Companion.Annotation(
 @pbandk.Export
 @pbandk.JsName("buildGeneratedCodeInfoAnnotation")
 public fun GeneratedCodeInfo.Companion.Annotation(builderAction: pbandk.wkt.GeneratedCodeInfo.MutableAnnotation.() -> Unit): pbandk.wkt.GeneratedCodeInfo.Annotation = pbandk.wkt.GeneratedCodeInfo_MutableAnnotation_Impl(
-    path = mutableListOf(),
+    path = pbandk.gen.MutableListField(),
     sourceFile = null,
     begin = null,
     end = null,
@@ -6288,7 +6288,7 @@ public fun MutableGeneratedCodeInfo.Annotation(builderAction: pbandk.wkt.Generat
 public fun GeneratedCodeInfo.Annotation?.orDefault(): pbandk.wkt.GeneratedCodeInfo.Annotation = this ?: pbandk.wkt.GeneratedCodeInfo.Annotation.defaultInstance
 
 private class GeneratedCodeInfo_Annotation_Impl(
-    override val path: List<Int>,
+    override val path: pbandk.gen.ListField<Int>,
     override val sourceFile: String?,
     override val begin: Int?,
     override val end: Int?,
@@ -6324,7 +6324,7 @@ private class GeneratedCodeInfo_Annotation_Impl(
 }
 
 private class GeneratedCodeInfo_MutableAnnotation_Impl(
-    override val path: MutableList<Int>,
+    override val path: pbandk.gen.MutableListField<Int>,
     override var sourceFile: String?,
     override var begin: Int?,
     override var end: Int?,
@@ -6347,7 +6347,7 @@ private class GeneratedCodeInfo_MutableAnnotation_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toAnnotation() = GeneratedCodeInfo_Annotation_Impl(
-        path = path.toList(),
+        path = path.toListField(),
         sourceFile = sourceFile,
         begin = begin,
         end = end,

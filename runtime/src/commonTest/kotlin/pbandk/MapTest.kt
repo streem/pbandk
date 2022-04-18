@@ -1,6 +1,6 @@
 package pbandk
 
-import pbandk.gen.MessageMap
+import pbandk.gen.MapField
 import pbandk.testpb.Foo
 import pbandk.testpb.FooMap
 import pbandk.testpb.FooMapEntries
@@ -15,21 +15,21 @@ import kotlin.test.assertEquals
 class MapTest {
     /**
      * When map fields are manually constructed they usually use Kotlin's standard `mapOf()` method. When map fields
-     * are constructed from decoding a binary protobuf message, they usually use pbandk's `MessageMap`. The binary
-     * encoding code implements some optimizations when the map field is an instance of `MessageMap`. We need to make
+     * are constructed from decoding a binary protobuf message, they usually use pbandk's `MapField`. The binary
+     * encoding code implements some optimizations when the map field is an instance of `MapField`. We need to make
      * sure the optimized and non-optimized code paths both produce the same output.
      */
     @Test
     fun testMapEntryEquivalence() {
-        val testWithMessageMapEntries = TestAllTypesProto3 {
-            mapStringForeignMessage += MessageMap.of(
+        val testWithMapFieldEntries = TestAllTypesProto3 {
+            mapStringForeignMessage += MapField.of(
                 FieldDescriptor.Type.Primitive.String(),
                 FieldDescriptor.Type.Message(ForeignMessage),
                 "a" to ForeignMessage {},
                 "b" to ForeignMessage { c = 5 },
                 "c" to null
             )
-            mapStringForeignEnum += MessageMap.of(
+            mapStringForeignEnum += MapField.of(
                 FieldDescriptor.Type.Primitive.String(),
                 FieldDescriptor.Type.Enum(ForeignEnum),
                 "a" to ForeignEnum.FOREIGN_FOO,
@@ -48,9 +48,9 @@ class MapTest {
             )
         }
 
-        assertEquals(testWithMessageMapEntries.protoSize, testWithGenericMapEntries.protoSize)
+        assertEquals(testWithMapFieldEntries.protoSize, testWithGenericMapEntries.protoSize)
         assertContentEquals(
-            testWithMessageMapEntries.encodeToByteArray(),
+            testWithMapFieldEntries.encodeToByteArray(),
             testWithGenericMapEntries.encodeToByteArray()
         )
     }

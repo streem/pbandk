@@ -1,6 +1,6 @@
 package pbandk
 
-import pbandk.gen.MessageMap
+import pbandk.gen.MapField
 import pbandk.internal.binary.WireType
 import pbandk.wkt.FieldOptions
 import kotlin.js.JsExport
@@ -153,8 +153,8 @@ public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor
 
         @PublicForGeneratedCode
         public class Map<K, V>(keyType: Type, valueType: Type) : Type() {
-            internal val entryCompanion: MessageMap.Entry.Companion<K, V> =
-                MessageMap.Entry.Companion(keyType, valueType)
+            internal val entryCompanion: MapField.Entry.Companion<K, V> =
+                MapField.Entry.Companion(keyType, valueType)
             override val hasPresence get() = false
             override val isPackable: Boolean get() = false
             override val wireType: WireType get() = WireType.LENGTH_DELIMITED

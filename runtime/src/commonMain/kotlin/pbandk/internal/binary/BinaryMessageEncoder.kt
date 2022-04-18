@@ -1,8 +1,8 @@
 package pbandk.internal.binary
 
 import pbandk.*
-import pbandk.gen.MessageMap
-import pbandk.gen.MutableMessageMap
+import pbandk.gen.MapField
+import pbandk.gen.MutableMapField
 import pbandk.wkt.*
 import kotlin.Any
 import kotlin.reflect.KProperty1
@@ -88,13 +88,13 @@ internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEnco
 
     private fun writeMapValue(fieldNum: Int, map: Map<*, *>, type: FieldDescriptor.Type.Map<*, *>) {
         // TODO: make the generic map case more efficient by using the map entries as-is instead of constructing a new
-        //  MessageMap.Entry for each one
+        //  MapField.Entry for each one
         @Suppress("UNCHECKED_CAST")
-        val messageMap = map as? MessageMap<*, *>
-            ?: MutableMessageMap(type.entryCompanion as MessageMap.Entry.Companion<Any?, Any?>).apply {
+        val mapField = map as? MapField<*, *>
+            ?: MutableMapField(type.entryCompanion as MapField.Entry.Companion<Any?, Any?>).apply {
                 putAll(map)
-            }.toMessageMap()
-        messageMap.asMessageCollection().forEach {
+            }.toMapField()
+        mapField.asMessages().forEach {
             writeMessageValue(fieldNum, it)
         }
     }

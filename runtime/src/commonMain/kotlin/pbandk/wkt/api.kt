@@ -377,11 +377,11 @@ public fun Api(
 @pbandk.JsName("buildApi")
 public fun Api(builderAction: pbandk.wkt.MutableApi.() -> Unit): pbandk.wkt.Api = pbandk.wkt.MutableApi_Impl(
     name = "",
-    methods = mutableListOf(),
-    options = mutableListOf(),
+    methods = pbandk.gen.MutableListField(),
+    options = pbandk.gen.MutableListField(),
     version = "",
     sourceContext = null,
-    mixins = mutableListOf(),
+    mixins = pbandk.gen.MutableListField(),
     syntax = pbandk.wkt.Syntax.fromValue(0),
     unknownFields = mutableMapOf()
 ).also(builderAction).toApi()
@@ -392,11 +392,11 @@ public fun Api?.orDefault(): pbandk.wkt.Api = this ?: pbandk.wkt.Api.defaultInst
 
 private class Api_Impl(
     override val name: String,
-    override val methods: List<pbandk.wkt.Method>,
-    override val options: List<pbandk.wkt.Option>,
+    override val methods: pbandk.gen.ListField<pbandk.wkt.Method>,
+    override val options: pbandk.gen.ListField<pbandk.wkt.Option>,
     override val version: String,
     override val sourceContext: pbandk.wkt.SourceContext?,
-    override val mixins: List<pbandk.wkt.Mixin>,
+    override val mixins: pbandk.gen.ListField<pbandk.wkt.Mixin>,
     override val syntax: pbandk.wkt.Syntax,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.Api, pbandk.gen.GeneratedMessage<pbandk.wkt.Api>() {
@@ -440,11 +440,11 @@ private class Api_Impl(
 
 private class MutableApi_Impl(
     override var name: String,
-    override val methods: MutableList<pbandk.wkt.Method>,
-    override val options: MutableList<pbandk.wkt.Option>,
+    override val methods: pbandk.gen.MutableListField<pbandk.wkt.Method>,
+    override val options: pbandk.gen.MutableListField<pbandk.wkt.Option>,
     override var version: String,
     override var sourceContext: pbandk.wkt.SourceContext?,
-    override val mixins: MutableList<pbandk.wkt.Mixin>,
+    override val mixins: pbandk.gen.MutableListField<pbandk.wkt.Mixin>,
     override var syntax: pbandk.wkt.Syntax,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableApi, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Api>() {
@@ -469,11 +469,11 @@ private class MutableApi_Impl(
 
     fun toApi() = Api_Impl(
         name = name,
-        methods = methods.toList(),
-        options = options.toList(),
+        methods = methods.toListField(),
+        options = options.toListField(),
         version = version,
         sourceContext = sourceContext,
-        mixins = mixins.toList(),
+        mixins = mixins.toListField(),
         syntax = syntax,
         unknownFields = unknownFields.toMap()
     )
@@ -533,7 +533,7 @@ public fun Method(builderAction: pbandk.wkt.MutableMethod.() -> Unit): pbandk.wk
     requestStreaming = false,
     responseTypeUrl = "",
     responseStreaming = false,
-    options = mutableListOf(),
+    options = pbandk.gen.MutableListField(),
     syntax = pbandk.wkt.Syntax.fromValue(0),
     unknownFields = mutableMapOf()
 ).also(builderAction).toMethod()
@@ -548,7 +548,7 @@ private class Method_Impl(
     override val requestStreaming: Boolean,
     override val responseTypeUrl: String,
     override val responseStreaming: Boolean,
-    override val options: List<pbandk.wkt.Option>,
+    override val options: pbandk.gen.ListField<pbandk.wkt.Option>,
     override val syntax: pbandk.wkt.Syntax,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.Method, pbandk.gen.GeneratedMessage<pbandk.wkt.Method>() {
@@ -596,7 +596,7 @@ private class MutableMethod_Impl(
     override var requestStreaming: Boolean,
     override var responseTypeUrl: String,
     override var responseStreaming: Boolean,
-    override val options: MutableList<pbandk.wkt.Option>,
+    override val options: pbandk.gen.MutableListField<pbandk.wkt.Option>,
     override var syntax: pbandk.wkt.Syntax,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableMethod, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Method>() {
@@ -625,7 +625,7 @@ private class MutableMethod_Impl(
         requestStreaming = requestStreaming,
         responseTypeUrl = responseTypeUrl,
         responseStreaming = responseStreaming,
-        options = options.toList(),
+        options = options.toListField(),
         syntax = syntax,
         unknownFields = unknownFields.toMap()
     )

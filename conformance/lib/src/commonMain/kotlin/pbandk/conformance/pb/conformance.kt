@@ -518,7 +518,7 @@ public fun FailureSet(
 @pbandk.Export
 @pbandk.JsName("buildFailureSet")
 public fun FailureSet(builderAction: pbandk.conformance.pb.MutableFailureSet.() -> Unit): pbandk.conformance.pb.FailureSet = pbandk.conformance.pb.MutableFailureSet_Impl(
-    failure = mutableListOf(),
+    failure = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toFailureSet()
 
@@ -527,7 +527,7 @@ public fun FailureSet(builderAction: pbandk.conformance.pb.MutableFailureSet.() 
 public fun FailureSet?.orDefault(): pbandk.conformance.pb.FailureSet = this ?: pbandk.conformance.pb.FailureSet.defaultInstance
 
 private class FailureSet_Impl(
-    override val failure: List<String>,
+    override val failure: pbandk.gen.ListField<String>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.conformance.pb.FailureSet, pbandk.gen.GeneratedMessage<pbandk.conformance.pb.FailureSet>() {
     override val descriptor get() = pbandk.conformance.pb.FailureSet.descriptor
@@ -551,7 +551,7 @@ private class FailureSet_Impl(
 }
 
 private class MutableFailureSet_Impl(
-    override val failure: MutableList<String>,
+    override val failure: pbandk.gen.MutableListField<String>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.conformance.pb.MutableFailureSet, pbandk.gen.MutableGeneratedMessage<pbandk.conformance.pb.FailureSet>() {
     override val descriptor get() = pbandk.conformance.pb.FailureSet.descriptor
@@ -568,7 +568,7 @@ private class MutableFailureSet_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toFailureSet() = FailureSet_Impl(
-        failure = failure.toList(),
+        failure = failure.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }

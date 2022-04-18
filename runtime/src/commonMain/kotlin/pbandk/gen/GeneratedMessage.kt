@@ -18,7 +18,21 @@ private inline fun <T : Message, V> GeneratedMessage<T>.getValue(field: FieldDes
 
 @PublicForGeneratedCode
 public abstract class GeneratedMessage<T : Message> : Message {
-    override val protoSize: Int by lazy(LazyThreadSafetyMode.PUBLICATION) { Sizer.rawMessageSize(this) }
+    protected fun computeProtoSize(): Int = Sizer.rawMessageSize(this)
+
+    override val protoSize: Int by lazy(LazyThreadSafetyMode.PUBLICATION) { computeProtoSize() }
+
+    protected fun computeHashCode(): Int {
+        var hash = 1
+
+        for (field in fieldDescriptors) {
+            hash = (31 * hash) + getValue(field).hashCode()
+        }
+
+        hash = (31 * hash) + unknownFields.hashCode()
+
+        return hash
+    }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -37,18 +51,7 @@ public abstract class GeneratedMessage<T : Message> : Message {
         return true
     }
 
-    private val _hashCode: Int by lazy(LazyThreadSafetyMode.PUBLICATION) {
-        var hash = 1
-
-        for (field in fieldDescriptors) {
-            hash = (31 * hash) + getValue(field).hashCode()
-        }
-
-        hash = (31 * hash) + unknownFields.hashCode()
-
-        hash
-    }
-
+    private val _hashCode: Int by lazy(LazyThreadSafetyMode.PUBLICATION) { computeHashCode() }
     override fun hashCode(): Int = _hashCode
 
     override fun toString(): String = buildString {
@@ -69,20 +72,10 @@ public abstract class GeneratedMessage<T : Message> : Message {
     }
 }
 
-@Suppress("EqualsOrHashCode")
 @PublicForGeneratedCode
 public abstract class MutableGeneratedMessage<T : Message> : GeneratedMessage<T>(), MutableMessage<T> {
-    override val protoSize: Int get() = Sizer.rawMessageSize(this)
+    override val protoSize: Int get() = computeProtoSize()
 
-    override fun hashCode(): Int {
-        var hash = 1
-
-        for (field in fieldDescriptors) {
-            hash = (31 * hash) + getValue(field).hashCode()
-        }
-
-        hash = (31 * hash) + unknownFields.hashCode()
-
-        return hash
-    }
+    override fun hashCode(): Int = computeHashCode()
+    override fun equals(other: Any?): Boolean = super.equals(other)
 }

@@ -284,7 +284,7 @@ public fun Struct(
 @pbandk.Export
 @pbandk.JsName("buildStruct")
 public fun Struct(builderAction: pbandk.wkt.MutableStruct.() -> Unit): pbandk.wkt.Struct = pbandk.wkt.MutableStruct_Impl(
-    fields = pbandk.gen.MutableMessageMap(pbandk.wkt.Struct.descriptor.fields[1]),
+    fields = pbandk.gen.MutableMapField(pbandk.wkt.Struct.descriptor.fields[1]),
     unknownFields = mutableMapOf()
 ).also(builderAction).toStruct()
 
@@ -293,7 +293,7 @@ public fun Struct(builderAction: pbandk.wkt.MutableStruct.() -> Unit): pbandk.wk
 public fun Struct?.orDefault(): pbandk.wkt.Struct = this ?: pbandk.wkt.Struct.defaultInstance
 
 private class Struct_Impl(
-    override val fields: pbandk.gen.MessageMap<String, pbandk.wkt.Value?>,
+    override val fields: pbandk.gen.MapField<String, pbandk.wkt.Value?>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.Struct, pbandk.gen.GeneratedMessage<pbandk.wkt.Struct>() {
     override val descriptor get() = pbandk.wkt.Struct.descriptor
@@ -317,7 +317,7 @@ private class Struct_Impl(
 }
 
 private class MutableStruct_Impl(
-    override val fields: pbandk.gen.MutableMessageMap<String, pbandk.wkt.Value?>,
+    override val fields: pbandk.gen.MutableMapField<String, pbandk.wkt.Value?>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableStruct, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Struct>() {
     override val descriptor get() = pbandk.wkt.Struct.descriptor
@@ -334,7 +334,7 @@ private class MutableStruct_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toStruct() = Struct_Impl(
-        fields = fields.toMessageMap(),
+        fields = fields.toMapField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -496,7 +496,7 @@ public fun ListValue(
 @pbandk.Export
 @pbandk.JsName("buildListValue")
 public fun ListValue(builderAction: pbandk.wkt.MutableListValue.() -> Unit): pbandk.wkt.ListValue = pbandk.wkt.MutableListValue_Impl(
-    values = mutableListOf(),
+    values = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toListValue()
 
@@ -505,7 +505,7 @@ public fun ListValue(builderAction: pbandk.wkt.MutableListValue.() -> Unit): pba
 public fun ListValue?.orDefault(): pbandk.wkt.ListValue = this ?: pbandk.wkt.ListValue.defaultInstance
 
 private class ListValue_Impl(
-    override val values: List<pbandk.wkt.Value>,
+    override val values: pbandk.gen.ListField<pbandk.wkt.Value>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.ListValue, pbandk.gen.GeneratedMessage<pbandk.wkt.ListValue>() {
     override val descriptor get() = pbandk.wkt.ListValue.descriptor
@@ -529,7 +529,7 @@ private class ListValue_Impl(
 }
 
 private class MutableListValue_Impl(
-    override val values: MutableList<pbandk.wkt.Value>,
+    override val values: pbandk.gen.MutableListField<pbandk.wkt.Value>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableListValue, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.ListValue>() {
     override val descriptor get() = pbandk.wkt.ListValue.descriptor
@@ -546,7 +546,7 @@ private class MutableListValue_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toListValue() = ListValue_Impl(
-        values = values.toList(),
+        values = values.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }

@@ -100,7 +100,7 @@ public open class CodeGenerator(
 
     protected fun writeMessageType(type: File.Type.Message) {
         // There's no need to generate code for the messages that back every protobuf map field because those fields
-        // all use `MessageMap.Entry` as their message class.
+        // all use `MapField.Entry` as their message class.
         if (type.mapEntry) return
 
         val messageInterface = if (type.extensionRange.isNotEmpty()) {
@@ -562,8 +562,8 @@ public open class CodeGenerator(
                     }
                     lineMid(field.kotlinName)
                     when {
-                        field is File.Field.Numbered.Standard && field.map -> lineMid(".toMessageMap()")
-                        field is File.Field.Numbered && field.repeated -> lineMid(".toList()")
+                        field is File.Field.Numbered.Standard && field.map -> lineMid(".toMapField()")
+                        field is File.Field.Numbered && field.repeated -> lineMid(".toListField()")
                     }
                     lineEnd(",")
                 }
@@ -704,7 +704,7 @@ public open class CodeGenerator(
         impl: Boolean = false
     ): String = when (this) {
         is File.Field.Numbered.Standard -> kotlinValueType(nullableIfMessage, mutable, impl)
-        is File.Field.Numbered.Wrapper -> kotlinValueType(nullableIfMessage, mutable)
+        is File.Field.Numbered.Wrapper -> kotlinValueType(nullableIfMessage, mutable, impl)
     }
 
     protected val File.Field.Numbered.extendeeKotlinType: Name?
@@ -749,15 +749,24 @@ public open class CodeGenerator(
     ): String = when {
         map -> mapEntry()!!.let {
             val typeName = when {
-                impl && mutable -> "pbandk.gen.MutableMessageMap"
-                impl && !mutable -> "pbandk.gen.MessageMap"
+                impl && mutable -> "pbandk.gen.MutableMapField"
+                impl && !mutable -> "pbandk.gen.MapField"
                 !impl && mutable -> "MutableMap"
                 !impl && !mutable -> "Map"
                 else -> error("Can't get here")
             }
             "$typeName<${it.mapEntryKeyKotlinType}, ${it.mapEntryValueKotlinType}>"
         }
-        repeated -> (if (mutable) "Mutable" else "") + "List<$kotlinQualifiedTypeName>"
+        repeated -> {
+            val typeName = when {
+                impl && mutable -> "pbandk.gen.MutableListField"
+                impl && !mutable -> "pbandk.gen.ListField"
+                !impl && mutable -> "MutableList"
+                !impl && !mutable -> "List"
+                else -> error("Can't get here")
+            }
+            "$typeName<$kotlinQualifiedTypeName>"
+        }
         hasPresence || (type == File.Field.Type.MESSAGE && nullableIfMessage) ->
             "$kotlinQualifiedTypeName?"
         else -> kotlinQualifiedTypeName
@@ -768,23 +777,36 @@ public open class CodeGenerator(
         parentMessage: File.Type.Message? = null
     ): String = when {
         map -> if (mutable) {
-            "pbandk.gen.MutableMessageMap(${parentMessage!!.kotlinName.fullWithPackage}.descriptor.fields[$number])"
+            "pbandk.gen.MutableMapField(${parentMessage!!.kotlinName.fullWithPackage}.descriptor.fields[$number])"
         } else {
             "emptyMap()"
         }
-        repeated -> if (mutable) "mutableListOf()" else "emptyList()"
+        repeated -> if (mutable) "pbandk.gen.MutableListField()" else "emptyList()"
         hasPresence -> "null"
         type == File.Field.Type.ENUM -> "$kotlinQualifiedTypeName.fromValue(0)"
         else -> type.defaultValue
     }
 
-    protected fun File.Field.Numbered.Wrapper.kotlinValueType(nullableIfMessage: Boolean, mutable: Boolean = false): String = when {
-        repeated -> (if (mutable) "Mutable" else "") + "List<${wrappedType.standardTypeName.fullWithPackage}>"
+    protected fun File.Field.Numbered.Wrapper.kotlinValueType(
+        nullableIfMessage: Boolean,
+        mutable: Boolean = false,
+        impl: Boolean = false
+    ): String = when {
+        repeated -> {
+            val typeName = when {
+                impl && mutable -> "pbandk.gen.MutableListField"
+                impl && !mutable -> "pbandk.gen.ListField"
+                !impl && mutable -> "MutableList"
+                !impl && !mutable -> "List"
+                else -> error("Can't get here")
+            }
+            "$typeName<${wrappedType.standardTypeName.fullWithPackage}>"
+        }
         else -> wrappedType.standardTypeName.fullWithPackage + if (nullableIfMessage) "?" else ""
     }
 
     protected fun File.Field.Numbered.Wrapper.defaultValue(mutable: Boolean = false): String = when {
-        repeated -> if (mutable) "mutableListOf()" else "emptyList()"
+        repeated -> if (mutable) "pbandk.gen.MutableListField()" else "emptyList()"
         else -> "null"
     }
 

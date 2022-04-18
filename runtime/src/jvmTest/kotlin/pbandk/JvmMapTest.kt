@@ -1,7 +1,7 @@
 package pbandk
 
 import com.google.protobuf_test_messages.proto3.TestMessagesProto3
-import pbandk.gen.MessageMap
+import pbandk.gen.MapField
 import pbandk.testpb.ForeignEnum
 import pbandk.testpb.MessageWithMap
 import pbandk.testpb.TestAllTypesProto3
@@ -28,7 +28,7 @@ class JvmMapTest {
         assertEquals(builtKotlinObj, gendKotlinObj)
 
         // Check that map-with-size
-        assertTrue(gendKotlinObj.map is MessageMap)
+        assertTrue(gendKotlinObj.map is MapField)
         assertEquals(builtKotlinObj.protoSize, gendKotlinObj.protoSize)
         assertEquals(builtKotlinBytes.toList(), gendKotlinObj.encodeToByteArray().toList())
     }

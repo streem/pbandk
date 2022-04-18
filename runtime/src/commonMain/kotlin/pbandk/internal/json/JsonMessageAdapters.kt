@@ -10,7 +10,7 @@ import kotlinx.serialization.json.jsonPrimitive
 import pbandk.FieldDescriptor
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
-import pbandk.gen.MutableMessageMap
+import pbandk.gen.MutableMapField
 import pbandk.getTypeNameFromTypeUrl
 import pbandk.getTypePrefixFromTypeUrl
 import pbandk.getTypeUrl
@@ -226,7 +226,7 @@ internal object JsonMessageAdapters {
             override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = try {
                 val fields = jsonValueDecoder.readMap(json, fieldType)
                 Struct {
-                    (this.fields as MutableMessageMap<String, Value?>).putAll(fields)
+                    (this.fields as MutableMapField<String, Value?>).putAll(fields)
                 }
             } catch (e: InvalidProtocolBufferException) {
                 throw e

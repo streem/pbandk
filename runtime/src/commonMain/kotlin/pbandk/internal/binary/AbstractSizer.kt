@@ -30,8 +30,8 @@
 package pbandk.internal.binary
 
 import pbandk.*
-import pbandk.gen.ListWithSize
-import pbandk.gen.MessageMap
+import pbandk.gen.ListField
+import pbandk.gen.MapField
 import pbandk.wkt.*
 import kotlin.Any
 import kotlin.reflect.KProperty1
@@ -150,12 +150,12 @@ internal abstract class AbstractSizer {
     }
 
     fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int) =
-        if (list is ListWithSize && list.protoSize != null) list.protoSize + uInt32Size(list.protoSize)
+        if (list is ListField && list.protoSize != null) list.protoSize + uInt32Size(list.protoSize)
         else list.sumOf(sizeFn).let { it + uInt32Size(it) }
 
-    fun mapSize(map: Map<*, *>, entryCompanion: MessageMap.Entry.Companion<*, *>): Int {
+    fun mapSize(map: Map<*, *>, entryCompanion: MapField.Entry.Companion<*, *>): Int {
         return map.entries.sumOf { entry ->
-            if (entry is MessageMap.Entry<*, *>) {
+            if (entry is MapField.Entry<*, *>) {
                 entry.protoSize
             } else {
                 val keySize = entry.key

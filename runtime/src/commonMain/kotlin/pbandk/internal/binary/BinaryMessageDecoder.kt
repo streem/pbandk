@@ -2,7 +2,7 @@ package pbandk.internal.binary
 
 import kotlin.Any
 import pbandk.*
-import pbandk.gen.MutableMessageMap
+import pbandk.gen.MutableMapField
 import pbandk.wkt.*
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty1
@@ -88,7 +88,7 @@ internal class BinaryMessageDecoder(private val wireDecoder: BinaryWireDecoder) 
                             @Suppress("UNCHECKED_CAST")
                             value as Sequence<Map.Entry<*, *>>
                             @Suppress("UNCHECKED_CAST")
-                            ((fd.value as KProperty1<MutableMessage<T>, *>).get(this) as MutableMessageMap<Any?, Any?>).putAll(value)
+                            ((fd.value as KProperty1<MutableMessage<T>, *>).get(this) as MutableMapField<Any?, Any?>).putAll(value)
                         }
                         else -> {
                             @Suppress("UNCHECKED_CAST")

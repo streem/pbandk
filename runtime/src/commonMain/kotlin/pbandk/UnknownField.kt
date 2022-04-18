@@ -1,15 +1,13 @@
 package pbandk
 
-import pbandk.gen.MutableMessageMap
+import pbandk.gen.MutableMapField
 import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.Sizer
 import pbandk.internal.binary.WireType
 import pbandk.internal.binary.allowedWireType
 import pbandk.internal.binary.binaryReadFn
 import pbandk.internal.binary.kotlin.ByteArrayWireReader
-import pbandk.internal.binary.kotlin.ByteArrayWireWriter
 import pbandk.internal.binary.kotlin.KotlinBinaryWireDecoder
-import pbandk.internal.binary.kotlin.KotlinBinaryWireEncoder
 import kotlin.js.JsExport
 import kotlin.js.JsName
 
@@ -94,7 +92,7 @@ private fun <T : Message.Enum> UnknownField.decodeAsEnum(type: FieldDescriptor.T
 
 private fun <K, V> UnknownField.decodeAsMap(type: FieldDescriptor.Type.Map<K, V>): Map<K, V> {
     val messageType = FieldDescriptor.Type.Message(type.entryCompanion)
-    return MutableMessageMap(type.entryCompanion).apply {
+    return MutableMapField(type.entryCompanion).apply {
         putAll(this@decodeAsMap.values.asSequence().map { it.decodeAs(messageType) })
-    }.toMessageMap()
+    }.toMapField()
 }

@@ -3,7 +3,7 @@ package pbandk.internal.binary
 import pbandk.ByteArr
 import pbandk.FieldDescriptor
 import pbandk.Message
-import pbandk.gen.MessageMap
+import pbandk.gen.MapField
 
 internal const val MAX_VARINT_SIZE = 10
 
@@ -29,5 +29,5 @@ internal expect object Sizer {
     fun <T : Message> rawMessageSize(message: T): Int
     fun <T> repeatedSize(list: List<T>, valueType: FieldDescriptor.Type, packed: Boolean): Int
     fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int): Int
-    fun mapSize(map: Map<*, *>, entryCompanion: MessageMap.Entry.Companion<*, *>): Int
+    fun mapSize(map: Map<*, *>, entryCompanion: MapField.Entry.Companion<*, *>): Int
 }

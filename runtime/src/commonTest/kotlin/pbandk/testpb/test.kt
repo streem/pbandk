@@ -527,7 +527,7 @@ public fun Bar(
 @pbandk.Export
 @pbandk.JsName("buildBar")
 public fun Bar(builderAction: pbandk.testpb.MutableBar.() -> Unit): pbandk.testpb.Bar = pbandk.testpb.MutableBar_Impl(
-    foos = mutableListOf(),
+    foos = pbandk.gen.MutableListField(),
     singleFoo = null,
     unknownFields = mutableMapOf()
 ).also(builderAction).toBar()
@@ -537,7 +537,7 @@ public fun Bar(builderAction: pbandk.testpb.MutableBar.() -> Unit): pbandk.testp
 public fun Bar?.orDefault(): pbandk.testpb.Bar = this ?: pbandk.testpb.Bar.defaultInstance
 
 private class Bar_Impl(
-    override val foos: List<pbandk.testpb.Foo>,
+    override val foos: pbandk.gen.ListField<pbandk.testpb.Foo>,
     override val singleFoo: pbandk.testpb.Foo?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.Bar, pbandk.gen.GeneratedMessage<pbandk.testpb.Bar>() {
@@ -565,7 +565,7 @@ private class Bar_Impl(
 }
 
 private class MutableBar_Impl(
-    override val foos: MutableList<pbandk.testpb.Foo>,
+    override val foos: pbandk.gen.MutableListField<pbandk.testpb.Foo>,
     override var singleFoo: pbandk.testpb.Foo?,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableBar, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.Bar>() {
@@ -584,7 +584,7 @@ private class MutableBar_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toBar() = Bar_Impl(
-        foos = foos.toList(),
+        foos = foos.toListField(),
         singleFoo = singleFoo,
         unknownFields = unknownFields.toMap()
     )
@@ -622,7 +622,7 @@ public fun MessageWithMap(
 @pbandk.Export
 @pbandk.JsName("buildMessageWithMap")
 public fun MessageWithMap(builderAction: pbandk.testpb.MutableMessageWithMap.() -> Unit): pbandk.testpb.MessageWithMap = pbandk.testpb.MutableMessageWithMap_Impl(
-    map = pbandk.gen.MutableMessageMap(pbandk.testpb.MessageWithMap.descriptor.fields[1]),
+    map = pbandk.gen.MutableMapField(pbandk.testpb.MessageWithMap.descriptor.fields[1]),
     unknownFields = mutableMapOf()
 ).also(builderAction).toMessageWithMap()
 
@@ -631,7 +631,7 @@ public fun MessageWithMap(builderAction: pbandk.testpb.MutableMessageWithMap.() 
 public fun MessageWithMap?.orDefault(): pbandk.testpb.MessageWithMap = this ?: pbandk.testpb.MessageWithMap.defaultInstance
 
 private class MessageWithMap_Impl(
-    override val map: pbandk.gen.MessageMap<String, String>,
+    override val map: pbandk.gen.MapField<String, String>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MessageWithMap, pbandk.gen.GeneratedMessage<pbandk.testpb.MessageWithMap>() {
     override val descriptor get() = pbandk.testpb.MessageWithMap.descriptor
@@ -655,7 +655,7 @@ private class MessageWithMap_Impl(
 }
 
 private class MutableMessageWithMap_Impl(
-    override val map: pbandk.gen.MutableMessageMap<String, String>,
+    override val map: pbandk.gen.MutableMapField<String, String>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableMessageWithMap, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.MessageWithMap>() {
     override val descriptor get() = pbandk.testpb.MessageWithMap.descriptor
@@ -672,7 +672,7 @@ private class MutableMessageWithMap_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toMessageWithMap() = MessageWithMap_Impl(
-        map = map.toMessageMap(),
+        map = map.toMapField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -708,7 +708,7 @@ public fun FooMap(
 @pbandk.Export
 @pbandk.JsName("buildFooMap")
 public fun FooMap(builderAction: pbandk.testpb.MutableFooMap.() -> Unit): pbandk.testpb.FooMap = pbandk.testpb.MutableFooMap_Impl(
-    map = pbandk.gen.MutableMessageMap(pbandk.testpb.FooMap.descriptor.fields[1]),
+    map = pbandk.gen.MutableMapField(pbandk.testpb.FooMap.descriptor.fields[1]),
     unknownFields = mutableMapOf()
 ).also(builderAction).toFooMap()
 
@@ -717,7 +717,7 @@ public fun FooMap(builderAction: pbandk.testpb.MutableFooMap.() -> Unit): pbandk
 public fun FooMap?.orDefault(): pbandk.testpb.FooMap = this ?: pbandk.testpb.FooMap.defaultInstance
 
 private class FooMap_Impl(
-    override val map: pbandk.gen.MessageMap<String, pbandk.testpb.Foo?>,
+    override val map: pbandk.gen.MapField<String, pbandk.testpb.Foo?>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.FooMap, pbandk.gen.GeneratedMessage<pbandk.testpb.FooMap>() {
     override val descriptor get() = pbandk.testpb.FooMap.descriptor
@@ -741,7 +741,7 @@ private class FooMap_Impl(
 }
 
 private class MutableFooMap_Impl(
-    override val map: pbandk.gen.MutableMessageMap<String, pbandk.testpb.Foo?>,
+    override val map: pbandk.gen.MutableMapField<String, pbandk.testpb.Foo?>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableFooMap, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.FooMap>() {
     override val descriptor get() = pbandk.testpb.FooMap.descriptor
@@ -758,7 +758,7 @@ private class MutableFooMap_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toFooMap() = FooMap_Impl(
-        map = map.toMessageMap(),
+        map = map.toMapField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -794,7 +794,7 @@ public fun FooMapEntries(
 @pbandk.Export
 @pbandk.JsName("buildFooMapEntries")
 public fun FooMapEntries(builderAction: pbandk.testpb.MutableFooMapEntries.() -> Unit): pbandk.testpb.FooMapEntries = pbandk.testpb.MutableFooMapEntries_Impl(
-    map = mutableListOf(),
+    map = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toFooMapEntries()
 
@@ -803,7 +803,7 @@ public fun FooMapEntries(builderAction: pbandk.testpb.MutableFooMapEntries.() ->
 public fun FooMapEntries?.orDefault(): pbandk.testpb.FooMapEntries = this ?: pbandk.testpb.FooMapEntries.defaultInstance
 
 private class FooMapEntries_Impl(
-    override val map: List<pbandk.testpb.FooMapEntries.MapEntry>,
+    override val map: pbandk.gen.ListField<pbandk.testpb.FooMapEntries.MapEntry>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.FooMapEntries, pbandk.gen.GeneratedMessage<pbandk.testpb.FooMapEntries>() {
     override val descriptor get() = pbandk.testpb.FooMapEntries.descriptor
@@ -827,7 +827,7 @@ private class FooMapEntries_Impl(
 }
 
 private class MutableFooMapEntries_Impl(
-    override val map: MutableList<pbandk.testpb.FooMapEntries.MapEntry>,
+    override val map: pbandk.gen.MutableListField<pbandk.testpb.FooMapEntries.MapEntry>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableFooMapEntries, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.FooMapEntries>() {
     override val descriptor get() = pbandk.testpb.FooMapEntries.descriptor
@@ -844,7 +844,7 @@ private class MutableFooMapEntries_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toFooMapEntries() = FooMapEntries_Impl(
-        map = map.toList(),
+        map = map.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -987,7 +987,7 @@ public fun Wrappers(
 @pbandk.JsName("buildWrappers")
 public fun Wrappers(builderAction: pbandk.testpb.MutableWrappers.() -> Unit): pbandk.testpb.Wrappers = pbandk.testpb.MutableWrappers_Impl(
     stringValue = null,
-    uint64Values = mutableListOf(),
+    uint64Values = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toWrappers()
 
@@ -997,7 +997,7 @@ public fun Wrappers?.orDefault(): pbandk.testpb.Wrappers = this ?: pbandk.testpb
 
 private class Wrappers_Impl(
     override val stringValue: String?,
-    override val uint64Values: List<Long>,
+    override val uint64Values: pbandk.gen.ListField<Long>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.Wrappers, pbandk.gen.GeneratedMessage<pbandk.testpb.Wrappers>() {
     override val descriptor get() = pbandk.testpb.Wrappers.descriptor
@@ -1025,7 +1025,7 @@ private class Wrappers_Impl(
 
 private class MutableWrappers_Impl(
     override var stringValue: String?,
-    override val uint64Values: MutableList<Long>,
+    override val uint64Values: pbandk.gen.MutableListField<Long>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableWrappers, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.Wrappers>() {
     override val descriptor get() = pbandk.testpb.Wrappers.descriptor
@@ -1044,7 +1044,7 @@ private class MutableWrappers_Impl(
 
     fun toWrappers() = Wrappers_Impl(
         stringValue = stringValue,
-        uint64Values = uint64Values.toList(),
+        uint64Values = uint64Values.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }

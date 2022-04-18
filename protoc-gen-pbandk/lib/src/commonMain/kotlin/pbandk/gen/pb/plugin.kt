@@ -532,9 +532,9 @@ public fun CodeGeneratorRequest(
 @pbandk.Export
 @pbandk.JsName("buildCodeGeneratorRequest")
 public fun CodeGeneratorRequest(builderAction: pbandk.gen.pb.MutableCodeGeneratorRequest.() -> Unit): pbandk.gen.pb.CodeGeneratorRequest = pbandk.gen.pb.MutableCodeGeneratorRequest_Impl(
-    fileToGenerate = mutableListOf(),
+    fileToGenerate = pbandk.gen.MutableListField(),
     parameter = null,
-    protoFile = mutableListOf(),
+    protoFile = pbandk.gen.MutableListField(),
     compilerVersion = null,
     unknownFields = mutableMapOf()
 ).also(builderAction).toCodeGeneratorRequest()
@@ -544,9 +544,9 @@ public fun CodeGeneratorRequest(builderAction: pbandk.gen.pb.MutableCodeGenerato
 public fun CodeGeneratorRequest?.orDefault(): pbandk.gen.pb.CodeGeneratorRequest = this ?: pbandk.gen.pb.CodeGeneratorRequest.defaultInstance
 
 private class CodeGeneratorRequest_Impl(
-    override val fileToGenerate: List<String>,
+    override val fileToGenerate: pbandk.gen.ListField<String>,
     override val parameter: String?,
-    override val protoFile: List<pbandk.wkt.FileDescriptorProto>,
+    override val protoFile: pbandk.gen.ListField<pbandk.wkt.FileDescriptorProto>,
     override val compilerVersion: pbandk.gen.pb.Version?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.gen.pb.CodeGeneratorRequest, pbandk.gen.GeneratedMessage<pbandk.gen.pb.CodeGeneratorRequest>() {
@@ -580,9 +580,9 @@ private class CodeGeneratorRequest_Impl(
 }
 
 private class MutableCodeGeneratorRequest_Impl(
-    override val fileToGenerate: MutableList<String>,
+    override val fileToGenerate: pbandk.gen.MutableListField<String>,
     override var parameter: String?,
-    override val protoFile: MutableList<pbandk.wkt.FileDescriptorProto>,
+    override val protoFile: pbandk.gen.MutableListField<pbandk.wkt.FileDescriptorProto>,
     override var compilerVersion: pbandk.gen.pb.Version?,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.gen.pb.MutableCodeGeneratorRequest, pbandk.gen.MutableGeneratedMessage<pbandk.gen.pb.CodeGeneratorRequest>() {
@@ -603,9 +603,9 @@ private class MutableCodeGeneratorRequest_Impl(
     override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
     fun toCodeGeneratorRequest() = CodeGeneratorRequest_Impl(
-        fileToGenerate = fileToGenerate.toList(),
+        fileToGenerate = fileToGenerate.toListField(),
         parameter = parameter,
-        protoFile = protoFile.toList(),
+        protoFile = protoFile.toListField(),
         compilerVersion = compilerVersion,
         unknownFields = unknownFields.toMap()
     )
@@ -651,7 +651,7 @@ public fun CodeGeneratorResponse(
 public fun CodeGeneratorResponse(builderAction: pbandk.gen.pb.MutableCodeGeneratorResponse.() -> Unit): pbandk.gen.pb.CodeGeneratorResponse = pbandk.gen.pb.MutableCodeGeneratorResponse_Impl(
     error = null,
     supportedFeatures = null,
-    file = mutableListOf(),
+    file = pbandk.gen.MutableListField(),
     unknownFields = mutableMapOf()
 ).also(builderAction).toCodeGeneratorResponse()
 
@@ -662,7 +662,7 @@ public fun CodeGeneratorResponse?.orDefault(): pbandk.gen.pb.CodeGeneratorRespon
 private class CodeGeneratorResponse_Impl(
     override val error: String?,
     override val supportedFeatures: Long?,
-    override val file: List<pbandk.gen.pb.CodeGeneratorResponse.File>,
+    override val file: pbandk.gen.ListField<pbandk.gen.pb.CodeGeneratorResponse.File>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.gen.pb.CodeGeneratorResponse, pbandk.gen.GeneratedMessage<pbandk.gen.pb.CodeGeneratorResponse>() {
     override val descriptor get() = pbandk.gen.pb.CodeGeneratorResponse.descriptor
@@ -694,7 +694,7 @@ private class CodeGeneratorResponse_Impl(
 private class MutableCodeGeneratorResponse_Impl(
     override var error: String?,
     override var supportedFeatures: Long?,
-    override val file: MutableList<pbandk.gen.pb.CodeGeneratorResponse.File>,
+    override val file: pbandk.gen.MutableListField<pbandk.gen.pb.CodeGeneratorResponse.File>,
     override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.gen.pb.MutableCodeGeneratorResponse, pbandk.gen.MutableGeneratedMessage<pbandk.gen.pb.CodeGeneratorResponse>() {
     override val descriptor get() = pbandk.gen.pb.CodeGeneratorResponse.descriptor
@@ -715,7 +715,7 @@ private class MutableCodeGeneratorResponse_Impl(
     fun toCodeGeneratorResponse() = CodeGeneratorResponse_Impl(
         error = error,
         supportedFeatures = supportedFeatures,
-        file = file.toList(),
+        file = file.toListField(),
         unknownFields = unknownFields.toMap()
     )
 }

@@ -30,7 +30,7 @@
 package pbandk.internal.binary.kotlin
 
 import pbandk.*
-import pbandk.gen.ListWithSize
+import pbandk.gen.ListField
 import pbandk.internal.binary.*
 import pbandk.internal.binary.BinaryWireEncoder
 import pbandk.internal.binary.WireType
@@ -109,7 +109,7 @@ internal class KotlinBinaryWireEncoder(private val wireWriter: WireWriter) : Bin
     }
 
     override fun writePackedRepeated(fieldNum: Int, list: List<*>, valueType: FieldDescriptor.Type) {
-        val listSize = (list as? ListWithSize)?.protoSize ?: list.sumOf { valueType.protoSize(checkNotNull(it)) }
+        val listSize = (list as? ListField)?.protoSize ?: list.sumOf { valueType.protoSize(checkNotNull(it)) }
         writeLengthDelimitedHeader(fieldNum, listSize)
         list.forEach { writeValueNoTag(valueType, checkNotNull(it)) }
     }
