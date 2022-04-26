@@ -25,41 +25,43 @@ public sealed interface Duration : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.Duration
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val seconds: pbandk.FieldDescriptor<pbandk.wkt.Duration, Long> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Duration::descriptor,
+                name = "seconds",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
+                jsonName = "seconds",
+                value = pbandk.wkt.Duration::seconds,
+                mutableValue = pbandk.wkt.MutableDuration::seconds,
+            )
+        public val nanos: pbandk.FieldDescriptor<pbandk.wkt.Duration, Int> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Duration::descriptor,
+                name = "nanos",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                jsonName = "nanos",
+                value = pbandk.wkt.Duration::nanos,
+                mutableValue = pbandk.wkt.MutableDuration::nanos,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
         public val defaultInstance: pbandk.wkt.Duration by lazy { pbandk.wkt.Duration {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Duration, *>>(2)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "seconds",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
-                        jsonName = "seconds",
-                        value = pbandk.wkt.Duration::seconds,
-                        mutableValue = pbandk.wkt.MutableDuration::seconds,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "nanos",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "nanos",
-                        value = pbandk.wkt.Duration::nanos,
-                        mutableValue = pbandk.wkt.MutableDuration::nanos,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.Duration",
                 messageClass = pbandk.wkt.Duration::class,
                 messageCompanion = this,
                 builder = ::Duration,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.Duration.FieldDescriptors.seconds,
+                    pbandk.wkt.Duration.FieldDescriptors.nanos,
+                ),
             )
         }
     }
@@ -96,7 +98,6 @@ public fun Duration(
 public fun Duration(builderAction: pbandk.wkt.MutableDuration.() -> Unit): pbandk.wkt.Duration = pbandk.wkt.MutableDuration_Impl(
     seconds = 0L,
     nanos = 0,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toDuration()
 
 @pbandk.Export
@@ -106,16 +107,12 @@ public fun Duration?.orDefault(): pbandk.wkt.Duration = this ?: pbandk.wkt.Durat
 private class Duration_Impl(
     override val seconds: Long,
     override val nanos: Int,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Duration, pbandk.gen.GeneratedMessage<pbandk.wkt.Duration>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.Duration, pbandk.gen.GeneratedMessage<pbandk.wkt.Duration>(unknownFields) {
     override val descriptor get() = pbandk.wkt.Duration.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit) = pbandk.wkt.Duration {
-        this.seconds = this@Duration_Impl.seconds
-        this.nanos = this@Duration_Impl.nanos
-        this.unknownFields += this@Duration_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -127,19 +124,15 @@ private class Duration_Impl(
         this.nanos = nanos
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableDuration_Impl(
     override var seconds: Long,
     override var nanos: Int,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableDuration, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Duration>() {
     override val descriptor get() = pbandk.wkt.Duration.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -148,21 +141,9 @@ private class MutableDuration_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toDuration() = Duration_Impl(
         seconds = seconds,
         nanos = nanos,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun Duration.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Duration {
-    if (other !is pbandk.wkt.Duration) return this
-
-    return copy {
-        seconds = other.seconds
-        nanos = other.nanos
-        unknownFields += other.unknownFields
-    }
 }

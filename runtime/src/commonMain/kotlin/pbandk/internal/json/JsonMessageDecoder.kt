@@ -9,13 +9,10 @@ import pbandk.FieldDescriptor
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
 import pbandk.MessageDecoder
-import pbandk.MutableMessage
 import pbandk.gen.MutableMapField
 import pbandk.internal.underscoreToCamelCase
 import pbandk.json.JsonConfig
 import pbandk.wkt.Value
-import kotlin.reflect.KMutableProperty1
-import kotlin.reflect.KProperty1
 
 private val FieldDescriptor<*, *>.jsonNames: List<String>
     get() = listOf(
@@ -61,7 +58,7 @@ internal class JsonMessageDecoder internal constructor(
                     } ?: continue
 
                     @Suppress("UNCHECKED_CAST")
-                    (fd.mutableValue as KMutableProperty1<MutableMessage<T>, Any?>).set(this, defaultValue)
+                    (fd as FieldDescriptor<T, Any?>).updateValue(this, defaultValue)
                 }
             } else {
                 jsonValueDecoder.readValue(jsonValue, fd.type)?.let { value ->
@@ -69,19 +66,17 @@ internal class JsonMessageDecoder internal constructor(
                         is FieldDescriptor.Type.Repeated<*> -> {
                             value as Sequence<*>
                             @Suppress("UNCHECKED_CAST")
-                            ((fd.value as KProperty1<MutableMessage<T>, *>).get(this) as MutableList<Any?>).addAll(value)
+                            (fd.getValue(this as T) as MutableList<Any?>).addAll(value)
                         }
                         is FieldDescriptor.Type.Map<*, *> -> {
                             @Suppress("UNCHECKED_CAST")
                             value as Sequence<Map.Entry<*, *>>
                             @Suppress("UNCHECKED_CAST")
-                            ((fd.value as KProperty1<MutableMessage<T>, *>).get(this) as MutableMapField<Any?, Any?>).putAll(
-                                value
-                            )
+                            (fd.getValue(this as T) as MutableMapField<Any?, Any?>).putAll(value)
                         }
                         else -> {
                             @Suppress("UNCHECKED_CAST")
-                            (fd.mutableValue as KMutableProperty1<MutableMessage<T>, Any?>).set(this, value)
+                            (fd as FieldDescriptor<T, Any?>).updateValue(this, value)
                         }
                     }
                 }

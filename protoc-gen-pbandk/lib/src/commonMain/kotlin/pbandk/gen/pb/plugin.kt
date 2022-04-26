@@ -29,63 +29,65 @@ public sealed interface Version : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.gen.pb.Version
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val major: pbandk.FieldDescriptor<pbandk.gen.pb.Version, Int?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.gen.pb.Version::descriptor,
+                name = "major",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                jsonName = "major",
+                value = pbandk.gen.pb.Version::major,
+                mutableValue = pbandk.gen.pb.MutableVersion::major,
+            )
+        public val minor: pbandk.FieldDescriptor<pbandk.gen.pb.Version, Int?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.gen.pb.Version::descriptor,
+                name = "minor",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                jsonName = "minor",
+                value = pbandk.gen.pb.Version::minor,
+                mutableValue = pbandk.gen.pb.MutableVersion::minor,
+            )
+        public val patch: pbandk.FieldDescriptor<pbandk.gen.pb.Version, Int?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.gen.pb.Version::descriptor,
+                name = "patch",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                jsonName = "patch",
+                value = pbandk.gen.pb.Version::patch,
+                mutableValue = pbandk.gen.pb.MutableVersion::patch,
+            )
+        public val suffix: pbandk.FieldDescriptor<pbandk.gen.pb.Version, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.gen.pb.Version::descriptor,
+                name = "suffix",
+                number = 4,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "suffix",
+                value = pbandk.gen.pb.Version::suffix,
+                mutableValue = pbandk.gen.pb.MutableVersion::suffix,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.gen.pb.Version> {
         public val defaultInstance: pbandk.gen.pb.Version by lazy { pbandk.gen.pb.Version {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.Version> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.gen.pb.Version, *>>(4)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "major",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        jsonName = "major",
-                        value = pbandk.gen.pb.Version::major,
-                        mutableValue = pbandk.gen.pb.MutableVersion::major,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "minor",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        jsonName = "minor",
-                        value = pbandk.gen.pb.Version::minor,
-                        mutableValue = pbandk.gen.pb.MutableVersion::minor,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "patch",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        jsonName = "patch",
-                        value = pbandk.gen.pb.Version::patch,
-                        mutableValue = pbandk.gen.pb.MutableVersion::patch,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "suffix",
-                        number = 4,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "suffix",
-                        value = pbandk.gen.pb.Version::suffix,
-                        mutableValue = pbandk.gen.pb.MutableVersion::suffix,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.compiler.Version",
                 messageClass = pbandk.gen.pb.Version::class,
                 messageCompanion = this,
                 builder = ::Version,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.gen.pb.Version.FieldDescriptors.major,
+                    pbandk.gen.pb.Version.FieldDescriptors.minor,
+                    pbandk.gen.pb.Version.FieldDescriptors.patch,
+                    pbandk.gen.pb.Version.FieldDescriptors.suffix,
+                ),
             )
         }
     }
@@ -125,61 +127,65 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.gen.pb.CodeGeneratorRequest
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val fileToGenerate: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorRequest, List<String>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.gen.pb.CodeGeneratorRequest::descriptor,
+                name = "file_to_generate",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                jsonName = "fileToGenerate",
+                value = pbandk.gen.pb.CodeGeneratorRequest::fileToGenerate,
+                mutableValue = pbandk.gen.pb.MutableCodeGeneratorRequest::fileToGenerate,
+            )
+        public val parameter: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorRequest, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.gen.pb.CodeGeneratorRequest::descriptor,
+                name = "parameter",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "parameter",
+                value = pbandk.gen.pb.CodeGeneratorRequest::parameter,
+                mutableValue = pbandk.gen.pb.MutableCodeGeneratorRequest::parameter,
+            )
+        public val compilerVersion: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorRequest, pbandk.gen.pb.Version?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.gen.pb.CodeGeneratorRequest::descriptor,
+                name = "compiler_version",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.gen.pb.Version.Companion),
+                jsonName = "compilerVersion",
+                value = pbandk.gen.pb.CodeGeneratorRequest::compilerVersion,
+                mutableValue = pbandk.gen.pb.MutableCodeGeneratorRequest::compilerVersion,
+            )
+        public val protoFile: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorRequest, List<pbandk.wkt.FileDescriptorProto>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.gen.pb.CodeGeneratorRequest::descriptor,
+                name = "proto_file",
+                number = 15,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FileDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FileDescriptorProto.Companion)),
+                jsonName = "protoFile",
+                value = pbandk.gen.pb.CodeGeneratorRequest::protoFile,
+                mutableValue = pbandk.gen.pb.MutableCodeGeneratorRequest::protoFile,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorRequest> {
         public val defaultInstance: pbandk.gen.pb.CodeGeneratorRequest by lazy { pbandk.gen.pb.CodeGeneratorRequest {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorRequest> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorRequest, *>>(4)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "file_to_generate",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                        jsonName = "fileToGenerate",
-                        value = pbandk.gen.pb.CodeGeneratorRequest::fileToGenerate,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "parameter",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "parameter",
-                        value = pbandk.gen.pb.CodeGeneratorRequest::parameter,
-                        mutableValue = pbandk.gen.pb.MutableCodeGeneratorRequest::parameter,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "compiler_version",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.gen.pb.Version.Companion),
-                        jsonName = "compilerVersion",
-                        value = pbandk.gen.pb.CodeGeneratorRequest::compilerVersion,
-                        mutableValue = pbandk.gen.pb.MutableCodeGeneratorRequest::compilerVersion,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "proto_file",
-                        number = 15,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FileDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FileDescriptorProto.Companion)),
-                        jsonName = "protoFile",
-                        value = pbandk.gen.pb.CodeGeneratorRequest::protoFile,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.compiler.CodeGeneratorRequest",
                 messageClass = pbandk.gen.pb.CodeGeneratorRequest::class,
                 messageCompanion = this,
                 builder = ::CodeGeneratorRequest,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.gen.pb.CodeGeneratorRequest.FieldDescriptors.fileToGenerate,
+                    pbandk.gen.pb.CodeGeneratorRequest.FieldDescriptors.parameter,
+                    pbandk.gen.pb.CodeGeneratorRequest.FieldDescriptors.protoFile,
+                    pbandk.gen.pb.CodeGeneratorRequest.FieldDescriptors.compilerVersion,
+                ),
             )
         }
     }
@@ -217,51 +223,54 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.gen.pb.CodeGeneratorResponse
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val error: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse::descriptor,
+                name = "error",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "error",
+                value = pbandk.gen.pb.CodeGeneratorResponse::error,
+                mutableValue = pbandk.gen.pb.MutableCodeGeneratorResponse::error,
+            )
+        public val supportedFeatures: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, Long?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse::descriptor,
+                name = "supported_features",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
+                jsonName = "supportedFeatures",
+                value = pbandk.gen.pb.CodeGeneratorResponse::supportedFeatures,
+                mutableValue = pbandk.gen.pb.MutableCodeGeneratorResponse::supportedFeatures,
+            )
+        public val file: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, List<pbandk.gen.pb.CodeGeneratorResponse.File>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse::descriptor,
+                name = "file",
+                number = 15,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.gen.pb.CodeGeneratorResponse.File>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.gen.pb.CodeGeneratorResponse.File.Companion)),
+                jsonName = "file",
+                value = pbandk.gen.pb.CodeGeneratorResponse::file,
+                mutableValue = pbandk.gen.pb.MutableCodeGeneratorResponse::file,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse> {
         public val defaultInstance: pbandk.gen.pb.CodeGeneratorResponse by lazy { pbandk.gen.pb.CodeGeneratorResponse {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, *>>(3)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "error",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "error",
-                        value = pbandk.gen.pb.CodeGeneratorResponse::error,
-                        mutableValue = pbandk.gen.pb.MutableCodeGeneratorResponse::error,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "supported_features",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
-                        jsonName = "supportedFeatures",
-                        value = pbandk.gen.pb.CodeGeneratorResponse::supportedFeatures,
-                        mutableValue = pbandk.gen.pb.MutableCodeGeneratorResponse::supportedFeatures,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "file",
-                        number = 15,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.gen.pb.CodeGeneratorResponse.File>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.gen.pb.CodeGeneratorResponse.File.Companion)),
-                        jsonName = "file",
-                        value = pbandk.gen.pb.CodeGeneratorResponse::file,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.compiler.CodeGeneratorResponse",
                 messageClass = pbandk.gen.pb.CodeGeneratorResponse::class,
                 messageCompanion = this,
                 builder = ::CodeGeneratorResponse,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.gen.pb.CodeGeneratorResponse.FieldDescriptors.error,
+                    pbandk.gen.pb.CodeGeneratorResponse.FieldDescriptors.supportedFeatures,
+                    pbandk.gen.pb.CodeGeneratorResponse.FieldDescriptors.file,
+                ),
             )
         }
     }
@@ -309,63 +318,65 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
         ): pbandk.gen.pb.CodeGeneratorResponse.File
 
+        @pbandk.PublicForGeneratedCode
+        public object FieldDescriptors {
+            public val name: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, String?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse.File::descriptor,
+                    name = "name",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    jsonName = "name",
+                    value = pbandk.gen.pb.CodeGeneratorResponse.File::name,
+                    mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::name,
+                )
+            public val insertionPoint: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, String?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse.File::descriptor,
+                    name = "insertion_point",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    jsonName = "insertionPoint",
+                    value = pbandk.gen.pb.CodeGeneratorResponse.File::insertionPoint,
+                    mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::insertionPoint,
+                )
+            public val content: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, String?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse.File::descriptor,
+                    name = "content",
+                    number = 15,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    jsonName = "content",
+                    value = pbandk.gen.pb.CodeGeneratorResponse.File::content,
+                    mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::content,
+                )
+            public val generatedCodeInfo: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, pbandk.wkt.GeneratedCodeInfo?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse.File::descriptor,
+                    name = "generated_code_info",
+                    number = 16,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.GeneratedCodeInfo.Companion),
+                    jsonName = "generatedCodeInfo",
+                    value = pbandk.gen.pb.CodeGeneratorResponse.File::generatedCodeInfo,
+                    mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::generatedCodeInfo,
+                )
+        }
+
         public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse.File> {
             public val defaultInstance: pbandk.gen.pb.CodeGeneratorResponse.File by lazy { pbandk.gen.pb.CodeGeneratorResponse.File {} }
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, *>>(4)
-                fieldsList.apply {
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "name",
-                            number = 1,
-                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                            jsonName = "name",
-                            value = pbandk.gen.pb.CodeGeneratorResponse.File::name,
-                            mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::name,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "insertion_point",
-                            number = 2,
-                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                            jsonName = "insertionPoint",
-                            value = pbandk.gen.pb.CodeGeneratorResponse.File::insertionPoint,
-                            mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::insertionPoint,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "content",
-                            number = 15,
-                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                            jsonName = "content",
-                            value = pbandk.gen.pb.CodeGeneratorResponse.File::content,
-                            mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::content,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "generated_code_info",
-                            number = 16,
-                            type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.GeneratedCodeInfo.Companion),
-                            jsonName = "generatedCodeInfo",
-                            value = pbandk.gen.pb.CodeGeneratorResponse.File::generatedCodeInfo,
-                            mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::generatedCodeInfo,
-                        )
-                    )
-                }
-                pbandk.MessageDescriptor(
+                pbandk.MessageDescriptor.of(
                     fullName = "google.protobuf.compiler.CodeGeneratorResponse.File",
                     messageClass = pbandk.gen.pb.CodeGeneratorResponse.File::class,
                     messageCompanion = this,
                     builder = CodeGeneratorResponse.Companion::File,
-                    fields = fieldsList
+                    fields = listOf(
+                        pbandk.gen.pb.CodeGeneratorResponse.File.FieldDescriptors.name,
+                        pbandk.gen.pb.CodeGeneratorResponse.File.FieldDescriptors.insertionPoint,
+                        pbandk.gen.pb.CodeGeneratorResponse.File.FieldDescriptors.content,
+                        pbandk.gen.pb.CodeGeneratorResponse.File.FieldDescriptors.generatedCodeInfo,
+                    ),
                 )
             }
         }
@@ -417,7 +428,6 @@ public fun Version(builderAction: pbandk.gen.pb.MutableVersion.() -> Unit): pban
     minor = null,
     patch = null,
     suffix = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toVersion()
 
 @pbandk.Export
@@ -429,18 +439,12 @@ private class Version_Impl(
     override val minor: Int?,
     override val patch: Int?,
     override val suffix: String?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.gen.pb.Version, pbandk.gen.GeneratedMessage<pbandk.gen.pb.Version>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.gen.pb.Version, pbandk.gen.GeneratedMessage<pbandk.gen.pb.Version>(unknownFields) {
     override val descriptor get() = pbandk.gen.pb.Version.descriptor
 
-    override fun copy(builderAction: pbandk.gen.pb.MutableVersion.() -> Unit) = pbandk.gen.pb.Version {
-        this.major = this@Version_Impl.major
-        this.minor = this@Version_Impl.minor
-        this.patch = this@Version_Impl.patch
-        this.suffix = this@Version_Impl.suffix
-        this.unknownFields += this@Version_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.gen.pb.MutableVersion.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -456,8 +460,6 @@ private class Version_Impl(
         this.suffix = suffix
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableVersion_Impl(
@@ -465,12 +467,10 @@ private class MutableVersion_Impl(
     override var minor: Int?,
     override var patch: Int?,
     override var suffix: String?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.gen.pb.MutableVersion, pbandk.gen.MutableGeneratedMessage<pbandk.gen.pb.Version>() {
     override val descriptor get() = pbandk.gen.pb.Version.descriptor
-
-    override fun copy(builderAction: pbandk.gen.pb.MutableVersion.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.gen.pb.MutableVersion.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -481,8 +481,6 @@ private class MutableVersion_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toVersion() = Version_Impl(
         major = major,
         minor = minor,
@@ -490,18 +488,6 @@ private class MutableVersion_Impl(
         suffix = suffix,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun Version.protoMergeImpl(other: pbandk.Message?): pbandk.gen.pb.Version {
-    if (other !is pbandk.gen.pb.Version) return this
-
-    return copy {
-        major = other.major ?: major
-        minor = other.minor ?: minor
-        patch = other.patch ?: patch
-        suffix = other.suffix ?: suffix
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -536,7 +522,6 @@ public fun CodeGeneratorRequest(builderAction: pbandk.gen.pb.MutableCodeGenerato
     parameter = null,
     protoFile = pbandk.gen.MutableListField(),
     compilerVersion = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toCodeGeneratorRequest()
 
 @pbandk.Export
@@ -548,18 +533,12 @@ private class CodeGeneratorRequest_Impl(
     override val parameter: String?,
     override val protoFile: pbandk.gen.ListField<pbandk.wkt.FileDescriptorProto>,
     override val compilerVersion: pbandk.gen.pb.Version?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.gen.pb.CodeGeneratorRequest, pbandk.gen.GeneratedMessage<pbandk.gen.pb.CodeGeneratorRequest>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.gen.pb.CodeGeneratorRequest, pbandk.gen.GeneratedMessage<pbandk.gen.pb.CodeGeneratorRequest>(unknownFields) {
     override val descriptor get() = pbandk.gen.pb.CodeGeneratorRequest.descriptor
 
-    override fun copy(builderAction: pbandk.gen.pb.MutableCodeGeneratorRequest.() -> Unit) = pbandk.gen.pb.CodeGeneratorRequest {
-        this.fileToGenerate += this@CodeGeneratorRequest_Impl.fileToGenerate
-        this.parameter = this@CodeGeneratorRequest_Impl.parameter
-        this.protoFile += this@CodeGeneratorRequest_Impl.protoFile
-        this.compilerVersion = this@CodeGeneratorRequest_Impl.compilerVersion
-        this.unknownFields += this@CodeGeneratorRequest_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.gen.pb.MutableCodeGeneratorRequest.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -575,8 +554,6 @@ private class CodeGeneratorRequest_Impl(
         this.compilerVersion = compilerVersion
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableCodeGeneratorRequest_Impl(
@@ -584,12 +561,10 @@ private class MutableCodeGeneratorRequest_Impl(
     override var parameter: String?,
     override val protoFile: pbandk.gen.MutableListField<pbandk.wkt.FileDescriptorProto>,
     override var compilerVersion: pbandk.gen.pb.Version?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.gen.pb.MutableCodeGeneratorRequest, pbandk.gen.MutableGeneratedMessage<pbandk.gen.pb.CodeGeneratorRequest>() {
     override val descriptor get() = pbandk.gen.pb.CodeGeneratorRequest.descriptor
-
-    override fun copy(builderAction: pbandk.gen.pb.MutableCodeGeneratorRequest.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.gen.pb.MutableCodeGeneratorRequest.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -600,8 +575,6 @@ private class MutableCodeGeneratorRequest_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toCodeGeneratorRequest() = CodeGeneratorRequest_Impl(
         fileToGenerate = fileToGenerate.toListField(),
         parameter = parameter,
@@ -609,18 +582,6 @@ private class MutableCodeGeneratorRequest_Impl(
         compilerVersion = compilerVersion,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun CodeGeneratorRequest.protoMergeImpl(other: pbandk.Message?): pbandk.gen.pb.CodeGeneratorRequest {
-    if (other !is pbandk.gen.pb.CodeGeneratorRequest) return this
-
-    return copy {
-        fileToGenerate += other.fileToGenerate
-        parameter = other.parameter ?: parameter
-        protoFile += other.protoFile
-        compilerVersion = compilerVersion?.plus(other.compilerVersion) ?: other.compilerVersion
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -652,7 +613,6 @@ public fun CodeGeneratorResponse(builderAction: pbandk.gen.pb.MutableCodeGenerat
     error = null,
     supportedFeatures = null,
     file = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toCodeGeneratorResponse()
 
 @pbandk.Export
@@ -663,17 +623,12 @@ private class CodeGeneratorResponse_Impl(
     override val error: String?,
     override val supportedFeatures: Long?,
     override val file: pbandk.gen.ListField<pbandk.gen.pb.CodeGeneratorResponse.File>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.gen.pb.CodeGeneratorResponse, pbandk.gen.GeneratedMessage<pbandk.gen.pb.CodeGeneratorResponse>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.gen.pb.CodeGeneratorResponse, pbandk.gen.GeneratedMessage<pbandk.gen.pb.CodeGeneratorResponse>(unknownFields) {
     override val descriptor get() = pbandk.gen.pb.CodeGeneratorResponse.descriptor
 
-    override fun copy(builderAction: pbandk.gen.pb.MutableCodeGeneratorResponse.() -> Unit) = pbandk.gen.pb.CodeGeneratorResponse {
-        this.error = this@CodeGeneratorResponse_Impl.error
-        this.supportedFeatures = this@CodeGeneratorResponse_Impl.supportedFeatures
-        this.file += this@CodeGeneratorResponse_Impl.file
-        this.unknownFields += this@CodeGeneratorResponse_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.gen.pb.MutableCodeGeneratorResponse.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -687,20 +642,16 @@ private class CodeGeneratorResponse_Impl(
         this.file += file
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableCodeGeneratorResponse_Impl(
     override var error: String?,
     override var supportedFeatures: Long?,
     override val file: pbandk.gen.MutableListField<pbandk.gen.pb.CodeGeneratorResponse.File>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.gen.pb.MutableCodeGeneratorResponse, pbandk.gen.MutableGeneratedMessage<pbandk.gen.pb.CodeGeneratorResponse>() {
     override val descriptor get() = pbandk.gen.pb.CodeGeneratorResponse.descriptor
-
-    override fun copy(builderAction: pbandk.gen.pb.MutableCodeGeneratorResponse.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.gen.pb.MutableCodeGeneratorResponse.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -710,25 +661,12 @@ private class MutableCodeGeneratorResponse_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toCodeGeneratorResponse() = CodeGeneratorResponse_Impl(
         error = error,
         supportedFeatures = supportedFeatures,
         file = file.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun CodeGeneratorResponse.protoMergeImpl(other: pbandk.Message?): pbandk.gen.pb.CodeGeneratorResponse {
-    if (other !is pbandk.gen.pb.CodeGeneratorResponse) return this
-
-    return copy {
-        error = other.error ?: error
-        supportedFeatures = other.supportedFeatures ?: supportedFeatures
-        file += other.file
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -763,7 +701,6 @@ public fun CodeGeneratorResponse.Companion.File(builderAction: pbandk.gen.pb.Cod
     insertionPoint = null,
     content = null,
     generatedCodeInfo = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toFile()
 
 /**
@@ -782,18 +719,12 @@ private class CodeGeneratorResponse_File_Impl(
     override val insertionPoint: String?,
     override val content: String?,
     override val generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.gen.pb.CodeGeneratorResponse.File, pbandk.gen.GeneratedMessage<pbandk.gen.pb.CodeGeneratorResponse.File>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.gen.pb.CodeGeneratorResponse.File, pbandk.gen.GeneratedMessage<pbandk.gen.pb.CodeGeneratorResponse.File>(unknownFields) {
     override val descriptor get() = pbandk.gen.pb.CodeGeneratorResponse.File.descriptor
 
-    override fun copy(builderAction: pbandk.gen.pb.CodeGeneratorResponse.MutableFile.() -> Unit) = pbandk.gen.pb.CodeGeneratorResponse.File {
-        this.name = this@CodeGeneratorResponse_File_Impl.name
-        this.insertionPoint = this@CodeGeneratorResponse_File_Impl.insertionPoint
-        this.content = this@CodeGeneratorResponse_File_Impl.content
-        this.generatedCodeInfo = this@CodeGeneratorResponse_File_Impl.generatedCodeInfo
-        this.unknownFields += this@CodeGeneratorResponse_File_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.gen.pb.CodeGeneratorResponse.MutableFile.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -809,8 +740,6 @@ private class CodeGeneratorResponse_File_Impl(
         this.generatedCodeInfo = generatedCodeInfo
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class CodeGeneratorResponse_MutableFile_Impl(
@@ -818,12 +747,10 @@ private class CodeGeneratorResponse_MutableFile_Impl(
     override var insertionPoint: String?,
     override var content: String?,
     override var generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.gen.pb.CodeGeneratorResponse.MutableFile, pbandk.gen.MutableGeneratedMessage<pbandk.gen.pb.CodeGeneratorResponse.File>() {
     override val descriptor get() = pbandk.gen.pb.CodeGeneratorResponse.File.descriptor
-
-    override fun copy(builderAction: pbandk.gen.pb.CodeGeneratorResponse.MutableFile.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.gen.pb.CodeGeneratorResponse.MutableFile.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -834,8 +761,6 @@ private class CodeGeneratorResponse_MutableFile_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toFile() = CodeGeneratorResponse_File_Impl(
         name = name,
         insertionPoint = insertionPoint,
@@ -843,16 +768,4 @@ private class CodeGeneratorResponse_MutableFile_Impl(
         generatedCodeInfo = generatedCodeInfo,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun CodeGeneratorResponse.File.protoMergeImpl(other: pbandk.Message?): pbandk.gen.pb.CodeGeneratorResponse.File {
-    if (other !is pbandk.gen.pb.CodeGeneratorResponse.File) return this
-
-    return copy {
-        name = other.name ?: name
-        insertionPoint = other.insertionPoint ?: insertionPoint
-        content = other.content ?: content
-        generatedCodeInfo = generatedCodeInfo?.plus(other.generatedCodeInfo) ?: other.generatedCodeInfo
-        unknownFields += other.unknownFields
-    }
 }

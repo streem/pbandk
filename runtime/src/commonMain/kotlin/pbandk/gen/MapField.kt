@@ -26,20 +26,21 @@ public interface MapField<K, V> : Map<K, V> {
                 MutableMapFieldEntry(keyType.defaultValue as K, valueType.defaultValue as V, this).also(builderAction)
 
             @Suppress("UNCHECKED_CAST")
-            override val descriptor: MessageDescriptor<Entry<K, V>> = MessageDescriptor(
+            override val descriptor: MessageDescriptor<Entry<K, V>> = MessageDescriptor.of(
                 fullName = "MapFieldEntry",
                 messageClass = Entry::class as KClass<Entry<K, V>>,
                 messageCompanion = this,
                 builder = ::entryBuilder,
                 fields = listOf(
-                    FieldDescriptor(
+                    FieldDescriptor.of(
                         messageDescriptor = this::descriptor,
                         name = "key",
                         number = 1,
                         type = keyType,
                         value = Entry<K, V>::key,
                         mutableValue = MutableMapField.MutableEntry<K, V>::key,
-                    ), FieldDescriptor(
+                    ),
+                    FieldDescriptor.of(
                         messageDescriptor = this::descriptor,
                         name = "value",
                         number = 2,

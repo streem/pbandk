@@ -4,7 +4,7 @@ import kotlin.js.JsExport
 import kotlin.reflect.KClass
 
 @JsExport
-public class MessageDescriptor<T : Message> @PublicForGeneratedCode constructor(
+public class MessageDescriptor<M : Message> private constructor(
     /**
      * The message type's fully-qualified name, within the proto language's namespace. This differs from
      * the Kotlin name. For example, given this `.proto`:
@@ -19,18 +19,38 @@ public class MessageDescriptor<T : Message> @PublicForGeneratedCode constructor(
      */
     public val fullName: String,
 
-    internal val messageClass: KClass<T>,
+    internal val messageClass: KClass<M>,
 
     @ExperimentalProtoReflection
-    public val messageCompanion: Message.Companion<T>,
+    public val messageCompanion: Message.Companion<M>,
 
-    internal val builder: (MutableMessage<T>.() -> Unit) -> T,
+    internal val builder: (MutableMessage<M>.() -> Unit) -> M,
 
-    fields: Collection<FieldDescriptor<T, *>>
+    @ExperimentalProtoReflection
+    public val fields: FieldDescriptorSet<M>,
+
+    internal val oneofs: Collection<OneofDescriptor<M, *>>,
 ) {
     /** The message type's unqualified name. */
     public val name: String = fullName.substringAfterLast('.')
 
-    @ExperimentalProtoReflection
-    public val fields: FieldDescriptorSet<T> = FieldDescriptorSet(fields)
+    public companion object {
+        @PublicForGeneratedCode
+        @Suppress("UNCHECKED_CAST")
+        public fun <M : Message, MM : MutableMessage<M>> of(
+            fullName: String,
+            messageClass: KClass<M>,
+            messageCompanion: Message.Companion<M>,
+            builder: (MM.() -> Unit) -> M,
+            fields: Collection<FieldDescriptor<M, *>> = emptyList(),
+            oneofs: Collection<OneofDescriptor<M, *>> = emptyList(),
+        ): MessageDescriptor<M> = MessageDescriptor(
+            fullName = fullName,
+            messageClass = messageClass,
+            messageCompanion = messageCompanion,
+            builder = builder as ((MutableMessage<M>.() -> Unit) -> M),
+            fields = FieldDescriptorSet(fields + oneofs.flatMap { it.fields }),
+            oneofs = oneofs
+        )
+    }
 }

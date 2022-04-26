@@ -27,61 +27,74 @@ public sealed interface Value : pbandk.Message {
     public val booleanValue: Boolean?
     public val integerValue: Int?
 
-    public sealed class Value<V>(value: V) : pbandk.Message.OneOf<V>(value) {
-        public class StringValue(stringValue: String = "") : Value<String>(stringValue)
-        public class BooleanValue(booleanValue: Boolean = false) : Value<Boolean>(booleanValue)
-        public class IntegerValue(integerValue: Int = 0) : Value<Int>(integerValue)
+    public sealed interface Value<V> : pbandk.Message.OneOf<V> {
+        public class StringValue(stringValue: String = "") : 
+            Value<String>, pbandk.gen.GeneratedOneOf<String>(stringValue, pbandk.testpb.Value.FieldDescriptors.stringValue)
+        public class BooleanValue(booleanValue: Boolean = false) : 
+            Value<Boolean>, pbandk.gen.GeneratedOneOf<Boolean>(booleanValue, pbandk.testpb.Value.FieldDescriptors.booleanValue)
+        public class IntegerValue(integerValue: Int = 0) : 
+            Value<Int>, pbandk.gen.GeneratedOneOf<Int>(integerValue, pbandk.testpb.Value.FieldDescriptors.integerValue)
+    }
+
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val stringValue: pbandk.FieldDescriptor<pbandk.testpb.Value, String?> = 
+            pbandk.FieldDescriptor.ofOneof(
+                messageDescriptor = pbandk.testpb.Value::descriptor,
+                name = "string_value",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "stringValue",
+                value = pbandk.testpb.Value::stringValue,
+                mutableValue = pbandk.testpb.MutableValue::stringValue,
+            )
+        public val booleanValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Boolean?> = 
+            pbandk.FieldDescriptor.ofOneof(
+                messageDescriptor = pbandk.testpb.Value::descriptor,
+                name = "boolean_value",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "booleanValue",
+                value = pbandk.testpb.Value::booleanValue,
+                mutableValue = pbandk.testpb.MutableValue::booleanValue,
+            )
+        public val integerValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Int?> = 
+            pbandk.FieldDescriptor.ofOneof(
+                messageDescriptor = pbandk.testpb.Value::descriptor,
+                name = "integer_value",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                jsonName = "integerValue",
+                value = pbandk.testpb.Value::integerValue,
+                mutableValue = pbandk.testpb.MutableValue::integerValue,
+            )
+
+        public val value: pbandk.OneofDescriptor<pbandk.testpb.Value, pbandk.testpb.Value.Value<*>> = 
+            pbandk.OneofDescriptor.of(
+                messageDescriptor = pbandk.testpb.Value::descriptor,
+                name = "value",
+                value = pbandk.testpb.Value::value,
+                mutableValue = pbandk.testpb.MutableValue::value,
+                fields = listOf(
+                    stringValue,
+                    booleanValue,
+                    integerValue,
+                )
+            )
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
         public val defaultInstance: pbandk.testpb.Value by lazy { pbandk.testpb.Value {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Value, *>>(3)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "string_value",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        oneofMember = true,
-                        jsonName = "stringValue",
-                        value = pbandk.testpb.Value::stringValue,
-                        mutableValue = pbandk.testpb.MutableValue::stringValue,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "boolean_value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        oneofMember = true,
-                        jsonName = "booleanValue",
-                        value = pbandk.testpb.Value::booleanValue,
-                        mutableValue = pbandk.testpb.MutableValue::booleanValue,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "integer_value",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        oneofMember = true,
-                        jsonName = "integerValue",
-                        value = pbandk.testpb.Value::integerValue,
-                        mutableValue = pbandk.testpb.MutableValue::integerValue,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "testpb.Value",
                 messageClass = pbandk.testpb.Value::class,
                 messageCompanion = this,
                 builder = ::Value,
-                fields = fieldsList
+                oneofs = listOf(
+                    pbandk.testpb.Value.FieldDescriptors.value,
+                ),
             )
         }
     }
@@ -118,7 +131,6 @@ public fun Value(
 @pbandk.JsName("buildValue")
 public fun Value(builderAction: pbandk.testpb.MutableValue.() -> Unit): pbandk.testpb.Value = pbandk.testpb.MutableValue_Impl(
     value = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toValue()
 
 @pbandk.Export
@@ -127,8 +139,8 @@ public fun Value?.orDefault(): pbandk.testpb.Value = this ?: pbandk.testpb.Value
 
 private class Value_Impl(
     override val value: pbandk.testpb.Value.Value<*>?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.testpb.Value, pbandk.gen.GeneratedMessage<pbandk.testpb.Value>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.testpb.Value, pbandk.gen.GeneratedMessage<pbandk.testpb.Value>(unknownFields) {
     override val descriptor get() = pbandk.testpb.Value.descriptor
 
     override val stringValue: String?
@@ -138,11 +150,8 @@ private class Value_Impl(
     override val integerValue: Int?
         get() = (value as? pbandk.testpb.Value.Value.IntegerValue)?.value
 
-    override fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit) = pbandk.testpb.Value {
-        this.value = this@Value_Impl.value
-        this.unknownFields += this@Value_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -152,13 +161,10 @@ private class Value_Impl(
         this.value = value
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableValue_Impl(
     override var value: pbandk.testpb.Value.Value<*>?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MutableValue, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.Value>() {
     override val descriptor get() = pbandk.testpb.Value.descriptor
 
@@ -171,9 +177,8 @@ private class MutableValue_Impl(
     override var integerValue: Int?
         get() = (value as? pbandk.testpb.Value.Value.IntegerValue)?.value
         set(value) { this.value = value?.let { pbandk.testpb.Value.Value.IntegerValue(it) } }
-
-    override fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -181,24 +186,8 @@ private class MutableValue_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toValue() = Value_Impl(
         value = value,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun Value.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Value {
-    if (other !is pbandk.testpb.Value) return this
-
-    return copy {
-        when (other.value) {
-            is Value.Value.StringValue -> stringValue = other.stringValue
-            is Value.Value.BooleanValue -> booleanValue = other.booleanValue
-            is Value.Value.IntegerValue -> integerValue = other.integerValue
-            null -> {}
-        }
-        unknownFields += other.unknownFields
-    }
 }

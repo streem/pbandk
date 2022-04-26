@@ -21,19 +21,19 @@ public sealed interface Empty : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.Empty
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Empty> {
         public val defaultInstance: pbandk.wkt.Empty by lazy { pbandk.wkt.Empty {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Empty> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Empty, *>>(0)
-            fieldsList.apply {
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.Empty",
                 messageClass = pbandk.wkt.Empty::class,
                 messageCompanion = this,
                 builder = ::Empty,
-                fields = fieldsList
             )
         }
     }
@@ -62,7 +62,6 @@ public fun Empty(
 @pbandk.Export
 @pbandk.JsName("buildEmpty")
 public fun Empty(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.Empty = pbandk.wkt.MutableEmpty_Impl(
-    unknownFields = mutableMapOf()
 ).also(builderAction).toEmpty()
 
 @pbandk.Export
@@ -70,14 +69,12 @@ public fun Empty(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.
 public fun Empty?.orDefault(): pbandk.wkt.Empty = this ?: pbandk.wkt.Empty.defaultInstance
 
 private class Empty_Impl(
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Empty, pbandk.gen.GeneratedMessage<pbandk.wkt.Empty>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.Empty, pbandk.gen.GeneratedMessage<pbandk.wkt.Empty>(unknownFields) {
     override val descriptor get() = pbandk.wkt.Empty.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit) = pbandk.wkt.Empty {
-        this.unknownFields += this@Empty_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -85,34 +82,20 @@ private class Empty_Impl(
     ) = pbandk.wkt.Empty {
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableEmpty_Impl(
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableEmpty, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Empty>() {
     override val descriptor get() = pbandk.wkt.Empty.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toEmpty() = Empty_Impl(
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun Empty.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Empty {
-    if (other !is pbandk.wkt.Empty) return this
-
-    return copy {
-        unknownFields += other.unknownFields
-    }
 }

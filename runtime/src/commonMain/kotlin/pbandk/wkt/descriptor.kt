@@ -23,29 +23,32 @@ public sealed interface FileDescriptorSet : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.FileDescriptorSet
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val file: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorSet, List<pbandk.wkt.FileDescriptorProto>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.FileDescriptorSet::descriptor,
+                name = "file",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FileDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FileDescriptorProto.Companion)),
+                jsonName = "file",
+                value = pbandk.wkt.FileDescriptorSet::file,
+                mutableValue = pbandk.wkt.MutableFileDescriptorSet::file,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.FileDescriptorSet> {
         public val defaultInstance: pbandk.wkt.FileDescriptorSet by lazy { pbandk.wkt.FileDescriptorSet {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileDescriptorSet> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorSet, *>>(1)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "file",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FileDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FileDescriptorProto.Companion)),
-                        jsonName = "file",
-                        value = pbandk.wkt.FileDescriptorSet::file,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.FileDescriptorSet",
                 messageClass = pbandk.wkt.FileDescriptorSet::class,
                 messageCompanion = this,
                 builder = ::FileDescriptorSet,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.FileDescriptorSet.FieldDescriptors.file,
+                ),
             )
         }
     }
@@ -98,144 +101,153 @@ public sealed interface FileDescriptorProto : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.FileDescriptorProto
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
+                name = "name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "name",
+                value = pbandk.wkt.FileDescriptorProto::name,
+                mutableValue = pbandk.wkt.MutableFileDescriptorProto::name,
+            )
+        public val `package`: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
+                name = "package",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "package",
+                value = pbandk.wkt.FileDescriptorProto::`package`,
+                mutableValue = pbandk.wkt.MutableFileDescriptorProto::`package`,
+            )
+        public val dependency: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, List<String>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
+                name = "dependency",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                jsonName = "dependency",
+                value = pbandk.wkt.FileDescriptorProto::dependency,
+                mutableValue = pbandk.wkt.MutableFileDescriptorProto::dependency,
+            )
+        public val messageType: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, List<pbandk.wkt.DescriptorProto>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
+                name = "message_type",
+                number = 4,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.DescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DescriptorProto.Companion)),
+                jsonName = "messageType",
+                value = pbandk.wkt.FileDescriptorProto::messageType,
+                mutableValue = pbandk.wkt.MutableFileDescriptorProto::messageType,
+            )
+        public val enumType: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, List<pbandk.wkt.EnumDescriptorProto>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
+                name = "enum_type",
+                number = 5,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.EnumDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumDescriptorProto.Companion)),
+                jsonName = "enumType",
+                value = pbandk.wkt.FileDescriptorProto::enumType,
+                mutableValue = pbandk.wkt.MutableFileDescriptorProto::enumType,
+            )
+        public val service: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, List<pbandk.wkt.ServiceDescriptorProto>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
+                name = "service",
+                number = 6,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.ServiceDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ServiceDescriptorProto.Companion)),
+                jsonName = "service",
+                value = pbandk.wkt.FileDescriptorProto::service,
+                mutableValue = pbandk.wkt.MutableFileDescriptorProto::service,
+            )
+        public val extension: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, List<pbandk.wkt.FieldDescriptorProto>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
+                name = "extension",
+                number = 7,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FieldDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldDescriptorProto.Companion)),
+                jsonName = "extension",
+                value = pbandk.wkt.FileDescriptorProto::extension,
+                mutableValue = pbandk.wkt.MutableFileDescriptorProto::extension,
+            )
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, pbandk.wkt.FileOptions?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
+                name = "options",
+                number = 8,
+                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FileOptions.Companion),
+                jsonName = "options",
+                value = pbandk.wkt.FileDescriptorProto::options,
+                mutableValue = pbandk.wkt.MutableFileDescriptorProto::options,
+            )
+        public val sourceCodeInfo: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, pbandk.wkt.SourceCodeInfo?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
+                name = "source_code_info",
+                number = 9,
+                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceCodeInfo.Companion),
+                jsonName = "sourceCodeInfo",
+                value = pbandk.wkt.FileDescriptorProto::sourceCodeInfo,
+                mutableValue = pbandk.wkt.MutableFileDescriptorProto::sourceCodeInfo,
+            )
+        public val publicDependency: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, List<Int>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
+                name = "public_dependency",
+                number = 10,
+                type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
+                jsonName = "publicDependency",
+                value = pbandk.wkt.FileDescriptorProto::publicDependency,
+                mutableValue = pbandk.wkt.MutableFileDescriptorProto::publicDependency,
+            )
+        public val weakDependency: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, List<Int>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
+                name = "weak_dependency",
+                number = 11,
+                type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
+                jsonName = "weakDependency",
+                value = pbandk.wkt.FileDescriptorProto::weakDependency,
+                mutableValue = pbandk.wkt.MutableFileDescriptorProto::weakDependency,
+            )
+        public val syntax: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
+                name = "syntax",
+                number = 12,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "syntax",
+                value = pbandk.wkt.FileDescriptorProto::syntax,
+                mutableValue = pbandk.wkt.MutableFileDescriptorProto::syntax,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.FileDescriptorProto> {
         public val defaultInstance: pbandk.wkt.FileDescriptorProto by lazy { pbandk.wkt.FileDescriptorProto {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, *>>(12)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "name",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "name",
-                        value = pbandk.wkt.FileDescriptorProto::name,
-                        mutableValue = pbandk.wkt.MutableFileDescriptorProto::name,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "package",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "package",
-                        value = pbandk.wkt.FileDescriptorProto::`package`,
-                        mutableValue = pbandk.wkt.MutableFileDescriptorProto::`package`,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "dependency",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                        jsonName = "dependency",
-                        value = pbandk.wkt.FileDescriptorProto::dependency,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "message_type",
-                        number = 4,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.DescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DescriptorProto.Companion)),
-                        jsonName = "messageType",
-                        value = pbandk.wkt.FileDescriptorProto::messageType,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "enum_type",
-                        number = 5,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.EnumDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumDescriptorProto.Companion)),
-                        jsonName = "enumType",
-                        value = pbandk.wkt.FileDescriptorProto::enumType,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "service",
-                        number = 6,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.ServiceDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ServiceDescriptorProto.Companion)),
-                        jsonName = "service",
-                        value = pbandk.wkt.FileDescriptorProto::service,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "extension",
-                        number = 7,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FieldDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldDescriptorProto.Companion)),
-                        jsonName = "extension",
-                        value = pbandk.wkt.FileDescriptorProto::extension,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "options",
-                        number = 8,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FileOptions.Companion),
-                        jsonName = "options",
-                        value = pbandk.wkt.FileDescriptorProto::options,
-                        mutableValue = pbandk.wkt.MutableFileDescriptorProto::options,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "source_code_info",
-                        number = 9,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceCodeInfo.Companion),
-                        jsonName = "sourceCodeInfo",
-                        value = pbandk.wkt.FileDescriptorProto::sourceCodeInfo,
-                        mutableValue = pbandk.wkt.MutableFileDescriptorProto::sourceCodeInfo,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "public_dependency",
-                        number = 10,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
-                        jsonName = "publicDependency",
-                        value = pbandk.wkt.FileDescriptorProto::publicDependency,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "weak_dependency",
-                        number = 11,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
-                        jsonName = "weakDependency",
-                        value = pbandk.wkt.FileDescriptorProto::weakDependency,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "syntax",
-                        number = 12,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "syntax",
-                        value = pbandk.wkt.FileDescriptorProto::syntax,
-                        mutableValue = pbandk.wkt.MutableFileDescriptorProto::syntax,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.FileDescriptorProto",
                 messageClass = pbandk.wkt.FileDescriptorProto::class,
                 messageCompanion = this,
                 builder = ::FileDescriptorProto,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.FileDescriptorProto.FieldDescriptors.name,
+                    pbandk.wkt.FileDescriptorProto.FieldDescriptors.`package`,
+                    pbandk.wkt.FileDescriptorProto.FieldDescriptors.dependency,
+                    pbandk.wkt.FileDescriptorProto.FieldDescriptors.publicDependency,
+                    pbandk.wkt.FileDescriptorProto.FieldDescriptors.weakDependency,
+                    pbandk.wkt.FileDescriptorProto.FieldDescriptors.messageType,
+                    pbandk.wkt.FileDescriptorProto.FieldDescriptors.enumType,
+                    pbandk.wkt.FileDescriptorProto.FieldDescriptors.service,
+                    pbandk.wkt.FileDescriptorProto.FieldDescriptors.extension,
+                    pbandk.wkt.FileDescriptorProto.FieldDescriptors.options,
+                    pbandk.wkt.FileDescriptorProto.FieldDescriptors.sourceCodeInfo,
+                    pbandk.wkt.FileDescriptorProto.FieldDescriptors.syntax,
+                ),
             )
         }
     }
@@ -295,121 +307,131 @@ public sealed interface DescriptorProto : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.DescriptorProto
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.DescriptorProto::descriptor,
+                name = "name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "name",
+                value = pbandk.wkt.DescriptorProto::name,
+                mutableValue = pbandk.wkt.MutableDescriptorProto::name,
+            )
+        public val field: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, List<pbandk.wkt.FieldDescriptorProto>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.DescriptorProto::descriptor,
+                name = "field",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FieldDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldDescriptorProto.Companion)),
+                jsonName = "field",
+                value = pbandk.wkt.DescriptorProto::field,
+                mutableValue = pbandk.wkt.MutableDescriptorProto::field,
+            )
+        public val nestedType: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, List<pbandk.wkt.DescriptorProto>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.DescriptorProto::descriptor,
+                name = "nested_type",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.DescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DescriptorProto.Companion)),
+                jsonName = "nestedType",
+                value = pbandk.wkt.DescriptorProto::nestedType,
+                mutableValue = pbandk.wkt.MutableDescriptorProto::nestedType,
+            )
+        public val enumType: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, List<pbandk.wkt.EnumDescriptorProto>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.DescriptorProto::descriptor,
+                name = "enum_type",
+                number = 4,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.EnumDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumDescriptorProto.Companion)),
+                jsonName = "enumType",
+                value = pbandk.wkt.DescriptorProto::enumType,
+                mutableValue = pbandk.wkt.MutableDescriptorProto::enumType,
+            )
+        public val extensionRange: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, List<pbandk.wkt.DescriptorProto.ExtensionRange>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.DescriptorProto::descriptor,
+                name = "extension_range",
+                number = 5,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.DescriptorProto.ExtensionRange>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DescriptorProto.ExtensionRange.Companion)),
+                jsonName = "extensionRange",
+                value = pbandk.wkt.DescriptorProto::extensionRange,
+                mutableValue = pbandk.wkt.MutableDescriptorProto::extensionRange,
+            )
+        public val extension: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, List<pbandk.wkt.FieldDescriptorProto>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.DescriptorProto::descriptor,
+                name = "extension",
+                number = 6,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FieldDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldDescriptorProto.Companion)),
+                jsonName = "extension",
+                value = pbandk.wkt.DescriptorProto::extension,
+                mutableValue = pbandk.wkt.MutableDescriptorProto::extension,
+            )
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, pbandk.wkt.MessageOptions?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.DescriptorProto::descriptor,
+                name = "options",
+                number = 7,
+                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.MessageOptions.Companion),
+                jsonName = "options",
+                value = pbandk.wkt.DescriptorProto::options,
+                mutableValue = pbandk.wkt.MutableDescriptorProto::options,
+            )
+        public val oneofDecl: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, List<pbandk.wkt.OneofDescriptorProto>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.DescriptorProto::descriptor,
+                name = "oneof_decl",
+                number = 8,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.OneofDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.OneofDescriptorProto.Companion)),
+                jsonName = "oneofDecl",
+                value = pbandk.wkt.DescriptorProto::oneofDecl,
+                mutableValue = pbandk.wkt.MutableDescriptorProto::oneofDecl,
+            )
+        public val reservedRange: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, List<pbandk.wkt.DescriptorProto.ReservedRange>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.DescriptorProto::descriptor,
+                name = "reserved_range",
+                number = 9,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.DescriptorProto.ReservedRange>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DescriptorProto.ReservedRange.Companion)),
+                jsonName = "reservedRange",
+                value = pbandk.wkt.DescriptorProto::reservedRange,
+                mutableValue = pbandk.wkt.MutableDescriptorProto::reservedRange,
+            )
+        public val reservedName: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, List<String>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.DescriptorProto::descriptor,
+                name = "reserved_name",
+                number = 10,
+                type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                jsonName = "reservedName",
+                value = pbandk.wkt.DescriptorProto::reservedName,
+                mutableValue = pbandk.wkt.MutableDescriptorProto::reservedName,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto> {
         public val defaultInstance: pbandk.wkt.DescriptorProto by lazy { pbandk.wkt.DescriptorProto {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, *>>(10)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "name",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "name",
-                        value = pbandk.wkt.DescriptorProto::name,
-                        mutableValue = pbandk.wkt.MutableDescriptorProto::name,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "field",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FieldDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldDescriptorProto.Companion)),
-                        jsonName = "field",
-                        value = pbandk.wkt.DescriptorProto::field,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "nested_type",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.DescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DescriptorProto.Companion)),
-                        jsonName = "nestedType",
-                        value = pbandk.wkt.DescriptorProto::nestedType,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "enum_type",
-                        number = 4,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.EnumDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumDescriptorProto.Companion)),
-                        jsonName = "enumType",
-                        value = pbandk.wkt.DescriptorProto::enumType,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "extension_range",
-                        number = 5,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.DescriptorProto.ExtensionRange>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DescriptorProto.ExtensionRange.Companion)),
-                        jsonName = "extensionRange",
-                        value = pbandk.wkt.DescriptorProto::extensionRange,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "extension",
-                        number = 6,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FieldDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldDescriptorProto.Companion)),
-                        jsonName = "extension",
-                        value = pbandk.wkt.DescriptorProto::extension,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "options",
-                        number = 7,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.MessageOptions.Companion),
-                        jsonName = "options",
-                        value = pbandk.wkt.DescriptorProto::options,
-                        mutableValue = pbandk.wkt.MutableDescriptorProto::options,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "oneof_decl",
-                        number = 8,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.OneofDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.OneofDescriptorProto.Companion)),
-                        jsonName = "oneofDecl",
-                        value = pbandk.wkt.DescriptorProto::oneofDecl,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "reserved_range",
-                        number = 9,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.DescriptorProto.ReservedRange>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DescriptorProto.ReservedRange.Companion)),
-                        jsonName = "reservedRange",
-                        value = pbandk.wkt.DescriptorProto::reservedRange,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "reserved_name",
-                        number = 10,
-                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                        jsonName = "reservedName",
-                        value = pbandk.wkt.DescriptorProto::reservedName,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.DescriptorProto",
                 messageClass = pbandk.wkt.DescriptorProto::class,
                 messageCompanion = this,
                 builder = ::DescriptorProto,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.DescriptorProto.FieldDescriptors.name,
+                    pbandk.wkt.DescriptorProto.FieldDescriptors.field,
+                    pbandk.wkt.DescriptorProto.FieldDescriptors.extension,
+                    pbandk.wkt.DescriptorProto.FieldDescriptors.nestedType,
+                    pbandk.wkt.DescriptorProto.FieldDescriptors.enumType,
+                    pbandk.wkt.DescriptorProto.FieldDescriptors.extensionRange,
+                    pbandk.wkt.DescriptorProto.FieldDescriptors.oneofDecl,
+                    pbandk.wkt.DescriptorProto.FieldDescriptors.options,
+                    pbandk.wkt.DescriptorProto.FieldDescriptors.reservedRange,
+                    pbandk.wkt.DescriptorProto.FieldDescriptors.reservedName,
+                ),
             )
         }
     }
@@ -439,52 +461,54 @@ public sealed interface DescriptorProto : pbandk.Message {
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
         ): pbandk.wkt.DescriptorProto.ExtensionRange
 
+        @pbandk.PublicForGeneratedCode
+        public object FieldDescriptors {
+            public val start: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange, Int?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.wkt.DescriptorProto.ExtensionRange::descriptor,
+                    name = "start",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                    jsonName = "start",
+                    value = pbandk.wkt.DescriptorProto.ExtensionRange::start,
+                    mutableValue = pbandk.wkt.DescriptorProto.MutableExtensionRange::start,
+                )
+            public val end: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange, Int?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.wkt.DescriptorProto.ExtensionRange::descriptor,
+                    name = "end",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                    jsonName = "end",
+                    value = pbandk.wkt.DescriptorProto.ExtensionRange::end,
+                    mutableValue = pbandk.wkt.DescriptorProto.MutableExtensionRange::end,
+                )
+            public val options: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange, pbandk.wkt.ExtensionRangeOptions?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.wkt.DescriptorProto.ExtensionRange::descriptor,
+                    name = "options",
+                    number = 3,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ExtensionRangeOptions.Companion),
+                    jsonName = "options",
+                    value = pbandk.wkt.DescriptorProto.ExtensionRange::options,
+                    mutableValue = pbandk.wkt.DescriptorProto.MutableExtensionRange::options,
+                )
+        }
+
         public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto.ExtensionRange> {
             public val defaultInstance: pbandk.wkt.DescriptorProto.ExtensionRange by lazy { pbandk.wkt.DescriptorProto.ExtensionRange {} }
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange, *>>(3)
-                fieldsList.apply {
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "start",
-                            number = 1,
-                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                            jsonName = "start",
-                            value = pbandk.wkt.DescriptorProto.ExtensionRange::start,
-                            mutableValue = pbandk.wkt.DescriptorProto.MutableExtensionRange::start,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "end",
-                            number = 2,
-                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                            jsonName = "end",
-                            value = pbandk.wkt.DescriptorProto.ExtensionRange::end,
-                            mutableValue = pbandk.wkt.DescriptorProto.MutableExtensionRange::end,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "options",
-                            number = 3,
-                            type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ExtensionRangeOptions.Companion),
-                            jsonName = "options",
-                            value = pbandk.wkt.DescriptorProto.ExtensionRange::options,
-                            mutableValue = pbandk.wkt.DescriptorProto.MutableExtensionRange::options,
-                        )
-                    )
-                }
-                pbandk.MessageDescriptor(
+                pbandk.MessageDescriptor.of(
                     fullName = "google.protobuf.DescriptorProto.ExtensionRange",
                     messageClass = pbandk.wkt.DescriptorProto.ExtensionRange::class,
                     messageCompanion = this,
                     builder = DescriptorProto.Companion::ExtensionRange,
-                    fields = fieldsList
+                    fields = listOf(
+                        pbandk.wkt.DescriptorProto.ExtensionRange.FieldDescriptors.start,
+                        pbandk.wkt.DescriptorProto.ExtensionRange.FieldDescriptors.end,
+                        pbandk.wkt.DescriptorProto.ExtensionRange.FieldDescriptors.options,
+                    ),
                 )
             }
         }
@@ -519,41 +543,43 @@ public sealed interface DescriptorProto : pbandk.Message {
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
         ): pbandk.wkt.DescriptorProto.ReservedRange
 
+        @pbandk.PublicForGeneratedCode
+        public object FieldDescriptors {
+            public val start: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ReservedRange, Int?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.wkt.DescriptorProto.ReservedRange::descriptor,
+                    name = "start",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                    jsonName = "start",
+                    value = pbandk.wkt.DescriptorProto.ReservedRange::start,
+                    mutableValue = pbandk.wkt.DescriptorProto.MutableReservedRange::start,
+                )
+            public val end: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ReservedRange, Int?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.wkt.DescriptorProto.ReservedRange::descriptor,
+                    name = "end",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                    jsonName = "end",
+                    value = pbandk.wkt.DescriptorProto.ReservedRange::end,
+                    mutableValue = pbandk.wkt.DescriptorProto.MutableReservedRange::end,
+                )
+        }
+
         public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto.ReservedRange> {
             public val defaultInstance: pbandk.wkt.DescriptorProto.ReservedRange by lazy { pbandk.wkt.DescriptorProto.ReservedRange {} }
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto.ReservedRange> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ReservedRange, *>>(2)
-                fieldsList.apply {
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "start",
-                            number = 1,
-                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                            jsonName = "start",
-                            value = pbandk.wkt.DescriptorProto.ReservedRange::start,
-                            mutableValue = pbandk.wkt.DescriptorProto.MutableReservedRange::start,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "end",
-                            number = 2,
-                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                            jsonName = "end",
-                            value = pbandk.wkt.DescriptorProto.ReservedRange::end,
-                            mutableValue = pbandk.wkt.DescriptorProto.MutableReservedRange::end,
-                        )
-                    )
-                }
-                pbandk.MessageDescriptor(
+                pbandk.MessageDescriptor.of(
                     fullName = "google.protobuf.DescriptorProto.ReservedRange",
                     messageClass = pbandk.wkt.DescriptorProto.ReservedRange::class,
                     messageCompanion = this,
                     builder = DescriptorProto.Companion::ReservedRange,
-                    fields = fieldsList
+                    fields = listOf(
+                        pbandk.wkt.DescriptorProto.ReservedRange.FieldDescriptors.start,
+                        pbandk.wkt.DescriptorProto.ReservedRange.FieldDescriptors.end,
+                    ),
                 )
             }
         }
@@ -599,29 +625,32 @@ public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage<pbandk.
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.ExtensionRangeOptions
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val uninterpretedOption: pbandk.FieldDescriptor<pbandk.wkt.ExtensionRangeOptions, List<pbandk.wkt.UninterpretedOption>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.ExtensionRangeOptions::descriptor,
+                name = "uninterpreted_option",
+                number = 999,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
+                jsonName = "uninterpretedOption",
+                value = pbandk.wkt.ExtensionRangeOptions::uninterpretedOption,
+                mutableValue = pbandk.wkt.MutableExtensionRangeOptions::uninterpretedOption,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.ExtensionRangeOptions> {
         public val defaultInstance: pbandk.wkt.ExtensionRangeOptions by lazy { pbandk.wkt.ExtensionRangeOptions {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ExtensionRangeOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.ExtensionRangeOptions, *>>(1)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "uninterpreted_option",
-                        number = 999,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
-                        jsonName = "uninterpretedOption",
-                        value = pbandk.wkt.ExtensionRangeOptions::uninterpretedOption,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.ExtensionRangeOptions",
                 messageClass = pbandk.wkt.ExtensionRangeOptions::class,
                 messageCompanion = this,
                 builder = ::ExtensionRangeOptions,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.ExtensionRangeOptions.FieldDescriptors.uninterpretedOption,
+                ),
             )
         }
     }
@@ -672,140 +701,142 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.FieldDescriptorProto
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
+                name = "name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "name",
+                value = pbandk.wkt.FieldDescriptorProto::name,
+                mutableValue = pbandk.wkt.MutableFieldDescriptorProto::name,
+            )
+        public val extendee: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
+                name = "extendee",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "extendee",
+                value = pbandk.wkt.FieldDescriptorProto::extendee,
+                mutableValue = pbandk.wkt.MutableFieldDescriptorProto::extendee,
+            )
+        public val number: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, Int?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
+                name = "number",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                jsonName = "number",
+                value = pbandk.wkt.FieldDescriptorProto::number,
+                mutableValue = pbandk.wkt.MutableFieldDescriptorProto::number,
+            )
+        public val label: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, pbandk.wkt.FieldDescriptorProto.Label?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
+                name = "label",
+                number = 4,
+                type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FieldDescriptorProto.Label.Companion, hasPresence = true),
+                jsonName = "label",
+                value = pbandk.wkt.FieldDescriptorProto::label,
+                mutableValue = pbandk.wkt.MutableFieldDescriptorProto::label,
+            )
+        public val type: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, pbandk.wkt.FieldDescriptorProto.Type?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
+                name = "type",
+                number = 5,
+                type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FieldDescriptorProto.Type.Companion, hasPresence = true),
+                jsonName = "type",
+                value = pbandk.wkt.FieldDescriptorProto::type,
+                mutableValue = pbandk.wkt.MutableFieldDescriptorProto::type,
+            )
+        public val typeName: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
+                name = "type_name",
+                number = 6,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "typeName",
+                value = pbandk.wkt.FieldDescriptorProto::typeName,
+                mutableValue = pbandk.wkt.MutableFieldDescriptorProto::typeName,
+            )
+        public val defaultValue: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
+                name = "default_value",
+                number = 7,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "defaultValue",
+                value = pbandk.wkt.FieldDescriptorProto::defaultValue,
+                mutableValue = pbandk.wkt.MutableFieldDescriptorProto::defaultValue,
+            )
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, pbandk.wkt.FieldOptions?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
+                name = "options",
+                number = 8,
+                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldOptions.Companion),
+                jsonName = "options",
+                value = pbandk.wkt.FieldDescriptorProto::options,
+                mutableValue = pbandk.wkt.MutableFieldDescriptorProto::options,
+            )
+        public val oneofIndex: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, Int?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
+                name = "oneof_index",
+                number = 9,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                jsonName = "oneofIndex",
+                value = pbandk.wkt.FieldDescriptorProto::oneofIndex,
+                mutableValue = pbandk.wkt.MutableFieldDescriptorProto::oneofIndex,
+            )
+        public val jsonName: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
+                name = "json_name",
+                number = 10,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "jsonName",
+                value = pbandk.wkt.FieldDescriptorProto::jsonName,
+                mutableValue = pbandk.wkt.MutableFieldDescriptorProto::jsonName,
+            )
+        public val proto3Optional: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
+                name = "proto3_optional",
+                number = 17,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "proto3Optional",
+                value = pbandk.wkt.FieldDescriptorProto::proto3Optional,
+                mutableValue = pbandk.wkt.MutableFieldDescriptorProto::proto3Optional,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.FieldDescriptorProto> {
         public val defaultInstance: pbandk.wkt.FieldDescriptorProto by lazy { pbandk.wkt.FieldDescriptorProto {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, *>>(11)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "name",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "name",
-                        value = pbandk.wkt.FieldDescriptorProto::name,
-                        mutableValue = pbandk.wkt.MutableFieldDescriptorProto::name,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "extendee",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "extendee",
-                        value = pbandk.wkt.FieldDescriptorProto::extendee,
-                        mutableValue = pbandk.wkt.MutableFieldDescriptorProto::extendee,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "number",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        jsonName = "number",
-                        value = pbandk.wkt.FieldDescriptorProto::number,
-                        mutableValue = pbandk.wkt.MutableFieldDescriptorProto::number,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "label",
-                        number = 4,
-                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FieldDescriptorProto.Label.Companion, hasPresence = true),
-                        jsonName = "label",
-                        value = pbandk.wkt.FieldDescriptorProto::label,
-                        mutableValue = pbandk.wkt.MutableFieldDescriptorProto::label,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "type",
-                        number = 5,
-                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FieldDescriptorProto.Type.Companion, hasPresence = true),
-                        jsonName = "type",
-                        value = pbandk.wkt.FieldDescriptorProto::type,
-                        mutableValue = pbandk.wkt.MutableFieldDescriptorProto::type,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "type_name",
-                        number = 6,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "typeName",
-                        value = pbandk.wkt.FieldDescriptorProto::typeName,
-                        mutableValue = pbandk.wkt.MutableFieldDescriptorProto::typeName,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "default_value",
-                        number = 7,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "defaultValue",
-                        value = pbandk.wkt.FieldDescriptorProto::defaultValue,
-                        mutableValue = pbandk.wkt.MutableFieldDescriptorProto::defaultValue,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "options",
-                        number = 8,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldOptions.Companion),
-                        jsonName = "options",
-                        value = pbandk.wkt.FieldDescriptorProto::options,
-                        mutableValue = pbandk.wkt.MutableFieldDescriptorProto::options,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "oneof_index",
-                        number = 9,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        jsonName = "oneofIndex",
-                        value = pbandk.wkt.FieldDescriptorProto::oneofIndex,
-                        mutableValue = pbandk.wkt.MutableFieldDescriptorProto::oneofIndex,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "json_name",
-                        number = 10,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "jsonName",
-                        value = pbandk.wkt.FieldDescriptorProto::jsonName,
-                        mutableValue = pbandk.wkt.MutableFieldDescriptorProto::jsonName,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "proto3_optional",
-                        number = 17,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "proto3Optional",
-                        value = pbandk.wkt.FieldDescriptorProto::proto3Optional,
-                        mutableValue = pbandk.wkt.MutableFieldDescriptorProto::proto3Optional,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.FieldDescriptorProto",
                 messageClass = pbandk.wkt.FieldDescriptorProto::class,
                 messageCompanion = this,
                 builder = ::FieldDescriptorProto,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.FieldDescriptorProto.FieldDescriptors.name,
+                    pbandk.wkt.FieldDescriptorProto.FieldDescriptors.number,
+                    pbandk.wkt.FieldDescriptorProto.FieldDescriptors.label,
+                    pbandk.wkt.FieldDescriptorProto.FieldDescriptors.type,
+                    pbandk.wkt.FieldDescriptorProto.FieldDescriptors.typeName,
+                    pbandk.wkt.FieldDescriptorProto.FieldDescriptors.extendee,
+                    pbandk.wkt.FieldDescriptorProto.FieldDescriptors.defaultValue,
+                    pbandk.wkt.FieldDescriptorProto.FieldDescriptors.oneofIndex,
+                    pbandk.wkt.FieldDescriptorProto.FieldDescriptors.jsonName,
+                    pbandk.wkt.FieldDescriptorProto.FieldDescriptors.options,
+                    pbandk.wkt.FieldDescriptorProto.FieldDescriptors.proto3Optional,
+                ),
             )
         }
     }
@@ -897,41 +928,43 @@ public sealed interface OneofDescriptorProto : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.OneofDescriptorProto
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.OneofDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.OneofDescriptorProto::descriptor,
+                name = "name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "name",
+                value = pbandk.wkt.OneofDescriptorProto::name,
+                mutableValue = pbandk.wkt.MutableOneofDescriptorProto::name,
+            )
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.OneofDescriptorProto, pbandk.wkt.OneofOptions?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.OneofDescriptorProto::descriptor,
+                name = "options",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.OneofOptions.Companion),
+                jsonName = "options",
+                value = pbandk.wkt.OneofDescriptorProto::options,
+                mutableValue = pbandk.wkt.MutableOneofDescriptorProto::options,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.OneofDescriptorProto> {
         public val defaultInstance: pbandk.wkt.OneofDescriptorProto by lazy { pbandk.wkt.OneofDescriptorProto {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.OneofDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.OneofDescriptorProto, *>>(2)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "name",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "name",
-                        value = pbandk.wkt.OneofDescriptorProto::name,
-                        mutableValue = pbandk.wkt.MutableOneofDescriptorProto::name,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "options",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.OneofOptions.Companion),
-                        jsonName = "options",
-                        value = pbandk.wkt.OneofDescriptorProto::options,
-                        mutableValue = pbandk.wkt.MutableOneofDescriptorProto::options,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.OneofDescriptorProto",
                 messageClass = pbandk.wkt.OneofDescriptorProto::class,
                 messageCompanion = this,
                 builder = ::OneofDescriptorProto,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.OneofDescriptorProto.FieldDescriptors.name,
+                    pbandk.wkt.OneofDescriptorProto.FieldDescriptors.options,
+                ),
             )
         }
     }
@@ -971,71 +1004,76 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.EnumDescriptorProto
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.EnumDescriptorProto::descriptor,
+                name = "name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "name",
+                value = pbandk.wkt.EnumDescriptorProto::name,
+                mutableValue = pbandk.wkt.MutableEnumDescriptorProto::name,
+            )
+        public val value: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto, List<pbandk.wkt.EnumValueDescriptorProto>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.EnumDescriptorProto::descriptor,
+                name = "value",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.EnumValueDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumValueDescriptorProto.Companion)),
+                jsonName = "value",
+                value = pbandk.wkt.EnumDescriptorProto::value,
+                mutableValue = pbandk.wkt.MutableEnumDescriptorProto::value,
+            )
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto, pbandk.wkt.EnumOptions?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.EnumDescriptorProto::descriptor,
+                name = "options",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumOptions.Companion),
+                jsonName = "options",
+                value = pbandk.wkt.EnumDescriptorProto::options,
+                mutableValue = pbandk.wkt.MutableEnumDescriptorProto::options,
+            )
+        public val reservedRange: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto, List<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.EnumDescriptorProto::descriptor,
+                name = "reserved_range",
+                number = 4,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumDescriptorProto.EnumReservedRange.Companion)),
+                jsonName = "reservedRange",
+                value = pbandk.wkt.EnumDescriptorProto::reservedRange,
+                mutableValue = pbandk.wkt.MutableEnumDescriptorProto::reservedRange,
+            )
+        public val reservedName: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto, List<String>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.EnumDescriptorProto::descriptor,
+                name = "reserved_name",
+                number = 5,
+                type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                jsonName = "reservedName",
+                value = pbandk.wkt.EnumDescriptorProto::reservedName,
+                mutableValue = pbandk.wkt.MutableEnumDescriptorProto::reservedName,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumDescriptorProto> {
         public val defaultInstance: pbandk.wkt.EnumDescriptorProto by lazy { pbandk.wkt.EnumDescriptorProto {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto, *>>(5)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "name",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "name",
-                        value = pbandk.wkt.EnumDescriptorProto::name,
-                        mutableValue = pbandk.wkt.MutableEnumDescriptorProto::name,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.EnumValueDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumValueDescriptorProto.Companion)),
-                        jsonName = "value",
-                        value = pbandk.wkt.EnumDescriptorProto::value,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "options",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumOptions.Companion),
-                        jsonName = "options",
-                        value = pbandk.wkt.EnumDescriptorProto::options,
-                        mutableValue = pbandk.wkt.MutableEnumDescriptorProto::options,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "reserved_range",
-                        number = 4,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumDescriptorProto.EnumReservedRange.Companion)),
-                        jsonName = "reservedRange",
-                        value = pbandk.wkt.EnumDescriptorProto::reservedRange,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "reserved_name",
-                        number = 5,
-                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                        jsonName = "reservedName",
-                        value = pbandk.wkt.EnumDescriptorProto::reservedName,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.EnumDescriptorProto",
                 messageClass = pbandk.wkt.EnumDescriptorProto::class,
                 messageCompanion = this,
                 builder = ::EnumDescriptorProto,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.EnumDescriptorProto.FieldDescriptors.name,
+                    pbandk.wkt.EnumDescriptorProto.FieldDescriptors.value,
+                    pbandk.wkt.EnumDescriptorProto.FieldDescriptors.options,
+                    pbandk.wkt.EnumDescriptorProto.FieldDescriptors.reservedRange,
+                    pbandk.wkt.EnumDescriptorProto.FieldDescriptors.reservedName,
+                ),
             )
         }
     }
@@ -1063,41 +1101,43 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
         ): pbandk.wkt.EnumDescriptorProto.EnumReservedRange
 
+        @pbandk.PublicForGeneratedCode
+        public object FieldDescriptors {
+            public val start: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto.EnumReservedRange, Int?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.wkt.EnumDescriptorProto.EnumReservedRange::descriptor,
+                    name = "start",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                    jsonName = "start",
+                    value = pbandk.wkt.EnumDescriptorProto.EnumReservedRange::start,
+                    mutableValue = pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange::start,
+                )
+            public val end: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto.EnumReservedRange, Int?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.wkt.EnumDescriptorProto.EnumReservedRange::descriptor,
+                    name = "end",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                    jsonName = "end",
+                    value = pbandk.wkt.EnumDescriptorProto.EnumReservedRange::end,
+                    mutableValue = pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange::end,
+                )
+        }
+
         public companion object : pbandk.Message.Companion<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> {
             public val defaultInstance: pbandk.wkt.EnumDescriptorProto.EnumReservedRange by lazy { pbandk.wkt.EnumDescriptorProto.EnumReservedRange {} }
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto.EnumReservedRange, *>>(2)
-                fieldsList.apply {
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "start",
-                            number = 1,
-                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                            jsonName = "start",
-                            value = pbandk.wkt.EnumDescriptorProto.EnumReservedRange::start,
-                            mutableValue = pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange::start,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "end",
-                            number = 2,
-                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                            jsonName = "end",
-                            value = pbandk.wkt.EnumDescriptorProto.EnumReservedRange::end,
-                            mutableValue = pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange::end,
-                        )
-                    )
-                }
-                pbandk.MessageDescriptor(
+                pbandk.MessageDescriptor.of(
                     fullName = "google.protobuf.EnumDescriptorProto.EnumReservedRange",
                     messageClass = pbandk.wkt.EnumDescriptorProto.EnumReservedRange::class,
                     messageCompanion = this,
                     builder = EnumDescriptorProto.Companion::EnumReservedRange,
-                    fields = fieldsList
+                    fields = listOf(
+                        pbandk.wkt.EnumDescriptorProto.EnumReservedRange.FieldDescriptors.start,
+                        pbandk.wkt.EnumDescriptorProto.EnumReservedRange.FieldDescriptors.end,
+                    ),
                 )
             }
         }
@@ -1142,52 +1182,54 @@ public sealed interface EnumValueDescriptorProto : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.EnumValueDescriptorProto
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.EnumValueDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.EnumValueDescriptorProto::descriptor,
+                name = "name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "name",
+                value = pbandk.wkt.EnumValueDescriptorProto::name,
+                mutableValue = pbandk.wkt.MutableEnumValueDescriptorProto::name,
+            )
+        public val number: pbandk.FieldDescriptor<pbandk.wkt.EnumValueDescriptorProto, Int?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.EnumValueDescriptorProto::descriptor,
+                name = "number",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                jsonName = "number",
+                value = pbandk.wkt.EnumValueDescriptorProto::number,
+                mutableValue = pbandk.wkt.MutableEnumValueDescriptorProto::number,
+            )
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.EnumValueDescriptorProto, pbandk.wkt.EnumValueOptions?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.EnumValueDescriptorProto::descriptor,
+                name = "options",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumValueOptions.Companion),
+                jsonName = "options",
+                value = pbandk.wkt.EnumValueDescriptorProto::options,
+                mutableValue = pbandk.wkt.MutableEnumValueDescriptorProto::options,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValueDescriptorProto> {
         public val defaultInstance: pbandk.wkt.EnumValueDescriptorProto by lazy { pbandk.wkt.EnumValueDescriptorProto {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValueDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.EnumValueDescriptorProto, *>>(3)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "name",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "name",
-                        value = pbandk.wkt.EnumValueDescriptorProto::name,
-                        mutableValue = pbandk.wkt.MutableEnumValueDescriptorProto::name,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "number",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        jsonName = "number",
-                        value = pbandk.wkt.EnumValueDescriptorProto::number,
-                        mutableValue = pbandk.wkt.MutableEnumValueDescriptorProto::number,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "options",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumValueOptions.Companion),
-                        jsonName = "options",
-                        value = pbandk.wkt.EnumValueDescriptorProto::options,
-                        mutableValue = pbandk.wkt.MutableEnumValueDescriptorProto::options,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.EnumValueDescriptorProto",
                 messageClass = pbandk.wkt.EnumValueDescriptorProto::class,
                 messageCompanion = this,
                 builder = ::EnumValueDescriptorProto,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.EnumValueDescriptorProto.FieldDescriptors.name,
+                    pbandk.wkt.EnumValueDescriptorProto.FieldDescriptors.number,
+                    pbandk.wkt.EnumValueDescriptorProto.FieldDescriptors.options,
+                ),
             )
         }
     }
@@ -1224,51 +1266,54 @@ public sealed interface ServiceDescriptorProto : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.ServiceDescriptorProto
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.ServiceDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.ServiceDescriptorProto::descriptor,
+                name = "name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "name",
+                value = pbandk.wkt.ServiceDescriptorProto::name,
+                mutableValue = pbandk.wkt.MutableServiceDescriptorProto::name,
+            )
+        public val method: pbandk.FieldDescriptor<pbandk.wkt.ServiceDescriptorProto, List<pbandk.wkt.MethodDescriptorProto>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.ServiceDescriptorProto::descriptor,
+                name = "method",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.MethodDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.MethodDescriptorProto.Companion)),
+                jsonName = "method",
+                value = pbandk.wkt.ServiceDescriptorProto::method,
+                mutableValue = pbandk.wkt.MutableServiceDescriptorProto::method,
+            )
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.ServiceDescriptorProto, pbandk.wkt.ServiceOptions?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.ServiceDescriptorProto::descriptor,
+                name = "options",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ServiceOptions.Companion),
+                jsonName = "options",
+                value = pbandk.wkt.ServiceDescriptorProto::options,
+                mutableValue = pbandk.wkt.MutableServiceDescriptorProto::options,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.ServiceDescriptorProto> {
         public val defaultInstance: pbandk.wkt.ServiceDescriptorProto by lazy { pbandk.wkt.ServiceDescriptorProto {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ServiceDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.ServiceDescriptorProto, *>>(3)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "name",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "name",
-                        value = pbandk.wkt.ServiceDescriptorProto::name,
-                        mutableValue = pbandk.wkt.MutableServiceDescriptorProto::name,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "method",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.MethodDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.MethodDescriptorProto.Companion)),
-                        jsonName = "method",
-                        value = pbandk.wkt.ServiceDescriptorProto::method,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "options",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ServiceOptions.Companion),
-                        jsonName = "options",
-                        value = pbandk.wkt.ServiceDescriptorProto::options,
-                        mutableValue = pbandk.wkt.MutableServiceDescriptorProto::options,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.ServiceDescriptorProto",
                 messageClass = pbandk.wkt.ServiceDescriptorProto::class,
                 messageCompanion = this,
                 builder = ::ServiceDescriptorProto,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.ServiceDescriptorProto.FieldDescriptors.name,
+                    pbandk.wkt.ServiceDescriptorProto.FieldDescriptors.method,
+                    pbandk.wkt.ServiceDescriptorProto.FieldDescriptors.options,
+                ),
             )
         }
     }
@@ -1311,85 +1356,87 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.MethodDescriptorProto
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.MethodDescriptorProto::descriptor,
+                name = "name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "name",
+                value = pbandk.wkt.MethodDescriptorProto::name,
+                mutableValue = pbandk.wkt.MutableMethodDescriptorProto::name,
+            )
+        public val inputType: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.MethodDescriptorProto::descriptor,
+                name = "input_type",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "inputType",
+                value = pbandk.wkt.MethodDescriptorProto::inputType,
+                mutableValue = pbandk.wkt.MutableMethodDescriptorProto::inputType,
+            )
+        public val outputType: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.MethodDescriptorProto::descriptor,
+                name = "output_type",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "outputType",
+                value = pbandk.wkt.MethodDescriptorProto::outputType,
+                mutableValue = pbandk.wkt.MutableMethodDescriptorProto::outputType,
+            )
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, pbandk.wkt.MethodOptions?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.MethodDescriptorProto::descriptor,
+                name = "options",
+                number = 4,
+                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.MethodOptions.Companion),
+                jsonName = "options",
+                value = pbandk.wkt.MethodDescriptorProto::options,
+                mutableValue = pbandk.wkt.MutableMethodDescriptorProto::options,
+            )
+        public val clientStreaming: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.MethodDescriptorProto::descriptor,
+                name = "client_streaming",
+                number = 5,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "clientStreaming",
+                value = pbandk.wkt.MethodDescriptorProto::clientStreaming,
+                mutableValue = pbandk.wkt.MutableMethodDescriptorProto::clientStreaming,
+            )
+        public val serverStreaming: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.MethodDescriptorProto::descriptor,
+                name = "server_streaming",
+                number = 6,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "serverStreaming",
+                value = pbandk.wkt.MethodDescriptorProto::serverStreaming,
+                mutableValue = pbandk.wkt.MutableMethodDescriptorProto::serverStreaming,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.MethodDescriptorProto> {
         public val defaultInstance: pbandk.wkt.MethodDescriptorProto by lazy { pbandk.wkt.MethodDescriptorProto {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MethodDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, *>>(6)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "name",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "name",
-                        value = pbandk.wkt.MethodDescriptorProto::name,
-                        mutableValue = pbandk.wkt.MutableMethodDescriptorProto::name,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "input_type",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "inputType",
-                        value = pbandk.wkt.MethodDescriptorProto::inputType,
-                        mutableValue = pbandk.wkt.MutableMethodDescriptorProto::inputType,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "output_type",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "outputType",
-                        value = pbandk.wkt.MethodDescriptorProto::outputType,
-                        mutableValue = pbandk.wkt.MutableMethodDescriptorProto::outputType,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "options",
-                        number = 4,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.MethodOptions.Companion),
-                        jsonName = "options",
-                        value = pbandk.wkt.MethodDescriptorProto::options,
-                        mutableValue = pbandk.wkt.MutableMethodDescriptorProto::options,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "client_streaming",
-                        number = 5,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "clientStreaming",
-                        value = pbandk.wkt.MethodDescriptorProto::clientStreaming,
-                        mutableValue = pbandk.wkt.MutableMethodDescriptorProto::clientStreaming,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "server_streaming",
-                        number = 6,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "serverStreaming",
-                        value = pbandk.wkt.MethodDescriptorProto::serverStreaming,
-                        mutableValue = pbandk.wkt.MutableMethodDescriptorProto::serverStreaming,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.MethodDescriptorProto",
                 messageClass = pbandk.wkt.MethodDescriptorProto::class,
                 messageCompanion = this,
                 builder = ::MethodDescriptorProto,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.MethodDescriptorProto.FieldDescriptors.name,
+                    pbandk.wkt.MethodDescriptorProto.FieldDescriptors.inputType,
+                    pbandk.wkt.MethodDescriptorProto.FieldDescriptors.outputType,
+                    pbandk.wkt.MethodDescriptorProto.FieldDescriptors.options,
+                    pbandk.wkt.MethodDescriptorProto.FieldDescriptors.clientStreaming,
+                    pbandk.wkt.MethodDescriptorProto.FieldDescriptors.serverStreaming,
+                ),
             )
         }
     }
@@ -1466,253 +1513,256 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.FileOptions
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val javaPackage: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "java_package",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "javaPackage",
+                value = pbandk.wkt.FileOptions::javaPackage,
+                mutableValue = pbandk.wkt.MutableFileOptions::javaPackage,
+            )
+        public val javaOuterClassname: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "java_outer_classname",
+                number = 8,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "javaOuterClassname",
+                value = pbandk.wkt.FileOptions::javaOuterClassname,
+                mutableValue = pbandk.wkt.MutableFileOptions::javaOuterClassname,
+            )
+        public val optimizeFor: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, pbandk.wkt.FileOptions.OptimizeMode?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "optimize_for",
+                number = 9,
+                type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FileOptions.OptimizeMode.Companion, hasPresence = true),
+                jsonName = "optimizeFor",
+                value = pbandk.wkt.FileOptions::optimizeFor,
+                mutableValue = pbandk.wkt.MutableFileOptions::optimizeFor,
+            )
+        public val javaMultipleFiles: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "java_multiple_files",
+                number = 10,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "javaMultipleFiles",
+                value = pbandk.wkt.FileOptions::javaMultipleFiles,
+                mutableValue = pbandk.wkt.MutableFileOptions::javaMultipleFiles,
+            )
+        public val goPackage: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "go_package",
+                number = 11,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "goPackage",
+                value = pbandk.wkt.FileOptions::goPackage,
+                mutableValue = pbandk.wkt.MutableFileOptions::goPackage,
+            )
+        public val ccGenericServices: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "cc_generic_services",
+                number = 16,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "ccGenericServices",
+                value = pbandk.wkt.FileOptions::ccGenericServices,
+                mutableValue = pbandk.wkt.MutableFileOptions::ccGenericServices,
+            )
+        public val javaGenericServices: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "java_generic_services",
+                number = 17,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "javaGenericServices",
+                value = pbandk.wkt.FileOptions::javaGenericServices,
+                mutableValue = pbandk.wkt.MutableFileOptions::javaGenericServices,
+            )
+        public val pyGenericServices: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "py_generic_services",
+                number = 18,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "pyGenericServices",
+                value = pbandk.wkt.FileOptions::pyGenericServices,
+                mutableValue = pbandk.wkt.MutableFileOptions::pyGenericServices,
+            )
+        public val javaGenerateEqualsAndHash: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> = 
+            @Suppress("DEPRECATION")
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "java_generate_equals_and_hash",
+                number = 20,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "javaGenerateEqualsAndHash",
+                options = pbandk.wkt.FieldOptions {
+                    deprecated = true
+                },
+                value = pbandk.wkt.FileOptions::javaGenerateEqualsAndHash,
+                mutableValue = pbandk.wkt.MutableFileOptions::javaGenerateEqualsAndHash,
+            )
+        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "deprecated",
+                number = 23,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "deprecated",
+                value = pbandk.wkt.FileOptions::deprecated,
+                mutableValue = pbandk.wkt.MutableFileOptions::deprecated,
+            )
+        public val javaStringCheckUtf8: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "java_string_check_utf8",
+                number = 27,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "javaStringCheckUtf8",
+                value = pbandk.wkt.FileOptions::javaStringCheckUtf8,
+                mutableValue = pbandk.wkt.MutableFileOptions::javaStringCheckUtf8,
+            )
+        public val ccEnableArenas: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "cc_enable_arenas",
+                number = 31,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "ccEnableArenas",
+                value = pbandk.wkt.FileOptions::ccEnableArenas,
+                mutableValue = pbandk.wkt.MutableFileOptions::ccEnableArenas,
+            )
+        public val objcClassPrefix: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "objc_class_prefix",
+                number = 36,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "objcClassPrefix",
+                value = pbandk.wkt.FileOptions::objcClassPrefix,
+                mutableValue = pbandk.wkt.MutableFileOptions::objcClassPrefix,
+            )
+        public val csharpNamespace: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "csharp_namespace",
+                number = 37,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "csharpNamespace",
+                value = pbandk.wkt.FileOptions::csharpNamespace,
+                mutableValue = pbandk.wkt.MutableFileOptions::csharpNamespace,
+            )
+        public val swiftPrefix: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "swift_prefix",
+                number = 39,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "swiftPrefix",
+                value = pbandk.wkt.FileOptions::swiftPrefix,
+                mutableValue = pbandk.wkt.MutableFileOptions::swiftPrefix,
+            )
+        public val phpClassPrefix: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "php_class_prefix",
+                number = 40,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "phpClassPrefix",
+                value = pbandk.wkt.FileOptions::phpClassPrefix,
+                mutableValue = pbandk.wkt.MutableFileOptions::phpClassPrefix,
+            )
+        public val phpNamespace: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "php_namespace",
+                number = 41,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "phpNamespace",
+                value = pbandk.wkt.FileOptions::phpNamespace,
+                mutableValue = pbandk.wkt.MutableFileOptions::phpNamespace,
+            )
+        public val phpGenericServices: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "php_generic_services",
+                number = 42,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "phpGenericServices",
+                value = pbandk.wkt.FileOptions::phpGenericServices,
+                mutableValue = pbandk.wkt.MutableFileOptions::phpGenericServices,
+            )
+        public val phpMetadataNamespace: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "php_metadata_namespace",
+                number = 44,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "phpMetadataNamespace",
+                value = pbandk.wkt.FileOptions::phpMetadataNamespace,
+                mutableValue = pbandk.wkt.MutableFileOptions::phpMetadataNamespace,
+            )
+        public val rubyPackage: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "ruby_package",
+                number = 45,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "rubyPackage",
+                value = pbandk.wkt.FileOptions::rubyPackage,
+                mutableValue = pbandk.wkt.MutableFileOptions::rubyPackage,
+            )
+        public val uninterpretedOption: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, List<pbandk.wkt.UninterpretedOption>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.FileOptions::descriptor,
+                name = "uninterpreted_option",
+                number = 999,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
+                jsonName = "uninterpretedOption",
+                value = pbandk.wkt.FileOptions::uninterpretedOption,
+                mutableValue = pbandk.wkt.MutableFileOptions::uninterpretedOption,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.FileOptions> {
         public val defaultInstance: pbandk.wkt.FileOptions by lazy { pbandk.wkt.FileOptions {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FileOptions, *>>(21)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "java_package",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "javaPackage",
-                        value = pbandk.wkt.FileOptions::javaPackage,
-                        mutableValue = pbandk.wkt.MutableFileOptions::javaPackage,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "java_outer_classname",
-                        number = 8,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "javaOuterClassname",
-                        value = pbandk.wkt.FileOptions::javaOuterClassname,
-                        mutableValue = pbandk.wkt.MutableFileOptions::javaOuterClassname,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optimize_for",
-                        number = 9,
-                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FileOptions.OptimizeMode.Companion, hasPresence = true),
-                        jsonName = "optimizeFor",
-                        value = pbandk.wkt.FileOptions::optimizeFor,
-                        mutableValue = pbandk.wkt.MutableFileOptions::optimizeFor,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "java_multiple_files",
-                        number = 10,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "javaMultipleFiles",
-                        value = pbandk.wkt.FileOptions::javaMultipleFiles,
-                        mutableValue = pbandk.wkt.MutableFileOptions::javaMultipleFiles,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "go_package",
-                        number = 11,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "goPackage",
-                        value = pbandk.wkt.FileOptions::goPackage,
-                        mutableValue = pbandk.wkt.MutableFileOptions::goPackage,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "cc_generic_services",
-                        number = 16,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "ccGenericServices",
-                        value = pbandk.wkt.FileOptions::ccGenericServices,
-                        mutableValue = pbandk.wkt.MutableFileOptions::ccGenericServices,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "java_generic_services",
-                        number = 17,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "javaGenericServices",
-                        value = pbandk.wkt.FileOptions::javaGenericServices,
-                        mutableValue = pbandk.wkt.MutableFileOptions::javaGenericServices,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "py_generic_services",
-                        number = 18,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "pyGenericServices",
-                        value = pbandk.wkt.FileOptions::pyGenericServices,
-                        mutableValue = pbandk.wkt.MutableFileOptions::pyGenericServices,
-                    )
-                )
-                @Suppress("DEPRECATION")
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "java_generate_equals_and_hash",
-                        number = 20,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "javaGenerateEqualsAndHash",
-                        options = pbandk.wkt.FieldOptions {
-                            deprecated = true
-                        },
-                        value = pbandk.wkt.FileOptions::javaGenerateEqualsAndHash,
-                        mutableValue = pbandk.wkt.MutableFileOptions::javaGenerateEqualsAndHash,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "deprecated",
-                        number = 23,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "deprecated",
-                        value = pbandk.wkt.FileOptions::deprecated,
-                        mutableValue = pbandk.wkt.MutableFileOptions::deprecated,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "java_string_check_utf8",
-                        number = 27,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "javaStringCheckUtf8",
-                        value = pbandk.wkt.FileOptions::javaStringCheckUtf8,
-                        mutableValue = pbandk.wkt.MutableFileOptions::javaStringCheckUtf8,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "cc_enable_arenas",
-                        number = 31,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "ccEnableArenas",
-                        value = pbandk.wkt.FileOptions::ccEnableArenas,
-                        mutableValue = pbandk.wkt.MutableFileOptions::ccEnableArenas,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "objc_class_prefix",
-                        number = 36,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "objcClassPrefix",
-                        value = pbandk.wkt.FileOptions::objcClassPrefix,
-                        mutableValue = pbandk.wkt.MutableFileOptions::objcClassPrefix,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "csharp_namespace",
-                        number = 37,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "csharpNamespace",
-                        value = pbandk.wkt.FileOptions::csharpNamespace,
-                        mutableValue = pbandk.wkt.MutableFileOptions::csharpNamespace,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "swift_prefix",
-                        number = 39,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "swiftPrefix",
-                        value = pbandk.wkt.FileOptions::swiftPrefix,
-                        mutableValue = pbandk.wkt.MutableFileOptions::swiftPrefix,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "php_class_prefix",
-                        number = 40,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "phpClassPrefix",
-                        value = pbandk.wkt.FileOptions::phpClassPrefix,
-                        mutableValue = pbandk.wkt.MutableFileOptions::phpClassPrefix,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "php_namespace",
-                        number = 41,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "phpNamespace",
-                        value = pbandk.wkt.FileOptions::phpNamespace,
-                        mutableValue = pbandk.wkt.MutableFileOptions::phpNamespace,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "php_generic_services",
-                        number = 42,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "phpGenericServices",
-                        value = pbandk.wkt.FileOptions::phpGenericServices,
-                        mutableValue = pbandk.wkt.MutableFileOptions::phpGenericServices,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "php_metadata_namespace",
-                        number = 44,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "phpMetadataNamespace",
-                        value = pbandk.wkt.FileOptions::phpMetadataNamespace,
-                        mutableValue = pbandk.wkt.MutableFileOptions::phpMetadataNamespace,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "ruby_package",
-                        number = 45,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "rubyPackage",
-                        value = pbandk.wkt.FileOptions::rubyPackage,
-                        mutableValue = pbandk.wkt.MutableFileOptions::rubyPackage,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "uninterpreted_option",
-                        number = 999,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
-                        jsonName = "uninterpretedOption",
-                        value = pbandk.wkt.FileOptions::uninterpretedOption,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.FileOptions",
                 messageClass = pbandk.wkt.FileOptions::class,
                 messageCompanion = this,
                 builder = ::FileOptions,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.FileOptions.FieldDescriptors.javaPackage,
+                    pbandk.wkt.FileOptions.FieldDescriptors.javaOuterClassname,
+                    pbandk.wkt.FileOptions.FieldDescriptors.javaMultipleFiles,
+                    pbandk.wkt.FileOptions.FieldDescriptors.javaGenerateEqualsAndHash,
+                    pbandk.wkt.FileOptions.FieldDescriptors.javaStringCheckUtf8,
+                    pbandk.wkt.FileOptions.FieldDescriptors.optimizeFor,
+                    pbandk.wkt.FileOptions.FieldDescriptors.goPackage,
+                    pbandk.wkt.FileOptions.FieldDescriptors.ccGenericServices,
+                    pbandk.wkt.FileOptions.FieldDescriptors.javaGenericServices,
+                    pbandk.wkt.FileOptions.FieldDescriptors.pyGenericServices,
+                    pbandk.wkt.FileOptions.FieldDescriptors.phpGenericServices,
+                    pbandk.wkt.FileOptions.FieldDescriptors.deprecated,
+                    pbandk.wkt.FileOptions.FieldDescriptors.ccEnableArenas,
+                    pbandk.wkt.FileOptions.FieldDescriptors.objcClassPrefix,
+                    pbandk.wkt.FileOptions.FieldDescriptors.csharpNamespace,
+                    pbandk.wkt.FileOptions.FieldDescriptors.swiftPrefix,
+                    pbandk.wkt.FileOptions.FieldDescriptors.phpClassPrefix,
+                    pbandk.wkt.FileOptions.FieldDescriptors.phpNamespace,
+                    pbandk.wkt.FileOptions.FieldDescriptors.phpMetadataNamespace,
+                    pbandk.wkt.FileOptions.FieldDescriptors.rubyPackage,
+                    pbandk.wkt.FileOptions.FieldDescriptors.uninterpretedOption,
+                ),
             )
         }
     }
@@ -1789,73 +1839,76 @@ public sealed interface MessageOptions : pbandk.ExtendableMessage<pbandk.wkt.Mes
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.MessageOptions
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val messageSetWireFormat: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.MessageOptions::descriptor,
+                name = "message_set_wire_format",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "messageSetWireFormat",
+                value = pbandk.wkt.MessageOptions::messageSetWireFormat,
+                mutableValue = pbandk.wkt.MutableMessageOptions::messageSetWireFormat,
+            )
+        public val noStandardDescriptorAccessor: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.MessageOptions::descriptor,
+                name = "no_standard_descriptor_accessor",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "noStandardDescriptorAccessor",
+                value = pbandk.wkt.MessageOptions::noStandardDescriptorAccessor,
+                mutableValue = pbandk.wkt.MutableMessageOptions::noStandardDescriptorAccessor,
+            )
+        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.MessageOptions::descriptor,
+                name = "deprecated",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "deprecated",
+                value = pbandk.wkt.MessageOptions::deprecated,
+                mutableValue = pbandk.wkt.MutableMessageOptions::deprecated,
+            )
+        public val mapEntry: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.MessageOptions::descriptor,
+                name = "map_entry",
+                number = 7,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "mapEntry",
+                value = pbandk.wkt.MessageOptions::mapEntry,
+                mutableValue = pbandk.wkt.MutableMessageOptions::mapEntry,
+            )
+        public val uninterpretedOption: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, List<pbandk.wkt.UninterpretedOption>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.MessageOptions::descriptor,
+                name = "uninterpreted_option",
+                number = 999,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
+                jsonName = "uninterpretedOption",
+                value = pbandk.wkt.MessageOptions::uninterpretedOption,
+                mutableValue = pbandk.wkt.MutableMessageOptions::uninterpretedOption,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.MessageOptions> {
         public val defaultInstance: pbandk.wkt.MessageOptions by lazy { pbandk.wkt.MessageOptions {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MessageOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, *>>(5)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "message_set_wire_format",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "messageSetWireFormat",
-                        value = pbandk.wkt.MessageOptions::messageSetWireFormat,
-                        mutableValue = pbandk.wkt.MutableMessageOptions::messageSetWireFormat,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "no_standard_descriptor_accessor",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "noStandardDescriptorAccessor",
-                        value = pbandk.wkt.MessageOptions::noStandardDescriptorAccessor,
-                        mutableValue = pbandk.wkt.MutableMessageOptions::noStandardDescriptorAccessor,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "deprecated",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "deprecated",
-                        value = pbandk.wkt.MessageOptions::deprecated,
-                        mutableValue = pbandk.wkt.MutableMessageOptions::deprecated,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_entry",
-                        number = 7,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "mapEntry",
-                        value = pbandk.wkt.MessageOptions::mapEntry,
-                        mutableValue = pbandk.wkt.MutableMessageOptions::mapEntry,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "uninterpreted_option",
-                        number = 999,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
-                        jsonName = "uninterpretedOption",
-                        value = pbandk.wkt.MessageOptions::uninterpretedOption,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.MessageOptions",
                 messageClass = pbandk.wkt.MessageOptions::class,
                 messageCompanion = this,
                 builder = ::MessageOptions,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.MessageOptions.FieldDescriptors.messageSetWireFormat,
+                    pbandk.wkt.MessageOptions.FieldDescriptors.noStandardDescriptorAccessor,
+                    pbandk.wkt.MessageOptions.FieldDescriptors.deprecated,
+                    pbandk.wkt.MessageOptions.FieldDescriptors.mapEntry,
+                    pbandk.wkt.MessageOptions.FieldDescriptors.uninterpretedOption,
+                ),
             )
         }
     }
@@ -1902,95 +1955,98 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.FieldOptions
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val ctype: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, pbandk.wkt.FieldOptions.CType?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
+                name = "ctype",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FieldOptions.CType.Companion, hasPresence = true),
+                jsonName = "ctype",
+                value = pbandk.wkt.FieldOptions::ctype,
+                mutableValue = pbandk.wkt.MutableFieldOptions::ctype,
+            )
+        public val packed: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
+                name = "packed",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "packed",
+                value = pbandk.wkt.FieldOptions::packed,
+                mutableValue = pbandk.wkt.MutableFieldOptions::packed,
+            )
+        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
+                name = "deprecated",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "deprecated",
+                value = pbandk.wkt.FieldOptions::deprecated,
+                mutableValue = pbandk.wkt.MutableFieldOptions::deprecated,
+            )
+        public val lazy: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
+                name = "lazy",
+                number = 5,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "lazy",
+                value = pbandk.wkt.FieldOptions::lazy,
+                mutableValue = pbandk.wkt.MutableFieldOptions::lazy,
+            )
+        public val jstype: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, pbandk.wkt.FieldOptions.JSType?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
+                name = "jstype",
+                number = 6,
+                type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FieldOptions.JSType.Companion, hasPresence = true),
+                jsonName = "jstype",
+                value = pbandk.wkt.FieldOptions::jstype,
+                mutableValue = pbandk.wkt.MutableFieldOptions::jstype,
+            )
+        public val weak: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
+                name = "weak",
+                number = 10,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "weak",
+                value = pbandk.wkt.FieldOptions::weak,
+                mutableValue = pbandk.wkt.MutableFieldOptions::weak,
+            )
+        public val uninterpretedOption: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, List<pbandk.wkt.UninterpretedOption>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
+                name = "uninterpreted_option",
+                number = 999,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
+                jsonName = "uninterpretedOption",
+                value = pbandk.wkt.FieldOptions::uninterpretedOption,
+                mutableValue = pbandk.wkt.MutableFieldOptions::uninterpretedOption,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.FieldOptions> {
         public val defaultInstance: pbandk.wkt.FieldOptions by lazy { pbandk.wkt.FieldOptions {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, *>>(7)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "ctype",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FieldOptions.CType.Companion, hasPresence = true),
-                        jsonName = "ctype",
-                        value = pbandk.wkt.FieldOptions::ctype,
-                        mutableValue = pbandk.wkt.MutableFieldOptions::ctype,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "packed",
-                        value = pbandk.wkt.FieldOptions::packed,
-                        mutableValue = pbandk.wkt.MutableFieldOptions::packed,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "deprecated",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "deprecated",
-                        value = pbandk.wkt.FieldOptions::deprecated,
-                        mutableValue = pbandk.wkt.MutableFieldOptions::deprecated,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "lazy",
-                        number = 5,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "lazy",
-                        value = pbandk.wkt.FieldOptions::lazy,
-                        mutableValue = pbandk.wkt.MutableFieldOptions::lazy,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "jstype",
-                        number = 6,
-                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FieldOptions.JSType.Companion, hasPresence = true),
-                        jsonName = "jstype",
-                        value = pbandk.wkt.FieldOptions::jstype,
-                        mutableValue = pbandk.wkt.MutableFieldOptions::jstype,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "weak",
-                        number = 10,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "weak",
-                        value = pbandk.wkt.FieldOptions::weak,
-                        mutableValue = pbandk.wkt.MutableFieldOptions::weak,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "uninterpreted_option",
-                        number = 999,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
-                        jsonName = "uninterpretedOption",
-                        value = pbandk.wkt.FieldOptions::uninterpretedOption,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.FieldOptions",
                 messageClass = pbandk.wkt.FieldOptions::class,
                 messageCompanion = this,
                 builder = ::FieldOptions,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.FieldOptions.FieldDescriptors.ctype,
+                    pbandk.wkt.FieldOptions.FieldDescriptors.packed,
+                    pbandk.wkt.FieldOptions.FieldDescriptors.jstype,
+                    pbandk.wkt.FieldOptions.FieldDescriptors.lazy,
+                    pbandk.wkt.FieldOptions.FieldDescriptors.deprecated,
+                    pbandk.wkt.FieldOptions.FieldDescriptors.weak,
+                    pbandk.wkt.FieldOptions.FieldDescriptors.uninterpretedOption,
+                ),
             )
         }
     }
@@ -2061,29 +2117,32 @@ public sealed interface OneofOptions : pbandk.ExtendableMessage<pbandk.wkt.Oneof
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.OneofOptions
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val uninterpretedOption: pbandk.FieldDescriptor<pbandk.wkt.OneofOptions, List<pbandk.wkt.UninterpretedOption>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.OneofOptions::descriptor,
+                name = "uninterpreted_option",
+                number = 999,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
+                jsonName = "uninterpretedOption",
+                value = pbandk.wkt.OneofOptions::uninterpretedOption,
+                mutableValue = pbandk.wkt.MutableOneofOptions::uninterpretedOption,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.OneofOptions> {
         public val defaultInstance: pbandk.wkt.OneofOptions by lazy { pbandk.wkt.OneofOptions {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.OneofOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.OneofOptions, *>>(1)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "uninterpreted_option",
-                        number = 999,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
-                        jsonName = "uninterpretedOption",
-                        value = pbandk.wkt.OneofOptions::uninterpretedOption,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.OneofOptions",
                 messageClass = pbandk.wkt.OneofOptions::class,
                 messageCompanion = this,
                 builder = ::OneofOptions,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.OneofOptions.FieldDescriptors.uninterpretedOption,
+                ),
             )
         }
     }
@@ -2118,51 +2177,54 @@ public sealed interface EnumOptions : pbandk.ExtendableMessage<pbandk.wkt.EnumOp
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.EnumOptions
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val allowAlias: pbandk.FieldDescriptor<pbandk.wkt.EnumOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.EnumOptions::descriptor,
+                name = "allow_alias",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "allowAlias",
+                value = pbandk.wkt.EnumOptions::allowAlias,
+                mutableValue = pbandk.wkt.MutableEnumOptions::allowAlias,
+            )
+        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.EnumOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.EnumOptions::descriptor,
+                name = "deprecated",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "deprecated",
+                value = pbandk.wkt.EnumOptions::deprecated,
+                mutableValue = pbandk.wkt.MutableEnumOptions::deprecated,
+            )
+        public val uninterpretedOption: pbandk.FieldDescriptor<pbandk.wkt.EnumOptions, List<pbandk.wkt.UninterpretedOption>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.EnumOptions::descriptor,
+                name = "uninterpreted_option",
+                number = 999,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
+                jsonName = "uninterpretedOption",
+                value = pbandk.wkt.EnumOptions::uninterpretedOption,
+                mutableValue = pbandk.wkt.MutableEnumOptions::uninterpretedOption,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumOptions> {
         public val defaultInstance: pbandk.wkt.EnumOptions by lazy { pbandk.wkt.EnumOptions {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.EnumOptions, *>>(3)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "allow_alias",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "allowAlias",
-                        value = pbandk.wkt.EnumOptions::allowAlias,
-                        mutableValue = pbandk.wkt.MutableEnumOptions::allowAlias,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "deprecated",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "deprecated",
-                        value = pbandk.wkt.EnumOptions::deprecated,
-                        mutableValue = pbandk.wkt.MutableEnumOptions::deprecated,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "uninterpreted_option",
-                        number = 999,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
-                        jsonName = "uninterpretedOption",
-                        value = pbandk.wkt.EnumOptions::uninterpretedOption,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.EnumOptions",
                 messageClass = pbandk.wkt.EnumOptions::class,
                 messageCompanion = this,
                 builder = ::EnumOptions,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.EnumOptions.FieldDescriptors.allowAlias,
+                    pbandk.wkt.EnumOptions.FieldDescriptors.deprecated,
+                    pbandk.wkt.EnumOptions.FieldDescriptors.uninterpretedOption,
+                ),
             )
         }
     }
@@ -2197,40 +2259,43 @@ public sealed interface EnumValueOptions : pbandk.ExtendableMessage<pbandk.wkt.E
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.EnumValueOptions
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.EnumValueOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.EnumValueOptions::descriptor,
+                name = "deprecated",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "deprecated",
+                value = pbandk.wkt.EnumValueOptions::deprecated,
+                mutableValue = pbandk.wkt.MutableEnumValueOptions::deprecated,
+            )
+        public val uninterpretedOption: pbandk.FieldDescriptor<pbandk.wkt.EnumValueOptions, List<pbandk.wkt.UninterpretedOption>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.EnumValueOptions::descriptor,
+                name = "uninterpreted_option",
+                number = 999,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
+                jsonName = "uninterpretedOption",
+                value = pbandk.wkt.EnumValueOptions::uninterpretedOption,
+                mutableValue = pbandk.wkt.MutableEnumValueOptions::uninterpretedOption,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValueOptions> {
         public val defaultInstance: pbandk.wkt.EnumValueOptions by lazy { pbandk.wkt.EnumValueOptions {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValueOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.EnumValueOptions, *>>(2)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "deprecated",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "deprecated",
-                        value = pbandk.wkt.EnumValueOptions::deprecated,
-                        mutableValue = pbandk.wkt.MutableEnumValueOptions::deprecated,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "uninterpreted_option",
-                        number = 999,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
-                        jsonName = "uninterpretedOption",
-                        value = pbandk.wkt.EnumValueOptions::uninterpretedOption,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.EnumValueOptions",
                 messageClass = pbandk.wkt.EnumValueOptions::class,
                 messageCompanion = this,
                 builder = ::EnumValueOptions,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.EnumValueOptions.FieldDescriptors.deprecated,
+                    pbandk.wkt.EnumValueOptions.FieldDescriptors.uninterpretedOption,
+                ),
             )
         }
     }
@@ -2264,40 +2329,43 @@ public sealed interface ServiceOptions : pbandk.ExtendableMessage<pbandk.wkt.Ser
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.ServiceOptions
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.ServiceOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.ServiceOptions::descriptor,
+                name = "deprecated",
+                number = 33,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "deprecated",
+                value = pbandk.wkt.ServiceOptions::deprecated,
+                mutableValue = pbandk.wkt.MutableServiceOptions::deprecated,
+            )
+        public val uninterpretedOption: pbandk.FieldDescriptor<pbandk.wkt.ServiceOptions, List<pbandk.wkt.UninterpretedOption>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.ServiceOptions::descriptor,
+                name = "uninterpreted_option",
+                number = 999,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
+                jsonName = "uninterpretedOption",
+                value = pbandk.wkt.ServiceOptions::uninterpretedOption,
+                mutableValue = pbandk.wkt.MutableServiceOptions::uninterpretedOption,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.ServiceOptions> {
         public val defaultInstance: pbandk.wkt.ServiceOptions by lazy { pbandk.wkt.ServiceOptions {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ServiceOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.ServiceOptions, *>>(2)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "deprecated",
-                        number = 33,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "deprecated",
-                        value = pbandk.wkt.ServiceOptions::deprecated,
-                        mutableValue = pbandk.wkt.MutableServiceOptions::deprecated,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "uninterpreted_option",
-                        number = 999,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
-                        jsonName = "uninterpretedOption",
-                        value = pbandk.wkt.ServiceOptions::uninterpretedOption,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.ServiceOptions",
                 messageClass = pbandk.wkt.ServiceOptions::class,
                 messageCompanion = this,
                 builder = ::ServiceOptions,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.ServiceOptions.FieldDescriptors.deprecated,
+                    pbandk.wkt.ServiceOptions.FieldDescriptors.uninterpretedOption,
+                ),
             )
         }
     }
@@ -2333,51 +2401,54 @@ public sealed interface MethodOptions : pbandk.ExtendableMessage<pbandk.wkt.Meth
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.MethodOptions
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.MethodOptions, Boolean?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.MethodOptions::descriptor,
+                name = "deprecated",
+                number = 33,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                jsonName = "deprecated",
+                value = pbandk.wkt.MethodOptions::deprecated,
+                mutableValue = pbandk.wkt.MutableMethodOptions::deprecated,
+            )
+        public val idempotencyLevel: pbandk.FieldDescriptor<pbandk.wkt.MethodOptions, pbandk.wkt.MethodOptions.IdempotencyLevel?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.MethodOptions::descriptor,
+                name = "idempotency_level",
+                number = 34,
+                type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.MethodOptions.IdempotencyLevel.Companion, hasPresence = true),
+                jsonName = "idempotencyLevel",
+                value = pbandk.wkt.MethodOptions::idempotencyLevel,
+                mutableValue = pbandk.wkt.MutableMethodOptions::idempotencyLevel,
+            )
+        public val uninterpretedOption: pbandk.FieldDescriptor<pbandk.wkt.MethodOptions, List<pbandk.wkt.UninterpretedOption>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.MethodOptions::descriptor,
+                name = "uninterpreted_option",
+                number = 999,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
+                jsonName = "uninterpretedOption",
+                value = pbandk.wkt.MethodOptions::uninterpretedOption,
+                mutableValue = pbandk.wkt.MutableMethodOptions::uninterpretedOption,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.MethodOptions> {
         public val defaultInstance: pbandk.wkt.MethodOptions by lazy { pbandk.wkt.MethodOptions {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MethodOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.MethodOptions, *>>(3)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "deprecated",
-                        number = 33,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "deprecated",
-                        value = pbandk.wkt.MethodOptions::deprecated,
-                        mutableValue = pbandk.wkt.MutableMethodOptions::deprecated,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "idempotency_level",
-                        number = 34,
-                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.MethodOptions.IdempotencyLevel.Companion, hasPresence = true),
-                        jsonName = "idempotencyLevel",
-                        value = pbandk.wkt.MethodOptions::idempotencyLevel,
-                        mutableValue = pbandk.wkt.MutableMethodOptions::idempotencyLevel,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "uninterpreted_option",
-                        number = 999,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
-                        jsonName = "uninterpretedOption",
-                        value = pbandk.wkt.MethodOptions::uninterpretedOption,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.MethodOptions",
                 messageClass = pbandk.wkt.MethodOptions::class,
                 messageCompanion = this,
                 builder = ::MethodOptions,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.MethodOptions.FieldDescriptors.deprecated,
+                    pbandk.wkt.MethodOptions.FieldDescriptors.idempotencyLevel,
+                    pbandk.wkt.MethodOptions.FieldDescriptors.uninterpretedOption,
+                ),
             )
         }
     }
@@ -2439,95 +2510,98 @@ public sealed interface UninterpretedOption : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.UninterpretedOption
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, List<pbandk.wkt.UninterpretedOption.NamePart>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.UninterpretedOption::descriptor,
+                name = "name",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption.NamePart>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.NamePart.Companion)),
+                jsonName = "name",
+                value = pbandk.wkt.UninterpretedOption::name,
+                mutableValue = pbandk.wkt.MutableUninterpretedOption::name,
+            )
+        public val identifierValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.UninterpretedOption::descriptor,
+                name = "identifier_value",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "identifierValue",
+                value = pbandk.wkt.UninterpretedOption::identifierValue,
+                mutableValue = pbandk.wkt.MutableUninterpretedOption::identifierValue,
+            )
+        public val positiveIntValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, Long?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.UninterpretedOption::descriptor,
+                name = "positive_int_value",
+                number = 4,
+                type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
+                jsonName = "positiveIntValue",
+                value = pbandk.wkt.UninterpretedOption::positiveIntValue,
+                mutableValue = pbandk.wkt.MutableUninterpretedOption::positiveIntValue,
+            )
+        public val negativeIntValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, Long?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.UninterpretedOption::descriptor,
+                name = "negative_int_value",
+                number = 5,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
+                jsonName = "negativeIntValue",
+                value = pbandk.wkt.UninterpretedOption::negativeIntValue,
+                mutableValue = pbandk.wkt.MutableUninterpretedOption::negativeIntValue,
+            )
+        public val doubleValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, Double?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.UninterpretedOption::descriptor,
+                name = "double_value",
+                number = 6,
+                type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
+                jsonName = "doubleValue",
+                value = pbandk.wkt.UninterpretedOption::doubleValue,
+                mutableValue = pbandk.wkt.MutableUninterpretedOption::doubleValue,
+            )
+        public val stringValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, pbandk.ByteArr?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.UninterpretedOption::descriptor,
+                name = "string_value",
+                number = 7,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
+                jsonName = "stringValue",
+                value = pbandk.wkt.UninterpretedOption::stringValue,
+                mutableValue = pbandk.wkt.MutableUninterpretedOption::stringValue,
+            )
+        public val aggregateValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, String?> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.UninterpretedOption::descriptor,
+                name = "aggregate_value",
+                number = 8,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                jsonName = "aggregateValue",
+                value = pbandk.wkt.UninterpretedOption::aggregateValue,
+                mutableValue = pbandk.wkt.MutableUninterpretedOption::aggregateValue,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.UninterpretedOption> {
         public val defaultInstance: pbandk.wkt.UninterpretedOption by lazy { pbandk.wkt.UninterpretedOption {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UninterpretedOption> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, *>>(7)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "name",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption.NamePart>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.NamePart.Companion)),
-                        jsonName = "name",
-                        value = pbandk.wkt.UninterpretedOption::name,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "identifier_value",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "identifierValue",
-                        value = pbandk.wkt.UninterpretedOption::identifierValue,
-                        mutableValue = pbandk.wkt.MutableUninterpretedOption::identifierValue,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "positive_int_value",
-                        number = 4,
-                        type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
-                        jsonName = "positiveIntValue",
-                        value = pbandk.wkt.UninterpretedOption::positiveIntValue,
-                        mutableValue = pbandk.wkt.MutableUninterpretedOption::positiveIntValue,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "negative_int_value",
-                        number = 5,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
-                        jsonName = "negativeIntValue",
-                        value = pbandk.wkt.UninterpretedOption::negativeIntValue,
-                        mutableValue = pbandk.wkt.MutableUninterpretedOption::negativeIntValue,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "double_value",
-                        number = 6,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
-                        jsonName = "doubleValue",
-                        value = pbandk.wkt.UninterpretedOption::doubleValue,
-                        mutableValue = pbandk.wkt.MutableUninterpretedOption::doubleValue,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "string_value",
-                        number = 7,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
-                        jsonName = "stringValue",
-                        value = pbandk.wkt.UninterpretedOption::stringValue,
-                        mutableValue = pbandk.wkt.MutableUninterpretedOption::stringValue,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "aggregate_value",
-                        number = 8,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "aggregateValue",
-                        value = pbandk.wkt.UninterpretedOption::aggregateValue,
-                        mutableValue = pbandk.wkt.MutableUninterpretedOption::aggregateValue,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.UninterpretedOption",
                 messageClass = pbandk.wkt.UninterpretedOption::class,
                 messageCompanion = this,
                 builder = ::UninterpretedOption,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.UninterpretedOption.FieldDescriptors.name,
+                    pbandk.wkt.UninterpretedOption.FieldDescriptors.identifierValue,
+                    pbandk.wkt.UninterpretedOption.FieldDescriptors.positiveIntValue,
+                    pbandk.wkt.UninterpretedOption.FieldDescriptors.negativeIntValue,
+                    pbandk.wkt.UninterpretedOption.FieldDescriptors.doubleValue,
+                    pbandk.wkt.UninterpretedOption.FieldDescriptors.stringValue,
+                    pbandk.wkt.UninterpretedOption.FieldDescriptors.aggregateValue,
+                ),
             )
         }
     }
@@ -2555,41 +2629,43 @@ public sealed interface UninterpretedOption : pbandk.Message {
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
         ): pbandk.wkt.UninterpretedOption.NamePart
 
+        @pbandk.PublicForGeneratedCode
+        public object FieldDescriptors {
+            public val namePart: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption.NamePart, String> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.wkt.UninterpretedOption.NamePart::descriptor,
+                    name = "name_part",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                    jsonName = "namePart",
+                    value = pbandk.wkt.UninterpretedOption.NamePart::namePart,
+                    mutableValue = pbandk.wkt.UninterpretedOption.MutableNamePart::namePart,
+                )
+            public val isExtension: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption.NamePart, Boolean> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.wkt.UninterpretedOption.NamePart::descriptor,
+                    name = "is_extension",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
+                    jsonName = "isExtension",
+                    value = pbandk.wkt.UninterpretedOption.NamePart::isExtension,
+                    mutableValue = pbandk.wkt.UninterpretedOption.MutableNamePart::isExtension,
+                )
+        }
+
         public companion object : pbandk.Message.Companion<pbandk.wkt.UninterpretedOption.NamePart> {
             public val defaultInstance: pbandk.wkt.UninterpretedOption.NamePart by lazy { pbandk.wkt.UninterpretedOption.NamePart {} }
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UninterpretedOption.NamePart> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption.NamePart, *>>(2)
-                fieldsList.apply {
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "name_part",
-                            number = 1,
-                            type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                            jsonName = "namePart",
-                            value = pbandk.wkt.UninterpretedOption.NamePart::namePart,
-                            mutableValue = pbandk.wkt.UninterpretedOption.MutableNamePart::namePart,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "is_extension",
-                            number = 2,
-                            type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
-                            jsonName = "isExtension",
-                            value = pbandk.wkt.UninterpretedOption.NamePart::isExtension,
-                            mutableValue = pbandk.wkt.UninterpretedOption.MutableNamePart::isExtension,
-                        )
-                    )
-                }
-                pbandk.MessageDescriptor(
+                pbandk.MessageDescriptor.of(
                     fullName = "google.protobuf.UninterpretedOption.NamePart",
                     messageClass = pbandk.wkt.UninterpretedOption.NamePart::class,
                     messageCompanion = this,
                     builder = UninterpretedOption.Companion::NamePart,
-                    fields = fieldsList
+                    fields = listOf(
+                        pbandk.wkt.UninterpretedOption.NamePart.FieldDescriptors.namePart,
+                        pbandk.wkt.UninterpretedOption.NamePart.FieldDescriptors.isExtension,
+                    ),
                 )
             }
         }
@@ -2632,29 +2708,32 @@ public sealed interface SourceCodeInfo : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.SourceCodeInfo
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val location: pbandk.FieldDescriptor<pbandk.wkt.SourceCodeInfo, List<pbandk.wkt.SourceCodeInfo.Location>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.SourceCodeInfo::descriptor,
+                name = "location",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.SourceCodeInfo.Location>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceCodeInfo.Location.Companion)),
+                jsonName = "location",
+                value = pbandk.wkt.SourceCodeInfo::location,
+                mutableValue = pbandk.wkt.MutableSourceCodeInfo::location,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.SourceCodeInfo> {
         public val defaultInstance: pbandk.wkt.SourceCodeInfo by lazy { pbandk.wkt.SourceCodeInfo {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceCodeInfo> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.SourceCodeInfo, *>>(1)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "location",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.SourceCodeInfo.Location>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceCodeInfo.Location.Companion)),
-                        jsonName = "location",
-                        value = pbandk.wkt.SourceCodeInfo::location,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.SourceCodeInfo",
                 messageClass = pbandk.wkt.SourceCodeInfo::class,
                 messageCompanion = this,
                 builder = ::SourceCodeInfo,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.SourceCodeInfo.FieldDescriptors.location,
+                ),
             )
         }
     }
@@ -2688,71 +2767,76 @@ public sealed interface SourceCodeInfo : pbandk.Message {
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
         ): pbandk.wkt.SourceCodeInfo.Location
 
+        @pbandk.PublicForGeneratedCode
+        public object FieldDescriptors {
+            public val path: pbandk.FieldDescriptor<pbandk.wkt.SourceCodeInfo.Location, List<Int>> = 
+                pbandk.FieldDescriptor.ofRepeated(
+                    messageDescriptor = pbandk.wkt.SourceCodeInfo.Location::descriptor,
+                    name = "path",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
+                    jsonName = "path",
+                    value = pbandk.wkt.SourceCodeInfo.Location::path,
+                    mutableValue = pbandk.wkt.SourceCodeInfo.MutableLocation::path,
+                )
+            public val span: pbandk.FieldDescriptor<pbandk.wkt.SourceCodeInfo.Location, List<Int>> = 
+                pbandk.FieldDescriptor.ofRepeated(
+                    messageDescriptor = pbandk.wkt.SourceCodeInfo.Location::descriptor,
+                    name = "span",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
+                    jsonName = "span",
+                    value = pbandk.wkt.SourceCodeInfo.Location::span,
+                    mutableValue = pbandk.wkt.SourceCodeInfo.MutableLocation::span,
+                )
+            public val leadingComments: pbandk.FieldDescriptor<pbandk.wkt.SourceCodeInfo.Location, String?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.wkt.SourceCodeInfo.Location::descriptor,
+                    name = "leading_comments",
+                    number = 3,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    jsonName = "leadingComments",
+                    value = pbandk.wkt.SourceCodeInfo.Location::leadingComments,
+                    mutableValue = pbandk.wkt.SourceCodeInfo.MutableLocation::leadingComments,
+                )
+            public val trailingComments: pbandk.FieldDescriptor<pbandk.wkt.SourceCodeInfo.Location, String?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.wkt.SourceCodeInfo.Location::descriptor,
+                    name = "trailing_comments",
+                    number = 4,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    jsonName = "trailingComments",
+                    value = pbandk.wkt.SourceCodeInfo.Location::trailingComments,
+                    mutableValue = pbandk.wkt.SourceCodeInfo.MutableLocation::trailingComments,
+                )
+            public val leadingDetachedComments: pbandk.FieldDescriptor<pbandk.wkt.SourceCodeInfo.Location, List<String>> = 
+                pbandk.FieldDescriptor.ofRepeated(
+                    messageDescriptor = pbandk.wkt.SourceCodeInfo.Location::descriptor,
+                    name = "leading_detached_comments",
+                    number = 6,
+                    type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                    jsonName = "leadingDetachedComments",
+                    value = pbandk.wkt.SourceCodeInfo.Location::leadingDetachedComments,
+                    mutableValue = pbandk.wkt.SourceCodeInfo.MutableLocation::leadingDetachedComments,
+                )
+        }
+
         public companion object : pbandk.Message.Companion<pbandk.wkt.SourceCodeInfo.Location> {
             public val defaultInstance: pbandk.wkt.SourceCodeInfo.Location by lazy { pbandk.wkt.SourceCodeInfo.Location {} }
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceCodeInfo.Location> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.SourceCodeInfo.Location, *>>(5)
-                fieldsList.apply {
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "path",
-                            number = 1,
-                            type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
-                            jsonName = "path",
-                            value = pbandk.wkt.SourceCodeInfo.Location::path,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "span",
-                            number = 2,
-                            type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
-                            jsonName = "span",
-                            value = pbandk.wkt.SourceCodeInfo.Location::span,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "leading_comments",
-                            number = 3,
-                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                            jsonName = "leadingComments",
-                            value = pbandk.wkt.SourceCodeInfo.Location::leadingComments,
-                            mutableValue = pbandk.wkt.SourceCodeInfo.MutableLocation::leadingComments,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "trailing_comments",
-                            number = 4,
-                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                            jsonName = "trailingComments",
-                            value = pbandk.wkt.SourceCodeInfo.Location::trailingComments,
-                            mutableValue = pbandk.wkt.SourceCodeInfo.MutableLocation::trailingComments,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "leading_detached_comments",
-                            number = 6,
-                            type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                            jsonName = "leadingDetachedComments",
-                            value = pbandk.wkt.SourceCodeInfo.Location::leadingDetachedComments,
-                        )
-                    )
-                }
-                pbandk.MessageDescriptor(
+                pbandk.MessageDescriptor.of(
                     fullName = "google.protobuf.SourceCodeInfo.Location",
                     messageClass = pbandk.wkt.SourceCodeInfo.Location::class,
                     messageCompanion = this,
                     builder = SourceCodeInfo.Companion::Location,
-                    fields = fieldsList
+                    fields = listOf(
+                        pbandk.wkt.SourceCodeInfo.Location.FieldDescriptors.path,
+                        pbandk.wkt.SourceCodeInfo.Location.FieldDescriptors.span,
+                        pbandk.wkt.SourceCodeInfo.Location.FieldDescriptors.leadingComments,
+                        pbandk.wkt.SourceCodeInfo.Location.FieldDescriptors.trailingComments,
+                        pbandk.wkt.SourceCodeInfo.Location.FieldDescriptors.leadingDetachedComments,
+                    ),
                 )
             }
         }
@@ -2792,29 +2876,32 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.GeneratedCodeInfo
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val annotation: pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo, List<pbandk.wkt.GeneratedCodeInfo.Annotation>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.GeneratedCodeInfo::descriptor,
+                name = "annotation",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.GeneratedCodeInfo.Annotation>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.GeneratedCodeInfo.Annotation.Companion)),
+                jsonName = "annotation",
+                value = pbandk.wkt.GeneratedCodeInfo::annotation,
+                mutableValue = pbandk.wkt.MutableGeneratedCodeInfo::annotation,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.GeneratedCodeInfo> {
         public val defaultInstance: pbandk.wkt.GeneratedCodeInfo by lazy { pbandk.wkt.GeneratedCodeInfo {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.GeneratedCodeInfo> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo, *>>(1)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "annotation",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.GeneratedCodeInfo.Annotation>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.GeneratedCodeInfo.Annotation.Companion)),
-                        jsonName = "annotation",
-                        value = pbandk.wkt.GeneratedCodeInfo::annotation,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.GeneratedCodeInfo",
                 messageClass = pbandk.wkt.GeneratedCodeInfo::class,
                 messageCompanion = this,
                 builder = ::GeneratedCodeInfo,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.GeneratedCodeInfo.FieldDescriptors.annotation,
+                ),
             )
         }
     }
@@ -2846,62 +2933,65 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
         ): pbandk.wkt.GeneratedCodeInfo.Annotation
 
+        @pbandk.PublicForGeneratedCode
+        public object FieldDescriptors {
+            public val path: pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation, List<Int>> = 
+                pbandk.FieldDescriptor.ofRepeated(
+                    messageDescriptor = pbandk.wkt.GeneratedCodeInfo.Annotation::descriptor,
+                    name = "path",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
+                    jsonName = "path",
+                    value = pbandk.wkt.GeneratedCodeInfo.Annotation::path,
+                    mutableValue = pbandk.wkt.GeneratedCodeInfo.MutableAnnotation::path,
+                )
+            public val sourceFile: pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation, String?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.wkt.GeneratedCodeInfo.Annotation::descriptor,
+                    name = "source_file",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    jsonName = "sourceFile",
+                    value = pbandk.wkt.GeneratedCodeInfo.Annotation::sourceFile,
+                    mutableValue = pbandk.wkt.GeneratedCodeInfo.MutableAnnotation::sourceFile,
+                )
+            public val begin: pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation, Int?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.wkt.GeneratedCodeInfo.Annotation::descriptor,
+                    name = "begin",
+                    number = 3,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                    jsonName = "begin",
+                    value = pbandk.wkt.GeneratedCodeInfo.Annotation::begin,
+                    mutableValue = pbandk.wkt.GeneratedCodeInfo.MutableAnnotation::begin,
+                )
+            public val end: pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation, Int?> = 
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = pbandk.wkt.GeneratedCodeInfo.Annotation::descriptor,
+                    name = "end",
+                    number = 4,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                    jsonName = "end",
+                    value = pbandk.wkt.GeneratedCodeInfo.Annotation::end,
+                    mutableValue = pbandk.wkt.GeneratedCodeInfo.MutableAnnotation::end,
+                )
+        }
+
         public companion object : pbandk.Message.Companion<pbandk.wkt.GeneratedCodeInfo.Annotation> {
             public val defaultInstance: pbandk.wkt.GeneratedCodeInfo.Annotation by lazy { pbandk.wkt.GeneratedCodeInfo.Annotation {} }
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation, *>>(4)
-                fieldsList.apply {
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "path",
-                            number = 1,
-                            type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
-                            jsonName = "path",
-                            value = pbandk.wkt.GeneratedCodeInfo.Annotation::path,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "source_file",
-                            number = 2,
-                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                            jsonName = "sourceFile",
-                            value = pbandk.wkt.GeneratedCodeInfo.Annotation::sourceFile,
-                            mutableValue = pbandk.wkt.GeneratedCodeInfo.MutableAnnotation::sourceFile,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "begin",
-                            number = 3,
-                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                            jsonName = "begin",
-                            value = pbandk.wkt.GeneratedCodeInfo.Annotation::begin,
-                            mutableValue = pbandk.wkt.GeneratedCodeInfo.MutableAnnotation::begin,
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "end",
-                            number = 4,
-                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                            jsonName = "end",
-                            value = pbandk.wkt.GeneratedCodeInfo.Annotation::end,
-                            mutableValue = pbandk.wkt.GeneratedCodeInfo.MutableAnnotation::end,
-                        )
-                    )
-                }
-                pbandk.MessageDescriptor(
+                pbandk.MessageDescriptor.of(
                     fullName = "google.protobuf.GeneratedCodeInfo.Annotation",
                     messageClass = pbandk.wkt.GeneratedCodeInfo.Annotation::class,
                     messageCompanion = this,
                     builder = GeneratedCodeInfo.Companion::Annotation,
-                    fields = fieldsList
+                    fields = listOf(
+                        pbandk.wkt.GeneratedCodeInfo.Annotation.FieldDescriptors.path,
+                        pbandk.wkt.GeneratedCodeInfo.Annotation.FieldDescriptors.sourceFile,
+                        pbandk.wkt.GeneratedCodeInfo.Annotation.FieldDescriptors.begin,
+                        pbandk.wkt.GeneratedCodeInfo.Annotation.FieldDescriptors.end,
+                    ),
                 )
             }
         }
@@ -2942,7 +3032,6 @@ public fun FileDescriptorSet(
 @pbandk.JsName("buildFileDescriptorSet")
 public fun FileDescriptorSet(builderAction: pbandk.wkt.MutableFileDescriptorSet.() -> Unit): pbandk.wkt.FileDescriptorSet = pbandk.wkt.MutableFileDescriptorSet_Impl(
     file = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toFileDescriptorSet()
 
 @pbandk.Export
@@ -2951,15 +3040,12 @@ public fun FileDescriptorSet?.orDefault(): pbandk.wkt.FileDescriptorSet = this ?
 
 private class FileDescriptorSet_Impl(
     override val file: pbandk.gen.ListField<pbandk.wkt.FileDescriptorProto>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.FileDescriptorSet, pbandk.gen.GeneratedMessage<pbandk.wkt.FileDescriptorSet>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.FileDescriptorSet, pbandk.gen.GeneratedMessage<pbandk.wkt.FileDescriptorSet>(unknownFields) {
     override val descriptor get() = pbandk.wkt.FileDescriptorSet.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableFileDescriptorSet.() -> Unit) = pbandk.wkt.FileDescriptorSet {
-        this.file += this@FileDescriptorSet_Impl.file
-        this.unknownFields += this@FileDescriptorSet_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableFileDescriptorSet.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -2969,18 +3055,14 @@ private class FileDescriptorSet_Impl(
         this.file += file
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableFileDescriptorSet_Impl(
     override val file: pbandk.gen.MutableListField<pbandk.wkt.FileDescriptorProto>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableFileDescriptorSet, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.FileDescriptorSet>() {
     override val descriptor get() = pbandk.wkt.FileDescriptorSet.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableFileDescriptorSet.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableFileDescriptorSet.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -2988,21 +3070,10 @@ private class MutableFileDescriptorSet_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toFileDescriptorSet() = FileDescriptorSet_Impl(
         file = file.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun FileDescriptorSet.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.FileDescriptorSet {
-    if (other !is pbandk.wkt.FileDescriptorSet) return this
-
-    return copy {
-        file += other.file
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -3061,7 +3132,6 @@ public fun FileDescriptorProto(builderAction: pbandk.wkt.MutableFileDescriptorPr
     options = null,
     sourceCodeInfo = null,
     syntax = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toFileDescriptorProto()
 
 @pbandk.Export
@@ -3081,26 +3151,12 @@ private class FileDescriptorProto_Impl(
     override val options: pbandk.wkt.FileOptions?,
     override val sourceCodeInfo: pbandk.wkt.SourceCodeInfo?,
     override val syntax: String?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.FileDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.FileDescriptorProto>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.FileDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.FileDescriptorProto>(unknownFields) {
     override val descriptor get() = pbandk.wkt.FileDescriptorProto.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableFileDescriptorProto.() -> Unit) = pbandk.wkt.FileDescriptorProto {
-        this.name = this@FileDescriptorProto_Impl.name
-        this.`package` = this@FileDescriptorProto_Impl.`package`
-        this.dependency += this@FileDescriptorProto_Impl.dependency
-        this.publicDependency += this@FileDescriptorProto_Impl.publicDependency
-        this.weakDependency += this@FileDescriptorProto_Impl.weakDependency
-        this.messageType += this@FileDescriptorProto_Impl.messageType
-        this.enumType += this@FileDescriptorProto_Impl.enumType
-        this.service += this@FileDescriptorProto_Impl.service
-        this.extension += this@FileDescriptorProto_Impl.extension
-        this.options = this@FileDescriptorProto_Impl.options
-        this.sourceCodeInfo = this@FileDescriptorProto_Impl.sourceCodeInfo
-        this.syntax = this@FileDescriptorProto_Impl.syntax
-        this.unknownFields += this@FileDescriptorProto_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableFileDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -3132,8 +3188,6 @@ private class FileDescriptorProto_Impl(
         this.syntax = syntax
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableFileDescriptorProto_Impl(
@@ -3149,12 +3203,10 @@ private class MutableFileDescriptorProto_Impl(
     override var options: pbandk.wkt.FileOptions?,
     override var sourceCodeInfo: pbandk.wkt.SourceCodeInfo?,
     override var syntax: String?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableFileDescriptorProto, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.FileDescriptorProto>() {
     override val descriptor get() = pbandk.wkt.FileDescriptorProto.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableFileDescriptorProto.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableFileDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -3173,8 +3225,6 @@ private class MutableFileDescriptorProto_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toFileDescriptorProto() = FileDescriptorProto_Impl(
         name = name,
         `package` = `package`,
@@ -3190,26 +3240,6 @@ private class MutableFileDescriptorProto_Impl(
         syntax = syntax,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun FileDescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.FileDescriptorProto {
-    if (other !is pbandk.wkt.FileDescriptorProto) return this
-
-    return copy {
-        name = other.name ?: name
-        `package` = other.`package` ?: `package`
-        dependency += other.dependency
-        publicDependency += other.publicDependency
-        weakDependency += other.weakDependency
-        messageType += other.messageType
-        enumType += other.enumType
-        service += other.service
-        extension += other.extension
-        options = options?.plus(other.options) ?: other.options
-        sourceCodeInfo = sourceCodeInfo?.plus(other.sourceCodeInfo) ?: other.sourceCodeInfo
-        syntax = other.syntax ?: syntax
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -3262,7 +3292,6 @@ public fun DescriptorProto(builderAction: pbandk.wkt.MutableDescriptorProto.() -
     options = null,
     reservedRange = pbandk.gen.MutableListField(),
     reservedName = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toDescriptorProto()
 
 @pbandk.Export
@@ -3280,24 +3309,12 @@ private class DescriptorProto_Impl(
     override val options: pbandk.wkt.MessageOptions?,
     override val reservedRange: pbandk.gen.ListField<pbandk.wkt.DescriptorProto.ReservedRange>,
     override val reservedName: pbandk.gen.ListField<String>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.DescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.DescriptorProto>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.DescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.DescriptorProto>(unknownFields) {
     override val descriptor get() = pbandk.wkt.DescriptorProto.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableDescriptorProto.() -> Unit) = pbandk.wkt.DescriptorProto {
-        this.name = this@DescriptorProto_Impl.name
-        this.field += this@DescriptorProto_Impl.field
-        this.extension += this@DescriptorProto_Impl.extension
-        this.nestedType += this@DescriptorProto_Impl.nestedType
-        this.enumType += this@DescriptorProto_Impl.enumType
-        this.extensionRange += this@DescriptorProto_Impl.extensionRange
-        this.oneofDecl += this@DescriptorProto_Impl.oneofDecl
-        this.options = this@DescriptorProto_Impl.options
-        this.reservedRange += this@DescriptorProto_Impl.reservedRange
-        this.reservedName += this@DescriptorProto_Impl.reservedName
-        this.unknownFields += this@DescriptorProto_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -3325,8 +3342,6 @@ private class DescriptorProto_Impl(
         this.reservedName += reservedName
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableDescriptorProto_Impl(
@@ -3340,12 +3355,10 @@ private class MutableDescriptorProto_Impl(
     override var options: pbandk.wkt.MessageOptions?,
     override val reservedRange: pbandk.gen.MutableListField<pbandk.wkt.DescriptorProto.ReservedRange>,
     override val reservedName: pbandk.gen.MutableListField<String>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableDescriptorProto, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.DescriptorProto>() {
     override val descriptor get() = pbandk.wkt.DescriptorProto.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableDescriptorProto.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -3362,8 +3375,6 @@ private class MutableDescriptorProto_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toDescriptorProto() = DescriptorProto_Impl(
         name = name,
         field = field.toListField(),
@@ -3377,24 +3388,6 @@ private class MutableDescriptorProto_Impl(
         reservedName = reservedName.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun DescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.DescriptorProto {
-    if (other !is pbandk.wkt.DescriptorProto) return this
-
-    return copy {
-        name = other.name ?: name
-        field += other.field
-        extension += other.extension
-        nestedType += other.nestedType
-        enumType += other.enumType
-        extensionRange += other.extensionRange
-        oneofDecl += other.oneofDecl
-        options = options?.plus(other.options) ?: other.options
-        reservedRange += other.reservedRange
-        reservedName += other.reservedName
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -3426,7 +3419,6 @@ public fun DescriptorProto.Companion.ExtensionRange(builderAction: pbandk.wkt.De
     start = null,
     end = null,
     options = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toExtensionRange()
 
 /**
@@ -3444,17 +3436,12 @@ private class DescriptorProto_ExtensionRange_Impl(
     override val start: Int?,
     override val end: Int?,
     override val options: pbandk.wkt.ExtensionRangeOptions?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.DescriptorProto.ExtensionRange, pbandk.gen.GeneratedMessage<pbandk.wkt.DescriptorProto.ExtensionRange>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.DescriptorProto.ExtensionRange, pbandk.gen.GeneratedMessage<pbandk.wkt.DescriptorProto.ExtensionRange>(unknownFields) {
     override val descriptor get() = pbandk.wkt.DescriptorProto.ExtensionRange.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.DescriptorProto.MutableExtensionRange.() -> Unit) = pbandk.wkt.DescriptorProto.ExtensionRange {
-        this.start = this@DescriptorProto_ExtensionRange_Impl.start
-        this.end = this@DescriptorProto_ExtensionRange_Impl.end
-        this.options = this@DescriptorProto_ExtensionRange_Impl.options
-        this.unknownFields += this@DescriptorProto_ExtensionRange_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.DescriptorProto.MutableExtensionRange.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -3468,20 +3455,16 @@ private class DescriptorProto_ExtensionRange_Impl(
         this.options = options
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class DescriptorProto_MutableExtensionRange_Impl(
     override var start: Int?,
     override var end: Int?,
     override var options: pbandk.wkt.ExtensionRangeOptions?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.DescriptorProto.MutableExtensionRange, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.DescriptorProto.ExtensionRange>() {
     override val descriptor get() = pbandk.wkt.DescriptorProto.ExtensionRange.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.DescriptorProto.MutableExtensionRange.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.DescriptorProto.MutableExtensionRange.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -3491,25 +3474,12 @@ private class DescriptorProto_MutableExtensionRange_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toExtensionRange() = DescriptorProto_ExtensionRange_Impl(
         start = start,
         end = end,
         options = options,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun DescriptorProto.ExtensionRange.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.DescriptorProto.ExtensionRange {
-    if (other !is pbandk.wkt.DescriptorProto.ExtensionRange) return this
-
-    return copy {
-        start = other.start ?: start
-        end = other.end ?: end
-        options = options?.plus(other.options) ?: other.options
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -3538,7 +3508,6 @@ public fun DescriptorProto.Companion.ReservedRange(
 public fun DescriptorProto.Companion.ReservedRange(builderAction: pbandk.wkt.DescriptorProto.MutableReservedRange.() -> Unit): pbandk.wkt.DescriptorProto.ReservedRange = pbandk.wkt.DescriptorProto_MutableReservedRange_Impl(
     start = null,
     end = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toReservedRange()
 
 /**
@@ -3555,16 +3524,12 @@ public fun DescriptorProto.ReservedRange?.orDefault(): pbandk.wkt.DescriptorProt
 private class DescriptorProto_ReservedRange_Impl(
     override val start: Int?,
     override val end: Int?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.DescriptorProto.ReservedRange, pbandk.gen.GeneratedMessage<pbandk.wkt.DescriptorProto.ReservedRange>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.DescriptorProto.ReservedRange, pbandk.gen.GeneratedMessage<pbandk.wkt.DescriptorProto.ReservedRange>(unknownFields) {
     override val descriptor get() = pbandk.wkt.DescriptorProto.ReservedRange.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.DescriptorProto.MutableReservedRange.() -> Unit) = pbandk.wkt.DescriptorProto.ReservedRange {
-        this.start = this@DescriptorProto_ReservedRange_Impl.start
-        this.end = this@DescriptorProto_ReservedRange_Impl.end
-        this.unknownFields += this@DescriptorProto_ReservedRange_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.DescriptorProto.MutableReservedRange.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -3576,19 +3541,15 @@ private class DescriptorProto_ReservedRange_Impl(
         this.end = end
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class DescriptorProto_MutableReservedRange_Impl(
     override var start: Int?,
     override var end: Int?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.DescriptorProto.MutableReservedRange, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.DescriptorProto.ReservedRange>() {
     override val descriptor get() = pbandk.wkt.DescriptorProto.ReservedRange.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.DescriptorProto.MutableReservedRange.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.DescriptorProto.MutableReservedRange.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -3597,23 +3558,11 @@ private class DescriptorProto_MutableReservedRange_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toReservedRange() = DescriptorProto_ReservedRange_Impl(
         start = start,
         end = end,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun DescriptorProto.ReservedRange.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.DescriptorProto.ReservedRange {
-    if (other !is pbandk.wkt.DescriptorProto.ReservedRange) return this
-
-    return copy {
-        start = other.start ?: start
-        end = other.end ?: end
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -3639,7 +3588,6 @@ public fun ExtensionRangeOptions(
 @pbandk.JsName("buildExtensionRangeOptions")
 public fun ExtensionRangeOptions(builderAction: pbandk.wkt.MutableExtensionRangeOptions.() -> Unit): pbandk.wkt.ExtensionRangeOptions = pbandk.wkt.MutableExtensionRangeOptions_Impl(
     uninterpretedOption = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toExtensionRangeOptions()
 
 @pbandk.Export
@@ -3648,15 +3596,12 @@ public fun ExtensionRangeOptions?.orDefault(): pbandk.wkt.ExtensionRangeOptions 
 
 private class ExtensionRangeOptions_Impl(
     override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.ExtensionRangeOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.ExtensionRangeOptions>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.ExtensionRangeOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.ExtensionRangeOptions>(unknownFields) {
     override val descriptor get() = pbandk.wkt.ExtensionRangeOptions.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableExtensionRangeOptions.() -> Unit) = pbandk.wkt.ExtensionRangeOptions {
-        this.uninterpretedOption += this@ExtensionRangeOptions_Impl.uninterpretedOption
-        this.unknownFields += this@ExtensionRangeOptions_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableExtensionRangeOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -3666,18 +3611,14 @@ private class ExtensionRangeOptions_Impl(
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableExtensionRangeOptions_Impl(
     override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableExtensionRangeOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.ExtensionRangeOptions>() {
     override val descriptor get() = pbandk.wkt.ExtensionRangeOptions.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableExtensionRangeOptions.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableExtensionRangeOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -3685,21 +3626,10 @@ private class MutableExtensionRangeOptions_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toExtensionRangeOptions() = ExtensionRangeOptions_Impl(
         uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun ExtensionRangeOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.ExtensionRangeOptions {
-    if (other !is pbandk.wkt.ExtensionRangeOptions) return this
-
-    return copy {
-        uninterpretedOption += other.uninterpretedOption
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -3755,7 +3685,6 @@ public fun FieldDescriptorProto(builderAction: pbandk.wkt.MutableFieldDescriptor
     jsonName = null,
     options = null,
     proto3Optional = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toFieldDescriptorProto()
 
 @pbandk.Export
@@ -3774,25 +3703,12 @@ private class FieldDescriptorProto_Impl(
     override val jsonName: String?,
     override val options: pbandk.wkt.FieldOptions?,
     override val proto3Optional: Boolean?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.FieldDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.FieldDescriptorProto>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.FieldDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.FieldDescriptorProto>(unknownFields) {
     override val descriptor get() = pbandk.wkt.FieldDescriptorProto.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableFieldDescriptorProto.() -> Unit) = pbandk.wkt.FieldDescriptorProto {
-        this.name = this@FieldDescriptorProto_Impl.name
-        this.number = this@FieldDescriptorProto_Impl.number
-        this.label = this@FieldDescriptorProto_Impl.label
-        this.type = this@FieldDescriptorProto_Impl.type
-        this.typeName = this@FieldDescriptorProto_Impl.typeName
-        this.extendee = this@FieldDescriptorProto_Impl.extendee
-        this.defaultValue = this@FieldDescriptorProto_Impl.defaultValue
-        this.oneofIndex = this@FieldDescriptorProto_Impl.oneofIndex
-        this.jsonName = this@FieldDescriptorProto_Impl.jsonName
-        this.options = this@FieldDescriptorProto_Impl.options
-        this.proto3Optional = this@FieldDescriptorProto_Impl.proto3Optional
-        this.unknownFields += this@FieldDescriptorProto_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableFieldDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -3822,8 +3738,6 @@ private class FieldDescriptorProto_Impl(
         this.proto3Optional = proto3Optional
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableFieldDescriptorProto_Impl(
@@ -3838,12 +3752,10 @@ private class MutableFieldDescriptorProto_Impl(
     override var jsonName: String?,
     override var options: pbandk.wkt.FieldOptions?,
     override var proto3Optional: Boolean?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableFieldDescriptorProto, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.FieldDescriptorProto>() {
     override val descriptor get() = pbandk.wkt.FieldDescriptorProto.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableFieldDescriptorProto.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableFieldDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -3861,8 +3773,6 @@ private class MutableFieldDescriptorProto_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toFieldDescriptorProto() = FieldDescriptorProto_Impl(
         name = name,
         number = number,
@@ -3877,25 +3787,6 @@ private class MutableFieldDescriptorProto_Impl(
         proto3Optional = proto3Optional,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun FieldDescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.FieldDescriptorProto {
-    if (other !is pbandk.wkt.FieldDescriptorProto) return this
-
-    return copy {
-        name = other.name ?: name
-        number = other.number ?: number
-        label = other.label ?: label
-        type = other.type ?: type
-        typeName = other.typeName ?: typeName
-        extendee = other.extendee ?: extendee
-        defaultValue = other.defaultValue ?: defaultValue
-        oneofIndex = other.oneofIndex ?: oneofIndex
-        jsonName = other.jsonName ?: jsonName
-        options = options?.plus(other.options) ?: other.options
-        proto3Optional = other.proto3Optional ?: proto3Optional
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -3924,7 +3815,6 @@ public fun OneofDescriptorProto(
 public fun OneofDescriptorProto(builderAction: pbandk.wkt.MutableOneofDescriptorProto.() -> Unit): pbandk.wkt.OneofDescriptorProto = pbandk.wkt.MutableOneofDescriptorProto_Impl(
     name = null,
     options = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toOneofDescriptorProto()
 
 @pbandk.Export
@@ -3934,16 +3824,12 @@ public fun OneofDescriptorProto?.orDefault(): pbandk.wkt.OneofDescriptorProto = 
 private class OneofDescriptorProto_Impl(
     override val name: String?,
     override val options: pbandk.wkt.OneofOptions?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.OneofDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.OneofDescriptorProto>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.OneofDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.OneofDescriptorProto>(unknownFields) {
     override val descriptor get() = pbandk.wkt.OneofDescriptorProto.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableOneofDescriptorProto.() -> Unit) = pbandk.wkt.OneofDescriptorProto {
-        this.name = this@OneofDescriptorProto_Impl.name
-        this.options = this@OneofDescriptorProto_Impl.options
-        this.unknownFields += this@OneofDescriptorProto_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableOneofDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -3955,19 +3841,15 @@ private class OneofDescriptorProto_Impl(
         this.options = options
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableOneofDescriptorProto_Impl(
     override var name: String?,
     override var options: pbandk.wkt.OneofOptions?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableOneofDescriptorProto, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.OneofDescriptorProto>() {
     override val descriptor get() = pbandk.wkt.OneofDescriptorProto.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableOneofDescriptorProto.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableOneofDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -3976,23 +3858,11 @@ private class MutableOneofDescriptorProto_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toOneofDescriptorProto() = OneofDescriptorProto_Impl(
         name = name,
         options = options,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun OneofDescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.OneofDescriptorProto {
-    if (other !is pbandk.wkt.OneofDescriptorProto) return this
-
-    return copy {
-        name = other.name ?: name
-        options = options?.plus(other.options) ?: other.options
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -4030,7 +3900,6 @@ public fun EnumDescriptorProto(builderAction: pbandk.wkt.MutableEnumDescriptorPr
     options = null,
     reservedRange = pbandk.gen.MutableListField(),
     reservedName = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toEnumDescriptorProto()
 
 @pbandk.Export
@@ -4043,19 +3912,12 @@ private class EnumDescriptorProto_Impl(
     override val options: pbandk.wkt.EnumOptions?,
     override val reservedRange: pbandk.gen.ListField<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>,
     override val reservedName: pbandk.gen.ListField<String>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.EnumDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.EnumDescriptorProto>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.EnumDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.EnumDescriptorProto>(unknownFields) {
     override val descriptor get() = pbandk.wkt.EnumDescriptorProto.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableEnumDescriptorProto.() -> Unit) = pbandk.wkt.EnumDescriptorProto {
-        this.name = this@EnumDescriptorProto_Impl.name
-        this.value += this@EnumDescriptorProto_Impl.value
-        this.options = this@EnumDescriptorProto_Impl.options
-        this.reservedRange += this@EnumDescriptorProto_Impl.reservedRange
-        this.reservedName += this@EnumDescriptorProto_Impl.reservedName
-        this.unknownFields += this@EnumDescriptorProto_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableEnumDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -4073,8 +3935,6 @@ private class EnumDescriptorProto_Impl(
         this.reservedName += reservedName
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableEnumDescriptorProto_Impl(
@@ -4083,12 +3943,10 @@ private class MutableEnumDescriptorProto_Impl(
     override var options: pbandk.wkt.EnumOptions?,
     override val reservedRange: pbandk.gen.MutableListField<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>,
     override val reservedName: pbandk.gen.MutableListField<String>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableEnumDescriptorProto, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.EnumDescriptorProto>() {
     override val descriptor get() = pbandk.wkt.EnumDescriptorProto.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableEnumDescriptorProto.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableEnumDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -4100,8 +3958,6 @@ private class MutableEnumDescriptorProto_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toEnumDescriptorProto() = EnumDescriptorProto_Impl(
         name = name,
         value = value.toListField(),
@@ -4110,19 +3966,6 @@ private class MutableEnumDescriptorProto_Impl(
         reservedName = reservedName.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun EnumDescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.EnumDescriptorProto {
-    if (other !is pbandk.wkt.EnumDescriptorProto) return this
-
-    return copy {
-        name = other.name ?: name
-        value += other.value
-        options = options?.plus(other.options) ?: other.options
-        reservedRange += other.reservedRange
-        reservedName += other.reservedName
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -4151,7 +3994,6 @@ public fun EnumDescriptorProto.Companion.EnumReservedRange(
 public fun EnumDescriptorProto.Companion.EnumReservedRange(builderAction: pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange.() -> Unit): pbandk.wkt.EnumDescriptorProto.EnumReservedRange = pbandk.wkt.EnumDescriptorProto_MutableEnumReservedRange_Impl(
     start = null,
     end = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toEnumReservedRange()
 
 /**
@@ -4168,16 +4010,12 @@ public fun EnumDescriptorProto.EnumReservedRange?.orDefault(): pbandk.wkt.EnumDe
 private class EnumDescriptorProto_EnumReservedRange_Impl(
     override val start: Int?,
     override val end: Int?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.EnumDescriptorProto.EnumReservedRange, pbandk.gen.GeneratedMessage<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.EnumDescriptorProto.EnumReservedRange, pbandk.gen.GeneratedMessage<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>(unknownFields) {
     override val descriptor get() = pbandk.wkt.EnumDescriptorProto.EnumReservedRange.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange.() -> Unit) = pbandk.wkt.EnumDescriptorProto.EnumReservedRange {
-        this.start = this@EnumDescriptorProto_EnumReservedRange_Impl.start
-        this.end = this@EnumDescriptorProto_EnumReservedRange_Impl.end
-        this.unknownFields += this@EnumDescriptorProto_EnumReservedRange_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -4189,19 +4027,15 @@ private class EnumDescriptorProto_EnumReservedRange_Impl(
         this.end = end
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class EnumDescriptorProto_MutableEnumReservedRange_Impl(
     override var start: Int?,
     override var end: Int?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>() {
     override val descriptor get() = pbandk.wkt.EnumDescriptorProto.EnumReservedRange.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -4210,23 +4044,11 @@ private class EnumDescriptorProto_MutableEnumReservedRange_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toEnumReservedRange() = EnumDescriptorProto_EnumReservedRange_Impl(
         start = start,
         end = end,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun EnumDescriptorProto.EnumReservedRange.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.EnumDescriptorProto.EnumReservedRange {
-    if (other !is pbandk.wkt.EnumDescriptorProto.EnumReservedRange) return this
-
-    return copy {
-        start = other.start ?: start
-        end = other.end ?: end
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -4258,7 +4080,6 @@ public fun EnumValueDescriptorProto(builderAction: pbandk.wkt.MutableEnumValueDe
     name = null,
     number = null,
     options = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toEnumValueDescriptorProto()
 
 @pbandk.Export
@@ -4269,17 +4090,12 @@ private class EnumValueDescriptorProto_Impl(
     override val name: String?,
     override val number: Int?,
     override val options: pbandk.wkt.EnumValueOptions?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.EnumValueDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.EnumValueDescriptorProto>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.EnumValueDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.EnumValueDescriptorProto>(unknownFields) {
     override val descriptor get() = pbandk.wkt.EnumValueDescriptorProto.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableEnumValueDescriptorProto.() -> Unit) = pbandk.wkt.EnumValueDescriptorProto {
-        this.name = this@EnumValueDescriptorProto_Impl.name
-        this.number = this@EnumValueDescriptorProto_Impl.number
-        this.options = this@EnumValueDescriptorProto_Impl.options
-        this.unknownFields += this@EnumValueDescriptorProto_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableEnumValueDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -4293,20 +4109,16 @@ private class EnumValueDescriptorProto_Impl(
         this.options = options
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableEnumValueDescriptorProto_Impl(
     override var name: String?,
     override var number: Int?,
     override var options: pbandk.wkt.EnumValueOptions?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableEnumValueDescriptorProto, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.EnumValueDescriptorProto>() {
     override val descriptor get() = pbandk.wkt.EnumValueDescriptorProto.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableEnumValueDescriptorProto.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableEnumValueDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -4316,25 +4128,12 @@ private class MutableEnumValueDescriptorProto_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toEnumValueDescriptorProto() = EnumValueDescriptorProto_Impl(
         name = name,
         number = number,
         options = options,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun EnumValueDescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.EnumValueDescriptorProto {
-    if (other !is pbandk.wkt.EnumValueDescriptorProto) return this
-
-    return copy {
-        name = other.name ?: name
-        number = other.number ?: number
-        options = options?.plus(other.options) ?: other.options
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -4366,7 +4165,6 @@ public fun ServiceDescriptorProto(builderAction: pbandk.wkt.MutableServiceDescri
     name = null,
     method = pbandk.gen.MutableListField(),
     options = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toServiceDescriptorProto()
 
 @pbandk.Export
@@ -4377,17 +4175,12 @@ private class ServiceDescriptorProto_Impl(
     override val name: String?,
     override val method: pbandk.gen.ListField<pbandk.wkt.MethodDescriptorProto>,
     override val options: pbandk.wkt.ServiceOptions?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.ServiceDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.ServiceDescriptorProto>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.ServiceDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.ServiceDescriptorProto>(unknownFields) {
     override val descriptor get() = pbandk.wkt.ServiceDescriptorProto.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableServiceDescriptorProto.() -> Unit) = pbandk.wkt.ServiceDescriptorProto {
-        this.name = this@ServiceDescriptorProto_Impl.name
-        this.method += this@ServiceDescriptorProto_Impl.method
-        this.options = this@ServiceDescriptorProto_Impl.options
-        this.unknownFields += this@ServiceDescriptorProto_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableServiceDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -4401,20 +4194,16 @@ private class ServiceDescriptorProto_Impl(
         this.options = options
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableServiceDescriptorProto_Impl(
     override var name: String?,
     override val method: pbandk.gen.MutableListField<pbandk.wkt.MethodDescriptorProto>,
     override var options: pbandk.wkt.ServiceOptions?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableServiceDescriptorProto, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.ServiceDescriptorProto>() {
     override val descriptor get() = pbandk.wkt.ServiceDescriptorProto.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableServiceDescriptorProto.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableServiceDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -4424,25 +4213,12 @@ private class MutableServiceDescriptorProto_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toServiceDescriptorProto() = ServiceDescriptorProto_Impl(
         name = name,
         method = method.toListField(),
         options = options,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun ServiceDescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.ServiceDescriptorProto {
-    if (other !is pbandk.wkt.ServiceDescriptorProto) return this
-
-    return copy {
-        name = other.name ?: name
-        method += other.method
-        options = options?.plus(other.options) ?: other.options
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -4483,7 +4259,6 @@ public fun MethodDescriptorProto(builderAction: pbandk.wkt.MutableMethodDescript
     options = null,
     clientStreaming = null,
     serverStreaming = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toMethodDescriptorProto()
 
 @pbandk.Export
@@ -4497,20 +4272,12 @@ private class MethodDescriptorProto_Impl(
     override val options: pbandk.wkt.MethodOptions?,
     override val clientStreaming: Boolean?,
     override val serverStreaming: Boolean?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.MethodDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.MethodDescriptorProto>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.MethodDescriptorProto, pbandk.gen.GeneratedMessage<pbandk.wkt.MethodDescriptorProto>(unknownFields) {
     override val descriptor get() = pbandk.wkt.MethodDescriptorProto.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableMethodDescriptorProto.() -> Unit) = pbandk.wkt.MethodDescriptorProto {
-        this.name = this@MethodDescriptorProto_Impl.name
-        this.inputType = this@MethodDescriptorProto_Impl.inputType
-        this.outputType = this@MethodDescriptorProto_Impl.outputType
-        this.options = this@MethodDescriptorProto_Impl.options
-        this.clientStreaming = this@MethodDescriptorProto_Impl.clientStreaming
-        this.serverStreaming = this@MethodDescriptorProto_Impl.serverStreaming
-        this.unknownFields += this@MethodDescriptorProto_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableMethodDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -4530,8 +4297,6 @@ private class MethodDescriptorProto_Impl(
         this.serverStreaming = serverStreaming
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableMethodDescriptorProto_Impl(
@@ -4541,12 +4306,10 @@ private class MutableMethodDescriptorProto_Impl(
     override var options: pbandk.wkt.MethodOptions?,
     override var clientStreaming: Boolean?,
     override var serverStreaming: Boolean?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableMethodDescriptorProto, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.MethodDescriptorProto>() {
     override val descriptor get() = pbandk.wkt.MethodDescriptorProto.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableMethodDescriptorProto.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableMethodDescriptorProto.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -4559,8 +4322,6 @@ private class MutableMethodDescriptorProto_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toMethodDescriptorProto() = MethodDescriptorProto_Impl(
         name = name,
         inputType = inputType,
@@ -4570,20 +4331,6 @@ private class MutableMethodDescriptorProto_Impl(
         serverStreaming = serverStreaming,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun MethodDescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.MethodDescriptorProto {
-    if (other !is pbandk.wkt.MethodDescriptorProto) return this
-
-    return copy {
-        name = other.name ?: name
-        inputType = other.inputType ?: inputType
-        outputType = other.outputType ?: outputType
-        options = options?.plus(other.options) ?: other.options
-        clientStreaming = other.clientStreaming ?: clientStreaming
-        serverStreaming = other.serverStreaming ?: serverStreaming
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -4670,7 +4417,6 @@ public fun FileOptions(builderAction: pbandk.wkt.MutableFileOptions.() -> Unit):
     phpMetadataNamespace = null,
     rubyPackage = null,
     uninterpretedOption = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toFileOptions()
 
 @pbandk.Export
@@ -4699,36 +4445,12 @@ private class FileOptions_Impl(
     override val phpMetadataNamespace: String?,
     override val rubyPackage: String?,
     override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.FileOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.FileOptions>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.FileOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.FileOptions>(unknownFields) {
     override val descriptor get() = pbandk.wkt.FileOptions.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableFileOptions.() -> Unit) = pbandk.wkt.FileOptions {
-        this.javaPackage = this@FileOptions_Impl.javaPackage
-        this.javaOuterClassname = this@FileOptions_Impl.javaOuterClassname
-        this.javaMultipleFiles = this@FileOptions_Impl.javaMultipleFiles
-        @Suppress("DEPRECATION")
-        this.javaGenerateEqualsAndHash = this@FileOptions_Impl.javaGenerateEqualsAndHash
-        this.javaStringCheckUtf8 = this@FileOptions_Impl.javaStringCheckUtf8
-        this.optimizeFor = this@FileOptions_Impl.optimizeFor
-        this.goPackage = this@FileOptions_Impl.goPackage
-        this.ccGenericServices = this@FileOptions_Impl.ccGenericServices
-        this.javaGenericServices = this@FileOptions_Impl.javaGenericServices
-        this.pyGenericServices = this@FileOptions_Impl.pyGenericServices
-        this.phpGenericServices = this@FileOptions_Impl.phpGenericServices
-        this.deprecated = this@FileOptions_Impl.deprecated
-        this.ccEnableArenas = this@FileOptions_Impl.ccEnableArenas
-        this.objcClassPrefix = this@FileOptions_Impl.objcClassPrefix
-        this.csharpNamespace = this@FileOptions_Impl.csharpNamespace
-        this.swiftPrefix = this@FileOptions_Impl.swiftPrefix
-        this.phpClassPrefix = this@FileOptions_Impl.phpClassPrefix
-        this.phpNamespace = this@FileOptions_Impl.phpNamespace
-        this.phpMetadataNamespace = this@FileOptions_Impl.phpMetadataNamespace
-        this.rubyPackage = this@FileOptions_Impl.rubyPackage
-        this.uninterpretedOption += this@FileOptions_Impl.uninterpretedOption
-        this.unknownFields += this@FileOptions_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableFileOptions.() -> Unit) = super.copy(builderAction)
 
     @Suppress("DEPRECATION")
     @Deprecated("Use copy { } instead")
@@ -4780,8 +4502,6 @@ private class FileOptions_Impl(
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableFileOptions_Impl(
@@ -4806,12 +4526,10 @@ private class MutableFileOptions_Impl(
     override var phpMetadataNamespace: String?,
     override var rubyPackage: String?,
     override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableFileOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.FileOptions>() {
     override val descriptor get() = pbandk.wkt.FileOptions.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableFileOptions.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableFileOptions.() -> Unit) = super.copy(builderAction)
 
     @Suppress("DEPRECATION")
     @Deprecated("Use copy { } instead")
@@ -4840,8 +4558,6 @@ private class MutableFileOptions_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toFileOptions() = FileOptions_Impl(
         javaPackage = javaPackage,
         javaOuterClassname = javaOuterClassname,
@@ -4866,36 +4582,6 @@ private class MutableFileOptions_Impl(
         uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun FileOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.FileOptions {
-    if (other !is pbandk.wkt.FileOptions) return this
-
-    return copy {
-        javaPackage = other.javaPackage ?: javaPackage
-        javaOuterClassname = other.javaOuterClassname ?: javaOuterClassname
-        javaMultipleFiles = other.javaMultipleFiles ?: javaMultipleFiles
-        @Suppress("DEPRECATION")
-        javaGenerateEqualsAndHash = other.javaGenerateEqualsAndHash ?: javaGenerateEqualsAndHash
-        javaStringCheckUtf8 = other.javaStringCheckUtf8 ?: javaStringCheckUtf8
-        optimizeFor = other.optimizeFor ?: optimizeFor
-        goPackage = other.goPackage ?: goPackage
-        ccGenericServices = other.ccGenericServices ?: ccGenericServices
-        javaGenericServices = other.javaGenericServices ?: javaGenericServices
-        pyGenericServices = other.pyGenericServices ?: pyGenericServices
-        phpGenericServices = other.phpGenericServices ?: phpGenericServices
-        deprecated = other.deprecated ?: deprecated
-        ccEnableArenas = other.ccEnableArenas ?: ccEnableArenas
-        objcClassPrefix = other.objcClassPrefix ?: objcClassPrefix
-        csharpNamespace = other.csharpNamespace ?: csharpNamespace
-        swiftPrefix = other.swiftPrefix ?: swiftPrefix
-        phpClassPrefix = other.phpClassPrefix ?: phpClassPrefix
-        phpNamespace = other.phpNamespace ?: phpNamespace
-        phpMetadataNamespace = other.phpMetadataNamespace ?: phpMetadataNamespace
-        rubyPackage = other.rubyPackage ?: rubyPackage
-        uninterpretedOption += other.uninterpretedOption
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -4933,7 +4619,6 @@ public fun MessageOptions(builderAction: pbandk.wkt.MutableMessageOptions.() -> 
     deprecated = null,
     mapEntry = null,
     uninterpretedOption = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toMessageOptions()
 
 @pbandk.Export
@@ -4946,19 +4631,12 @@ private class MessageOptions_Impl(
     override val deprecated: Boolean?,
     override val mapEntry: Boolean?,
     override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.MessageOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.MessageOptions>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.MessageOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.MessageOptions>(unknownFields) {
     override val descriptor get() = pbandk.wkt.MessageOptions.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableMessageOptions.() -> Unit) = pbandk.wkt.MessageOptions {
-        this.messageSetWireFormat = this@MessageOptions_Impl.messageSetWireFormat
-        this.noStandardDescriptorAccessor = this@MessageOptions_Impl.noStandardDescriptorAccessor
-        this.deprecated = this@MessageOptions_Impl.deprecated
-        this.mapEntry = this@MessageOptions_Impl.mapEntry
-        this.uninterpretedOption += this@MessageOptions_Impl.uninterpretedOption
-        this.unknownFields += this@MessageOptions_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableMessageOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -4976,8 +4654,6 @@ private class MessageOptions_Impl(
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableMessageOptions_Impl(
@@ -4986,12 +4662,10 @@ private class MutableMessageOptions_Impl(
     override var deprecated: Boolean?,
     override var mapEntry: Boolean?,
     override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableMessageOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.MessageOptions>() {
     override val descriptor get() = pbandk.wkt.MessageOptions.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableMessageOptions.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableMessageOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5003,8 +4677,6 @@ private class MutableMessageOptions_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toMessageOptions() = MessageOptions_Impl(
         messageSetWireFormat = messageSetWireFormat,
         noStandardDescriptorAccessor = noStandardDescriptorAccessor,
@@ -5013,19 +4685,6 @@ private class MutableMessageOptions_Impl(
         uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun MessageOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.MessageOptions {
-    if (other !is pbandk.wkt.MessageOptions) return this
-
-    return copy {
-        messageSetWireFormat = other.messageSetWireFormat ?: messageSetWireFormat
-        noStandardDescriptorAccessor = other.noStandardDescriptorAccessor ?: noStandardDescriptorAccessor
-        deprecated = other.deprecated ?: deprecated
-        mapEntry = other.mapEntry ?: mapEntry
-        uninterpretedOption += other.uninterpretedOption
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -5069,7 +4728,6 @@ public fun FieldOptions(builderAction: pbandk.wkt.MutableFieldOptions.() -> Unit
     deprecated = null,
     weak = null,
     uninterpretedOption = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toFieldOptions()
 
 @pbandk.Export
@@ -5084,21 +4742,12 @@ private class FieldOptions_Impl(
     override val deprecated: Boolean?,
     override val weak: Boolean?,
     override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.FieldOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.FieldOptions>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.FieldOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.FieldOptions>(unknownFields) {
     override val descriptor get() = pbandk.wkt.FieldOptions.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableFieldOptions.() -> Unit) = pbandk.wkt.FieldOptions {
-        this.ctype = this@FieldOptions_Impl.ctype
-        this.packed = this@FieldOptions_Impl.packed
-        this.jstype = this@FieldOptions_Impl.jstype
-        this.lazy = this@FieldOptions_Impl.lazy
-        this.deprecated = this@FieldOptions_Impl.deprecated
-        this.weak = this@FieldOptions_Impl.weak
-        this.uninterpretedOption += this@FieldOptions_Impl.uninterpretedOption
-        this.unknownFields += this@FieldOptions_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableFieldOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5120,8 +4769,6 @@ private class FieldOptions_Impl(
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableFieldOptions_Impl(
@@ -5132,12 +4779,10 @@ private class MutableFieldOptions_Impl(
     override var deprecated: Boolean?,
     override var weak: Boolean?,
     override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableFieldOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.FieldOptions>() {
     override val descriptor get() = pbandk.wkt.FieldOptions.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableFieldOptions.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableFieldOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5151,8 +4796,6 @@ private class MutableFieldOptions_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toFieldOptions() = FieldOptions_Impl(
         ctype = ctype,
         packed = packed,
@@ -5163,21 +4806,6 @@ private class MutableFieldOptions_Impl(
         uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun FieldOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.FieldOptions {
-    if (other !is pbandk.wkt.FieldOptions) return this
-
-    return copy {
-        ctype = other.ctype ?: ctype
-        packed = other.packed ?: packed
-        jstype = other.jstype ?: jstype
-        lazy = other.lazy ?: lazy
-        deprecated = other.deprecated ?: deprecated
-        weak = other.weak ?: weak
-        uninterpretedOption += other.uninterpretedOption
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -5203,7 +4831,6 @@ public fun OneofOptions(
 @pbandk.JsName("buildOneofOptions")
 public fun OneofOptions(builderAction: pbandk.wkt.MutableOneofOptions.() -> Unit): pbandk.wkt.OneofOptions = pbandk.wkt.MutableOneofOptions_Impl(
     uninterpretedOption = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toOneofOptions()
 
 @pbandk.Export
@@ -5212,15 +4839,12 @@ public fun OneofOptions?.orDefault(): pbandk.wkt.OneofOptions = this ?: pbandk.w
 
 private class OneofOptions_Impl(
     override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.OneofOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.OneofOptions>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.OneofOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.OneofOptions>(unknownFields) {
     override val descriptor get() = pbandk.wkt.OneofOptions.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableOneofOptions.() -> Unit) = pbandk.wkt.OneofOptions {
-        this.uninterpretedOption += this@OneofOptions_Impl.uninterpretedOption
-        this.unknownFields += this@OneofOptions_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableOneofOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5230,18 +4854,14 @@ private class OneofOptions_Impl(
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableOneofOptions_Impl(
     override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableOneofOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.OneofOptions>() {
     override val descriptor get() = pbandk.wkt.OneofOptions.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableOneofOptions.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableOneofOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5249,21 +4869,10 @@ private class MutableOneofOptions_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toOneofOptions() = OneofOptions_Impl(
         uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun OneofOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.OneofOptions {
-    if (other !is pbandk.wkt.OneofOptions) return this
-
-    return copy {
-        uninterpretedOption += other.uninterpretedOption
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -5295,7 +4904,6 @@ public fun EnumOptions(builderAction: pbandk.wkt.MutableEnumOptions.() -> Unit):
     allowAlias = null,
     deprecated = null,
     uninterpretedOption = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toEnumOptions()
 
 @pbandk.Export
@@ -5306,17 +4914,12 @@ private class EnumOptions_Impl(
     override val allowAlias: Boolean?,
     override val deprecated: Boolean?,
     override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.EnumOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.EnumOptions>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.EnumOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.EnumOptions>(unknownFields) {
     override val descriptor get() = pbandk.wkt.EnumOptions.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableEnumOptions.() -> Unit) = pbandk.wkt.EnumOptions {
-        this.allowAlias = this@EnumOptions_Impl.allowAlias
-        this.deprecated = this@EnumOptions_Impl.deprecated
-        this.uninterpretedOption += this@EnumOptions_Impl.uninterpretedOption
-        this.unknownFields += this@EnumOptions_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableEnumOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5330,20 +4933,16 @@ private class EnumOptions_Impl(
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableEnumOptions_Impl(
     override var allowAlias: Boolean?,
     override var deprecated: Boolean?,
     override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableEnumOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.EnumOptions>() {
     override val descriptor get() = pbandk.wkt.EnumOptions.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableEnumOptions.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableEnumOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5353,25 +4952,12 @@ private class MutableEnumOptions_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toEnumOptions() = EnumOptions_Impl(
         allowAlias = allowAlias,
         deprecated = deprecated,
         uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun EnumOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.EnumOptions {
-    if (other !is pbandk.wkt.EnumOptions) return this
-
-    return copy {
-        allowAlias = other.allowAlias ?: allowAlias
-        deprecated = other.deprecated ?: deprecated
-        uninterpretedOption += other.uninterpretedOption
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -5400,7 +4986,6 @@ public fun EnumValueOptions(
 public fun EnumValueOptions(builderAction: pbandk.wkt.MutableEnumValueOptions.() -> Unit): pbandk.wkt.EnumValueOptions = pbandk.wkt.MutableEnumValueOptions_Impl(
     deprecated = null,
     uninterpretedOption = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toEnumValueOptions()
 
 @pbandk.Export
@@ -5410,16 +4995,12 @@ public fun EnumValueOptions?.orDefault(): pbandk.wkt.EnumValueOptions = this ?: 
 private class EnumValueOptions_Impl(
     override val deprecated: Boolean?,
     override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.EnumValueOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.EnumValueOptions>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.EnumValueOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.EnumValueOptions>(unknownFields) {
     override val descriptor get() = pbandk.wkt.EnumValueOptions.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableEnumValueOptions.() -> Unit) = pbandk.wkt.EnumValueOptions {
-        this.deprecated = this@EnumValueOptions_Impl.deprecated
-        this.uninterpretedOption += this@EnumValueOptions_Impl.uninterpretedOption
-        this.unknownFields += this@EnumValueOptions_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableEnumValueOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5431,19 +5012,15 @@ private class EnumValueOptions_Impl(
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableEnumValueOptions_Impl(
     override var deprecated: Boolean?,
     override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableEnumValueOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.EnumValueOptions>() {
     override val descriptor get() = pbandk.wkt.EnumValueOptions.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableEnumValueOptions.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableEnumValueOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5452,23 +5029,11 @@ private class MutableEnumValueOptions_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toEnumValueOptions() = EnumValueOptions_Impl(
         deprecated = deprecated,
         uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun EnumValueOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.EnumValueOptions {
-    if (other !is pbandk.wkt.EnumValueOptions) return this
-
-    return copy {
-        deprecated = other.deprecated ?: deprecated
-        uninterpretedOption += other.uninterpretedOption
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -5497,7 +5062,6 @@ public fun ServiceOptions(
 public fun ServiceOptions(builderAction: pbandk.wkt.MutableServiceOptions.() -> Unit): pbandk.wkt.ServiceOptions = pbandk.wkt.MutableServiceOptions_Impl(
     deprecated = null,
     uninterpretedOption = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toServiceOptions()
 
 @pbandk.Export
@@ -5507,16 +5071,12 @@ public fun ServiceOptions?.orDefault(): pbandk.wkt.ServiceOptions = this ?: pban
 private class ServiceOptions_Impl(
     override val deprecated: Boolean?,
     override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.ServiceOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.ServiceOptions>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.ServiceOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.ServiceOptions>(unknownFields) {
     override val descriptor get() = pbandk.wkt.ServiceOptions.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableServiceOptions.() -> Unit) = pbandk.wkt.ServiceOptions {
-        this.deprecated = this@ServiceOptions_Impl.deprecated
-        this.uninterpretedOption += this@ServiceOptions_Impl.uninterpretedOption
-        this.unknownFields += this@ServiceOptions_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableServiceOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5528,19 +5088,15 @@ private class ServiceOptions_Impl(
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableServiceOptions_Impl(
     override var deprecated: Boolean?,
     override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableServiceOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.ServiceOptions>() {
     override val descriptor get() = pbandk.wkt.ServiceOptions.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableServiceOptions.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableServiceOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5549,23 +5105,11 @@ private class MutableServiceOptions_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toServiceOptions() = ServiceOptions_Impl(
         deprecated = deprecated,
         uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun ServiceOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.ServiceOptions {
-    if (other !is pbandk.wkt.ServiceOptions) return this
-
-    return copy {
-        deprecated = other.deprecated ?: deprecated
-        uninterpretedOption += other.uninterpretedOption
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -5597,7 +5141,6 @@ public fun MethodOptions(builderAction: pbandk.wkt.MutableMethodOptions.() -> Un
     deprecated = null,
     idempotencyLevel = null,
     uninterpretedOption = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toMethodOptions()
 
 @pbandk.Export
@@ -5608,17 +5151,12 @@ private class MethodOptions_Impl(
     override val deprecated: Boolean?,
     override val idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?,
     override val uninterpretedOption: pbandk.gen.ListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.MethodOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.MethodOptions>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.MethodOptions, pbandk.gen.GeneratedExtendableMessage<pbandk.wkt.MethodOptions>(unknownFields) {
     override val descriptor get() = pbandk.wkt.MethodOptions.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableMethodOptions.() -> Unit) = pbandk.wkt.MethodOptions {
-        this.deprecated = this@MethodOptions_Impl.deprecated
-        this.idempotencyLevel = this@MethodOptions_Impl.idempotencyLevel
-        this.uninterpretedOption += this@MethodOptions_Impl.uninterpretedOption
-        this.unknownFields += this@MethodOptions_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableMethodOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5632,20 +5170,16 @@ private class MethodOptions_Impl(
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableMethodOptions_Impl(
     override var deprecated: Boolean?,
     override var idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?,
     override val uninterpretedOption: pbandk.gen.MutableListField<pbandk.wkt.UninterpretedOption>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableMethodOptions, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.wkt.MethodOptions>() {
     override val descriptor get() = pbandk.wkt.MethodOptions.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableMethodOptions.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableMethodOptions.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5655,25 +5189,12 @@ private class MutableMethodOptions_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toMethodOptions() = MethodOptions_Impl(
         deprecated = deprecated,
         idempotencyLevel = idempotencyLevel,
         uninterpretedOption = uninterpretedOption.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun MethodOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.MethodOptions {
-    if (other !is pbandk.wkt.MethodOptions) return this
-
-    return copy {
-        deprecated = other.deprecated ?: deprecated
-        idempotencyLevel = other.idempotencyLevel ?: idempotencyLevel
-        uninterpretedOption += other.uninterpretedOption
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -5717,7 +5238,6 @@ public fun UninterpretedOption(builderAction: pbandk.wkt.MutableUninterpretedOpt
     doubleValue = null,
     stringValue = null,
     aggregateValue = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toUninterpretedOption()
 
 @pbandk.Export
@@ -5732,21 +5252,12 @@ private class UninterpretedOption_Impl(
     override val doubleValue: Double?,
     override val stringValue: pbandk.ByteArr?,
     override val aggregateValue: String?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.UninterpretedOption, pbandk.gen.GeneratedMessage<pbandk.wkt.UninterpretedOption>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.UninterpretedOption, pbandk.gen.GeneratedMessage<pbandk.wkt.UninterpretedOption>(unknownFields) {
     override val descriptor get() = pbandk.wkt.UninterpretedOption.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableUninterpretedOption.() -> Unit) = pbandk.wkt.UninterpretedOption {
-        this.name += this@UninterpretedOption_Impl.name
-        this.identifierValue = this@UninterpretedOption_Impl.identifierValue
-        this.positiveIntValue = this@UninterpretedOption_Impl.positiveIntValue
-        this.negativeIntValue = this@UninterpretedOption_Impl.negativeIntValue
-        this.doubleValue = this@UninterpretedOption_Impl.doubleValue
-        this.stringValue = this@UninterpretedOption_Impl.stringValue
-        this.aggregateValue = this@UninterpretedOption_Impl.aggregateValue
-        this.unknownFields += this@UninterpretedOption_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableUninterpretedOption.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5768,8 +5279,6 @@ private class UninterpretedOption_Impl(
         this.aggregateValue = aggregateValue
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableUninterpretedOption_Impl(
@@ -5780,12 +5289,10 @@ private class MutableUninterpretedOption_Impl(
     override var doubleValue: Double?,
     override var stringValue: pbandk.ByteArr?,
     override var aggregateValue: String?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableUninterpretedOption, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.UninterpretedOption>() {
     override val descriptor get() = pbandk.wkt.UninterpretedOption.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableUninterpretedOption.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableUninterpretedOption.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5799,8 +5306,6 @@ private class MutableUninterpretedOption_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toUninterpretedOption() = UninterpretedOption_Impl(
         name = name.toListField(),
         identifierValue = identifierValue,
@@ -5811,21 +5316,6 @@ private class MutableUninterpretedOption_Impl(
         aggregateValue = aggregateValue,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun UninterpretedOption.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.UninterpretedOption {
-    if (other !is pbandk.wkt.UninterpretedOption) return this
-
-    return copy {
-        name += other.name
-        identifierValue = other.identifierValue ?: identifierValue
-        positiveIntValue = other.positiveIntValue ?: positiveIntValue
-        negativeIntValue = other.negativeIntValue ?: negativeIntValue
-        doubleValue = other.doubleValue ?: doubleValue
-        stringValue = other.stringValue ?: stringValue
-        aggregateValue = other.aggregateValue ?: aggregateValue
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -5854,7 +5344,6 @@ public fun UninterpretedOption.Companion.NamePart(
 public fun UninterpretedOption.Companion.NamePart(builderAction: pbandk.wkt.UninterpretedOption.MutableNamePart.() -> Unit): pbandk.wkt.UninterpretedOption.NamePart = pbandk.wkt.UninterpretedOption_MutableNamePart_Impl(
     namePart = "",
     isExtension = false,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toNamePart()
 
 /**
@@ -5871,16 +5360,12 @@ public fun UninterpretedOption.NamePart?.orDefault(): pbandk.wkt.UninterpretedOp
 private class UninterpretedOption_NamePart_Impl(
     override val namePart: String,
     override val isExtension: Boolean,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.UninterpretedOption.NamePart, pbandk.gen.GeneratedMessage<pbandk.wkt.UninterpretedOption.NamePart>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.UninterpretedOption.NamePart, pbandk.gen.GeneratedMessage<pbandk.wkt.UninterpretedOption.NamePart>(unknownFields) {
     override val descriptor get() = pbandk.wkt.UninterpretedOption.NamePart.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.UninterpretedOption.MutableNamePart.() -> Unit) = pbandk.wkt.UninterpretedOption.NamePart {
-        this.namePart = this@UninterpretedOption_NamePart_Impl.namePart
-        this.isExtension = this@UninterpretedOption_NamePart_Impl.isExtension
-        this.unknownFields += this@UninterpretedOption_NamePart_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.UninterpretedOption.MutableNamePart.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5892,19 +5377,15 @@ private class UninterpretedOption_NamePart_Impl(
         this.isExtension = isExtension
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class UninterpretedOption_MutableNamePart_Impl(
     override var namePart: String,
     override var isExtension: Boolean,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.UninterpretedOption.MutableNamePart, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.UninterpretedOption.NamePart>() {
     override val descriptor get() = pbandk.wkt.UninterpretedOption.NamePart.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.UninterpretedOption.MutableNamePart.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.UninterpretedOption.MutableNamePart.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5913,23 +5394,11 @@ private class UninterpretedOption_MutableNamePart_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toNamePart() = UninterpretedOption_NamePart_Impl(
         namePart = namePart,
         isExtension = isExtension,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun UninterpretedOption.NamePart.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.UninterpretedOption.NamePart {
-    if (other !is pbandk.wkt.UninterpretedOption.NamePart) return this
-
-    return copy {
-        namePart = other.namePart
-        isExtension = other.isExtension
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -5955,7 +5424,6 @@ public fun SourceCodeInfo(
 @pbandk.JsName("buildSourceCodeInfo")
 public fun SourceCodeInfo(builderAction: pbandk.wkt.MutableSourceCodeInfo.() -> Unit): pbandk.wkt.SourceCodeInfo = pbandk.wkt.MutableSourceCodeInfo_Impl(
     location = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toSourceCodeInfo()
 
 @pbandk.Export
@@ -5964,15 +5432,12 @@ public fun SourceCodeInfo?.orDefault(): pbandk.wkt.SourceCodeInfo = this ?: pban
 
 private class SourceCodeInfo_Impl(
     override val location: pbandk.gen.ListField<pbandk.wkt.SourceCodeInfo.Location>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.SourceCodeInfo, pbandk.gen.GeneratedMessage<pbandk.wkt.SourceCodeInfo>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.SourceCodeInfo, pbandk.gen.GeneratedMessage<pbandk.wkt.SourceCodeInfo>(unknownFields) {
     override val descriptor get() = pbandk.wkt.SourceCodeInfo.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableSourceCodeInfo.() -> Unit) = pbandk.wkt.SourceCodeInfo {
-        this.location += this@SourceCodeInfo_Impl.location
-        this.unknownFields += this@SourceCodeInfo_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableSourceCodeInfo.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -5982,18 +5447,14 @@ private class SourceCodeInfo_Impl(
         this.location += location
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableSourceCodeInfo_Impl(
     override val location: pbandk.gen.MutableListField<pbandk.wkt.SourceCodeInfo.Location>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableSourceCodeInfo, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.SourceCodeInfo>() {
     override val descriptor get() = pbandk.wkt.SourceCodeInfo.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableSourceCodeInfo.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableSourceCodeInfo.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -6001,21 +5462,10 @@ private class MutableSourceCodeInfo_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toSourceCodeInfo() = SourceCodeInfo_Impl(
         location = location.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun SourceCodeInfo.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.SourceCodeInfo {
-    if (other !is pbandk.wkt.SourceCodeInfo) return this
-
-    return copy {
-        location += other.location
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -6053,7 +5503,6 @@ public fun SourceCodeInfo.Companion.Location(builderAction: pbandk.wkt.SourceCod
     leadingComments = null,
     trailingComments = null,
     leadingDetachedComments = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toLocation()
 
 /**
@@ -6073,19 +5522,12 @@ private class SourceCodeInfo_Location_Impl(
     override val leadingComments: String?,
     override val trailingComments: String?,
     override val leadingDetachedComments: pbandk.gen.ListField<String>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.SourceCodeInfo.Location, pbandk.gen.GeneratedMessage<pbandk.wkt.SourceCodeInfo.Location>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.SourceCodeInfo.Location, pbandk.gen.GeneratedMessage<pbandk.wkt.SourceCodeInfo.Location>(unknownFields) {
     override val descriptor get() = pbandk.wkt.SourceCodeInfo.Location.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.SourceCodeInfo.MutableLocation.() -> Unit) = pbandk.wkt.SourceCodeInfo.Location {
-        this.path += this@SourceCodeInfo_Location_Impl.path
-        this.span += this@SourceCodeInfo_Location_Impl.span
-        this.leadingComments = this@SourceCodeInfo_Location_Impl.leadingComments
-        this.trailingComments = this@SourceCodeInfo_Location_Impl.trailingComments
-        this.leadingDetachedComments += this@SourceCodeInfo_Location_Impl.leadingDetachedComments
-        this.unknownFields += this@SourceCodeInfo_Location_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.SourceCodeInfo.MutableLocation.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -6103,8 +5545,6 @@ private class SourceCodeInfo_Location_Impl(
         this.leadingDetachedComments += leadingDetachedComments
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class SourceCodeInfo_MutableLocation_Impl(
@@ -6113,12 +5553,10 @@ private class SourceCodeInfo_MutableLocation_Impl(
     override var leadingComments: String?,
     override var trailingComments: String?,
     override val leadingDetachedComments: pbandk.gen.MutableListField<String>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.SourceCodeInfo.MutableLocation, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.SourceCodeInfo.Location>() {
     override val descriptor get() = pbandk.wkt.SourceCodeInfo.Location.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.SourceCodeInfo.MutableLocation.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.SourceCodeInfo.MutableLocation.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -6130,8 +5568,6 @@ private class SourceCodeInfo_MutableLocation_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toLocation() = SourceCodeInfo_Location_Impl(
         path = path.toListField(),
         span = span.toListField(),
@@ -6140,19 +5576,6 @@ private class SourceCodeInfo_MutableLocation_Impl(
         leadingDetachedComments = leadingDetachedComments.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun SourceCodeInfo.Location.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.SourceCodeInfo.Location {
-    if (other !is pbandk.wkt.SourceCodeInfo.Location) return this
-
-    return copy {
-        path += other.path
-        span += other.span
-        leadingComments = other.leadingComments ?: leadingComments
-        trailingComments = other.trailingComments ?: trailingComments
-        leadingDetachedComments += other.leadingDetachedComments
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -6178,7 +5601,6 @@ public fun GeneratedCodeInfo(
 @pbandk.JsName("buildGeneratedCodeInfo")
 public fun GeneratedCodeInfo(builderAction: pbandk.wkt.MutableGeneratedCodeInfo.() -> Unit): pbandk.wkt.GeneratedCodeInfo = pbandk.wkt.MutableGeneratedCodeInfo_Impl(
     annotation = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toGeneratedCodeInfo()
 
 @pbandk.Export
@@ -6187,15 +5609,12 @@ public fun GeneratedCodeInfo?.orDefault(): pbandk.wkt.GeneratedCodeInfo = this ?
 
 private class GeneratedCodeInfo_Impl(
     override val annotation: pbandk.gen.ListField<pbandk.wkt.GeneratedCodeInfo.Annotation>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.GeneratedCodeInfo, pbandk.gen.GeneratedMessage<pbandk.wkt.GeneratedCodeInfo>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.GeneratedCodeInfo, pbandk.gen.GeneratedMessage<pbandk.wkt.GeneratedCodeInfo>(unknownFields) {
     override val descriptor get() = pbandk.wkt.GeneratedCodeInfo.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableGeneratedCodeInfo.() -> Unit) = pbandk.wkt.GeneratedCodeInfo {
-        this.annotation += this@GeneratedCodeInfo_Impl.annotation
-        this.unknownFields += this@GeneratedCodeInfo_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableGeneratedCodeInfo.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -6205,18 +5624,14 @@ private class GeneratedCodeInfo_Impl(
         this.annotation += annotation
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableGeneratedCodeInfo_Impl(
     override val annotation: pbandk.gen.MutableListField<pbandk.wkt.GeneratedCodeInfo.Annotation>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableGeneratedCodeInfo, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.GeneratedCodeInfo>() {
     override val descriptor get() = pbandk.wkt.GeneratedCodeInfo.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableGeneratedCodeInfo.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableGeneratedCodeInfo.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -6224,21 +5639,10 @@ private class MutableGeneratedCodeInfo_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toGeneratedCodeInfo() = GeneratedCodeInfo_Impl(
         annotation = annotation.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun GeneratedCodeInfo.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.GeneratedCodeInfo {
-    if (other !is pbandk.wkt.GeneratedCodeInfo) return this
-
-    return copy {
-        annotation += other.annotation
-        unknownFields += other.unknownFields
-    }
 }
 
 @Deprecated(
@@ -6273,7 +5677,6 @@ public fun GeneratedCodeInfo.Companion.Annotation(builderAction: pbandk.wkt.Gene
     sourceFile = null,
     begin = null,
     end = null,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toAnnotation()
 
 /**
@@ -6292,18 +5695,12 @@ private class GeneratedCodeInfo_Annotation_Impl(
     override val sourceFile: String?,
     override val begin: Int?,
     override val end: Int?,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.GeneratedCodeInfo.Annotation, pbandk.gen.GeneratedMessage<pbandk.wkt.GeneratedCodeInfo.Annotation>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.GeneratedCodeInfo.Annotation, pbandk.gen.GeneratedMessage<pbandk.wkt.GeneratedCodeInfo.Annotation>(unknownFields) {
     override val descriptor get() = pbandk.wkt.GeneratedCodeInfo.Annotation.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.GeneratedCodeInfo.MutableAnnotation.() -> Unit) = pbandk.wkt.GeneratedCodeInfo.Annotation {
-        this.path += this@GeneratedCodeInfo_Annotation_Impl.path
-        this.sourceFile = this@GeneratedCodeInfo_Annotation_Impl.sourceFile
-        this.begin = this@GeneratedCodeInfo_Annotation_Impl.begin
-        this.end = this@GeneratedCodeInfo_Annotation_Impl.end
-        this.unknownFields += this@GeneratedCodeInfo_Annotation_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.GeneratedCodeInfo.MutableAnnotation.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -6319,8 +5716,6 @@ private class GeneratedCodeInfo_Annotation_Impl(
         this.end = end
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class GeneratedCodeInfo_MutableAnnotation_Impl(
@@ -6328,12 +5723,10 @@ private class GeneratedCodeInfo_MutableAnnotation_Impl(
     override var sourceFile: String?,
     override var begin: Int?,
     override var end: Int?,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.GeneratedCodeInfo.MutableAnnotation, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.GeneratedCodeInfo.Annotation>() {
     override val descriptor get() = pbandk.wkt.GeneratedCodeInfo.Annotation.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.GeneratedCodeInfo.MutableAnnotation.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.GeneratedCodeInfo.MutableAnnotation.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -6344,8 +5737,6 @@ private class GeneratedCodeInfo_MutableAnnotation_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toAnnotation() = GeneratedCodeInfo_Annotation_Impl(
         path = path.toListField(),
         sourceFile = sourceFile,
@@ -6353,16 +5744,4 @@ private class GeneratedCodeInfo_MutableAnnotation_Impl(
         end = end,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun GeneratedCodeInfo.Annotation.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.GeneratedCodeInfo.Annotation {
-    if (other !is pbandk.wkt.GeneratedCodeInfo.Annotation) return this
-
-    return copy {
-        path += other.path
-        sourceFile = other.sourceFile ?: sourceFile
-        begin = other.begin ?: begin
-        end = other.end ?: end
-        unknownFields += other.unknownFields
-    }
 }

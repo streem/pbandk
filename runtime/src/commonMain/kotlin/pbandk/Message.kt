@@ -33,10 +33,8 @@ public interface Message {
         }
     }
 
-    public abstract class OneOf<T>(public val value: T) {
-        override fun equals(other: Any?): Boolean = this::class.isInstance(other) && value == (other as OneOf<*>).value
-        override fun hashCode(): Int = value.hashCode()
-        override fun toString(): String = "OneOf.${this::class.simpleName}($value)"
+    public interface OneOf<T> {
+        public val value: T
     }
 
 }
@@ -73,8 +71,6 @@ public operator fun <T : Message> T?.plus(other: T?): T? = this?.plus(other) as 
  * _MUST_ be a descriptor for fields in messages of type [T].
  */
 @ExperimentalProtoReflection
-public fun <T : Message, F> T.getFieldValue(fieldDescriptor: FieldDescriptor<out T, out F>): F {
-    @Suppress("UNCHECKED_CAST")
-    val property = fieldDescriptor.value as KProperty1<T, F>
-    return property.get(this)
+public fun <T : Message, F> T.getFieldValue(fieldDescriptor: FieldDescriptor<T, out F>): F {
+    return fieldDescriptor.getValue(this)
 }

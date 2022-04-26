@@ -36,7 +36,7 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
 
         for (fd in message.descriptor.fields) {
             @Suppress("UNCHECKED_CAST")
-            val value = (fd.value as KProperty1<T, *>).get(message)
+            val value = (fd as FieldDescriptor<T, *>).getValue(message)
 
             if (value == null && fd.oneofMember) continue
             if (!fd.oneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) continue

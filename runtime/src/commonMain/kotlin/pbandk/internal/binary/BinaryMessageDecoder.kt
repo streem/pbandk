@@ -82,17 +82,17 @@ internal class BinaryMessageDecoder(private val wireDecoder: BinaryWireDecoder) 
                         is FieldDescriptor.Type.Repeated<*> -> {
                             value as Sequence<*>
                             @Suppress("UNCHECKED_CAST")
-                            ((fd.value as KProperty1<MutableMessage<T>, *>).get(this) as MutableList<Any?>).addAll(value)
+                            (fd.getValue(this as T) as MutableList<Any?>).addAll(value)
                         }
                         is FieldDescriptor.Type.Map<*, *> -> {
                             @Suppress("UNCHECKED_CAST")
                             value as Sequence<Map.Entry<*, *>>
                             @Suppress("UNCHECKED_CAST")
-                            ((fd.value as KProperty1<MutableMessage<T>, *>).get(this) as MutableMapField<Any?, Any?>).putAll(value)
+                            (fd.getValue(this as T) as MutableMapField<Any?, Any?>).putAll(value)
                         }
                         else -> {
                             @Suppress("UNCHECKED_CAST")
-                            (fd.mutableValue as KMutableProperty1<MutableMessage<T>, Any?>).set(this, value)
+                            (fd as FieldDescriptor<T, Any?>).updateValue(this, value)
                         }
                     }
                 }

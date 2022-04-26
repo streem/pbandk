@@ -4,20 +4,16 @@ import pbandk.FieldDescriptor
 import pbandk.Message
 import pbandk.MessageDescriptor
 import pbandk.MutableMessage
+import pbandk.OneofDescriptor
 import pbandk.PublicForGeneratedCode
+import pbandk.UnknownField
 import pbandk.internal.binary.Sizer
 
-@Suppress("UNCHECKED_CAST")
-private inline val <T : Message> GeneratedMessage<T>.fieldDescriptors: Collection<FieldDescriptor<T, *>>
-    get() = (descriptor as MessageDescriptor<T>).fields
-
-@Suppress("UNCHECKED_CAST", "NOTHING_TO_INLINE")
-private inline fun <T : Message, V> GeneratedMessage<T>.getValue(field: FieldDescriptor<T, V>): V {
-    return field.value.get(this as T)
-}
-
+public abstract class GeneratedMessage<T : Message>
 @PublicForGeneratedCode
-public abstract class GeneratedMessage<T : Message> : Message {
+protected constructor(
+    override val unknownFields: Map<Int, UnknownField> = emptyMap()
+) : Message {
     protected fun computeProtoSize(): Int = Sizer.rawMessageSize(this)
 
     override val protoSize: Int by lazy(LazyThreadSafetyMode.PUBLICATION) { computeProtoSize() }
@@ -70,12 +66,108 @@ public abstract class GeneratedMessage<T : Message> : Message {
 
         append(")")
     }
+
+    public open fun <B : MutableMessage<T>> copy(builderAction: B.() -> Unit): T {
+        return messageDescriptor.builder {
+            for (field in fieldDescriptors) {
+                setValueFromMessage(field, this@GeneratedMessage)
+            }
+            unknownFields += this@GeneratedMessage.unknownFields
+            @Suppress("UNCHECKED_CAST")
+            (this as B).builderAction()
+        }
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    override fun plus(other: Message?): T {
+        if (descriptor != other?.descriptor) return this as T
+        other as T
+
+        return copy<MutableMessage<T>> {
+            for (field in fieldDescriptors) {
+                if (field.oneofMember) {
+                    continue
+                } else if (field.type is FieldDescriptor.Type.Message<*>) {
+                    field as FieldDescriptor<T, Message?>
+
+                    field.updateValue(this, getValue(field)?.plus(field.getValue(other)) ?: field.getValue(other))
+                } else if (field.type.hasPresence) {
+                    field as FieldDescriptor<T, Any?>
+
+                    field.getValue(other)?.let { field.updateValue(this, it) }
+                } else {
+                    field as FieldDescriptor<T, Any>
+
+                    field.updateValue(this, field.getValue(other))
+                }
+            }
+
+            for (oneof in messageDescriptor.oneofs) {
+                oneof as OneofDescriptor<T, Message.OneOf<*>>
+                val thisValue = oneof.getValue(this as T)
+                val otherValue = oneof.getValue(other)
+
+                if (otherValue == null) {
+                    continue
+                } else if (thisValue == null || thisValue::class != otherValue::class) {
+                    oneof.updateValue(this, otherValue)
+                } else if (thisValue.value is Message) {
+                    thisValue as GeneratedOneOf<T>
+                    thisValue.currentFieldDescriptor as FieldDescriptor<T, Message>
+                    thisValue.currentFieldDescriptor.updateValue(
+                        this,
+                        thisValue.value.plus(otherValue.value as Message)
+                    )
+                } else {
+                    oneof.updateValue(this, otherValue)
+                }
+            }
+            unknownFields += other.unknownFields
+        }
+    }
 }
 
+public abstract class MutableGeneratedMessage<T : Message>
 @PublicForGeneratedCode
-public abstract class MutableGeneratedMessage<T : Message> : GeneratedMessage<T>(), MutableMessage<T> {
+protected constructor(
+    override val unknownFields: MutableMap<Int, UnknownField> = mutableMapOf()
+) : GeneratedMessage<T>(unknownFields), MutableMessage<T> {
     override val protoSize: Int get() = computeProtoSize()
 
     override fun hashCode(): Int = computeHashCode()
     override fun equals(other: Any?): Boolean = super.equals(other)
+
+    override fun <B : MutableMessage<T>> copy(builderAction: B.() -> Unit): T = throw UnsupportedOperationException()
+    override fun plus(other: Message?): T = throw UnsupportedOperationException()
+}
+
+@Suppress("UNCHECKED_CAST")
+private inline val <T : Message> GeneratedMessage<T>.messageDescriptor: MessageDescriptor<T>
+    get() = descriptor as MessageDescriptor<T>
+
+private inline val <T : Message> GeneratedMessage<T>.fieldDescriptors: Collection<FieldDescriptor<T, *>>
+    get() = messageDescriptor.fields
+
+@Suppress("UNCHECKED_CAST", "NOTHING_TO_INLINE")
+private inline fun <T : Message, V> GeneratedMessage<T>.getValue(field: FieldDescriptor<T, V>): V =
+    field.getValue(this as T)
+
+@Suppress("NOTHING_TO_INLINE")
+private inline fun <T : Message, V> MutableMessage<T>.setValueFromMessage(
+    field: FieldDescriptor<T, V>,
+    fromMessage: GeneratedMessage<T>
+) = field.updateValue(this, fromMessage.getValue(field))
+
+public abstract class GeneratedOneOf<T>
+@PublicForGeneratedCode
+protected constructor(
+    public override val value: T,
+    internal val currentFieldDescriptor: FieldDescriptor<out Message, *>
+) : Message.OneOf<T> {
+    override fun equals(other: Any?): Boolean =
+        this::class.isInstance(other) && value == (other as Message.OneOf<*>).value
+
+    override fun hashCode(): Int = value.hashCode()
+
+    override fun toString(): String = "OneOf.${this::class.simpleName}($value)"
 }

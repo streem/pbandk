@@ -23,29 +23,32 @@ public sealed interface FieldMask : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.FieldMask
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val paths: pbandk.FieldDescriptor<pbandk.wkt.FieldMask, List<String>> = 
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.FieldMask::descriptor,
+                name = "paths",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                jsonName = "paths",
+                value = pbandk.wkt.FieldMask::paths,
+                mutableValue = pbandk.wkt.MutableFieldMask::paths,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.FieldMask> {
         public val defaultInstance: pbandk.wkt.FieldMask by lazy { pbandk.wkt.FieldMask {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldMask> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FieldMask, *>>(1)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "paths",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                        jsonName = "paths",
-                        value = pbandk.wkt.FieldMask::paths,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.FieldMask",
                 messageClass = pbandk.wkt.FieldMask::class,
                 messageCompanion = this,
                 builder = ::FieldMask,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.FieldMask.FieldDescriptors.paths,
+                ),
             )
         }
     }
@@ -78,7 +81,6 @@ public fun FieldMask(
 @pbandk.JsName("buildFieldMask")
 public fun FieldMask(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit): pbandk.wkt.FieldMask = pbandk.wkt.MutableFieldMask_Impl(
     paths = pbandk.gen.MutableListField(),
-    unknownFields = mutableMapOf()
 ).also(builderAction).toFieldMask()
 
 @pbandk.Export
@@ -87,15 +89,12 @@ public fun FieldMask?.orDefault(): pbandk.wkt.FieldMask = this ?: pbandk.wkt.Fie
 
 private class FieldMask_Impl(
     override val paths: pbandk.gen.ListField<String>,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.FieldMask, pbandk.gen.GeneratedMessage<pbandk.wkt.FieldMask>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.FieldMask, pbandk.gen.GeneratedMessage<pbandk.wkt.FieldMask>(unknownFields) {
     override val descriptor get() = pbandk.wkt.FieldMask.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit) = pbandk.wkt.FieldMask {
-        this.paths += this@FieldMask_Impl.paths
-        this.unknownFields += this@FieldMask_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -105,18 +104,14 @@ private class FieldMask_Impl(
         this.paths += paths
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableFieldMask_Impl(
     override val paths: pbandk.gen.MutableListField<String>,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableFieldMask, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.FieldMask>() {
     override val descriptor get() = pbandk.wkt.FieldMask.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -124,19 +119,8 @@ private class MutableFieldMask_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toFieldMask() = FieldMask_Impl(
         paths = paths.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun FieldMask.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.FieldMask {
-    if (other !is pbandk.wkt.FieldMask) return this
-
-    return copy {
-        paths += other.paths
-        unknownFields += other.unknownFields
-    }
 }

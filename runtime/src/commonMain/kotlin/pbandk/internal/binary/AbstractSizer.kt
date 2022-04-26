@@ -122,7 +122,7 @@ internal abstract class AbstractSizer {
         var protoSize = 0
         for (fd in message.descriptor.fields) {
             @Suppress("UNCHECKED_CAST")
-            val value = (fd.value as KProperty1<T, *>).get(message)
+            val value = (fd as FieldDescriptor<T, *>).getValue(message)
 
             if (fd.type.shouldOutputValue(value) && value != null) {
                 protoSize += when (fd.type) {

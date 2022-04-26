@@ -15,7 +15,7 @@ internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEnco
     override fun <T : Message> writeMessage(message: T) {
         for (fd in message.descriptor.fields) {
             @Suppress("UNCHECKED_CAST")
-            val value = (fd.value as KProperty1<T, *>).get(message)
+            val value = (fd as FieldDescriptor<T, *>).getValue(message)
 
             if (fd.type.shouldOutputValue(value) && value != null) {
                 writeFieldValue(fd.number, fd.type, value)

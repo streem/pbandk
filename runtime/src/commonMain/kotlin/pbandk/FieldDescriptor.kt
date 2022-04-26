@@ -9,14 +9,23 @@ import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
 @JsExport
-public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor(
-    messageDescriptor: KProperty0<MessageDescriptor<M>>,
+public class FieldDescriptor<M : Message, T> private constructor(
+    getMessageDescriptor: () -> MessageDescriptor<M>,
     @ExperimentalProtoReflection
     public val name: String,
     internal val number: Int,
     internal val type: Type,
-    internal val value: KProperty1<M, T>,
-    internal val mutableValue: KMutableProperty1<out MutableMessage<M>, T>? = null,
+    /**
+     * Returns the value of this field in the provided message.
+     */
+    internal val getValue: (M) -> T,
+    /**
+     * Sets or updates the value of this field in the provided message.
+     *
+     * NOTE: For `List` and `Map` fields, this function _appends_ to the existing list/map value rather than replacing
+     * the value. For all other fields, this function replaces the value with the new value.
+     */
+    internal val updateValue: (MutableMessage<M>, T) -> Unit,
     internal val oneofMember: Boolean = false,
     internal val jsonName: String? = null,
     @ExperimentalProtoReflection
@@ -25,7 +34,7 @@ public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor
     // At the time that the [FieldDescriptor] constructor is called, the parent [MessageDescriptor] has not been
     // constructed yet. This is because this [FieldDescriptor] is one of the parameters that will be passed to the
     // [MessageDescriptor] constructor. To avoid the circular dependency, this property is declared lazy.
-    internal val messageDescriptor: MessageDescriptor<M> by lazy { messageDescriptor.get() }
+    internal val messageDescriptor: MessageDescriptor<M> by lazy { getMessageDescriptor() }
 
     @PublicForGeneratedCode
     public sealed class Type {
@@ -163,5 +172,110 @@ public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor
         }
     }
 
+    public companion object {
+        @PublicForGeneratedCode
+        @Suppress("UNCHECKED_CAST")
+        public fun <M : Message, MM : MutableMessage<M>, T> of(
+            messageDescriptor: KProperty0<MessageDescriptor<M>>,
+            name: String,
+            number: Int,
+            type: Type,
+            value: KProperty1<M, T>,
+            mutableValue: KMutableProperty1<MM, T>,
+            jsonName: String? = null,
+            options: FieldOptions = FieldOptions.defaultInstance
+        ): FieldDescriptor<M, T> = FieldDescriptor(
+            getMessageDescriptor = messageDescriptor::get,
+            name = name,
+            number = number,
+            type = type,
+            getValue = value::get,
+            updateValue = mutableValue::set as (MutableMessage<M>, T) -> Unit,
+            jsonName = jsonName,
+            options = options
+        )
 
+        @PublicForGeneratedCode
+        @Suppress("UNCHECKED_CAST")
+        public fun <M : Message, MM : MutableMessage<M>, T : Any> ofOneof(
+            messageDescriptor: KProperty0<MessageDescriptor<M>>,
+            name: String,
+            number: Int,
+            type: Type,
+            value: KProperty1<M, T?>,
+            mutableValue: KMutableProperty1<MM, T?>,
+            jsonName: String? = null,
+            options: FieldOptions = FieldOptions.defaultInstance
+        ): FieldDescriptor<M, T?> = FieldDescriptor(
+            getMessageDescriptor = messageDescriptor::get,
+            name = name,
+            number = number,
+            type = type,
+            getValue = value::get,
+            updateValue = mutableValue::set as (MutableMessage<M>, T?) -> Unit,
+            oneofMember = true,
+            jsonName = jsonName,
+            options = options
+        )
+
+        @PublicForGeneratedCode
+        public fun <M : Message, MM : MutableMessage<M>, T : Any> ofRepeated(
+            messageDescriptor: KProperty0<MessageDescriptor<M>>,
+            name: String,
+            number: Int,
+            type: Type.Repeated<T>,
+            value: KProperty1<M, List<T>>,
+            mutableValue: KProperty1<MM, MutableList<T>>,
+            jsonName: String? = null,
+            options: FieldOptions = FieldOptions.defaultInstance
+        ): FieldDescriptor<M, List<T>> = FieldDescriptor(
+            getMessageDescriptor = messageDescriptor::get,
+            name = name,
+            number = number,
+            type = type,
+            getValue = value::get,
+            updateValue = mutableValue::appendList,
+            jsonName = jsonName,
+            options = options
+        )
+
+        @PublicForGeneratedCode
+        public fun <M : Message, MM : MutableMessage<M>, K, V> ofMap(
+            messageDescriptor: KProperty0<MessageDescriptor<M>>,
+            name: String,
+            number: Int,
+            type: Type.Map<K, V>,
+            value: KProperty1<M, Map<K, V>>,
+            mutableValue: KProperty1<MM, MutableMap<K, V>>,
+            jsonName: String? = null,
+            options: FieldOptions = FieldOptions.defaultInstance
+        ): FieldDescriptor<M, Map<K, V>> = FieldDescriptor(
+            getMessageDescriptor = messageDescriptor::get,
+            name = name,
+            number = number,
+            type = type,
+            getValue = value::get,
+            updateValue = mutableValue::appendMap,
+            jsonName = jsonName,
+            options = options
+        )
+
+    }
+
+}
+
+private fun <M : Message, MM : MutableMessage<M>, T> KProperty1<MM, MutableList<T>>.appendList(
+    message: MutableMessage<M>,
+    newValue: List<T>,
+) {
+    @Suppress("UNCHECKED_CAST")
+    get(message as MM).addAll(newValue)
+}
+
+private fun <M : Message, MM : MutableMessage<M>, K, V> KProperty1<MM, MutableMap<K, V>>.appendMap(
+    message: MutableMessage<M>,
+    newValue: Map<K, V>
+) {
+    @Suppress("UNCHECKED_CAST")
+    get(message as MM).putAll(newValue)
 }

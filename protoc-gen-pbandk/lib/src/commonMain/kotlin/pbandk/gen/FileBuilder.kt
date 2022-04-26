@@ -14,7 +14,15 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             kotlinPackageName = ctx.kotlinPackageName,
             version = ctx.fileDesc.syntax?.removePrefix("proto")?.toIntOrNull() ?: 2,
             types = typesFromProto(ctx, ctx.fileDesc.enumType, ctx.fileDesc.messageType),
-            extensions = ctx.fileDesc.extension.map { numberedFieldFromProto(ctx, it, mutableSetOf()) }
+            extensions = ctx.fileDesc.extension.map {
+                numberedFieldFromProto(
+                    ctx,
+                    null,
+                    null,
+                    it,
+                    mutableSetOf()
+                )
+            }
         )
     }
 
@@ -71,7 +79,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         val usedNestedTypeNames = mutableSetOf<String>()
         return File.Type.Message(
             name = name,
-            fields = fieldsFromProto(ctx, msgDesc, usedNestedTypeNames),
+            fields = fieldsFromProto(ctx, msgDesc, name, kotlinName, usedNestedTypeNames),
             nestedTypes = typesFromProto(
                 ctx,
                 msgDesc.enumType,
@@ -89,6 +97,8 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
     protected fun fieldsFromProto(
         ctx: Context,
         msgDesc: DescriptorProto,
+        msgName: Name,
+        msgKotlinName: Name,
         usedTypeNames: MutableSet<String>
     ): List<File.Field> {
         val usedFieldNames = mutableSetOf<String>()
@@ -99,7 +109,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             .partition { it.oneofIndex == null }
             .let { (standardFields, oneofFields) ->
                 standardFields.map {
-                    numberedFieldFromProto(ctx, it, usedFieldNames)
+                    numberedFieldFromProto(ctx, msgName, msgKotlinName, it, usedFieldNames)
                 } + oneofFields.groupBy { it.oneofIndex!! }
                     .mapNotNull { (oneofIndex, fields) ->
                         // "Every proto3 optional field is placed into a one-field oneof.
@@ -107,10 +117,10 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                         // https://github.com/protocolbuffers/protobuf/blob/master/docs/implementing_proto3_presence.md#background
                         val synthetic = fields.size == 1 && (fields[0].proto3Optional ?: false)
                         if (synthetic) {
-                            numberedFieldFromProto(ctx, fields[0], usedFieldNames)
+                            numberedFieldFromProto(ctx, msgName, msgKotlinName, fields[0], usedFieldNames)
                         } else {
                             msgDesc.oneofDecl[oneofIndex].name?.let { oneofName ->
-                                oneofFieldFromProto(ctx, oneofName, fields, usedFieldNames, usedTypeNames)
+                                oneofFieldFromProto(ctx, msgName, msgKotlinName, oneofName, fields, usedFieldNames, usedTypeNames)
                             }
                         }
                     }
@@ -119,6 +129,8 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
 
     protected fun oneofFieldFromProto(
         ctx: Context,
+        msgName: Name,
+        msgKotlinName: Name,
         oneofName: String,
         oneofFields: List<FieldDescriptorProto>,
         usedFieldNames: MutableSet<String>,
@@ -126,25 +138,28 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
     ): File.Field.OneOf {
         val fields = oneofFields.map {
             // wrapper fields are not supposed to be used inside of oneof's
-            numberedFieldFromProto(ctx, it, mutableSetOf(), true) as File.Field.Numbered.Standard
+            numberedFieldFromProto(ctx, msgName, msgKotlinName, it, mutableSetOf(), true) as File.Field.Numbered.Standard
         }
+        val kotlinTypeName = Name(msgKotlinName, namer.newTypeName(oneofName, usedTypeNames).also {
+            usedTypeNames += it
+        })
         return File.Field.OneOf(
-            name = oneofName,
+            name = Name(msgName, oneofName),
             fields = fields,
             kotlinFieldNames = fields.fold(mapOf()) { typeNames, field ->
-                typeNames + (field.name to namer.newTypeName(field.name, typeNames.values))
+                typeNames + (field.name.simple to Name(kotlinTypeName, namer.newTypeName(field.name.simple, typeNames.values.map { it.simple })))
             },
-            kotlinName = namer.newFieldName(oneofName, usedFieldNames).also {
+            kotlinName = Name(msgKotlinName, namer.newFieldName(oneofName, usedFieldNames).also {
                 usedFieldNames += it
-            },
-            kotlinTypeName = namer.newTypeName(oneofName, usedTypeNames).also {
-                usedTypeNames += it
-            }
+            }),
+            kotlinTypeName = kotlinTypeName,
         )
     }
 
     protected fun numberedFieldFromProto(
         ctx: Context,
+        msgName: Name?,
+        msgKotlinName: Name?,
         fieldDesc: FieldDescriptorProto,
         usedFieldNames: MutableSet<String>,
         alwaysRequired: Boolean = false
@@ -153,14 +168,15 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         val wrappedType = fieldDesc.typeName
             ?.takeIf { type == File.Field.Type.MESSAGE && it.startsWith(".google.protobuf")}
             ?.let { File.Field.Type.WRAPPER_TYPE_NAME_TO_TYPE[Name(".google.protobuf", it.removePrefix(".google.protobuf."))] }
+        val simpleKotlinName = namer.newFieldName(fieldDesc.name!!, usedFieldNames).also {
+            usedFieldNames += it
+        }
 
         return if (wrappedType != null) {
             File.Field.Numbered.Wrapper(
                 number = fieldDesc.number!!,
-                name = fieldDesc.name!!,
-                kotlinName = namer.newFieldName(fieldDesc.name!!, usedFieldNames).also {
-                    usedFieldNames += it
-                },
+                name = msgName?.let { Name(it, fieldDesc.name!!) } ?: Name(ctx.packageName, fieldDesc.name!!),
+                kotlinName = msgKotlinName?.let { Name(it, simpleKotlinName) } ?: Name(ctx.kotlinPackageName, simpleKotlinName),
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
                 jsonName = fieldDesc.jsonName,
                 wrappedType = wrappedType,
@@ -170,7 +186,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         } else {
             File.Field.Numbered.Standard(
                 number = fieldDesc.number!!,
-                name = fieldDesc.name!!,
+                name = msgName?.let { Name(it, fieldDesc.name!!) } ?: Name(ctx.packageName, fieldDesc.name!!),
                 type = type,
                 localTypeName = fieldDesc.typeName,
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
@@ -183,9 +199,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                         fieldDesc.label == FieldDescriptorProto.Label.REPEATED &&
                         fieldDesc.type == FieldDescriptorProto.Type.MESSAGE &&
                         ctx.findLocalMessage(fieldDesc.typeName!!)?.options?.mapEntry == true,
-                kotlinName = namer.newFieldName(fieldDesc.name!!, usedFieldNames).also {
-                    usedFieldNames += it
-                },
+                kotlinName = msgKotlinName?.let { Name(it, simpleKotlinName) } ?: Name(ctx.kotlinPackageName, simpleKotlinName),
                 kotlinLocalTypeName = fieldDesc.typeName?.takeUnless { it.startsWith('.') }?.let {
                     namer.newTypeName(it, emptySet())
                 },

@@ -25,41 +25,43 @@ public sealed interface Timestamp : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.Timestamp
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val seconds: pbandk.FieldDescriptor<pbandk.wkt.Timestamp, Long> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Timestamp::descriptor,
+                name = "seconds",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
+                jsonName = "seconds",
+                value = pbandk.wkt.Timestamp::seconds,
+                mutableValue = pbandk.wkt.MutableTimestamp::seconds,
+            )
+        public val nanos: pbandk.FieldDescriptor<pbandk.wkt.Timestamp, Int> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Timestamp::descriptor,
+                name = "nanos",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                jsonName = "nanos",
+                value = pbandk.wkt.Timestamp::nanos,
+                mutableValue = pbandk.wkt.MutableTimestamp::nanos,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Timestamp> {
         public val defaultInstance: pbandk.wkt.Timestamp by lazy { pbandk.wkt.Timestamp {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Timestamp, *>>(2)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "seconds",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
-                        jsonName = "seconds",
-                        value = pbandk.wkt.Timestamp::seconds,
-                        mutableValue = pbandk.wkt.MutableTimestamp::seconds,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "nanos",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "nanos",
-                        value = pbandk.wkt.Timestamp::nanos,
-                        mutableValue = pbandk.wkt.MutableTimestamp::nanos,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.Timestamp",
                 messageClass = pbandk.wkt.Timestamp::class,
                 messageCompanion = this,
                 builder = ::Timestamp,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.Timestamp.FieldDescriptors.seconds,
+                    pbandk.wkt.Timestamp.FieldDescriptors.nanos,
+                ),
             )
         }
     }
@@ -96,7 +98,6 @@ public fun Timestamp(
 public fun Timestamp(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit): pbandk.wkt.Timestamp = pbandk.wkt.MutableTimestamp_Impl(
     seconds = 0L,
     nanos = 0,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toTimestamp()
 
 @pbandk.Export
@@ -106,16 +107,12 @@ public fun Timestamp?.orDefault(): pbandk.wkt.Timestamp = this ?: pbandk.wkt.Tim
 private class Timestamp_Impl(
     override val seconds: Long,
     override val nanos: Int,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Timestamp, pbandk.gen.GeneratedMessage<pbandk.wkt.Timestamp>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.Timestamp, pbandk.gen.GeneratedMessage<pbandk.wkt.Timestamp>(unknownFields) {
     override val descriptor get() = pbandk.wkt.Timestamp.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit) = pbandk.wkt.Timestamp {
-        this.seconds = this@Timestamp_Impl.seconds
-        this.nanos = this@Timestamp_Impl.nanos
-        this.unknownFields += this@Timestamp_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -127,19 +124,15 @@ private class Timestamp_Impl(
         this.nanos = nanos
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableTimestamp_Impl(
     override var seconds: Long,
     override var nanos: Int,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableTimestamp, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Timestamp>() {
     override val descriptor get() = pbandk.wkt.Timestamp.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -148,21 +141,9 @@ private class MutableTimestamp_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toTimestamp() = Timestamp_Impl(
         seconds = seconds,
         nanos = nanos,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun Timestamp.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Timestamp {
-    if (other !is pbandk.wkt.Timestamp) return this
-
-    return copy {
-        seconds = other.seconds
-        nanos = other.nanos
-        unknownFields += other.unknownFields
-    }
 }

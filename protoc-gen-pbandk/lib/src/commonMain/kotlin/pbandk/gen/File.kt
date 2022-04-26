@@ -11,6 +11,10 @@ public data class Name internal constructor(
     public constructor(packageName: String?, simple: String) : this(packageName, null, simple)
     public constructor(parent: Name?, simple: String) : this(parent?.packageName, parent, simple)
 
+    init {
+        if (parent != null) require(parent.packageName == packageName)
+    }
+
     val full: String = if (parent != null) "${parent.full}.${simple}" else simple
     val fullWithPackage: String = if (packageName != null) "$packageName.$full" else full
 }
@@ -54,8 +58,8 @@ public data class File(
     }
 
     public sealed class Field {
-        public abstract val name: String
-        public abstract val kotlinName: String
+        public abstract val name: Name
+        public abstract val kotlinName: Name
 
         public sealed class Numbered : Field() {
             public abstract val number: Int
@@ -67,7 +71,7 @@ public data class File(
 
             public data class Standard(
                 override val number: Int,
-                override val name: String,
+                override val name: Name,
                 override val type: Type,
                 val localTypeName: String?,
                 override val repeated: Boolean,
@@ -77,7 +81,7 @@ public data class File(
                 val optional: Boolean,
                 val packed: Boolean,
                 val map: Boolean,
-                override val kotlinName: String,
+                override val kotlinName: Name,
                 // This can be null when localTypeName is not null which means it is fully qualified and should be looked up
                 val kotlinLocalTypeName: String?,
                 override val options : FieldOptions = FieldOptions.defaultInstance,
@@ -86,8 +90,8 @@ public data class File(
 
             public data class Wrapper(
                 override val number: Int,
-                override val name: String,
-                override val kotlinName: String,
+                override val name: Name,
+                override val kotlinName: Name,
                 override val repeated: Boolean,
                 override val jsonName: String?,
                 val wrappedType: Type,
@@ -99,11 +103,11 @@ public data class File(
         }
 
         public data class OneOf(
-            override val name: String,
+            override val name: Name,
             val fields: List<Numbered.Standard>,
-            val kotlinFieldNames: Map<String, String>,
-            override val kotlinName: String,
-            val kotlinTypeName: String
+            val kotlinFieldNames: Map<String, Name>,
+            override val kotlinName: Name,
+            val kotlinTypeName: Name
         ) : Field()
 
         public enum class Type {

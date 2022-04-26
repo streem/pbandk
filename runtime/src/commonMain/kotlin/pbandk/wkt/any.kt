@@ -25,41 +25,43 @@ public sealed interface Any : pbandk.Message {
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.Any
 
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val typeUrl: pbandk.FieldDescriptor<pbandk.wkt.Any, String> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Any::descriptor,
+                name = "type_url",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "typeUrl",
+                value = pbandk.wkt.Any::typeUrl,
+                mutableValue = pbandk.wkt.MutableAny::typeUrl,
+            )
+        public val value: pbandk.FieldDescriptor<pbandk.wkt.Any, pbandk.ByteArr> = 
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Any::descriptor,
+                name = "value",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
+                jsonName = "value",
+                value = pbandk.wkt.Any::value,
+                mutableValue = pbandk.wkt.MutableAny::value,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Any> {
         public val defaultInstance: pbandk.wkt.Any by lazy { pbandk.wkt.Any {} }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Any, *>>(2)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "type_url",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "typeUrl",
-                        value = pbandk.wkt.Any::typeUrl,
-                        mutableValue = pbandk.wkt.MutableAny::typeUrl,
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
-                        jsonName = "value",
-                        value = pbandk.wkt.Any::value,
-                        mutableValue = pbandk.wkt.MutableAny::value,
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.Any",
                 messageClass = pbandk.wkt.Any::class,
                 messageCompanion = this,
                 builder = ::Any,
-                fields = fieldsList
+                fields = listOf(
+                    pbandk.wkt.Any.FieldDescriptors.typeUrl,
+                    pbandk.wkt.Any.FieldDescriptors.value,
+                ),
             )
         }
     }
@@ -96,7 +98,6 @@ public fun Any(
 public fun Any(builderAction: pbandk.wkt.MutableAny.() -> Unit): pbandk.wkt.Any = pbandk.wkt.MutableAny_Impl(
     typeUrl = "",
     value = pbandk.ByteArr.empty,
-    unknownFields = mutableMapOf()
 ).also(builderAction).toAny()
 
 @pbandk.Export
@@ -106,16 +107,12 @@ public fun Any?.orDefault(): pbandk.wkt.Any = this ?: pbandk.wkt.Any.defaultInst
 private class Any_Impl(
     override val typeUrl: String,
     override val value: pbandk.ByteArr,
-    override val unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.wkt.Any, pbandk.gen.GeneratedMessage<pbandk.wkt.Any>() {
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.Any, pbandk.gen.GeneratedMessage<pbandk.wkt.Any>(unknownFields) {
     override val descriptor get() = pbandk.wkt.Any.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit) = pbandk.wkt.Any {
-        this.typeUrl = this@Any_Impl.typeUrl
-        this.value = this@Any_Impl.value
-        this.unknownFields += this@Any_Impl.unknownFields
-        this.builderAction()
-    }
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -127,19 +124,15 @@ private class Any_Impl(
         this.value = value
         this.unknownFields += unknownFields
     }
-
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 }
 
 private class MutableAny_Impl(
     override var typeUrl: String,
     override var value: pbandk.ByteArr,
-    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
 ) : pbandk.wkt.MutableAny, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Any>() {
     override val descriptor get() = pbandk.wkt.Any.descriptor
-
-    override fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit) =
-        throw UnsupportedOperationException()
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit) = super.copy(builderAction)
 
     @Deprecated("Use copy { } instead")
     override fun copy(
@@ -148,21 +141,9 @@ private class MutableAny_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
-
     fun toAny() = Any_Impl(
         typeUrl = typeUrl,
         value = value,
         unknownFields = unknownFields.toMap()
     )
-}
-
-private fun Any.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Any {
-    if (other !is pbandk.wkt.Any) return this
-
-    return copy {
-        typeUrl = other.typeUrl
-        value = other.value
-        unknownFields += other.unknownFields
-    }
 }
