@@ -1,29 +1,40 @@
 package pbandk.internal.binary
 
 import pbandk.*
+import pbandk.gen.GeneratedExtendableMessage
 import pbandk.gen.MapField
 import pbandk.gen.MutableMapField
 import pbandk.wkt.*
 import kotlin.Any
-import kotlin.reflect.KProperty1
 
 internal fun FieldDescriptor.Type.shouldOutputValue(value: Any?): Boolean {
     return (hasPresence || !isDefaultValue(value)) && value != null
 }
 
 internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEncoder) : MessageEncoder {
-    override fun <T : Message> writeMessage(message: T) {
+    override fun <M : Message> writeMessage(message: M) {
         for (fd in message.descriptor.fields) {
             @Suppress("UNCHECKED_CAST")
-            val value = (fd as FieldDescriptor<T, *>).getValue(message)
+            writeField(message, fd as FieldDescriptor<M, *>)
+        }
 
-            if (fd.type.shouldOutputValue(value) && value != null) {
-                writeFieldValue(fd.number, fd.type, value)
+        if (message is GeneratedExtendableMessage<*>) {
+            for (fd in message.extensionFields.keys()) {
+                @Suppress("UNCHECKED_CAST")
+                writeField(message, fd as FieldDescriptor<M, *>)
             }
         }
 
         for (field in message.unknownFields.values) {
             writeUnknownField(field)
+        }
+    }
+
+    private fun <M : Message> writeField(message: M, fd: FieldDescriptor<M, *>) {
+        val value = fd.getValue(message)
+
+        if (fd.type.shouldOutputValue(value) && value != null) {
+            writeFieldValue(fd.number, fd.type, value)
         }
     }
 

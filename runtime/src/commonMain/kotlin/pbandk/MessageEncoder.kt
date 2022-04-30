@@ -1,5 +1,5 @@
 package pbandk
 
 public interface MessageEncoder {
-    public fun <T : Message> writeMessage(message: T)
+    public fun <M : Message> writeMessage(message: M)
 }

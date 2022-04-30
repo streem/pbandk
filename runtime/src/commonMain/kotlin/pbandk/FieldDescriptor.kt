@@ -9,7 +9,7 @@ import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
 @JsExport
-public class FieldDescriptor<M : Message, T> private constructor(
+public class FieldDescriptor<M : Message, V> private constructor(
     getMessageDescriptor: () -> MessageDescriptor<M>,
     @ExperimentalProtoReflection
     public val name: String,
@@ -18,23 +18,33 @@ public class FieldDescriptor<M : Message, T> private constructor(
     /**
      * Returns the value of this field in the provided message.
      */
-    internal val getValue: (M) -> T,
+    internal val getValue: (M) -> V,
     /**
      * Sets or updates the value of this field in the provided message.
      *
      * NOTE: For `List` and `Map` fields, this function _appends_ to the existing list/map value rather than replacing
      * the value. For all other fields, this function replaces the value with the new value.
      */
-    internal val updateValue: (MutableMessage<M>, T) -> Unit,
+    internal val updateValue: (MutableMessage<M>, V) -> Unit,
     internal val oneofMember: Boolean = false,
     internal val jsonName: String? = null,
     @ExperimentalProtoReflection
     public val options: FieldOptions = FieldOptions.defaultInstance
-) {
+) : Comparable<FieldDescriptor<M, V>> {
     // At the time that the [FieldDescriptor] constructor is called, the parent [MessageDescriptor] has not been
     // constructed yet. This is because this [FieldDescriptor] is one of the parameters that will be passed to the
     // [MessageDescriptor] constructor. To avoid the circular dependency, this property is declared lazy.
-    internal val messageDescriptor: MessageDescriptor<M> by lazy { getMessageDescriptor() }
+    internal val messageDescriptor: MessageDescriptor<M> by lazy(LazyThreadSafetyMode.PUBLICATION) { getMessageDescriptor() }
+
+    /**
+     * FieldDescriptors are sorted by their field number.
+     */
+    override fun compareTo(other: FieldDescriptor<M, V>): Int {
+        require(messageDescriptor == other.messageDescriptor) {
+            "Only FieldDescriptors of the same message can be compared"
+        }
+        return number - other.number
+    }
 
     @PublicForGeneratedCode
     public sealed class Type {
@@ -131,7 +141,7 @@ public class FieldDescriptor<M : Message, T> private constructor(
         }
 
         @PublicForGeneratedCode
-        public class Message<T : pbandk.Message>(internal val messageCompanion: pbandk.Message.Companion<T>) : Type() {
+        public class Message<M : pbandk.Message>(internal val messageCompanion: pbandk.Message.Companion<M>) : Type() {
             override val hasPresence get() = true
             override val isPackable: Boolean get() = false
             override val wireType: WireType get() = WireType.LENGTH_DELIMITED
@@ -140,8 +150,8 @@ public class FieldDescriptor<M : Message, T> private constructor(
         }
 
         @PublicForGeneratedCode
-        public class Enum<T : pbandk.Message.Enum>(
-            internal val enumCompanion: pbandk.Message.Enum.Companion<T>,
+        public class Enum<E : pbandk.Message.Enum>(
+            internal val enumCompanion: pbandk.Message.Enum.Companion<E>,
             override val hasPresence: Boolean = false
         ) : Type() {
             override val isPackable: Boolean get() = true
@@ -175,44 +185,44 @@ public class FieldDescriptor<M : Message, T> private constructor(
     public companion object {
         @PublicForGeneratedCode
         @Suppress("UNCHECKED_CAST")
-        public fun <M : Message, MM : MutableMessage<M>, T> of(
+        public fun <M : Message, MM : MutableMessage<M>, V> of(
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             name: String,
             number: Int,
             type: Type,
-            value: KProperty1<M, T>,
-            mutableValue: KMutableProperty1<MM, T>,
+            value: KProperty1<M, V>,
+            mutableValue: KMutableProperty1<MM, V>,
             jsonName: String? = null,
             options: FieldOptions = FieldOptions.defaultInstance
-        ): FieldDescriptor<M, T> = FieldDescriptor(
+        ): FieldDescriptor<M, V> = FieldDescriptor(
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             number = number,
             type = type,
             getValue = value::get,
-            updateValue = mutableValue::set as (MutableMessage<M>, T) -> Unit,
+            updateValue = mutableValue::set as (MutableMessage<M>, V) -> Unit,
             jsonName = jsonName,
             options = options
         )
 
         @PublicForGeneratedCode
         @Suppress("UNCHECKED_CAST")
-        public fun <M : Message, MM : MutableMessage<M>, T : Any> ofOneof(
+        public fun <M : Message, MM : MutableMessage<M>, V : Any> ofOneof(
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             name: String,
             number: Int,
             type: Type,
-            value: KProperty1<M, T?>,
-            mutableValue: KMutableProperty1<MM, T?>,
+            value: KProperty1<M, V?>,
+            mutableValue: KMutableProperty1<MM, V?>,
             jsonName: String? = null,
             options: FieldOptions = FieldOptions.defaultInstance
-        ): FieldDescriptor<M, T?> = FieldDescriptor(
+        ): FieldDescriptor<M, V?> = FieldDescriptor(
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             number = number,
             type = type,
             getValue = value::get,
-            updateValue = mutableValue::set as (MutableMessage<M>, T?) -> Unit,
+            updateValue = mutableValue::set as (MutableMessage<M>, V?) -> Unit,
             oneofMember = true,
             jsonName = jsonName,
             options = options

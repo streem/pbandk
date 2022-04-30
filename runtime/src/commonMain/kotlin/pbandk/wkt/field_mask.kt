@@ -25,7 +25,7 @@ public sealed interface FieldMask : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val paths: pbandk.FieldDescriptor<pbandk.wkt.FieldMask, List<String>> = 
+        public val paths: pbandk.FieldDescriptor<pbandk.wkt.FieldMask, List<String>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.FieldMask::descriptor,
                 name = "paths",
@@ -38,7 +38,9 @@ public sealed interface FieldMask : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FieldMask> {
-        public val defaultInstance: pbandk.wkt.FieldMask by lazy { pbandk.wkt.FieldMask {} }
+        public val defaultInstance: pbandk.wkt.FieldMask by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.FieldMask {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldMask> by lazy {
             pbandk.MessageDescriptor.of(
@@ -79,9 +81,10 @@ public fun FieldMask(
  */
 @pbandk.Export
 @pbandk.JsName("buildFieldMask")
-public fun FieldMask(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit): pbandk.wkt.FieldMask = pbandk.wkt.MutableFieldMask_Impl(
-    paths = pbandk.gen.MutableListField(),
-).also(builderAction).toFieldMask()
+public fun FieldMask(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit): pbandk.wkt.FieldMask =
+    pbandk.wkt.MutableFieldMask_Impl(
+        paths = pbandk.gen.MutableListField(),
+    ).also(builderAction).toFieldMask()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFieldMask")
@@ -110,6 +113,7 @@ private class MutableFieldMask_Impl(
     override val paths: pbandk.gen.MutableListField<String>,
 ) : pbandk.wkt.MutableFieldMask, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.FieldMask>() {
     override val descriptor get() = pbandk.wkt.FieldMask.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit) = super.copy(builderAction)
 

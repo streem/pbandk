@@ -26,7 +26,9 @@ public sealed interface Empty : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Empty> {
-        public val defaultInstance: pbandk.wkt.Empty by lazy { pbandk.wkt.Empty {} }
+        public val defaultInstance: pbandk.wkt.Empty by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.Empty {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Empty> by lazy {
             pbandk.MessageDescriptor.of(
@@ -61,8 +63,9 @@ public fun Empty(
  */
 @pbandk.Export
 @pbandk.JsName("buildEmpty")
-public fun Empty(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.Empty = pbandk.wkt.MutableEmpty_Impl(
-).also(builderAction).toEmpty()
+public fun Empty(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.Empty =
+    pbandk.wkt.MutableEmpty_Impl(
+    ).also(builderAction).toEmpty()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForEmpty")
@@ -87,6 +90,7 @@ private class Empty_Impl(
 private class MutableEmpty_Impl(
 ) : pbandk.wkt.MutableEmpty, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Empty>() {
     override val descriptor get() = pbandk.wkt.Empty.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit) = super.copy(builderAction)
 

@@ -30,6 +30,7 @@
 package pbandk.internal.binary
 
 import pbandk.*
+import pbandk.gen.GeneratedExtendableMessage
 import pbandk.gen.ListField
 import pbandk.gen.MapField
 import pbandk.wkt.*
@@ -122,22 +123,36 @@ internal abstract class AbstractSizer {
         var protoSize = 0
         for (fd in message.descriptor.fields) {
             @Suppress("UNCHECKED_CAST")
-            val value = (fd as FieldDescriptor<T, *>).getValue(message)
+            protoSize += fieldSize(message, fd as FieldDescriptor<T, *>)
+        }
 
-            if (fd.type.shouldOutputValue(value) && value != null) {
-                protoSize += when (fd.type) {
-                    is FieldDescriptor.Type.Repeated<*> -> {
-                        tagSize(fd.number) * (if (fd.type.packed) 1 else (value as List<*>).size)
-                    }
-                    is FieldDescriptor.Type.Map<*, *> -> tagSize(fd.number) * (value as Map<*, *>).size
-                    else -> tagSize(fd.number)
-                }
-                protoSize += fd.type.protoSize(value)
+        if (message is GeneratedExtendableMessage<*>) {
+            for (fd in message.extensionFields.keys()) {
+                @Suppress("UNCHECKED_CAST")
+                protoSize += fieldSize(message, fd as FieldDescriptor<T, *>)
             }
         }
 
         protoSize += message.unknownFields.values.sumOf { it.size }
         return protoSize
+    }
+
+    private fun <T : Message> fieldSize(message: T, fd: FieldDescriptor<T, *>): Int {
+        val value = fd.getValue(message)
+
+        if (value == null || !fd.type.shouldOutputValue(value)) {
+            return 0
+        }
+
+        val tagsSize = when (fd.type) {
+            is FieldDescriptor.Type.Repeated<*> -> {
+                tagSize(fd.number) * (if (fd.type.packed) 1 else (value as List<*>).size)
+            }
+            is FieldDescriptor.Type.Map<*, *> -> tagSize(fd.number) * (value as Map<*, *>).size
+            else -> tagSize(fd.number)
+        }
+        val valueSize = fd.type.protoSize(value)
+        return tagsSize + valueSize
     }
 
     fun <T> repeatedSize(list: List<T>, valueType: FieldDescriptor.Type, packed: Boolean): Int {

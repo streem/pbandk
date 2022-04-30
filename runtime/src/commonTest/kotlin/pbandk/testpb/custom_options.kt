@@ -25,7 +25,7 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val single: pbandk.FieldDescriptor<pbandk.testpb.SingleRequiredCustomOption, String> = 
+        public val single: pbandk.FieldDescriptor<pbandk.testpb.SingleRequiredCustomOption, String> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.testpb.SingleRequiredCustomOption::descriptor,
                 name = "single",
@@ -48,7 +48,9 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SingleRequiredCustomOption> {
-        public val defaultInstance: pbandk.testpb.SingleRequiredCustomOption by lazy { pbandk.testpb.SingleRequiredCustomOption {} }
+        public val defaultInstance: pbandk.testpb.SingleRequiredCustomOption by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.testpb.SingleRequiredCustomOption {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SingleRequiredCustomOption> by lazy {
             pbandk.MessageDescriptor.of(
@@ -91,7 +93,7 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val multiple: pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptions, String> = 
+        public val multiple: pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptions, String> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.testpb.MultipleCustomOptions::descriptor,
                 name = "multiple",
@@ -115,7 +117,9 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptions> {
-        public val defaultInstance: pbandk.testpb.MultipleCustomOptions by lazy { pbandk.testpb.MultipleCustomOptions {} }
+        public val defaultInstance: pbandk.testpb.MultipleCustomOptions by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.testpb.MultipleCustomOptions {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptions> by lazy {
             pbandk.MessageDescriptor.of(
@@ -159,7 +163,7 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val multipleDeprecated: pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated, String> = 
+        public val multipleDeprecated: pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated, String> =
             @Suppress("DEPRECATION")
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::descriptor,
@@ -185,7 +189,9 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> {
-        public val defaultInstance: pbandk.testpb.MultipleCustomOptionsPlusDeprecated by lazy { pbandk.testpb.MultipleCustomOptionsPlusDeprecated {} }
+        public val defaultInstance: pbandk.testpb.MultipleCustomOptionsPlusDeprecated by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.testpb.MultipleCustomOptionsPlusDeprecated {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> by lazy {
             pbandk.MessageDescriptor.of(
@@ -227,9 +233,10 @@ public fun SingleRequiredCustomOption(
  */
 @pbandk.Export
 @pbandk.JsName("buildSingleRequiredCustomOption")
-public fun SingleRequiredCustomOption(builderAction: pbandk.testpb.MutableSingleRequiredCustomOption.() -> Unit): pbandk.testpb.SingleRequiredCustomOption = pbandk.testpb.MutableSingleRequiredCustomOption_Impl(
-    single = "",
-).also(builderAction).toSingleRequiredCustomOption()
+public fun SingleRequiredCustomOption(builderAction: pbandk.testpb.MutableSingleRequiredCustomOption.() -> Unit): pbandk.testpb.SingleRequiredCustomOption =
+    pbandk.testpb.MutableSingleRequiredCustomOption_Impl(
+        single = "",
+    ).also(builderAction).toSingleRequiredCustomOption()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForSingleRequiredCustomOption")
@@ -258,6 +265,7 @@ private class MutableSingleRequiredCustomOption_Impl(
     override var single: String,
 ) : pbandk.testpb.MutableSingleRequiredCustomOption, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.SingleRequiredCustomOption>() {
     override val descriptor get() = pbandk.testpb.SingleRequiredCustomOption.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.testpb.MutableSingleRequiredCustomOption.() -> Unit) = super.copy(builderAction)
 
@@ -294,9 +302,10 @@ public fun MultipleCustomOptions(
  */
 @pbandk.Export
 @pbandk.JsName("buildMultipleCustomOptions")
-public fun MultipleCustomOptions(builderAction: pbandk.testpb.MutableMultipleCustomOptions.() -> Unit): pbandk.testpb.MultipleCustomOptions = pbandk.testpb.MutableMultipleCustomOptions_Impl(
-    multiple = "",
-).also(builderAction).toMultipleCustomOptions()
+public fun MultipleCustomOptions(builderAction: pbandk.testpb.MutableMultipleCustomOptions.() -> Unit): pbandk.testpb.MultipleCustomOptions =
+    pbandk.testpb.MutableMultipleCustomOptions_Impl(
+        multiple = "",
+    ).also(builderAction).toMultipleCustomOptions()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMultipleCustomOptions")
@@ -325,6 +334,7 @@ private class MutableMultipleCustomOptions_Impl(
     override var multiple: String,
 ) : pbandk.testpb.MutableMultipleCustomOptions, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.MultipleCustomOptions>() {
     override val descriptor get() = pbandk.testpb.MultipleCustomOptions.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptions.() -> Unit) = super.copy(builderAction)
 
@@ -362,9 +372,10 @@ public fun MultipleCustomOptionsPlusDeprecated(
  */
 @pbandk.Export
 @pbandk.JsName("buildMultipleCustomOptionsPlusDeprecated")
-public fun MultipleCustomOptionsPlusDeprecated(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated_Impl(
-    multipleDeprecated = "",
-).also(builderAction).toMultipleCustomOptionsPlusDeprecated()
+public fun MultipleCustomOptionsPlusDeprecated(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit): pbandk.testpb.MultipleCustomOptionsPlusDeprecated =
+    pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated_Impl(
+        multipleDeprecated = "",
+    ).also(builderAction).toMultipleCustomOptionsPlusDeprecated()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMultipleCustomOptionsPlusDeprecated")
@@ -395,6 +406,7 @@ private class MutableMultipleCustomOptionsPlusDeprecated_Impl(
     override var multipleDeprecated: String,
 ) : pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.MultipleCustomOptionsPlusDeprecated>() {
     override val descriptor get() = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit) = super.copy(builderAction)
 

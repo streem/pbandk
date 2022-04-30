@@ -25,7 +25,7 @@ public sealed interface SourceContext : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val fileName: pbandk.FieldDescriptor<pbandk.wkt.SourceContext, String> = 
+        public val fileName: pbandk.FieldDescriptor<pbandk.wkt.SourceContext, String> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.SourceContext::descriptor,
                 name = "file_name",
@@ -38,7 +38,9 @@ public sealed interface SourceContext : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
-        public val defaultInstance: pbandk.wkt.SourceContext by lazy { pbandk.wkt.SourceContext {} }
+        public val defaultInstance: pbandk.wkt.SourceContext by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.SourceContext {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> by lazy {
             pbandk.MessageDescriptor.of(
@@ -79,9 +81,10 @@ public fun SourceContext(
  */
 @pbandk.Export
 @pbandk.JsName("buildSourceContext")
-public fun SourceContext(builderAction: pbandk.wkt.MutableSourceContext.() -> Unit): pbandk.wkt.SourceContext = pbandk.wkt.MutableSourceContext_Impl(
-    fileName = "",
-).also(builderAction).toSourceContext()
+public fun SourceContext(builderAction: pbandk.wkt.MutableSourceContext.() -> Unit): pbandk.wkt.SourceContext =
+    pbandk.wkt.MutableSourceContext_Impl(
+        fileName = "",
+    ).also(builderAction).toSourceContext()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForSourceContext")
@@ -110,6 +113,7 @@ private class MutableSourceContext_Impl(
     override var fileName: String,
 ) : pbandk.wkt.MutableSourceContext, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.SourceContext>() {
     override val descriptor get() = pbandk.wkt.SourceContext.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableSourceContext.() -> Unit) = super.copy(builderAction)
 

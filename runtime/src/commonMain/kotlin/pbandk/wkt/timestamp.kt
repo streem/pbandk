@@ -27,7 +27,7 @@ public sealed interface Timestamp : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val seconds: pbandk.FieldDescriptor<pbandk.wkt.Timestamp, Long> = 
+        public val seconds: pbandk.FieldDescriptor<pbandk.wkt.Timestamp, Long> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Timestamp::descriptor,
                 name = "seconds",
@@ -37,7 +37,7 @@ public sealed interface Timestamp : pbandk.Message {
                 value = pbandk.wkt.Timestamp::seconds,
                 mutableValue = pbandk.wkt.MutableTimestamp::seconds,
             )
-        public val nanos: pbandk.FieldDescriptor<pbandk.wkt.Timestamp, Int> = 
+        public val nanos: pbandk.FieldDescriptor<pbandk.wkt.Timestamp, Int> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Timestamp::descriptor,
                 name = "nanos",
@@ -50,7 +50,9 @@ public sealed interface Timestamp : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Timestamp> {
-        public val defaultInstance: pbandk.wkt.Timestamp by lazy { pbandk.wkt.Timestamp {} }
+        public val defaultInstance: pbandk.wkt.Timestamp by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.Timestamp {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp> by lazy {
             pbandk.MessageDescriptor.of(
@@ -95,10 +97,11 @@ public fun Timestamp(
  */
 @pbandk.Export
 @pbandk.JsName("buildTimestamp")
-public fun Timestamp(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit): pbandk.wkt.Timestamp = pbandk.wkt.MutableTimestamp_Impl(
-    seconds = 0L,
-    nanos = 0,
-).also(builderAction).toTimestamp()
+public fun Timestamp(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit): pbandk.wkt.Timestamp =
+    pbandk.wkt.MutableTimestamp_Impl(
+        seconds = 0L,
+        nanos = 0,
+    ).also(builderAction).toTimestamp()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForTimestamp")
@@ -131,6 +134,7 @@ private class MutableTimestamp_Impl(
     override var nanos: Int,
 ) : pbandk.wkt.MutableTimestamp, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Timestamp>() {
     override val descriptor get() = pbandk.wkt.Timestamp.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit) = super.copy(builderAction)
 

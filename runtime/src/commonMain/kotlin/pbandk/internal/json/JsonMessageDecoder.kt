@@ -26,7 +26,7 @@ internal class JsonMessageDecoder internal constructor(
 ) : MessageDecoder {
     private val jsonValueDecoder = JsonValueDecoder(jsonConfig)
 
-    override fun <T : Message> readMessage(messageCompanion: Message.Companion<T>): T = try {
+    override fun <M : Message> readMessage(messageCompanion: Message.Companion<M>): M = try {
         JsonMessageAdapters.getAdapter(messageCompanion)
             ?.decode(content.jsonObject, jsonValueDecoder)
             ?: readMessageObject(messageCompanion, content.jsonObject)
@@ -36,10 +36,10 @@ internal class JsonMessageDecoder internal constructor(
         throw InvalidProtocolBufferException("unable to read message", e)
     }
 
-    private fun <T : Message> readMessageObject(
-        messageCompanion: Message.Companion<T>,
+    private fun <M : Message> readMessageObject(
+        messageCompanion: Message.Companion<M>,
         content: JsonObject
-    ): T = messageCompanion.descriptor.builder {
+    ): M = messageCompanion.descriptor.builder {
         for ((key, jsonValue) in content) {
             val fd = messageCompanion.descriptor.fields.firstOrNull { key in it.jsonNames }
                 ?: if (jsonConfig.ignoreUnknownFieldsInInput) {
@@ -58,7 +58,7 @@ internal class JsonMessageDecoder internal constructor(
                     } ?: continue
 
                     @Suppress("UNCHECKED_CAST")
-                    (fd as FieldDescriptor<T, Any?>).updateValue(this, defaultValue)
+                    (fd as FieldDescriptor<M, Any?>).updateValue(this, defaultValue)
                 }
             } else {
                 jsonValueDecoder.readValue(jsonValue, fd.type)?.let { value ->
@@ -66,17 +66,17 @@ internal class JsonMessageDecoder internal constructor(
                         is FieldDescriptor.Type.Repeated<*> -> {
                             value as Sequence<*>
                             @Suppress("UNCHECKED_CAST")
-                            (fd.getValue(this as T) as MutableList<Any?>).addAll(value)
+                            (fd.getValue(this as M) as MutableList<Any?>).addAll(value)
                         }
                         is FieldDescriptor.Type.Map<*, *> -> {
                             @Suppress("UNCHECKED_CAST")
                             value as Sequence<Map.Entry<*, *>>
                             @Suppress("UNCHECKED_CAST")
-                            (fd.getValue(this as T) as MutableMapField<Any?, Any?>).putAll(value)
+                            (fd.getValue(this as M) as MutableMapField<Any?, Any?>).putAll(value)
                         }
                         else -> {
                             @Suppress("UNCHECKED_CAST")
-                            (fd as FieldDescriptor<T, Any?>).updateValue(this, value)
+                            (fd as FieldDescriptor<M, Any?>).updateValue(this, value)
                         }
                     }
                 }

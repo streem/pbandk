@@ -37,7 +37,7 @@ public sealed interface Api : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val name: pbandk.FieldDescriptor<pbandk.wkt.Api, String> = 
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.Api, String> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
                 name = "name",
@@ -47,7 +47,7 @@ public sealed interface Api : pbandk.Message {
                 value = pbandk.wkt.Api::name,
                 mutableValue = pbandk.wkt.MutableApi::name,
             )
-        public val methods: pbandk.FieldDescriptor<pbandk.wkt.Api, List<pbandk.wkt.Method>> = 
+        public val methods: pbandk.FieldDescriptor<pbandk.wkt.Api, List<pbandk.wkt.Method>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
                 name = "methods",
@@ -57,7 +57,7 @@ public sealed interface Api : pbandk.Message {
                 value = pbandk.wkt.Api::methods,
                 mutableValue = pbandk.wkt.MutableApi::methods,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.Api, List<pbandk.wkt.Option>> = 
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.Api, List<pbandk.wkt.Option>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
                 name = "options",
@@ -67,7 +67,7 @@ public sealed interface Api : pbandk.Message {
                 value = pbandk.wkt.Api::options,
                 mutableValue = pbandk.wkt.MutableApi::options,
             )
-        public val version: pbandk.FieldDescriptor<pbandk.wkt.Api, String> = 
+        public val version: pbandk.FieldDescriptor<pbandk.wkt.Api, String> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
                 name = "version",
@@ -77,7 +77,7 @@ public sealed interface Api : pbandk.Message {
                 value = pbandk.wkt.Api::version,
                 mutableValue = pbandk.wkt.MutableApi::version,
             )
-        public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Api, pbandk.wkt.SourceContext?> = 
+        public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Api, pbandk.wkt.SourceContext?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
                 name = "source_context",
@@ -87,7 +87,7 @@ public sealed interface Api : pbandk.Message {
                 value = pbandk.wkt.Api::sourceContext,
                 mutableValue = pbandk.wkt.MutableApi::sourceContext,
             )
-        public val mixins: pbandk.FieldDescriptor<pbandk.wkt.Api, List<pbandk.wkt.Mixin>> = 
+        public val mixins: pbandk.FieldDescriptor<pbandk.wkt.Api, List<pbandk.wkt.Mixin>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
                 name = "mixins",
@@ -97,7 +97,7 @@ public sealed interface Api : pbandk.Message {
                 value = pbandk.wkt.Api::mixins,
                 mutableValue = pbandk.wkt.MutableApi::mixins,
             )
-        public val syntax: pbandk.FieldDescriptor<pbandk.wkt.Api, pbandk.wkt.Syntax> = 
+        public val syntax: pbandk.FieldDescriptor<pbandk.wkt.Api, pbandk.wkt.Syntax> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
                 name = "syntax",
@@ -110,7 +110,9 @@ public sealed interface Api : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
-        public val defaultInstance: pbandk.wkt.Api by lazy { pbandk.wkt.Api {} }
+        public val defaultInstance: pbandk.wkt.Api by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.Api {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api> by lazy {
             pbandk.MessageDescriptor.of(
@@ -177,7 +179,7 @@ public sealed interface Method : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val name: pbandk.FieldDescriptor<pbandk.wkt.Method, String> = 
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.Method, String> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Method::descriptor,
                 name = "name",
@@ -187,7 +189,7 @@ public sealed interface Method : pbandk.Message {
                 value = pbandk.wkt.Method::name,
                 mutableValue = pbandk.wkt.MutableMethod::name,
             )
-        public val requestTypeUrl: pbandk.FieldDescriptor<pbandk.wkt.Method, String> = 
+        public val requestTypeUrl: pbandk.FieldDescriptor<pbandk.wkt.Method, String> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Method::descriptor,
                 name = "request_type_url",
@@ -197,7 +199,7 @@ public sealed interface Method : pbandk.Message {
                 value = pbandk.wkt.Method::requestTypeUrl,
                 mutableValue = pbandk.wkt.MutableMethod::requestTypeUrl,
             )
-        public val requestStreaming: pbandk.FieldDescriptor<pbandk.wkt.Method, Boolean> = 
+        public val requestStreaming: pbandk.FieldDescriptor<pbandk.wkt.Method, Boolean> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Method::descriptor,
                 name = "request_streaming",
@@ -207,7 +209,7 @@ public sealed interface Method : pbandk.Message {
                 value = pbandk.wkt.Method::requestStreaming,
                 mutableValue = pbandk.wkt.MutableMethod::requestStreaming,
             )
-        public val responseTypeUrl: pbandk.FieldDescriptor<pbandk.wkt.Method, String> = 
+        public val responseTypeUrl: pbandk.FieldDescriptor<pbandk.wkt.Method, String> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Method::descriptor,
                 name = "response_type_url",
@@ -217,7 +219,7 @@ public sealed interface Method : pbandk.Message {
                 value = pbandk.wkt.Method::responseTypeUrl,
                 mutableValue = pbandk.wkt.MutableMethod::responseTypeUrl,
             )
-        public val responseStreaming: pbandk.FieldDescriptor<pbandk.wkt.Method, Boolean> = 
+        public val responseStreaming: pbandk.FieldDescriptor<pbandk.wkt.Method, Boolean> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Method::descriptor,
                 name = "response_streaming",
@@ -227,7 +229,7 @@ public sealed interface Method : pbandk.Message {
                 value = pbandk.wkt.Method::responseStreaming,
                 mutableValue = pbandk.wkt.MutableMethod::responseStreaming,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.Method, List<pbandk.wkt.Option>> = 
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.Method, List<pbandk.wkt.Option>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.Method::descriptor,
                 name = "options",
@@ -237,7 +239,7 @@ public sealed interface Method : pbandk.Message {
                 value = pbandk.wkt.Method::options,
                 mutableValue = pbandk.wkt.MutableMethod::options,
             )
-        public val syntax: pbandk.FieldDescriptor<pbandk.wkt.Method, pbandk.wkt.Syntax> = 
+        public val syntax: pbandk.FieldDescriptor<pbandk.wkt.Method, pbandk.wkt.Syntax> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Method::descriptor,
                 name = "syntax",
@@ -250,7 +252,9 @@ public sealed interface Method : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
-        public val defaultInstance: pbandk.wkt.Method by lazy { pbandk.wkt.Method {} }
+        public val defaultInstance: pbandk.wkt.Method by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.Method {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method> by lazy {
             pbandk.MessageDescriptor.of(
@@ -307,7 +311,7 @@ public sealed interface Mixin : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val name: pbandk.FieldDescriptor<pbandk.wkt.Mixin, String> = 
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.Mixin, String> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Mixin::descriptor,
                 name = "name",
@@ -317,7 +321,7 @@ public sealed interface Mixin : pbandk.Message {
                 value = pbandk.wkt.Mixin::name,
                 mutableValue = pbandk.wkt.MutableMixin::name,
             )
-        public val root: pbandk.FieldDescriptor<pbandk.wkt.Mixin, String> = 
+        public val root: pbandk.FieldDescriptor<pbandk.wkt.Mixin, String> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Mixin::descriptor,
                 name = "root",
@@ -330,7 +334,9 @@ public sealed interface Mixin : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
-        public val defaultInstance: pbandk.wkt.Mixin by lazy { pbandk.wkt.Mixin {} }
+        public val defaultInstance: pbandk.wkt.Mixin by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.Mixin {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> by lazy {
             pbandk.MessageDescriptor.of(
@@ -385,15 +391,16 @@ public fun Api(
  */
 @pbandk.Export
 @pbandk.JsName("buildApi")
-public fun Api(builderAction: pbandk.wkt.MutableApi.() -> Unit): pbandk.wkt.Api = pbandk.wkt.MutableApi_Impl(
-    name = "",
-    methods = pbandk.gen.MutableListField(),
-    options = pbandk.gen.MutableListField(),
-    version = "",
-    sourceContext = null,
-    mixins = pbandk.gen.MutableListField(),
-    syntax = pbandk.wkt.Syntax.fromValue(0),
-).also(builderAction).toApi()
+public fun Api(builderAction: pbandk.wkt.MutableApi.() -> Unit): pbandk.wkt.Api =
+    pbandk.wkt.MutableApi_Impl(
+        name = "",
+        methods = pbandk.gen.MutableListField(),
+        options = pbandk.gen.MutableListField(),
+        version = "",
+        sourceContext = null,
+        mixins = pbandk.gen.MutableListField(),
+        syntax = pbandk.wkt.Syntax.fromValue(0),
+    ).also(builderAction).toApi()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForApi")
@@ -446,6 +453,7 @@ private class MutableApi_Impl(
     override var syntax: pbandk.wkt.Syntax,
 ) : pbandk.wkt.MutableApi, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Api>() {
     override val descriptor get() = pbandk.wkt.Api.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableApi.() -> Unit) = super.copy(builderAction)
 
@@ -506,15 +514,16 @@ public fun Method(
  */
 @pbandk.Export
 @pbandk.JsName("buildMethod")
-public fun Method(builderAction: pbandk.wkt.MutableMethod.() -> Unit): pbandk.wkt.Method = pbandk.wkt.MutableMethod_Impl(
-    name = "",
-    requestTypeUrl = "",
-    requestStreaming = false,
-    responseTypeUrl = "",
-    responseStreaming = false,
-    options = pbandk.gen.MutableListField(),
-    syntax = pbandk.wkt.Syntax.fromValue(0),
-).also(builderAction).toMethod()
+public fun Method(builderAction: pbandk.wkt.MutableMethod.() -> Unit): pbandk.wkt.Method =
+    pbandk.wkt.MutableMethod_Impl(
+        name = "",
+        requestTypeUrl = "",
+        requestStreaming = false,
+        responseTypeUrl = "",
+        responseStreaming = false,
+        options = pbandk.gen.MutableListField(),
+        syntax = pbandk.wkt.Syntax.fromValue(0),
+    ).also(builderAction).toMethod()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMethod")
@@ -567,6 +576,7 @@ private class MutableMethod_Impl(
     override var syntax: pbandk.wkt.Syntax,
 ) : pbandk.wkt.MutableMethod, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Method>() {
     override val descriptor get() = pbandk.wkt.Method.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableMethod.() -> Unit) = super.copy(builderAction)
 
@@ -617,10 +627,11 @@ public fun Mixin(
  */
 @pbandk.Export
 @pbandk.JsName("buildMixin")
-public fun Mixin(builderAction: pbandk.wkt.MutableMixin.() -> Unit): pbandk.wkt.Mixin = pbandk.wkt.MutableMixin_Impl(
-    name = "",
-    root = "",
-).also(builderAction).toMixin()
+public fun Mixin(builderAction: pbandk.wkt.MutableMixin.() -> Unit): pbandk.wkt.Mixin =
+    pbandk.wkt.MutableMixin_Impl(
+        name = "",
+        root = "",
+    ).also(builderAction).toMixin()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMixin")
@@ -653,6 +664,7 @@ private class MutableMixin_Impl(
     override var root: String,
 ) : pbandk.wkt.MutableMixin, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Mixin>() {
     override val descriptor get() = pbandk.wkt.Mixin.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableMixin.() -> Unit) = super.copy(builderAction)
 

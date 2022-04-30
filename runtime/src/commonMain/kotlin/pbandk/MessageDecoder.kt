@@ -1,5 +1,5 @@
 package pbandk
 
 public interface MessageDecoder {
-    public fun <T : Message> readMessage(messageCompanion: Message.Companion<T>): T
+    public fun <M : Message> readMessage(messageCompanion: Message.Companion<M>): M
 }

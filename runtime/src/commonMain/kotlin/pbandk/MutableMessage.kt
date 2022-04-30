@@ -4,6 +4,6 @@ package pbandk
 public annotation class MessageBuilderMarker
 
 @MessageBuilderMarker
-public interface MutableMessage<T : Message> {
-    public val unknownFields: MutableMap<Int, UnknownField>
+public interface MutableMessage<M : Message> : Message {
+    override val unknownFields: MutableMap<Int, UnknownField>
 }

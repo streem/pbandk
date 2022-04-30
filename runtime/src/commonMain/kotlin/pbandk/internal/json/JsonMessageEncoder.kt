@@ -7,11 +7,11 @@ import kotlinx.serialization.json.JsonObject
 import pbandk.FieldDescriptor
 import pbandk.Message
 import pbandk.MessageEncoder
+import pbandk.gen.GeneratedExtendableMessage
 import pbandk.json.JsonConfig
 import kotlin.collections.MutableMap
 import kotlin.collections.linkedMapOf
 import kotlin.collections.set
-import kotlin.reflect.KProperty1
 
 internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageEncoder {
     private val json = Json {
@@ -25,37 +25,51 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
     internal fun toJsonElement(): JsonElement =
         currentMessage ?: error("Must call writeMessage() before toJsonElement()")
 
-    override fun <T : Message> writeMessage(message: T) {
+    override fun <M : Message> writeMessage(message: M) {
         check(currentMessage == null) { "JsonMessageEncoder can't be reused with multiple messages" }
         currentMessage =
             JsonMessageAdapters.getAdapter(message)?.encode(message, jsonValueEncoder) ?: writeMessageObject(message)
     }
 
-    private fun <T : Message> writeMessageObject(message: T): JsonObject {
+    private fun <M : Message> writeMessageObject(message: M): JsonObject {
         val jsonContent: MutableMap<String, JsonElement> = linkedMapOf()
 
         for (fd in message.descriptor.fields) {
             @Suppress("UNCHECKED_CAST")
-            val value = (fd as FieldDescriptor<T, *>).getValue(message)
+            writeFieldValue(message, fd as FieldDescriptor<M, *>)?.let {
+                jsonContent[jsonConfig.getFieldJsonName(fd)] = it
+            }
+        }
 
-            if (value == null && fd.oneofMember) continue
-            if (!fd.oneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) continue
-
-            val jsonValue = value
-                ?.takeUnless {
-                    @Suppress("DEPRECATION")
-                    jsonConfig.outputDefaultValues &&
-                            jsonConfig.outputDefaultStringsAsNull &&
-                            fd.type is FieldDescriptor.Type.Primitive.String &&
-                            fd.type.isDefaultValue(it)
+        if (message is GeneratedExtendableMessage<*>) {
+            for (fd in message.extensionFields.keys()) {
+                @Suppress("UNCHECKED_CAST")
+                writeFieldValue(message, fd as FieldDescriptor<M, *>)?.let {
+                    // TODO: the JSON key has to include the full path of the field, not just the field's name
+                    jsonContent["[${jsonConfig.getFieldJsonName(fd)}]"] = it
                 }
-                ?.let { jsonValueEncoder.writeValue(it, fd.type) }
-                ?: JsonNull
-            jsonContent[jsonConfig.getFieldJsonName(fd)] = jsonValue
+            }
         }
 
         return JsonObject(jsonContent)
     }
 
+    private fun <M : Message> writeFieldValue(message: M, fd: FieldDescriptor<M, *>): JsonElement? {
+        val value = fd.getValue(message)
+
+        if (value == null && fd.oneofMember) return null
+        if (!fd.oneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) return null
+
+        return value
+            ?.takeUnless {
+                @Suppress("DEPRECATION")
+                jsonConfig.outputDefaultValues &&
+                        jsonConfig.outputDefaultStringsAsNull &&
+                        fd.type is FieldDescriptor.Type.Primitive.String &&
+                        fd.type.isDefaultValue(it)
+            }
+            ?.let { jsonValueEncoder.writeValue(it, fd.type) }
+            ?: JsonNull
+    }
 }
 

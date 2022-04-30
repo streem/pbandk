@@ -25,7 +25,7 @@ public sealed interface DoubleValue : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val value: pbandk.FieldDescriptor<pbandk.wkt.DoubleValue, Double> = 
+        public val value: pbandk.FieldDescriptor<pbandk.wkt.DoubleValue, Double> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.DoubleValue::descriptor,
                 name = "value",
@@ -38,7 +38,9 @@ public sealed interface DoubleValue : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.DoubleValue> {
-        public val defaultInstance: pbandk.wkt.DoubleValue by lazy { pbandk.wkt.DoubleValue {} }
+        public val defaultInstance: pbandk.wkt.DoubleValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.DoubleValue {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DoubleValue> by lazy {
             pbandk.MessageDescriptor.of(
@@ -81,7 +83,7 @@ public sealed interface FloatValue : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val value: pbandk.FieldDescriptor<pbandk.wkt.FloatValue, Float> = 
+        public val value: pbandk.FieldDescriptor<pbandk.wkt.FloatValue, Float> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.FloatValue::descriptor,
                 name = "value",
@@ -94,7 +96,9 @@ public sealed interface FloatValue : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FloatValue> {
-        public val defaultInstance: pbandk.wkt.FloatValue by lazy { pbandk.wkt.FloatValue {} }
+        public val defaultInstance: pbandk.wkt.FloatValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.FloatValue {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FloatValue> by lazy {
             pbandk.MessageDescriptor.of(
@@ -137,7 +141,7 @@ public sealed interface Int64Value : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val value: pbandk.FieldDescriptor<pbandk.wkt.Int64Value, Long> = 
+        public val value: pbandk.FieldDescriptor<pbandk.wkt.Int64Value, Long> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Int64Value::descriptor,
                 name = "value",
@@ -150,7 +154,9 @@ public sealed interface Int64Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Int64Value> {
-        public val defaultInstance: pbandk.wkt.Int64Value by lazy { pbandk.wkt.Int64Value {} }
+        public val defaultInstance: pbandk.wkt.Int64Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.Int64Value {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int64Value> by lazy {
             pbandk.MessageDescriptor.of(
@@ -193,7 +199,7 @@ public sealed interface UInt64Value : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val value: pbandk.FieldDescriptor<pbandk.wkt.UInt64Value, Long> = 
+        public val value: pbandk.FieldDescriptor<pbandk.wkt.UInt64Value, Long> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.UInt64Value::descriptor,
                 name = "value",
@@ -206,7 +212,9 @@ public sealed interface UInt64Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UInt64Value> {
-        public val defaultInstance: pbandk.wkt.UInt64Value by lazy { pbandk.wkt.UInt64Value {} }
+        public val defaultInstance: pbandk.wkt.UInt64Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.UInt64Value {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt64Value> by lazy {
             pbandk.MessageDescriptor.of(
@@ -249,7 +257,7 @@ public sealed interface Int32Value : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val value: pbandk.FieldDescriptor<pbandk.wkt.Int32Value, Int> = 
+        public val value: pbandk.FieldDescriptor<pbandk.wkt.Int32Value, Int> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Int32Value::descriptor,
                 name = "value",
@@ -262,7 +270,9 @@ public sealed interface Int32Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Int32Value> {
-        public val defaultInstance: pbandk.wkt.Int32Value by lazy { pbandk.wkt.Int32Value {} }
+        public val defaultInstance: pbandk.wkt.Int32Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.Int32Value {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int32Value> by lazy {
             pbandk.MessageDescriptor.of(
@@ -305,7 +315,7 @@ public sealed interface UInt32Value : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val value: pbandk.FieldDescriptor<pbandk.wkt.UInt32Value, Int> = 
+        public val value: pbandk.FieldDescriptor<pbandk.wkt.UInt32Value, Int> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.UInt32Value::descriptor,
                 name = "value",
@@ -318,7 +328,9 @@ public sealed interface UInt32Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UInt32Value> {
-        public val defaultInstance: pbandk.wkt.UInt32Value by lazy { pbandk.wkt.UInt32Value {} }
+        public val defaultInstance: pbandk.wkt.UInt32Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.UInt32Value {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt32Value> by lazy {
             pbandk.MessageDescriptor.of(
@@ -361,7 +373,7 @@ public sealed interface BoolValue : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val value: pbandk.FieldDescriptor<pbandk.wkt.BoolValue, Boolean> = 
+        public val value: pbandk.FieldDescriptor<pbandk.wkt.BoolValue, Boolean> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.BoolValue::descriptor,
                 name = "value",
@@ -374,7 +386,9 @@ public sealed interface BoolValue : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.BoolValue> {
-        public val defaultInstance: pbandk.wkt.BoolValue by lazy { pbandk.wkt.BoolValue {} }
+        public val defaultInstance: pbandk.wkt.BoolValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.BoolValue {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BoolValue> by lazy {
             pbandk.MessageDescriptor.of(
@@ -417,7 +431,7 @@ public sealed interface StringValue : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val value: pbandk.FieldDescriptor<pbandk.wkt.StringValue, String> = 
+        public val value: pbandk.FieldDescriptor<pbandk.wkt.StringValue, String> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.StringValue::descriptor,
                 name = "value",
@@ -430,7 +444,9 @@ public sealed interface StringValue : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.StringValue> {
-        public val defaultInstance: pbandk.wkt.StringValue by lazy { pbandk.wkt.StringValue {} }
+        public val defaultInstance: pbandk.wkt.StringValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.StringValue {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.StringValue> by lazy {
             pbandk.MessageDescriptor.of(
@@ -473,7 +489,7 @@ public sealed interface BytesValue : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val value: pbandk.FieldDescriptor<pbandk.wkt.BytesValue, pbandk.ByteArr> = 
+        public val value: pbandk.FieldDescriptor<pbandk.wkt.BytesValue, pbandk.ByteArr> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.BytesValue::descriptor,
                 name = "value",
@@ -486,7 +502,9 @@ public sealed interface BytesValue : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.BytesValue> {
-        public val defaultInstance: pbandk.wkt.BytesValue by lazy { pbandk.wkt.BytesValue {} }
+        public val defaultInstance: pbandk.wkt.BytesValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.BytesValue {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BytesValue> by lazy {
             pbandk.MessageDescriptor.of(
@@ -527,9 +545,10 @@ public fun DoubleValue(
  */
 @pbandk.Export
 @pbandk.JsName("buildDoubleValue")
-public fun DoubleValue(builderAction: pbandk.wkt.MutableDoubleValue.() -> Unit): pbandk.wkt.DoubleValue = pbandk.wkt.MutableDoubleValue_Impl(
-    value = 0.0,
-).also(builderAction).toDoubleValue()
+public fun DoubleValue(builderAction: pbandk.wkt.MutableDoubleValue.() -> Unit): pbandk.wkt.DoubleValue =
+    pbandk.wkt.MutableDoubleValue_Impl(
+        value = 0.0,
+    ).also(builderAction).toDoubleValue()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForDoubleValue")
@@ -558,6 +577,7 @@ private class MutableDoubleValue_Impl(
     override var value: Double,
 ) : pbandk.wkt.MutableDoubleValue, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.DoubleValue>() {
     override val descriptor get() = pbandk.wkt.DoubleValue.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableDoubleValue.() -> Unit) = super.copy(builderAction)
 
@@ -594,9 +614,10 @@ public fun FloatValue(
  */
 @pbandk.Export
 @pbandk.JsName("buildFloatValue")
-public fun FloatValue(builderAction: pbandk.wkt.MutableFloatValue.() -> Unit): pbandk.wkt.FloatValue = pbandk.wkt.MutableFloatValue_Impl(
-    value = 0.0F,
-).also(builderAction).toFloatValue()
+public fun FloatValue(builderAction: pbandk.wkt.MutableFloatValue.() -> Unit): pbandk.wkt.FloatValue =
+    pbandk.wkt.MutableFloatValue_Impl(
+        value = 0.0F,
+    ).also(builderAction).toFloatValue()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFloatValue")
@@ -625,6 +646,7 @@ private class MutableFloatValue_Impl(
     override var value: Float,
 ) : pbandk.wkt.MutableFloatValue, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.FloatValue>() {
     override val descriptor get() = pbandk.wkt.FloatValue.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableFloatValue.() -> Unit) = super.copy(builderAction)
 
@@ -661,9 +683,10 @@ public fun Int64Value(
  */
 @pbandk.Export
 @pbandk.JsName("buildInt64Value")
-public fun Int64Value(builderAction: pbandk.wkt.MutableInt64Value.() -> Unit): pbandk.wkt.Int64Value = pbandk.wkt.MutableInt64Value_Impl(
-    value = 0L,
-).also(builderAction).toInt64Value()
+public fun Int64Value(builderAction: pbandk.wkt.MutableInt64Value.() -> Unit): pbandk.wkt.Int64Value =
+    pbandk.wkt.MutableInt64Value_Impl(
+        value = 0L,
+    ).also(builderAction).toInt64Value()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForInt64Value")
@@ -692,6 +715,7 @@ private class MutableInt64Value_Impl(
     override var value: Long,
 ) : pbandk.wkt.MutableInt64Value, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Int64Value>() {
     override val descriptor get() = pbandk.wkt.Int64Value.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableInt64Value.() -> Unit) = super.copy(builderAction)
 
@@ -728,9 +752,10 @@ public fun UInt64Value(
  */
 @pbandk.Export
 @pbandk.JsName("buildUInt64Value")
-public fun UInt64Value(builderAction: pbandk.wkt.MutableUInt64Value.() -> Unit): pbandk.wkt.UInt64Value = pbandk.wkt.MutableUInt64Value_Impl(
-    value = 0L,
-).also(builderAction).toUInt64Value()
+public fun UInt64Value(builderAction: pbandk.wkt.MutableUInt64Value.() -> Unit): pbandk.wkt.UInt64Value =
+    pbandk.wkt.MutableUInt64Value_Impl(
+        value = 0L,
+    ).also(builderAction).toUInt64Value()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForUInt64Value")
@@ -759,6 +784,7 @@ private class MutableUInt64Value_Impl(
     override var value: Long,
 ) : pbandk.wkt.MutableUInt64Value, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.UInt64Value>() {
     override val descriptor get() = pbandk.wkt.UInt64Value.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableUInt64Value.() -> Unit) = super.copy(builderAction)
 
@@ -795,9 +821,10 @@ public fun Int32Value(
  */
 @pbandk.Export
 @pbandk.JsName("buildInt32Value")
-public fun Int32Value(builderAction: pbandk.wkt.MutableInt32Value.() -> Unit): pbandk.wkt.Int32Value = pbandk.wkt.MutableInt32Value_Impl(
-    value = 0,
-).also(builderAction).toInt32Value()
+public fun Int32Value(builderAction: pbandk.wkt.MutableInt32Value.() -> Unit): pbandk.wkt.Int32Value =
+    pbandk.wkt.MutableInt32Value_Impl(
+        value = 0,
+    ).also(builderAction).toInt32Value()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForInt32Value")
@@ -826,6 +853,7 @@ private class MutableInt32Value_Impl(
     override var value: Int,
 ) : pbandk.wkt.MutableInt32Value, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Int32Value>() {
     override val descriptor get() = pbandk.wkt.Int32Value.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableInt32Value.() -> Unit) = super.copy(builderAction)
 
@@ -862,9 +890,10 @@ public fun UInt32Value(
  */
 @pbandk.Export
 @pbandk.JsName("buildUInt32Value")
-public fun UInt32Value(builderAction: pbandk.wkt.MutableUInt32Value.() -> Unit): pbandk.wkt.UInt32Value = pbandk.wkt.MutableUInt32Value_Impl(
-    value = 0,
-).also(builderAction).toUInt32Value()
+public fun UInt32Value(builderAction: pbandk.wkt.MutableUInt32Value.() -> Unit): pbandk.wkt.UInt32Value =
+    pbandk.wkt.MutableUInt32Value_Impl(
+        value = 0,
+    ).also(builderAction).toUInt32Value()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForUInt32Value")
@@ -893,6 +922,7 @@ private class MutableUInt32Value_Impl(
     override var value: Int,
 ) : pbandk.wkt.MutableUInt32Value, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.UInt32Value>() {
     override val descriptor get() = pbandk.wkt.UInt32Value.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableUInt32Value.() -> Unit) = super.copy(builderAction)
 
@@ -929,9 +959,10 @@ public fun BoolValue(
  */
 @pbandk.Export
 @pbandk.JsName("buildBoolValue")
-public fun BoolValue(builderAction: pbandk.wkt.MutableBoolValue.() -> Unit): pbandk.wkt.BoolValue = pbandk.wkt.MutableBoolValue_Impl(
-    value = false,
-).also(builderAction).toBoolValue()
+public fun BoolValue(builderAction: pbandk.wkt.MutableBoolValue.() -> Unit): pbandk.wkt.BoolValue =
+    pbandk.wkt.MutableBoolValue_Impl(
+        value = false,
+    ).also(builderAction).toBoolValue()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForBoolValue")
@@ -960,6 +991,7 @@ private class MutableBoolValue_Impl(
     override var value: Boolean,
 ) : pbandk.wkt.MutableBoolValue, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.BoolValue>() {
     override val descriptor get() = pbandk.wkt.BoolValue.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableBoolValue.() -> Unit) = super.copy(builderAction)
 
@@ -996,9 +1028,10 @@ public fun StringValue(
  */
 @pbandk.Export
 @pbandk.JsName("buildStringValue")
-public fun StringValue(builderAction: pbandk.wkt.MutableStringValue.() -> Unit): pbandk.wkt.StringValue = pbandk.wkt.MutableStringValue_Impl(
-    value = "",
-).also(builderAction).toStringValue()
+public fun StringValue(builderAction: pbandk.wkt.MutableStringValue.() -> Unit): pbandk.wkt.StringValue =
+    pbandk.wkt.MutableStringValue_Impl(
+        value = "",
+    ).also(builderAction).toStringValue()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForStringValue")
@@ -1027,6 +1060,7 @@ private class MutableStringValue_Impl(
     override var value: String,
 ) : pbandk.wkt.MutableStringValue, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.StringValue>() {
     override val descriptor get() = pbandk.wkt.StringValue.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableStringValue.() -> Unit) = super.copy(builderAction)
 
@@ -1063,9 +1097,10 @@ public fun BytesValue(
  */
 @pbandk.Export
 @pbandk.JsName("buildBytesValue")
-public fun BytesValue(builderAction: pbandk.wkt.MutableBytesValue.() -> Unit): pbandk.wkt.BytesValue = pbandk.wkt.MutableBytesValue_Impl(
-    value = pbandk.ByteArr.empty,
-).also(builderAction).toBytesValue()
+public fun BytesValue(builderAction: pbandk.wkt.MutableBytesValue.() -> Unit): pbandk.wkt.BytesValue =
+    pbandk.wkt.MutableBytesValue_Impl(
+        value = pbandk.ByteArr.empty,
+    ).also(builderAction).toBytesValue()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForBytesValue")
@@ -1094,6 +1129,7 @@ private class MutableBytesValue_Impl(
     override var value: pbandk.ByteArr,
 ) : pbandk.wkt.MutableBytesValue, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.BytesValue>() {
     override val descriptor get() = pbandk.wkt.BytesValue.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableBytesValue.() -> Unit) = super.copy(builderAction)
 

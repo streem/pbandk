@@ -49,7 +49,10 @@ public class MessageDescriptor<M : Message> private constructor(
             messageClass = messageClass,
             messageCompanion = messageCompanion,
             builder = builder as ((MutableMessage<M>.() -> Unit) -> M),
-            fields = FieldDescriptorSet(fields + oneofs.flatMap { it.fields }),
+            // Keep fields sorted by number so that message encoding outputs fields in order by number. This is not
+            // required by the protobuf encoding spec, but is recommended (and is implemented by the official C++, Java,
+            // and Python implementations).
+            fields = FieldDescriptorSet((fields + oneofs.flatMap { it.fields }).sortedBy { it.number }),
             oneofs = oneofs
         )
     }

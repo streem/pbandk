@@ -27,7 +27,7 @@ public sealed interface Duration : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val seconds: pbandk.FieldDescriptor<pbandk.wkt.Duration, Long> = 
+        public val seconds: pbandk.FieldDescriptor<pbandk.wkt.Duration, Long> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Duration::descriptor,
                 name = "seconds",
@@ -37,7 +37,7 @@ public sealed interface Duration : pbandk.Message {
                 value = pbandk.wkt.Duration::seconds,
                 mutableValue = pbandk.wkt.MutableDuration::seconds,
             )
-        public val nanos: pbandk.FieldDescriptor<pbandk.wkt.Duration, Int> = 
+        public val nanos: pbandk.FieldDescriptor<pbandk.wkt.Duration, Int> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Duration::descriptor,
                 name = "nanos",
@@ -50,7 +50,9 @@ public sealed interface Duration : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
-        public val defaultInstance: pbandk.wkt.Duration by lazy { pbandk.wkt.Duration {} }
+        public val defaultInstance: pbandk.wkt.Duration by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.Duration {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> by lazy {
             pbandk.MessageDescriptor.of(
@@ -95,10 +97,11 @@ public fun Duration(
  */
 @pbandk.Export
 @pbandk.JsName("buildDuration")
-public fun Duration(builderAction: pbandk.wkt.MutableDuration.() -> Unit): pbandk.wkt.Duration = pbandk.wkt.MutableDuration_Impl(
-    seconds = 0L,
-    nanos = 0,
-).also(builderAction).toDuration()
+public fun Duration(builderAction: pbandk.wkt.MutableDuration.() -> Unit): pbandk.wkt.Duration =
+    pbandk.wkt.MutableDuration_Impl(
+        seconds = 0L,
+        nanos = 0,
+    ).also(builderAction).toDuration()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForDuration")
@@ -131,6 +134,7 @@ private class MutableDuration_Impl(
     override var nanos: Int,
 ) : pbandk.wkt.MutableDuration, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Duration>() {
     override val descriptor get() = pbandk.wkt.Duration.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit) = super.copy(builderAction)
 

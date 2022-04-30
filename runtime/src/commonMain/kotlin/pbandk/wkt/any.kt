@@ -27,7 +27,7 @@ public sealed interface Any : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val typeUrl: pbandk.FieldDescriptor<pbandk.wkt.Any, String> = 
+        public val typeUrl: pbandk.FieldDescriptor<pbandk.wkt.Any, String> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Any::descriptor,
                 name = "type_url",
@@ -37,7 +37,7 @@ public sealed interface Any : pbandk.Message {
                 value = pbandk.wkt.Any::typeUrl,
                 mutableValue = pbandk.wkt.MutableAny::typeUrl,
             )
-        public val value: pbandk.FieldDescriptor<pbandk.wkt.Any, pbandk.ByteArr> = 
+        public val value: pbandk.FieldDescriptor<pbandk.wkt.Any, pbandk.ByteArr> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.wkt.Any::descriptor,
                 name = "value",
@@ -50,7 +50,9 @@ public sealed interface Any : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Any> {
-        public val defaultInstance: pbandk.wkt.Any by lazy { pbandk.wkt.Any {} }
+        public val defaultInstance: pbandk.wkt.Any by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.Any {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any> by lazy {
             pbandk.MessageDescriptor.of(
@@ -95,10 +97,11 @@ public fun Any(
  */
 @pbandk.Export
 @pbandk.JsName("buildAny")
-public fun Any(builderAction: pbandk.wkt.MutableAny.() -> Unit): pbandk.wkt.Any = pbandk.wkt.MutableAny_Impl(
-    typeUrl = "",
-    value = pbandk.ByteArr.empty,
-).also(builderAction).toAny()
+public fun Any(builderAction: pbandk.wkt.MutableAny.() -> Unit): pbandk.wkt.Any =
+    pbandk.wkt.MutableAny_Impl(
+        typeUrl = "",
+        value = pbandk.ByteArr.empty,
+    ).also(builderAction).toAny()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForAny")
@@ -131,6 +134,7 @@ private class MutableAny_Impl(
     override var value: pbandk.ByteArr,
 ) : pbandk.wkt.MutableAny, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Any>() {
     override val descriptor get() = pbandk.wkt.Any.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit) = super.copy(builderAction)
 

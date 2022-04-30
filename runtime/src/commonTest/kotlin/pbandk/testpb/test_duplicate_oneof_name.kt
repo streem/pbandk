@@ -27,18 +27,18 @@ public sealed interface Value : pbandk.Message {
     public val booleanValue: Boolean?
     public val integerValue: Int?
 
-    public sealed interface Value<V> : pbandk.Message.OneOf<V> {
-        public class StringValue(stringValue: String = "") : 
-            Value<String>, pbandk.gen.GeneratedOneOf<String>(stringValue, pbandk.testpb.Value.FieldDescriptors.stringValue)
-        public class BooleanValue(booleanValue: Boolean = false) : 
-            Value<Boolean>, pbandk.gen.GeneratedOneOf<Boolean>(booleanValue, pbandk.testpb.Value.FieldDescriptors.booleanValue)
-        public class IntegerValue(integerValue: Int = 0) : 
-            Value<Int>, pbandk.gen.GeneratedOneOf<Int>(integerValue, pbandk.testpb.Value.FieldDescriptors.integerValue)
+    public sealed interface Value<V : kotlin.Any> : pbandk.Message.OneOf<V> {
+        public class StringValue(stringValue: String = "") :
+            Value<String>, pbandk.gen.GeneratedOneOf<pbandk.testpb.Value, String>(stringValue, pbandk.testpb.Value.FieldDescriptors.stringValue)
+        public class BooleanValue(booleanValue: Boolean = false) :
+            Value<Boolean>, pbandk.gen.GeneratedOneOf<pbandk.testpb.Value, Boolean>(booleanValue, pbandk.testpb.Value.FieldDescriptors.booleanValue)
+        public class IntegerValue(integerValue: Int = 0) :
+            Value<Int>, pbandk.gen.GeneratedOneOf<pbandk.testpb.Value, Int>(integerValue, pbandk.testpb.Value.FieldDescriptors.integerValue)
     }
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val stringValue: pbandk.FieldDescriptor<pbandk.testpb.Value, String?> = 
+        public val stringValue: pbandk.FieldDescriptor<pbandk.testpb.Value, String?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Value::descriptor,
                 name = "string_value",
@@ -48,7 +48,7 @@ public sealed interface Value : pbandk.Message {
                 value = pbandk.testpb.Value::stringValue,
                 mutableValue = pbandk.testpb.MutableValue::stringValue,
             )
-        public val booleanValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Boolean?> = 
+        public val booleanValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Value::descriptor,
                 name = "boolean_value",
@@ -58,7 +58,7 @@ public sealed interface Value : pbandk.Message {
                 value = pbandk.testpb.Value::booleanValue,
                 mutableValue = pbandk.testpb.MutableValue::booleanValue,
             )
-        public val integerValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Int?> = 
+        public val integerValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Int?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Value::descriptor,
                 name = "integer_value",
@@ -69,7 +69,7 @@ public sealed interface Value : pbandk.Message {
                 mutableValue = pbandk.testpb.MutableValue::integerValue,
             )
 
-        public val value: pbandk.OneofDescriptor<pbandk.testpb.Value, pbandk.testpb.Value.Value<*>> = 
+        public val value: pbandk.OneofDescriptor<pbandk.testpb.Value, pbandk.testpb.Value.Value<*>> =
             pbandk.OneofDescriptor.of(
                 messageDescriptor = pbandk.testpb.Value::descriptor,
                 name = "value",
@@ -84,7 +84,9 @@ public sealed interface Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
-        public val defaultInstance: pbandk.testpb.Value by lazy { pbandk.testpb.Value {} }
+        public val defaultInstance: pbandk.testpb.Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.testpb.Value {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> by lazy {
             pbandk.MessageDescriptor.of(
@@ -129,9 +131,10 @@ public fun Value(
  */
 @pbandk.Export
 @pbandk.JsName("buildValue")
-public fun Value(builderAction: pbandk.testpb.MutableValue.() -> Unit): pbandk.testpb.Value = pbandk.testpb.MutableValue_Impl(
-    value = null,
-).also(builderAction).toValue()
+public fun Value(builderAction: pbandk.testpb.MutableValue.() -> Unit): pbandk.testpb.Value =
+    pbandk.testpb.MutableValue_Impl(
+        value = null,
+    ).also(builderAction).toValue()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForValue")
@@ -177,6 +180,7 @@ private class MutableValue_Impl(
     override var integerValue: Int?
         get() = (value as? pbandk.testpb.Value.Value.IntegerValue)?.value
         set(value) { this.value = value?.let { pbandk.testpb.Value.Value.IntegerValue(it) } }
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit) = super.copy(builderAction)
 

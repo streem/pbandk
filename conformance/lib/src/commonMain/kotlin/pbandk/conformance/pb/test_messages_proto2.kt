@@ -14,9 +14,15 @@ public sealed class ForeignEnumProto2(override val value: Int, override val name
     public class UNRECOGNIZED(value: Int) : ForeignEnumProto2(value)
 
     public companion object : pbandk.Message.Enum.Companion<pbandk.conformance.pb.ForeignEnumProto2> {
-        public val values: List<ForeignEnumProto2> by lazy { listOf(FOREIGN_FOO, FOREIGN_BAR, FOREIGN_BAZ) }
-        override fun fromValue(value: Int): pbandk.conformance.pb.ForeignEnumProto2 = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String): pbandk.conformance.pb.ForeignEnumProto2 = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No ForeignEnumProto2 with name: $name")
+        public val values: List<ForeignEnumProto2> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            listOf(FOREIGN_FOO, FOREIGN_BAR, FOREIGN_BAZ)
+        }
+
+        override fun fromValue(value: Int): pbandk.conformance.pb.ForeignEnumProto2 =
+            values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+
+        override fun fromName(name: String): pbandk.conformance.pb.ForeignEnumProto2 =
+            values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No ForeignEnumProto2 with name: $name")
     }
 }
 
@@ -267,30 +273,30 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
     public val oneofDouble: Double?
     public val oneofEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?
 
-    public sealed interface OneofField<V> : pbandk.Message.OneOf<V> {
-        public class OneofUint32(oneofUint32: Int = 0) : 
-            OneofField<Int>, pbandk.gen.GeneratedOneOf<Int>(oneofUint32, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofUint32)
-        public class OneofNestedMessage(oneofNestedMessage: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage) : 
-            OneofField<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>(oneofNestedMessage, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofNestedMessage)
-        public class OneofString(oneofString: String = "") : 
-            OneofField<String>, pbandk.gen.GeneratedOneOf<String>(oneofString, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofString)
-        public class OneofBytes(oneofBytes: pbandk.ByteArr = pbandk.ByteArr.empty) : 
-            OneofField<pbandk.ByteArr>, pbandk.gen.GeneratedOneOf<pbandk.ByteArr>(oneofBytes, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofBytes)
-        public class OneofBool(oneofBool: Boolean = false) : 
-            OneofField<Boolean>, pbandk.gen.GeneratedOneOf<Boolean>(oneofBool, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofBool)
-        public class OneofUint64(oneofUint64: Long = 0L) : 
-            OneofField<Long>, pbandk.gen.GeneratedOneOf<Long>(oneofUint64, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofUint64)
-        public class OneofFloat(oneofFloat: Float = 0.0F) : 
-            OneofField<Float>, pbandk.gen.GeneratedOneOf<Float>(oneofFloat, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofFloat)
-        public class OneofDouble(oneofDouble: Double = 0.0) : 
-            OneofField<Double>, pbandk.gen.GeneratedOneOf<Double>(oneofDouble, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofDouble)
-        public class OneofEnum(oneofEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.fromValue(0)) : 
-            OneofField<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>(oneofEnum, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofEnum)
+    public sealed interface OneofField<V : kotlin.Any> : pbandk.Message.OneOf<V> {
+        public class OneofUint32(oneofUint32: Int = 0) :
+            OneofField<Int>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.TestAllTypesProto2, Int>(oneofUint32, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofUint32)
+        public class OneofNestedMessage(oneofNestedMessage: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage) :
+            OneofField<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>(oneofNestedMessage, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofNestedMessage)
+        public class OneofString(oneofString: String = "") :
+            OneofField<String>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.TestAllTypesProto2, String>(oneofString, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofString)
+        public class OneofBytes(oneofBytes: pbandk.ByteArr = pbandk.ByteArr.empty) :
+            OneofField<pbandk.ByteArr>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.TestAllTypesProto2, pbandk.ByteArr>(oneofBytes, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofBytes)
+        public class OneofBool(oneofBool: Boolean = false) :
+            OneofField<Boolean>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.TestAllTypesProto2, Boolean>(oneofBool, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofBool)
+        public class OneofUint64(oneofUint64: Long = 0L) :
+            OneofField<Long>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.TestAllTypesProto2, Long>(oneofUint64, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofUint64)
+        public class OneofFloat(oneofFloat: Float = 0.0F) :
+            OneofField<Float>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.TestAllTypesProto2, Float>(oneofFloat, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofFloat)
+        public class OneofDouble(oneofDouble: Double = 0.0) :
+            OneofField<Double>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.TestAllTypesProto2, Double>(oneofDouble, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofDouble)
+        public class OneofEnum(oneofEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.fromValue(0)) :
+            OneofField<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>(oneofEnum, pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.oneofEnum)
     }
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val optionalInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val optionalInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_int32",
@@ -300,7 +306,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalInt32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalInt32,
             )
-        public val optionalInt64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Long?> = 
+        public val optionalInt64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Long?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_int64",
@@ -310,7 +316,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalInt64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalInt64,
             )
-        public val optionalUint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val optionalUint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_uint32",
@@ -320,7 +326,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalUint32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalUint32,
             )
-        public val optionalUint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Long?> = 
+        public val optionalUint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Long?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_uint64",
@@ -330,7 +336,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalUint64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalUint64,
             )
-        public val optionalSint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val optionalSint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_sint32",
@@ -340,7 +346,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalSint32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalSint32,
             )
-        public val optionalSint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Long?> = 
+        public val optionalSint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Long?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_sint64",
@@ -350,7 +356,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalSint64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalSint64,
             )
-        public val optionalFixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val optionalFixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_fixed32",
@@ -360,7 +366,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalFixed32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalFixed32,
             )
-        public val optionalFixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Long?> = 
+        public val optionalFixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Long?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_fixed64",
@@ -370,7 +376,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalFixed64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalFixed64,
             )
-        public val optionalSfixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val optionalSfixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_sfixed32",
@@ -380,7 +386,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalSfixed32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalSfixed32,
             )
-        public val optionalSfixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Long?> = 
+        public val optionalSfixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Long?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_sfixed64",
@@ -390,7 +396,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalSfixed64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalSfixed64,
             )
-        public val optionalFloat: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Float?> = 
+        public val optionalFloat: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Float?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_float",
@@ -400,7 +406,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalFloat,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalFloat,
             )
-        public val optionalDouble: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Double?> = 
+        public val optionalDouble: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Double?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_double",
@@ -410,7 +416,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalDouble,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalDouble,
             )
-        public val optionalBool: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Boolean?> = 
+        public val optionalBool: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Boolean?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_bool",
@@ -420,7 +426,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalBool,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalBool,
             )
-        public val optionalString: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, String?> = 
+        public val optionalString: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, String?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_string",
@@ -430,7 +436,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalString,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalString,
             )
-        public val optionalBytes: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.ByteArr?> = 
+        public val optionalBytes: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.ByteArr?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_bytes",
@@ -440,7 +446,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalBytes,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalBytes,
             )
-        public val optionalNestedMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?> = 
+        public val optionalNestedMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_nested_message",
@@ -450,7 +456,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalNestedMessage,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalNestedMessage,
             )
-        public val optionalForeignMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.ForeignMessageProto2?> = 
+        public val optionalForeignMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.ForeignMessageProto2?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_foreign_message",
@@ -460,7 +466,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalForeignMessage,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalForeignMessage,
             )
-        public val optionalNestedEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?> = 
+        public val optionalNestedEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_nested_enum",
@@ -470,7 +476,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalNestedEnum,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalNestedEnum,
             )
-        public val optionalForeignEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.ForeignEnumProto2?> = 
+        public val optionalForeignEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.ForeignEnumProto2?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_foreign_enum",
@@ -480,7 +486,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalForeignEnum,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalForeignEnum,
             )
-        public val optionalStringPiece: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, String?> = 
+        public val optionalStringPiece: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, String?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_string_piece",
@@ -490,7 +496,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalStringPiece,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalStringPiece,
             )
-        public val optionalCord: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, String?> = 
+        public val optionalCord: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, String?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "optional_cord",
@@ -500,7 +506,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::optionalCord,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::optionalCord,
             )
-        public val recursiveMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2?> = 
+        public val recursiveMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "recursive_message",
@@ -510,7 +516,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::recursiveMessage,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::recursiveMessage,
             )
-        public val repeatedInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val repeatedInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_int32",
@@ -520,7 +526,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedInt32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedInt32,
             )
-        public val repeatedInt64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val repeatedInt64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_int64",
@@ -530,7 +536,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedInt64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedInt64,
             )
-        public val repeatedUint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val repeatedUint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_uint32",
@@ -540,7 +546,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedUint32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedUint32,
             )
-        public val repeatedUint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val repeatedUint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_uint64",
@@ -550,7 +556,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedUint64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedUint64,
             )
-        public val repeatedSint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val repeatedSint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_sint32",
@@ -560,7 +566,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedSint32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedSint32,
             )
-        public val repeatedSint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val repeatedSint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_sint64",
@@ -570,7 +576,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedSint64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedSint64,
             )
-        public val repeatedFixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val repeatedFixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_fixed32",
@@ -580,7 +586,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedFixed32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedFixed32,
             )
-        public val repeatedFixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val repeatedFixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_fixed64",
@@ -590,7 +596,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedFixed64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedFixed64,
             )
-        public val repeatedSfixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val repeatedSfixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_sfixed32",
@@ -600,7 +606,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedSfixed32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedSfixed32,
             )
-        public val repeatedSfixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val repeatedSfixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_sfixed64",
@@ -610,7 +616,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedSfixed64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedSfixed64,
             )
-        public val repeatedFloat: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Float>> = 
+        public val repeatedFloat: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Float>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_float",
@@ -620,7 +626,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedFloat,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedFloat,
             )
-        public val repeatedDouble: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Double>> = 
+        public val repeatedDouble: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Double>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_double",
@@ -630,7 +636,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedDouble,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedDouble,
             )
-        public val repeatedBool: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Boolean>> = 
+        public val repeatedBool: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Boolean>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_bool",
@@ -640,7 +646,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedBool,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedBool,
             )
-        public val repeatedString: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<String>> = 
+        public val repeatedString: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<String>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_string",
@@ -650,7 +656,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedString,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedString,
             )
-        public val repeatedBytes: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<pbandk.ByteArr>> = 
+        public val repeatedBytes: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<pbandk.ByteArr>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_bytes",
@@ -660,7 +666,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedBytes,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedBytes,
             )
-        public val repeatedNestedMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>> = 
+        public val repeatedNestedMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_nested_message",
@@ -670,7 +676,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedNestedMessage,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedNestedMessage,
             )
-        public val repeatedForeignMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<pbandk.conformance.pb.ForeignMessageProto2>> = 
+        public val repeatedForeignMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<pbandk.conformance.pb.ForeignMessageProto2>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_foreign_message",
@@ -680,7 +686,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedForeignMessage,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedForeignMessage,
             )
-        public val repeatedNestedEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>> = 
+        public val repeatedNestedEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_nested_enum",
@@ -690,7 +696,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedNestedEnum,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedNestedEnum,
             )
-        public val repeatedForeignEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<pbandk.conformance.pb.ForeignEnumProto2>> = 
+        public val repeatedForeignEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<pbandk.conformance.pb.ForeignEnumProto2>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_foreign_enum",
@@ -700,7 +706,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedForeignEnum,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedForeignEnum,
             )
-        public val repeatedStringPiece: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<String>> = 
+        public val repeatedStringPiece: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<String>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_string_piece",
@@ -710,7 +716,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedStringPiece,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedStringPiece,
             )
-        public val repeatedCord: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<String>> = 
+        public val repeatedCord: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<String>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "repeated_cord",
@@ -720,7 +726,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::repeatedCord,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::repeatedCord,
             )
-        public val mapInt32Int32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Int?, Int?>> = 
+        public val mapInt32Int32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Int?, Int?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_int32_int32",
@@ -730,7 +736,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapInt32Int32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapInt32Int32,
             )
-        public val mapInt64Int64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Long?, Long?>> = 
+        public val mapInt64Int64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Long?, Long?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_int64_int64",
@@ -740,7 +746,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapInt64Int64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapInt64Int64,
             )
-        public val mapUint32Uint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Int?, Int?>> = 
+        public val mapUint32Uint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Int?, Int?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_uint32_uint32",
@@ -750,7 +756,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapUint32Uint32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapUint32Uint32,
             )
-        public val mapUint64Uint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Long?, Long?>> = 
+        public val mapUint64Uint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Long?, Long?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_uint64_uint64",
@@ -760,7 +766,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapUint64Uint64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapUint64Uint64,
             )
-        public val mapSint32Sint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Int?, Int?>> = 
+        public val mapSint32Sint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Int?, Int?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_sint32_sint32",
@@ -770,7 +776,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapSint32Sint32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapSint32Sint32,
             )
-        public val mapSint64Sint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Long?, Long?>> = 
+        public val mapSint64Sint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Long?, Long?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_sint64_sint64",
@@ -780,7 +786,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapSint64Sint64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapSint64Sint64,
             )
-        public val mapFixed32Fixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Int?, Int?>> = 
+        public val mapFixed32Fixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Int?, Int?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_fixed32_fixed32",
@@ -790,7 +796,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapFixed32Fixed32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapFixed32Fixed32,
             )
-        public val mapFixed64Fixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Long?, Long?>> = 
+        public val mapFixed64Fixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Long?, Long?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_fixed64_fixed64",
@@ -800,7 +806,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapFixed64Fixed64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapFixed64Fixed64,
             )
-        public val mapSfixed32Sfixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Int?, Int?>> = 
+        public val mapSfixed32Sfixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Int?, Int?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_sfixed32_sfixed32",
@@ -810,7 +816,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapSfixed32Sfixed32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapSfixed32Sfixed32,
             )
-        public val mapSfixed64Sfixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Long?, Long?>> = 
+        public val mapSfixed64Sfixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Long?, Long?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_sfixed64_sfixed64",
@@ -820,7 +826,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapSfixed64Sfixed64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapSfixed64Sfixed64,
             )
-        public val mapInt32Float: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Int?, Float?>> = 
+        public val mapInt32Float: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Int?, Float?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_int32_float",
@@ -830,7 +836,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapInt32Float,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapInt32Float,
             )
-        public val mapInt32Double: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Int?, Double?>> = 
+        public val mapInt32Double: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Int?, Double?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_int32_double",
@@ -840,7 +846,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapInt32Double,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapInt32Double,
             )
-        public val mapBoolBool: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Boolean?, Boolean?>> = 
+        public val mapBoolBool: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<Boolean?, Boolean?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_bool_bool",
@@ -850,7 +856,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapBoolBool,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapBoolBool,
             )
-        public val mapStringString: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<String?, String?>> = 
+        public val mapStringString: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<String?, String?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_string_string",
@@ -860,7 +866,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapStringString,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapStringString,
             )
-        public val mapStringBytes: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<String?, pbandk.ByteArr?>> = 
+        public val mapStringBytes: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<String?, pbandk.ByteArr?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_string_bytes",
@@ -870,7 +876,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapStringBytes,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapStringBytes,
             )
-        public val mapStringNestedMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?>> = 
+        public val mapStringNestedMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_string_nested_message",
@@ -880,7 +886,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapStringNestedMessage,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapStringNestedMessage,
             )
-        public val mapStringForeignMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<String?, pbandk.conformance.pb.ForeignMessageProto2?>> = 
+        public val mapStringForeignMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<String?, pbandk.conformance.pb.ForeignMessageProto2?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_string_foreign_message",
@@ -890,7 +896,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapStringForeignMessage,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapStringForeignMessage,
             )
-        public val mapStringNestedEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?>> = 
+        public val mapStringNestedEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_string_nested_enum",
@@ -900,7 +906,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapStringNestedEnum,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapStringNestedEnum,
             )
-        public val mapStringForeignEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<String?, pbandk.conformance.pb.ForeignEnumProto2?>> = 
+        public val mapStringForeignEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Map<String?, pbandk.conformance.pb.ForeignEnumProto2?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "map_string_foreign_enum",
@@ -910,7 +916,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::mapStringForeignEnum,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::mapStringForeignEnum,
             )
-        public val packedInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val packedInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "packed_int32",
@@ -920,7 +926,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::packedInt32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::packedInt32,
             )
-        public val packedInt64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val packedInt64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "packed_int64",
@@ -930,7 +936,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::packedInt64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::packedInt64,
             )
-        public val packedUint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val packedUint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "packed_uint32",
@@ -940,7 +946,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::packedUint32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::packedUint32,
             )
-        public val packedUint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val packedUint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "packed_uint64",
@@ -950,7 +956,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::packedUint64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::packedUint64,
             )
-        public val packedSint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val packedSint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "packed_sint32",
@@ -960,7 +966,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::packedSint32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::packedSint32,
             )
-        public val packedSint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val packedSint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "packed_sint64",
@@ -970,7 +976,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::packedSint64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::packedSint64,
             )
-        public val packedFixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val packedFixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "packed_fixed32",
@@ -980,7 +986,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::packedFixed32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::packedFixed32,
             )
-        public val packedFixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val packedFixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "packed_fixed64",
@@ -990,7 +996,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::packedFixed64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::packedFixed64,
             )
-        public val packedSfixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val packedSfixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "packed_sfixed32",
@@ -1000,7 +1006,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::packedSfixed32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::packedSfixed32,
             )
-        public val packedSfixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val packedSfixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "packed_sfixed64",
@@ -1010,7 +1016,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::packedSfixed64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::packedSfixed64,
             )
-        public val packedFloat: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Float>> = 
+        public val packedFloat: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Float>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "packed_float",
@@ -1020,7 +1026,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::packedFloat,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::packedFloat,
             )
-        public val packedDouble: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Double>> = 
+        public val packedDouble: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Double>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "packed_double",
@@ -1030,7 +1036,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::packedDouble,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::packedDouble,
             )
-        public val packedBool: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Boolean>> = 
+        public val packedBool: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Boolean>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "packed_bool",
@@ -1040,7 +1046,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::packedBool,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::packedBool,
             )
-        public val packedNestedEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>> = 
+        public val packedNestedEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "packed_nested_enum",
@@ -1050,7 +1056,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::packedNestedEnum,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::packedNestedEnum,
             )
-        public val unpackedInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val unpackedInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "unpacked_int32",
@@ -1060,7 +1066,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::unpackedInt32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::unpackedInt32,
             )
-        public val unpackedInt64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val unpackedInt64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "unpacked_int64",
@@ -1070,7 +1076,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::unpackedInt64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::unpackedInt64,
             )
-        public val unpackedUint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val unpackedUint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "unpacked_uint32",
@@ -1080,7 +1086,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::unpackedUint32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::unpackedUint32,
             )
-        public val unpackedUint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val unpackedUint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "unpacked_uint64",
@@ -1090,7 +1096,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::unpackedUint64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::unpackedUint64,
             )
-        public val unpackedSint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val unpackedSint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "unpacked_sint32",
@@ -1100,7 +1106,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::unpackedSint32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::unpackedSint32,
             )
-        public val unpackedSint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val unpackedSint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "unpacked_sint64",
@@ -1110,7 +1116,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::unpackedSint64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::unpackedSint64,
             )
-        public val unpackedFixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val unpackedFixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "unpacked_fixed32",
@@ -1120,7 +1126,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::unpackedFixed32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::unpackedFixed32,
             )
-        public val unpackedFixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val unpackedFixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "unpacked_fixed64",
@@ -1130,7 +1136,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::unpackedFixed64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::unpackedFixed64,
             )
-        public val unpackedSfixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> = 
+        public val unpackedSfixed32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "unpacked_sfixed32",
@@ -1140,7 +1146,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::unpackedSfixed32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::unpackedSfixed32,
             )
-        public val unpackedSfixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> = 
+        public val unpackedSfixed64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "unpacked_sfixed64",
@@ -1150,7 +1156,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::unpackedSfixed64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::unpackedSfixed64,
             )
-        public val unpackedFloat: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Float>> = 
+        public val unpackedFloat: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Float>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "unpacked_float",
@@ -1160,7 +1166,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::unpackedFloat,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::unpackedFloat,
             )
-        public val unpackedDouble: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Double>> = 
+        public val unpackedDouble: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Double>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "unpacked_double",
@@ -1170,7 +1176,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::unpackedDouble,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::unpackedDouble,
             )
-        public val unpackedBool: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Boolean>> = 
+        public val unpackedBool: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<Boolean>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "unpacked_bool",
@@ -1180,7 +1186,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::unpackedBool,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::unpackedBool,
             )
-        public val unpackedNestedEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>> = 
+        public val unpackedNestedEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "unpacked_nested_enum",
@@ -1190,7 +1196,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::unpackedNestedEnum,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::unpackedNestedEnum,
             )
-        public val oneofUint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val oneofUint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "oneof_uint32",
@@ -1200,7 +1206,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::oneofUint32,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::oneofUint32,
             )
-        public val oneofNestedMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?> = 
+        public val oneofNestedMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "oneof_nested_message",
@@ -1210,7 +1216,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::oneofNestedMessage,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::oneofNestedMessage,
             )
-        public val oneofString: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, String?> = 
+        public val oneofString: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, String?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "oneof_string",
@@ -1220,7 +1226,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::oneofString,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::oneofString,
             )
-        public val oneofBytes: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.ByteArr?> = 
+        public val oneofBytes: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.ByteArr?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "oneof_bytes",
@@ -1230,7 +1236,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::oneofBytes,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::oneofBytes,
             )
-        public val oneofBool: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Boolean?> = 
+        public val oneofBool: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "oneof_bool",
@@ -1240,7 +1246,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::oneofBool,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::oneofBool,
             )
-        public val oneofUint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Long?> = 
+        public val oneofUint64: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Long?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "oneof_uint64",
@@ -1250,7 +1256,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::oneofUint64,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::oneofUint64,
             )
-        public val oneofFloat: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Float?> = 
+        public val oneofFloat: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Float?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "oneof_float",
@@ -1260,7 +1266,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::oneofFloat,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::oneofFloat,
             )
-        public val oneofDouble: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Double?> = 
+        public val oneofDouble: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Double?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "oneof_double",
@@ -1270,7 +1276,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::oneofDouble,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::oneofDouble,
             )
-        public val oneofEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?> = 
+        public val oneofEnum: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "oneof_enum",
@@ -1280,7 +1286,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::oneofEnum,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::oneofEnum,
             )
-        public val fieldname1: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val fieldname1: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "fieldname1",
@@ -1290,7 +1296,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::fieldname1,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::fieldname1,
             )
-        public val fieldName2: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val fieldName2: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "field_name2",
@@ -1300,7 +1306,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::fieldName2,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::fieldName2,
             )
-        public val fieldName3: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val fieldName3: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "_field_name3",
@@ -1310,7 +1316,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::fieldName3,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::fieldName3,
             )
-        public val field_name4: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val field_name4: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "field__name4_",
@@ -1320,7 +1326,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::field_name4,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::field_name4,
             )
-        public val field0name5: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val field0name5: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "field0name5",
@@ -1330,7 +1336,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::field0name5,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::field0name5,
             )
-        public val field0Name6: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val field0Name6: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "field_0_name6",
@@ -1340,7 +1346,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::field0Name6,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::field0Name6,
             )
-        public val fieldName7: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val fieldName7: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "fieldName7",
@@ -1350,7 +1356,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::fieldName7,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::fieldName7,
             )
-        public val fieldName8: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val fieldName8: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "FieldName8",
@@ -1360,7 +1366,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::fieldName8,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::fieldName8,
             )
-        public val fieldName9: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val fieldName9: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "field_Name9",
@@ -1370,7 +1376,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::fieldName9,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::fieldName9,
             )
-        public val fieldName10: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val fieldName10: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "Field_Name10",
@@ -1380,7 +1386,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::fieldName10,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::fieldName10,
             )
-        public val fIELDNAME11: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val fIELDNAME11: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "FIELD_NAME11",
@@ -1390,7 +1396,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::fIELDNAME11,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::fIELDNAME11,
             )
-        public val fIELDName12: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val fIELDName12: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "FIELD_name12",
@@ -1400,7 +1406,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::fIELDName12,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::fIELDName12,
             )
-        public val _fieldName13: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val _fieldName13: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "__field_name13",
@@ -1410,7 +1416,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::_fieldName13,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::_fieldName13,
             )
-        public val _FieldName14: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val _FieldName14: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "__Field_name14",
@@ -1420,7 +1426,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::_FieldName14,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::_FieldName14,
             )
-        public val field_name15: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val field_name15: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "field__name15",
@@ -1430,7 +1436,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::field_name15,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::field_name15,
             )
-        public val field_Name16: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val field_Name16: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "field__Name16",
@@ -1440,7 +1446,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::field_Name16,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::field_Name16,
             )
-        public val fieldName17_: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val fieldName17_: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "field_name17__",
@@ -1450,7 +1456,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 value = pbandk.conformance.pb.TestAllTypesProto2::fieldName17_,
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::fieldName17_,
             )
-        public val fieldName18_: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
+        public val fieldName18_: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "Field_name18__",
@@ -1461,7 +1467,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::fieldName18_,
             )
 
-        public val oneofField: pbandk.OneofDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2.OneofField<*>> = 
+        public val oneofField: pbandk.OneofDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2.OneofField<*>> =
             pbandk.OneofDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
                 name = "oneof_field",
@@ -1482,7 +1488,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
     }
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2> {
-        public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2 by lazy { pbandk.conformance.pb.TestAllTypesProto2 {} }
+        public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2 by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.conformance.pb.TestAllTypesProto2 {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2> by lazy {
             pbandk.MessageDescriptor.of(
@@ -1619,9 +1627,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
         public class UNRECOGNIZED(value: Int) : NestedEnum(value)
 
         public companion object : pbandk.Message.Enum.Companion<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum> {
-            public val values: List<TestAllTypesProto2.NestedEnum> by lazy { listOf(FOO, BAR, BAZ, NEG) }
-            override fun fromValue(value: Int): pbandk.conformance.pb.TestAllTypesProto2.NestedEnum = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-            override fun fromName(name: String): pbandk.conformance.pb.TestAllTypesProto2.NestedEnum = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NestedEnum with name: $name")
+            public val values: List<TestAllTypesProto2.NestedEnum> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+                listOf(FOO, BAR, BAZ, NEG)
+            }
+
+            override fun fromValue(value: Int): pbandk.conformance.pb.TestAllTypesProto2.NestedEnum =
+                values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+
+            override fun fromName(name: String): pbandk.conformance.pb.TestAllTypesProto2.NestedEnum =
+                values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NestedEnum with name: $name")
         }
     }
 
@@ -1650,7 +1664,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
 
         @pbandk.PublicForGeneratedCode
         public object FieldDescriptors {
-            public val a: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage, Int?> = 
+            public val a: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage, Int?> =
                 pbandk.FieldDescriptor.of(
                     messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage::descriptor,
                     name = "a",
@@ -1660,7 +1674,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                     value = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage::a,
                     mutableValue = pbandk.conformance.pb.TestAllTypesProto2.MutableNestedMessage::a,
                 )
-            public val corecursive: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage, pbandk.conformance.pb.TestAllTypesProto2?> = 
+            public val corecursive: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage, pbandk.conformance.pb.TestAllTypesProto2?> =
                 pbandk.FieldDescriptor.of(
                     messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage::descriptor,
                     name = "corecursive",
@@ -1673,7 +1687,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
         }
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage> {
-            public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage by lazy { pbandk.conformance.pb.TestAllTypesProto2.NestedMessage {} }
+            public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage by lazy(LazyThreadSafetyMode.PUBLICATION) {
+                pbandk.conformance.pb.TestAllTypesProto2.NestedMessage {}
+            }
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage> by lazy {
                 pbandk.MessageDescriptor.of(
@@ -1720,7 +1736,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
 
         @pbandk.PublicForGeneratedCode
         public object FieldDescriptors {
-            public val groupInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.Data, Int?> = 
+            public val groupInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.Data, Int?> =
                 pbandk.FieldDescriptor.of(
                     messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2.Data::descriptor,
                     name = "group_int32",
@@ -1730,7 +1746,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                     value = pbandk.conformance.pb.TestAllTypesProto2.Data::groupInt32,
                     mutableValue = pbandk.conformance.pb.TestAllTypesProto2.MutableData::groupInt32,
                 )
-            public val groupUint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.Data, Int?> = 
+            public val groupUint32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.Data, Int?> =
                 pbandk.FieldDescriptor.of(
                     messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2.Data::descriptor,
                     name = "group_uint32",
@@ -1743,7 +1759,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
         }
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.Data> {
-            public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.Data by lazy { pbandk.conformance.pb.TestAllTypesProto2.Data {} }
+            public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.Data by lazy(LazyThreadSafetyMode.PUBLICATION) {
+                pbandk.conformance.pb.TestAllTypesProto2.Data {}
+            }
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.Data> by lazy {
                 pbandk.MessageDescriptor.of(
@@ -1789,7 +1807,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
         }
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect> {
-            public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect by lazy { pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect {} }
+            public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect by lazy(LazyThreadSafetyMode.PUBLICATION) {
+                pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect {}
+            }
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect> by lazy {
                 pbandk.MessageDescriptor.of(
@@ -1828,7 +1848,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
 
         @pbandk.PublicForGeneratedCode
         public object FieldDescriptors {
-            public val str: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1, String?> = 
+            public val str: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1, String?> =
                 pbandk.FieldDescriptor.of(
                     messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1::descriptor,
                     name = "str",
@@ -1841,7 +1861,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
         }
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1> {
-            public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 by lazy { pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 {} }
+            public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 by lazy(LazyThreadSafetyMode.PUBLICATION) {
+                pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 {}
+            }
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1> by lazy {
                 pbandk.MessageDescriptor.of(
@@ -1884,7 +1906,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
 
         @pbandk.PublicForGeneratedCode
         public object FieldDescriptors {
-            public val i: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2, Int?> = 
+            public val i: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2, Int?> =
                 pbandk.FieldDescriptor.of(
                     messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2::descriptor,
                     name = "i",
@@ -1897,7 +1919,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
         }
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2> {
-            public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 by lazy { pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 {} }
+            public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 by lazy(LazyThreadSafetyMode.PUBLICATION) {
+                pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 {}
+            }
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2> by lazy {
                 pbandk.MessageDescriptor.of(
@@ -2063,7 +2087,7 @@ public sealed interface ForeignMessageProto2 : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val c: pbandk.FieldDescriptor<pbandk.conformance.pb.ForeignMessageProto2, Int?> = 
+        public val c: pbandk.FieldDescriptor<pbandk.conformance.pb.ForeignMessageProto2, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.ForeignMessageProto2::descriptor,
                 name = "c",
@@ -2076,7 +2100,9 @@ public sealed interface ForeignMessageProto2 : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ForeignMessageProto2> {
-        public val defaultInstance: pbandk.conformance.pb.ForeignMessageProto2 by lazy { pbandk.conformance.pb.ForeignMessageProto2 {} }
+        public val defaultInstance: pbandk.conformance.pb.ForeignMessageProto2 by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.conformance.pb.ForeignMessageProto2 {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ForeignMessageProto2> by lazy {
             pbandk.MessageDescriptor.of(
@@ -2127,7 +2153,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val optionalInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes, Int?> = 
+        public val optionalInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes, Int?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.UnknownToTestAllTypes::descriptor,
                 name = "optional_int32",
@@ -2137,7 +2163,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
                 value = pbandk.conformance.pb.UnknownToTestAllTypes::optionalInt32,
                 mutableValue = pbandk.conformance.pb.MutableUnknownToTestAllTypes::optionalInt32,
             )
-        public val optionalString: pbandk.FieldDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes, String?> = 
+        public val optionalString: pbandk.FieldDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes, String?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.UnknownToTestAllTypes::descriptor,
                 name = "optional_string",
@@ -2147,7 +2173,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
                 value = pbandk.conformance.pb.UnknownToTestAllTypes::optionalString,
                 mutableValue = pbandk.conformance.pb.MutableUnknownToTestAllTypes::optionalString,
             )
-        public val nestedMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes, pbandk.conformance.pb.ForeignMessageProto2?> = 
+        public val nestedMessage: pbandk.FieldDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes, pbandk.conformance.pb.ForeignMessageProto2?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.UnknownToTestAllTypes::descriptor,
                 name = "nested_message",
@@ -2157,7 +2183,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
                 value = pbandk.conformance.pb.UnknownToTestAllTypes::nestedMessage,
                 mutableValue = pbandk.conformance.pb.MutableUnknownToTestAllTypes::nestedMessage,
             )
-        public val optionalBool: pbandk.FieldDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes, Boolean?> = 
+        public val optionalBool: pbandk.FieldDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes, Boolean?> =
             pbandk.FieldDescriptor.of(
                 messageDescriptor = pbandk.conformance.pb.UnknownToTestAllTypes::descriptor,
                 name = "optional_bool",
@@ -2167,7 +2193,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
                 value = pbandk.conformance.pb.UnknownToTestAllTypes::optionalBool,
                 mutableValue = pbandk.conformance.pb.MutableUnknownToTestAllTypes::optionalBool,
             )
-        public val repeatedInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes, List<Int>> = 
+        public val repeatedInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes, List<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.conformance.pb.UnknownToTestAllTypes::descriptor,
                 name = "repeated_int32",
@@ -2180,7 +2206,9 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.UnknownToTestAllTypes> {
-        public val defaultInstance: pbandk.conformance.pb.UnknownToTestAllTypes by lazy { pbandk.conformance.pb.UnknownToTestAllTypes {} }
+        public val defaultInstance: pbandk.conformance.pb.UnknownToTestAllTypes by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.conformance.pb.UnknownToTestAllTypes {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes> by lazy {
             pbandk.MessageDescriptor.of(
@@ -2222,7 +2250,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
 
         @pbandk.PublicForGeneratedCode
         public object FieldDescriptors {
-            public val a: pbandk.FieldDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup, Int?> = 
+            public val a: pbandk.FieldDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup, Int?> =
                 pbandk.FieldDescriptor.of(
                     messageDescriptor = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup::descriptor,
                     name = "a",
@@ -2235,7 +2263,9 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
         }
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup> {
-            public val defaultInstance: pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup by lazy { pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup {} }
+            public val defaultInstance: pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup by lazy(LazyThreadSafetyMode.PUBLICATION) {
+                pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup {}
+            }
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup> by lazy {
                 pbandk.MessageDescriptor.of(
@@ -2520,117 +2550,118 @@ public fun TestAllTypesProto2(
  */
 @pbandk.Export
 @pbandk.JsName("buildTestAllTypesProto2")
-public fun TestAllTypesProto2(builderAction: pbandk.conformance.pb.MutableTestAllTypesProto2.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2 = pbandk.conformance.pb.MutableTestAllTypesProto2_Impl(
-    optionalInt32 = null,
-    optionalInt64 = null,
-    optionalUint32 = null,
-    optionalUint64 = null,
-    optionalSint32 = null,
-    optionalSint64 = null,
-    optionalFixed32 = null,
-    optionalFixed64 = null,
-    optionalSfixed32 = null,
-    optionalSfixed64 = null,
-    optionalFloat = null,
-    optionalDouble = null,
-    optionalBool = null,
-    optionalString = null,
-    optionalBytes = null,
-    optionalNestedMessage = null,
-    optionalForeignMessage = null,
-    optionalNestedEnum = null,
-    optionalForeignEnum = null,
-    optionalStringPiece = null,
-    optionalCord = null,
-    recursiveMessage = null,
-    repeatedInt32 = pbandk.gen.MutableListField(),
-    repeatedInt64 = pbandk.gen.MutableListField(),
-    repeatedUint32 = pbandk.gen.MutableListField(),
-    repeatedUint64 = pbandk.gen.MutableListField(),
-    repeatedSint32 = pbandk.gen.MutableListField(),
-    repeatedSint64 = pbandk.gen.MutableListField(),
-    repeatedFixed32 = pbandk.gen.MutableListField(),
-    repeatedFixed64 = pbandk.gen.MutableListField(),
-    repeatedSfixed32 = pbandk.gen.MutableListField(),
-    repeatedSfixed64 = pbandk.gen.MutableListField(),
-    repeatedFloat = pbandk.gen.MutableListField(),
-    repeatedDouble = pbandk.gen.MutableListField(),
-    repeatedBool = pbandk.gen.MutableListField(),
-    repeatedString = pbandk.gen.MutableListField(),
-    repeatedBytes = pbandk.gen.MutableListField(),
-    repeatedNestedMessage = pbandk.gen.MutableListField(),
-    repeatedForeignMessage = pbandk.gen.MutableListField(),
-    repeatedNestedEnum = pbandk.gen.MutableListField(),
-    repeatedForeignEnum = pbandk.gen.MutableListField(),
-    repeatedStringPiece = pbandk.gen.MutableListField(),
-    repeatedCord = pbandk.gen.MutableListField(),
-    packedInt32 = pbandk.gen.MutableListField(),
-    packedInt64 = pbandk.gen.MutableListField(),
-    packedUint32 = pbandk.gen.MutableListField(),
-    packedUint64 = pbandk.gen.MutableListField(),
-    packedSint32 = pbandk.gen.MutableListField(),
-    packedSint64 = pbandk.gen.MutableListField(),
-    packedFixed32 = pbandk.gen.MutableListField(),
-    packedFixed64 = pbandk.gen.MutableListField(),
-    packedSfixed32 = pbandk.gen.MutableListField(),
-    packedSfixed64 = pbandk.gen.MutableListField(),
-    packedFloat = pbandk.gen.MutableListField(),
-    packedDouble = pbandk.gen.MutableListField(),
-    packedBool = pbandk.gen.MutableListField(),
-    packedNestedEnum = pbandk.gen.MutableListField(),
-    unpackedInt32 = pbandk.gen.MutableListField(),
-    unpackedInt64 = pbandk.gen.MutableListField(),
-    unpackedUint32 = pbandk.gen.MutableListField(),
-    unpackedUint64 = pbandk.gen.MutableListField(),
-    unpackedSint32 = pbandk.gen.MutableListField(),
-    unpackedSint64 = pbandk.gen.MutableListField(),
-    unpackedFixed32 = pbandk.gen.MutableListField(),
-    unpackedFixed64 = pbandk.gen.MutableListField(),
-    unpackedSfixed32 = pbandk.gen.MutableListField(),
-    unpackedSfixed64 = pbandk.gen.MutableListField(),
-    unpackedFloat = pbandk.gen.MutableListField(),
-    unpackedDouble = pbandk.gen.MutableListField(),
-    unpackedBool = pbandk.gen.MutableListField(),
-    unpackedNestedEnum = pbandk.gen.MutableListField(),
-    mapInt32Int32 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapInt32Int32),
-    mapInt64Int64 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapInt64Int64),
-    mapUint32Uint32 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapUint32Uint32),
-    mapUint64Uint64 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapUint64Uint64),
-    mapSint32Sint32 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapSint32Sint32),
-    mapSint64Sint64 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapSint64Sint64),
-    mapFixed32Fixed32 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapFixed32Fixed32),
-    mapFixed64Fixed64 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapFixed64Fixed64),
-    mapSfixed32Sfixed32 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapSfixed32Sfixed32),
-    mapSfixed64Sfixed64 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapSfixed64Sfixed64),
-    mapInt32Float = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapInt32Float),
-    mapInt32Double = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapInt32Double),
-    mapBoolBool = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapBoolBool),
-    mapStringString = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapStringString),
-    mapStringBytes = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapStringBytes),
-    mapStringNestedMessage = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapStringNestedMessage),
-    mapStringForeignMessage = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapStringForeignMessage),
-    mapStringNestedEnum = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapStringNestedEnum),
-    mapStringForeignEnum = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapStringForeignEnum),
-    fieldname1 = null,
-    fieldName2 = null,
-    fieldName3 = null,
-    field_name4 = null,
-    field0name5 = null,
-    field0Name6 = null,
-    fieldName7 = null,
-    fieldName8 = null,
-    fieldName9 = null,
-    fieldName10 = null,
-    fIELDNAME11 = null,
-    fIELDName12 = null,
-    _fieldName13 = null,
-    _FieldName14 = null,
-    field_name15 = null,
-    field_Name16 = null,
-    fieldName17_ = null,
-    fieldName18_ = null,
-    oneofField = null,
-).also(builderAction).toTestAllTypesProto2()
+public fun TestAllTypesProto2(builderAction: pbandk.conformance.pb.MutableTestAllTypesProto2.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2 =
+    pbandk.conformance.pb.MutableTestAllTypesProto2_Impl(
+        optionalInt32 = null,
+        optionalInt64 = null,
+        optionalUint32 = null,
+        optionalUint64 = null,
+        optionalSint32 = null,
+        optionalSint64 = null,
+        optionalFixed32 = null,
+        optionalFixed64 = null,
+        optionalSfixed32 = null,
+        optionalSfixed64 = null,
+        optionalFloat = null,
+        optionalDouble = null,
+        optionalBool = null,
+        optionalString = null,
+        optionalBytes = null,
+        optionalNestedMessage = null,
+        optionalForeignMessage = null,
+        optionalNestedEnum = null,
+        optionalForeignEnum = null,
+        optionalStringPiece = null,
+        optionalCord = null,
+        recursiveMessage = null,
+        repeatedInt32 = pbandk.gen.MutableListField(),
+        repeatedInt64 = pbandk.gen.MutableListField(),
+        repeatedUint32 = pbandk.gen.MutableListField(),
+        repeatedUint64 = pbandk.gen.MutableListField(),
+        repeatedSint32 = pbandk.gen.MutableListField(),
+        repeatedSint64 = pbandk.gen.MutableListField(),
+        repeatedFixed32 = pbandk.gen.MutableListField(),
+        repeatedFixed64 = pbandk.gen.MutableListField(),
+        repeatedSfixed32 = pbandk.gen.MutableListField(),
+        repeatedSfixed64 = pbandk.gen.MutableListField(),
+        repeatedFloat = pbandk.gen.MutableListField(),
+        repeatedDouble = pbandk.gen.MutableListField(),
+        repeatedBool = pbandk.gen.MutableListField(),
+        repeatedString = pbandk.gen.MutableListField(),
+        repeatedBytes = pbandk.gen.MutableListField(),
+        repeatedNestedMessage = pbandk.gen.MutableListField(),
+        repeatedForeignMessage = pbandk.gen.MutableListField(),
+        repeatedNestedEnum = pbandk.gen.MutableListField(),
+        repeatedForeignEnum = pbandk.gen.MutableListField(),
+        repeatedStringPiece = pbandk.gen.MutableListField(),
+        repeatedCord = pbandk.gen.MutableListField(),
+        packedInt32 = pbandk.gen.MutableListField(),
+        packedInt64 = pbandk.gen.MutableListField(),
+        packedUint32 = pbandk.gen.MutableListField(),
+        packedUint64 = pbandk.gen.MutableListField(),
+        packedSint32 = pbandk.gen.MutableListField(),
+        packedSint64 = pbandk.gen.MutableListField(),
+        packedFixed32 = pbandk.gen.MutableListField(),
+        packedFixed64 = pbandk.gen.MutableListField(),
+        packedSfixed32 = pbandk.gen.MutableListField(),
+        packedSfixed64 = pbandk.gen.MutableListField(),
+        packedFloat = pbandk.gen.MutableListField(),
+        packedDouble = pbandk.gen.MutableListField(),
+        packedBool = pbandk.gen.MutableListField(),
+        packedNestedEnum = pbandk.gen.MutableListField(),
+        unpackedInt32 = pbandk.gen.MutableListField(),
+        unpackedInt64 = pbandk.gen.MutableListField(),
+        unpackedUint32 = pbandk.gen.MutableListField(),
+        unpackedUint64 = pbandk.gen.MutableListField(),
+        unpackedSint32 = pbandk.gen.MutableListField(),
+        unpackedSint64 = pbandk.gen.MutableListField(),
+        unpackedFixed32 = pbandk.gen.MutableListField(),
+        unpackedFixed64 = pbandk.gen.MutableListField(),
+        unpackedSfixed32 = pbandk.gen.MutableListField(),
+        unpackedSfixed64 = pbandk.gen.MutableListField(),
+        unpackedFloat = pbandk.gen.MutableListField(),
+        unpackedDouble = pbandk.gen.MutableListField(),
+        unpackedBool = pbandk.gen.MutableListField(),
+        unpackedNestedEnum = pbandk.gen.MutableListField(),
+        mapInt32Int32 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapInt32Int32),
+        mapInt64Int64 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapInt64Int64),
+        mapUint32Uint32 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapUint32Uint32),
+        mapUint64Uint64 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapUint64Uint64),
+        mapSint32Sint32 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapSint32Sint32),
+        mapSint64Sint64 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapSint64Sint64),
+        mapFixed32Fixed32 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapFixed32Fixed32),
+        mapFixed64Fixed64 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapFixed64Fixed64),
+        mapSfixed32Sfixed32 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapSfixed32Sfixed32),
+        mapSfixed64Sfixed64 = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapSfixed64Sfixed64),
+        mapInt32Float = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapInt32Float),
+        mapInt32Double = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapInt32Double),
+        mapBoolBool = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapBoolBool),
+        mapStringString = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapStringString),
+        mapStringBytes = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapStringBytes),
+        mapStringNestedMessage = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapStringNestedMessage),
+        mapStringForeignMessage = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapStringForeignMessage),
+        mapStringNestedEnum = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapStringNestedEnum),
+        mapStringForeignEnum = pbandk.gen.MutableMapField(pbandk.conformance.pb.TestAllTypesProto2.FieldDescriptors.mapStringForeignEnum),
+        fieldname1 = null,
+        fieldName2 = null,
+        fieldName3 = null,
+        field_name4 = null,
+        field0name5 = null,
+        field0Name6 = null,
+        fieldName7 = null,
+        fieldName8 = null,
+        fieldName9 = null,
+        fieldName10 = null,
+        fIELDNAME11 = null,
+        fIELDName12 = null,
+        _fieldName13 = null,
+        _FieldName14 = null,
+        field_name15 = null,
+        field_Name16 = null,
+        fieldName17_ = null,
+        fieldName18_ = null,
+        oneofField = null,
+    ).also(builderAction).toTestAllTypesProto2()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForTestAllTypesProto2")
@@ -2746,8 +2777,9 @@ private class TestAllTypesProto2_Impl(
     override val fieldName17_: Int?,
     override val fieldName18_: Int?,
     override val oneofField: pbandk.conformance.pb.TestAllTypesProto2.OneofField<*>?,
+    extensionFields: pbandk.FieldSet<pbandk.conformance.pb.TestAllTypesProto2>,
     unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.conformance.pb.TestAllTypesProto2, pbandk.gen.GeneratedExtendableMessage<pbandk.conformance.pb.TestAllTypesProto2>(unknownFields) {
+) : pbandk.conformance.pb.TestAllTypesProto2, pbandk.gen.GeneratedExtendableMessage<pbandk.conformance.pb.TestAllTypesProto2>(extensionFields, unknownFields) {
     override val descriptor get() = pbandk.conformance.pb.TestAllTypesProto2.descriptor
 
     override val oneofUint32: Int?
@@ -3138,6 +3170,7 @@ private class MutableTestAllTypesProto2_Impl(
     override var oneofEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?
         get() = (oneofField as? pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofEnum)?.value
         set(value) { oneofField = value?.let { pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofEnum(it) } }
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.conformance.pb.MutableTestAllTypesProto2.() -> Unit) = super.copy(builderAction)
 
@@ -3365,6 +3398,7 @@ private class MutableTestAllTypesProto2_Impl(
         fieldName17_ = fieldName17_,
         fieldName18_ = fieldName18_,
         oneofField = oneofField,
+        extensionFields = extensionFields.toFieldSet(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -3392,10 +3426,11 @@ public fun TestAllTypesProto2.Companion.NestedMessage(
  */
 @pbandk.Export
 @pbandk.JsName("buildTestAllTypesProto2NestedMessage")
-public fun TestAllTypesProto2.Companion.NestedMessage(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableNestedMessage.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage = pbandk.conformance.pb.TestAllTypesProto2_MutableNestedMessage_Impl(
-    a = null,
-    corecursive = null,
-).also(builderAction).toNestedMessage()
+public fun TestAllTypesProto2.Companion.NestedMessage(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableNestedMessage.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage =
+    pbandk.conformance.pb.TestAllTypesProto2_MutableNestedMessage_Impl(
+        a = null,
+        corecursive = null,
+    ).also(builderAction).toNestedMessage()
 
 /**
  * The [MutableNestedMessage] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -3435,6 +3470,7 @@ private class TestAllTypesProto2_MutableNestedMessage_Impl(
     override var corecursive: pbandk.conformance.pb.TestAllTypesProto2?,
 ) : pbandk.conformance.pb.TestAllTypesProto2.MutableNestedMessage, pbandk.gen.MutableGeneratedMessage<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>() {
     override val descriptor get() = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableNestedMessage.() -> Unit) = super.copy(builderAction)
 
@@ -3475,10 +3511,11 @@ public fun TestAllTypesProto2.Companion.Data(
  */
 @pbandk.Export
 @pbandk.JsName("buildTestAllTypesProto2Data")
-public fun TestAllTypesProto2.Companion.Data(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableData.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.Data = pbandk.conformance.pb.TestAllTypesProto2_MutableData_Impl(
-    groupInt32 = null,
-    groupUint32 = null,
-).also(builderAction).toData()
+public fun TestAllTypesProto2.Companion.Data(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableData.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.Data =
+    pbandk.conformance.pb.TestAllTypesProto2_MutableData_Impl(
+        groupInt32 = null,
+        groupUint32 = null,
+    ).also(builderAction).toData()
 
 /**
  * The [MutableData] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -3518,6 +3555,7 @@ private class TestAllTypesProto2_MutableData_Impl(
     override var groupUint32: Int?,
 ) : pbandk.conformance.pb.TestAllTypesProto2.MutableData, pbandk.gen.MutableGeneratedMessage<pbandk.conformance.pb.TestAllTypesProto2.Data>() {
     override val descriptor get() = pbandk.conformance.pb.TestAllTypesProto2.Data.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableData.() -> Unit) = super.copy(builderAction)
 
@@ -3554,8 +3592,9 @@ public fun TestAllTypesProto2.Companion.MessageSetCorrect(
  */
 @pbandk.Export
 @pbandk.JsName("buildTestAllTypesProto2MessageSetCorrect")
-public fun TestAllTypesProto2.Companion.MessageSetCorrect(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrect.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = pbandk.conformance.pb.TestAllTypesProto2_MutableMessageSetCorrect_Impl(
-).also(builderAction).toMessageSetCorrect()
+public fun TestAllTypesProto2.Companion.MessageSetCorrect(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrect.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect =
+    pbandk.conformance.pb.TestAllTypesProto2_MutableMessageSetCorrect_Impl(
+    ).also(builderAction).toMessageSetCorrect()
 
 /**
  * The [MutableMessageSetCorrect] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -3569,8 +3608,9 @@ public fun MutableTestAllTypesProto2.MessageSetCorrect(builderAction: pbandk.con
 public fun TestAllTypesProto2.MessageSetCorrect?.orDefault(): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = this ?: pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect.defaultInstance
 
 private class TestAllTypesProto2_MessageSetCorrect_Impl(
+    extensionFields: pbandk.FieldSet<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect>,
     unknownFields: Map<Int, pbandk.UnknownField>
-) : pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect, pbandk.gen.GeneratedExtendableMessage<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect>(unknownFields) {
+) : pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect, pbandk.gen.GeneratedExtendableMessage<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect>(extensionFields, unknownFields) {
     override val descriptor get() = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect.descriptor
 
     @Suppress("RedundantOverride")
@@ -3587,6 +3627,7 @@ private class TestAllTypesProto2_MessageSetCorrect_Impl(
 private class TestAllTypesProto2_MutableMessageSetCorrect_Impl(
 ) : pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrect, pbandk.gen.MutableGeneratedExtendableMessage<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect>() {
     override val descriptor get() = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrect.() -> Unit) = super.copy(builderAction)
 
@@ -3596,6 +3637,7 @@ private class TestAllTypesProto2_MutableMessageSetCorrect_Impl(
     ) = throw UnsupportedOperationException()
 
     fun toMessageSetCorrect() = TestAllTypesProto2_MessageSetCorrect_Impl(
+        extensionFields = extensionFields.toFieldSet(),
         unknownFields = unknownFields.toMap()
     )
 }
@@ -3621,9 +3663,10 @@ public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension1(
  */
 @pbandk.Export
 @pbandk.JsName("buildTestAllTypesProto2MessageSetCorrectExtension1")
-public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension1(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension1.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 = pbandk.conformance.pb.TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl(
-    str = null,
-).also(builderAction).toMessageSetCorrectExtension1()
+public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension1(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension1.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 =
+    pbandk.conformance.pb.TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl(
+        str = null,
+    ).also(builderAction).toMessageSetCorrectExtension1()
 
 /**
  * The [MutableMessageSetCorrectExtension1] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -3659,6 +3702,7 @@ private class TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl(
     override var str: String?,
 ) : pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension1, pbandk.gen.MutableGeneratedMessage<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1>() {
     override val descriptor get() = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension1.() -> Unit) = super.copy(builderAction)
 
@@ -3695,9 +3739,10 @@ public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension2(
  */
 @pbandk.Export
 @pbandk.JsName("buildTestAllTypesProto2MessageSetCorrectExtension2")
-public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension2(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension2.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 = pbandk.conformance.pb.TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl(
-    i = null,
-).also(builderAction).toMessageSetCorrectExtension2()
+public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension2(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension2.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 =
+    pbandk.conformance.pb.TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl(
+        i = null,
+    ).also(builderAction).toMessageSetCorrectExtension2()
 
 /**
  * The [MutableMessageSetCorrectExtension2] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -3733,6 +3778,7 @@ private class TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl(
     override var i: Int?,
 ) : pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension2, pbandk.gen.MutableGeneratedMessage<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2>() {
     override val descriptor get() = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension2.() -> Unit) = super.copy(builderAction)
 
@@ -3769,9 +3815,10 @@ public fun ForeignMessageProto2(
  */
 @pbandk.Export
 @pbandk.JsName("buildForeignMessageProto2")
-public fun ForeignMessageProto2(builderAction: pbandk.conformance.pb.MutableForeignMessageProto2.() -> Unit): pbandk.conformance.pb.ForeignMessageProto2 = pbandk.conformance.pb.MutableForeignMessageProto2_Impl(
-    c = null,
-).also(builderAction).toForeignMessageProto2()
+public fun ForeignMessageProto2(builderAction: pbandk.conformance.pb.MutableForeignMessageProto2.() -> Unit): pbandk.conformance.pb.ForeignMessageProto2 =
+    pbandk.conformance.pb.MutableForeignMessageProto2_Impl(
+        c = null,
+    ).also(builderAction).toForeignMessageProto2()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForForeignMessageProto2")
@@ -3800,6 +3847,7 @@ private class MutableForeignMessageProto2_Impl(
     override var c: Int?,
 ) : pbandk.conformance.pb.MutableForeignMessageProto2, pbandk.gen.MutableGeneratedMessage<pbandk.conformance.pb.ForeignMessageProto2>() {
     override val descriptor get() = pbandk.conformance.pb.ForeignMessageProto2.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.conformance.pb.MutableForeignMessageProto2.() -> Unit) = super.copy(builderAction)
 
@@ -3844,13 +3892,14 @@ public fun UnknownToTestAllTypes(
  */
 @pbandk.Export
 @pbandk.JsName("buildUnknownToTestAllTypes")
-public fun UnknownToTestAllTypes(builderAction: pbandk.conformance.pb.MutableUnknownToTestAllTypes.() -> Unit): pbandk.conformance.pb.UnknownToTestAllTypes = pbandk.conformance.pb.MutableUnknownToTestAllTypes_Impl(
-    optionalInt32 = null,
-    optionalString = null,
-    nestedMessage = null,
-    optionalBool = null,
-    repeatedInt32 = pbandk.gen.MutableListField(),
-).also(builderAction).toUnknownToTestAllTypes()
+public fun UnknownToTestAllTypes(builderAction: pbandk.conformance.pb.MutableUnknownToTestAllTypes.() -> Unit): pbandk.conformance.pb.UnknownToTestAllTypes =
+    pbandk.conformance.pb.MutableUnknownToTestAllTypes_Impl(
+        optionalInt32 = null,
+        optionalString = null,
+        nestedMessage = null,
+        optionalBool = null,
+        repeatedInt32 = pbandk.gen.MutableListField(),
+    ).also(builderAction).toUnknownToTestAllTypes()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForUnknownToTestAllTypes")
@@ -3895,6 +3944,7 @@ private class MutableUnknownToTestAllTypes_Impl(
     override val repeatedInt32: pbandk.gen.MutableListField<Int>,
 ) : pbandk.conformance.pb.MutableUnknownToTestAllTypes, pbandk.gen.MutableGeneratedMessage<pbandk.conformance.pb.UnknownToTestAllTypes>() {
     override val descriptor get() = pbandk.conformance.pb.UnknownToTestAllTypes.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.conformance.pb.MutableUnknownToTestAllTypes.() -> Unit) = super.copy(builderAction)
 
@@ -3939,9 +3989,10 @@ public fun UnknownToTestAllTypes.Companion.OptionalGroup(
  */
 @pbandk.Export
 @pbandk.JsName("buildUnknownToTestAllTypesOptionalGroup")
-public fun UnknownToTestAllTypes.Companion.OptionalGroup(builderAction: pbandk.conformance.pb.UnknownToTestAllTypes.MutableOptionalGroup.() -> Unit): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup = pbandk.conformance.pb.UnknownToTestAllTypes_MutableOptionalGroup_Impl(
-    a = null,
-).also(builderAction).toOptionalGroup()
+public fun UnknownToTestAllTypes.Companion.OptionalGroup(builderAction: pbandk.conformance.pb.UnknownToTestAllTypes.MutableOptionalGroup.() -> Unit): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup =
+    pbandk.conformance.pb.UnknownToTestAllTypes_MutableOptionalGroup_Impl(
+        a = null,
+    ).also(builderAction).toOptionalGroup()
 
 /**
  * The [MutableOptionalGroup] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -3977,6 +4028,7 @@ private class UnknownToTestAllTypes_MutableOptionalGroup_Impl(
     override var a: Int?,
 ) : pbandk.conformance.pb.UnknownToTestAllTypes.MutableOptionalGroup, pbandk.gen.MutableGeneratedMessage<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup>() {
     override val descriptor get() = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.conformance.pb.UnknownToTestAllTypes.MutableOptionalGroup.() -> Unit) = super.copy(builderAction)
 

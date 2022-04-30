@@ -61,7 +61,7 @@ internal val FieldDescriptor.Type.binaryReadFn: BinaryWireDecoder.() -> Any
 
 internal class BinaryMessageDecoder(private val wireDecoder: BinaryWireDecoder) : MessageDecoder {
 
-    override fun <T : Message> readMessage(messageCompanion: Message.Companion<T>): T = try {
+    override fun <M : Message> readMessage(messageCompanion: Message.Companion<M>): M = try {
         messageCompanion.descriptor.builder {
             val fieldDescriptors = messageCompanion.descriptor.fields
             while (true) {
@@ -82,17 +82,17 @@ internal class BinaryMessageDecoder(private val wireDecoder: BinaryWireDecoder) 
                         is FieldDescriptor.Type.Repeated<*> -> {
                             value as Sequence<*>
                             @Suppress("UNCHECKED_CAST")
-                            (fd.getValue(this as T) as MutableList<Any?>).addAll(value)
+                            (fd.getValue(this as M) as MutableList<Any?>).addAll(value)
                         }
                         is FieldDescriptor.Type.Map<*, *> -> {
                             @Suppress("UNCHECKED_CAST")
                             value as Sequence<Map.Entry<*, *>>
                             @Suppress("UNCHECKED_CAST")
-                            (fd.getValue(this as T) as MutableMapField<Any?, Any?>).putAll(value)
+                            (fd.getValue(this as M) as MutableMapField<Any?, Any?>).putAll(value)
                         }
                         else -> {
                             @Suppress("UNCHECKED_CAST")
-                            (fd as FieldDescriptor<T, Any?>).updateValue(this, value)
+                            (fd as FieldDescriptor<M, Any?>).updateValue(this, value)
                         }
                     }
                 }

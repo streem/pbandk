@@ -12,9 +12,15 @@ public sealed class NullValue(override val value: Int, override val name: String
     public class UNRECOGNIZED(value: Int) : NullValue(value)
 
     public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.NullValue> {
-        public val values: List<NullValue> by lazy { listOf(NULL_VALUE) }
-        override fun fromValue(value: Int): pbandk.wkt.NullValue = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String): pbandk.wkt.NullValue = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NullValue with name: $name")
+        public val values: List<NullValue> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            listOf(NULL_VALUE)
+        }
+
+        override fun fromValue(value: Int): pbandk.wkt.NullValue =
+            values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+
+        override fun fromName(name: String): pbandk.wkt.NullValue =
+            values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NullValue with name: $name")
     }
 }
 
@@ -41,7 +47,7 @@ public sealed interface Struct : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val fields: pbandk.FieldDescriptor<pbandk.wkt.Struct, Map<String, pbandk.wkt.Value?>> = 
+        public val fields: pbandk.FieldDescriptor<pbandk.wkt.Struct, Map<String, pbandk.wkt.Value?>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.wkt.Struct::descriptor,
                 name = "fields",
@@ -54,7 +60,9 @@ public sealed interface Struct : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Struct> {
-        public val defaultInstance: pbandk.wkt.Struct by lazy { pbandk.wkt.Struct {} }
+        public val defaultInstance: pbandk.wkt.Struct by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.Struct {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Struct> by lazy {
             pbandk.MessageDescriptor.of(
@@ -102,24 +110,24 @@ public sealed interface Value : pbandk.Message {
     public val structValue: pbandk.wkt.Struct?
     public val listValue: pbandk.wkt.ListValue?
 
-    public sealed interface Kind<V> : pbandk.Message.OneOf<V> {
-        public class NullValue(nullValue: pbandk.wkt.NullValue = pbandk.wkt.NullValue.fromValue(0)) : 
-            Kind<pbandk.wkt.NullValue>, pbandk.gen.GeneratedOneOf<pbandk.wkt.NullValue>(nullValue, pbandk.wkt.Value.FieldDescriptors.nullValue)
-        public class NumberValue(numberValue: Double = 0.0) : 
-            Kind<Double>, pbandk.gen.GeneratedOneOf<Double>(numberValue, pbandk.wkt.Value.FieldDescriptors.numberValue)
-        public class StringValue(stringValue: String = "") : 
-            Kind<String>, pbandk.gen.GeneratedOneOf<String>(stringValue, pbandk.wkt.Value.FieldDescriptors.stringValue)
-        public class BoolValue(boolValue: Boolean = false) : 
-            Kind<Boolean>, pbandk.gen.GeneratedOneOf<Boolean>(boolValue, pbandk.wkt.Value.FieldDescriptors.boolValue)
-        public class StructValue(structValue: pbandk.wkt.Struct) : 
-            Kind<pbandk.wkt.Struct>, pbandk.gen.GeneratedOneOf<pbandk.wkt.Struct>(structValue, pbandk.wkt.Value.FieldDescriptors.structValue)
-        public class ListValue(listValue: pbandk.wkt.ListValue) : 
-            Kind<pbandk.wkt.ListValue>, pbandk.gen.GeneratedOneOf<pbandk.wkt.ListValue>(listValue, pbandk.wkt.Value.FieldDescriptors.listValue)
+    public sealed interface Kind<V : kotlin.Any> : pbandk.Message.OneOf<V> {
+        public class NullValue(nullValue: pbandk.wkt.NullValue = pbandk.wkt.NullValue.fromValue(0)) :
+            Kind<pbandk.wkt.NullValue>, pbandk.gen.GeneratedOneOf<pbandk.wkt.Value, pbandk.wkt.NullValue>(nullValue, pbandk.wkt.Value.FieldDescriptors.nullValue)
+        public class NumberValue(numberValue: Double = 0.0) :
+            Kind<Double>, pbandk.gen.GeneratedOneOf<pbandk.wkt.Value, Double>(numberValue, pbandk.wkt.Value.FieldDescriptors.numberValue)
+        public class StringValue(stringValue: String = "") :
+            Kind<String>, pbandk.gen.GeneratedOneOf<pbandk.wkt.Value, String>(stringValue, pbandk.wkt.Value.FieldDescriptors.stringValue)
+        public class BoolValue(boolValue: Boolean = false) :
+            Kind<Boolean>, pbandk.gen.GeneratedOneOf<pbandk.wkt.Value, Boolean>(boolValue, pbandk.wkt.Value.FieldDescriptors.boolValue)
+        public class StructValue(structValue: pbandk.wkt.Struct) :
+            Kind<pbandk.wkt.Struct>, pbandk.gen.GeneratedOneOf<pbandk.wkt.Value, pbandk.wkt.Struct>(structValue, pbandk.wkt.Value.FieldDescriptors.structValue)
+        public class ListValue(listValue: pbandk.wkt.ListValue) :
+            Kind<pbandk.wkt.ListValue>, pbandk.gen.GeneratedOneOf<pbandk.wkt.Value, pbandk.wkt.ListValue>(listValue, pbandk.wkt.Value.FieldDescriptors.listValue)
     }
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val nullValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.NullValue?> = 
+        public val nullValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.NullValue?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
                 name = "null_value",
@@ -129,7 +137,7 @@ public sealed interface Value : pbandk.Message {
                 value = pbandk.wkt.Value::nullValue,
                 mutableValue = pbandk.wkt.MutableValue::nullValue,
             )
-        public val numberValue: pbandk.FieldDescriptor<pbandk.wkt.Value, Double?> = 
+        public val numberValue: pbandk.FieldDescriptor<pbandk.wkt.Value, Double?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
                 name = "number_value",
@@ -139,7 +147,7 @@ public sealed interface Value : pbandk.Message {
                 value = pbandk.wkt.Value::numberValue,
                 mutableValue = pbandk.wkt.MutableValue::numberValue,
             )
-        public val stringValue: pbandk.FieldDescriptor<pbandk.wkt.Value, String?> = 
+        public val stringValue: pbandk.FieldDescriptor<pbandk.wkt.Value, String?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
                 name = "string_value",
@@ -149,7 +157,7 @@ public sealed interface Value : pbandk.Message {
                 value = pbandk.wkt.Value::stringValue,
                 mutableValue = pbandk.wkt.MutableValue::stringValue,
             )
-        public val boolValue: pbandk.FieldDescriptor<pbandk.wkt.Value, Boolean?> = 
+        public val boolValue: pbandk.FieldDescriptor<pbandk.wkt.Value, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
                 name = "bool_value",
@@ -159,7 +167,7 @@ public sealed interface Value : pbandk.Message {
                 value = pbandk.wkt.Value::boolValue,
                 mutableValue = pbandk.wkt.MutableValue::boolValue,
             )
-        public val structValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.Struct?> = 
+        public val structValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.Struct?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
                 name = "struct_value",
@@ -169,7 +177,7 @@ public sealed interface Value : pbandk.Message {
                 value = pbandk.wkt.Value::structValue,
                 mutableValue = pbandk.wkt.MutableValue::structValue,
             )
-        public val listValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.ListValue?> = 
+        public val listValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.ListValue?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
                 name = "list_value",
@@ -180,7 +188,7 @@ public sealed interface Value : pbandk.Message {
                 mutableValue = pbandk.wkt.MutableValue::listValue,
             )
 
-        public val kind: pbandk.OneofDescriptor<pbandk.wkt.Value, pbandk.wkt.Value.Kind<*>> = 
+        public val kind: pbandk.OneofDescriptor<pbandk.wkt.Value, pbandk.wkt.Value.Kind<*>> =
             pbandk.OneofDescriptor.of(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
                 name = "kind",
@@ -198,7 +206,9 @@ public sealed interface Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Value> {
-        public val defaultInstance: pbandk.wkt.Value by lazy { pbandk.wkt.Value {} }
+        public val defaultInstance: pbandk.wkt.Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.Value {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Value> by lazy {
             pbandk.MessageDescriptor.of(
@@ -248,7 +258,7 @@ public sealed interface ListValue : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val values: pbandk.FieldDescriptor<pbandk.wkt.ListValue, List<pbandk.wkt.Value>> = 
+        public val values: pbandk.FieldDescriptor<pbandk.wkt.ListValue, List<pbandk.wkt.Value>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.ListValue::descriptor,
                 name = "values",
@@ -261,7 +271,9 @@ public sealed interface ListValue : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.ListValue> {
-        public val defaultInstance: pbandk.wkt.ListValue by lazy { pbandk.wkt.ListValue {} }
+        public val defaultInstance: pbandk.wkt.ListValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.ListValue {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ListValue> by lazy {
             pbandk.MessageDescriptor.of(
@@ -302,9 +314,10 @@ public fun Struct(
  */
 @pbandk.Export
 @pbandk.JsName("buildStruct")
-public fun Struct(builderAction: pbandk.wkt.MutableStruct.() -> Unit): pbandk.wkt.Struct = pbandk.wkt.MutableStruct_Impl(
-    fields = pbandk.gen.MutableMapField(pbandk.wkt.Struct.FieldDescriptors.fields),
-).also(builderAction).toStruct()
+public fun Struct(builderAction: pbandk.wkt.MutableStruct.() -> Unit): pbandk.wkt.Struct =
+    pbandk.wkt.MutableStruct_Impl(
+        fields = pbandk.gen.MutableMapField(pbandk.wkt.Struct.FieldDescriptors.fields),
+    ).also(builderAction).toStruct()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForStruct")
@@ -333,6 +346,7 @@ private class MutableStruct_Impl(
     override val fields: pbandk.gen.MutableMapField<String, pbandk.wkt.Value?>,
 ) : pbandk.wkt.MutableStruct, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Struct>() {
     override val descriptor get() = pbandk.wkt.Struct.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableStruct.() -> Unit) = super.copy(builderAction)
 
@@ -369,9 +383,10 @@ public fun Value(
  */
 @pbandk.Export
 @pbandk.JsName("buildValue")
-public fun Value(builderAction: pbandk.wkt.MutableValue.() -> Unit): pbandk.wkt.Value = pbandk.wkt.MutableValue_Impl(
-    kind = null,
-).also(builderAction).toValue()
+public fun Value(builderAction: pbandk.wkt.MutableValue.() -> Unit): pbandk.wkt.Value =
+    pbandk.wkt.MutableValue_Impl(
+        kind = null,
+    ).also(builderAction).toValue()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForValue")
@@ -432,6 +447,7 @@ private class MutableValue_Impl(
     override var listValue: pbandk.wkt.ListValue?
         get() = (kind as? pbandk.wkt.Value.Kind.ListValue)?.value
         set(value) { kind = value?.let { pbandk.wkt.Value.Kind.ListValue(it) } }
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableValue.() -> Unit) = super.copy(builderAction)
 
@@ -468,9 +484,10 @@ public fun ListValue(
  */
 @pbandk.Export
 @pbandk.JsName("buildListValue")
-public fun ListValue(builderAction: pbandk.wkt.MutableListValue.() -> Unit): pbandk.wkt.ListValue = pbandk.wkt.MutableListValue_Impl(
-    values = pbandk.gen.MutableListField(),
-).also(builderAction).toListValue()
+public fun ListValue(builderAction: pbandk.wkt.MutableListValue.() -> Unit): pbandk.wkt.ListValue =
+    pbandk.wkt.MutableListValue_Impl(
+        values = pbandk.gen.MutableListField(),
+    ).also(builderAction).toListValue()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForListValue")
@@ -499,6 +516,7 @@ private class MutableListValue_Impl(
     override val values: pbandk.gen.MutableListField<pbandk.wkt.Value>,
 ) : pbandk.wkt.MutableListValue, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.ListValue>() {
     override val descriptor get() = pbandk.wkt.ListValue.descriptor
+
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.wkt.MutableListValue.() -> Unit) = super.copy(builderAction)
 
