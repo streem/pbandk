@@ -63,14 +63,23 @@ jobs:
             ./gradlew build --stacktrace
           else
             ./gradlew compileKotlinIosArm64 \
+                    compileKotlinIosSimulatorArm64 \
                     compileKotlinIosX64 \
+                    compileKotlinTvosArm64 \
+                    compileKotlinTvosSimulatorArm64 \
+                    compileKotlinTvosX64 \
                     compileKotlinMacosArm64 \
                     compileKotlinMacosX64 \
                     compileTestKotlinIosArm64 \
+                    compileTestKotlinIosSimulatorArm64 \
                     compileTestKotlinIosX64 \
+                    compileTestKotlinTvosArm64 \
+                    compileTestKotlinTvosSimulatorArm64 \
+                    compileTestKotlinTvosX64 \
                     compileTestKotlinMacosArm64 \
                     compileTestKotlinMacosX64 \
                     iosX64Test \
+                    tvosX64Test \
                     macosX64Test \
                     --stacktrace
           fi
@@ -96,7 +105,11 @@ jobs:
             ./gradlew publishToMavenLocal
           else
             ./gradlew publishIosArm64PublicationToMavenLocal \
+                    publishIosSimulatorArm64PublicationToMavenLocal \
                     publishIosX64PublicationToMavenLocal \
+                    publishTvosArm64PublicationToMavenLocal \
+                    publishTvosSimulatorArm64PublicationToMavenLocal \
+                    publishTvosX64PublicationToMavenLocal \
                     publishMacosArm64PublicationToMavenLocal \
                     publishMacosX64PublicationToMavenLocal
           fi
@@ -358,7 +371,11 @@ jobs:
           else
             ./gradlew clean \
                     publishIosArm64PublicationToSonatype \
+                    publishIosSimulatorArm64PublicationToSonatype \
                     publishIosX64PublicationToSonatype \
+                    publishTvosArm64PublicationToSonatype \
+                    publishTvosSimulatorArm64PublicationToSonatype \
+                    publishTvosX64PublicationToSonatype \
                     publishMacosArm64PublicationToSonatype \
                     publishMacosX64PublicationToSonatype
           fi
