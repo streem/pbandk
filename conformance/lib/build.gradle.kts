@@ -1,3 +1,4 @@
+import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -18,8 +19,12 @@ kotlin {
         nodejs {}
     }
 
-    macosX64("macos")
     linuxX64("linux")
+    if (DefaultNativePlatform.getCurrentOperatingSystem().isMacOsX && DefaultNativePlatform.getCurrentArchitecture().name == "aarch64") {
+        macosArm64("macos")
+    } else {
+        macosX64("macos")
+    }
     // Uncomment to enable Windows
     // mingwX64("windows")
 

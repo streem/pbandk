@@ -34,10 +34,16 @@ kotlin {
 
     iosArm64()
     iosX64()
+    iosSimulatorArm64()
 
-    macosX64()
-    macosArm64()
+    tvosArm64()
+    tvosX64()
+    tvosSimulatorArm64()
+
+    linuxArm64()
     linuxX64()
+    macosArm64()
+    macosX64()
 
     sourceSets {
         all {
