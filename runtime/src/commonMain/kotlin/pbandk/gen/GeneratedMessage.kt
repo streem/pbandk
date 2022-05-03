@@ -1,187 +1,176 @@
 package pbandk.gen
 
+import pbandk.ExtendableMessage
 import pbandk.FieldDescriptor
-import pbandk.FieldDescriptorSet
+import pbandk.FieldSet
+import pbandk.FieldSetCache
 import pbandk.Message
-import pbandk.MessageDescriptor
+import pbandk.MutableExtendableMessage
+import pbandk.MutableFieldSet
 import pbandk.MutableMessage
-import pbandk.OneofDescriptor
 import pbandk.PublicForGeneratedCode
 import pbandk.UnknownField
-import pbandk.internal.binary.Sizer
+import pbandk.decodeAs
 
-internal fun <M : Message> M.computeProtoSize(): Int = Sizer.rawMessageSize(this)
-
-internal fun <M : Message> M.computeHashCode(): Int {
-    var hash = 1
-
-    for (field in fieldDescriptors) {
-        hash = (31 * hash) + field.getValue(this).hashCode()
-    }
-
-    hash = (31 * hash) + unknownFields.hashCode()
-
-    return hash
-}
-
-internal fun <M : Message> equals(message: M, other: Any?): Boolean {
-    if (message === other) return true
-    if (other !is Message) return false
-
-    if (message.descriptor != other.descriptor) return false
-    @Suppress("UNCHECKED_CAST")
-    other as M
-
-    for (field in message.fieldDescriptors) {
-        if (field.getValue(message) != field.getValue(other)) return false
-    }
-
-    if (message.unknownFields != other.unknownFields) return false
-
-    return true
-}
-
-internal fun <M : Message> toString(message: M): String = buildString {
-    append(message.descriptor.name)
-    append("(")
-
-    for (field in message.fieldDescriptors) {
-        append("${field.name}=${field.getValue(message)}, ")
-    }
-
-    if (message.unknownFields.isNotEmpty()) {
-        append("unknownFields=$message.unknownFields")
-    } else if (this.endsWith(", ")) {
-        setLength(length - 2)
-    }
-
-    append(")")
-}
-
-internal fun <M : Message, MM : MutableMessage<M>> copy(message: M, builderAction: MM.() -> Unit): M {
-    return message.messageDescriptor.builder {
-        for (field in message.fieldDescriptors) {
-            field.copyValue(message, this)
-        }
-        unknownFields += message.unknownFields
-        @Suppress("UNCHECKED_CAST")
-        (this as MM).builderAction()
-    }
-}
-
-@Suppress("UNCHECKED_CAST")
-internal fun <M : Message> plus(message: M, other: Message?): M {
-    if (message.descriptor != other?.descriptor) return message
-    other as M
-
-    return copy(message) {
-        for (field in message.fieldDescriptors) {
-            if (field.oneofMember) {
-                continue
-            } else if (field.type is FieldDescriptor.Type.Message<*>) {
-                field as FieldDescriptor<M, Message?>
-
-                field.updateValue(this, field.getValue(message)?.plus(field.getValue(other)) ?: field.getValue(other))
-            } else if (field.type.hasPresence) {
-                field as FieldDescriptor<M, Any?>
-
-                field.getValue(other)?.let { field.updateValue(this, it) }
-            } else {
-                field as FieldDescriptor<M, Any>
-
-                field.updateValue(this, field.getValue(other))
-            }
-        }
-
-        for (oneof in message.messageDescriptor.oneofs) {
-            val messageValue = oneof.getValue(message)
-            val otherValue = oneof.getValue(other)
-
-            if (otherValue == null) {
-                continue
-            } else if (messageValue == null || messageValue::class != otherValue::class) {
-                oneof.copyValue(other, this)
-            } else if (messageValue.value is Message) {
-                messageValue as GeneratedOneOf<M, Message>
-                messageValue.currentFieldDescriptor.updateValue(
-                    this,
-                    messageValue.value.plus(otherValue.value as Message)
-                )
-            } else {
-                oneof.copyValue(other, this)
-            }
-        }
-        unknownFields += other.unknownFields
-    }
-}
-
+@Suppress("EqualsOrHashCode")
 public abstract class GeneratedMessage<M : Message>
 @PublicForGeneratedCode
 protected constructor(
     override val unknownFields: Map<Int, UnknownField> = emptyMap()
-) : Message {
+) : AbstractGeneratedMessage<M>() {
     override val protoSize: Int by lazy(LazyThreadSafetyMode.PUBLICATION) { computeProtoSize() }
-
     private val _hashCode: Int by lazy(LazyThreadSafetyMode.PUBLICATION) { computeHashCode() }
     override fun hashCode(): Int = _hashCode
-    override fun equals(other: Any?): Boolean = equals(this, other)
-    override fun toString(): String = toString(this)
-
-    public open fun <MM : MutableMessage<M>> copy(builderAction: MM.() -> Unit): M =
-        @Suppress("UNCHECKED_CAST")
-        copy(this as M, builderAction)
-
-    override fun plus(other: Message?): M =
-        @Suppress("UNCHECKED_CAST")
-        plus(this as M, other)
 }
 
 public abstract class MutableGeneratedMessage<M : Message>
 @PublicForGeneratedCode
 protected constructor(
     override val unknownFields: MutableMap<Int, UnknownField> = mutableMapOf()
-) : MutableMessage<M>, Message {
-    override val protoSize: Int get() = computeProtoSize()
-
-    override fun hashCode(): Int = computeHashCode()
-    override fun equals(other: Any?): Boolean = equals(this, other)
-    override fun toString(): String = toString(this)
-
-    public fun <MM : MutableMessage<M>> copy(@Suppress("UNUSED_PARAMETER") builderAction: MM.() -> Unit): M =
-        throw UnsupportedOperationException()
-
+) : AbstractGeneratedMessage<M>(), MutableMessage<M> {
+    override fun <MM : MutableMessage<M>> copy(builderAction: MM.() -> Unit): M = throw UnsupportedOperationException()
     override fun plus(other: Message?): M = throw UnsupportedOperationException()
 }
 
-@Suppress("UNCHECKED_CAST")
-private inline val <M : Message> M.messageDescriptor: MessageDescriptor<M>
-    get() = descriptor as MessageDescriptor<M>
-
-private inline val <M : Message> M.fieldDescriptors: FieldDescriptorSet<M>
-    get() = messageDescriptor.fields
-
-@Suppress("NOTHING_TO_INLINE")
-private inline fun <M : Message, V> FieldDescriptor<M, V>.copyValue(
-    fromMessage: M,
-    toMessage: MutableMessage<M>,
-) = updateValue(toMessage, getValue(fromMessage))
-
-@Suppress("NOTHING_TO_INLINE")
-private inline fun <M : Message, O : Message.OneOf<*>> OneofDescriptor<M, O>.copyValue(
-    fromMessage: M,
-    toMessage: MutableMessage<M>,
-) = updateValue(toMessage, getValue(fromMessage))
-
-public abstract class GeneratedOneOf<M : Message, V : Any>
+@Suppress("EqualsOrHashCode")
+public abstract class GeneratedExtendableMessage<M : Message>
 @PublicForGeneratedCode
 protected constructor(
-    public override val value: V,
-    internal val currentFieldDescriptor: FieldDescriptor<M, V?>
-) : Message.OneOf<V> {
-    override fun equals(other: Any?): Boolean =
-        this::class.isInstance(other) && value == (other as Message.OneOf<*>).value
+    internal val extensionFields: FieldSet<M> = FieldSet.empty(),
+    override val unknownFields: Map<Int, UnknownField> = emptyMap()
+) : AbstractGeneratedMessage<M>(), ExtendableMessage<M> {
+    override val protoSize: Int by lazy(LazyThreadSafetyMode.PUBLICATION) { computeProtoSize() }
+    private val _hashCode: Int by lazy(LazyThreadSafetyMode.PUBLICATION) { computeHashCode() }
+    override fun hashCode(): Int = _hashCode
 
-    override fun hashCode(): Int = value.hashCode()
+    private val extensionFieldCache: FieldSetCache<M> = FieldSetCache()
 
-    override fun toString(): String = "OneOf.${this::class.simpleName}($value)"
+    public override fun <V> getExtension(fd: FieldDescriptor<M, V>): V {
+        var value: V? = extensionFields[fd]
+        if (value != null) {
+            // The extension value was provided when this message was constructed
+            return value
+        }
+
+        value = extensionFieldCache[fd]
+        if (value != null) {
+            // If we've already decoded the value of the extension field from the unknown fields, then return the
+            // cached value
+            return value
+        }
+
+        // Try to find the extension field in the unknown fields and decode it
+        value = unknownFields[fd.number]?.decodeAs(fd)
+
+        return if (value != null) {
+            // We found the field and were able to decode it. Cache a copy of the decoded value and return it.
+            extensionFieldCache[fd] = value
+            value
+        } else if (!fd.type.hasPresence) {
+            // A value for this extension field was not provided. If the field type has a non-null default value
+            // then return it.
+            @Suppress("UNCHECKED_CAST")
+            fd.type.defaultValue as V
+        } else {
+            // A value was not provided and the default value for this field type is null, so just return null.
+            @Suppress("UNCHECKED_CAST")
+            null as V
+        }
+    }
 }
+
+public abstract class MutableGeneratedExtendableMessage<M : Message>
+@PublicForGeneratedCode
+protected constructor(
+    override val unknownFields: MutableMap<Int, UnknownField> = mutableMapOf()
+) : AbstractGeneratedMessage<M>(), MutableExtendableMessage<M> {
+    override fun <MM : MutableMessage<M>> copy(builderAction: MM.() -> Unit): M = throw UnsupportedOperationException()
+    override fun plus(other: Message?): M = throw UnsupportedOperationException()
+
+    protected val extensionFields: MutableFieldSet<M> = MutableFieldSet()
+
+    override fun <V> getExtension(fd: FieldDescriptor<M, V>): V {
+        return extensionFields[fd]
+            ?: if (!fd.type.hasPresence) {
+                // A value for this extension field was not provided. If the field type has a non-null default value
+                // then return it.
+                @Suppress("UNCHECKED_CAST")
+                fd.type.defaultValue as V
+            } else {
+                // A value was not provided and the default value for this field type is null, so just return null.
+                @Suppress("UNCHECKED_CAST")
+                null as V
+            }
+    }
+
+    override fun <V> setExtension(fd: FieldDescriptor<M, V>, newValue: V) {
+        if (newValue == null) {
+            extensionFields.remove(fd)
+        } else {
+            extensionFields[fd] = newValue
+        }
+    }
+
+//    override val unknownFields: MutableMap<Int, UnknownField> = UnknownFieldsProxy(unknownFields, extensionFields)
+}
+
+// A giant rabbit hole just so we can properly detect when an unknown field is added to the message with the
+// same field number as an extension field that had been previously added. In that case, we need to remove the
+// extension field since the unknown field is more recent and should take precedence. A lot of work for a very
+// edge case :( Perhaps we'll find a simpler way to implement this in the future.
+/*
+private class UnknownFieldsProxy(
+    private val unknownFields: MutableMap<Int, UnknownField>,
+    private val extensionValues: MutableExtensionFieldSet<*>
+) : MutableMap<Int, UnknownField> by unknownFields {
+    override fun put(key: Int, value: UnknownField) = unknownFields.put(key, value).also {
+        extensionValues.remove(key)
+    }
+
+    override fun putAll(from: Map<out Int, UnknownField>) = unknownFields.putAll(from).also {
+        for (key in from.keys) {
+            extensionValues.remove(key)
+        }
+//        extensionValues -= from.keys
+    }
+
+    override val entries: MutableSet<MutableMap.MutableEntry<Int, UnknownField>>
+        get() = EntriesProxy(unknownFields.entries, extensionValues)
+
+    private class EntriesProxy(
+        private val entries: MutableSet<MutableMap.MutableEntry<Int, UnknownField>>,
+        private val extensionValues: MutableExtensionFieldSet<*>
+    ) : MutableSet<MutableMap.MutableEntry<Int, UnknownField>> by entries {
+        override fun add(element: MutableMap.MutableEntry<Int, UnknownField>) =
+            entries.add(element).also {
+                extensionValues.remove(element.key)
+            }
+
+        override fun addAll(elements: Collection<MutableMap.MutableEntry<Int, UnknownField>>) =
+            entries.addAll(elements).also {
+                for (element in elements) {
+                    extensionValues.remove(element.key)
+                }
+//                extensionValues -= elements.map { it.key }.toSet()
+            }
+
+        override fun iterator(): MutableIterator<MutableMap.MutableEntry<Int, UnknownField>> =
+            IteratorProxy(entries.iterator(), extensionValues)
+
+        private class IteratorProxy(
+            private val iterator: MutableIterator<MutableMap.MutableEntry<Int, UnknownField>>,
+            private val extensionValues: MutableExtensionFieldSet<*>
+        ): MutableIterator<MutableMap.MutableEntry<Int, UnknownField>> by iterator {
+            private var lastKey: Int? = null
+
+            override fun next() = iterator.next().also {
+                lastKey = it.key
+            }
+
+            override fun remove() = iterator.remove().also {
+                lastKey?.let { extensionValues.remove(it) }
+            }
+        }
+    }
+}
+ */

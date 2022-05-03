@@ -7,7 +7,8 @@ import kotlinx.serialization.json.JsonObject
 import pbandk.FieldDescriptor
 import pbandk.Message
 import pbandk.MessageEncoder
-import pbandk.gen.GeneratedExtendableMessage
+import pbandk.internal.forEach
+import pbandk.internal.fieldIterator
 import pbandk.json.JsonConfig
 import kotlin.collections.MutableMap
 import kotlin.collections.linkedMapOf
@@ -34,29 +35,28 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
     private fun <M : Message> writeMessageObject(message: M): JsonObject {
         val jsonContent: MutableMap<String, JsonElement> = linkedMapOf()
 
-        for (fd in message.descriptor.fields) {
-            @Suppress("UNCHECKED_CAST")
-            writeFieldValue(message, fd as FieldDescriptor<M, *>)?.let {
-                jsonContent[jsonConfig.getFieldJsonName(fd)] = it
-            }
-        }
+        message.fieldIterator().forEach { fd, value ->
+            if (value == null && fd.oneofMember) return@forEach
+            if (!fd.oneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) return@forEach
 
-        if (message is GeneratedExtendableMessage<*>) {
-            for (fd in message.extensionFields.keys()) {
-                @Suppress("UNCHECKED_CAST")
-                writeFieldValue(message, fd as FieldDescriptor<M, *>)?.let {
-                    // TODO: the JSON key has to include the full path of the field, not just the field's name
-                    jsonContent["[${jsonConfig.getFieldJsonName(fd)}]"] = it
+            val jsonValue = value
+                ?.takeUnless {
+                    @Suppress("DEPRECATION")
+                    jsonConfig.outputDefaultValues &&
+                            jsonConfig.outputDefaultStringsAsNull &&
+                            fd.type is FieldDescriptor.Type.Primitive.String &&
+                            fd.type.isDefaultValue(it)
                 }
-            }
+                ?.let { jsonValueEncoder.writeValue(it, fd.type) }
+                ?: JsonNull
+
+            jsonContent[jsonConfig.getFieldJsonName(fd)] = jsonValue
         }
 
         return JsonObject(jsonContent)
     }
 
-    private fun <M : Message> writeFieldValue(message: M, fd: FieldDescriptor<M, *>): JsonElement? {
-        val value = fd.getValue(message)
-
+    private fun <M : Message> writeFieldValue(fd: FieldDescriptor<M, *>, value: Any?): JsonElement? {
         if (value == null && fd.oneofMember) return null
         if (!fd.oneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) return null
 

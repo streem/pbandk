@@ -45,7 +45,7 @@ internal object JsonMessageAdapters {
         // https://developers.google.com/protocol-buffers/docs/proto3#json
 
         DoubleValue.descriptor to object : JsonMessageAdapter<DoubleValue> {
-            private val fieldType = DoubleValue.descriptor.fields.first().type
+            private val fieldType = DoubleValue.FieldDescriptors.value.type
 
             override fun encode(message: DoubleValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
@@ -56,7 +56,7 @@ internal object JsonMessageAdapters {
         },
 
         FloatValue.descriptor to object : JsonMessageAdapter<FloatValue> {
-            private val fieldType = FloatValue.descriptor.fields.first().type
+            private val fieldType = FloatValue.FieldDescriptors.value.type
 
             override fun encode(message: FloatValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
@@ -67,7 +67,7 @@ internal object JsonMessageAdapters {
         },
 
         Int64Value.descriptor to object : JsonMessageAdapter<Int64Value> {
-            private val fieldType = Int64Value.descriptor.fields.first().type
+            private val fieldType = Int64Value.FieldDescriptors.value.type
 
             override fun encode(message: Int64Value, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
@@ -78,7 +78,7 @@ internal object JsonMessageAdapters {
         },
 
         UInt64Value.descriptor to object : JsonMessageAdapter<UInt64Value> {
-            private val fieldType = UInt64Value.descriptor.fields.first().type
+            private val fieldType = UInt64Value.FieldDescriptors.value.type
 
             override fun encode(message: UInt64Value, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
@@ -89,7 +89,7 @@ internal object JsonMessageAdapters {
         },
 
         Int32Value.descriptor to object : JsonMessageAdapter<Int32Value> {
-            private val fieldType = Int32Value.descriptor.fields.first().type
+            private val fieldType = Int32Value.FieldDescriptors.value.type
 
             override fun encode(message: Int32Value, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
@@ -100,7 +100,7 @@ internal object JsonMessageAdapters {
         },
 
         UInt32Value.descriptor to object : JsonMessageAdapter<UInt32Value> {
-            private val fieldType = UInt32Value.descriptor.fields.first().type
+            private val fieldType = UInt32Value.FieldDescriptors.value.type
 
             override fun encode(message: UInt32Value, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
@@ -111,7 +111,7 @@ internal object JsonMessageAdapters {
         },
 
         BoolValue.descriptor to object : JsonMessageAdapter<BoolValue> {
-            private val fieldType = BoolValue.descriptor.fields.first().type
+            private val fieldType = BoolValue.FieldDescriptors.value.type
 
             override fun encode(message: BoolValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
@@ -122,7 +122,7 @@ internal object JsonMessageAdapters {
         },
 
         StringValue.descriptor to object : JsonMessageAdapter<StringValue> {
-            private val fieldType = StringValue.descriptor.fields.first().type
+            private val fieldType = StringValue.FieldDescriptors.value.type
 
             override fun encode(message: StringValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
@@ -133,7 +133,7 @@ internal object JsonMessageAdapters {
         },
 
         BytesValue.descriptor to object : JsonMessageAdapter<BytesValue> {
-            private val fieldType = BytesValue.descriptor.fields.first().type
+            private val fieldType = BytesValue.FieldDescriptors.value.type
 
             override fun encode(message: BytesValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
@@ -204,7 +204,7 @@ internal object JsonMessageAdapters {
                 @Suppress("UNCHECKED_CAST")
                 val values = jsonValueDecoder.readValue(
                     json,
-                    ListValue.descriptor.fields.first().type
+                    ListValue.FieldDescriptors.values.type,
                 ) as Sequence<Value>
                 ListValue {
                     this.values += values
@@ -218,7 +218,7 @@ internal object JsonMessageAdapters {
 
         Struct.descriptor to object : JsonMessageAdapter<Struct> {
             @Suppress("UNCHECKED_CAST")
-            private val fieldType = Struct.descriptor.fields[1]!!.type as FieldDescriptor.Type.Map<String, Value?>
+            private val fieldType = Struct.FieldDescriptors.fields.type as FieldDescriptor.Type.Map<String, Value?>
 
             override fun encode(message: Struct, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.fields, fieldType)
@@ -250,11 +250,11 @@ internal object JsonMessageAdapters {
                 is Value.Kind.NumberValue -> jsonValueEncoder.writeDouble(kind.value)
                 is Value.Kind.StructValue -> jsonValueEncoder.writeValue(
                     kind.value.fields,
-                    Struct.descriptor.fields.first().type
+                    Struct.FieldDescriptors.fields.type,
                 )
                 is Value.Kind.ListValue -> jsonValueEncoder.writeValue(
                     kind.value.values,
-                    ListValue.descriptor.fields.first().type
+                    ListValue.FieldDescriptors.values.type,
                 )
                 is Value.Kind.NullValue, null -> JsonNull
             }

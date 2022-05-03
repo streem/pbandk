@@ -29,22 +29,26 @@ public abstract interface annotation class pbandk/Export : java/lang/annotation/
 
 public abstract interface class pbandk/ExtendableMessage : pbandk/Message {
 	public abstract fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
-	public abstract fun getExtensionFields ()Lpbandk/ExtensionFieldSet;
 }
 
-public final class pbandk/ExtendableMessage$DefaultImpls {
-	public static fun getExtension (Lpbandk/ExtendableMessage;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
-}
-
-public final class pbandk/ExtensionFieldSet {
-	public fun <init> ()V
-}
-
-public final class pbandk/FieldDescriptor {
-	public fun <init> (Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type;Lkotlin/reflect/KProperty1;ZLjava/lang/String;Lpbandk/wkt/FieldOptions;)V
-	public synthetic fun <init> (Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type;Lkotlin/reflect/KProperty1;ZLjava/lang/String;Lpbandk/wkt/FieldOptions;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+public final class pbandk/FieldDescriptor : java/lang/Comparable {
+	public static final field Companion Lpbandk/FieldDescriptor$Companion;
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZLjava/lang/String;Lpbandk/wkt/FieldOptions;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public fun compareTo (Lpbandk/FieldDescriptor;)I
 	public final fun getName ()Ljava/lang/String;
 	public final fun getOptions ()Lpbandk/wkt/FieldOptions;
+}
+
+public final class pbandk/FieldDescriptor$Companion {
+	public final fun of (Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type;Lkotlin/reflect/KProperty1;Lkotlin/reflect/KMutableProperty1;Ljava/lang/String;Lpbandk/wkt/FieldOptions;)Lpbandk/FieldDescriptor;
+	public static synthetic fun of$default (Lpbandk/FieldDescriptor$Companion;Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type;Lkotlin/reflect/KProperty1;Lkotlin/reflect/KMutableProperty1;Ljava/lang/String;Lpbandk/wkt/FieldOptions;ILjava/lang/Object;)Lpbandk/FieldDescriptor;
+	public final fun ofMap (Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type$Map;Lkotlin/reflect/KProperty1;Lkotlin/reflect/KProperty1;Ljava/lang/String;Lpbandk/wkt/FieldOptions;)Lpbandk/FieldDescriptor;
+	public static synthetic fun ofMap$default (Lpbandk/FieldDescriptor$Companion;Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type$Map;Lkotlin/reflect/KProperty1;Lkotlin/reflect/KProperty1;Ljava/lang/String;Lpbandk/wkt/FieldOptions;ILjava/lang/Object;)Lpbandk/FieldDescriptor;
+	public final fun ofOneof (Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type;Lkotlin/reflect/KProperty1;Lkotlin/reflect/KMutableProperty1;Ljava/lang/String;Lpbandk/wkt/FieldOptions;)Lpbandk/FieldDescriptor;
+	public static synthetic fun ofOneof$default (Lpbandk/FieldDescriptor$Companion;Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type;Lkotlin/reflect/KProperty1;Lkotlin/reflect/KMutableProperty1;Ljava/lang/String;Lpbandk/wkt/FieldOptions;ILjava/lang/Object;)Lpbandk/FieldDescriptor;
+	public final fun ofRepeated (Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type$Repeated;Lkotlin/reflect/KProperty1;Lkotlin/reflect/KProperty1;Ljava/lang/String;Lpbandk/wkt/FieldOptions;)Lpbandk/FieldDescriptor;
+	public static synthetic fun ofRepeated$default (Lpbandk/FieldDescriptor$Companion;Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type$Repeated;Lkotlin/reflect/KProperty1;Lkotlin/reflect/KProperty1;Ljava/lang/String;Lpbandk/wkt/FieldOptions;ILjava/lang/Object;)Lpbandk/FieldDescriptor;
 }
 
 public abstract class pbandk/FieldDescriptor$Type {
@@ -186,12 +190,7 @@ public final class pbandk/FieldDescriptorSet : java/util/Collection, kotlin/jvm/
 	public fun toArray ([Ljava/lang/Object;)[Ljava/lang/Object;
 }
 
-public abstract class pbandk/GeneratedMessage : pbandk/Message {
-	public fun <init> ()V
-	public fun equals (Ljava/lang/Object;)Z
-	public fun getProtoSize ()I
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
+public final class pbandk/FieldSet {
 }
 
 public final class pbandk/InvalidProtocolBufferException : java/lang/RuntimeException {
@@ -199,77 +198,6 @@ public final class pbandk/InvalidProtocolBufferException : java/lang/RuntimeExce
 
 public abstract interface annotation class pbandk/JsName : java/lang/annotation/Annotation {
 	public abstract fun name ()Ljava/lang/String;
-}
-
-public final class pbandk/ListWithSize : java/util/List, kotlin/jvm/internal/markers/KMappedMarker {
-	public fun <init> (Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
-	public fun add (ILjava/lang/Object;)V
-	public fun add (Ljava/lang/Object;)Z
-	public fun addAll (ILjava/util/Collection;)Z
-	public fun addAll (Ljava/util/Collection;)Z
-	public fun clear ()V
-	public fun contains (Ljava/lang/Object;)Z
-	public fun containsAll (Ljava/util/Collection;)Z
-	public fun equals (Ljava/lang/Object;)Z
-	public fun get (I)Ljava/lang/Object;
-	public final fun getList ()Ljava/util/List;
-	public final fun getProtoSize ()Ljava/lang/Integer;
-	public fun getSize ()I
-	public fun hashCode ()I
-	public fun indexOf (Ljava/lang/Object;)I
-	public fun isEmpty ()Z
-	public fun iterator ()Ljava/util/Iterator;
-	public fun lastIndexOf (Ljava/lang/Object;)I
-	public fun listIterator ()Ljava/util/ListIterator;
-	public fun listIterator (I)Ljava/util/ListIterator;
-	public fun remove (I)Ljava/lang/Object;
-	public fun remove (Ljava/lang/Object;)Z
-	public fun removeAll (Ljava/util/Collection;)Z
-	public fun replaceAll (Ljava/util/function/UnaryOperator;)V
-	public fun retainAll (Ljava/util/Collection;)Z
-	public fun set (ILjava/lang/Object;)Ljava/lang/Object;
-	public final fun size ()I
-	public fun sort (Ljava/util/Comparator;)V
-	public fun subList (II)Ljava/util/List;
-	public fun toArray ()[Ljava/lang/Object;
-	public fun toArray ([Ljava/lang/Object;)[Ljava/lang/Object;
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class pbandk/ListWithSize$Builder : java/util/List, kotlin/jvm/internal/markers/KMutableList {
-	public static final field Companion Lpbandk/ListWithSize$Builder$Companion;
-	public fun <init> ()V
-	public fun add (ILjava/lang/Object;)V
-	public fun add (Ljava/lang/Object;)Z
-	public fun addAll (ILjava/util/Collection;)Z
-	public fun addAll (Ljava/util/Collection;)Z
-	public fun clear ()V
-	public fun contains (Ljava/lang/Object;)Z
-	public fun containsAll (Ljava/util/Collection;)Z
-	public final fun fixed ()Lpbandk/ListWithSize;
-	public fun get (I)Ljava/lang/Object;
-	public final fun getList ()Ljava/util/ArrayList;
-	public fun getSize ()I
-	public fun indexOf (Ljava/lang/Object;)I
-	public fun isEmpty ()Z
-	public fun iterator ()Ljava/util/Iterator;
-	public fun lastIndexOf (Ljava/lang/Object;)I
-	public fun listIterator ()Ljava/util/ListIterator;
-	public fun listIterator (I)Ljava/util/ListIterator;
-	public final fun remove (I)Ljava/lang/Object;
-	public fun remove (Ljava/lang/Object;)Z
-	public fun removeAll (Ljava/util/Collection;)Z
-	public fun removeAt (I)Ljava/lang/Object;
-	public fun retainAll (Ljava/util/Collection;)Z
-	public fun set (ILjava/lang/Object;)Ljava/lang/Object;
-	public final fun size ()I
-	public fun subList (II)Ljava/util/List;
-	public fun toArray ()[Ljava/lang/Object;
-	public fun toArray ([Ljava/lang/Object;)[Ljava/lang/Object;
-}
-
-public final class pbandk/ListWithSize$Builder$Companion {
-	public final fun fixed (Lpbandk/ListWithSize$Builder;)Lpbandk/ListWithSize;
 }
 
 public abstract interface class pbandk/Message {
@@ -280,7 +208,6 @@ public abstract interface class pbandk/Message {
 }
 
 public abstract interface class pbandk/Message$Companion {
-	public abstract fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
@@ -294,27 +221,29 @@ public abstract interface class pbandk/Message$Enum$Companion {
 	public abstract fun fromValue (I)Lpbandk/Message$Enum;
 }
 
-public abstract class pbandk/Message$OneOf {
-	public fun <init> (Ljava/lang/Object;)V
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getValue ()Ljava/lang/Object;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
+public abstract interface class pbandk/Message$OneOf {
+	public abstract fun getValue ()Ljava/lang/Object;
 }
 
 public abstract interface annotation class pbandk/MessageBuilderMarker : java/lang/annotation/Annotation {
 }
 
 public abstract interface class pbandk/MessageDecoder {
-	public abstract fun readMessage (Lpbandk/Message$Companion;Lkotlin/jvm/functions/Function2;)Ljava/util/Map;
+	public abstract fun readMessage (Lpbandk/Message$Companion;)Lpbandk/Message;
 }
 
 public final class pbandk/MessageDescriptor {
-	public fun <init> (Ljava/lang/String;Lkotlin/reflect/KClass;Lpbandk/Message$Companion;Ljava/util/Collection;)V
+	public static final field Companion Lpbandk/MessageDescriptor$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/reflect/KClass;Lpbandk/Message$Companion;Lkotlin/jvm/functions/Function1;Lpbandk/FieldDescriptorSet;Ljava/util/Collection;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getFields ()Lpbandk/FieldDescriptorSet;
 	public final fun getFullName ()Ljava/lang/String;
 	public final fun getMessageCompanion ()Lpbandk/Message$Companion;
 	public final fun getName ()Ljava/lang/String;
+}
+
+public final class pbandk/MessageDescriptor$Companion {
+	public final fun of (Ljava/lang/String;Lkotlin/reflect/KClass;Lpbandk/Message$Companion;Lkotlin/jvm/functions/Function1;Ljava/util/Collection;Ljava/util/Collection;)Lpbandk/MessageDescriptor;
+	public static synthetic fun of$default (Lpbandk/MessageDescriptor$Companion;Ljava/lang/String;Lkotlin/reflect/KClass;Lpbandk/Message$Companion;Lkotlin/jvm/functions/Function1;Ljava/util/Collection;Ljava/util/Collection;ILjava/lang/Object;)Lpbandk/MessageDescriptor;
 }
 
 public abstract interface class pbandk/MessageEncoder {
@@ -330,95 +259,35 @@ public final class pbandk/MessageExtensionsJvmKt {
 
 public final class pbandk/MessageKt {
 	public static final fun decodeFromByteArray (Lpbandk/Message$Companion;[B)Lpbandk/Message;
+	public static final fun decodeWith (Lpbandk/Message$Companion;Lpbandk/MessageDecoder;)Lpbandk/Message;
 	public static final fun encodeToByteArray (Lpbandk/Message;)[B
 	public static final fun encodeWith (Lpbandk/Message;Lpbandk/MessageEncoder;)V
 	public static final fun getFieldValue (Lpbandk/Message;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
 	public static final fun plus (Lpbandk/Message;Lpbandk/Message;)Lpbandk/Message;
 }
 
-public final class pbandk/MessageMap : java/util/Map, kotlin/jvm/internal/markers/KMappedMarker {
-	public static final field Companion Lpbandk/MessageMap$Companion;
-	public fun clear ()V
-	public fun compute (Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-	public fun computeIfAbsent (Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
-	public fun computeIfPresent (Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-	public fun containsKey (Ljava/lang/Object;)Z
-	public fun containsValue (Ljava/lang/Object;)Z
-	public final fun entrySet ()Ljava/util/Set;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun get (Ljava/lang/Object;)Ljava/lang/Object;
-	public fun getEntries ()Ljava/util/Set;
-	public fun getKeys ()Ljava/util/Set;
-	public fun getSize ()I
-	public fun getValues ()Ljava/util/Collection;
-	public fun hashCode ()I
-	public fun isEmpty ()Z
-	public final fun keySet ()Ljava/util/Set;
-	public fun merge (Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-	public fun put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-	public fun putAll (Ljava/util/Map;)V
-	public fun putIfAbsent (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-	public fun remove (Ljava/lang/Object;)Ljava/lang/Object;
-	public fun remove (Ljava/lang/Object;Ljava/lang/Object;)Z
-	public fun replace (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-	public fun replace (Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
-	public fun replaceAll (Ljava/util/function/BiFunction;)V
-	public final fun size ()I
-	public fun toString ()Ljava/lang/String;
-	public final fun values ()Ljava/util/Collection;
+public abstract interface class pbandk/MutableExtendableMessage : pbandk/ExtendableMessage, pbandk/MutableMessage {
+	public abstract fun setExtension (Lpbandk/FieldDescriptor;Ljava/lang/Object;)V
 }
 
-public final class pbandk/MessageMap$Companion {
-	public final fun from (Lpbandk/MutableMessageMap;)Lpbandk/MessageMap;
-}
-
-public abstract interface class pbandk/MessageMap$Entry : java/util/Map$Entry, kotlin/jvm/internal/markers/KMappedMarker, pbandk/Message {
-	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public abstract fun plus (Lpbandk/Message;)Lpbandk/MessageMap$Entry;
-}
-
-public final class pbandk/MessageMap$Entry$Companion : pbandk/Message$Companion {
-	public fun <init> (Lpbandk/FieldDescriptor$Type;Lpbandk/FieldDescriptor$Type;)V
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/MessageMap$Entry;
-	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-}
-
-public abstract class pbandk/MutableGeneratedMessage : pbandk/GeneratedMessage, pbandk/MutableMessage {
-	public fun <init> ()V
-	public fun getProtoSize ()I
-	public fun hashCode ()I
+public final class pbandk/MutableFieldSet {
+	public final fun toFieldSet ()Lpbandk/FieldSet;
 }
 
 public abstract interface class pbandk/MutableMessage : pbandk/Message {
 	public abstract fun getUnknownFields ()Ljava/util/Map;
 }
 
-public final class pbandk/MutableMessageMap : java/util/Map, kotlin/jvm/internal/markers/KMutableMap {
-	public fun <init> (Lpbandk/FieldDescriptor;)V
-	public fun <init> (Lpbandk/MessageMap$Entry$Companion;)V
-	public fun clear ()V
-	public fun containsKey (Ljava/lang/Object;)Z
-	public fun containsValue (Ljava/lang/Object;)Z
-	public final fun entrySet ()Ljava/util/Set;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun get (Ljava/lang/Object;)Ljava/lang/Object;
-	public fun getEntries ()Ljava/util/Set;
-	public fun getKeys ()Ljava/util/Set;
-	public fun getSize ()I
-	public fun getValues ()Ljava/util/Collection;
-	public fun hashCode ()I
-	public fun isEmpty ()Z
-	public final fun keySet ()Ljava/util/Set;
-	public fun put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-	public final fun put (Ljava/util/Map$Entry;)V
-	public fun putAll (Ljava/util/Map;)V
-	public final fun putAll (Lkotlin/sequences/Sequence;)V
-	public fun remove (Ljava/lang/Object;)Ljava/lang/Object;
-	public final fun size ()I
-	public final fun toMessageMap ()Lpbandk/MessageMap;
-	public fun toString ()Ljava/lang/String;
-	public final fun values ()Ljava/util/Collection;
+public final class pbandk/OneofDescriptor {
+	public static final field Companion Lpbandk/OneofDescriptor$Companion;
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function0;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lpbandk/FieldDescriptorSet;Lpbandk/wkt/OneofOptions;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getFields ()Lpbandk/FieldDescriptorSet;
+	public final fun getName ()Ljava/lang/String;
+}
+
+public final class pbandk/OneofDescriptor$Companion {
+	public final fun of (Lkotlin/reflect/KProperty0;Ljava/lang/String;Lkotlin/reflect/KProperty1;Lkotlin/reflect/KMutableProperty1;Ljava/util/Collection;Lpbandk/wkt/OneofOptions;)Lpbandk/OneofDescriptor;
+	public static synthetic fun of$default (Lpbandk/OneofDescriptor$Companion;Lkotlin/reflect/KProperty0;Ljava/lang/String;Lkotlin/reflect/KProperty1;Lkotlin/reflect/KMutableProperty1;Ljava/util/Collection;Lpbandk/wkt/OneofOptions;ILjava/lang/Object;)Lpbandk/OneofDescriptor;
 }
 
 public abstract interface annotation class pbandk/PbandkInternal : java/lang/annotation/Annotation {
@@ -480,6 +349,168 @@ public final class pbandk/UnknownField$Value {
 	public fun toString ()Ljava/lang/String;
 }
 
+public abstract class pbandk/gen/AbstractGeneratedMessage : pbandk/Message {
+	protected fun <init> ()V
+	protected fun computeHashCode ()I
+	protected fun computeProtoSize ()I
+	public fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/Message;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getProtoSize ()I
+	public fun hashCode ()I
+	public fun plus (Lpbandk/Message;)Lpbandk/Message;
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class pbandk/gen/GeneratedExtendableMessage : pbandk/gen/AbstractGeneratedMessage, pbandk/ExtendableMessage {
+	protected fun <init> ()V
+	protected fun <init> (Lpbandk/FieldSet;Ljava/util/Map;)V
+	public synthetic fun <init> (Lpbandk/FieldSet;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getProtoSize ()I
+	public fun getUnknownFields ()Ljava/util/Map;
+	public fun hashCode ()I
+}
+
+public abstract class pbandk/gen/GeneratedMessage : pbandk/gen/AbstractGeneratedMessage {
+	protected fun <init> ()V
+	protected fun <init> (Ljava/util/Map;)V
+	public synthetic fun <init> (Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getProtoSize ()I
+	public fun getUnknownFields ()Ljava/util/Map;
+	public fun hashCode ()I
+}
+
+public abstract class pbandk/gen/GeneratedOneOf : pbandk/Message$OneOf {
+	protected fun <init> (Ljava/lang/Object;Lpbandk/FieldDescriptor;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getValue ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class pbandk/gen/ListField : java/util/List, kotlin/jvm/internal/markers/KMappedMarker {
+	public fun <init> (Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
+	public fun add (ILjava/lang/Object;)V
+	public fun add (Ljava/lang/Object;)Z
+	public fun addAll (ILjava/util/Collection;)Z
+	public fun addAll (Ljava/util/Collection;)Z
+	public fun clear ()V
+	public fun contains (Ljava/lang/Object;)Z
+	public fun containsAll (Ljava/util/Collection;)Z
+	public fun equals (Ljava/lang/Object;)Z
+	public fun get (I)Ljava/lang/Object;
+	public fun getSize ()I
+	public fun hashCode ()I
+	public fun indexOf (Ljava/lang/Object;)I
+	public fun isEmpty ()Z
+	public fun iterator ()Ljava/util/Iterator;
+	public fun lastIndexOf (Ljava/lang/Object;)I
+	public fun listIterator ()Ljava/util/ListIterator;
+	public fun listIterator (I)Ljava/util/ListIterator;
+	public fun remove (I)Ljava/lang/Object;
+	public fun remove (Ljava/lang/Object;)Z
+	public fun removeAll (Ljava/util/Collection;)Z
+	public fun replaceAll (Ljava/util/function/UnaryOperator;)V
+	public fun retainAll (Ljava/util/Collection;)Z
+	public fun set (ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun size ()I
+	public fun sort (Ljava/util/Comparator;)V
+	public fun subList (II)Ljava/util/List;
+	public fun toArray ()[Ljava/lang/Object;
+	public fun toArray ([Ljava/lang/Object;)[Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class pbandk/gen/MapField : java/util/Map, kotlin/jvm/internal/markers/KMappedMarker {
+	public static final field Companion Lpbandk/gen/MapField$Companion;
+	public abstract fun asMessages ()Ljava/util/Collection;
+}
+
+public final class pbandk/gen/MapField$Companion {
+}
+
+public abstract interface class pbandk/gen/MapField$Entry : java/util/Map$Entry, kotlin/jvm/internal/markers/KMappedMarker, pbandk/Message {
+	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun plus (Lpbandk/Message;)Lpbandk/gen/MapField$Entry;
+}
+
+public final class pbandk/gen/MapField$Entry$Companion : pbandk/Message$Companion {
+	public fun <init> (Lpbandk/FieldDescriptor$Type;Lpbandk/FieldDescriptor$Type;)V
+	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+}
+
+public final class pbandk/gen/MapFieldKt {
+	public static final fun MutableMapField (Lpbandk/FieldDescriptor;)Lpbandk/gen/MutableMapField;
+	public static final fun MutableMapField (Lpbandk/gen/MapField$Entry$Companion;)Lpbandk/gen/MutableMapField;
+}
+
+public abstract class pbandk/gen/MutableGeneratedExtendableMessage : pbandk/gen/AbstractGeneratedMessage, pbandk/MutableExtendableMessage {
+	protected fun <init> ()V
+	protected fun <init> (Ljava/util/Map;)V
+	public synthetic fun <init> (Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/Message;
+	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	protected final fun getExtensionFields ()Lpbandk/MutableFieldSet;
+	public fun getUnknownFields ()Ljava/util/Map;
+	public fun plus (Lpbandk/Message;)Lpbandk/Message;
+	public fun setExtension (Lpbandk/FieldDescriptor;Ljava/lang/Object;)V
+}
+
+public abstract class pbandk/gen/MutableGeneratedMessage : pbandk/gen/AbstractGeneratedMessage, pbandk/MutableMessage {
+	protected fun <init> ()V
+	protected fun <init> (Ljava/util/Map;)V
+	public synthetic fun <init> (Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/Message;
+	public fun getUnknownFields ()Ljava/util/Map;
+	public fun plus (Lpbandk/Message;)Lpbandk/Message;
+}
+
+public final class pbandk/gen/MutableListField : java/util/List, kotlin/jvm/internal/markers/KMutableList {
+	public fun <init> ()V
+	public fun add (ILjava/lang/Object;)V
+	public fun add (Ljava/lang/Object;)Z
+	public fun addAll (ILjava/util/Collection;)Z
+	public fun addAll (Ljava/util/Collection;)Z
+	public fun clear ()V
+	public fun contains (Ljava/lang/Object;)Z
+	public fun containsAll (Ljava/util/Collection;)Z
+	public fun equals (Ljava/lang/Object;)Z
+	public fun get (I)Ljava/lang/Object;
+	public fun getSize ()I
+	public fun hashCode ()I
+	public fun indexOf (Ljava/lang/Object;)I
+	public fun isEmpty ()Z
+	public fun iterator ()Ljava/util/Iterator;
+	public fun lastIndexOf (Ljava/lang/Object;)I
+	public fun listIterator ()Ljava/util/ListIterator;
+	public fun listIterator (I)Ljava/util/ListIterator;
+	public final fun remove (I)Ljava/lang/Object;
+	public fun remove (Ljava/lang/Object;)Z
+	public fun removeAll (Ljava/util/Collection;)Z
+	public fun removeAt (I)Ljava/lang/Object;
+	public fun retainAll (Ljava/util/Collection;)Z
+	public fun set (ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun size ()I
+	public fun subList (II)Ljava/util/List;
+	public fun toArray ()[Ljava/lang/Object;
+	public fun toArray ([Ljava/lang/Object;)[Ljava/lang/Object;
+	public final fun toListField ()Lpbandk/gen/ListField;
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class pbandk/gen/MutableMapField : java/util/Map, kotlin/jvm/internal/markers/KMutableMap {
+	public abstract fun put (Ljava/util/Map$Entry;)V
+	public abstract fun putAll (Lkotlin/sequences/Sequence;)V
+	public abstract fun toMapField ()Lpbandk/gen/MapField;
+}
+
+public abstract interface class pbandk/gen/MutableMapField$MutableEntry : java/util/Map$Entry, kotlin/jvm/internal/markers/KMutableMap$Entry, pbandk/MutableMessage, pbandk/gen/MapField$Entry {
+	public abstract fun getKey ()Ljava/lang/Object;
+	public abstract fun getValue ()Ljava/lang/Object;
+	public abstract fun setKey (Ljava/lang/Object;)V
+	public abstract fun setValue (Ljava/lang/Object;)V
+}
+
 public final class pbandk/json/JsonConfig {
 	public static final field Companion Lpbandk/json/JsonConfig$Companion;
 	public fun <init> ()V
@@ -526,14 +557,18 @@ public abstract interface class pbandk/wkt/Any : pbandk/Message {
 }
 
 public final class pbandk/wkt/Any$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Any;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Any;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/Any$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Any;Ljava/lang/String;Lpbandk/ByteArr;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Any;
+}
+
+public final class pbandk/wkt/Any$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Any$FieldDescriptors;
+	public final fun getTypeUrl ()Lpbandk/FieldDescriptor;
+	public final fun getValue ()Lpbandk/FieldDescriptor;
 }
 
 public final class pbandk/wkt/AnyKt {
@@ -559,14 +594,23 @@ public abstract interface class pbandk/wkt/Api : pbandk/Message {
 }
 
 public final class pbandk/wkt/Api$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Api;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Api;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/Api$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Api;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Lpbandk/wkt/SourceContext;Ljava/util/List;Lpbandk/wkt/Syntax;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Api;
+}
+
+public final class pbandk/wkt/Api$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Api$FieldDescriptors;
+	public final fun getMethods ()Lpbandk/FieldDescriptor;
+	public final fun getMixins ()Lpbandk/FieldDescriptor;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
+	public final fun getSourceContext ()Lpbandk/FieldDescriptor;
+	public final fun getSyntax ()Lpbandk/FieldDescriptor;
+	public final fun getVersion ()Lpbandk/FieldDescriptor;
 }
 
 public final class pbandk/wkt/ApiKt {
@@ -594,14 +638,17 @@ public abstract interface class pbandk/wkt/BoolValue : pbandk/Message {
 }
 
 public final class pbandk/wkt/BoolValue$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/BoolValue;
 	public final fun getDefaultInstance ()Lpbandk/wkt/BoolValue;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/BoolValue$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/BoolValue;ZLjava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/BoolValue;
+}
+
+public final class pbandk/wkt/BoolValue$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/BoolValue$FieldDescriptors;
+	public final fun getValue ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/BytesValue : pbandk/Message {
@@ -614,14 +661,17 @@ public abstract interface class pbandk/wkt/BytesValue : pbandk/Message {
 }
 
 public final class pbandk/wkt/BytesValue$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/BytesValue;
 	public final fun getDefaultInstance ()Lpbandk/wkt/BytesValue;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/BytesValue$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/BytesValue;Lpbandk/ByteArr;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/BytesValue;
+}
+
+public final class pbandk/wkt/BytesValue$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/BytesValue$FieldDescriptors;
+	public final fun getValue ()Lpbandk/FieldDescriptor;
 }
 
 public final class pbandk/wkt/DescriptorKt {
@@ -760,8 +810,6 @@ public abstract interface class pbandk/wkt/DescriptorProto : pbandk/Message {
 }
 
 public final class pbandk/wkt/DescriptorProto$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/DescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/DescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
@@ -782,14 +830,33 @@ public abstract interface class pbandk/wkt/DescriptorProto$ExtensionRange : pban
 }
 
 public final class pbandk/wkt/DescriptorProto$ExtensionRange$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/DescriptorProto$ExtensionRange;
 	public final fun getDefaultInstance ()Lpbandk/wkt/DescriptorProto$ExtensionRange;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/DescriptorProto$ExtensionRange$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/DescriptorProto$ExtensionRange;Ljava/lang/Integer;Ljava/lang/Integer;Lpbandk/wkt/ExtensionRangeOptions;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/DescriptorProto$ExtensionRange;
+}
+
+public final class pbandk/wkt/DescriptorProto$ExtensionRange$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/DescriptorProto$ExtensionRange$FieldDescriptors;
+	public final fun getEnd ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
+	public final fun getStart ()Lpbandk/FieldDescriptor;
+}
+
+public final class pbandk/wkt/DescriptorProto$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/DescriptorProto$FieldDescriptors;
+	public final fun getEnumType ()Lpbandk/FieldDescriptor;
+	public final fun getExtension ()Lpbandk/FieldDescriptor;
+	public final fun getExtensionRange ()Lpbandk/FieldDescriptor;
+	public final fun getField ()Lpbandk/FieldDescriptor;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getNestedType ()Lpbandk/FieldDescriptor;
+	public final fun getOneofDecl ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
+	public final fun getReservedName ()Lpbandk/FieldDescriptor;
+	public final fun getReservedRange ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/DescriptorProto$MutableExtensionRange : pbandk/MutableMessage, pbandk/wkt/DescriptorProto$ExtensionRange {
@@ -819,14 +886,18 @@ public abstract interface class pbandk/wkt/DescriptorProto$ReservedRange : pband
 }
 
 public final class pbandk/wkt/DescriptorProto$ReservedRange$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/DescriptorProto$ReservedRange;
 	public final fun getDefaultInstance ()Lpbandk/wkt/DescriptorProto$ReservedRange;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/DescriptorProto$ReservedRange$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/DescriptorProto$ReservedRange;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/DescriptorProto$ReservedRange;
+}
+
+public final class pbandk/wkt/DescriptorProto$ReservedRange$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/DescriptorProto$ReservedRange$FieldDescriptors;
+	public final fun getEnd ()Lpbandk/FieldDescriptor;
+	public final fun getStart ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/DoubleValue : pbandk/Message {
@@ -839,14 +910,17 @@ public abstract interface class pbandk/wkt/DoubleValue : pbandk/Message {
 }
 
 public final class pbandk/wkt/DoubleValue$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/DoubleValue;
 	public final fun getDefaultInstance ()Lpbandk/wkt/DoubleValue;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/DoubleValue$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/DoubleValue;DLjava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/DoubleValue;
+}
+
+public final class pbandk/wkt/DoubleValue$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/DoubleValue$FieldDescriptors;
+	public final fun getValue ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/Duration : pbandk/Message {
@@ -860,14 +934,18 @@ public abstract interface class pbandk/wkt/Duration : pbandk/Message {
 }
 
 public final class pbandk/wkt/Duration$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Duration;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Duration;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/Duration$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Duration;JILjava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Duration;
+}
+
+public final class pbandk/wkt/Duration$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Duration$FieldDescriptors;
+	public final fun getNanos ()Lpbandk/FieldDescriptor;
+	public final fun getSeconds ()Lpbandk/FieldDescriptor;
 }
 
 public final class pbandk/wkt/DurationKt {
@@ -886,14 +964,16 @@ public abstract interface class pbandk/wkt/Empty : pbandk/Message {
 }
 
 public final class pbandk/wkt/Empty$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Empty;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Empty;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/Empty$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Empty;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Empty;
+}
+
+public final class pbandk/wkt/Empty$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Empty$FieldDescriptors;
 }
 
 public final class pbandk/wkt/EmptyKt {
@@ -917,14 +997,21 @@ public abstract interface class pbandk/wkt/Enum : pbandk/Message {
 }
 
 public final class pbandk/wkt/Enum$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Enum;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Enum;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/Enum$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Enum;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Enum;
+}
+
+public final class pbandk/wkt/Enum$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Enum$FieldDescriptors;
+	public final fun getEnumvalue ()Lpbandk/FieldDescriptor;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
+	public final fun getSourceContext ()Lpbandk/FieldDescriptor;
+	public final fun getSyntax ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/EnumDescriptorProto : pbandk/Message {
@@ -941,8 +1028,6 @@ public abstract interface class pbandk/wkt/EnumDescriptorProto : pbandk/Message 
 }
 
 public final class pbandk/wkt/EnumDescriptorProto$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/EnumDescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/EnumDescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
@@ -962,14 +1047,27 @@ public abstract interface class pbandk/wkt/EnumDescriptorProto$EnumReservedRange
 }
 
 public final class pbandk/wkt/EnumDescriptorProto$EnumReservedRange$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/EnumDescriptorProto$EnumReservedRange;
 	public final fun getDefaultInstance ()Lpbandk/wkt/EnumDescriptorProto$EnumReservedRange;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/EnumDescriptorProto$EnumReservedRange$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/EnumDescriptorProto$EnumReservedRange;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumDescriptorProto$EnumReservedRange;
+}
+
+public final class pbandk/wkt/EnumDescriptorProto$EnumReservedRange$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/EnumDescriptorProto$EnumReservedRange$FieldDescriptors;
+	public final fun getEnd ()Lpbandk/FieldDescriptor;
+	public final fun getStart ()Lpbandk/FieldDescriptor;
+}
+
+public final class pbandk/wkt/EnumDescriptorProto$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/EnumDescriptorProto$FieldDescriptors;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
+	public final fun getReservedName ()Lpbandk/FieldDescriptor;
+	public final fun getReservedRange ()Lpbandk/FieldDescriptor;
+	public final fun getValue ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/EnumDescriptorProto$MutableEnumReservedRange : pbandk/MutableMessage, pbandk/wkt/EnumDescriptorProto$EnumReservedRange {
@@ -991,15 +1089,19 @@ public abstract interface class pbandk/wkt/EnumOptions : pbandk/ExtendableMessag
 }
 
 public final class pbandk/wkt/EnumOptions$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/EnumOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/EnumOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/EnumOptions$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/EnumOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumOptions;
-	public static fun getExtension (Lpbandk/wkt/EnumOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+}
+
+public final class pbandk/wkt/EnumOptions$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/EnumOptions$FieldDescriptors;
+	public final fun getAllowAlias ()Lpbandk/FieldDescriptor;
+	public final fun getDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/EnumValue : pbandk/Message {
@@ -1014,14 +1116,19 @@ public abstract interface class pbandk/wkt/EnumValue : pbandk/Message {
 }
 
 public final class pbandk/wkt/EnumValue$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/EnumValue;
 	public final fun getDefaultInstance ()Lpbandk/wkt/EnumValue;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/EnumValue$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/EnumValue;Ljava/lang/String;ILjava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumValue;
+}
+
+public final class pbandk/wkt/EnumValue$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/EnumValue$FieldDescriptors;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getNumber ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/EnumValueDescriptorProto : pbandk/Message {
@@ -1036,14 +1143,19 @@ public abstract interface class pbandk/wkt/EnumValueDescriptorProto : pbandk/Mes
 }
 
 public final class pbandk/wkt/EnumValueDescriptorProto$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/EnumValueDescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/EnumValueDescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/EnumValueDescriptorProto$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/EnumValueDescriptorProto;Ljava/lang/String;Ljava/lang/Integer;Lpbandk/wkt/EnumValueOptions;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumValueDescriptorProto;
+}
+
+public final class pbandk/wkt/EnumValueDescriptorProto$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/EnumValueDescriptorProto$FieldDescriptors;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getNumber ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/EnumValueOptions : pbandk/ExtendableMessage {
@@ -1057,15 +1169,18 @@ public abstract interface class pbandk/wkt/EnumValueOptions : pbandk/ExtendableM
 }
 
 public final class pbandk/wkt/EnumValueOptions$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/EnumValueOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/EnumValueOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/EnumValueOptions$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/EnumValueOptions;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumValueOptions;
-	public static fun getExtension (Lpbandk/wkt/EnumValueOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+}
+
+public final class pbandk/wkt/EnumValueOptions$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/EnumValueOptions$FieldDescriptors;
+	public final fun getDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/ExtensionRangeOptions : pbandk/ExtendableMessage {
@@ -1078,15 +1193,17 @@ public abstract interface class pbandk/wkt/ExtensionRangeOptions : pbandk/Extend
 }
 
 public final class pbandk/wkt/ExtensionRangeOptions$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/ExtensionRangeOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/ExtensionRangeOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/ExtensionRangeOptions$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/ExtensionRangeOptions;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ExtensionRangeOptions;
-	public static fun getExtension (Lpbandk/wkt/ExtensionRangeOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+}
+
+public final class pbandk/wkt/ExtensionRangeOptions$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/ExtensionRangeOptions$FieldDescriptors;
+	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/Field : pbandk/Message {
@@ -1147,14 +1264,26 @@ public final class pbandk/wkt/Field$Cardinality$UNRECOGNIZED : pbandk/wkt/Field$
 }
 
 public final class pbandk/wkt/Field$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Field;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Field;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/Field$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Field;Lpbandk/wkt/Field$Kind;Lpbandk/wkt/Field$Cardinality;ILjava/lang/String;Ljava/lang/String;IZLjava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Field;
+}
+
+public final class pbandk/wkt/Field$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Field$FieldDescriptors;
+	public final fun getCardinality ()Lpbandk/FieldDescriptor;
+	public final fun getDefaultValue ()Lpbandk/FieldDescriptor;
+	public final fun getJsonName ()Lpbandk/FieldDescriptor;
+	public final fun getKind ()Lpbandk/FieldDescriptor;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getNumber ()Lpbandk/FieldDescriptor;
+	public final fun getOneofIndex ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
+	public final fun getPacked ()Lpbandk/FieldDescriptor;
+	public final fun getTypeUrl ()Lpbandk/FieldDescriptor;
 }
 
 public abstract class pbandk/wkt/Field$Kind : pbandk/Message$Enum {
@@ -1276,14 +1405,27 @@ public abstract interface class pbandk/wkt/FieldDescriptorProto : pbandk/Message
 }
 
 public final class pbandk/wkt/FieldDescriptorProto$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/FieldDescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/FieldDescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/FieldDescriptorProto$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/FieldDescriptorProto;Ljava/lang/String;Ljava/lang/Integer;Lpbandk/wkt/FieldDescriptorProto$Label;Lpbandk/wkt/FieldDescriptorProto$Type;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lpbandk/wkt/FieldOptions;Ljava/lang/Boolean;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldDescriptorProto;
+}
+
+public final class pbandk/wkt/FieldDescriptorProto$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/FieldDescriptorProto$FieldDescriptors;
+	public final fun getDefaultValue ()Lpbandk/FieldDescriptor;
+	public final fun getExtendee ()Lpbandk/FieldDescriptor;
+	public final fun getJsonName ()Lpbandk/FieldDescriptor;
+	public final fun getLabel ()Lpbandk/FieldDescriptor;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getNumber ()Lpbandk/FieldDescriptor;
+	public final fun getOneofIndex ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
+	public final fun getProto3Optional ()Lpbandk/FieldDescriptor;
+	public final fun getType ()Lpbandk/FieldDescriptor;
+	public final fun getTypeName ()Lpbandk/FieldDescriptor;
 }
 
 public abstract class pbandk/wkt/FieldDescriptorProto$Label : pbandk/Message$Enum {
@@ -1426,14 +1568,17 @@ public abstract interface class pbandk/wkt/FieldMask : pbandk/Message {
 }
 
 public final class pbandk/wkt/FieldMask$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/FieldMask;
 	public final fun getDefaultInstance ()Lpbandk/wkt/FieldMask;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/FieldMask$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/FieldMask;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldMask;
+}
+
+public final class pbandk/wkt/FieldMask$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/FieldMask$FieldDescriptors;
+	public final fun getPaths ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/FieldOptions : pbandk/ExtendableMessage {
@@ -1487,15 +1632,23 @@ public final class pbandk/wkt/FieldOptions$CType$UNRECOGNIZED : pbandk/wkt/Field
 }
 
 public final class pbandk/wkt/FieldOptions$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/FieldOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/FieldOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/FieldOptions$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/FieldOptions;Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldOptions;
-	public static fun getExtension (Lpbandk/wkt/FieldOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+}
+
+public final class pbandk/wkt/FieldOptions$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$FieldDescriptors;
+	public final fun getCtype ()Lpbandk/FieldDescriptor;
+	public final fun getDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getJstype ()Lpbandk/FieldDescriptor;
+	public final fun getLazy ()Lpbandk/FieldDescriptor;
+	public final fun getPacked ()Lpbandk/FieldDescriptor;
+	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor;
+	public final fun getWeak ()Lpbandk/FieldDescriptor;
 }
 
 public abstract class pbandk/wkt/FieldOptions$JSType : pbandk/Message$Enum {
@@ -1561,14 +1714,28 @@ public abstract interface class pbandk/wkt/FileDescriptorProto : pbandk/Message 
 }
 
 public final class pbandk/wkt/FileDescriptorProto$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/FileDescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/FileDescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/FileDescriptorProto$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/FileDescriptorProto;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FileOptions;Lpbandk/wkt/SourceCodeInfo;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FileDescriptorProto;
+}
+
+public final class pbandk/wkt/FileDescriptorProto$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/FileDescriptorProto$FieldDescriptors;
+	public final fun getDependency ()Lpbandk/FieldDescriptor;
+	public final fun getEnumType ()Lpbandk/FieldDescriptor;
+	public final fun getExtension ()Lpbandk/FieldDescriptor;
+	public final fun getMessageType ()Lpbandk/FieldDescriptor;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
+	public final fun getPackage ()Lpbandk/FieldDescriptor;
+	public final fun getPublicDependency ()Lpbandk/FieldDescriptor;
+	public final fun getService ()Lpbandk/FieldDescriptor;
+	public final fun getSourceCodeInfo ()Lpbandk/FieldDescriptor;
+	public final fun getSyntax ()Lpbandk/FieldDescriptor;
+	public final fun getWeakDependency ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/FileDescriptorSet : pbandk/Message {
@@ -1581,14 +1748,17 @@ public abstract interface class pbandk/wkt/FileDescriptorSet : pbandk/Message {
 }
 
 public final class pbandk/wkt/FileDescriptorSet$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/FileDescriptorSet;
 	public final fun getDefaultInstance ()Lpbandk/wkt/FileDescriptorSet;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/FileDescriptorSet$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/FileDescriptorSet;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FileDescriptorSet;
+}
+
+public final class pbandk/wkt/FileDescriptorSet$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/FileDescriptorSet$FieldDescriptors;
+	public final fun getFile ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/FileOptions : pbandk/ExtendableMessage {
@@ -1621,15 +1791,37 @@ public abstract interface class pbandk/wkt/FileOptions : pbandk/ExtendableMessag
 }
 
 public final class pbandk/wkt/FileOptions$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/FileOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/FileOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/FileOptions$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/FileOptions;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FileOptions;
-	public static fun getExtension (Lpbandk/wkt/FileOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+}
+
+public final class pbandk/wkt/FileOptions$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/FileOptions$FieldDescriptors;
+	public final fun getCcEnableArenas ()Lpbandk/FieldDescriptor;
+	public final fun getCcGenericServices ()Lpbandk/FieldDescriptor;
+	public final fun getCsharpNamespace ()Lpbandk/FieldDescriptor;
+	public final fun getDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getGoPackage ()Lpbandk/FieldDescriptor;
+	public final fun getJavaGenerateEqualsAndHash ()Lpbandk/FieldDescriptor;
+	public final fun getJavaGenericServices ()Lpbandk/FieldDescriptor;
+	public final fun getJavaMultipleFiles ()Lpbandk/FieldDescriptor;
+	public final fun getJavaOuterClassname ()Lpbandk/FieldDescriptor;
+	public final fun getJavaPackage ()Lpbandk/FieldDescriptor;
+	public final fun getJavaStringCheckUtf8 ()Lpbandk/FieldDescriptor;
+	public final fun getObjcClassPrefix ()Lpbandk/FieldDescriptor;
+	public final fun getOptimizeFor ()Lpbandk/FieldDescriptor;
+	public final fun getPhpClassPrefix ()Lpbandk/FieldDescriptor;
+	public final fun getPhpGenericServices ()Lpbandk/FieldDescriptor;
+	public final fun getPhpMetadataNamespace ()Lpbandk/FieldDescriptor;
+	public final fun getPhpNamespace ()Lpbandk/FieldDescriptor;
+	public final fun getPyGenericServices ()Lpbandk/FieldDescriptor;
+	public final fun getRubyPackage ()Lpbandk/FieldDescriptor;
+	public final fun getSwiftPrefix ()Lpbandk/FieldDescriptor;
+	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor;
 }
 
 public abstract class pbandk/wkt/FileOptions$OptimizeMode : pbandk/Message$Enum {
@@ -1677,14 +1869,17 @@ public abstract interface class pbandk/wkt/FloatValue : pbandk/Message {
 }
 
 public final class pbandk/wkt/FloatValue$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/FloatValue;
 	public final fun getDefaultInstance ()Lpbandk/wkt/FloatValue;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/FloatValue$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/FloatValue;FLjava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FloatValue;
+}
+
+public final class pbandk/wkt/FloatValue$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/FloatValue$FieldDescriptors;
+	public final fun getValue ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/GeneratedCodeInfo : pbandk/Message {
@@ -1709,8 +1904,6 @@ public abstract interface class pbandk/wkt/GeneratedCodeInfo$Annotation : pbandk
 }
 
 public final class pbandk/wkt/GeneratedCodeInfo$Annotation$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
 	public final fun getDefaultInstance ()Lpbandk/wkt/GeneratedCodeInfo$Annotation;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
@@ -1719,15 +1912,26 @@ public final class pbandk/wkt/GeneratedCodeInfo$Annotation$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/GeneratedCodeInfo$Annotation;Ljava/util/List;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
 }
 
+public final class pbandk/wkt/GeneratedCodeInfo$Annotation$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/GeneratedCodeInfo$Annotation$FieldDescriptors;
+	public final fun getBegin ()Lpbandk/FieldDescriptor;
+	public final fun getEnd ()Lpbandk/FieldDescriptor;
+	public final fun getPath ()Lpbandk/FieldDescriptor;
+	public final fun getSourceFile ()Lpbandk/FieldDescriptor;
+}
+
 public final class pbandk/wkt/GeneratedCodeInfo$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/GeneratedCodeInfo;
 	public final fun getDefaultInstance ()Lpbandk/wkt/GeneratedCodeInfo;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/GeneratedCodeInfo$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/GeneratedCodeInfo;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/GeneratedCodeInfo;
+}
+
+public final class pbandk/wkt/GeneratedCodeInfo$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/GeneratedCodeInfo$FieldDescriptors;
+	public final fun getAnnotation ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/GeneratedCodeInfo$MutableAnnotation : pbandk/MutableMessage, pbandk/wkt/GeneratedCodeInfo$Annotation {
@@ -1750,14 +1954,17 @@ public abstract interface class pbandk/wkt/Int32Value : pbandk/Message {
 }
 
 public final class pbandk/wkt/Int32Value$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Int32Value;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Int32Value;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/Int32Value$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Int32Value;ILjava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Int32Value;
+}
+
+public final class pbandk/wkt/Int32Value$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Int32Value$FieldDescriptors;
+	public final fun getValue ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/Int64Value : pbandk/Message {
@@ -1770,14 +1977,17 @@ public abstract interface class pbandk/wkt/Int64Value : pbandk/Message {
 }
 
 public final class pbandk/wkt/Int64Value$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Int64Value;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Int64Value;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/Int64Value$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Int64Value;JLjava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Int64Value;
+}
+
+public final class pbandk/wkt/Int64Value$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Int64Value$FieldDescriptors;
+	public final fun getValue ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/ListValue : pbandk/Message {
@@ -1790,14 +2000,17 @@ public abstract interface class pbandk/wkt/ListValue : pbandk/Message {
 }
 
 public final class pbandk/wkt/ListValue$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/ListValue;
 	public final fun getDefaultInstance ()Lpbandk/wkt/ListValue;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/ListValue$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/ListValue;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ListValue;
+}
+
+public final class pbandk/wkt/ListValue$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/ListValue$FieldDescriptors;
+	public final fun getValues ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/MessageOptions : pbandk/ExtendableMessage {
@@ -1814,15 +2027,21 @@ public abstract interface class pbandk/wkt/MessageOptions : pbandk/ExtendableMes
 }
 
 public final class pbandk/wkt/MessageOptions$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/MessageOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/MessageOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/MessageOptions$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/MessageOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/MessageOptions;
-	public static fun getExtension (Lpbandk/wkt/MessageOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+}
+
+public final class pbandk/wkt/MessageOptions$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/MessageOptions$FieldDescriptors;
+	public final fun getDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getMapEntry ()Lpbandk/FieldDescriptor;
+	public final fun getMessageSetWireFormat ()Lpbandk/FieldDescriptor;
+	public final fun getNoStandardDescriptorAccessor ()Lpbandk/FieldDescriptor;
+	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/Method : pbandk/Message {
@@ -1841,14 +2060,23 @@ public abstract interface class pbandk/wkt/Method : pbandk/Message {
 }
 
 public final class pbandk/wkt/Method$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Method;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Method;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/Method$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Method;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ZLjava/util/List;Lpbandk/wkt/Syntax;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Method;
+}
+
+public final class pbandk/wkt/Method$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Method$FieldDescriptors;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
+	public final fun getRequestStreaming ()Lpbandk/FieldDescriptor;
+	public final fun getRequestTypeUrl ()Lpbandk/FieldDescriptor;
+	public final fun getResponseStreaming ()Lpbandk/FieldDescriptor;
+	public final fun getResponseTypeUrl ()Lpbandk/FieldDescriptor;
+	public final fun getSyntax ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/MethodDescriptorProto : pbandk/Message {
@@ -1866,14 +2094,22 @@ public abstract interface class pbandk/wkt/MethodDescriptorProto : pbandk/Messag
 }
 
 public final class pbandk/wkt/MethodDescriptorProto$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/MethodDescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/MethodDescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/MethodDescriptorProto$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/MethodDescriptorProto;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lpbandk/wkt/MethodOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/MethodDescriptorProto;
+}
+
+public final class pbandk/wkt/MethodDescriptorProto$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/MethodDescriptorProto$FieldDescriptors;
+	public final fun getClientStreaming ()Lpbandk/FieldDescriptor;
+	public final fun getInputType ()Lpbandk/FieldDescriptor;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
+	public final fun getOutputType ()Lpbandk/FieldDescriptor;
+	public final fun getServerStreaming ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/MethodOptions : pbandk/ExtendableMessage {
@@ -1888,15 +2124,19 @@ public abstract interface class pbandk/wkt/MethodOptions : pbandk/ExtendableMess
 }
 
 public final class pbandk/wkt/MethodOptions$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/MethodOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/MethodOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/MethodOptions$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/MethodOptions;Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/MethodOptions;
-	public static fun getExtension (Lpbandk/wkt/MethodOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+}
+
+public final class pbandk/wkt/MethodOptions$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/MethodOptions$FieldDescriptors;
+	public final fun getDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getIdempotencyLevel ()Lpbandk/FieldDescriptor;
+	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor;
 }
 
 public abstract class pbandk/wkt/MethodOptions$IdempotencyLevel : pbandk/Message$Enum {
@@ -1945,14 +2185,18 @@ public abstract interface class pbandk/wkt/Mixin : pbandk/Message {
 }
 
 public final class pbandk/wkt/Mixin$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Mixin;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Mixin;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/Mixin$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Mixin;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Mixin;
+}
+
+public final class pbandk/wkt/Mixin$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Mixin$FieldDescriptors;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getRoot ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/MutableAny : pbandk/MutableMessage, pbandk/wkt/Any {
@@ -2037,16 +2281,12 @@ public abstract interface class pbandk/wkt/MutableEnumDescriptorProto : pbandk/M
 	public abstract fun setOptions (Lpbandk/wkt/EnumOptions;)V
 }
 
-public abstract interface class pbandk/wkt/MutableEnumOptions : pbandk/MutableMessage, pbandk/wkt/EnumOptions {
+public abstract interface class pbandk/wkt/MutableEnumOptions : pbandk/MutableExtendableMessage, pbandk/wkt/EnumOptions {
 	public abstract fun getAllowAlias ()Ljava/lang/Boolean;
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
 	public abstract fun setAllowAlias (Ljava/lang/Boolean;)V
 	public abstract fun setDeprecated (Ljava/lang/Boolean;)V
-}
-
-public final class pbandk/wkt/MutableEnumOptions$DefaultImpls {
-	public static fun getExtension (Lpbandk/wkt/MutableEnumOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
 }
 
 public abstract interface class pbandk/wkt/MutableEnumValue : pbandk/MutableMessage, pbandk/wkt/EnumValue {
@@ -2066,22 +2306,14 @@ public abstract interface class pbandk/wkt/MutableEnumValueDescriptorProto : pba
 	public abstract fun setOptions (Lpbandk/wkt/EnumValueOptions;)V
 }
 
-public abstract interface class pbandk/wkt/MutableEnumValueOptions : pbandk/MutableMessage, pbandk/wkt/EnumValueOptions {
+public abstract interface class pbandk/wkt/MutableEnumValueOptions : pbandk/MutableExtendableMessage, pbandk/wkt/EnumValueOptions {
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
 	public abstract fun setDeprecated (Ljava/lang/Boolean;)V
 }
 
-public final class pbandk/wkt/MutableEnumValueOptions$DefaultImpls {
-	public static fun getExtension (Lpbandk/wkt/MutableEnumValueOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
-}
-
-public abstract interface class pbandk/wkt/MutableExtensionRangeOptions : pbandk/MutableMessage, pbandk/wkt/ExtensionRangeOptions {
+public abstract interface class pbandk/wkt/MutableExtensionRangeOptions : pbandk/MutableExtendableMessage, pbandk/wkt/ExtensionRangeOptions {
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
-}
-
-public final class pbandk/wkt/MutableExtensionRangeOptions$DefaultImpls {
-	public static fun getExtension (Lpbandk/wkt/MutableExtensionRangeOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
 }
 
 public abstract interface class pbandk/wkt/MutableField : pbandk/MutableMessage, pbandk/wkt/Field {
@@ -2135,7 +2367,7 @@ public abstract interface class pbandk/wkt/MutableFieldMask : pbandk/MutableMess
 	public abstract fun getPaths ()Ljava/util/List;
 }
 
-public abstract interface class pbandk/wkt/MutableFieldOptions : pbandk/MutableMessage, pbandk/wkt/FieldOptions {
+public abstract interface class pbandk/wkt/MutableFieldOptions : pbandk/MutableExtendableMessage, pbandk/wkt/FieldOptions {
 	public abstract fun getCtype ()Lpbandk/wkt/FieldOptions$CType;
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
 	public abstract fun getJstype ()Lpbandk/wkt/FieldOptions$JSType;
@@ -2149,10 +2381,6 @@ public abstract interface class pbandk/wkt/MutableFieldOptions : pbandk/MutableM
 	public abstract fun setLazy (Ljava/lang/Boolean;)V
 	public abstract fun setPacked (Ljava/lang/Boolean;)V
 	public abstract fun setWeak (Ljava/lang/Boolean;)V
-}
-
-public final class pbandk/wkt/MutableFieldOptions$DefaultImpls {
-	public static fun getExtension (Lpbandk/wkt/MutableFieldOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
 }
 
 public abstract interface class pbandk/wkt/MutableFileDescriptorProto : pbandk/MutableMessage, pbandk/wkt/FileDescriptorProto {
@@ -2179,7 +2407,7 @@ public abstract interface class pbandk/wkt/MutableFileDescriptorSet : pbandk/Mut
 	public abstract fun getFile ()Ljava/util/List;
 }
 
-public abstract interface class pbandk/wkt/MutableFileOptions : pbandk/MutableMessage, pbandk/wkt/FileOptions {
+public abstract interface class pbandk/wkt/MutableFileOptions : pbandk/MutableExtendableMessage, pbandk/wkt/FileOptions {
 	public abstract fun getCcEnableArenas ()Ljava/lang/Boolean;
 	public abstract fun getCcGenericServices ()Ljava/lang/Boolean;
 	public abstract fun getCsharpNamespace ()Ljava/lang/String;
@@ -2223,10 +2451,6 @@ public abstract interface class pbandk/wkt/MutableFileOptions : pbandk/MutableMe
 	public abstract fun setSwiftPrefix (Ljava/lang/String;)V
 }
 
-public final class pbandk/wkt/MutableFileOptions$DefaultImpls {
-	public static fun getExtension (Lpbandk/wkt/MutableFileOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
-}
-
 public abstract interface class pbandk/wkt/MutableFloatValue : pbandk/MutableMessage, pbandk/wkt/FloatValue {
 	public abstract fun getValue ()F
 	public abstract fun setValue (F)V
@@ -2250,7 +2474,7 @@ public abstract interface class pbandk/wkt/MutableListValue : pbandk/MutableMess
 	public abstract fun getValues ()Ljava/util/List;
 }
 
-public abstract interface class pbandk/wkt/MutableMessageOptions : pbandk/MutableMessage, pbandk/wkt/MessageOptions {
+public abstract interface class pbandk/wkt/MutableMessageOptions : pbandk/MutableExtendableMessage, pbandk/wkt/MessageOptions {
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
 	public abstract fun getMapEntry ()Ljava/lang/Boolean;
 	public abstract fun getMessageSetWireFormat ()Ljava/lang/Boolean;
@@ -2260,10 +2484,6 @@ public abstract interface class pbandk/wkt/MutableMessageOptions : pbandk/Mutabl
 	public abstract fun setMapEntry (Ljava/lang/Boolean;)V
 	public abstract fun setMessageSetWireFormat (Ljava/lang/Boolean;)V
 	public abstract fun setNoStandardDescriptorAccessor (Ljava/lang/Boolean;)V
-}
-
-public final class pbandk/wkt/MutableMessageOptions$DefaultImpls {
-	public static fun getExtension (Lpbandk/wkt/MutableMessageOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
 }
 
 public abstract interface class pbandk/wkt/MutableMethod : pbandk/MutableMessage, pbandk/wkt/Method {
@@ -2297,16 +2517,12 @@ public abstract interface class pbandk/wkt/MutableMethodDescriptorProto : pbandk
 	public abstract fun setServerStreaming (Ljava/lang/Boolean;)V
 }
 
-public abstract interface class pbandk/wkt/MutableMethodOptions : pbandk/MutableMessage, pbandk/wkt/MethodOptions {
+public abstract interface class pbandk/wkt/MutableMethodOptions : pbandk/MutableExtendableMessage, pbandk/wkt/MethodOptions {
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
 	public abstract fun getIdempotencyLevel ()Lpbandk/wkt/MethodOptions$IdempotencyLevel;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
 	public abstract fun setDeprecated (Ljava/lang/Boolean;)V
 	public abstract fun setIdempotencyLevel (Lpbandk/wkt/MethodOptions$IdempotencyLevel;)V
-}
-
-public final class pbandk/wkt/MutableMethodOptions$DefaultImpls {
-	public static fun getExtension (Lpbandk/wkt/MutableMethodOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
 }
 
 public abstract interface class pbandk/wkt/MutableMixin : pbandk/MutableMessage, pbandk/wkt/Mixin {
@@ -2323,12 +2539,8 @@ public abstract interface class pbandk/wkt/MutableOneofDescriptorProto : pbandk/
 	public abstract fun setOptions (Lpbandk/wkt/OneofOptions;)V
 }
 
-public abstract interface class pbandk/wkt/MutableOneofOptions : pbandk/MutableMessage, pbandk/wkt/OneofOptions {
+public abstract interface class pbandk/wkt/MutableOneofOptions : pbandk/MutableExtendableMessage, pbandk/wkt/OneofOptions {
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
-}
-
-public final class pbandk/wkt/MutableOneofOptions$DefaultImpls {
-	public static fun getExtension (Lpbandk/wkt/MutableOneofOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
 }
 
 public abstract interface class pbandk/wkt/MutableOption : pbandk/MutableMessage, pbandk/wkt/Option {
@@ -2346,14 +2558,10 @@ public abstract interface class pbandk/wkt/MutableServiceDescriptorProto : pband
 	public abstract fun setOptions (Lpbandk/wkt/ServiceOptions;)V
 }
 
-public abstract interface class pbandk/wkt/MutableServiceOptions : pbandk/MutableMessage, pbandk/wkt/ServiceOptions {
+public abstract interface class pbandk/wkt/MutableServiceOptions : pbandk/MutableExtendableMessage, pbandk/wkt/ServiceOptions {
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
 	public abstract fun setDeprecated (Ljava/lang/Boolean;)V
-}
-
-public final class pbandk/wkt/MutableServiceOptions$DefaultImpls {
-	public static fun getExtension (Lpbandk/wkt/MutableServiceOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
 }
 
 public abstract interface class pbandk/wkt/MutableSourceCodeInfo : pbandk/MutableMessage, pbandk/wkt/SourceCodeInfo {
@@ -2474,14 +2682,18 @@ public abstract interface class pbandk/wkt/OneofDescriptorProto : pbandk/Message
 }
 
 public final class pbandk/wkt/OneofDescriptorProto$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/OneofDescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/OneofDescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/OneofDescriptorProto$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/OneofDescriptorProto;Ljava/lang/String;Lpbandk/wkt/OneofOptions;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/OneofDescriptorProto;
+}
+
+public final class pbandk/wkt/OneofDescriptorProto$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/OneofDescriptorProto$FieldDescriptors;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/OneofOptions : pbandk/ExtendableMessage {
@@ -2494,15 +2706,17 @@ public abstract interface class pbandk/wkt/OneofOptions : pbandk/ExtendableMessa
 }
 
 public final class pbandk/wkt/OneofOptions$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/OneofOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/OneofOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/OneofOptions$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/OneofOptions;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/OneofOptions;
-	public static fun getExtension (Lpbandk/wkt/OneofOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+}
+
+public final class pbandk/wkt/OneofOptions$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/OneofOptions$FieldDescriptors;
+	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/Option : pbandk/Message {
@@ -2516,14 +2730,18 @@ public abstract interface class pbandk/wkt/Option : pbandk/Message {
 }
 
 public final class pbandk/wkt/Option$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Option;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Option;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/Option$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Option;Ljava/lang/String;Lpbandk/wkt/Any;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Option;
+}
+
+public final class pbandk/wkt/Option$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Option$FieldDescriptors;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getValue ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/ServiceDescriptorProto : pbandk/Message {
@@ -2538,14 +2756,19 @@ public abstract interface class pbandk/wkt/ServiceDescriptorProto : pbandk/Messa
 }
 
 public final class pbandk/wkt/ServiceDescriptorProto$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/ServiceDescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/ServiceDescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/ServiceDescriptorProto$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/ServiceDescriptorProto;Ljava/lang/String;Ljava/util/List;Lpbandk/wkt/ServiceOptions;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ServiceDescriptorProto;
+}
+
+public final class pbandk/wkt/ServiceDescriptorProto$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/ServiceDescriptorProto$FieldDescriptors;
+	public final fun getMethod ()Lpbandk/FieldDescriptor;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/ServiceOptions : pbandk/ExtendableMessage {
@@ -2559,15 +2782,18 @@ public abstract interface class pbandk/wkt/ServiceOptions : pbandk/ExtendableMes
 }
 
 public final class pbandk/wkt/ServiceOptions$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/ServiceOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/ServiceOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/ServiceOptions$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/ServiceOptions;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ServiceOptions;
-	public static fun getExtension (Lpbandk/wkt/ServiceOptions;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+}
+
+public final class pbandk/wkt/ServiceOptions$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/ServiceOptions$FieldDescriptors;
+	public final fun getDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/SourceCodeInfo : pbandk/Message {
@@ -2580,14 +2806,17 @@ public abstract interface class pbandk/wkt/SourceCodeInfo : pbandk/Message {
 }
 
 public final class pbandk/wkt/SourceCodeInfo$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/SourceCodeInfo;
 	public final fun getDefaultInstance ()Lpbandk/wkt/SourceCodeInfo;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/SourceCodeInfo$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/SourceCodeInfo;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/SourceCodeInfo;
+}
+
+public final class pbandk/wkt/SourceCodeInfo$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/SourceCodeInfo$FieldDescriptors;
+	public final fun getLocation ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/SourceCodeInfo$Location : pbandk/Message {
@@ -2604,14 +2833,21 @@ public abstract interface class pbandk/wkt/SourceCodeInfo$Location : pbandk/Mess
 }
 
 public final class pbandk/wkt/SourceCodeInfo$Location$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/SourceCodeInfo$Location;
 	public final fun getDefaultInstance ()Lpbandk/wkt/SourceCodeInfo$Location;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/SourceCodeInfo$Location$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/SourceCodeInfo$Location;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/SourceCodeInfo$Location;
+}
+
+public final class pbandk/wkt/SourceCodeInfo$Location$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/SourceCodeInfo$Location$FieldDescriptors;
+	public final fun getLeadingComments ()Lpbandk/FieldDescriptor;
+	public final fun getLeadingDetachedComments ()Lpbandk/FieldDescriptor;
+	public final fun getPath ()Lpbandk/FieldDescriptor;
+	public final fun getSpan ()Lpbandk/FieldDescriptor;
+	public final fun getTrailingComments ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/SourceCodeInfo$MutableLocation : pbandk/MutableMessage, pbandk/wkt/SourceCodeInfo$Location {
@@ -2634,14 +2870,17 @@ public abstract interface class pbandk/wkt/SourceContext : pbandk/Message {
 }
 
 public final class pbandk/wkt/SourceContext$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/SourceContext;
 	public final fun getDefaultInstance ()Lpbandk/wkt/SourceContext;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/SourceContext$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/SourceContext;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/SourceContext;
+}
+
+public final class pbandk/wkt/SourceContext$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/SourceContext$FieldDescriptors;
+	public final fun getFileName ()Lpbandk/FieldDescriptor;
 }
 
 public final class pbandk/wkt/Source_contextKt {
@@ -2661,14 +2900,17 @@ public abstract interface class pbandk/wkt/StringValue : pbandk/Message {
 }
 
 public final class pbandk/wkt/StringValue$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/StringValue;
 	public final fun getDefaultInstance ()Lpbandk/wkt/StringValue;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/StringValue$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/StringValue;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/StringValue;
+}
+
+public final class pbandk/wkt/StringValue$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/StringValue$FieldDescriptors;
+	public final fun getValue ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/Struct : pbandk/Message {
@@ -2681,14 +2923,17 @@ public abstract interface class pbandk/wkt/Struct : pbandk/Message {
 }
 
 public final class pbandk/wkt/Struct$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Struct;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Struct;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/Struct$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Struct;Ljava/util/Map;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Struct;
+}
+
+public final class pbandk/wkt/Struct$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Struct$FieldDescriptors;
+	public final fun getFields ()Lpbandk/FieldDescriptor;
 }
 
 public final class pbandk/wkt/StructKt {
@@ -2748,14 +2993,18 @@ public abstract interface class pbandk/wkt/Timestamp : pbandk/Message {
 }
 
 public final class pbandk/wkt/Timestamp$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Timestamp;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Timestamp;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/Timestamp$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Timestamp;JILjava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Timestamp;
+}
+
+public final class pbandk/wkt/Timestamp$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Timestamp$FieldDescriptors;
+	public final fun getNanos ()Lpbandk/FieldDescriptor;
+	public final fun getSeconds ()Lpbandk/FieldDescriptor;
 }
 
 public final class pbandk/wkt/TimestampKt {
@@ -2780,14 +3029,22 @@ public abstract interface class pbandk/wkt/Type : pbandk/Message {
 }
 
 public final class pbandk/wkt/Type$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Type;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Type;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/Type$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Type;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Type;
+}
+
+public final class pbandk/wkt/Type$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Type$FieldDescriptors;
+	public final fun getFields ()Lpbandk/FieldDescriptor;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getOneofs ()Lpbandk/FieldDescriptor;
+	public final fun getOptions ()Lpbandk/FieldDescriptor;
+	public final fun getSourceContext ()Lpbandk/FieldDescriptor;
+	public final fun getSyntax ()Lpbandk/FieldDescriptor;
 }
 
 public final class pbandk/wkt/TypeKt {
@@ -2823,14 +3080,17 @@ public abstract interface class pbandk/wkt/UInt32Value : pbandk/Message {
 }
 
 public final class pbandk/wkt/UInt32Value$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/UInt32Value;
 	public final fun getDefaultInstance ()Lpbandk/wkt/UInt32Value;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/UInt32Value$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/UInt32Value;ILjava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/UInt32Value;
+}
+
+public final class pbandk/wkt/UInt32Value$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/UInt32Value$FieldDescriptors;
+	public final fun getValue ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/UInt64Value : pbandk/Message {
@@ -2843,14 +3103,17 @@ public abstract interface class pbandk/wkt/UInt64Value : pbandk/Message {
 }
 
 public final class pbandk/wkt/UInt64Value$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/UInt64Value;
 	public final fun getDefaultInstance ()Lpbandk/wkt/UInt64Value;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/UInt64Value$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/UInt64Value;JLjava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/UInt64Value;
+}
+
+public final class pbandk/wkt/UInt64Value$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/UInt64Value$FieldDescriptors;
+	public final fun getValue ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/UninterpretedOption : pbandk/Message {
@@ -2869,14 +3132,23 @@ public abstract interface class pbandk/wkt/UninterpretedOption : pbandk/Message 
 }
 
 public final class pbandk/wkt/UninterpretedOption$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/UninterpretedOption;
 	public final fun getDefaultInstance ()Lpbandk/wkt/UninterpretedOption;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/UninterpretedOption$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/UninterpretedOption;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Double;Lpbandk/ByteArr;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/UninterpretedOption;
+}
+
+public final class pbandk/wkt/UninterpretedOption$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/UninterpretedOption$FieldDescriptors;
+	public final fun getAggregateValue ()Lpbandk/FieldDescriptor;
+	public final fun getDoubleValue ()Lpbandk/FieldDescriptor;
+	public final fun getIdentifierValue ()Lpbandk/FieldDescriptor;
+	public final fun getName ()Lpbandk/FieldDescriptor;
+	public final fun getNegativeIntValue ()Lpbandk/FieldDescriptor;
+	public final fun getPositiveIntValue ()Lpbandk/FieldDescriptor;
+	public final fun getStringValue ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/UninterpretedOption$MutableNamePart : pbandk/MutableMessage, pbandk/wkt/UninterpretedOption$NamePart {
@@ -2897,14 +3169,18 @@ public abstract interface class pbandk/wkt/UninterpretedOption$NamePart : pbandk
 }
 
 public final class pbandk/wkt/UninterpretedOption$NamePart$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/UninterpretedOption$NamePart;
 	public final fun getDefaultInstance ()Lpbandk/wkt/UninterpretedOption$NamePart;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/UninterpretedOption$NamePart$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/UninterpretedOption$NamePart;Ljava/lang/String;ZLjava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/UninterpretedOption$NamePart;
+}
+
+public final class pbandk/wkt/UninterpretedOption$NamePart$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/UninterpretedOption$NamePart$FieldDescriptors;
+	public final fun getNamePart ()Lpbandk/FieldDescriptor;
+	public final fun isExtension ()Lpbandk/FieldDescriptor;
 }
 
 public abstract interface class pbandk/wkt/Value : pbandk/Message {
@@ -2923,8 +3199,6 @@ public abstract interface class pbandk/wkt/Value : pbandk/Message {
 }
 
 public final class pbandk/wkt/Value$Companion : pbandk/Message$Companion {
-	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
-	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Value;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Value;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
@@ -2933,39 +3207,49 @@ public final class pbandk/wkt/Value$DefaultImpls {
 	public static synthetic fun copy$default (Lpbandk/wkt/Value;Lpbandk/wkt/Value$Kind;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Value;
 }
 
-public abstract class pbandk/wkt/Value$Kind : pbandk/Message$OneOf {
-	public synthetic fun <init> (Ljava/lang/Object;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+public final class pbandk/wkt/Value$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/Value$FieldDescriptors;
+	public final fun getBoolValue ()Lpbandk/FieldDescriptor;
+	public final fun getKind ()Lpbandk/OneofDescriptor;
+	public final fun getListValue ()Lpbandk/FieldDescriptor;
+	public final fun getNullValue ()Lpbandk/FieldDescriptor;
+	public final fun getNumberValue ()Lpbandk/FieldDescriptor;
+	public final fun getStringValue ()Lpbandk/FieldDescriptor;
+	public final fun getStructValue ()Lpbandk/FieldDescriptor;
 }
 
-public final class pbandk/wkt/Value$Kind$BoolValue : pbandk/wkt/Value$Kind {
+public abstract interface class pbandk/wkt/Value$Kind : pbandk/Message$OneOf {
+}
+
+public final class pbandk/wkt/Value$Kind$BoolValue : pbandk/gen/GeneratedOneOf, pbandk/wkt/Value$Kind {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
-public final class pbandk/wkt/Value$Kind$ListValue : pbandk/wkt/Value$Kind {
+public final class pbandk/wkt/Value$Kind$ListValue : pbandk/gen/GeneratedOneOf, pbandk/wkt/Value$Kind {
 	public fun <init> (Lpbandk/wkt/ListValue;)V
 }
 
-public final class pbandk/wkt/Value$Kind$NullValue : pbandk/wkt/Value$Kind {
+public final class pbandk/wkt/Value$Kind$NullValue : pbandk/gen/GeneratedOneOf, pbandk/wkt/Value$Kind {
 	public fun <init> ()V
 	public fun <init> (Lpbandk/wkt/NullValue;)V
 	public synthetic fun <init> (Lpbandk/wkt/NullValue;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
-public final class pbandk/wkt/Value$Kind$NumberValue : pbandk/wkt/Value$Kind {
+public final class pbandk/wkt/Value$Kind$NumberValue : pbandk/gen/GeneratedOneOf, pbandk/wkt/Value$Kind {
 	public fun <init> ()V
 	public fun <init> (D)V
 	public synthetic fun <init> (DILkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
-public final class pbandk/wkt/Value$Kind$StringValue : pbandk/wkt/Value$Kind {
+public final class pbandk/wkt/Value$Kind$StringValue : pbandk/gen/GeneratedOneOf, pbandk/wkt/Value$Kind {
 	public fun <init> ()V
 	public fun <init> (Ljava/lang/String;)V
 	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
-public final class pbandk/wkt/Value$Kind$StructValue : pbandk/wkt/Value$Kind {
+public final class pbandk/wkt/Value$Kind$StructValue : pbandk/gen/GeneratedOneOf, pbandk/wkt/Value$Kind {
 	public fun <init> (Lpbandk/wkt/Struct;)V
 }
 

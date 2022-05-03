@@ -30,12 +30,12 @@
 package pbandk.internal.binary
 
 import pbandk.*
-import pbandk.gen.GeneratedExtendableMessage
 import pbandk.gen.ListField
 import pbandk.gen.MapField
+import pbandk.internal.fieldIterator
+import pbandk.internal.forEach
 import pbandk.wkt.*
 import kotlin.Any
-import kotlin.reflect.KProperty1
 
 private class CodePointIterator(private val s: String) : Iterator<Int> {
     var pos = 0
@@ -121,25 +121,16 @@ internal abstract class AbstractSizer {
 
     fun <T : Message> rawMessageSize(message: T): Int {
         var protoSize = 0
-        for (fd in message.descriptor.fields) {
-            @Suppress("UNCHECKED_CAST")
-            protoSize += fieldSize(message, fd as FieldDescriptor<T, *>)
-        }
 
-        if (message is GeneratedExtendableMessage<*>) {
-            for (fd in message.extensionFields.keys()) {
-                @Suppress("UNCHECKED_CAST")
-                protoSize += fieldSize(message, fd as FieldDescriptor<T, *>)
-            }
+        message.fieldIterator().forEach { fieldDescriptor, value ->
+            protoSize += fieldSize(fieldDescriptor, value)
         }
 
         protoSize += message.unknownFields.values.sumOf { it.size }
         return protoSize
     }
 
-    private fun <T : Message> fieldSize(message: T, fd: FieldDescriptor<T, *>): Int {
-        val value = fd.getValue(message)
-
+    private fun <T : Message> fieldSize(fd: FieldDescriptor<T, *>, value: Any?): Int {
         if (value == null || !fd.type.shouldOutputValue(value)) {
             return 0
         }

@@ -1,16 +1,44 @@
 package pbandk
 
 import pbandk.internal.AtomicReference
+import pbandk.internal.FieldIterator
 
 @PublicForGeneratedCode
 public class FieldSet<M : Message>
-internal constructor(private val map: Map<FieldDescriptor<M, *>, Any> = emptyMap()) {
+internal constructor(map: Map<FieldDescriptor<M, *>, Any>) {
+    // We need to ensure that map iteration will always iterate over the fields in order of increasing field number
+    private val map: Map<FieldDescriptor<M, *>, Any> = LinkedHashMap<FieldDescriptor<M, *>, Any>(map.size).apply {
+        map.entries.sortedBy { it.key.number }.forEach { put(it.key, it.value) }
+    }
+
     internal operator fun <V> get(fieldDescriptor: FieldDescriptor<M, V>): V? {
         @Suppress("UNCHECKED_CAST")
         return map[fieldDescriptor] as V?
     }
 
-    internal fun keys(): Set<FieldDescriptor<M, *>> = map.keys
+    /**
+     * Returns a [FieldIterator] over all fields in this set, ordered by increasing field number.
+     */
+    internal fun iterator(): FieldIterator<M> = Iterator(map.entries.iterator())
+
+    private class Iterator<M : Message>(
+        private val iterator: kotlin.collections.Iterator<Map.Entry<FieldDescriptor<M, *>, Any>>
+    ) : FieldIterator<M> {
+        private var lastEntry: Map.Entry<FieldDescriptor<M, *>, Any>? = null
+
+        override fun hasNext() = iterator.hasNext()
+
+        override fun next() = iterator.next().also { lastEntry = it }.key
+
+        override fun nextValue() = lastEntry?.value
+    }
+
+    internal companion object {
+        private val Empty = FieldSet<Nothing>(emptyMap())
+
+        @Suppress("UNCHECKED_CAST")
+        internal fun <M : Message> empty(): FieldSet<M> = Empty as FieldSet<M>
+    }
 }
 
 /**
@@ -58,6 +86,6 @@ public class MutableFieldSet<M : Message> internal constructor() {
     }
 
     public fun toFieldSet(): FieldSet<M> {
-        return FieldSet(map.toMap())
+        return FieldSet(map)
     }
 }

@@ -49,6 +49,8 @@ public data class JsonConfig(
     val typeRegistry: TypeRegistry = TypeRegistry.EMPTY,
 ) {
     internal fun getFieldJsonName(fieldDescriptor: FieldDescriptor<*, *>): String =
+        // TODO: if this is an extension field, then the JSON key has to be surrounded by square brackets and include
+        //  the full path of the field, not just the field's name
         when {
             outputProtoFieldNames -> fieldDescriptor.name
             fieldDescriptor.jsonName != null -> fieldDescriptor.jsonName
