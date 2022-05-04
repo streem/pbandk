@@ -36,8 +36,8 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
         val jsonContent: MutableMap<String, JsonElement> = linkedMapOf()
 
         message.fieldIterator().forEach { fd, value ->
-            if (value == null && fd.oneofMember) return@forEach
-            if (!fd.oneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) return@forEach
+            if (value == null && fd.isOneofMember) return@forEach
+            if (!fd.isOneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) return@forEach
 
             val jsonValue = value
                 ?.takeUnless {
@@ -57,8 +57,8 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
     }
 
     private fun <M : Message> writeFieldValue(fd: FieldDescriptor<M, *>, value: Any?): JsonElement? {
-        if (value == null && fd.oneofMember) return null
-        if (!fd.oneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) return null
+        if (value == null && fd.isOneofMember) return null
+        if (!fd.isOneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) return null
 
         return value
             ?.takeUnless {

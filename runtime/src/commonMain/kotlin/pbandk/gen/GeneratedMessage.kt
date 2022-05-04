@@ -90,6 +90,7 @@ protected constructor(
     protected val extensionFields: MutableFieldSet<M> = MutableFieldSet()
 
     override fun <V> getExtension(fd: FieldDescriptor<M, V>): V {
+        require(fd.isExtension) { "Provided field descriptor does not describe an extension field" }
         return extensionFields[fd]
             ?: if (!fd.type.hasPresence) {
                 // A value for this extension field was not provided. If the field type has a non-null default value
@@ -104,6 +105,7 @@ protected constructor(
     }
 
     override fun <V> setExtension(fd: FieldDescriptor<M, V>, newValue: V) {
+        require(fd.isExtension) { "Provided field descriptor does not describe an extension field" }
         if (newValue == null) {
             extensionFields.remove(fd)
         } else {

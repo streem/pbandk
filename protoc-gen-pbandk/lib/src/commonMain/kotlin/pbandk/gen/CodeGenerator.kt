@@ -32,39 +32,37 @@ public open class CodeGenerator(
         fn().also { indent = indent.dropLast(4) }
     }
 
-    private fun writeExtension(field: File.Field) {
-        when (field) {
-            is File.Field.Numbered -> {
-                line()
-                addDeprecatedAnnotation(field)
-                lineBegin("$visibility val ${field.extendeeKotlinType!!.fullWithPackage}.${field.kotlinName.simple}: ")
-                lineEnd(field.kotlinValueType(nullableIfMessage = true)).indented {
-                    line("get() = getExtension(${field.descriptorName.fullWithPackage})")
-                }
+    protected fun writeExtension(field: File.Field.Numbered) {
+        line()
+        addDeprecatedAnnotation(field)
+        lineBegin("$visibility val ${field.extendeeKotlinType!!.fullWithPackage}.${field.kotlinName.simple}: ")
+        lineEnd(field.kotlinValueType(nullableIfMessage = true)).indented {
+            line("get() = getExtension(${field.descriptorName.fullWithPackage})")
+        }
 
-                line()
-                addDeprecatedAnnotation(field)
-                lineBegin("$visibility ${field.mutablePropertyDeclaration}")
-                lineMid(" ${field.extendeeKotlinType!!.mutableTypeName.fullWithPackage}.${field.kotlinName.simple}: ")
-                lineEnd(field.kotlinValueType(nullableIfMessage = true, mutable = true)).indented {
-                    line("get() = getExtension(${field.descriptorName.fullWithPackage})")
-                    if (field.mutablePropertyDeclaration == "var") {
-                        line("set(value) = setExtension(${field.descriptorName.fullWithPackage}, value)")
-                    }
-                }
-
-                line().line("@pbandk.Export")
-                addDeprecatedAnnotation(field)
-                line("$visibility val ${field.descriptorName.simple}: ${field.fieldDescriptorType(field.extendeeKotlinType!!)} = ").indented {
-                    generateFieldDescriptorConstructorValues(
-                        field,
-                        field.extendeeKotlinType!!,
-                        null,
-                        "${field.extendeeKotlinType!!.fullWithPackage}.Companion::descriptor"
-                    )
-                }
+        line()
+        addDeprecatedAnnotation(field)
+        lineBegin("$visibility ${field.mutablePropertyDeclaration}")
+        lineMid(" ${field.extendeeKotlinType!!.mutableTypeName.fullWithPackage}.${field.kotlinName.simple}: ")
+        lineEnd(field.kotlinValueType(nullableIfMessage = true, mutable = true)).indented {
+            line("get() = getExtension(${field.descriptorName.fullWithPackage})")
+            if (field.mutablePropertyDeclaration == "var") {
+                line("set(value) = setExtension(${field.descriptorName.fullWithPackage}, value)")
             }
-            is File.Field.OneOf -> error("Got unexpected oneof extension field")
+        }
+
+        line().line("@pbandk.Export")
+        writeExtensionFieldDescriptor(field)
+    }
+
+    protected fun writeExtensionFieldDescriptor(field: File.Field.Numbered) {
+        addDeprecatedAnnotation(field)
+        line("$visibility val ${field.descriptorName.simple}: ${field.fieldDescriptorType(field.extendeeKotlinType!!)} = ").indented {
+            generateFieldDescriptorConstructor(
+                field,
+                field.extendeeKotlinType!!,
+                "${field.extendeeKotlinType!!.fullWithPackage}.Companion::descriptor",
+            )
         }
     }
 
@@ -201,6 +199,14 @@ public open class CodeGenerator(
                 line()
                 writeMessageDescriptor(type)
 
+                type.extensions.forEach {
+                    // TODO: write extension field accessors
+                    // Though maybe accessors shouldn't be nested inside the scope of the enclosing method since then
+                    // they'd be hard to access?
+                    line()
+                    writeExtensionFieldDescriptor(it)
+                }
+
                 type.nestedTypes.filterIsInstance<File.Type.Message>()
                     .filterNot { it.mapEntry }
                     .forEach(::writeDeprecatedMessageBuilder)
@@ -280,11 +286,11 @@ public open class CodeGenerator(
                     lineBegin("$visibility val ${field.descriptorName.simple}: ")
                     lineMid(field.fieldDescriptorType(type.kotlinName, isOneOfMember = oneof != null))
                     lineEnd(" =").indented {
-                        generateFieldDescriptorConstructorValues(
+                        generateFieldDescriptorConstructor(
                             field,
                             type.kotlinName,
-                            oneof,
-                            "${type.kotlinName.fullWithPackage}::descriptor"
+                            "${type.kotlinName.fullWithPackage}::descriptor",
+                            oneof
                         )
                     }
                 }
@@ -303,7 +309,7 @@ public open class CodeGenerator(
                     lineBegin("$visibility val ${field.descriptorName.simple}: ")
                     lineMid(field.oneofDescriptorType(type.kotlinName))
                     lineEnd(" =").indented {
-                        generateOneofDescriptorConstructorValues(
+                        generateOneofDescriptorConstructor(
                             field,
                             type.kotlinName,
                             "${type.kotlinName.fullWithPackage}::descriptor"
@@ -332,11 +338,11 @@ public open class CodeGenerator(
                         line("private fun addFields${index}() {").indented {
                             chunk.forEach { (field, oneof) ->
                                 line("${field.descriptorName.simple} =").indented {
-                                    generateFieldDescriptorConstructorValues(
+                                    generateFieldDescriptorConstructor(
                                         field,
                                         type.kotlinName,
-                                        oneof,
-                                        "${type.kotlinName.fullWithPackage}::descriptor"
+                                        "${type.kotlinName.fullWithPackage}::descriptor",
+                                        oneof
                                     )
                                 }
                             }
@@ -350,7 +356,7 @@ public open class CodeGenerator(
                         line("private fun addOneofs${index}() {").indented {
                             chunk.forEach { field ->
                                 lineEnd("${field.descriptorName.simple} =").indented {
-                                    generateOneofDescriptorConstructorValues(
+                                    generateOneofDescriptorConstructor(
                                         field,
                                         type.kotlinName,
                                         "${type.kotlinName.fullWithPackage}::descriptor"
@@ -794,10 +800,15 @@ public open class CodeGenerator(
     }
 
     protected fun File.Field.Numbered.descriptorFactoryMethod(isOneOfMember: Boolean = false): String = when {
-        this is File.Field.Numbered.Standard && map -> "ofMap"
-        repeated -> "ofRepeated"
-        isOneOfMember -> "ofOneof"
-        else -> "of"
+        this is File.Field.Numbered.Standard && map -> "pbandk.FieldDescriptor.ofMap"
+        extendee != null -> if (repeated) {
+            "pbandk.FieldDescriptor.ofRepeatedExtension"
+        } else {
+            "pbandk.FieldDescriptor.ofExtension"
+        }
+        repeated -> "pbandk.FieldDescriptor.ofRepeated"
+        isOneOfMember -> "pbandk.FieldDescriptor.ofOneof"
+        else -> "pbandk.FieldDescriptor.of"
     }
 
     protected val File.Field.Numbered.Standard.hasPresence: Boolean get() = optional
@@ -937,26 +948,34 @@ public open class CodeGenerator(
         get() = kotlinTypeMappings[wrapperTypeName.fullWithPackage] ?: error("No Kotlin type found for wrapper")
 
 
-    private fun generateFieldDescriptorConstructorValues(
+    private fun generateFieldDescriptorConstructor(
         field: File.Field.Numbered,
         typeName: Name,
-        oneof: File.Field.OneOf?,
-        messageDescriptorCompanion: String
+        messageDescriptorCompanion: String,
+        oneof: File.Field.OneOf? = null,
     ) {
+        require(!(oneof != null && field.extendee != null)) { "extension fields can't be in a oneof" }
+
         if (field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
-        line("pbandk.FieldDescriptor.${field.descriptorFactoryMethod(oneof != null)}(").indented {
+        line("${field.descriptorFactoryMethod(oneof != null)}(").indented {
             line("messageDescriptor = ${messageDescriptorCompanion},")
-            line("name = \"${field.name.simple}\",")
+            if (field.extendee != null) {
+                line("fullName = \"${field.name.fullWithPackage.removePrefix(".")}\",")
+            } else {
+                line("name = \"${field.name.simple}\",")
+            }
             line("number = ${field.number},")
             line("type = ${field.fieldDescriptorTypeType(oneof != null)},")
-            field.jsonName?.let { line("jsonName = \"$it\",") }
+            line("jsonName = \"${field.jsonName}\",")
             generateFieldOptions(field.options)
-            line("value = ${typeName.fullWithPackage}::${field.kotlinName.simple},")
-            line("mutableValue = ${typeName.mutableTypeName.fullWithPackage}::${field.kotlinName.simple},")
+            if (field.extendee == null) {
+                line("value = ${typeName.fullWithPackage}::${field.kotlinName.simple},")
+                line("mutableValue = ${typeName.mutableTypeName.fullWithPackage}::${field.kotlinName.simple},")
+            }
         }.line(")")
     }
 
-    private fun generateOneofDescriptorConstructorValues(
+    private fun generateOneofDescriptorConstructor(
         field: File.Field.OneOf,
         typeName: Name,
         messageDescriptorCompanion: String

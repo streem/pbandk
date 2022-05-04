@@ -26,7 +26,7 @@ public data class File(
     val kotlinPackageName: String?,
     val version: Int,
     val types: List<Type>,
-    val extensions: List<Field>
+    val extensions: List<Field.Numbered>
 ) {
     // Map is keyed by protobuf names (qualified starting w/ a dot if packageName is non-null) with value of Kotlin FQCN
     internal fun kotlinTypeMappings(types: List<Type> = this.types): Map<String, Name> {
@@ -45,7 +45,8 @@ public data class File(
             val nestedTypes: List<Type>,
             val mapEntry: Boolean,
             override val kotlinName: Name,
-            val extensionRange: List<pbandk.wkt.DescriptorProto.ExtensionRange> = emptyList()
+            val extensionRange: List<pbandk.wkt.DescriptorProto.ExtensionRange> = emptyList(),
+            val extensions: List<Field.Numbered> = emptyList(),
         ) : Type()
 
         public data class Enum(
@@ -65,7 +66,7 @@ public data class File(
             public abstract val number: Int
             public abstract val type: Type
             public abstract val repeated: Boolean
-            public abstract val jsonName: String?
+            public abstract val jsonName: String
             public abstract val options: FieldOptions
             public abstract val extendee: String?
 
@@ -75,7 +76,7 @@ public data class File(
                 override val type: Type,
                 val localTypeName: String?,
                 override val repeated: Boolean,
-                override val jsonName: String?,
+                override val jsonName: String,
                 // Note, this is only applicable for proto2
                 // TODO: test explicitly set default value in proto2
                 val optional: Boolean,
@@ -93,7 +94,7 @@ public data class File(
                 override val name: Name,
                 override val kotlinName: Name,
                 override val repeated: Boolean,
-                override val jsonName: String?,
+                override val jsonName: String,
                 val wrappedType: Type,
                 override val options : FieldOptions = FieldOptions.defaultInstance,
                 override val extendee: String? = null

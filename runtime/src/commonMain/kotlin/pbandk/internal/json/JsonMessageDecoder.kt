@@ -10,15 +10,11 @@ import pbandk.InvalidProtocolBufferException
 import pbandk.Message
 import pbandk.MessageDecoder
 import pbandk.gen.MutableMapField
-import pbandk.internal.underscoreToCamelCase
 import pbandk.json.JsonConfig
 import pbandk.wkt.Value
 
 private val FieldDescriptor<*, *>.jsonNames: List<String>
-    get() = listOf(
-        jsonName ?: name.underscoreToCamelCase(),
-        name
-    )
+    get() = listOf(jsonName, name)
 
 internal class JsonMessageDecoder internal constructor(
     private val content: JsonElement,

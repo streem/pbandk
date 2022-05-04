@@ -54,8 +54,12 @@ protected constructor(): Message {
         append("(")
 
         fieldIterator().forEach { fieldDescriptor, value ->
-            // TODO: include the full path for extension fields, not just their name
-            append("${fieldDescriptor.name}=${value}, ")
+            if (fieldDescriptor.isExtension) {
+                append("[${fieldDescriptor.fullName}]")
+            } else {
+                append(fieldDescriptor.name)
+            }
+            append("=${value}, ")
         }
 
         if (unknownFields.isNotEmpty()) {
@@ -74,7 +78,7 @@ protected constructor(): Message {
             this as MutableMessage<M>
 
             this@AbstractGeneratedMessage.fieldIterator().forEach { fieldDescriptor, value ->
-                (fieldDescriptor.updateValue as (MutableMessage<M>, Any?) -> Unit)(this, value)
+                (fieldDescriptor as FieldDescriptor<M, Any?>).updateValue(this, value)
             }
             unknownFields += this@AbstractGeneratedMessage.unknownFields
             (this as MM).builderAction()
@@ -90,7 +94,7 @@ protected constructor(): Message {
 
         return copy<MutableMessage<M>> {
             forEachField(this@AbstractGeneratedMessage, other) { field, value, otherValue ->
-                if (field.oneofMember) {
+                if (field.isOneofMember) {
                     return@forEachField
                 } else if (field.type is FieldDescriptor.Type.Message<*>) {
                     field as FieldDescriptor<M, Message?>

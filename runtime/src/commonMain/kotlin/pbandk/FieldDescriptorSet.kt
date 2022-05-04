@@ -27,6 +27,6 @@ public class FieldDescriptorSet<M : Message>(
             lastDescriptor = it
         }
 
-        override fun nextValue() = lastDescriptor?.getValue?.invoke(message)
+        override fun nextValue() = lastDescriptor?.getValue(message)
     }
 }

@@ -35,6 +35,7 @@ public interface MapField<K, V> : Map<K, V> {
                     FieldDescriptor.of(
                         messageDescriptor = this::descriptor,
                         name = "key",
+                        jsonName = "key",
                         number = 1,
                         type = keyType,
                         value = Entry<K, V>::key,
@@ -43,6 +44,7 @@ public interface MapField<K, V> : Map<K, V> {
                     FieldDescriptor.of(
                         messageDescriptor = this::descriptor,
                         name = "value",
+                        jsonName = "value",
                         number = 2,
                         type = valueType,
                         value = Entry<K, V>::value,

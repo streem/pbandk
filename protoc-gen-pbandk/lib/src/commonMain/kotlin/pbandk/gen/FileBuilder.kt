@@ -76,10 +76,11 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         val name = Name(simple = msgDesc.name!!, packageName = ctx.packageName, parent = parentName)
         val kotlinName = Name(simple = kotlinTypeName, packageName = ctx.kotlinPackageName, parent = parentKotlinName)
 
+        val usedFieldNames = mutableSetOf<String>()
         val usedNestedTypeNames = mutableSetOf<String>()
         return File.Type.Message(
             name = name,
-            fields = fieldsFromProto(ctx, msgDesc, name, kotlinName, usedNestedTypeNames),
+            fields = fieldsFromProto(ctx, msgDesc, name, kotlinName, usedFieldNames, usedNestedTypeNames),
             nestedTypes = typesFromProto(
                 ctx,
                 msgDesc.enumType,
@@ -90,7 +91,16 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             ),
             mapEntry = supportMaps && msgDesc.options?.mapEntry == true,
             kotlinName = kotlinName,
-            extensionRange = msgDesc.extensionRange
+            extensionRange = msgDesc.extensionRange,
+            extensions = msgDesc.extension.map {
+                numberedFieldFromProto(
+                    ctx,
+                    name,
+                    kotlinName,
+                    it,
+                    usedFieldNames,
+                )
+            }
         )
     }
 
@@ -99,9 +109,9 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         msgDesc: DescriptorProto,
         msgName: Name,
         msgKotlinName: Name,
+        usedFieldNames: MutableSet<String>,
         usedTypeNames: MutableSet<String>
     ): List<File.Field> {
-        val usedFieldNames = mutableSetOf<String>()
         return msgDesc.field
             // Exclude any group fields
             .filterNot { it.type == FieldDescriptorProto.Type.GROUP }
@@ -178,7 +188,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 name = msgName?.let { Name(it, fieldDesc.name!!) } ?: Name(ctx.packageName, fieldDesc.name!!),
                 kotlinName = msgKotlinName?.let { Name(it, simpleKotlinName) } ?: Name(ctx.kotlinPackageName, simpleKotlinName),
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
-                jsonName = fieldDesc.jsonName,
+                jsonName = fieldDesc.jsonName!!,
                 wrappedType = wrappedType,
                 options = fieldDesc.options ?: FieldOptions.defaultInstance,
                 extendee = fieldDesc.extendee
@@ -190,9 +200,10 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 type = type,
                 localTypeName = fieldDesc.typeName,
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
-                jsonName = fieldDesc.jsonName,
+                jsonName = fieldDesc.jsonName!!,
                 optional = !alwaysRequired &&
                         ((fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL && ctx.fileDesc.usesProto2Syntax) ||
+                                (fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL && fieldDesc.extendee != null) ||
                                 (fieldDesc.proto3Optional ?: false)),
                 packed = !type.neverPacked && (fieldDesc.options?.packed ?: (ctx.fileDesc.syntax == "proto3")),
                 map = supportMaps &&

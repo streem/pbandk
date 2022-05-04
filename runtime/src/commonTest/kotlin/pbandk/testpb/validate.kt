@@ -3664,14 +3664,12 @@ public var pbandk.wkt.MutableMessageOptions.disabled: Boolean?
 
 @pbandk.Export
 public val disabled: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean?> = 
-    pbandk.FieldDescriptor.of(
+    pbandk.FieldDescriptor.ofExtension(
         messageDescriptor = pbandk.wkt.MessageOptions.Companion::descriptor,
-        name = "disabled",
+        fullName = "pbandk.testpb.disabled",
         number = 1071,
         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
         jsonName = "disabled",
-        value = pbandk.wkt.MessageOptions::disabled,
-        mutableValue = pbandk.wkt.MutableMessageOptions::disabled,
     )
 
 public val pbandk.wkt.OneofOptions.required: Boolean?
@@ -3683,14 +3681,12 @@ public var pbandk.wkt.MutableOneofOptions.required: Boolean?
 
 @pbandk.Export
 public val required: pbandk.FieldDescriptor<pbandk.wkt.OneofOptions, Boolean?> = 
-    pbandk.FieldDescriptor.of(
+    pbandk.FieldDescriptor.ofExtension(
         messageDescriptor = pbandk.wkt.OneofOptions.Companion::descriptor,
-        name = "required",
+        fullName = "pbandk.testpb.required",
         number = 1071,
         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
         jsonName = "required",
-        value = pbandk.wkt.OneofOptions::required,
-        mutableValue = pbandk.wkt.MutableOneofOptions::required,
     )
 
 public val pbandk.wkt.FieldOptions.rules: pbandk.testpb.FieldRules?
@@ -3702,14 +3698,12 @@ public var pbandk.wkt.MutableFieldOptions.rules: pbandk.testpb.FieldRules?
 
 @pbandk.Export
 public val rules: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, pbandk.testpb.FieldRules?> = 
-    pbandk.FieldDescriptor.of(
+    pbandk.FieldDescriptor.ofExtension(
         messageDescriptor = pbandk.wkt.FieldOptions.Companion::descriptor,
-        name = "rules",
+        fullName = "pbandk.testpb.rules",
         number = 1071,
         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.FieldRules.Companion),
         jsonName = "rules",
-        value = pbandk.wkt.FieldOptions::rules,
-        mutableValue = pbandk.wkt.MutableFieldOptions::rules,
     )
 
 @Deprecated(

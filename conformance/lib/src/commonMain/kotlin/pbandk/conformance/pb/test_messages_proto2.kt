@@ -1953,6 +1953,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                     ),
                 )
             }
+
+            public val messageSetExtension: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect, pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1?> = 
+                pbandk.FieldDescriptor.ofExtension(
+                    messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect.Companion::descriptor,
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrectExtension1.message_set_extension",
+                    number = 1547769,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1.Companion),
+                    jsonName = "messageSetExtension",
+                )
         }
     }
 
@@ -2011,6 +2020,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                     ),
                 )
             }
+
+            public val messageSetExtension: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect, pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2?> = 
+                pbandk.FieldDescriptor.ofExtension(
+                    messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect.Companion::descriptor,
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrectExtension2.message_set_extension",
+                    number = 4135312,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2.Companion),
+                    jsonName = "messageSetExtension",
+                )
         }
     }
 
@@ -2395,14 +2413,12 @@ public var pbandk.conformance.pb.MutableTestAllTypesProto2.extensionInt32: Int?
 
 @pbandk.Export
 public val extensionInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = 
-    pbandk.FieldDescriptor.of(
+    pbandk.FieldDescriptor.ofExtension(
         messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2.Companion::descriptor,
-        name = "extension_int32",
+        fullName = "protobuf_test_messages.proto2.extension_int32",
         number = 120,
         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
         jsonName = "extensionInt32",
-        value = pbandk.conformance.pb.TestAllTypesProto2::extensionInt32,
-        mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::extensionInt32,
     )
 
 @Deprecated(

@@ -9,25 +9,14 @@ import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
 @JsExport
-public class FieldDescriptor<M : Message, V> private constructor(
+public sealed class FieldDescriptor<M : Message, V> private constructor(
     getMessageDescriptor: () -> MessageDescriptor<M>,
+    /** The field's unqualified name. */
     @ExperimentalProtoReflection
     public val name: String,
     internal val number: Int,
     internal val type: Type,
-    /**
-     * Returns the value of this field in the provided message.
-     */
-    internal val getValue: (M) -> V,
-    /**
-     * Sets or updates the value of this field in the provided message.
-     *
-     * NOTE: For `List` and `Map` fields, this function _appends_ to the existing list/map value rather than replacing
-     * the value. For all other fields, this function replaces the value with the new value.
-     */
-    internal val updateValue: (MutableMessage<M>, V) -> Unit,
-    internal val oneofMember: Boolean = false,
-    internal val jsonName: String? = null,
+    internal val jsonName: String,
     @ExperimentalProtoReflection
     public val options: FieldOptions = FieldOptions.defaultInstance
 ) : Comparable<FieldDescriptor<M, V>> {
@@ -35,6 +24,49 @@ public class FieldDescriptor<M : Message, V> private constructor(
     // constructed yet. This is because this [FieldDescriptor] is one of the parameters that will be passed to the
     // [MessageDescriptor] constructor. To avoid the circular dependency, this property is declared lazy.
     internal val messageDescriptor: MessageDescriptor<M> by lazy(LazyThreadSafetyMode.PUBLICATION) { getMessageDescriptor() }
+
+    internal abstract val isOneofMember: Boolean
+    internal abstract val isExtension: Boolean
+
+    /**
+     * The field's fully-qualified name.
+     *
+     * For a regular field, this will be the fully-qualified name of the field's enclosing message combined with the
+     * field's [name].
+     *
+     * For an extension field, the fully-qualified name describes where the extension field is defined, _not_ which
+     * message it extends. In other words, the `fullName` of these two extension fields:
+     *
+     * ```proto
+     * package foo.bar;
+     * extend Baz {
+     *   optional int32 usage_count = 200;
+     * }
+     * message Fizz {
+     *   extend Baz {
+     *     optional string fizz_label = 300;
+     *   }
+     * }
+     * ```
+     *
+     * is `foo.bar.usage_count` and `foo.bar.Fizz.fizz_label`, respectively. `Baz`, the message being extended, is not
+     * part of the extension field's name.
+     */
+    @ExperimentalProtoReflection
+    public abstract val fullName: String
+
+    /**
+     * Returns the value of this field in the provided message.
+     */
+    internal abstract fun getValue(message: M): V
+
+    /**
+     * Sets or updates the value of this field in the provided message.
+     *
+     * NOTE: For `List` and `Map` fields, this function _appends_ to the existing list/map value rather than replacing
+     * the value. For all other fields, this function replaces the value with the new value.
+     */
+    internal abstract fun updateValue(message: MutableMessage<M>, value: V)
 
     /**
      * FieldDescriptors are sorted by their field number.
@@ -44,6 +76,53 @@ public class FieldDescriptor<M : Message, V> private constructor(
             "Only FieldDescriptors of the same message can be compared"
         }
         return number - other.number
+    }
+
+    private class Standard<M : Message, V>(
+        getMessageDescriptor: () -> MessageDescriptor<M>,
+        name: String,
+        number: Int,
+        type: Type,
+        private val getValueFn: (M) -> V,
+        private val updateValueFn: (MutableMessage<M>, V) -> Unit,
+        override val isOneofMember: Boolean = false,
+        jsonName: String,
+        options: FieldOptions = FieldOptions.defaultInstance
+    ) : FieldDescriptor<M, V>(
+        getMessageDescriptor = getMessageDescriptor,
+        name = name,
+        number = number,
+        type = type,
+        jsonName = jsonName,
+        options = options,
+    ) {
+        override val isExtension: Boolean get() = false
+        override val fullName: String get() = "${messageDescriptor.fullName}.${name}"
+        override fun getValue(message: M): V = getValueFn(message)
+        override fun updateValue(message: MutableMessage<M>, value: V) = updateValueFn(message, value)
+    }
+
+    private class Extension<M : ExtendableMessage<M>, V>(
+        getMessageDescriptor: () -> MessageDescriptor<M>,
+        extensionName: String,
+        number: Int,
+        type: Type,
+        jsonName: String,
+        options: FieldOptions = FieldOptions.defaultInstance
+    ) : FieldDescriptor<M, V>(
+        getMessageDescriptor = getMessageDescriptor,
+        name = extensionName.substringAfterLast('.'),
+        number = number,
+        type = type,
+        jsonName = jsonName,
+        options = options,
+    ) {
+        override val isOneofMember: Boolean get() = false
+        override val isExtension get() = true
+        override val fullName = extensionName
+        override fun getValue(message: M): V = message.getExtension(this)
+        override fun updateValue(message: MutableMessage<M>, value: V) =
+            (message as MutableExtendableMessage<M>).setExtension(this, value)
     }
 
     @PublicForGeneratedCode
@@ -192,15 +271,15 @@ public class FieldDescriptor<M : Message, V> private constructor(
             type: Type,
             value: KProperty1<M, V>,
             mutableValue: KMutableProperty1<MM, V>,
-            jsonName: String? = null,
+            jsonName: String,
             options: FieldOptions = FieldOptions.defaultInstance
-        ): FieldDescriptor<M, V> = FieldDescriptor(
+        ): FieldDescriptor<M, V> = Standard(
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             number = number,
             type = type,
-            getValue = value::get,
-            updateValue = mutableValue::set as (MutableMessage<M>, V) -> Unit,
+            getValueFn = value::get,
+            updateValueFn = mutableValue::set as (MutableMessage<M>, V) -> Unit,
             jsonName = jsonName,
             options = options
         )
@@ -214,16 +293,16 @@ public class FieldDescriptor<M : Message, V> private constructor(
             type: Type,
             value: KProperty1<M, V?>,
             mutableValue: KMutableProperty1<MM, V?>,
-            jsonName: String? = null,
+            jsonName: String,
             options: FieldOptions = FieldOptions.defaultInstance
-        ): FieldDescriptor<M, V?> = FieldDescriptor(
+        ): FieldDescriptor<M, V?> = Standard(
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             number = number,
             type = type,
-            getValue = value::get,
-            updateValue = mutableValue::set as (MutableMessage<M>, V?) -> Unit,
-            oneofMember = true,
+            getValueFn = value::get,
+            updateValueFn = mutableValue::set as (MutableMessage<M>, V?) -> Unit,
+            isOneofMember = true,
             jsonName = jsonName,
             options = options
         )
@@ -236,15 +315,15 @@ public class FieldDescriptor<M : Message, V> private constructor(
             type: Type.Repeated<T>,
             value: KProperty1<M, List<T>>,
             mutableValue: KProperty1<MM, MutableList<T>>,
-            jsonName: String? = null,
+            jsonName: String,
             options: FieldOptions = FieldOptions.defaultInstance
-        ): FieldDescriptor<M, List<T>> = FieldDescriptor(
+        ): FieldDescriptor<M, List<T>> = Standard(
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             number = number,
             type = type,
-            getValue = value::get,
-            updateValue = mutableValue::appendList,
+            getValueFn = value::get,
+            updateValueFn = mutableValue::appendList,
             jsonName = jsonName,
             options = options
         )
@@ -257,19 +336,53 @@ public class FieldDescriptor<M : Message, V> private constructor(
             type: Type.Map<K, V>,
             value: KProperty1<M, Map<K, V>>,
             mutableValue: KProperty1<MM, MutableMap<K, V>>,
-            jsonName: String? = null,
+            jsonName: String,
             options: FieldOptions = FieldOptions.defaultInstance
-        ): FieldDescriptor<M, Map<K, V>> = FieldDescriptor(
+        ): FieldDescriptor<M, Map<K, V>> = Standard(
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             number = number,
             type = type,
-            getValue = value::get,
-            updateValue = mutableValue::appendMap,
+            getValueFn = value::get,
+            updateValueFn = mutableValue::appendMap,
             jsonName = jsonName,
             options = options
         )
 
+        @PublicForGeneratedCode
+        @Suppress("UNCHECKED_CAST")
+        public fun <M : ExtendableMessage<M>, V> ofExtension(
+            messageDescriptor: KProperty0<MessageDescriptor<M>>,
+            fullName: String,
+            number: Int,
+            type: Type,
+            jsonName: String,
+            options: FieldOptions = FieldOptions.defaultInstance
+        ): FieldDescriptor<M, V> = Extension(
+            getMessageDescriptor = messageDescriptor::get,
+            extensionName = fullName,
+            number = number,
+            type = type,
+            jsonName = jsonName,
+            options = options,
+        )
+
+        @PublicForGeneratedCode
+        public fun <M : ExtendableMessage<M>, T : Any> ofRepeatedExtension(
+            messageDescriptor: KProperty0<MessageDescriptor<M>>,
+            fullName: String,
+            number: Int,
+            type: Type.Repeated<T>,
+            jsonName: String,
+            options: FieldOptions = FieldOptions.defaultInstance
+        ): FieldDescriptor<M, List<T>> = Extension(
+            getMessageDescriptor = messageDescriptor::get,
+            extensionName = fullName,
+            number = number,
+            type = type,
+            jsonName = jsonName,
+            options = options
+        )
     }
 
 }
