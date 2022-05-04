@@ -2,352 +2,682 @@
 
 package pbandk.wkt
 
-@pbandk.Export
-public data class Api(
-    val name: String = "",
-    val methods: List<pbandk.wkt.Method> = emptyList(),
-    val options: List<pbandk.wkt.Option> = emptyList(),
-    val version: String = "",
-    val sourceContext: pbandk.wkt.SourceContext? = null,
-    val mixins: List<pbandk.wkt.Mixin> = emptyList(),
-    val syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Api = protoMergeImpl(other)
-    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
+public sealed interface Api : pbandk.Message {
+    public val name: String
+    public val methods: List<pbandk.wkt.Method>
+    public val options: List<pbandk.wkt.Option>
+    public val version: String
+    public val sourceContext: pbandk.wkt.SourceContext?
+    public val mixins: List<pbandk.wkt.Mixin>
+    public val syntax: pbandk.wkt.Syntax
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Api
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api>
+
+    /**
+     * The [MutableApi] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: pbandk.wkt.MutableApi.() -> Unit): pbandk.wkt.Api
+
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
+    @pbandk.JsName("copyDeprecated")
+    public fun copy(
+        name: String = this.name,
+        methods: List<pbandk.wkt.Method> = this.methods,
+        options: List<pbandk.wkt.Option> = this.options,
+        version: String = this.version,
+        sourceContext: pbandk.wkt.SourceContext? = this.sourceContext,
+        mixins: List<pbandk.wkt.Mixin> = this.mixins,
+        syntax: pbandk.wkt.Syntax = this.syntax,
+        unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
+    ): pbandk.wkt.Api
+
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.Api, String> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Api::descriptor,
+                name = "name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "name",
+                value = pbandk.wkt.Api::name,
+                mutableValue = pbandk.wkt.MutableApi::name,
+            )
+        public val methods: pbandk.FieldDescriptor<pbandk.wkt.Api, List<pbandk.wkt.Method>> =
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.Api::descriptor,
+                name = "methods",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Method>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Method.Companion)),
+                jsonName = "methods",
+                value = pbandk.wkt.Api::methods,
+                mutableValue = pbandk.wkt.MutableApi::methods,
+            )
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.Api, List<pbandk.wkt.Option>> =
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.Api::descriptor,
+                name = "options",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
+                jsonName = "options",
+                value = pbandk.wkt.Api::options,
+                mutableValue = pbandk.wkt.MutableApi::options,
+            )
+        public val version: pbandk.FieldDescriptor<pbandk.wkt.Api, String> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Api::descriptor,
+                name = "version",
+                number = 4,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "version",
+                value = pbandk.wkt.Api::version,
+                mutableValue = pbandk.wkt.MutableApi::version,
+            )
+        public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Api, pbandk.wkt.SourceContext?> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Api::descriptor,
+                name = "source_context",
+                number = 5,
+                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceContext.Companion),
+                jsonName = "sourceContext",
+                value = pbandk.wkt.Api::sourceContext,
+                mutableValue = pbandk.wkt.MutableApi::sourceContext,
+            )
+        public val mixins: pbandk.FieldDescriptor<pbandk.wkt.Api, List<pbandk.wkt.Mixin>> =
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.Api::descriptor,
+                name = "mixins",
+                number = 6,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Mixin>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Mixin.Companion)),
+                jsonName = "mixins",
+                value = pbandk.wkt.Api::mixins,
+                mutableValue = pbandk.wkt.MutableApi::mixins,
+            )
+        public val syntax: pbandk.FieldDescriptor<pbandk.wkt.Api, pbandk.wkt.Syntax> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Api::descriptor,
+                name = "syntax",
+                number = 7,
+                type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
+                jsonName = "syntax",
+                value = pbandk.wkt.Api::syntax,
+                mutableValue = pbandk.wkt.MutableApi::syntax,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
-        public val defaultInstance: pbandk.wkt.Api by lazy { pbandk.wkt.Api() }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Api = pbandk.wkt.Api.decodeWithImpl(u)
+        public val defaultInstance: pbandk.wkt.Api by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.Api {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Api, *>>(7)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "name",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "name",
-                        value = pbandk.wkt.Api::name
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "methods",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Method>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Method.Companion)),
-                        jsonName = "methods",
-                        value = pbandk.wkt.Api::methods
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "options",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
-                        jsonName = "options",
-                        value = pbandk.wkt.Api::options
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "version",
-                        number = 4,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "version",
-                        value = pbandk.wkt.Api::version
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "source_context",
-                        number = 5,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceContext.Companion),
-                        jsonName = "sourceContext",
-                        value = pbandk.wkt.Api::sourceContext
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "mixins",
-                        number = 6,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Mixin>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Mixin.Companion)),
-                        jsonName = "mixins",
-                        value = pbandk.wkt.Api::mixins
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "syntax",
-                        number = 7,
-                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
-                        jsonName = "syntax",
-                        value = pbandk.wkt.Api::syntax
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.Api",
                 messageClass = pbandk.wkt.Api::class,
                 messageCompanion = this,
-                fields = fieldsList
+                builder = ::Api,
+                fields = listOf(
+                    pbandk.wkt.Api.FieldDescriptors.name,
+                    pbandk.wkt.Api.FieldDescriptors.methods,
+                    pbandk.wkt.Api.FieldDescriptors.options,
+                    pbandk.wkt.Api.FieldDescriptors.version,
+                    pbandk.wkt.Api.FieldDescriptors.sourceContext,
+                    pbandk.wkt.Api.FieldDescriptors.mixins,
+                    pbandk.wkt.Api.FieldDescriptors.syntax,
+                ),
             )
         }
     }
 }
 
-@pbandk.Export
-public data class Method(
-    val name: String = "",
-    val requestTypeUrl: String = "",
-    val requestStreaming: Boolean = false,
-    val responseTypeUrl: String = "",
-    val responseStreaming: Boolean = false,
-    val options: List<pbandk.wkt.Option> = emptyList(),
-    val syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Method = protoMergeImpl(other)
-    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
+public sealed interface MutableApi : pbandk.wkt.Api, pbandk.MutableMessage<pbandk.wkt.Api> {
+    public override var name: String
+    public override val methods: MutableList<pbandk.wkt.Method>
+    public override val options: MutableList<pbandk.wkt.Option>
+    public override var version: String
+    public override var sourceContext: pbandk.wkt.SourceContext?
+    public override val mixins: MutableList<pbandk.wkt.Mixin>
+    public override var syntax: pbandk.wkt.Syntax
+}
+
+public sealed interface Method : pbandk.Message {
+    public val name: String
+    public val requestTypeUrl: String
+    public val requestStreaming: Boolean
+    public val responseTypeUrl: String
+    public val responseStreaming: Boolean
+    public val options: List<pbandk.wkt.Option>
+    public val syntax: pbandk.wkt.Syntax
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Method
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method>
+
+    /**
+     * The [MutableMethod] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: pbandk.wkt.MutableMethod.() -> Unit): pbandk.wkt.Method
+
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
+    @pbandk.JsName("copyDeprecated")
+    public fun copy(
+        name: String = this.name,
+        requestTypeUrl: String = this.requestTypeUrl,
+        requestStreaming: Boolean = this.requestStreaming,
+        responseTypeUrl: String = this.responseTypeUrl,
+        responseStreaming: Boolean = this.responseStreaming,
+        options: List<pbandk.wkt.Option> = this.options,
+        syntax: pbandk.wkt.Syntax = this.syntax,
+        unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
+    ): pbandk.wkt.Method
+
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.Method, String> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Method::descriptor,
+                name = "name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "name",
+                value = pbandk.wkt.Method::name,
+                mutableValue = pbandk.wkt.MutableMethod::name,
+            )
+        public val requestTypeUrl: pbandk.FieldDescriptor<pbandk.wkt.Method, String> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Method::descriptor,
+                name = "request_type_url",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "requestTypeUrl",
+                value = pbandk.wkt.Method::requestTypeUrl,
+                mutableValue = pbandk.wkt.MutableMethod::requestTypeUrl,
+            )
+        public val requestStreaming: pbandk.FieldDescriptor<pbandk.wkt.Method, Boolean> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Method::descriptor,
+                name = "request_streaming",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
+                jsonName = "requestStreaming",
+                value = pbandk.wkt.Method::requestStreaming,
+                mutableValue = pbandk.wkt.MutableMethod::requestStreaming,
+            )
+        public val responseTypeUrl: pbandk.FieldDescriptor<pbandk.wkt.Method, String> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Method::descriptor,
+                name = "response_type_url",
+                number = 4,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "responseTypeUrl",
+                value = pbandk.wkt.Method::responseTypeUrl,
+                mutableValue = pbandk.wkt.MutableMethod::responseTypeUrl,
+            )
+        public val responseStreaming: pbandk.FieldDescriptor<pbandk.wkt.Method, Boolean> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Method::descriptor,
+                name = "response_streaming",
+                number = 5,
+                type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
+                jsonName = "responseStreaming",
+                value = pbandk.wkt.Method::responseStreaming,
+                mutableValue = pbandk.wkt.MutableMethod::responseStreaming,
+            )
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.Method, List<pbandk.wkt.Option>> =
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.wkt.Method::descriptor,
+                name = "options",
+                number = 6,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
+                jsonName = "options",
+                value = pbandk.wkt.Method::options,
+                mutableValue = pbandk.wkt.MutableMethod::options,
+            )
+        public val syntax: pbandk.FieldDescriptor<pbandk.wkt.Method, pbandk.wkt.Syntax> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Method::descriptor,
+                name = "syntax",
+                number = 7,
+                type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
+                jsonName = "syntax",
+                value = pbandk.wkt.Method::syntax,
+                mutableValue = pbandk.wkt.MutableMethod::syntax,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
-        public val defaultInstance: pbandk.wkt.Method by lazy { pbandk.wkt.Method() }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Method = pbandk.wkt.Method.decodeWithImpl(u)
+        public val defaultInstance: pbandk.wkt.Method by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.Method {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Method, *>>(7)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "name",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "name",
-                        value = pbandk.wkt.Method::name
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "request_type_url",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "requestTypeUrl",
-                        value = pbandk.wkt.Method::requestTypeUrl
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "request_streaming",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
-                        jsonName = "requestStreaming",
-                        value = pbandk.wkt.Method::requestStreaming
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "response_type_url",
-                        number = 4,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "responseTypeUrl",
-                        value = pbandk.wkt.Method::responseTypeUrl
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "response_streaming",
-                        number = 5,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
-                        jsonName = "responseStreaming",
-                        value = pbandk.wkt.Method::responseStreaming
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "options",
-                        number = 6,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
-                        jsonName = "options",
-                        value = pbandk.wkt.Method::options
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "syntax",
-                        number = 7,
-                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
-                        jsonName = "syntax",
-                        value = pbandk.wkt.Method::syntax
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.Method",
                 messageClass = pbandk.wkt.Method::class,
                 messageCompanion = this,
-                fields = fieldsList
+                builder = ::Method,
+                fields = listOf(
+                    pbandk.wkt.Method.FieldDescriptors.name,
+                    pbandk.wkt.Method.FieldDescriptors.requestTypeUrl,
+                    pbandk.wkt.Method.FieldDescriptors.requestStreaming,
+                    pbandk.wkt.Method.FieldDescriptors.responseTypeUrl,
+                    pbandk.wkt.Method.FieldDescriptors.responseStreaming,
+                    pbandk.wkt.Method.FieldDescriptors.options,
+                    pbandk.wkt.Method.FieldDescriptors.syntax,
+                ),
             )
         }
     }
 }
 
-@pbandk.Export
-public data class Mixin(
-    val name: String = "",
-    val root: String = "",
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Mixin = protoMergeImpl(other)
-    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
+public sealed interface MutableMethod : pbandk.wkt.Method, pbandk.MutableMessage<pbandk.wkt.Method> {
+    public override var name: String
+    public override var requestTypeUrl: String
+    public override var requestStreaming: Boolean
+    public override var responseTypeUrl: String
+    public override var responseStreaming: Boolean
+    public override val options: MutableList<pbandk.wkt.Option>
+    public override var syntax: pbandk.wkt.Syntax
+}
+
+public sealed interface Mixin : pbandk.Message {
+    public val name: String
+    public val root: String
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Mixin
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin>
+
+    /**
+     * The [MutableMixin] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: pbandk.wkt.MutableMixin.() -> Unit): pbandk.wkt.Mixin
+
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
+    @pbandk.JsName("copyDeprecated")
+    public fun copy(
+        name: String = this.name,
+        root: String = this.root,
+        unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
+    ): pbandk.wkt.Mixin
+
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.Mixin, String> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Mixin::descriptor,
+                name = "name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "name",
+                value = pbandk.wkt.Mixin::name,
+                mutableValue = pbandk.wkt.MutableMixin::name,
+            )
+        public val root: pbandk.FieldDescriptor<pbandk.wkt.Mixin, String> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.Mixin::descriptor,
+                name = "root",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "root",
+                value = pbandk.wkt.Mixin::root,
+                mutableValue = pbandk.wkt.MutableMixin::root,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
-        public val defaultInstance: pbandk.wkt.Mixin by lazy { pbandk.wkt.Mixin() }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Mixin = pbandk.wkt.Mixin.decodeWithImpl(u)
+        public val defaultInstance: pbandk.wkt.Mixin by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.Mixin {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Mixin, *>>(2)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "name",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "name",
-                        value = pbandk.wkt.Mixin::name
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "root",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "root",
-                        value = pbandk.wkt.Mixin::root
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.Mixin",
                 messageClass = pbandk.wkt.Mixin::class,
                 messageCompanion = this,
-                fields = fieldsList
+                builder = ::Mixin,
+                fields = listOf(
+                    pbandk.wkt.Mixin.FieldDescriptors.name,
+                    pbandk.wkt.Mixin.FieldDescriptors.root,
+                ),
             )
         }
     }
 }
 
+public sealed interface MutableMixin : pbandk.wkt.Mixin, pbandk.MutableMessage<pbandk.wkt.Mixin> {
+    public override var name: String
+    public override var root: String
+}
+
+@Deprecated(
+    message = "Use Api { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Api"],
+        expression = "Api {\nthis.name = name\nthis.methods += methods\nthis.options += options\nthis.version = version\nthis.sourceContext = sourceContext\nthis.mixins += mixins\nthis.syntax = syntax\nthis.unknownFields += unknownFields\n}",
+    )
+)
+public fun Api(
+    name: String = "",
+    methods: List<pbandk.wkt.Method> = emptyList(),
+    options: List<pbandk.wkt.Option> = emptyList(),
+    version: String = "",
+    sourceContext: pbandk.wkt.SourceContext? = null,
+    mixins: List<pbandk.wkt.Mixin> = emptyList(),
+    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Api = pbandk.wkt.Api {
+    this.name = name
+    this.methods += methods
+    this.options += options
+    this.version = version
+    this.sourceContext = sourceContext
+    this.mixins += mixins
+    this.syntax = syntax
+    this.unknownFields += unknownFields
+}
+
+/**
+ * The [MutableApi] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
+@pbandk.Export
+@pbandk.JsName("buildApi")
+public fun Api(builderAction: pbandk.wkt.MutableApi.() -> Unit): pbandk.wkt.Api =
+    pbandk.wkt.MutableApi_Impl(
+        name = "",
+        methods = pbandk.gen.MutableListField(),
+        options = pbandk.gen.MutableListField(),
+        version = "",
+        sourceContext = null,
+        mixins = pbandk.gen.MutableListField(),
+        syntax = pbandk.wkt.Syntax.fromValue(0),
+    ).also(builderAction).toApi()
+
 @pbandk.Export
 @pbandk.JsName("orDefaultForApi")
-public fun Api?.orDefault(): pbandk.wkt.Api = this ?: Api.defaultInstance
+public fun Api?.orDefault(): pbandk.wkt.Api = this ?: pbandk.wkt.Api.defaultInstance
 
-private fun Api.protoMergeImpl(plus: pbandk.Message?): Api = (plus as? Api)?.let {
-    it.copy(
-        methods = methods + plus.methods,
-        options = options + plus.options,
-        sourceContext = sourceContext?.plus(plus.sourceContext) ?: plus.sourceContext,
-        mixins = mixins + plus.mixins,
-        unknownFields = unknownFields + plus.unknownFields
-    )
-} ?: this
+private class Api_Impl(
+    override val name: String,
+    override val methods: pbandk.gen.ListField<pbandk.wkt.Method>,
+    override val options: pbandk.gen.ListField<pbandk.wkt.Option>,
+    override val version: String,
+    override val sourceContext: pbandk.wkt.SourceContext?,
+    override val mixins: pbandk.gen.ListField<pbandk.wkt.Mixin>,
+    override val syntax: pbandk.wkt.Syntax,
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.Api, pbandk.gen.GeneratedMessage<pbandk.wkt.Api>(unknownFields) {
+    override val descriptor get() = pbandk.wkt.Api.descriptor
 
-@Suppress("UNCHECKED_CAST")
-private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
-    var name = ""
-    var methods: pbandk.ListWithSize.Builder<pbandk.wkt.Method>? = null
-    var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
-    var version = ""
-    var sourceContext: pbandk.wkt.SourceContext? = null
-    var mixins: pbandk.ListWithSize.Builder<pbandk.wkt.Mixin>? = null
-    var syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0)
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableApi.() -> Unit) = super.copy(builderAction)
 
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> name = _fieldValue as String
-            2 -> methods = (methods ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Method> }
-            3 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
-            4 -> version = _fieldValue as String
-            5 -> sourceContext = _fieldValue as pbandk.wkt.SourceContext
-            6 -> mixins = (mixins ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Mixin> }
-            7 -> syntax = _fieldValue as pbandk.wkt.Syntax
-        }
+    @Deprecated("Use copy { } instead")
+    override fun copy(
+        name: String,
+        methods: List<pbandk.wkt.Method>,
+        options: List<pbandk.wkt.Option>,
+        version: String,
+        sourceContext: pbandk.wkt.SourceContext?,
+        mixins: List<pbandk.wkt.Mixin>,
+        syntax: pbandk.wkt.Syntax,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = pbandk.wkt.Api {
+        this.name = name
+        this.methods += methods
+        this.options += options
+        this.version = version
+        this.sourceContext = sourceContext
+        this.mixins += mixins
+        this.syntax = syntax
+        this.unknownFields += unknownFields
     }
-    return Api(name, pbandk.ListWithSize.Builder.fixed(methods), pbandk.ListWithSize.Builder.fixed(options), version,
-        sourceContext, pbandk.ListWithSize.Builder.fixed(mixins), syntax, unknownFields)
 }
+
+private class MutableApi_Impl(
+    override var name: String,
+    override val methods: pbandk.gen.MutableListField<pbandk.wkt.Method>,
+    override val options: pbandk.gen.MutableListField<pbandk.wkt.Option>,
+    override var version: String,
+    override var sourceContext: pbandk.wkt.SourceContext?,
+    override val mixins: pbandk.gen.MutableListField<pbandk.wkt.Mixin>,
+    override var syntax: pbandk.wkt.Syntax,
+) : pbandk.wkt.MutableApi, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Api>() {
+    override val descriptor get() = pbandk.wkt.Api.descriptor
+
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableApi.() -> Unit) = super.copy(builderAction)
+
+    @Deprecated("Use copy { } instead")
+    override fun copy(
+        name: String,
+        methods: List<pbandk.wkt.Method>,
+        options: List<pbandk.wkt.Option>,
+        version: String,
+        sourceContext: pbandk.wkt.SourceContext?,
+        mixins: List<pbandk.wkt.Mixin>,
+        syntax: pbandk.wkt.Syntax,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = throw UnsupportedOperationException()
+
+    fun toApi() = Api_Impl(
+        name = name,
+        methods = methods.toListField(),
+        options = options.toListField(),
+        version = version,
+        sourceContext = sourceContext,
+        mixins = mixins.toListField(),
+        syntax = syntax,
+        unknownFields = unknownFields.toMap()
+    )
+}
+
+@Deprecated(
+    message = "Use Method { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Method"],
+        expression = "Method {\nthis.name = name\nthis.requestTypeUrl = requestTypeUrl\nthis.requestStreaming = requestStreaming\nthis.responseTypeUrl = responseTypeUrl\nthis.responseStreaming = responseStreaming\nthis.options += options\nthis.syntax = syntax\nthis.unknownFields += unknownFields\n}",
+    )
+)
+public fun Method(
+    name: String = "",
+    requestTypeUrl: String = "",
+    requestStreaming: Boolean = false,
+    responseTypeUrl: String = "",
+    responseStreaming: Boolean = false,
+    options: List<pbandk.wkt.Option> = emptyList(),
+    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Method = pbandk.wkt.Method {
+    this.name = name
+    this.requestTypeUrl = requestTypeUrl
+    this.requestStreaming = requestStreaming
+    this.responseTypeUrl = responseTypeUrl
+    this.responseStreaming = responseStreaming
+    this.options += options
+    this.syntax = syntax
+    this.unknownFields += unknownFields
+}
+
+/**
+ * The [MutableMethod] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
+@pbandk.Export
+@pbandk.JsName("buildMethod")
+public fun Method(builderAction: pbandk.wkt.MutableMethod.() -> Unit): pbandk.wkt.Method =
+    pbandk.wkt.MutableMethod_Impl(
+        name = "",
+        requestTypeUrl = "",
+        requestStreaming = false,
+        responseTypeUrl = "",
+        responseStreaming = false,
+        options = pbandk.gen.MutableListField(),
+        syntax = pbandk.wkt.Syntax.fromValue(0),
+    ).also(builderAction).toMethod()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMethod")
-public fun Method?.orDefault(): pbandk.wkt.Method = this ?: Method.defaultInstance
+public fun Method?.orDefault(): pbandk.wkt.Method = this ?: pbandk.wkt.Method.defaultInstance
 
-private fun Method.protoMergeImpl(plus: pbandk.Message?): Method = (plus as? Method)?.let {
-    it.copy(
-        options = options + plus.options,
-        unknownFields = unknownFields + plus.unknownFields
-    )
-} ?: this
+private class Method_Impl(
+    override val name: String,
+    override val requestTypeUrl: String,
+    override val requestStreaming: Boolean,
+    override val responseTypeUrl: String,
+    override val responseStreaming: Boolean,
+    override val options: pbandk.gen.ListField<pbandk.wkt.Option>,
+    override val syntax: pbandk.wkt.Syntax,
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.Method, pbandk.gen.GeneratedMessage<pbandk.wkt.Method>(unknownFields) {
+    override val descriptor get() = pbandk.wkt.Method.descriptor
 
-@Suppress("UNCHECKED_CAST")
-private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
-    var name = ""
-    var requestTypeUrl = ""
-    var requestStreaming = false
-    var responseTypeUrl = ""
-    var responseStreaming = false
-    var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
-    var syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0)
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableMethod.() -> Unit) = super.copy(builderAction)
 
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> name = _fieldValue as String
-            2 -> requestTypeUrl = _fieldValue as String
-            3 -> requestStreaming = _fieldValue as Boolean
-            4 -> responseTypeUrl = _fieldValue as String
-            5 -> responseStreaming = _fieldValue as Boolean
-            6 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
-            7 -> syntax = _fieldValue as pbandk.wkt.Syntax
-        }
+    @Deprecated("Use copy { } instead")
+    override fun copy(
+        name: String,
+        requestTypeUrl: String,
+        requestStreaming: Boolean,
+        responseTypeUrl: String,
+        responseStreaming: Boolean,
+        options: List<pbandk.wkt.Option>,
+        syntax: pbandk.wkt.Syntax,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = pbandk.wkt.Method {
+        this.name = name
+        this.requestTypeUrl = requestTypeUrl
+        this.requestStreaming = requestStreaming
+        this.responseTypeUrl = responseTypeUrl
+        this.responseStreaming = responseStreaming
+        this.options += options
+        this.syntax = syntax
+        this.unknownFields += unknownFields
     }
-    return Method(name, requestTypeUrl, requestStreaming, responseTypeUrl,
-        responseStreaming, pbandk.ListWithSize.Builder.fixed(options), syntax, unknownFields)
 }
+
+private class MutableMethod_Impl(
+    override var name: String,
+    override var requestTypeUrl: String,
+    override var requestStreaming: Boolean,
+    override var responseTypeUrl: String,
+    override var responseStreaming: Boolean,
+    override val options: pbandk.gen.MutableListField<pbandk.wkt.Option>,
+    override var syntax: pbandk.wkt.Syntax,
+) : pbandk.wkt.MutableMethod, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Method>() {
+    override val descriptor get() = pbandk.wkt.Method.descriptor
+
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableMethod.() -> Unit) = super.copy(builderAction)
+
+    @Deprecated("Use copy { } instead")
+    override fun copy(
+        name: String,
+        requestTypeUrl: String,
+        requestStreaming: Boolean,
+        responseTypeUrl: String,
+        responseStreaming: Boolean,
+        options: List<pbandk.wkt.Option>,
+        syntax: pbandk.wkt.Syntax,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = throw UnsupportedOperationException()
+
+    fun toMethod() = Method_Impl(
+        name = name,
+        requestTypeUrl = requestTypeUrl,
+        requestStreaming = requestStreaming,
+        responseTypeUrl = responseTypeUrl,
+        responseStreaming = responseStreaming,
+        options = options.toListField(),
+        syntax = syntax,
+        unknownFields = unknownFields.toMap()
+    )
+}
+
+@Deprecated(
+    message = "Use Mixin { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Mixin"],
+        expression = "Mixin {\nthis.name = name\nthis.root = root\nthis.unknownFields += unknownFields\n}",
+    )
+)
+public fun Mixin(
+    name: String = "",
+    root: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Mixin = pbandk.wkt.Mixin {
+    this.name = name
+    this.root = root
+    this.unknownFields += unknownFields
+}
+
+/**
+ * The [MutableMixin] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
+@pbandk.Export
+@pbandk.JsName("buildMixin")
+public fun Mixin(builderAction: pbandk.wkt.MutableMixin.() -> Unit): pbandk.wkt.Mixin =
+    pbandk.wkt.MutableMixin_Impl(
+        name = "",
+        root = "",
+    ).also(builderAction).toMixin()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMixin")
-public fun Mixin?.orDefault(): pbandk.wkt.Mixin = this ?: Mixin.defaultInstance
+public fun Mixin?.orDefault(): pbandk.wkt.Mixin = this ?: pbandk.wkt.Mixin.defaultInstance
 
-private fun Mixin.protoMergeImpl(plus: pbandk.Message?): Mixin = (plus as? Mixin)?.let {
-    it.copy(
-        unknownFields = unknownFields + plus.unknownFields
-    )
-} ?: this
+private class Mixin_Impl(
+    override val name: String,
+    override val root: String,
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.Mixin, pbandk.gen.GeneratedMessage<pbandk.wkt.Mixin>(unknownFields) {
+    override val descriptor get() = pbandk.wkt.Mixin.descriptor
 
-@Suppress("UNCHECKED_CAST")
-private fun Mixin.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Mixin {
-    var name = ""
-    var root = ""
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableMixin.() -> Unit) = super.copy(builderAction)
 
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> name = _fieldValue as String
-            2 -> root = _fieldValue as String
-        }
+    @Deprecated("Use copy { } instead")
+    override fun copy(
+        name: String,
+        root: String,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = pbandk.wkt.Mixin {
+        this.name = name
+        this.root = root
+        this.unknownFields += unknownFields
     }
-    return Mixin(name, root, unknownFields)
+}
+
+private class MutableMixin_Impl(
+    override var name: String,
+    override var root: String,
+) : pbandk.wkt.MutableMixin, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Mixin>() {
+    override val descriptor get() = pbandk.wkt.Mixin.descriptor
+
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableMixin.() -> Unit) = super.copy(builderAction)
+
+    @Deprecated("Use copy { } instead")
+    override fun copy(
+        name: String,
+        root: String,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = throw UnsupportedOperationException()
+
+    fun toMixin() = Mixin_Impl(
+        name = name,
+        root = root,
+        unknownFields = unknownFields.toMap()
+    )
 }

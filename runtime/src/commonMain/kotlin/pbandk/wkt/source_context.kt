@@ -2,60 +2,129 @@
 
 package pbandk.wkt
 
-@pbandk.Export
-public data class SourceContext(
-    val fileName: String = "",
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): pbandk.wkt.SourceContext = protoMergeImpl(other)
-    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
+public sealed interface SourceContext : pbandk.Message {
+    public val fileName: String
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.SourceContext
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext>
+
+    /**
+     * The [MutableSourceContext] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: pbandk.wkt.MutableSourceContext.() -> Unit): pbandk.wkt.SourceContext
+
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
+    @pbandk.JsName("copyDeprecated")
+    public fun copy(
+        fileName: String = this.fileName,
+        unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
+    ): pbandk.wkt.SourceContext
+
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val fileName: pbandk.FieldDescriptor<pbandk.wkt.SourceContext, String> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = pbandk.wkt.SourceContext::descriptor,
+                name = "file_name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "fileName",
+                value = pbandk.wkt.SourceContext::fileName,
+                mutableValue = pbandk.wkt.MutableSourceContext::fileName,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
-        public val defaultInstance: pbandk.wkt.SourceContext by lazy { pbandk.wkt.SourceContext() }
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceContext = pbandk.wkt.SourceContext.decodeWithImpl(u)
+        public val defaultInstance: pbandk.wkt.SourceContext by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            pbandk.wkt.SourceContext {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.SourceContext, *>>(1)
-            fieldsList.apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "file_name",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "fileName",
-                        value = pbandk.wkt.SourceContext::fileName
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "google.protobuf.SourceContext",
                 messageClass = pbandk.wkt.SourceContext::class,
                 messageCompanion = this,
-                fields = fieldsList
+                builder = ::SourceContext,
+                fields = listOf(
+                    pbandk.wkt.SourceContext.FieldDescriptors.fileName,
+                ),
             )
         }
     }
 }
 
+public sealed interface MutableSourceContext : pbandk.wkt.SourceContext, pbandk.MutableMessage<pbandk.wkt.SourceContext> {
+    public override var fileName: String
+}
+
+@Deprecated(
+    message = "Use SourceContext { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.SourceContext"],
+        expression = "SourceContext {\nthis.fileName = fileName\nthis.unknownFields += unknownFields\n}",
+    )
+)
+public fun SourceContext(
+    fileName: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.SourceContext = pbandk.wkt.SourceContext {
+    this.fileName = fileName
+    this.unknownFields += unknownFields
+}
+
+/**
+ * The [MutableSourceContext] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
+@pbandk.Export
+@pbandk.JsName("buildSourceContext")
+public fun SourceContext(builderAction: pbandk.wkt.MutableSourceContext.() -> Unit): pbandk.wkt.SourceContext =
+    pbandk.wkt.MutableSourceContext_Impl(
+        fileName = "",
+    ).also(builderAction).toSourceContext()
+
 @pbandk.Export
 @pbandk.JsName("orDefaultForSourceContext")
-public fun SourceContext?.orDefault(): pbandk.wkt.SourceContext = this ?: SourceContext.defaultInstance
+public fun SourceContext?.orDefault(): pbandk.wkt.SourceContext = this ?: pbandk.wkt.SourceContext.defaultInstance
 
-private fun SourceContext.protoMergeImpl(plus: pbandk.Message?): SourceContext = (plus as? SourceContext)?.let {
-    it.copy(
-        unknownFields = unknownFields + plus.unknownFields
-    )
-} ?: this
+private class SourceContext_Impl(
+    override val fileName: String,
+    unknownFields: Map<Int, pbandk.UnknownField>
+) : pbandk.wkt.SourceContext, pbandk.gen.GeneratedMessage<pbandk.wkt.SourceContext>(unknownFields) {
+    override val descriptor get() = pbandk.wkt.SourceContext.descriptor
 
-@Suppress("UNCHECKED_CAST")
-private fun SourceContext.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SourceContext {
-    var fileName = ""
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableSourceContext.() -> Unit) = super.copy(builderAction)
 
-    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
-        when (_fieldNumber) {
-            1 -> fileName = _fieldValue as String
-        }
+    @Deprecated("Use copy { } instead")
+    override fun copy(
+        fileName: String,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = pbandk.wkt.SourceContext {
+        this.fileName = fileName
+        this.unknownFields += unknownFields
     }
-    return SourceContext(fileName, unknownFields)
+}
+
+private class MutableSourceContext_Impl(
+    override var fileName: String,
+) : pbandk.wkt.MutableSourceContext, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.SourceContext>() {
+    override val descriptor get() = pbandk.wkt.SourceContext.descriptor
+
+    @Suppress("RedundantOverride")
+    override fun copy(builderAction: pbandk.wkt.MutableSourceContext.() -> Unit) = super.copy(builderAction)
+
+    @Deprecated("Use copy { } instead")
+    override fun copy(
+        fileName: String,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = throw UnsupportedOperationException()
+
+    fun toSourceContext() = SourceContext_Impl(
+        fileName = fileName,
+        unknownFields = unknownFields.toMap()
+    )
 }

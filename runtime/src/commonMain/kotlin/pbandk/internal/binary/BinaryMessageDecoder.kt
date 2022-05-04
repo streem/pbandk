@@ -2,7 +2,10 @@ package pbandk.internal.binary
 
 import kotlin.Any
 import pbandk.*
+import pbandk.gen.MutableMapField
 import pbandk.wkt.*
+import kotlin.reflect.KMutableProperty1
+import kotlin.reflect.KProperty1
 
 internal fun FieldDescriptor.Type.allowedWireType(wireType: WireType) =
     this.wireType == wireType ||
@@ -58,31 +61,43 @@ internal val FieldDescriptor.Type.binaryReadFn: BinaryWireDecoder.() -> Any
 
 internal class BinaryMessageDecoder(private val wireDecoder: BinaryWireDecoder) : MessageDecoder {
 
-    @Suppress("UNCHECKED_CAST")
-    override fun <T : Message> readMessage(
-        messageCompanion: Message.Companion<T>,
-        fieldFn: (Int, Any) -> Unit
-    ): Map<Int, UnknownField> = try {
-        val unknownFields = mutableMapOf<Int, UnknownField>()
-        val fieldDescriptors = messageCompanion.descriptor.fields.associateBy { it.number }
-        while (true) {
-            val tag = wireDecoder.readTag()
-            if (tag == Tag(0)) break
-            val fieldNum = tag.fieldNumber
-            val wireType = tag.wireType
-            val fd = fieldDescriptors[fieldNum]
-            if (fd == null || !fd.type.allowedWireType(wireType)) {
-                addUnknownField(fieldNum, wireType, unknownFields)
-            } else {
-                val value = if (fd.type is FieldDescriptor.Type.Repeated<*>) {
-                    readRepeatedField(fd.type, wireType, wireDecoder)
+    override fun <M : Message> readMessage(messageCompanion: Message.Companion<M>): M = try {
+        messageCompanion.descriptor.builder {
+            val fieldDescriptors = messageCompanion.descriptor.fields
+            while (true) {
+                val tag = wireDecoder.readTag()
+                if (tag == Tag(0)) break
+                val fieldNum = tag.fieldNumber
+                val wireType = tag.wireType
+                val fd = fieldDescriptors[fieldNum]
+                if (fd == null || !fd.type.allowedWireType(wireType)) {
+                    addUnknownField(fieldNum, wireType, unknownFields)
                 } else {
-                    fd.type.binaryReadFn(wireDecoder)
+                    val value = if (fd.type is FieldDescriptor.Type.Repeated<*>) {
+                        readRepeatedField(fd.type, wireType, wireDecoder)
+                    } else {
+                        fd.type.binaryReadFn(wireDecoder)
+                    }
+                    when (fd.type) {
+                        is FieldDescriptor.Type.Repeated<*> -> {
+                            value as Sequence<*>
+                            @Suppress("UNCHECKED_CAST")
+                            (fd.getValue(this as M) as MutableList<Any?>).addAll(value)
+                        }
+                        is FieldDescriptor.Type.Map<*, *> -> {
+                            @Suppress("UNCHECKED_CAST")
+                            value as Sequence<Map.Entry<*, *>>
+                            @Suppress("UNCHECKED_CAST")
+                            (fd.getValue(this as M) as MutableMapField<Any?, Any?>).putAll(value)
+                        }
+                        else -> {
+                            @Suppress("UNCHECKED_CAST")
+                            (fd as FieldDescriptor<M, Any?>).updateValue(this, value)
+                        }
+                    }
                 }
-                fieldFn(fieldNum, value)
             }
         }
-        unknownFields
     } catch (e: InvalidProtocolBufferException) {
         throw e
     } catch (e: Exception) {

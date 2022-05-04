@@ -30,9 +30,12 @@
 package pbandk.internal.binary
 
 import pbandk.*
+import pbandk.gen.ListField
+import pbandk.gen.MapField
+import pbandk.internal.fieldIterator
+import pbandk.internal.forEach
 import pbandk.wkt.*
 import kotlin.Any
-import kotlin.reflect.KProperty1
 
 private class CodePointIterator(private val s: String) : Iterator<Int> {
     var pos = 0
@@ -118,24 +121,29 @@ internal abstract class AbstractSizer {
 
     fun <T : Message> rawMessageSize(message: T): Int {
         var protoSize = 0
-        for (fd in message.descriptor.fields) {
-            @Suppress("UNCHECKED_CAST")
-            val value = (fd.value as KProperty1<T, *>).get(message)
 
-            if (fd.type.shouldOutputValue(value) && value != null) {
-                protoSize += when (fd.type) {
-                    is FieldDescriptor.Type.Repeated<*> -> {
-                        tagSize(fd.number) * (if (fd.type.packed) 1 else (value as List<*>).size)
-                    }
-                    is FieldDescriptor.Type.Map<*, *> -> tagSize(fd.number) * (value as Map<*, *>).size
-                    else -> tagSize(fd.number)
-                }
-                protoSize += fd.type.protoSize(value)
-            }
+        message.fieldIterator().forEach { fieldDescriptor, value ->
+            protoSize += fieldSize(fieldDescriptor, value)
         }
 
         protoSize += message.unknownFields.values.sumOf { it.size }
         return protoSize
+    }
+
+    private fun <T : Message> fieldSize(fd: FieldDescriptor<T, *>, value: Any?): Int {
+        if (value == null || !fd.type.shouldOutputValue(value)) {
+            return 0
+        }
+
+        val tagsSize = when (fd.type) {
+            is FieldDescriptor.Type.Repeated<*> -> {
+                tagSize(fd.number) * (if (fd.type.packed) 1 else (value as List<*>).size)
+            }
+            is FieldDescriptor.Type.Map<*, *> -> tagSize(fd.number) * (value as Map<*, *>).size
+            else -> tagSize(fd.number)
+        }
+        val valueSize = fd.type.protoSize(value)
+        return tagsSize + valueSize
     }
 
     fun <T> repeatedSize(list: List<T>, valueType: FieldDescriptor.Type, packed: Boolean): Int {
@@ -148,12 +156,12 @@ internal abstract class AbstractSizer {
     }
 
     fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int) =
-        if (list is ListWithSize && list.protoSize != null) list.protoSize + uInt32Size(list.protoSize)
+        if (list is ListField && list.protoSize != null) list.protoSize + uInt32Size(list.protoSize)
         else list.sumOf(sizeFn).let { it + uInt32Size(it) }
 
-    fun mapSize(map: Map<*, *>, entryCompanion: MessageMap.Entry.Companion<*, *>): Int {
+    fun mapSize(map: Map<*, *>, entryCompanion: MapField.Entry.Companion<*, *>): Int {
         return map.entries.sumOf { entry ->
-            if (entry is MessageMap.Entry<*, *>) {
+            if (entry is MapField.Entry<*, *>) {
                 entry.protoSize
             } else {
                 val keySize = entry.key

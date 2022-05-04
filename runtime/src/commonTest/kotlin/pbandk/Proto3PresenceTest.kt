@@ -11,17 +11,17 @@ class Proto3PresenceTest {
     @Test
     fun testExplicitDefaultValues() {
         val msg = Proto3PresenceMain.decodeFromByteArray(
-            Proto3PresenceMain(
-                optionalMessage = Proto3PresenceMessage(),
-                message = Proto3PresenceMessage(),
-                optionalString = "",
-                string = "",
-                optionalInt = 0,
-                int = 0,
-                optionalEnum = Proto3PresenceEnum.PROTO3_PRESENCE_ENUM_UNSPECIFIED,
-                enum = Proto3PresenceEnum.PROTO3_PRESENCE_ENUM_UNSPECIFIED,
-                oneOf = Proto3PresenceMain.OneOf.OneOfString(oneOfString = ""),
-            ).encodeToByteArray()
+            Proto3PresenceMain {
+                optionalMessage = Proto3PresenceMessage {}
+                message = Proto3PresenceMessage {}
+                optionalString = ""
+                string = ""
+                optionalInt = 0
+                int = 0
+                optionalEnum = Proto3PresenceEnum.PROTO3_PRESENCE_ENUM_UNSPECIFIED
+                enum = Proto3PresenceEnum.PROTO3_PRESENCE_ENUM_UNSPECIFIED
+                oneOf = Proto3PresenceMain.OneOf.OneOfString(oneOfString = "")
+            }.encodeToByteArray()
         )
 
         assertEquals(Proto3PresenceMessage.defaultInstance, msg.optionalMessage)
@@ -42,7 +42,7 @@ class Proto3PresenceTest {
 
     @Test
     fun testImplicitDefaultValues() {
-        val msg = Proto3PresenceMain.decodeFromByteArray(Proto3PresenceMain().encodeToByteArray())
+        val msg = Proto3PresenceMain.decodeFromByteArray(Proto3PresenceMain {}.encodeToByteArray())
 
         assertNull(msg.optionalMessage)
         assertNull(msg.message)

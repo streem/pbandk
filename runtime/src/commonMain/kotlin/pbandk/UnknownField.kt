@@ -1,5 +1,6 @@
 package pbandk
 
+import pbandk.gen.MutableMapField
 import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.Sizer
 import pbandk.internal.binary.WireType
@@ -21,8 +22,22 @@ public data class UnknownField @PublicForGeneratedCode constructor(val fieldNum:
         public constructor(wireType: Int, rawBytes: ByteArray) : this(wireType, ByteArr(rawBytes))
 
         internal val size get() = rawBytes.array.size
+
+        internal companion object
     }
+
+    internal companion object
 }
+
+/*
+internal fun <M : Message, T> UnknownField.Companion.encode(fieldDescriptor: FieldDescriptor<M, T>, value: T): UnknownField {
+    return UnknownField(fieldDescriptor.number, listOf(UnknownField.Value.encode(fieldDescriptor.type, value)))
+}
+
+private fun <T> UnknownField.Value.Companion.encode(type: FieldDescriptor.Type, value: T): UnknownField.Value {
+    val encoder = KotlinBinaryWireEncoder(ByteArrayWireWriter.allocate(100))
+}
+ */
 
 @Suppress("UNCHECKED_CAST")
 internal fun <M : Message, T> UnknownField.decodeAs(fieldDescriptor: FieldDescriptor<M, T>): T =
@@ -76,8 +91,8 @@ private fun <T : Message.Enum> UnknownField.decodeAsEnum(type: FieldDescriptor.T
 }
 
 private fun <K, V> UnknownField.decodeAsMap(type: FieldDescriptor.Type.Map<K, V>): Map<K, V> {
-    val builder = MessageMap.Builder<K, V>()
     val messageType = FieldDescriptor.Type.Message(type.entryCompanion)
-    values.mapTo(builder.entries) { it.decodeAs(messageType) }
-    return builder.fixed()
+    return MutableMapField(type.entryCompanion).apply {
+        putAll(this@decodeAsMap.values.asSequence().map { it.decodeAs(messageType) })
+    }.toMapField()
 }

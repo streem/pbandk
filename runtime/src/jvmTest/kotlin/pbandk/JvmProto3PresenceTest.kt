@@ -27,23 +27,23 @@ class JvmProto3PresenceTest {
 
     @Test
     fun testDefaults() {
-        val proto = Proto3PresenceMain()
+        val proto = Proto3PresenceMain {}
         val jProto = Proto3Presence.Proto3PresenceMain.newBuilder().build()
         kotlinJavaRoundtripTest(jProto, proto, Proto3PresenceMain.Companion)
     }
 
     @Test
     fun testCustomized() {
-        val proto = Proto3PresenceMain(
-            message = Proto3PresenceMessage(1),
-            optionalMessage = Proto3PresenceMessage(1),
-            string = "test",
-            optionalString = "test",
-            int = 1,
-            optionalInt = 1,
-            enum = Proto3PresenceEnum.PROTO3_PRESENCE_ENUM_SPECIFIED,
+        val proto = Proto3PresenceMain {
+            message = Proto3PresenceMessage { int = 1 }
+            optionalMessage = Proto3PresenceMessage { int = 1 }
+            string = "test"
+            optionalString = "test"
+            int = 1
+            optionalInt = 1
+            enum = Proto3PresenceEnum.PROTO3_PRESENCE_ENUM_SPECIFIED
             optionalEnum = Proto3PresenceEnum.PROTO3_PRESENCE_ENUM_SPECIFIED
-        )
+        }
         val jProto = Proto3Presence.Proto3PresenceMain.newBuilder()
             .setMessage(Proto3Presence.Proto3PresenceMessage.newBuilder().setInt(1).build())
             .setOptionalMessage(Proto3Presence.Proto3PresenceMessage.newBuilder().setInt(1).build())

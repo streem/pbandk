@@ -1,8 +1,13 @@
 package pbandk.json
 
-import kotlinx.serialization.json.*
+import kotlinx.serialization.json.JsonNull
+import kotlinx.serialization.json.add
+import kotlinx.serialization.json.buildJsonArray
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.put
 import pbandk.testpb.TestAllTypesProto3
 import pbandk.wkt.ListValue
+import pbandk.wkt.NullValue
 import pbandk.wkt.Struct
 import pbandk.wkt.Value
 import kotlin.test.Test
@@ -16,7 +21,11 @@ class StructAndValueTest {
                 put("key", "value")
             })
         }.toString()
-        val expectedStruct = Struct(mapOf("key" to Value(Value.Kind.StringValue("value"))))
+        val expectedStruct = Struct {
+            fields["key"] = Value {
+                stringValue = "value"
+            }
+        }
 
         val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expectedStruct, testAllTypesProto3.optionalStruct)
@@ -29,7 +38,11 @@ class StructAndValueTest {
                 put("key", 1.0)
             })
         }.toString()
-        val expectedStruct = Struct(mapOf("key" to Value(Value.Kind.NumberValue(1.0))))
+        val expectedStruct = Struct {
+            fields["key"] = Value {
+                numberValue = 1.0
+            }
+        }
 
         val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expectedStruct, testAllTypesProto3.optionalStruct)
@@ -45,20 +58,16 @@ class StructAndValueTest {
                 })
             })
         }.toString()
-        val expectedStruct = Struct(
-            mapOf(
-                "key" to Value(
-                    Value.Kind.ListValue(
-                        ListValue(
-                            listOf(
-                                Value(Value.Kind.StringValue("value1")),
-                                Value(Value.Kind.StringValue("value2"))
-                            )
-                        )
+        val expectedStruct = Struct {
+            fields["key"] = Value {
+                listValue = ListValue {
+                    values += listOf(
+                        Value { stringValue = "value1" },
+                        Value { stringValue = "value2" }
                     )
-                )
-            )
-        )
+                }
+            }
+        }
 
         val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expectedStruct, testAllTypesProto3.optionalStruct)
@@ -73,17 +82,13 @@ class StructAndValueTest {
                 })
             })
         }.toString()
-        val expectedStruct = Struct(
-            mapOf(
-                "key" to Value(
-                    Value.Kind.StructValue(
-                        Struct(
-                            mapOf("innerKey" to Value(Value.Kind.StringValue("value")))
-                        )
-                    )
-                )
-            )
-        )
+        val expectedStruct = Struct {
+            fields["key"] = Value {
+                structValue = Struct {
+                    fields["innerKey"] = Value { stringValue = "value" }
+                }
+            }
+        }
 
         val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expectedStruct, testAllTypesProto3.optionalStruct)
@@ -96,7 +101,7 @@ class StructAndValueTest {
                 put("key", JsonNull)
             })
         }.toString()
-        val expectedStruct = Struct(mapOf("key" to Value(Value.Kind.NullValue())))
+        val expectedStruct = Struct { fields["key"] = Value { nullValue = NullValue.NULL_VALUE } }
 
         val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expectedStruct, testAllTypesProto3.optionalStruct)
@@ -109,7 +114,7 @@ class StructAndValueTest {
                 put("key", "1.0")
             })
         }.toString()
-        val expectedStruct = Struct(mapOf("key" to Value(Value.Kind.StringValue("1.0"))))
+        val expectedStruct = Struct { fields["key"] = Value { stringValue = "1.0" } }
 
         val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expectedStruct, testAllTypesProto3.optionalStruct)
@@ -131,24 +136,20 @@ class StructAndValueTest {
             })
         }.toString()
 
-        val expectedStruct = Struct(
-            mapOf(
-                "key1" to Value(Value.Kind.NumberValue(1.0)),
-                "key2" to Value(Value.Kind.StringValue("TWO")),
-                "key3" to Value(
-                    Value.Kind.ListValue(
-                        ListValue(
-                            listOf(
-                                Value(Value.Kind.StringValue("value1")),
-                                Value(Value.Kind.StringValue("value2"))
-                            )
-                        )
+        val expectedStruct = Struct {
+            fields["key1"] = Value { numberValue = 1.0 }
+            fields["key2"] = Value { stringValue = "TWO" }
+            fields["key3"] = Value {
+                listValue = ListValue {
+                    values += listOf(
+                        Value { stringValue = "value1" },
+                        Value { stringValue = "value2" },
                     )
-                ),
-                "key4" to Value(Value.Kind.BoolValue(true)),
-                "key5" to Value(Value.Kind.NullValue())
-            )
-        )
+                }
+            }
+            fields["key4"] = Value { boolValue = true }
+            fields["key5"] = Value { nullValue = NullValue.NULL_VALUE }
+        }
 
         val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expectedStruct, testAllTypesProto3.optionalStruct)
@@ -161,7 +162,7 @@ class StructAndValueTest {
                 add(buildJsonArray { add("a") })
             })
         }.toString()
-        val expectedRepeatedList = listOf(ListValue(listOf(Value(kind = Value.Kind.StringValue("a")))))
+        val expectedRepeatedList = listOf(ListValue { values += Value { stringValue = "a" } })
 
         val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expectedRepeatedList, testAllTypesProto3.repeatedListValue)
@@ -170,7 +171,7 @@ class StructAndValueTest {
     @Test
     fun testValueField_null() {
         val json = buildJsonObject { put("optionalValue", JsonNull) }.toString()
-        val expectedValue = Value(kind = Value.Kind.NullValue())
+        val expectedValue = Value { nullValue = NullValue.NULL_VALUE }
 
         val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expectedValue, testAllTypesProto3.optionalValue)

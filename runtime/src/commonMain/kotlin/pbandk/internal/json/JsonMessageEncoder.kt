@@ -7,11 +7,12 @@ import kotlinx.serialization.json.JsonObject
 import pbandk.FieldDescriptor
 import pbandk.Message
 import pbandk.MessageEncoder
+import pbandk.internal.forEach
+import pbandk.internal.fieldIterator
 import pbandk.json.JsonConfig
 import kotlin.collections.MutableMap
 import kotlin.collections.linkedMapOf
 import kotlin.collections.set
-import kotlin.reflect.KProperty1
 
 internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageEncoder {
     private val json = Json {
@@ -25,21 +26,18 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
     internal fun toJsonElement(): JsonElement =
         currentMessage ?: error("Must call writeMessage() before toJsonElement()")
 
-    override fun <T : Message> writeMessage(message: T) {
+    override fun <M : Message> writeMessage(message: M) {
         check(currentMessage == null) { "JsonMessageEncoder can't be reused with multiple messages" }
         currentMessage =
             JsonMessageAdapters.getAdapter(message)?.encode(message, jsonValueEncoder) ?: writeMessageObject(message)
     }
 
-    private fun <T : Message> writeMessageObject(message: T): JsonObject {
+    private fun <M : Message> writeMessageObject(message: M): JsonObject {
         val jsonContent: MutableMap<String, JsonElement> = linkedMapOf()
 
-        for (fd in message.descriptor.fields) {
-            @Suppress("UNCHECKED_CAST")
-            val value = (fd.value as KProperty1<T, *>).get(message)
-
-            if (value == null && fd.oneofMember) continue
-            if (!fd.oneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) continue
+        message.fieldIterator().forEach { fd, value ->
+            if (value == null && fd.isOneofMember) return@forEach
+            if (!fd.isOneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) return@forEach
 
             val jsonValue = value
                 ?.takeUnless {
@@ -51,11 +49,27 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
                 }
                 ?.let { jsonValueEncoder.writeValue(it, fd.type) }
                 ?: JsonNull
+
             jsonContent[jsonConfig.getFieldJsonName(fd)] = jsonValue
         }
 
         return JsonObject(jsonContent)
     }
 
+    private fun <M : Message> writeFieldValue(fd: FieldDescriptor<M, *>, value: Any?): JsonElement? {
+        if (value == null && fd.isOneofMember) return null
+        if (!fd.isOneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) return null
+
+        return value
+            ?.takeUnless {
+                @Suppress("DEPRECATION")
+                jsonConfig.outputDefaultValues &&
+                        jsonConfig.outputDefaultStringsAsNull &&
+                        fd.type is FieldDescriptor.Type.Primitive.String &&
+                        fd.type.isDefaultValue(it)
+            }
+            ?.let { jsonValueEncoder.writeValue(it, fd.type) }
+            ?: JsonNull
+    }
 }
 

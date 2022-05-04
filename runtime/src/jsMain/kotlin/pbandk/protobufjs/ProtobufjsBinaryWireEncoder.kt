@@ -2,7 +2,7 @@ package pbandk.protobufjs
 
 import pbandk.ByteArr
 import pbandk.FieldDescriptor
-import pbandk.ListWithSize
+import pbandk.gen.ListField
 import pbandk.Message
 import pbandk.internal.asUint8Array
 import pbandk.internal.binary.BinaryWireEncoder
@@ -51,7 +51,7 @@ internal class ProtobufjsBinaryWireEncoder(private val writer: Writer) : BinaryW
     }
 
     override fun writePackedRepeated(fieldNum: Int, list: List<*>, valueType: FieldDescriptor.Type) {
-        if (list is ListWithSize && list.protoSize != null) {
+        if (list is ListField && list.protoSize != null) {
             writeLengthDelimitedHeader(fieldNum, list.protoSize)
             list.forEach { writer.writeValueNoTag(valueType, checkNotNull(it)) }
         } else {

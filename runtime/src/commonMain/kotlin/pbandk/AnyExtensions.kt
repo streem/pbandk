@@ -9,10 +9,10 @@ private const val DEFAULT_TYPE_URL_PREFIX = "type.googleapis.com"
  * not provided). The type URL will be constructed by concatenating the message type's full name to the prefix with an
  * optional "/" separator if the prefix doesn't end with "/" already.
  */
-public fun <T : Message> Any.Companion.pack(message: T, typeUrlPrefix: String = DEFAULT_TYPE_URL_PREFIX): Any = Any(
-    typeUrl = "$typeUrlPrefix${if (typeUrlPrefix.endsWith('/')) "" else "/"}${message.descriptor.fullName}",
+public fun <T : Message> Any.Companion.pack(message: T, typeUrlPrefix: String = DEFAULT_TYPE_URL_PREFIX): Any = Any {
+    typeUrl = "$typeUrlPrefix${if (typeUrlPrefix.endsWith('/')) "" else "/"}${message.descriptor.fullName}"
     value = ByteArr(message.encodeToByteArray())
-)
+}
 
 /**
  * Returns `true` if [Any.typeUrl] matches the fully-qualified type name of [companion].

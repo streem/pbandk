@@ -14,7 +14,7 @@ public interface ServiceGenerator {
         public val file: File,
         public val filePath: String,
         public val existingCode: String,
-        public val kotlinTypeMappings: Map<String, String>,
+        public val kotlinTypeMappings: Map<String, Name>,
         public val raw: ServiceDescriptorProto,
         public val rawRequest: CodeGeneratorRequest,
         public val debugFn: (() -> String) -> Unit
@@ -23,7 +23,7 @@ public interface ServiceGenerator {
             file: File,
             filePath: String,
             existingCode: String,
-            kotlinTypeMappings: Map<String, String>,
+            kotlinTypeMappings: Map<String, Name>,
             raw: ServiceDescriptorProto,
             rawRequest: CodeGeneratorRequest,
             debugFn: (() -> String) -> Unit

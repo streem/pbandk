@@ -29,7 +29,11 @@ fun main() = runBlockingMain {
     debug { "Starting conformance test" }
     while (true) {
         val res = doTestIo().also { debug { "Result: $it" } } ?: return@runBlockingMain
-        Platform.stdoutWriteLengthDelimitedMessage(ConformanceResponse(res))
+        Platform.stdoutWriteLengthDelimitedMessage(
+            ConformanceResponse {
+                result = res
+            }
+        )
     }
 }
 
@@ -57,12 +61,12 @@ suspend fun doTestIo(): ConformanceResponse.Result<*>? {
 
     // Parse
     val parsed = Platform.doTry({
-        when (req.payload) {
+        when (val payload = req.payload) {
             is ConformanceRequest.Payload.ProtobufPayload -> {
-                typeComp.decodeFromByteArray(req.payload.value.array).also { debug { "Parsed: $it" } }
+                typeComp.decodeFromByteArray(payload.value.array).also { debug { "Parsed: $it" } }
             }
             is ConformanceRequest.Payload.JsonPayload -> {
-                typeComp.decodeFromJsonString(req.payload.value, jsonConfig).also { debug { "Parsed: $it" } }
+                typeComp.decodeFromJsonString(payload.value, jsonConfig).also { debug { "Parsed: $it" } }
             }
             else -> {
                 return ConformanceResponse.Result.Skipped("Only protobuf and json input supported")

@@ -3,7 +3,6 @@ package pbandk.json
 import pbandk.ExperimentalProtoJson
 import pbandk.FieldDescriptor
 import pbandk.TypeRegistry
-import pbandk.internal.underscoreToCamelCase
 import kotlin.js.JsExport
 
 @ExperimentalProtoJson
@@ -50,9 +49,9 @@ public data class JsonConfig(
 ) {
     internal fun getFieldJsonName(fieldDescriptor: FieldDescriptor<*, *>): String =
         when {
+            fieldDescriptor.isExtension -> "[${fieldDescriptor.fullName}]"
             outputProtoFieldNames -> fieldDescriptor.name
-            fieldDescriptor.jsonName != null -> fieldDescriptor.jsonName
-            else -> fieldDescriptor.name.underscoreToCamelCase()
+            else -> fieldDescriptor.jsonName
         }
 
     public companion object {

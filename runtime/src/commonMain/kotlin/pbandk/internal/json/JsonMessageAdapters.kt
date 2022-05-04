@@ -10,7 +10,7 @@ import kotlinx.serialization.json.jsonPrimitive
 import pbandk.FieldDescriptor
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
-import pbandk.MessageMap
+import pbandk.gen.MutableMapField
 import pbandk.getTypeNameFromTypeUrl
 import pbandk.getTypePrefixFromTypeUrl
 import pbandk.getTypeUrl
@@ -26,6 +26,7 @@ import pbandk.wkt.FloatValue
 import pbandk.wkt.Int32Value
 import pbandk.wkt.Int64Value
 import pbandk.wkt.ListValue
+import pbandk.wkt.NullValue
 import pbandk.wkt.StringValue
 import pbandk.wkt.Struct
 import pbandk.wkt.Timestamp
@@ -44,93 +45,102 @@ internal object JsonMessageAdapters {
         // https://developers.google.com/protocol-buffers/docs/proto3#json
 
         DoubleValue.descriptor to object : JsonMessageAdapter<DoubleValue> {
-            private val fieldType = DoubleValue.descriptor.fields.first().type
+            private val fieldType = DoubleValue.FieldDescriptors.value.type
 
             override fun encode(message: DoubleValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) =
-                DoubleValue(jsonValueDecoder.readDouble(json))
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = DoubleValue {
+                value = jsonValueDecoder.readDouble(json)
+            }
         },
 
         FloatValue.descriptor to object : JsonMessageAdapter<FloatValue> {
-            private val fieldType = FloatValue.descriptor.fields.first().type
+            private val fieldType = FloatValue.FieldDescriptors.value.type
 
             override fun encode(message: FloatValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) =
-                FloatValue(jsonValueDecoder.readFloat(json))
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = FloatValue {
+                value = jsonValueDecoder.readFloat(json)
+            }
         },
 
         Int64Value.descriptor to object : JsonMessageAdapter<Int64Value> {
-            private val fieldType = Int64Value.descriptor.fields.first().type
+            private val fieldType = Int64Value.FieldDescriptors.value.type
 
             override fun encode(message: Int64Value, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) =
-                Int64Value(jsonValueDecoder.readInteger64(json))
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = Int64Value {
+                value = jsonValueDecoder.readInteger64(json)
+            }
         },
 
         UInt64Value.descriptor to object : JsonMessageAdapter<UInt64Value> {
-            private val fieldType = UInt64Value.descriptor.fields.first().type
+            private val fieldType = UInt64Value.FieldDescriptors.value.type
 
             override fun encode(message: UInt64Value, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) =
-                UInt64Value(jsonValueDecoder.readUnsignedInteger64(json))
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = UInt64Value {
+                value = jsonValueDecoder.readUnsignedInteger64(json)
+            }
         },
 
         Int32Value.descriptor to object : JsonMessageAdapter<Int32Value> {
-            private val fieldType = Int32Value.descriptor.fields.first().type
+            private val fieldType = Int32Value.FieldDescriptors.value.type
 
             override fun encode(message: Int32Value, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) =
-                Int32Value(jsonValueDecoder.readInteger32(json))
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = Int32Value {
+                value = jsonValueDecoder.readInteger32(json)
+            }
         },
 
         UInt32Value.descriptor to object : JsonMessageAdapter<UInt32Value> {
-            private val fieldType = UInt32Value.descriptor.fields.first().type
+            private val fieldType = UInt32Value.FieldDescriptors.value.type
 
             override fun encode(message: UInt32Value, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) =
-                UInt32Value(jsonValueDecoder.readUnsignedInteger32(json))
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = UInt32Value {
+                jsonValueDecoder.readUnsignedInteger32(json)
+            }
         },
 
         BoolValue.descriptor to object : JsonMessageAdapter<BoolValue> {
-            private val fieldType = BoolValue.descriptor.fields.first().type
+            private val fieldType = BoolValue.FieldDescriptors.value.type
 
             override fun encode(message: BoolValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) =
-                BoolValue(jsonValueDecoder.readBool(json))
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = BoolValue {
+                value = jsonValueDecoder.readBool(json)
+            }
         },
 
         StringValue.descriptor to object : JsonMessageAdapter<StringValue> {
-            private val fieldType = StringValue.descriptor.fields.first().type
+            private val fieldType = StringValue.FieldDescriptors.value.type
 
             override fun encode(message: StringValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) =
-                StringValue(jsonValueDecoder.readString(json))
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = StringValue {
+                value = jsonValueDecoder.readString(json)
+            }
         },
 
         BytesValue.descriptor to object : JsonMessageAdapter<BytesValue> {
-            private val fieldType = BytesValue.descriptor.fields.first().type
+            private val fieldType = BytesValue.FieldDescriptors.value.type
 
             override fun encode(message: BytesValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) =
-                BytesValue(jsonValueDecoder.readBytes(json))
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = BytesValue {
+                value = jsonValueDecoder.readBytes(json)
+            }
         },
 
         // Other well-known types with special JSON encoding
@@ -138,7 +148,7 @@ internal object JsonMessageAdapters {
         Any.descriptor to object : JsonMessageAdapter<Any> {
             override fun encode(message: Any, jsonValueEncoder: JsonValueEncoder): JsonElement {
                 val companion = jsonValueEncoder.jsonConfig.typeRegistry.getTypeUrl(message.typeUrl)?.messageCompanion
-                    ?: throw InvalidProtocolBufferException("Type URL not found in type registry: $message.typeUrl")
+                    ?: throw InvalidProtocolBufferException("Type URL not found in type registry: ${message.typeUrl}")
                 val unpackedMessage = message.unpack(companion)
                 val messageAdapter = getAdapter(unpackedMessage)
                 val jsonContent = if (messageAdapter != null) {
@@ -194,9 +204,11 @@ internal object JsonMessageAdapters {
                 @Suppress("UNCHECKED_CAST")
                 val values = jsonValueDecoder.readValue(
                     json,
-                    ListValue.descriptor.fields.first().type
+                    ListValue.FieldDescriptors.values.type,
                 ) as Sequence<Value>
-                ListValue(values.toList())
+                ListValue {
+                    this.values += values
+                }
             } catch (e: InvalidProtocolBufferException) {
                 throw e
             } catch (e: Exception) {
@@ -205,18 +217,17 @@ internal object JsonMessageAdapters {
         },
 
         Struct.descriptor to object : JsonMessageAdapter<Struct> {
-            private val fieldType = Struct.descriptor.fields.first().type
+            @Suppress("UNCHECKED_CAST")
+            private val fieldType = Struct.FieldDescriptors.fields.type as FieldDescriptor.Type.Map<String, Value?>
 
             override fun encode(message: Struct, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.fields, fieldType)
 
             override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = try {
-                val fields = jsonValueDecoder.readMap(
-                    json,
-                    Struct.descriptor.fields.first().type as FieldDescriptor.Type.Map<*, *>
-                )
-                @Suppress("UNCHECKED_CAST")
-                Struct(MessageMap(fields.toSet() as Set<MessageMap.Entry<String, Value?>>))
+                val fields = jsonValueDecoder.readMap(json, fieldType)
+                Struct {
+                    (this.fields as MutableMapField<String, Value?>).putAll(fields)
+                }
             } catch (e: InvalidProtocolBufferException) {
                 throw e
             } catch (e: Exception) {
@@ -233,41 +244,39 @@ internal object JsonMessageAdapters {
         },
 
         Value.descriptor to object : JsonMessageAdapter<Value> {
-            override fun encode(message: Value, jsonValueEncoder: JsonValueEncoder) = when (message.kind) {
-                is Value.Kind.StringValue -> jsonValueEncoder.writeString(message.kind.value)
-                is Value.Kind.BoolValue -> jsonValueEncoder.writeBool(message.kind.value)
-                is Value.Kind.NumberValue -> jsonValueEncoder.writeDouble(message.kind.value)
+            override fun encode(message: Value, jsonValueEncoder: JsonValueEncoder) = when (val kind = message.kind) {
+                is Value.Kind.StringValue -> jsonValueEncoder.writeString(kind.value)
+                is Value.Kind.BoolValue -> jsonValueEncoder.writeBool(kind.value)
+                is Value.Kind.NumberValue -> jsonValueEncoder.writeDouble(kind.value)
                 is Value.Kind.StructValue -> jsonValueEncoder.writeValue(
-                    message.kind.value.fields,
-                    Struct.descriptor.fields.first().type
+                    kind.value.fields,
+                    Struct.FieldDescriptors.fields.type,
                 )
                 is Value.Kind.ListValue -> jsonValueEncoder.writeValue(
-                    message.kind.value.values,
-                    ListValue.descriptor.fields.first().type
+                    kind.value.values,
+                    ListValue.FieldDescriptors.values.type,
                 )
                 is Value.Kind.NullValue, null -> JsonNull
             }
 
             override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = when (json) {
-                is JsonNull -> Value(kind = Value.Kind.NullValue())
-                is JsonPrimitive -> runCatching { Value(kind = Value.Kind.StringValue(jsonValueDecoder.readString(json))) }
-                    .recoverCatching { Value(kind = Value.Kind.NumberValue(jsonValueDecoder.readDouble(json))) }
-                    .recoverCatching { Value(kind = Value.Kind.BoolValue(jsonValueDecoder.readBool(json))) }
+                is JsonNull -> Value { nullValue = NullValue.NULL_VALUE }
+                is JsonPrimitive -> runCatching { Value { stringValue = jsonValueDecoder.readString(json) } }
+                    .recoverCatching { Value { numberValue = jsonValueDecoder.readDouble(json) } }
+                    .recoverCatching { Value { boolValue = jsonValueDecoder.readBool(json) } }
                     .getOrElse {
                         throw InvalidProtocolBufferException(
                             "dynamically typed value did not contain a valid primitive object"
                         )
                     }
-                is JsonArray -> Value(
-                    kind = Value.Kind.ListValue(
+                is JsonArray -> Value {
+                    listValue =
                         jsonValueDecoder.readValue(json, FieldDescriptor.Type.Message(ListValue.Companion)) as ListValue
-                    )
-                )
-                is JsonObject -> Value(
-                    kind = Value.Kind.StructValue(
+                }
+                is JsonObject -> Value {
+                    structValue =
                         jsonValueDecoder.readValue(json, FieldDescriptor.Type.Message(Struct.Companion)) as Struct
-                    )
-                )
+                }
             }
         },
     )

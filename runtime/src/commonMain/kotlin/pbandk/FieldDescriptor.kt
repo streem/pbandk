@@ -1,28 +1,129 @@
 package pbandk
 
+import pbandk.gen.MapField
 import pbandk.internal.binary.WireType
 import pbandk.wkt.FieldOptions
 import kotlin.js.JsExport
+import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
 @JsExport
-public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor(
-    messageDescriptor: KProperty0<MessageDescriptor<M>>,
+public sealed class FieldDescriptor<M : Message, V> private constructor(
+    getMessageDescriptor: () -> MessageDescriptor<M>,
+    /** The field's unqualified name. */
     @ExperimentalProtoReflection
     public val name: String,
     internal val number: Int,
     internal val type: Type,
-    internal val value: KProperty1<M, T>,
-    internal val oneofMember: Boolean = false,
-    internal val jsonName: String? = null,
+    internal val jsonName: String,
     @ExperimentalProtoReflection
     public val options: FieldOptions = FieldOptions.defaultInstance
-) {
+) : Comparable<FieldDescriptor<M, V>> {
     // At the time that the [FieldDescriptor] constructor is called, the parent [MessageDescriptor] has not been
     // constructed yet. This is because this [FieldDescriptor] is one of the parameters that will be passed to the
     // [MessageDescriptor] constructor. To avoid the circular dependency, this property is declared lazy.
-    internal val messageDescriptor: MessageDescriptor<M> by lazy { messageDescriptor.get() }
+    internal val messageDescriptor: MessageDescriptor<M> by lazy(LazyThreadSafetyMode.PUBLICATION) { getMessageDescriptor() }
+
+    internal abstract val isOneofMember: Boolean
+    internal abstract val isExtension: Boolean
+
+    /**
+     * The field's fully-qualified name.
+     *
+     * For a regular field, this will be the fully-qualified name of the field's enclosing message combined with the
+     * field's [name].
+     *
+     * For an extension field, the fully-qualified name describes where the extension field is defined, _not_ which
+     * message it extends. In other words, the `fullName` of these two extension fields:
+     *
+     * ```proto
+     * package foo.bar;
+     * extend Baz {
+     *   optional int32 usage_count = 200;
+     * }
+     * message Fizz {
+     *   extend Baz {
+     *     optional string fizz_label = 300;
+     *   }
+     * }
+     * ```
+     *
+     * is `foo.bar.usage_count` and `foo.bar.Fizz.fizz_label`, respectively. `Baz`, the message being extended, is not
+     * part of the extension field's name.
+     */
+    @ExperimentalProtoReflection
+    public abstract val fullName: String
+
+    /**
+     * Returns the value of this field in the provided message.
+     */
+    internal abstract fun getValue(message: M): V
+
+    /**
+     * Sets or updates the value of this field in the provided message.
+     *
+     * NOTE: For `List` and `Map` fields, this function _appends_ to the existing list/map value rather than replacing
+     * the value. For all other fields, this function replaces the value with the new value.
+     */
+    internal abstract fun updateValue(message: MutableMessage<M>, value: V)
+
+    /**
+     * FieldDescriptors are sorted by their field number.
+     */
+    override fun compareTo(other: FieldDescriptor<M, V>): Int {
+        require(messageDescriptor == other.messageDescriptor) {
+            "Only FieldDescriptors of the same message can be compared"
+        }
+        return number - other.number
+    }
+
+    private class Standard<M : Message, V>(
+        getMessageDescriptor: () -> MessageDescriptor<M>,
+        name: String,
+        number: Int,
+        type: Type,
+        private val getValueFn: (M) -> V,
+        private val updateValueFn: (MutableMessage<M>, V) -> Unit,
+        override val isOneofMember: Boolean = false,
+        jsonName: String,
+        options: FieldOptions = FieldOptions.defaultInstance
+    ) : FieldDescriptor<M, V>(
+        getMessageDescriptor = getMessageDescriptor,
+        name = name,
+        number = number,
+        type = type,
+        jsonName = jsonName,
+        options = options,
+    ) {
+        override val isExtension: Boolean get() = false
+        override val fullName: String get() = "${messageDescriptor.fullName}.${name}"
+        override fun getValue(message: M): V = getValueFn(message)
+        override fun updateValue(message: MutableMessage<M>, value: V) = updateValueFn(message, value)
+    }
+
+    private class Extension<M : ExtendableMessage<M>, V>(
+        getMessageDescriptor: () -> MessageDescriptor<M>,
+        extensionName: String,
+        number: Int,
+        type: Type,
+        jsonName: String,
+        options: FieldOptions = FieldOptions.defaultInstance
+    ) : FieldDescriptor<M, V>(
+        getMessageDescriptor = getMessageDescriptor,
+        name = extensionName.substringAfterLast('.'),
+        number = number,
+        type = type,
+        jsonName = jsonName,
+        options = options,
+    ) {
+        override val isOneofMember: Boolean get() = false
+        override val isExtension get() = true
+        override val fullName = extensionName
+        override fun getValue(message: M): V = message.getExtension(this)
+        override fun updateValue(message: MutableMessage<M>, value: V) =
+            (message as MutableExtendableMessage<M>).setExtension(this, value)
+    }
 
     @PublicForGeneratedCode
     public sealed class Type {
@@ -119,7 +220,7 @@ public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor
         }
 
         @PublicForGeneratedCode
-        public class Message<T : pbandk.Message>(internal val messageCompanion: pbandk.Message.Companion<T>) : Type() {
+        public class Message<M : pbandk.Message>(internal val messageCompanion: pbandk.Message.Companion<M>) : Type() {
             override val hasPresence get() = true
             override val isPackable: Boolean get() = false
             override val wireType: WireType get() = WireType.LENGTH_DELIMITED
@@ -128,8 +229,8 @@ public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor
         }
 
         @PublicForGeneratedCode
-        public class Enum<T : pbandk.Message.Enum>(
-            internal val enumCompanion: pbandk.Message.Enum.Companion<T>,
+        public class Enum<E : pbandk.Message.Enum>(
+            internal val enumCompanion: pbandk.Message.Enum.Companion<E>,
             override val hasPresence: Boolean = false
         ) : Type() {
             override val isPackable: Boolean get() = true
@@ -150,8 +251,8 @@ public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor
 
         @PublicForGeneratedCode
         public class Map<K, V>(keyType: Type, valueType: Type) : Type() {
-            internal val entryCompanion: MessageMap.Entry.Companion<K, V> =
-                MessageMap.Entry.Companion(keyType, valueType)
+            internal val entryCompanion: MapField.Entry.Companion<K, V> =
+                MapField.Entry.Companion(keyType, valueType)
             override val hasPresence get() = false
             override val isPackable: Boolean get() = false
             override val wireType: WireType get() = WireType.LENGTH_DELIMITED
@@ -160,5 +261,144 @@ public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor
         }
     }
 
+    public companion object {
+        @PublicForGeneratedCode
+        @Suppress("UNCHECKED_CAST")
+        public fun <M : Message, MM : MutableMessage<M>, V> of(
+            messageDescriptor: KProperty0<MessageDescriptor<M>>,
+            name: String,
+            number: Int,
+            type: Type,
+            value: KProperty1<M, V>,
+            mutableValue: KMutableProperty1<MM, V>,
+            jsonName: String,
+            options: FieldOptions = FieldOptions.defaultInstance
+        ): FieldDescriptor<M, V> = Standard(
+            getMessageDescriptor = messageDescriptor::get,
+            name = name,
+            number = number,
+            type = type,
+            getValueFn = value::get,
+            updateValueFn = mutableValue::set as (MutableMessage<M>, V) -> Unit,
+            jsonName = jsonName,
+            options = options
+        )
 
+        @PublicForGeneratedCode
+        @Suppress("UNCHECKED_CAST")
+        public fun <M : Message, MM : MutableMessage<M>, V : Any> ofOneof(
+            messageDescriptor: KProperty0<MessageDescriptor<M>>,
+            name: String,
+            number: Int,
+            type: Type,
+            value: KProperty1<M, V?>,
+            mutableValue: KMutableProperty1<MM, V?>,
+            jsonName: String,
+            options: FieldOptions = FieldOptions.defaultInstance
+        ): FieldDescriptor<M, V?> = Standard(
+            getMessageDescriptor = messageDescriptor::get,
+            name = name,
+            number = number,
+            type = type,
+            getValueFn = value::get,
+            updateValueFn = mutableValue::set as (MutableMessage<M>, V?) -> Unit,
+            isOneofMember = true,
+            jsonName = jsonName,
+            options = options
+        )
+
+        @PublicForGeneratedCode
+        public fun <M : Message, MM : MutableMessage<M>, T : Any> ofRepeated(
+            messageDescriptor: KProperty0<MessageDescriptor<M>>,
+            name: String,
+            number: Int,
+            type: Type.Repeated<T>,
+            value: KProperty1<M, List<T>>,
+            mutableValue: KProperty1<MM, MutableList<T>>,
+            jsonName: String,
+            options: FieldOptions = FieldOptions.defaultInstance
+        ): FieldDescriptor<M, List<T>> = Standard(
+            getMessageDescriptor = messageDescriptor::get,
+            name = name,
+            number = number,
+            type = type,
+            getValueFn = value::get,
+            updateValueFn = mutableValue::appendList,
+            jsonName = jsonName,
+            options = options
+        )
+
+        @PublicForGeneratedCode
+        public fun <M : Message, MM : MutableMessage<M>, K, V> ofMap(
+            messageDescriptor: KProperty0<MessageDescriptor<M>>,
+            name: String,
+            number: Int,
+            type: Type.Map<K, V>,
+            value: KProperty1<M, Map<K, V>>,
+            mutableValue: KProperty1<MM, MutableMap<K, V>>,
+            jsonName: String,
+            options: FieldOptions = FieldOptions.defaultInstance
+        ): FieldDescriptor<M, Map<K, V>> = Standard(
+            getMessageDescriptor = messageDescriptor::get,
+            name = name,
+            number = number,
+            type = type,
+            getValueFn = value::get,
+            updateValueFn = mutableValue::appendMap,
+            jsonName = jsonName,
+            options = options
+        )
+
+        @PublicForGeneratedCode
+        @Suppress("UNCHECKED_CAST")
+        public fun <M : ExtendableMessage<M>, V> ofExtension(
+            messageDescriptor: KProperty0<MessageDescriptor<M>>,
+            fullName: String,
+            number: Int,
+            type: Type,
+            jsonName: String,
+            options: FieldOptions = FieldOptions.defaultInstance
+        ): FieldDescriptor<M, V> = Extension(
+            getMessageDescriptor = messageDescriptor::get,
+            extensionName = fullName,
+            number = number,
+            type = type,
+            jsonName = jsonName,
+            options = options,
+        )
+
+        @PublicForGeneratedCode
+        public fun <M : ExtendableMessage<M>, T : Any> ofRepeatedExtension(
+            messageDescriptor: KProperty0<MessageDescriptor<M>>,
+            fullName: String,
+            number: Int,
+            type: Type.Repeated<T>,
+            jsonName: String,
+            options: FieldOptions = FieldOptions.defaultInstance
+        ): FieldDescriptor<M, List<T>> = Extension(
+            getMessageDescriptor = messageDescriptor::get,
+            extensionName = fullName,
+            number = number,
+            type = type,
+            jsonName = jsonName,
+            options = options
+        )
+    }
+
+}
+
+private fun <M : Message, MM : MutableMessage<M>, T> KProperty1<MM, MutableList<T>>.appendList(
+    message: MutableMessage<M>,
+    newValue: List<T>,
+) {
+    @Suppress("UNCHECKED_CAST")
+    get(message as MM).addAll(newValue)
+}
+
+private fun <M : Message, MM : MutableMessage<M>, K, V> KProperty1<MM, MutableMap<K, V>>.appendMap(
+    message: MutableMessage<M>,
+    newValue: Map<K, V>
+) {
+    @Suppress("UNCHECKED_CAST")
+    get(message as MM).putAll(newValue)
 }

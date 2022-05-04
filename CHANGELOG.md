@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 
 * `proto3` files that use the `optional` keyword are now supported! Fields with `optional` [field presence] will be nullable in generated Kotlin code. (PR [#200], fixes [#34]) (thanks @NiematojakTomasz)
+* Support for builders and mutable messages.
+    * Note: This version introduces a slight regression for Kotlin/JS IR users. Because of limitations in the Kotlin 1.5 compiler, pbandk-generated classes are no longer annotated with `@JsExport`. The `@JsExport` annotation will be reintroduced in an upcoming release once pbandk is updated to Kotlin 1.6. 
 
 ### Changed
 

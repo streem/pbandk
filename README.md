@@ -12,7 +12,7 @@ It is built to work across multiple Kotlin platforms.
 **Features**
 
 * Clean data class generation
-* Works for JVM, Android, and JS (both legacy and IR), with experimental support for Native
+* Works for JVM, Android, JS (both legacy and IR), and Native
 * Support for proto2 and proto3 syntaxes
 * JSON serialization/deserialization following the [proto3 JSON spec](https://developers.google.com/protocol-buffers/docs/proto3#json) (see https://github.com/streem/pbandk/issues/72 for some corner cases and Well-Known Types that are not handled yet)
 * Oneof's are properly handled as sealed classes
@@ -23,11 +23,10 @@ It is built to work across multiple Kotlin platforms.
 
 **Experimental**
 
-* Kotlin/Native support
+* Runtime access to protobuf message and field metadata (aka protobuf reflection)
 
 **Not Yet Implemented**
 
-* Specialized support for more of the well known types (e.g. `Any`)
 * Access to the protobuf descriptor from generated code
 * Code comments on generated code
 * Specialized support for the `deprecated` option
@@ -91,79 +90,96 @@ The following file will be generated at `tutorial/addressbook.kt`:
 
 package tutorial
 
-public data class Person(
-    val name: String = "",
-    val id: Int = 0,
-    val email: String = "",
-    val phones: List<tutorial.Person.PhoneNumber> = emptyList(),
-    val lastUpdated: pbandk.wkt.Timestamp? = null,
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): Person = protoMergeImpl(other)
-    override val descriptor: pbandk.MessageDescriptor<Person> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
-    public companion object : pbandk.Message.Companion<Person> {
-        public val defaultInstance: Person by lazy { Person() }
-        override fun decodeWith(u: pbandk.MessageDecoder): Person = Person.decodeWithImpl(u)
+public sealed interface Person : pbandk.Message {
+    public val name: String
+    public val id: Int
+    public val email: String
+    public val phones: List<Person.PhoneNumber>
+    public val lastUpdated: pbandk.wkt.Timestamp?
 
-        override val descriptors: pbandk.MessageDescriptor<Person> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Person, *>>(5).apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "name",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "name",
-                        value = Person::name
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "id",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "id",
-                        value = Person::id
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "email",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "email",
-                        value = Person::email
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "phones",
-                        number = 4,
-                        type = pbandk.FieldDescriptor.Type.Repeated<tutorial.Person.PhoneNumber>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = tutorial.Person.PhoneNumber.Companion)),
-                        jsonName = "phones",
-                        value = Person::phones
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "last_updated",
-                        number = 5,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
-                        jsonName = "lastUpdated",
-                        value = Person::lastUpdated
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+    override operator fun plus(other: pbandk.Message?): Person
+    override val descriptor: pbandk.MessageDescriptor<Person>
+
+    /**
+     * The [MutablePerson] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutablePerson.() -> Unit): Person
+
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val name: pbandk.FieldDescriptor<Person, String> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = Person::descriptor,
+                name = "name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "name",
+                value = Person::name,
+                mutableValue = MutablePerson::name,
+            )
+        public val id: pbandk.FieldDescriptor<Person, Int> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = Person::descriptor,
+                name = "id",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                jsonName = "id",
+                value = Person::id,
+                mutableValue = MutablePerson::id,
+            )
+        public val email: pbandk.FieldDescriptor<Person, String> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = Person::descriptor,
+                name = "email",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "email",
+                value = Person::email,
+                mutableValue = MutablePerson::email,
+            )
+        public val phones: pbandk.FieldDescriptor<Person, List<Person.PhoneNumber>> =
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = Person::descriptor,
+                name = "phones",
+                number = 4,
+                type = pbandk.FieldDescriptor.Type.Repeated<Person.PhoneNumber>(
+                    valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = Person.PhoneNumber.Companion)
+                ),
+                jsonName = "phones",
+                value = Person::phones,
+                mutableValue = MutablePerson::phones,
+            )
+        public val lastUpdated: pbandk.FieldDescriptor<Person, pbandk.wkt.Timestamp?> =
+            pbandk.FieldDescriptor.of(
+                messageDescriptor = Person::descriptor,
+                name = "last_updated",
+                number = 5,
+                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
+                jsonName = "lastUpdated",
+                value = Person::lastUpdated,
+                mutableValue = MutablePerson::lastUpdated,
+            )
+    }
+
+    public companion object : pbandk.Message.Companion<Person> {
+        public val defaultInstance: Person by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            Person {}
+        }
+
+        override val descriptor: pbandk.MessageDescriptor<Person> by lazy {
+            pbandk.MessageDescriptor.of(
                 fullName = "tutorial.Person",
-                messageClass = tutorial.Person::class,
+                messageClass = Person::class,
                 messageCompanion = this,
-                fields = fieldsList
+                builder = ::Person,
+                fields = listOf(
+                    Person.FieldDescriptors.name,
+                    Person.FieldDescriptors.id,
+                    Person.FieldDescriptors.email,
+                    Person.FieldDescriptors.phones,
+                    Person.FieldDescriptors.lastUpdated,
+                ),
             )
         }
     }
@@ -179,99 +195,186 @@ public data class Person(
         public class UNRECOGNIZED(value: Int) : Person.PhoneType(value)
 
         public companion object : pbandk.Message.Enum.Companion<Person.PhoneType> {
-            public val values: List<Person.PhoneType> by lazy { listOf(MOBILE, HOME, WORK) }
-            override fun fromValue(value: Int): Person.PhoneType = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-            override fun fromName(name: String): Person.PhoneType = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No PhoneType with name: $name")
+            public val values: List<Person.PhoneType> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+                listOf(MOBILE, HOME, WORK)
+            }
+
+            override fun fromValue(value: Int): Person.PhoneType =
+                values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+
+            override fun fromName(name: String): Person.PhoneType =
+                values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No PhoneType with name: $name")
         }
     }
 
-    public data class PhoneNumber(
-        val number: String = "",
-        val type: tutorial.Person.PhoneType = tutorial.Person.PhoneType.fromValue(0),
-        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message {
-        override operator fun plus(other: pbandk.Message?): Person.PhoneNumber = protoMergeImpl(other)
-        override val descriptor: MessageDescriptor<Person.PhoneNumber> get() = Companion.descriptor
-        override val protoSize: Int by lazy { super.protoSize }
+    public sealed interface PhoneNumber : pbandk.Message {
+        public val number: String
+        public val type: Person.PhoneType
+
+        override operator fun plus(other: pbandk.Message?): Person.PhoneNumber
+        override val descriptor: pbandk.MessageDescriptor<Person.PhoneNumber>
+
+        /**
+         * The [MutablePhoneNumber] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: Person.MutablePhoneNumber.() -> Unit): Person.PhoneNumber
+
+        @pbandk.PublicForGeneratedCode
+        public object FieldDescriptors {
+            public val number: pbandk.FieldDescriptor<Person.PhoneNumber, String> =
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = Person.PhoneNumber::descriptor,
+                    name = "number",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                    jsonName = "number",
+                    value = Person.PhoneNumber::number,
+                    mutableValue = Person.MutablePhoneNumber::number,
+                )
+            public val type: pbandk.FieldDescriptor<Person.PhoneNumber, Person.PhoneType> =
+                pbandk.FieldDescriptor.of(
+                    messageDescriptor = Person.PhoneNumber::descriptor,
+                    name = "type",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = Person.PhoneType.Companion),
+                    jsonName = "type",
+                    value = Person.PhoneNumber::type,
+                    mutableValue = Person.MutablePhoneNumber::type,
+                )
+        }
+
         public companion object : pbandk.Message.Companion<Person.PhoneNumber> {
-            public val defaultInstance: Person.PhoneNumber by lazy { Person.PhoneNumber() }
-            override fun decodeWith(u: pbandk.MessageDecoder): Person.PhoneNumber = Person.PhoneNumber.decodeWithImpl(u)
+            public val defaultInstance: Person.PhoneNumber by lazy(LazyThreadSafetyMode.PUBLICATION) {
+                Person.PhoneNumber {}
+            }
 
             override val descriptor: pbandk.MessageDescriptor<PhoneNumber> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<PhoneNumber, *>>(2).apply {
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "number",
-                            number = 1,
-                            type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                            jsonName = "number",
-                            value = PhoneNumber::number
-                        )
-                    )
-                    add(
-                        pbandk.FieldDescriptor(
-                            messageDescriptor = this@Companion::descriptor,
-                            name = "type",
-                            number = 2,
-                            type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = tutorial.Person.PhoneType.Companion),
-                            jsonName = "type",
-                            value = PhoneNumber::type
-                        )
-                    )
-                }
-                pbandk.MessageDescriptor(
+                pbandk.MessageDescriptor.of(
                     fullName = "tutorial.Person.PhoneNumber",
-                    messageClass = tutorial.Person.PhoneNumber::class,
+                    messageClass = Person.PhoneNumber::class,
                     messageCompanion = this,
-                    fields = fieldsList
+                    builder = Person.Companion::PhoneNumber,
+                    fields = listOf(
+                        Person.PhoneNumber.FieldDescriptors.number,
+                        Person.PhoneNumber.FieldDescriptors.type,
+                    ),
                 )
             }
         }
+    }
+
+    public sealed interface MutablePhoneNumber : Person.PhoneNumber, pbandk.MutableMessage<Person.PhoneNumber> {
+        public override var number: String
+        public override var type: Person.PhoneType
     }
 }
 
-public data class AddressBook(
-    val people: List<tutorial.Person> = emptyList(),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): AddressBook = protoMergeImpl(other)
-    override val descriptor: MessageDescriptor<AddressBook> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
+public sealed interface MutablePerson : Person, pbandk.MutableMessage<Person> {
+    public override var name: String
+    public override var id: Int
+    public override var email: String
+    public override val phones: MutableList<Person.PhoneNumber>
+    public override var lastUpdated: pbandk.wkt.Timestamp?
+}
+
+public sealed interface AddressBook : pbandk.Message {
+    public val people: List<Person>
+
+    override operator fun plus(other: pbandk.Message?): AddressBook
+    override val descriptor: pbandk.MessageDescriptor<AddressBook>
+
+    /**
+     * The [MutableAddressBook] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableAddressBook.() -> Unit): AddressBook
+
+    @pbandk.PublicForGeneratedCode
+    public object FieldDescriptors {
+        public val people: pbandk.FieldDescriptor<AddressBook, List<Person>> =
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = AddressBook::descriptor,
+                name = "people",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Repeated<Person>(
+                    valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = Person.Companion)
+                ),
+                jsonName = "people",
+                value = AddressBook::people,
+                mutableValue = MutableAddressBook::people,
+            )
+    }
+
     public companion object : pbandk.Message.Companion<AddressBook> {
-        public val defaultInstance: AddressBook by lazy { AddressBook() }
-        override fun decodeWith(u: pbandk.MessageDecoder): AddressBook = AddressBook.decodeWithImpl(u)
+        public val defaultInstance: AddressBook by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            AddressBook {}
+        }
 
         override val descriptor: pbandk.MessageDescriptor<AddressBook> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<AddressBook, *>>(1).apply {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "people",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Repeated<tutorial.Person>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = tutorial.Person.Companion)),
-                        jsonName = "people",
-                        value = AddressBook::people
-                    )
-                )
-            }
-            pbandk.MessageDescriptor(
+            pbandk.MessageDescriptor.of(
                 fullName = "tutorial.AddressBook",
-                messageClass = tutorial.AddressBook::class,
+                messageClass = AddressBook::class,
                 messageCompanion = this,
-                fields = fieldsList
+                builder = ::AddressBook,
+                fields = listOf(
+                    AddressBook.FieldDescriptors.people,
+                ),
             )
         }
     }
 }
 
+public sealed interface MutableAddressBook : AddressBook, pbandk.MutableMessage<AddressBook> {
+    public override val people: MutableList<Person>
+}
+
+/**
+ * The [MutablePerson] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
+public fun Person(builderAction: MutablePerson.() -> Unit): Person =
+    MutablePerson_Impl(
+        name = "",
+        id = 0,
+        email = "",
+        phones = pbandk.gen.MutableListField(),
+        lastUpdated = null,
+    ).also(builderAction).toPerson()
+
 public fun Person?.orDefault(): Person = this ?: Person.defaultInstance
+
+/**
+ * The [MutablePhoneNumber] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
+public fun Person.Companion.PhoneNumber(builderAction: Person.MutablePhoneNumber.() -> Unit): Person.PhoneNumber =
+    Person_MutablePhoneNumber_Impl(
+        number = "",
+        type = Person.PhoneType.fromValue(0),
+    ).also(builderAction).toPhoneNumber()
+
+/**
+ * The [MutablePhoneNumber] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
+public fun MutablePerson.PhoneNumber(builderAction: Person.MutablePhoneNumber.() -> Unit): Person.PhoneNumber =
+    Person.PhoneNumber(builderAction)
 
 public fun Person.PhoneNumber?.orDefault(): Person.PhoneNumber = this ?: Person.PhoneNumber.defaultInstance
 
+/**
+ * The [MutableAddressBook] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
+public fun AddressBook(builderAction: MutableAddressBook.() -> Unit): AddressBook =
+    MutableAddressBook_Impl(
+        people = pbandk.gen.MutableListField(),
+    ).also(builderAction).toAddressBook()
+
 public fun AddressBook?.orDefault(): AddressBook = this ?: AddressBook.defaultInstance
 
-// Omitted multiple supporting private extension methods
+// Omitted multiple supporting private classes extension methods
 ```
 
 To see a full version of the file, see
@@ -414,20 +517,22 @@ accepts a byte array and returns an instance of the class. Each platform also pr
 methods that operate on Java's `OutputStream` and `InputStream`, respectively, and use
 `com.google.protobuf.CodedOutputStream` internally.
 
-Messages are immutable Kotlin data classes. This means they automatically implement `hashCode`, `equals`, and
+Messages are immutable classes with their own implementations of `hashCode`, `equals`, and
 `toString`. Each class has an `unknownFields` map which contains information about extra fields the decoder didn't
 recognize. If there are values in this map, they will be encoded on output. The `MessageDecoder` instances have a
 constructor option to discard unknown fields when reading.
 
-For proto3, the only nullable fields are other messages and oneof fields. Other values have defaults. For proto2,
+For proto3, the only nullable fields are other messages, oneof fields, and proto3 `optional` fields. Other values have defaults. For proto2,
 optional fields are nullable and defaulted as such. Types are basically the same as they would be in Java. However,
 `bytes` fields actually use a `pbandk.ByteArr` class which is a simple wrapper around a byte array. This was done
 because Kotlin does not handle array fields in data classes predictably and it wasn't worth overriding `equals` and
 `hashCode` every time.
 
-Regardless of `optimize_for` options, the generated code is always the same. Each message has a `protoSize` field that
-lazily calculates the size of the message when first invoked. Also, each message has the `plus` operator defined which
-follows protobuf merge semantics.
+Each message has a `protoSize` field that
+lazily calculates the size of the message when first invoked. Also, each message has a `plus` operator defined which
+follows protobuf merge semantics and a `copy` method to make a copy of the message with some fields modified.
+
+Regardless of `optimize_for` options, the generated code is always the same.
 
 ### Oneof
 
@@ -441,10 +546,10 @@ resolves to null.
 ### Enum
 
 Enum fields are generated as sealed classes with a nested `object` for each known enum value, and a
-`Unrecognized` nested class to hold unknown values. This is preferred over traditional enum classes
+`Unrecognized` nested class to hold unknown values. This is preferred over traditional Kotlin enum classes
 because enums in protobuf are open ended and may not be one of the specific known values. Traditional
 enum classes would not be able to capture this state, and using sealed classes this way requires the
-user to do explicit checks for the `Unrecognized` value during exhaustive when clauses.
+user to do explicit checks for the `Unrecognized` value during exhaustive `when` clauses.
 
 Each enum object contains a `value` field with the numeric value of that enum, and a `name` field
 with the string value of that enum. Developers should use the `fromValue` and `fromName` methods
@@ -462,9 +567,11 @@ considered nullable.
 
 ### Well-Known Types
 
-Well known types (i.e. those in the `google/protobuf` imports) are shipped with the runtime under the `pbandk.wkt` package.
+Well known types (i.e. those in the `google/protobuf` imports) are shipped with the runtime under the `pbandk.wkt` package. JSON encoding/decoding of these types follows the custom formats defined in the proto3 JSON specification.
 
-Specialized support is provided to map the types defined in `google/protobuf/wrappers.proto` into Kotlin nullable primitives (e.g. `String?` for `google.protobuf.StringValue`, `Int?` for `google.protobuf.Int32Value`, etc.). Specialized support for other well-known types (e.g. using Kotlin `Any` for `google.protobuf.Any`) is not yet implemented.
+Specialized support is provided to map the types defined in `google/protobuf/wrappers.proto` into Kotlin nullable primitives (e.g. `String?` for `google.protobuf.StringValue`, `Int?` for `google.protobuf.Int32Value`, etc.).
+
+The `google.protobuf.Any` type has 3 extension methods (`Any.isA()`, `Any.unpack()`, and `Any.Companion.pack()`) defined that are analogous to the similarly-named methods in the protobuf-java library.
 
 ### Services
 
@@ -514,7 +621,7 @@ This will generate kotlin files for the specified `*.proto` files, without needi
 
 ### Runtime Library
 
-To build the runtime library for both JS and the JVM, run:
+To build the runtime library for JS, JVM, Android, and Native, run:
 
 ```
 ./gradlew :pbandk-runtime:assemble

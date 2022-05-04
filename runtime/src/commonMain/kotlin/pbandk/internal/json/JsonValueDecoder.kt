@@ -12,7 +12,9 @@ import pbandk.ByteArr
 import pbandk.FieldDescriptor
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
-import pbandk.MessageMap
+import pbandk.gen.MapField
+import pbandk.gen.MutableMapFieldEntry
+import pbandk.decodeWith
 import pbandk.internal.Util
 import pbandk.json.JsonConfig
 import pbandk.wkt.BoolValue
@@ -237,10 +239,10 @@ internal class JsonValueDecoder(val jsonConfig: JsonConfig) {
         throw InvalidProtocolBufferException("repeated field did not contain a valid list", e)
     }
 
-    fun readMap(
+    fun <K, V> readMap(
         value: JsonElement,
-        type: FieldDescriptor.Type.Map<*, *>
-    ): Sequence<Map.Entry<*, *>> = try {
+        type: FieldDescriptor.Type.Map<K, V>
+    ): Sequence<MapField.Entry<K, V>> = try {
         value.jsonObject.asSequence()
             .mapNotNull { (k, v) ->
                 val entryKey = readValue(JsonPrimitive(k), type.entryCompanion.keyType, true)
@@ -248,10 +250,10 @@ internal class JsonValueDecoder(val jsonConfig: JsonConfig) {
                 // enum). In that case we skip the entire map entry.
                 readValue(v, type.entryCompanion.valueType)?.let { entryValue ->
                     @Suppress("UNCHECKED_CAST")
-                    MessageMap.Entry(
-                        entryKey,
-                        entryValue,
-                        type.entryCompanion as MessageMap.Entry.Companion<Any?, Any?>
+                    MutableMapFieldEntry(
+                        entryKey as K,
+                        entryValue as V,
+                        type.entryCompanion
                     )
                 }
             }

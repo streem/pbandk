@@ -2,6 +2,7 @@ package pbandk.gen
 
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.pb.CodeGeneratorResponse
+import pbandk.gen.pb.File
 
 private var logDebug = false
 private inline fun debug(fn: () -> String) {
@@ -14,9 +15,9 @@ public fun main() {
 
 internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
     // Parse the parameters
-    val params =
-        if (request.parameter == null || request.parameter.isEmpty()) emptyMap()
-        else request.parameter.split(',').map { it.substringBefore('=') to it.substringAfter('=', "") }.toMap()
+    val params = request.parameter.orEmpty()
+        .split(',')
+        .associate { it.substringBefore('=') to it.substringAfter('=', "") }
 
     logDebug = params["log"] == "debug"
     debug { "Running generator with params: $params" }
@@ -24,12 +25,12 @@ internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse 
     // Load service generator if it exists
     val serviceGen = Platform.serviceGenerator(params)
 
-    // Convert to file model and generate the code only for ones requested
-    val kotlinTypeMappings = mutableMapOf<String, String>()
+    val kotlinTypeMappings = mutableMapOf<String, Name>()
 
-    return CodeGeneratorResponse(
-        supportedFeatures = CodeGeneratorResponse.Feature.PROTO3_OPTIONAL.value.toLong(),
-        file = request.protoFile.flatMap { protoFile ->
+    // Convert to file model and generate the code only for ones requested
+    return CodeGeneratorResponse {
+        supportedFeatures = CodeGeneratorResponse.Feature.PROTO3_OPTIONAL.value.toLong()
+        file += request.protoFile.flatMap { protoFile ->
             val packageName = protoFile.`package`
             debug { "Reading ${protoFile.name}, package: $packageName" }
 
@@ -74,19 +75,23 @@ internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse 
                         if (result.otherFilePath == null) {
                             extraServiceCode += "\n" + result.code
                             null
-                        } else CodeGeneratorResponse.File(
-                            name = result.otherFilePath,
-                            insertionPoint = result.otherFileInsertionPoint,
+                        } else CodeGeneratorResponse.File {
+                            name = result.otherFilePath
+                            insertionPoint = result.otherFileInsertionPoint
                             content = result.code
-                        )
+                        }
                     }
                 }
 
                 val primaryFiles =
                     if (file.types.isEmpty() && extraServiceCode.isEmpty()) emptyList()
-                    else listOf(CodeGeneratorResponse.File(name = filePath, content = code + extraServiceCode))
+                    else listOf(CodeGeneratorResponse.File {
+                        name = filePath
+                        content = code + extraServiceCode
+                    })
 
                 primaryFiles + serviceFiles
             }
-        })
+        }
+    }
 }

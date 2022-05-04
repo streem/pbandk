@@ -1,20 +1,20 @@
 package pbandk.internal.binary
 
 import pbandk.*
+import pbandk.gen.MapField
+import pbandk.gen.MutableMapField
+import pbandk.internal.fieldIterator
+import pbandk.internal.forEach
 import pbandk.wkt.*
 import kotlin.Any
-import kotlin.reflect.KProperty1
 
 internal fun FieldDescriptor.Type.shouldOutputValue(value: Any?): Boolean {
     return (hasPresence || !isDefaultValue(value)) && value != null
 }
 
 internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEncoder) : MessageEncoder {
-    override fun <T : Message> writeMessage(message: T) {
-        for (fd in message.descriptor.fields) {
-            @Suppress("UNCHECKED_CAST")
-            val value = (fd.value as KProperty1<T, *>).get(message)
-
+    override fun <M : Message> writeMessage(message: M) {
+        message.fieldIterator().forEach { fd, value ->
             if (fd.type.shouldOutputValue(value) && value != null) {
                 writeFieldValue(fd.number, fd.type, value)
             }
@@ -86,17 +86,14 @@ internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEnco
 
     private fun writeMapValue(fieldNum: Int, map: Map<*, *>, type: FieldDescriptor.Type.Map<*, *>) {
         // TODO: make the generic map case more efficient by using the map entries as-is instead of constructing a new
-        // MessageMap.Entry for each one
+        //  MapField.Entry for each one
         @Suppress("UNCHECKED_CAST")
-        val messageMap = map as? MessageMap<*, *>
-            ?: MessageMap(map.entries.map {
-                MessageMap.Entry(
-                    it.key, it.value,
-                    type.entryCompanion as MessageMap.Entry.Companion<Any?, Any?>
-                )
-            }.toSet())
-        messageMap.forEach {
-            writeMessageValue(fieldNum, it as MessageMap.Entry<*, *>)
+        val mapField = map as? MapField<*, *>
+            ?: MutableMapField(type.entryCompanion as MapField.Entry.Companion<Any?, Any?>).apply {
+                putAll(map)
+            }.toMapField()
+        mapField.asMessages().forEach {
+            writeMessageValue(fieldNum, it)
         }
     }
 

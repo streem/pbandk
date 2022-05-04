@@ -8,21 +8,21 @@ import pbandk.wkt.FileDescriptorProto
 
 internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boolean = true) {
     fun buildFile(ctx: Context): File {
-        val packageName = ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() }
         return File(
             name = ctx.fileDesc.name!!,
-            packageName = packageName,
+            packageName = ctx.packageName,
             kotlinPackageName = ctx.kotlinPackageName,
             version = ctx.fileDesc.syntax?.removePrefix("proto")?.toIntOrNull() ?: 2,
-            types = typesFromProto(
-                ctx,
-                ctx.fileDesc.enumType,
-                ctx.fileDesc.messageType,
-                packageName,
-                null,
-                mutableSetOf()
-            ),
-            extensions = ctx.fileDesc.extension.map { numberedFieldFromProto(ctx, it, mutableSetOf()) }
+            types = typesFromProto(ctx, ctx.fileDesc.enumType, ctx.fileDesc.messageType),
+            extensions = ctx.fileDesc.extension.map {
+                numberedFieldFromProto(
+                    ctx,
+                    null,
+                    null,
+                    it,
+                    mutableSetOf()
+                )
+            }
         )
     }
 
@@ -30,17 +30,17 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         ctx: Context,
         enumTypes: List<EnumDescriptorProto>,
         msgTypes: List<DescriptorProto>,
-        parentFullName: String?,
-        parentKotlinFullName: String?,
-        usedTypeNames: MutableSet<String>
-    ) = enumTypes.map { fromProto(ctx, it, parentFullName, parentKotlinFullName, usedTypeNames) } +
-            msgTypes.map { fromProto(ctx, it, parentFullName, parentKotlinFullName, usedTypeNames) }
+        parentName: Name? = null,
+        parentKotlinName: Name? = null,
+        usedTypeNames: MutableSet<String> = mutableSetOf(),
+    ) = enumTypes.map { fromProto(ctx, it, parentName, parentKotlinName, usedTypeNames) } +
+            msgTypes.map { fromProto(ctx, it, parentName, parentKotlinName, usedTypeNames) }
 
     protected fun fromProto(
         @Suppress("UNUSED_PARAMETER") ctx: Context,
         enumDesc: EnumDescriptorProto,
-        parentFullName: String?,
-        parentKotlinFullName: String?,
+        parentName: Name?,
+        parentKotlinName: Name?,
         usedTypeNames: MutableSet<String>,
     ): File.Type.Enum {
         val kotlinTypeName = namer.newTypeName(enumDesc.name!!, usedTypeNames).also {
@@ -48,62 +48,70 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         }
 
         return File.Type.Enum(
-            name = enumDesc.name!!,
-            fullName = parentFullName?.let { "$it." }.orEmpty() + enumDesc.name!!,
+            name = Name(simple = enumDesc.name!!, packageName = ctx.packageName, parent = parentName),
             values = enumDesc.value.fold(listOf()) { values, value ->
                 values + File.Type.Enum.Value(
                     number = value.number!!,
                     name = value.name!!,
-                    kotlinValueTypeName = namer.newEnumValueTypeName(
+                    kotlinName = namer.newEnumValueTypeName(
                         enumDesc.name!!,
                         value.name!!,
-                        values.map { it.kotlinValueTypeName })
+                        values.map { it.kotlinName })
                 )
             },
-            kotlinTypeName = kotlinTypeName,
-            kotlinFullTypeName = parentKotlinFullName?.let { "${it}." }.orEmpty() + kotlinTypeName,
+            kotlinName = Name(simple = kotlinTypeName, packageName = ctx.kotlinPackageName, parent = parentKotlinName),
         )
     }
 
     protected fun fromProto(
         ctx: Context,
         msgDesc: DescriptorProto,
-        parentFullName: String?,
-        parentKotlinFullName: String?,
+        parentName: Name?,
+        parentKotlinName: Name?,
         usedTypeNames: MutableSet<String>,
     ): File.Type.Message {
-        val fullName = parentFullName?.let { "$it." }.orEmpty() + msgDesc.name!!
         val kotlinTypeName = namer.newTypeName(msgDesc.name!!, usedTypeNames).also {
             usedTypeNames += it
         }
-        val kotlinFullTypeName = parentKotlinFullName?.let { "${it}." }.orEmpty() + kotlinTypeName
+        val name = Name(simple = msgDesc.name!!, packageName = ctx.packageName, parent = parentName)
+        val kotlinName = Name(simple = kotlinTypeName, packageName = ctx.kotlinPackageName, parent = parentKotlinName)
 
+        val usedFieldNames = mutableSetOf<String>()
         val usedNestedTypeNames = mutableSetOf<String>()
         return File.Type.Message(
-            name = msgDesc.name!!,
-            fullName = fullName,
-            fields = fieldsFromProto(ctx, msgDesc, usedNestedTypeNames),
+            name = name,
+            fields = fieldsFromProto(ctx, msgDesc, name, kotlinName, usedFieldNames, usedNestedTypeNames),
             nestedTypes = typesFromProto(
                 ctx,
                 msgDesc.enumType,
                 msgDesc.nestedType,
-                fullName,
-                kotlinFullTypeName,
+                name,
+                kotlinName,
                 usedNestedTypeNames
             ),
             mapEntry = supportMaps && msgDesc.options?.mapEntry == true,
-            kotlinTypeName = kotlinTypeName,
-            kotlinFullTypeName = kotlinFullTypeName,
-            extensionRange = msgDesc.extensionRange
+            kotlinName = kotlinName,
+            extensionRange = msgDesc.extensionRange,
+            extensions = msgDesc.extension.map {
+                numberedFieldFromProto(
+                    ctx,
+                    name,
+                    kotlinName,
+                    it,
+                    usedFieldNames,
+                )
+            }
         )
     }
 
     protected fun fieldsFromProto(
         ctx: Context,
         msgDesc: DescriptorProto,
+        msgName: Name,
+        msgKotlinName: Name,
+        usedFieldNames: MutableSet<String>,
         usedTypeNames: MutableSet<String>
     ): List<File.Field> {
-        val usedFieldNames = mutableSetOf<String>()
         return msgDesc.field
             // Exclude any group fields
             .filterNot { it.type == FieldDescriptorProto.Type.GROUP }
@@ -111,7 +119,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             .partition { it.oneofIndex == null }
             .let { (standardFields, oneofFields) ->
                 standardFields.map {
-                    numberedFieldFromProto(ctx, it, usedFieldNames)
+                    numberedFieldFromProto(ctx, msgName, msgKotlinName, it, usedFieldNames)
                 } + oneofFields.groupBy { it.oneofIndex!! }
                     .mapNotNull { (oneofIndex, fields) ->
                         // "Every proto3 optional field is placed into a one-field oneof.
@@ -119,10 +127,10 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                         // https://github.com/protocolbuffers/protobuf/blob/master/docs/implementing_proto3_presence.md#background
                         val synthetic = fields.size == 1 && (fields[0].proto3Optional ?: false)
                         if (synthetic) {
-                            numberedFieldFromProto(ctx, fields[0], usedFieldNames)
+                            numberedFieldFromProto(ctx, msgName, msgKotlinName, fields[0], usedFieldNames)
                         } else {
                             msgDesc.oneofDecl[oneofIndex].name?.let { oneofName ->
-                                oneofFieldFromProto(ctx, oneofName, fields, usedFieldNames, usedTypeNames)
+                                oneofFieldFromProto(ctx, msgName, msgKotlinName, oneofName, fields, usedFieldNames, usedTypeNames)
                             }
                         }
                     }
@@ -131,6 +139,8 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
 
     protected fun oneofFieldFromProto(
         ctx: Context,
+        msgName: Name,
+        msgKotlinName: Name,
         oneofName: String,
         oneofFields: List<FieldDescriptorProto>,
         usedFieldNames: MutableSet<String>,
@@ -138,43 +148,47 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
     ): File.Field.OneOf {
         val fields = oneofFields.map {
             // wrapper fields are not supposed to be used inside of oneof's
-            numberedFieldFromProto(ctx, it, mutableSetOf(), true) as File.Field.Numbered.Standard
+            numberedFieldFromProto(ctx, msgName, msgKotlinName, it, mutableSetOf(), true) as File.Field.Numbered.Standard
         }
+        val kotlinTypeName = Name(msgKotlinName, namer.newTypeName(oneofName, usedTypeNames).also {
+            usedTypeNames += it
+        })
         return File.Field.OneOf(
-            name = oneofName,
+            name = Name(msgName, oneofName),
             fields = fields,
-            kotlinFieldTypeNames = fields.fold(mapOf()) { typeNames, field ->
-                typeNames + (field.name to namer.newTypeName(field.name, typeNames.values))
+            kotlinFieldNames = fields.fold(mapOf()) { typeNames, field ->
+                typeNames + (field.name.simple to Name(kotlinTypeName, namer.newTypeName(field.name.simple, typeNames.values.map { it.simple })))
             },
-            kotlinFieldName = namer.newFieldName(oneofName, usedFieldNames).also {
+            kotlinName = Name(msgKotlinName, namer.newFieldName(oneofName, usedFieldNames).also {
                 usedFieldNames += it
-            },
-            kotlinTypeName = namer.newTypeName(oneofName, usedTypeNames).also {
-                usedTypeNames += it
-            }
+            }),
+            kotlinTypeName = kotlinTypeName,
         )
     }
 
     protected fun numberedFieldFromProto(
         ctx: Context,
+        msgName: Name?,
+        msgKotlinName: Name?,
         fieldDesc: FieldDescriptorProto,
         usedFieldNames: MutableSet<String>,
         alwaysRequired: Boolean = false
     ): File.Field.Numbered {
         val type = fromProto(fieldDesc.type ?: error("Missing field type"))
         val wrappedType = fieldDesc.typeName
-            ?.takeIf { type == File.Field.Type.MESSAGE }
-            ?.let { File.Field.Type.WRAPPER_TYPE_NAME_TO_TYPE[it] }
+            ?.takeIf { type == File.Field.Type.MESSAGE && it.startsWith(".google.protobuf")}
+            ?.let { File.Field.Type.WRAPPER_TYPE_NAME_TO_TYPE[Name(".google.protobuf", it.removePrefix(".google.protobuf."))] }
+        val simpleKotlinName = namer.newFieldName(fieldDesc.name!!, usedFieldNames).also {
+            usedFieldNames += it
+        }
 
         return if (wrappedType != null) {
             File.Field.Numbered.Wrapper(
                 number = fieldDesc.number!!,
-                name = fieldDesc.name!!,
-                kotlinFieldName = namer.newFieldName(fieldDesc.name!!, usedFieldNames).also {
-                    usedFieldNames += it
-                },
+                name = msgName?.let { Name(it, fieldDesc.name!!) } ?: Name(ctx.packageName, fieldDesc.name!!),
+                kotlinName = msgKotlinName?.let { Name(it, simpleKotlinName) } ?: Name(ctx.kotlinPackageName, simpleKotlinName),
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
-                jsonName = fieldDesc.jsonName,
+                jsonName = fieldDesc.jsonName!!,
                 wrappedType = wrappedType,
                 options = fieldDesc.options ?: FieldOptions.defaultInstance,
                 extendee = fieldDesc.extendee
@@ -182,22 +196,21 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         } else {
             File.Field.Numbered.Standard(
                 number = fieldDesc.number!!,
-                name = fieldDesc.name!!,
+                name = msgName?.let { Name(it, fieldDesc.name!!) } ?: Name(ctx.packageName, fieldDesc.name!!),
                 type = type,
                 localTypeName = fieldDesc.typeName,
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
-                jsonName = fieldDesc.jsonName,
+                jsonName = fieldDesc.jsonName!!,
                 optional = !alwaysRequired &&
                         ((fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL && ctx.fileDesc.usesProto2Syntax) ||
+                                (fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL && fieldDesc.extendee != null) ||
                                 (fieldDesc.proto3Optional ?: false)),
                 packed = !type.neverPacked && (fieldDesc.options?.packed ?: (ctx.fileDesc.syntax == "proto3")),
                 map = supportMaps &&
                         fieldDesc.label == FieldDescriptorProto.Label.REPEATED &&
                         fieldDesc.type == FieldDescriptorProto.Type.MESSAGE &&
                         ctx.findLocalMessage(fieldDesc.typeName!!)?.options?.mapEntry == true,
-                kotlinFieldName = namer.newFieldName(fieldDesc.name!!, usedFieldNames).also {
-                    usedFieldNames += it
-                },
+                kotlinName = msgKotlinName?.let { Name(it, simpleKotlinName) } ?: Name(ctx.kotlinPackageName, simpleKotlinName),
                 kotlinLocalTypeName = fieldDesc.typeName?.takeUnless { it.startsWith('.') }?.let {
                     namer.newTypeName(it, emptySet())
                 },
@@ -230,6 +243,8 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
     }
 
     data class Context(val fileDesc: FileDescriptorProto, val params: Map<String, String>) {
+        val packageName = '.' + fileDesc.`package`.orEmpty()
+
         // Support option kotlin_package_mapping=from.package1->to.package1;from.package2->to.package2
         val packageMappings = params["kotlin_package_mapping"]
             ?.split(";")
@@ -250,9 +265,9 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 if (parent == null) fileDesc.messageType to name.removePrefix(".${fileDesc.`package`}.")
                 else parent.nestedType to name
             // Go deeper if there's a dot
-            typeName.indexOf('.').let {
-                if (it == -1) return lookIn.find { it.name == typeName }
-                return findLocalMessage(typeName.substring(it + 1), typeName.substring(0, it).let { parentTypeName ->
+            typeName.indexOf('.').let { index ->
+                if (index == -1) return lookIn.find { it.name == typeName }
+                return findLocalMessage(typeName.substring(index + 1), typeName.substring(0, index).let { parentTypeName ->
                     lookIn.find { it.name == parentTypeName }
                 } ?: return null)
             }

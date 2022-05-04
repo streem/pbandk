@@ -1,5 +1,6 @@
 package pbandk
 
+import pbandk.gen.MutableListField
 import pbandk.testpb.Bar
 import pbandk.testpb.Foo
 import kotlin.test.Test
@@ -11,7 +12,7 @@ class RepeatedTest {
     fun testRepeatedMessage() {
         // This used to fail because it assumed messages could be packed
         val bytes = byteArrayOf(10, 6, 10, 4, 102, 111, 111, 49, 10, 6, 10, 4, 102, 111, 111, 50)
-        val expected = Bar(foos = listOf(Foo(`val` = "foo1"), Foo(`val` = "foo2")))
+        val expected = Bar { foos += listOf(Foo { `val` = "foo1" }, Foo { `val` = "foo2" }) }
 
         assertContentEquals(expected.encodeToByteArray(), bytes)
         assertEquals(expected, Bar.decodeFromByteArray(bytes))
@@ -20,11 +21,11 @@ class RepeatedTest {
     @Test
     fun testListWithSizeEquality() {
         val list1 = listOf(1, 2, 3)
-        val list2 = ListWithSize.Builder<Int>().apply {
+        val list2 = MutableListField<Int>().apply {
             add(1)
             add(2)
             add(3)
-        }.fixed()
+        }.toListField()
         // This used to fail because `ListWithSize` didn't properly delegate equality to the underlying list.
         // It only failed on Kotlin/JS and not on Kotlin/JVM because on Kotlin/JVM the `List` interface delegates to the
         // JVM version of `List`, which defines a correct version of the `equals()` method. Whereas the pure Kotlin

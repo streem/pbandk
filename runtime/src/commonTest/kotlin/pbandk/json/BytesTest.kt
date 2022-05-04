@@ -11,7 +11,7 @@ import kotlin.test.assertEquals
 class BytesTest {
     @Test
     fun testBytesField_base64() {
-        val testAllTypesProto3 = TestAllTypesProto3(optionalBytes = ByteArr(byteArrayOf(1, 2)))
+        val testAllTypesProto3 = TestAllTypesProto3 { optionalBytes = ByteArr(byteArrayOf(1, 2)) }
         val expectedJson = buildJsonObject { put("optionalBytes", "AQI=") }
 
         val actualJson = Json.parseToJsonElement(testAllTypesProto3.encodeToJsonString())

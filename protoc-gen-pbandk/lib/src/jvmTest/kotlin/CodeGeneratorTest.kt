@@ -78,10 +78,10 @@ class CodeGeneratorTest {
 
     private fun compileProto(inputProto: String): KotlinCompilation.Result {
         val gen = runGenerator(
-            CodeGeneratorRequest(
-                fileToGenerate = listOf(inputProto),
-                protoFile = fileDescriptorSet
-            )
+            CodeGeneratorRequest {
+                fileToGenerate += inputProto
+                protoFile += fileDescriptorSet
+            }
         )
 
         val kotlinSource = SourceFile.kotlin(File(gen.file.first().name!!).name, gen.file.first().content!!)
