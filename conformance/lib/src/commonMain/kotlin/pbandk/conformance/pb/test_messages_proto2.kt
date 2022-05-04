@@ -1613,6 +1613,83 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 ),
             )
         }
+
+        @Deprecated(
+            message = "Use TestAllTypesProto2.NestedMessage { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.conformance.pb.TestAllTypesProto2.NestedMessage"],
+                expression = "TestAllTypesProto2.NestedMessage {\nthis.a = a\nthis.corecursive = corecursive\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun NestedMessage(
+            a: Int? = null,
+            corecursive: pbandk.conformance.pb.TestAllTypesProto2? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage {
+            this.a = a
+            this.corecursive = corecursive
+            this.unknownFields += unknownFields
+        }
+
+        @Deprecated(
+            message = "Use TestAllTypesProto2.Data { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.conformance.pb.TestAllTypesProto2.Data"],
+                expression = "TestAllTypesProto2.Data {\nthis.groupInt32 = groupInt32\nthis.groupUint32 = groupUint32\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun Data(
+            groupInt32: Int? = null,
+            groupUint32: Int? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.conformance.pb.TestAllTypesProto2.Data = pbandk.conformance.pb.TestAllTypesProto2.Data {
+            this.groupInt32 = groupInt32
+            this.groupUint32 = groupUint32
+            this.unknownFields += unknownFields
+        }
+
+        @Deprecated(
+            message = "Use TestAllTypesProto2.MessageSetCorrect { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect"],
+                expression = "TestAllTypesProto2.MessageSetCorrect {\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun MessageSetCorrect(
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect {
+            this.unknownFields += unknownFields
+        }
+
+        @Deprecated(
+            message = "Use TestAllTypesProto2.MessageSetCorrectExtension1 { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1"],
+                expression = "TestAllTypesProto2.MessageSetCorrectExtension1 {\nthis.str = str\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun MessageSetCorrectExtension1(
+            str: String? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 {
+            this.str = str
+            this.unknownFields += unknownFields
+        }
+
+        @Deprecated(
+            message = "Use TestAllTypesProto2.MessageSetCorrectExtension2 { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2"],
+                expression = "TestAllTypesProto2.MessageSetCorrectExtension2 {\nthis.i = i\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun MessageSetCorrectExtension2(
+            i: Int? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 {
+            this.i = i
+            this.unknownFields += unknownFields
+        }
     }
 
     public sealed class NestedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
@@ -2224,6 +2301,21 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
                     pbandk.conformance.pb.UnknownToTestAllTypes.FieldDescriptors.repeatedInt32,
                 ),
             )
+        }
+
+        @Deprecated(
+            message = "Use UnknownToTestAllTypes.OptionalGroup { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup"],
+                expression = "UnknownToTestAllTypes.OptionalGroup {\nthis.a = a\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun OptionalGroup(
+            a: Int? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup {
+            this.a = a
+            this.unknownFields += unknownFields
         }
     }
 
@@ -3403,23 +3495,6 @@ private class MutableTestAllTypesProto2_Impl(
     )
 }
 
-@Deprecated(
-    message = "Use TestAllTypesProto2.NestedMessage { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.conformance.pb.TestAllTypesProto2.NestedMessage"],
-        expression = "TestAllTypesProto2.NestedMessage {\nthis.a = a\nthis.corecursive = corecursive\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun TestAllTypesProto2.Companion.NestedMessage(
-    a: Int? = null,
-    corecursive: pbandk.conformance.pb.TestAllTypesProto2? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage = pbandk.conformance.pb.TestAllTypesProto2.Companion.NestedMessage {
-    this.a = a
-    this.corecursive = corecursive
-    this.unknownFields += unknownFields
-}
-
 /**
  * The [MutableNestedMessage] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
@@ -3486,23 +3561,6 @@ private class TestAllTypesProto2_MutableNestedMessage_Impl(
         corecursive = corecursive,
         unknownFields = unknownFields.toMap()
     )
-}
-
-@Deprecated(
-    message = "Use TestAllTypesProto2.Data { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.conformance.pb.TestAllTypesProto2.Data"],
-        expression = "TestAllTypesProto2.Data {\nthis.groupInt32 = groupInt32\nthis.groupUint32 = groupUint32\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun TestAllTypesProto2.Companion.Data(
-    groupInt32: Int? = null,
-    groupUint32: Int? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.Data = pbandk.conformance.pb.TestAllTypesProto2.Companion.Data {
-    this.groupInt32 = groupInt32
-    this.groupUint32 = groupUint32
-    this.unknownFields += unknownFields
 }
 
 /**
@@ -3573,19 +3631,6 @@ private class TestAllTypesProto2_MutableData_Impl(
     )
 }
 
-@Deprecated(
-    message = "Use TestAllTypesProto2.MessageSetCorrect { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect"],
-        expression = "TestAllTypesProto2.MessageSetCorrect {\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun TestAllTypesProto2.Companion.MessageSetCorrect(
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = pbandk.conformance.pb.TestAllTypesProto2.Companion.MessageSetCorrect {
-    this.unknownFields += unknownFields
-}
-
 /**
  * The [MutableMessageSetCorrect] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
@@ -3640,21 +3685,6 @@ private class TestAllTypesProto2_MutableMessageSetCorrect_Impl(
         extensionFields = extensionFields.toFieldSet(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-@Deprecated(
-    message = "Use TestAllTypesProto2.MessageSetCorrectExtension1 { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1"],
-        expression = "TestAllTypesProto2.MessageSetCorrectExtension1 {\nthis.str = str\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension1(
-    str: String? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 = pbandk.conformance.pb.TestAllTypesProto2.Companion.MessageSetCorrectExtension1 {
-    this.str = str
-    this.unknownFields += unknownFields
 }
 
 /**
@@ -3716,21 +3746,6 @@ private class TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl(
         str = str,
         unknownFields = unknownFields.toMap()
     )
-}
-
-@Deprecated(
-    message = "Use TestAllTypesProto2.MessageSetCorrectExtension2 { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2"],
-        expression = "TestAllTypesProto2.MessageSetCorrectExtension2 {\nthis.i = i\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension2(
-    i: Int? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 = pbandk.conformance.pb.TestAllTypesProto2.Companion.MessageSetCorrectExtension2 {
-    this.i = i
-    this.unknownFields += unknownFields
 }
 
 /**
@@ -3966,21 +3981,6 @@ private class MutableUnknownToTestAllTypes_Impl(
         repeatedInt32 = repeatedInt32.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-@Deprecated(
-    message = "Use UnknownToTestAllTypes.OptionalGroup { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup"],
-        expression = "UnknownToTestAllTypes.OptionalGroup {\nthis.a = a\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun UnknownToTestAllTypes.Companion.OptionalGroup(
-    a: Int? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup = pbandk.conformance.pb.UnknownToTestAllTypes.Companion.OptionalGroup {
-    this.a = a
-    this.unknownFields += unknownFields
 }
 
 /**

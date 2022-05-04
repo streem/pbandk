@@ -2029,6 +2029,23 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 ),
             )
         }
+
+        @Deprecated(
+            message = "Use TestAllTypesProto3.NestedMessage { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.testpb.TestAllTypesProto3.NestedMessage"],
+                expression = "TestAllTypesProto3.NestedMessage {\nthis.a = a\nthis.corecursive = corecursive\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun NestedMessage(
+            a: Int = 0,
+            corecursive: pbandk.testpb.TestAllTypesProto3? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.testpb.TestAllTypesProto3.NestedMessage = pbandk.testpb.TestAllTypesProto3.NestedMessage {
+            this.a = a
+            this.corecursive = corecursive
+            this.unknownFields += unknownFields
+        }
     }
 
     public sealed class NestedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
@@ -3743,23 +3760,6 @@ private class MutableTestAllTypesProto3_Impl(
         oneofField = oneofField,
         unknownFields = unknownFields.toMap()
     )
-}
-
-@Deprecated(
-    message = "Use TestAllTypesProto3.NestedMessage { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.testpb.TestAllTypesProto3.NestedMessage"],
-        expression = "TestAllTypesProto3.NestedMessage {\nthis.a = a\nthis.corecursive = corecursive\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun TestAllTypesProto3.Companion.NestedMessage(
-    a: Int = 0,
-    corecursive: pbandk.testpb.TestAllTypesProto3? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.TestAllTypesProto3.NestedMessage = pbandk.testpb.TestAllTypesProto3.Companion.NestedMessage {
-    this.a = a
-    this.corecursive = corecursive
-    this.unknownFields += unknownFields
 }
 
 /**

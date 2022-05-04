@@ -200,10 +200,14 @@ public open class CodeGenerator(
                 }.line("}")
                 line()
                 writeMessageDescriptor(type)
+
+                type.nestedTypes.filterIsInstance<File.Type.Message>()
+                    .filterNot { it.mapEntry }
+                    .forEach(::writeDeprecatedMessageBuilder)
             }.line("}")
 
             // Nested enums and types
-            type.nestedTypes.forEach { writeType(it) }
+            type.nestedTypes.forEach(::writeType)
         }.line("}")
 
         val mutableMessageInterface = if (type.isExtendable) {
@@ -440,10 +444,7 @@ public open class CodeGenerator(
         type.nestedTypes.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it) }
     }
 
-    protected fun writeMessageBuilder(type: File.Type.Message) {
-        val builderName = type.kotlinName.builderName
-        val mutableTypeName = type.kotlinName.mutableTypeName
-
+    protected fun writeDeprecatedMessageBuilder(type: File.Type.Message) {
         // When there are too many fields, the constructor-style method with default values for each field can cause
         // heap exhaustion in the Kotlin compiler (at least as of Kotlin 1.5.32). So we only generate this method when
         // the number of fields is manageable. Since this method is deprecated anyways, the only impact of this is that
@@ -459,7 +460,7 @@ public open class CodeGenerator(
                     lineEnd("this.unknownFields += unknownFields\\n}\",")
                 }.line(")")
             }.line(")")
-            line("$visibility fun ${builderName.full}(").indented {
+            line("$visibility fun ${type.kotlinName.simple}(").indented {
                 type.fields.forEach { field ->
                     lineBegin("${field.kotlinName.simple}: ")
                     when (field) {
@@ -469,7 +470,7 @@ public open class CodeGenerator(
                     lineEnd(" = ${field.defaultValue()},")
                 }
                 line("unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()")
-            }.line("): ${type.kotlinName.fullWithPackage} = ${builderName.fullWithPackage} {").indented {
+            }.line("): ${type.kotlinName.fullWithPackage} = ${type.kotlinName.fullWithPackage} {").indented {
                 type.fields.forEach { field ->
                     if (field is File.Field.Numbered && field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
                     line(field.builderSetter())
@@ -477,6 +478,17 @@ public open class CodeGenerator(
                 line("this.unknownFields += unknownFields")
             }.line("}")
         }
+    }
+
+    protected fun writeMessageBuilder(type: File.Type.Message) {
+        // When the message is nested in another message, the deprecated builder method will get included inside the
+        // parent's companion object rather than being defined at the top level.
+        if (type.kotlinName.parent == null) {
+            writeDeprecatedMessageBuilder(type)
+        }
+
+        val builderName = type.kotlinName.builderName
+        val mutableTypeName = type.kotlinName.mutableTypeName
 
         line()
         line("/**")

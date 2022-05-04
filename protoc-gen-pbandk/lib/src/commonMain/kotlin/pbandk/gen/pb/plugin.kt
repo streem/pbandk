@@ -279,6 +279,27 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
                 ),
             )
         }
+
+        @Deprecated(
+            message = "Use CodeGeneratorResponse.File { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.gen.pb.CodeGeneratorResponse.File"],
+                expression = "CodeGeneratorResponse.File {\nthis.name = name\nthis.insertionPoint = insertionPoint\nthis.content = content\nthis.generatedCodeInfo = generatedCodeInfo\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun File(
+            name: String? = null,
+            insertionPoint: String? = null,
+            content: String? = null,
+            generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.gen.pb.CodeGeneratorResponse.File = pbandk.gen.pb.CodeGeneratorResponse.File {
+            this.name = name
+            this.insertionPoint = insertionPoint
+            this.content = content
+            this.generatedCodeInfo = generatedCodeInfo
+            this.unknownFields += unknownFields
+        }
     }
 
     public sealed class Feature(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
@@ -687,27 +708,6 @@ private class MutableCodeGeneratorResponse_Impl(
         file = file.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-@Deprecated(
-    message = "Use CodeGeneratorResponse.File { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.gen.pb.CodeGeneratorResponse.File"],
-        expression = "CodeGeneratorResponse.File {\nthis.name = name\nthis.insertionPoint = insertionPoint\nthis.content = content\nthis.generatedCodeInfo = generatedCodeInfo\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun CodeGeneratorResponse.Companion.File(
-    name: String? = null,
-    insertionPoint: String? = null,
-    content: String? = null,
-    generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.gen.pb.CodeGeneratorResponse.File = pbandk.gen.pb.CodeGeneratorResponse.Companion.File {
-    this.name = name
-    this.insertionPoint = insertionPoint
-    this.content = content
-    this.generatedCodeInfo = generatedCodeInfo
-    this.unknownFields += unknownFields
 }
 
 /**

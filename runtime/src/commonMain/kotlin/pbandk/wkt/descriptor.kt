@@ -440,6 +440,42 @@ public sealed interface DescriptorProto : pbandk.Message {
                 ),
             )
         }
+
+        @Deprecated(
+            message = "Use DescriptorProto.ExtensionRange { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.wkt.DescriptorProto.ExtensionRange"],
+                expression = "DescriptorProto.ExtensionRange {\nthis.start = start\nthis.end = end\nthis.options = options\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun ExtensionRange(
+            start: Int? = null,
+            end: Int? = null,
+            options: pbandk.wkt.ExtensionRangeOptions? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.DescriptorProto.ExtensionRange = pbandk.wkt.DescriptorProto.ExtensionRange {
+            this.start = start
+            this.end = end
+            this.options = options
+            this.unknownFields += unknownFields
+        }
+
+        @Deprecated(
+            message = "Use DescriptorProto.ReservedRange { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.wkt.DescriptorProto.ReservedRange"],
+                expression = "DescriptorProto.ReservedRange {\nthis.start = start\nthis.end = end\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun ReservedRange(
+            start: Int? = null,
+            end: Int? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.DescriptorProto.ReservedRange = pbandk.wkt.DescriptorProto.ReservedRange {
+            this.start = start
+            this.end = end
+            this.unknownFields += unknownFields
+        }
     }
 
     public sealed interface ExtensionRange : pbandk.Message {
@@ -1110,6 +1146,23 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
                     pbandk.wkt.EnumDescriptorProto.FieldDescriptors.reservedName,
                 ),
             )
+        }
+
+        @Deprecated(
+            message = "Use EnumDescriptorProto.EnumReservedRange { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.wkt.EnumDescriptorProto.EnumReservedRange"],
+                expression = "EnumDescriptorProto.EnumReservedRange {\nthis.start = start\nthis.end = end\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun EnumReservedRange(
+            start: Int? = null,
+            end: Int? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.EnumDescriptorProto.EnumReservedRange = pbandk.wkt.EnumDescriptorProto.EnumReservedRange {
+            this.start = start
+            this.end = end
+            this.unknownFields += unknownFields
         }
     }
 
@@ -2689,6 +2742,23 @@ public sealed interface UninterpretedOption : pbandk.Message {
                 ),
             )
         }
+
+        @Deprecated(
+            message = "Use UninterpretedOption.NamePart { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.wkt.UninterpretedOption.NamePart"],
+                expression = "UninterpretedOption.NamePart {\nthis.namePart = namePart\nthis.isExtension = isExtension\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun NamePart(
+            namePart: String = "",
+            isExtension: Boolean = false,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.UninterpretedOption.NamePart = pbandk.wkt.UninterpretedOption.NamePart {
+            this.namePart = namePart
+            this.isExtension = isExtension
+            this.unknownFields += unknownFields
+        }
     }
 
     public sealed interface NamePart : pbandk.Message {
@@ -2824,6 +2894,29 @@ public sealed interface SourceCodeInfo : pbandk.Message {
                     pbandk.wkt.SourceCodeInfo.FieldDescriptors.location,
                 ),
             )
+        }
+
+        @Deprecated(
+            message = "Use SourceCodeInfo.Location { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.wkt.SourceCodeInfo.Location"],
+                expression = "SourceCodeInfo.Location {\nthis.path += path\nthis.span += span\nthis.leadingComments = leadingComments\nthis.trailingComments = trailingComments\nthis.leadingDetachedComments += leadingDetachedComments\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun Location(
+            path: List<Int> = emptyList(),
+            span: List<Int> = emptyList(),
+            leadingComments: String? = null,
+            trailingComments: String? = null,
+            leadingDetachedComments: List<String> = emptyList(),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.SourceCodeInfo.Location = pbandk.wkt.SourceCodeInfo.Location {
+            this.path += path
+            this.span += span
+            this.leadingComments = leadingComments
+            this.trailingComments = trailingComments
+            this.leadingDetachedComments += leadingDetachedComments
+            this.unknownFields += unknownFields
         }
     }
 
@@ -2996,6 +3089,27 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
                     pbandk.wkt.GeneratedCodeInfo.FieldDescriptors.annotation,
                 ),
             )
+        }
+
+        @Deprecated(
+            message = "Use GeneratedCodeInfo.Annotation { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.wkt.GeneratedCodeInfo.Annotation"],
+                expression = "GeneratedCodeInfo.Annotation {\nthis.path += path\nthis.sourceFile = sourceFile\nthis.begin = begin\nthis.end = end\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun Annotation(
+            path: List<Int> = emptyList(),
+            sourceFile: String? = null,
+            begin: Int? = null,
+            end: Int? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.GeneratedCodeInfo.Annotation = pbandk.wkt.GeneratedCodeInfo.Annotation {
+            this.path += path
+            this.sourceFile = sourceFile
+            this.begin = begin
+            this.end = end
+            this.unknownFields += unknownFields
         }
     }
 
@@ -3491,25 +3605,6 @@ private class MutableDescriptorProto_Impl(
     )
 }
 
-@Deprecated(
-    message = "Use DescriptorProto.ExtensionRange { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.wkt.DescriptorProto.ExtensionRange"],
-        expression = "DescriptorProto.ExtensionRange {\nthis.start = start\nthis.end = end\nthis.options = options\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun DescriptorProto.Companion.ExtensionRange(
-    start: Int? = null,
-    end: Int? = null,
-    options: pbandk.wkt.ExtensionRangeOptions? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.DescriptorProto.ExtensionRange = pbandk.wkt.DescriptorProto.Companion.ExtensionRange {
-    this.start = start
-    this.end = end
-    this.options = options
-    this.unknownFields += unknownFields
-}
-
 /**
  * The [MutableExtensionRange] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
@@ -3583,23 +3678,6 @@ private class DescriptorProto_MutableExtensionRange_Impl(
         options = options,
         unknownFields = unknownFields.toMap()
     )
-}
-
-@Deprecated(
-    message = "Use DescriptorProto.ReservedRange { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.wkt.DescriptorProto.ReservedRange"],
-        expression = "DescriptorProto.ReservedRange {\nthis.start = start\nthis.end = end\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun DescriptorProto.Companion.ReservedRange(
-    start: Int? = null,
-    end: Int? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.DescriptorProto.ReservedRange = pbandk.wkt.DescriptorProto.Companion.ReservedRange {
-    this.start = start
-    this.end = end
-    this.unknownFields += unknownFields
 }
 
 /**
@@ -4081,23 +4159,6 @@ private class MutableEnumDescriptorProto_Impl(
         reservedName = reservedName.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-@Deprecated(
-    message = "Use EnumDescriptorProto.EnumReservedRange { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.wkt.EnumDescriptorProto.EnumReservedRange"],
-        expression = "EnumDescriptorProto.EnumReservedRange {\nthis.start = start\nthis.end = end\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun EnumDescriptorProto.Companion.EnumReservedRange(
-    start: Int? = null,
-    end: Int? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.EnumDescriptorProto.EnumReservedRange = pbandk.wkt.EnumDescriptorProto.Companion.EnumReservedRange {
-    this.start = start
-    this.end = end
-    this.unknownFields += unknownFields
 }
 
 /**
@@ -5475,23 +5536,6 @@ private class MutableUninterpretedOption_Impl(
     )
 }
 
-@Deprecated(
-    message = "Use UninterpretedOption.NamePart { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.wkt.UninterpretedOption.NamePart"],
-        expression = "UninterpretedOption.NamePart {\nthis.namePart = namePart\nthis.isExtension = isExtension\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun UninterpretedOption.Companion.NamePart(
-    namePart: String = "",
-    isExtension: Boolean = false,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.UninterpretedOption.NamePart = pbandk.wkt.UninterpretedOption.Companion.NamePart {
-    this.namePart = namePart
-    this.isExtension = isExtension
-    this.unknownFields += unknownFields
-}
-
 /**
  * The [MutableNamePart] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
@@ -5627,29 +5671,6 @@ private class MutableSourceCodeInfo_Impl(
         location = location.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-@Deprecated(
-    message = "Use SourceCodeInfo.Location { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.wkt.SourceCodeInfo.Location"],
-        expression = "SourceCodeInfo.Location {\nthis.path += path\nthis.span += span\nthis.leadingComments = leadingComments\nthis.trailingComments = trailingComments\nthis.leadingDetachedComments += leadingDetachedComments\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun SourceCodeInfo.Companion.Location(
-    path: List<Int> = emptyList(),
-    span: List<Int> = emptyList(),
-    leadingComments: String? = null,
-    trailingComments: String? = null,
-    leadingDetachedComments: List<String> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.SourceCodeInfo.Location = pbandk.wkt.SourceCodeInfo.Companion.Location {
-    this.path += path
-    this.span += span
-    this.leadingComments = leadingComments
-    this.trailingComments = trailingComments
-    this.leadingDetachedComments += leadingDetachedComments
-    this.unknownFields += unknownFields
 }
 
 /**
@@ -5808,27 +5829,6 @@ private class MutableGeneratedCodeInfo_Impl(
         annotation = annotation.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-@Deprecated(
-    message = "Use GeneratedCodeInfo.Annotation { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.wkt.GeneratedCodeInfo.Annotation"],
-        expression = "GeneratedCodeInfo.Annotation {\nthis.path += path\nthis.sourceFile = sourceFile\nthis.begin = begin\nthis.end = end\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun GeneratedCodeInfo.Companion.Annotation(
-    path: List<Int> = emptyList(),
-    sourceFile: String? = null,
-    begin: Int? = null,
-    end: Int? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.GeneratedCodeInfo.Annotation = pbandk.wkt.GeneratedCodeInfo.Companion.Annotation {
-    this.path += path
-    this.sourceFile = sourceFile
-    this.begin = begin
-    this.end = end
-    this.unknownFields += unknownFields
 }
 
 /**

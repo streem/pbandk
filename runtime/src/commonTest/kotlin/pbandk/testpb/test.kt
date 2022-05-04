@@ -299,6 +299,23 @@ public sealed interface FooMapEntries : pbandk.Message {
                 ),
             )
         }
+
+        @Deprecated(
+            message = "Use FooMapEntries.MapEntry { } instead",
+            replaceWith = ReplaceWith(
+                imports = ["pbandk.testpb.FooMapEntries.MapEntry"],
+                expression = "FooMapEntries.MapEntry {\nthis.key = key\nthis.value = value\nthis.unknownFields += unknownFields\n}",
+            )
+        )
+        public fun MapEntry(
+            key: String = "",
+            value: pbandk.testpb.Foo? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.testpb.FooMapEntries.MapEntry = pbandk.testpb.FooMapEntries.MapEntry {
+            this.key = key
+            this.value = value
+            this.unknownFields += unknownFields
+        }
     }
 
     public sealed interface MapEntry : pbandk.Message {
@@ -802,23 +819,6 @@ private class MutableFooMapEntries_Impl(
         map = map.toListField(),
         unknownFields = unknownFields.toMap()
     )
-}
-
-@Deprecated(
-    message = "Use FooMapEntries.MapEntry { } instead",
-    replaceWith = ReplaceWith(
-        imports = ["pbandk.testpb.FooMapEntries.MapEntry"],
-        expression = "FooMapEntries.MapEntry {\nthis.key = key\nthis.value = value\nthis.unknownFields += unknownFields\n}",
-    )
-)
-public fun FooMapEntries.Companion.MapEntry(
-    key: String = "",
-    value: pbandk.testpb.Foo? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.FooMapEntries.MapEntry = pbandk.testpb.FooMapEntries.Companion.MapEntry {
-    this.key = key
-    this.value = value
-    this.unknownFields += unknownFields
 }
 
 /**
