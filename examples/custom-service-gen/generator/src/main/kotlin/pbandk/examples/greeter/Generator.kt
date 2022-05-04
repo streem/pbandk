@@ -15,10 +15,10 @@ class Generator : ServiceGenerator {
             val reqType = service.kotlinTypeMappings[method.inputType!!]!!
             val respType = service.kotlinTypeMappings[method.outputType!!]!!
             val nameLit = "\"${method.name}\""
-            interfaceMethods += "suspend fun ${method.name}(req: $reqType): $respType"
-            clientMethods += "override suspend fun ${method.name}(req: $reqType): $respType { " +
+            interfaceMethods += "suspend fun ${method.name}(req: ${reqType.fullWithPackage}): ${respType.fullWithPackage}"
+            clientMethods += "override suspend fun ${method.name}(req: ${reqType.fullWithPackage}): ${respType.fullWithPackage} { " +
                 "return client.callUnary($nameLit, req) }"
-            serverMethods += "$nameLit -> ${method.name}(req as $reqType) as Resp"
+            serverMethods += "$nameLit -> ${method.name}(req as ${reqType.fullWithPackage}) as Resp"
         }
         return listOf(ServiceGenerator.Result(
             otherFilePath = Paths.get(service.filePath).resolveSibling(service.name + ".kt").toString(),
