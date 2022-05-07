@@ -1,3 +1,4 @@
+import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -6,7 +7,11 @@ plugins {
 
 kotlin {
     linuxX64("linux")
-    macosX64("macos")
+    if (DefaultNativePlatform.getCurrentOperatingSystem().isMacOsX && DefaultNativePlatform.getCurrentArchitecture().name == "aarch64") {
+        macosArm64("macos")
+    } else {
+        macosX64("macos")
+    }
 
     targets.withType<KotlinNativeTarget> {
         binaries {
