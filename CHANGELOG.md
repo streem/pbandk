@@ -12,8 +12,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 
 * `proto3` files that use the `optional` keyword are now supported! Fields with `optional` [field presence] will be nullable in generated Kotlin code. (PR [#200], fixes [#34]) (thanks @NiematojakTomasz)
+* The `iosSimulatorArm64`, `tvosArm64`, `tvosX64`, `tvosSimulatorArm64`, and `linuxArm64` Kotlin/Native targets are now supported. (PR [#219], fixes [#218])
 
 ### Changed
+
+* Kotlin/Native conformance tests on macOS now build using the `macosArm64` target instead of the `macosX64` target when run on an Apple M1 chip. (PR [#219], fixes [#218])
 
 ### Fixed
 
@@ -22,8 +25,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 [field presence]: https://github.com/protocolbuffers/protobuf/blob/master/docs/field_presence.md
 [#34]: https://github.com/streem/pbandk/issues/34
 [#211]: https://github.com/streem/pbandk/issues/211
+[#218]: https://github.com/streem/pbandk/issues/218
 [#200]: https://github.com/streem/pbandk/pull/200
 [#212]: https://github.com/streem/pbandk/pull/212
+[#219]: https://github.com/streem/pbandk/pull/219
 
 
 ## [0.13.0] - 2021-12-08
