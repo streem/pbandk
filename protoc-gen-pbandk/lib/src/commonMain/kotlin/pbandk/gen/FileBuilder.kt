@@ -203,6 +203,10 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 jsonName = fieldDesc.jsonName!!,
                 optional = !alwaysRequired &&
                         ((fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL && ctx.fileDesc.usesProto2Syntax) ||
+                                // Extension fields follow the rules of the message they're extending, regardless of
+                                // whether the extension field is defined in a proto2 or proto3 file. Since only proto2
+                                // messages can be extended, non-repeated extension fields should always have presence
+                                // (just like other proto2 fields) even if they're in a proto3 file.
                                 (fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL && fieldDesc.extendee != null) ||
                                 (fieldDesc.proto3Optional ?: false)),
                 packed = !type.neverPacked && (fieldDesc.options?.packed ?: (ctx.fileDesc.syntax == "proto3")),

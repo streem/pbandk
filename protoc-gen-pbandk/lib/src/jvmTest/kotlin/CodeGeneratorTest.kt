@@ -7,9 +7,11 @@ import pbandk.decodeFromStream
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.wkt.FileDescriptorSet
 import java.io.File
+import kotlin.reflect.full.declaredMemberExtensionProperties
 import kotlin.reflect.full.declaredMemberProperties
 import kotlin.reflect.full.hasAnnotation
 import kotlin.reflect.full.memberProperties
+import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -66,14 +68,55 @@ class CodeGeneratorTest {
         assertEquals(ExitCode.OK, result.exitCode, result.messages)
 
         val mainClazz = result.classLoader.loadClass("pbandk.testpb.Proto3PresenceMain").kotlin
-        assertTrue("optionalMessage should be nullable") { mainClazz.memberProperties.find { it.name == "optionalMessage" }!!.returnType.isMarkedNullable }
-        assertTrue("message should be nullable") { mainClazz.memberProperties.find { it.name == "message" }!!.returnType.isMarkedNullable }
-        assertTrue("optionalString should be nullable") { mainClazz.memberProperties.find { it.name == "optionalString" }!!.returnType.isMarkedNullable }
-        assertFalse("string should not be nullable") { mainClazz.memberProperties.find { it.name == "string" }!!.returnType.isMarkedNullable }
-        assertTrue("optionalInt should be nullable") { mainClazz.memberProperties.find { it.name == "optionalInt" }!!.returnType.isMarkedNullable }
-        assertFalse("int should not be nullable") { mainClazz.memberProperties.find { it.name == "int" }!!.returnType.isMarkedNullable }
-        assertTrue("optionalEnum should be nullable") { mainClazz.memberProperties.find { it.name == "optionalEnum" }!!.returnType.isMarkedNullable }
-        assertFalse("enum should not be nullable") { mainClazz.memberProperties.find { it.name == "enum" }!!.returnType.isMarkedNullable }
+        assertTrue("optionalMessage should be nullable") {
+            mainClazz.memberProperties.first { it.name == "optionalMessage" }.returnType.isMarkedNullable
+        }
+        assertTrue("message should be nullable") {
+            mainClazz.memberProperties.first { it.name == "message" }.returnType.isMarkedNullable
+        }
+        assertTrue("optionalString should be nullable") {
+            mainClazz.memberProperties.first { it.name == "optionalString" }.returnType.isMarkedNullable
+        }
+        assertFalse("string should not be nullable") {
+            mainClazz.memberProperties.first { it.name == "string" }.returnType.isMarkedNullable
+        }
+        assertTrue("optionalInt should be nullable") {
+            mainClazz.memberProperties.first { it.name == "optionalInt" }.returnType.isMarkedNullable
+        }
+        assertFalse("int should not be nullable") {
+            mainClazz.memberProperties.first { it.name == "int" }.returnType.isMarkedNullable
+        }
+        assertTrue("optionalEnum should be nullable") {
+            mainClazz.memberProperties.first { it.name == "optionalEnum" }.returnType.isMarkedNullable
+        }
+        assertFalse("enum should not be nullable") {
+            mainClazz.memberProperties.first { it.name == "enum" }.returnType.isMarkedNullable
+        }
+    }
+
+    /**
+     * This test is disabled for now because Kotlin doesn't yet allow reflection on "file facades" (aka the synthetic
+     * Java class that is generated to hold properties and methods that are declared at the file level outside any
+     * Kotlin class). See https://youtrack.jetbrains.com/issue/KT-16479.
+     *
+     * As a workaround, we have a test for this in `runtime/src/commonTest/kotlin/pbandk/Proto3ExtensionTest.kt`. But
+     * once Kotlin reflection is supported for this use case, it'd be better to have the test here since it's testing
+     * the generated code rather than the runtime.
+     */
+    @Ignore("Kotlin currently doesn't support reflection on file-level properties")
+    @Test
+    fun testProto3Extension_alwaysOptional() {
+        val result = compileProto("proto3_extensions.proto")
+
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+
+        val extensionsClazz = result.classLoader.loadClass("pbandk.testpb.Proto3_extensionsKt").kotlin
+        assertTrue("optional extension fields should be nullable") {
+            extensionsClazz.declaredMemberExtensionProperties.first { it.name == "optionalInt32" }.returnType.isMarkedNullable
+        }
+        assertTrue("even non-optional extension fields should be nullable") {
+            extensionsClazz.declaredMemberExtensionProperties.first { it.name == "nonOptionalInt32" }.returnType.isMarkedNullable
+        }
     }
 
     private fun compileProto(inputProto: String): KotlinCompilation.Result {
@@ -81,6 +124,7 @@ class CodeGeneratorTest {
             CodeGeneratorRequest {
                 fileToGenerate += inputProto
                 protoFile += fileDescriptorSet
+                parameter = "log=debug"
             }
         )
 
@@ -89,6 +133,7 @@ class CodeGeneratorTest {
             sources = listOf(kotlinSource)
             inheritClassPath = true
             messageOutputStream = System.out
+            kotlincArguments = listOf("-Xopt-in=kotlin.RequiresOptIn")
         }.compile()
     }
 }

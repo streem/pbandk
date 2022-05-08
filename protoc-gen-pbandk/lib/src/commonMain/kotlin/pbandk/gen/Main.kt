@@ -84,7 +84,7 @@ internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse 
                 }
 
                 val primaryFiles =
-                    if (file.types.isEmpty() && extraServiceCode.isEmpty()) emptyList()
+                    if (file.types.isEmpty() && file.extensions.isEmpty() && extraServiceCode.isEmpty()) emptyList()
                     else listOf(CodeGeneratorResponse.File {
                         name = filePath
                         content = code + extraServiceCode
