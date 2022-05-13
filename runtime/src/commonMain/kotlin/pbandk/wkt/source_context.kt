@@ -1,3 +1,4 @@
+@file:Suppress("RemoveRedundantQualifierName", "RedundantVisibilityModifier")
 @file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.wkt
@@ -30,7 +31,7 @@ public sealed interface SourceContext : pbandk.Message {
                 messageDescriptor = pbandk.wkt.SourceContext::descriptor,
                 name = "file_name",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "fileName",
                 value = pbandk.wkt.SourceContext::fileName,
                 mutableValue = pbandk.wkt.MutableSourceContext::fileName,

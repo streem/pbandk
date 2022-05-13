@@ -1,9 +1,7 @@
 package pbandk
 
-import kotlin.js.JsExport
 import kotlin.reflect.KClass
 
-@JsExport
 public class MessageDescriptor<M : Message> private constructor(
     /**
      * The message type's fully-qualified name, within the proto language's namespace. This differs from

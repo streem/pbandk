@@ -1,3 +1,4 @@
+@file:Suppress("RemoveRedundantQualifierName", "RedundantVisibilityModifier")
 @file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.wkt
@@ -30,7 +31,7 @@ public sealed interface FieldMask : pbandk.Message {
                 messageDescriptor = pbandk.wkt.FieldMask::descriptor,
                 name = "paths",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.string()),
                 jsonName = "paths",
                 value = pbandk.wkt.FieldMask::paths,
                 mutableValue = pbandk.wkt.MutableFieldMask::paths,
@@ -83,7 +84,7 @@ public fun FieldMask(
 @pbandk.JsName("buildFieldMask")
 public fun FieldMask(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit): pbandk.wkt.FieldMask =
     pbandk.wkt.MutableFieldMask_Impl(
-        paths = pbandk.gen.MutableListField(),
+        paths = pbandk.gen.MutableListField(pbandk.wkt.FieldMask.FieldDescriptors.paths),
     ).also(builderAction).toFieldMask()
 
 @pbandk.Export

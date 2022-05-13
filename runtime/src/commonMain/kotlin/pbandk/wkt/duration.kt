@@ -1,3 +1,4 @@
+@file:Suppress("RemoveRedundantQualifierName", "RedundantVisibilityModifier")
 @file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.wkt
@@ -32,7 +33,7 @@ public sealed interface Duration : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Duration::descriptor,
                 name = "seconds",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
+                type = pbandk.FieldDescriptor.Type.int64(),
                 jsonName = "seconds",
                 value = pbandk.wkt.Duration::seconds,
                 mutableValue = pbandk.wkt.MutableDuration::seconds,
@@ -42,7 +43,7 @@ public sealed interface Duration : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Duration::descriptor,
                 name = "nanos",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                type = pbandk.FieldDescriptor.Type.int32(),
                 jsonName = "nanos",
                 value = pbandk.wkt.Duration::nanos,
                 mutableValue = pbandk.wkt.MutableDuration::nanos,

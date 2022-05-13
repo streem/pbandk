@@ -1,8 +1,10 @@
+@file:Suppress("RemoveRedundantQualifierName", "RedundantVisibilityModifier")
 @file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.testpb
 
 @pbandk.Export
+@Suppress("ClassName")
 public sealed class Proto3PresenceEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?): Boolean = other is pbandk.testpb.Proto3PresenceEnum && other.value == value
     override fun hashCode(): Int = value.hashCode()
@@ -53,7 +55,7 @@ public sealed interface Proto3PresenceMessage : pbandk.Message {
                 messageDescriptor = pbandk.testpb.Proto3PresenceMessage::descriptor,
                 name = "int",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                type = pbandk.FieldDescriptor.Type.int32(),
                 jsonName = "int",
                 value = pbandk.testpb.Proto3PresenceMessage::int,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMessage::int,
@@ -132,32 +134,32 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val optionalMessage: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, pbandk.testpb.Proto3PresenceMessage?> =
-            pbandk.FieldDescriptor.of(
+        public val optionalMessage: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, pbandk.testpb.Proto3PresenceMessage> =
+            pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "optional_message",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Proto3PresenceMessage.Companion),
+                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.Proto3PresenceMessage.Companion),
                 jsonName = "optionalMessage",
                 value = pbandk.testpb.Proto3PresenceMain::optionalMessage,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::optionalMessage,
             )
-        public val message: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, pbandk.testpb.Proto3PresenceMessage?> =
-            pbandk.FieldDescriptor.of(
+        public val message: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, pbandk.testpb.Proto3PresenceMessage> =
+            pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "message",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Proto3PresenceMessage.Companion),
+                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.Proto3PresenceMessage.Companion),
                 jsonName = "message",
                 value = pbandk.testpb.Proto3PresenceMain::message,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::message,
             )
-        public val optionalString: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, String?> =
-            pbandk.FieldDescriptor.of(
+        public val optionalString: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, String> =
+            pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "optional_string",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
                 jsonName = "optionalString",
                 value = pbandk.testpb.Proto3PresenceMain::optionalString,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::optionalString,
@@ -167,17 +169,17 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "string",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "string",
                 value = pbandk.testpb.Proto3PresenceMain::string,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::string,
             )
-        public val optionalInt: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, Int?> =
-            pbandk.FieldDescriptor.of(
+        public val optionalInt: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, Int> =
+            pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "optional_int",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
                 jsonName = "optionalInt",
                 value = pbandk.testpb.Proto3PresenceMain::optionalInt,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::optionalInt,
@@ -187,17 +189,17 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "int",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                type = pbandk.FieldDescriptor.Type.int32(),
                 jsonName = "int",
                 value = pbandk.testpb.Proto3PresenceMain::int,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::int,
             )
-        public val optionalEnum: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, pbandk.testpb.Proto3PresenceEnum?> =
-            pbandk.FieldDescriptor.of(
+        public val optionalEnum: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, pbandk.testpb.Proto3PresenceEnum> =
+            pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "optional_enum",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.Proto3PresenceEnum.Companion, hasPresence = true),
+                type = pbandk.FieldDescriptor.Type.enum(enumCompanion = pbandk.testpb.Proto3PresenceEnum.Companion, hasPresence = true),
                 jsonName = "optionalEnum",
                 value = pbandk.testpb.Proto3PresenceMain::optionalEnum,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::optionalEnum,
@@ -207,27 +209,27 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "enum",
                 number = 8,
-                type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.Proto3PresenceEnum.Companion),
+                type = pbandk.FieldDescriptor.Type.enum(enumCompanion = pbandk.testpb.Proto3PresenceEnum.Companion),
                 jsonName = "enum",
                 value = pbandk.testpb.Proto3PresenceMain::enum,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::enum,
             )
-        public val oneOfString: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, String?> =
+        public val oneOfString: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, String> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "one_of_string",
                 number = 9,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
                 jsonName = "oneOfString",
                 value = pbandk.testpb.Proto3PresenceMain::oneOfString,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::oneOfString,
             )
-        public val oneOfInt: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, Int?> =
+        public val oneOfInt: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, Int> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "one_of_int",
                 number = 10,
-                type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
                 jsonName = "oneOfInt",
                 value = pbandk.testpb.Proto3PresenceMain::oneOfInt,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::oneOfInt,

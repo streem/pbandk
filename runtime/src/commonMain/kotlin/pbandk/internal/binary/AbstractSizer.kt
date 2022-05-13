@@ -72,7 +72,7 @@ private fun utf8Len(value: String) = CodePointIterable(value).sumOf {
 
 private fun <T : Any> wrapperProtoSize(value: T, type: FieldDescriptor.Type.Message<*>): Int {
     val valueType = type.messageCompanion.descriptor.fields.first().type
-    val size = if (valueType.isDefaultValue(value)) 0 else Sizer.tagSize(1) + valueType.protoSize(value)
+    val size = if (value == valueType.defaultValue) 0 else Sizer.tagSize(1) + valueType.protoSize(value)
     return Sizer.uInt32Size(size) + size
 }
 
@@ -131,7 +131,7 @@ internal abstract class AbstractSizer {
     }
 
     private fun <T : Message> fieldSize(fd: FieldDescriptor<T, *>, value: Any?): Int {
-        if (value == null || !fd.type.shouldOutputValue(value)) {
+        if (value == null || value == fd.type.defaultValue) {
             return 0
         }
 
@@ -165,11 +165,11 @@ internal abstract class AbstractSizer {
                 entry.protoSize
             } else {
                 val keySize = entry.key
-                    .takeIf { entryCompanion.keyType.shouldOutputValue(it) }
+                    .takeIf { it != entryCompanion.keyType.defaultValue }
                     ?.let { Sizer.tagSize(1) + entryCompanion.keyType.protoSize(it) }
                     ?: 0
                 val valueSize = entry.value
-                    .takeIf { entryCompanion.valueType.shouldOutputValue(it) }
+                    .takeIf { it != entryCompanion.valueType.defaultValue }
                     ?.let { Sizer.tagSize(2) + entryCompanion.valueType.protoSize(it) }
                     ?: 0
                 keySize + valueSize

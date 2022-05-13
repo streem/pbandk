@@ -1,3 +1,4 @@
+@file:Suppress("RemoveRedundantQualifierName", "RedundantVisibilityModifier")
 @file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.wkt
@@ -32,7 +33,7 @@ public sealed interface Any : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Any::descriptor,
                 name = "type_url",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "typeUrl",
                 value = pbandk.wkt.Any::typeUrl,
                 mutableValue = pbandk.wkt.MutableAny::typeUrl,
@@ -42,7 +43,7 @@ public sealed interface Any : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Any::descriptor,
                 name = "value",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
+                type = pbandk.FieldDescriptor.Type.bytes(),
                 jsonName = "value",
                 value = pbandk.wkt.Any::value,
                 mutableValue = pbandk.wkt.MutableAny::value,

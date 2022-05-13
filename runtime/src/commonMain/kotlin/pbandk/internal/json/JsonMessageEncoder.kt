@@ -37,7 +37,7 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
 
         message.fieldIterator().forEach { fd, value ->
             if (value == null && fd.isOneofMember) return@forEach
-            if (!fd.isOneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) return@forEach
+            if (!fd.isOneofMember && !jsonConfig.outputDefaultValues && value == fd.type.defaultValue) return@forEach
 
             val jsonValue = value
                 ?.takeUnless {
@@ -45,7 +45,7 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
                     jsonConfig.outputDefaultValues &&
                             jsonConfig.outputDefaultStringsAsNull &&
                             fd.type is FieldDescriptor.Type.Primitive.String &&
-                            fd.type.isDefaultValue(it)
+                            it == fd.type.defaultValue
                 }
                 ?.let { jsonValueEncoder.writeValue(it, fd.type) }
                 ?: JsonNull
@@ -58,7 +58,7 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
 
     private fun <M : Message> writeFieldValue(fd: FieldDescriptor<M, *>, value: Any?): JsonElement? {
         if (value == null && fd.isOneofMember) return null
-        if (!fd.isOneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) return null
+        if (!fd.isOneofMember && !jsonConfig.outputDefaultValues && value == fd.type.defaultValue) return null
 
         return value
             ?.takeUnless {
@@ -66,7 +66,7 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
                 jsonConfig.outputDefaultValues &&
                         jsonConfig.outputDefaultStringsAsNull &&
                         fd.type is FieldDescriptor.Type.Primitive.String &&
-                        fd.type.isDefaultValue(it)
+                        it == fd.type.defaultValue
             }
             ?.let { jsonValueEncoder.writeValue(it, fd.type) }
             ?: JsonNull

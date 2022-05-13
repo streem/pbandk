@@ -39,9 +39,11 @@ public interface Message {
 }
 
 @JsExport
+@JsName("encodeMessage")
 public fun <M : Message> M.encodeWith(m: MessageEncoder): Unit = m.writeMessage(this)
 
 @JsExport
+@JsName("decodeMessage")
 public fun <M : Message> Message.Companion<M>.decodeWith(m: MessageDecoder): M = m.readMessage(this)
 
 /**
@@ -70,6 +72,6 @@ public operator fun <M : Message> M?.plus(other: M?): M? = this?.plus(other) as 
  * _MUST_ be a descriptor for fields in messages of type [M].
  */
 @ExperimentalProtoReflection
-public fun <M : Message, V> M.getFieldValue(fieldDescriptor: FieldDescriptor<M, out V>): V {
+public fun <M : Message, V : Any> M.getFieldValue(fieldDescriptor: FieldDescriptor<M, out V>): V? {
     return fieldDescriptor.getValue(this)
 }

@@ -7,4 +7,5 @@ import "google/protobuf/descriptor.proto";
 extend google.protobuf.FieldOptions {
   int32 non_optional_int32 = 50000;
   optional int32 optional_int32 = 50001;
+  repeated int32 repeated_int32 = 50002;
 }

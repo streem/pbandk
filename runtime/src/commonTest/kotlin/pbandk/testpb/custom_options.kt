@@ -1,3 +1,4 @@
+@file:Suppress("RemoveRedundantQualifierName", "RedundantVisibilityModifier")
 @file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.testpb
@@ -30,7 +31,7 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
                 messageDescriptor = pbandk.testpb.SingleRequiredCustomOption::descriptor,
                 name = "single",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "single",
                 options = pbandk.wkt.FieldOptions {
                     unknownFields += mapOf(
@@ -98,7 +99,7 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
                 messageDescriptor = pbandk.testpb.MultipleCustomOptions::descriptor,
                 name = "multiple",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "multiple",
                 options = pbandk.wkt.FieldOptions {
                     unknownFields += mapOf(
@@ -169,7 +170,7 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
                 messageDescriptor = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::descriptor,
                 name = "multiple_deprecated",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "multipleDeprecated",
                 options = pbandk.wkt.FieldOptions {
                     deprecated = true
@@ -382,6 +383,7 @@ public fun MultipleCustomOptionsPlusDeprecated(builderAction: pbandk.testpb.Muta
 public fun MultipleCustomOptionsPlusDeprecated?.orDefault(): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = this ?: pbandk.testpb.MultipleCustomOptionsPlusDeprecated.defaultInstance
 
 private class MultipleCustomOptionsPlusDeprecated_Impl(
+    @Deprecated(message = "Field marked deprecated in pbandk/testpb/custom_options.proto")
     override val multipleDeprecated: String,
     unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.MultipleCustomOptionsPlusDeprecated, pbandk.gen.GeneratedMessage<pbandk.testpb.MultipleCustomOptionsPlusDeprecated>(unknownFields) {
@@ -403,6 +405,7 @@ private class MultipleCustomOptionsPlusDeprecated_Impl(
 }
 
 private class MutableMultipleCustomOptionsPlusDeprecated_Impl(
+    @Deprecated(message = "Field marked deprecated in pbandk/testpb/custom_options.proto")
     override var multipleDeprecated: String,
 ) : pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.MultipleCustomOptionsPlusDeprecated>() {
     override val descriptor get() = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.descriptor

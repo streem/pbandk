@@ -1,12 +1,10 @@
 package pbandk
 
 import pbandk.wkt.OneofOptions
-import kotlin.js.JsExport
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
-@JsExport
 public class OneofDescriptor<M : Message, O : Message.OneOf<*>> private constructor(
     getMessageDescriptor: () -> MessageDescriptor<M>,
     @ExperimentalProtoReflection

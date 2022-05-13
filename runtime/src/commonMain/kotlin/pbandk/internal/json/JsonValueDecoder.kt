@@ -239,7 +239,7 @@ internal class JsonValueDecoder(val jsonConfig: JsonConfig) {
         throw InvalidProtocolBufferException("repeated field did not contain a valid list", e)
     }
 
-    fun <K, V> readMap(
+    fun <K : Any, V : Any> readMap(
         value: JsonElement,
         type: FieldDescriptor.Type.Map<K, V>
     ): Sequence<MapField.Entry<K, V>> = try {

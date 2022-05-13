@@ -1,3 +1,4 @@
+@file:Suppress("RemoveRedundantQualifierName", "RedundantVisibilityModifier")
 @file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.testpb
@@ -38,32 +39,32 @@ public sealed interface Value : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val stringValue: pbandk.FieldDescriptor<pbandk.testpb.Value, String?> =
+        public val stringValue: pbandk.FieldDescriptor<pbandk.testpb.Value, String> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Value::descriptor,
                 name = "string_value",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
                 jsonName = "stringValue",
                 value = pbandk.testpb.Value::stringValue,
                 mutableValue = pbandk.testpb.MutableValue::stringValue,
             )
-        public val booleanValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Boolean?> =
+        public val booleanValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Boolean> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Value::descriptor,
                 name = "boolean_value",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
                 jsonName = "booleanValue",
                 value = pbandk.testpb.Value::booleanValue,
                 mutableValue = pbandk.testpb.MutableValue::booleanValue,
             )
-        public val integerValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Int?> =
+        public val integerValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Int> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Value::descriptor,
                 name = "integer_value",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
                 jsonName = "integerValue",
                 value = pbandk.testpb.Value::integerValue,
                 mutableValue = pbandk.testpb.MutableValue::integerValue,

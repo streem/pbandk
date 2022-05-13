@@ -45,16 +45,9 @@ internal class JsonMessageDecoder internal constructor(
                 }
 
             if (jsonValue is JsonNull) {
-                // JSON messages can be primitive wrappers, where null signifies a default value
-                // https://developers.google.com/protocol-buffers/docs/proto3#default
-                if (fd.type is FieldDescriptor.Type.Message<*>) {
-                    val defaultValue = when (fd.type.messageCompanion) {
-                        Value -> Value { kind = Value.Kind.NullValue() }
-                        else -> fd.type.defaultValue
-                    } ?: continue
-
+                if (fd.type is FieldDescriptor.Type.Message<*> && fd.type.messageCompanion is Value.Companion) {
                     @Suppress("UNCHECKED_CAST")
-                    (fd as FieldDescriptor<M, Any?>).updateValue(this, defaultValue)
+                    (fd as FieldDescriptor<M, Value>).updateValue(this, NullValueValue)
                 }
             } else {
                 jsonValueDecoder.readValue(jsonValue, fd.type)?.let { value ->
@@ -66,13 +59,13 @@ internal class JsonMessageDecoder internal constructor(
                         }
                         is FieldDescriptor.Type.Map<*, *> -> {
                             @Suppress("UNCHECKED_CAST")
-                            value as Sequence<Map.Entry<*, *>>
+                            value as Sequence<Map.Entry<Any, Any>>
                             @Suppress("UNCHECKED_CAST")
-                            (fd.getValue(this as M) as MutableMapField<Any?, Any?>).putAll(value)
+                            (fd.getValue(this as M) as MutableMapField<Any, Any>).putAll(value)
                         }
                         else -> {
                             @Suppress("UNCHECKED_CAST")
-                            (fd as FieldDescriptor<M, Any?>).updateValue(this, value)
+                            (fd as FieldDescriptor<M, Any>).updateValue(this, value)
                         }
                     }
                 }
@@ -85,5 +78,7 @@ internal class JsonMessageDecoder internal constructor(
             val content = Json.decodeFromString(JsonElement.serializer(), data)
             return JsonMessageDecoder(content, jsonConfig)
         }
+
+        private val NullValueValue = Value { kind = Value.Kind.NullValue() }
     }
 }

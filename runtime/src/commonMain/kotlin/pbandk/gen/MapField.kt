@@ -9,21 +9,27 @@ import pbandk.UnknownField
 import kotlin.reflect.KClass
 
 @PublicForGeneratedCode
-public interface MapField<K, V> : Map<K, V> {
+public interface MapField<K : Any, V : Any> : Map<K, V> {
+    public val entryCompanion: Entry.Companion<K, V>
     public fun asMessages(): Collection<Entry<K, V>>
 
     @PublicForGeneratedCode
-    public interface Entry<K, V> : Map.Entry<K, V>, Message {
+    public interface Entry<K : Any, V : Any> : Map.Entry<K, V>, Message {
         override fun plus(other: Message?): Entry<K, V>
         override val descriptor: MessageDescriptor<Entry<K, V>>
 
         @PublicForGeneratedCode
-        public class Companion<K, V>(
-            internal val keyType: FieldDescriptor.Type, internal val valueType: FieldDescriptor.Type
+        public class Companion<K : Any, V : Any>(
+            internal val keyType: FieldDescriptor.Type,
+            internal val valueType: FieldDescriptor.Type
         ) : Message.Companion<Entry<K, V>> {
             @Suppress("UNCHECKED_CAST")
             private fun entryBuilder(builderAction: MutableMapField.MutableEntry<K, V>.() -> Unit): Entry<K, V> =
-                MutableMapFieldEntry(keyType.defaultValue as K, valueType.defaultValue as V, this).also(builderAction)
+                MutableMapFieldEntry(
+                    keyType.noPresenceDefaultValue as K,
+                    valueType.noPresenceDefaultValue as V,
+                    this
+                ).also(builderAction)
 
             @Suppress("UNCHECKED_CAST")
             override val descriptor: MessageDescriptor<Entry<K, V>> = MessageDescriptor.of(
@@ -57,16 +63,21 @@ public interface MapField<K, V> : Map<K, V> {
 
     @PublicForGeneratedCode
     public companion object {
-        private val Empty = MapFieldImpl<Nothing, Nothing>(emptySet())
+        private val Empty = MapFieldImpl<Nothing, Nothing>(
+            Entry.Companion(FieldDescriptor.Type.Primitive.Bool(), FieldDescriptor.Type.Primitive.Bool()),
+            emptySet()
+        )
 
         /**
          * Returns a singleton empty map regardless of the type variables.
          */
         @Suppress("UNCHECKED_CAST")
-        internal fun <K, V> empty(): MapField<K, V> = Empty as MapField<K, V>
+        internal fun <K : Any, V : Any> empty(): MapField<K, V> = Empty as MapField<K, V>
 
-        internal fun <K, V> of(
-            keyType: FieldDescriptor.Type, valueType: FieldDescriptor.Type, vararg pairs: Pair<K, V>
+        internal fun <K : Any, V : Any> of(
+            keyType: FieldDescriptor.Type,
+            valueType: FieldDescriptor.Type,
+            vararg pairs: Pair<K, V>
         ): MapField<K, V> {
             val companion = Entry.Companion<K, V>(keyType, valueType)
             return MutableMapField(companion).apply {
@@ -77,32 +88,37 @@ public interface MapField<K, V> : Map<K, V> {
 }
 
 @PublicForGeneratedCode
-public interface MutableMapField<K, V> : MutableMap<K, V> {
+public interface MutableMapField<K : Any, V : Any> : MutableMap<K, V> {
+    public val entryCompanion: MapField.Entry.Companion<K, V>
+
     public fun put(entry: Map.Entry<K, V>)
     public fun putAll(entries: Sequence<Map.Entry<K, V>>)
     public fun toMapField(): MapField<K, V>
 
     @PublicForGeneratedCode
-    public interface MutableEntry<K, V> : MutableMap.MutableEntry<K, V>, MapField.Entry<K, V>,
-        MutableMessage<MapField.Entry<K, V>> {
+    public interface MutableEntry<K : Any, V : Any>
+        : MutableMap.MutableEntry<K, V>, MapField.Entry<K, V>, MutableMessage<MapField.Entry<K, V>> {
         override var key: K
         override var value: V
     }
 }
 
+internal fun <K : Any, V : Any> MapField(entryCompanion: MapField.Entry.Companion<K, V>, map: Map<out K, V>): MapField<K, V> =
+    MutableMapFieldImpl(entryCompanion).apply { putAll(map) }.toMapField()
+
 @PublicForGeneratedCode
-public fun <K, V> MutableMapField(entryCompanion: MapField.Entry.Companion<K, V>): MutableMapField<K, V> =
+public fun <K : Any, V : Any> MutableMapField(entryCompanion: MapField.Entry.Companion<K, V>): MutableMapField<K, V> =
     MutableMapFieldImpl(entryCompanion)
 
 // Convenience factory function to keep generated code more succinct
 @PublicForGeneratedCode
 @Suppress("UNCHECKED_CAST")
-public fun <K, V> MutableMapField(fieldDescriptor: FieldDescriptor<*, *>?): MutableMapField<K, V> =
-    MutableMapFieldImpl((fieldDescriptor!!.type as FieldDescriptor.Type.Map<K, V>).entryCompanion)
+public fun <K : Any, V : Any> MutableMapField(fieldDescriptor: FieldDescriptor<*, *>): MutableMapField<K, V> =
+    MutableMapFieldImpl((fieldDescriptor.type as FieldDescriptor.Type.Map<K, V>).entryCompanion)
 
 // Begin: private implementations
 
-private abstract class AbstractMapField<K, V> : Map<K, V> {
+private abstract class AbstractMapField<K : Any, V : Any> : Map<K, V> {
     protected abstract val delegate: Map<K, MapField.Entry<K, V>>
 
     // region Map interface implementation
@@ -137,7 +153,10 @@ private abstract class AbstractMapField<K, V> : Map<K, V> {
     fun asMessages(): Collection<MapField.Entry<K, V>> = delegate.values
 }
 
-private class MapFieldImpl<K, V>(entries: Collection<MapField.Entry<K, V>>) : AbstractMapField<K, V>(), MapField<K, V> {
+private class MapFieldImpl<K : Any, V : Any>(
+    override val entryCompanion: MapField.Entry.Companion<K, V>,
+    entries: Collection<MapField.Entry<K, V>>
+) : AbstractMapField<K, V>(), MapField<K, V> {
     override val delegate: Map<K, MapField.Entry<K, V>> = entries.associateBy(MapField.Entry<K, V>::key)
 
     // region Map interface implementation
@@ -152,8 +171,8 @@ private class MapFieldImpl<K, V>(entries: Collection<MapField.Entry<K, V>>) : Ab
     override fun equals(other: Any?): Boolean = super.equals(other)
 }
 
-private class MutableMapFieldImpl<K, V>(
-    private val entryCompanion: MapField.Entry.Companion<K, V>
+private class MutableMapFieldImpl<K : Any, V : Any>(
+    override val entryCompanion: MapField.Entry.Companion<K, V>
 ) : AbstractMapField<K, V>(), MutableMapField<K, V> {
     override val delegate: MutableMap<K, MutableMapField.MutableEntry<K, V>> = mutableMapOf()
 
@@ -259,10 +278,10 @@ private class MutableMapFieldImpl<K, V>(
         entries.forEach { put(it) }
     }
 
-    override fun toMapField(): MapField<K, V> = if (isEmpty()) MapField.empty() else MapFieldImpl(delegate.values)
+    override fun toMapField(): MapField<K, V> = if (isEmpty()) MapField.empty() else MapFieldImpl(entryCompanion, delegate.values)
 }
 
-internal class MutableMapFieldEntry<K, V>(
+internal class MutableMapFieldEntry<K : Any, V : Any>(
     override var key: K,
     override var value: V,
     companion: MapField.Entry.Companion<K, V>,
@@ -281,7 +300,7 @@ internal class MutableMapFieldEntry<K, V>(
     // region hashCode() and equals() implementations based on the contract defined in the Map.Entry interface
 
     override fun hashCode(): Int {
-        val hash = (key?.hashCode() ?: 0) xor (value?.hashCode() ?: 0)
+        val hash = key.hashCode() xor value.hashCode()
         return if (unknownFields.isEmpty()) hash else (31 * hash) + unknownFields.hashCode()
     }
 

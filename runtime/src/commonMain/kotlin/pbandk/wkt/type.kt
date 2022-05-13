@@ -1,8 +1,10 @@
+@file:Suppress("RemoveRedundantQualifierName", "RedundantVisibilityModifier")
 @file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.wkt
 
 @pbandk.Export
+@Suppress("ClassName")
 public sealed class Syntax(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.Syntax && other.value == value
     override fun hashCode(): Int = value.hashCode()
@@ -63,7 +65,7 @@ public sealed interface Type : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Type::descriptor,
                 name = "name",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "name",
                 value = pbandk.wkt.Type::name,
                 mutableValue = pbandk.wkt.MutableType::name,
@@ -73,7 +75,7 @@ public sealed interface Type : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Type::descriptor,
                 name = "fields",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Field>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Field.Companion)),
+                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Field.Companion)),
                 jsonName = "fields",
                 value = pbandk.wkt.Type::fields,
                 mutableValue = pbandk.wkt.MutableType::fields,
@@ -83,7 +85,7 @@ public sealed interface Type : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Type::descriptor,
                 name = "oneofs",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.string()),
                 jsonName = "oneofs",
                 value = pbandk.wkt.Type::oneofs,
                 mutableValue = pbandk.wkt.MutableType::oneofs,
@@ -93,17 +95,17 @@ public sealed interface Type : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Type::descriptor,
                 name = "options",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
+                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Option.Companion)),
                 jsonName = "options",
                 value = pbandk.wkt.Type::options,
                 mutableValue = pbandk.wkt.MutableType::options,
             )
-        public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Type, pbandk.wkt.SourceContext?> =
-            pbandk.FieldDescriptor.of(
+        public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Type, pbandk.wkt.SourceContext> =
+            pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.Type::descriptor,
                 name = "source_context",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceContext.Companion),
+                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.SourceContext.Companion),
                 jsonName = "sourceContext",
                 value = pbandk.wkt.Type::sourceContext,
                 mutableValue = pbandk.wkt.MutableType::sourceContext,
@@ -113,7 +115,7 @@ public sealed interface Type : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Type::descriptor,
                 name = "syntax",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
+                type = pbandk.FieldDescriptor.Type.enum(enumCompanion = pbandk.wkt.Syntax.Companion),
                 jsonName = "syntax",
                 value = pbandk.wkt.Type::syntax,
                 mutableValue = pbandk.wkt.MutableType::syntax,
@@ -199,7 +201,7 @@ public sealed interface Field : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Field::descriptor,
                 name = "kind",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Field.Kind.Companion),
+                type = pbandk.FieldDescriptor.Type.enum(enumCompanion = pbandk.wkt.Field.Kind.Companion),
                 jsonName = "kind",
                 value = pbandk.wkt.Field::kind,
                 mutableValue = pbandk.wkt.MutableField::kind,
@@ -209,7 +211,7 @@ public sealed interface Field : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Field::descriptor,
                 name = "cardinality",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Field.Cardinality.Companion),
+                type = pbandk.FieldDescriptor.Type.enum(enumCompanion = pbandk.wkt.Field.Cardinality.Companion),
                 jsonName = "cardinality",
                 value = pbandk.wkt.Field::cardinality,
                 mutableValue = pbandk.wkt.MutableField::cardinality,
@@ -219,7 +221,7 @@ public sealed interface Field : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Field::descriptor,
                 name = "number",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                type = pbandk.FieldDescriptor.Type.int32(),
                 jsonName = "number",
                 value = pbandk.wkt.Field::number,
                 mutableValue = pbandk.wkt.MutableField::number,
@@ -229,7 +231,7 @@ public sealed interface Field : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Field::descriptor,
                 name = "name",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "name",
                 value = pbandk.wkt.Field::name,
                 mutableValue = pbandk.wkt.MutableField::name,
@@ -239,7 +241,7 @@ public sealed interface Field : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Field::descriptor,
                 name = "type_url",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "typeUrl",
                 value = pbandk.wkt.Field::typeUrl,
                 mutableValue = pbandk.wkt.MutableField::typeUrl,
@@ -249,7 +251,7 @@ public sealed interface Field : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Field::descriptor,
                 name = "oneof_index",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                type = pbandk.FieldDescriptor.Type.int32(),
                 jsonName = "oneofIndex",
                 value = pbandk.wkt.Field::oneofIndex,
                 mutableValue = pbandk.wkt.MutableField::oneofIndex,
@@ -259,7 +261,7 @@ public sealed interface Field : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Field::descriptor,
                 name = "packed",
                 number = 8,
-                type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
+                type = pbandk.FieldDescriptor.Type.bool(),
                 jsonName = "packed",
                 value = pbandk.wkt.Field::packed,
                 mutableValue = pbandk.wkt.MutableField::packed,
@@ -269,7 +271,7 @@ public sealed interface Field : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Field::descriptor,
                 name = "options",
                 number = 9,
-                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
+                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Option.Companion)),
                 jsonName = "options",
                 value = pbandk.wkt.Field::options,
                 mutableValue = pbandk.wkt.MutableField::options,
@@ -279,7 +281,7 @@ public sealed interface Field : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Field::descriptor,
                 name = "json_name",
                 number = 10,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "jsonName",
                 value = pbandk.wkt.Field::jsonName,
                 mutableValue = pbandk.wkt.MutableField::jsonName,
@@ -289,7 +291,7 @@ public sealed interface Field : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Field::descriptor,
                 name = "default_value",
                 number = 11,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "defaultValue",
                 value = pbandk.wkt.Field::defaultValue,
                 mutableValue = pbandk.wkt.MutableField::defaultValue,
@@ -323,6 +325,7 @@ public sealed interface Field : pbandk.Message {
         }
     }
 
+    @Suppress("ClassName")
     public sealed class Kind(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.Field.Kind && other.value == value
         override fun hashCode(): Int = value.hashCode()
@@ -367,6 +370,7 @@ public sealed interface Field : pbandk.Message {
         }
     }
 
+    @Suppress("ClassName")
     public sealed class Cardinality(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.Field.Cardinality && other.value == value
         override fun hashCode(): Int = value.hashCode()
@@ -441,7 +445,7 @@ public sealed interface Enum : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Enum::descriptor,
                 name = "name",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "name",
                 value = pbandk.wkt.Enum::name,
                 mutableValue = pbandk.wkt.MutableEnum::name,
@@ -451,7 +455,7 @@ public sealed interface Enum : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Enum::descriptor,
                 name = "enumvalue",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.EnumValue>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumValue.Companion)),
+                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.EnumValue.Companion)),
                 jsonName = "enumvalue",
                 value = pbandk.wkt.Enum::enumvalue,
                 mutableValue = pbandk.wkt.MutableEnum::enumvalue,
@@ -461,17 +465,17 @@ public sealed interface Enum : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Enum::descriptor,
                 name = "options",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
+                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Option.Companion)),
                 jsonName = "options",
                 value = pbandk.wkt.Enum::options,
                 mutableValue = pbandk.wkt.MutableEnum::options,
             )
-        public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Enum, pbandk.wkt.SourceContext?> =
-            pbandk.FieldDescriptor.of(
+        public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Enum, pbandk.wkt.SourceContext> =
+            pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.Enum::descriptor,
                 name = "source_context",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceContext.Companion),
+                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.SourceContext.Companion),
                 jsonName = "sourceContext",
                 value = pbandk.wkt.Enum::sourceContext,
                 mutableValue = pbandk.wkt.MutableEnum::sourceContext,
@@ -481,7 +485,7 @@ public sealed interface Enum : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Enum::descriptor,
                 name = "syntax",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
+                type = pbandk.FieldDescriptor.Type.enum(enumCompanion = pbandk.wkt.Syntax.Companion),
                 jsonName = "syntax",
                 value = pbandk.wkt.Enum::syntax,
                 mutableValue = pbandk.wkt.MutableEnum::syntax,
@@ -551,7 +555,7 @@ public sealed interface EnumValue : pbandk.Message {
                 messageDescriptor = pbandk.wkt.EnumValue::descriptor,
                 name = "name",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "name",
                 value = pbandk.wkt.EnumValue::name,
                 mutableValue = pbandk.wkt.MutableEnumValue::name,
@@ -561,7 +565,7 @@ public sealed interface EnumValue : pbandk.Message {
                 messageDescriptor = pbandk.wkt.EnumValue::descriptor,
                 name = "number",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                type = pbandk.FieldDescriptor.Type.int32(),
                 jsonName = "number",
                 value = pbandk.wkt.EnumValue::number,
                 mutableValue = pbandk.wkt.MutableEnumValue::number,
@@ -571,7 +575,7 @@ public sealed interface EnumValue : pbandk.Message {
                 messageDescriptor = pbandk.wkt.EnumValue::descriptor,
                 name = "options",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
+                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Option.Companion)),
                 jsonName = "options",
                 value = pbandk.wkt.EnumValue::options,
                 mutableValue = pbandk.wkt.MutableEnumValue::options,
@@ -635,17 +639,17 @@ public sealed interface Option : pbandk.Message {
                 messageDescriptor = pbandk.wkt.Option::descriptor,
                 name = "name",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "name",
                 value = pbandk.wkt.Option::name,
                 mutableValue = pbandk.wkt.MutableOption::name,
             )
-        public val value: pbandk.FieldDescriptor<pbandk.wkt.Option, pbandk.wkt.Any?> =
-            pbandk.FieldDescriptor.of(
+        public val value: pbandk.FieldDescriptor<pbandk.wkt.Option, pbandk.wkt.Any> =
+            pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.Option::descriptor,
                 name = "value",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Any.Companion),
+                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Any.Companion),
                 jsonName = "value",
                 value = pbandk.wkt.Option::value,
                 mutableValue = pbandk.wkt.MutableOption::value,
@@ -711,9 +715,9 @@ public fun Type(
 public fun Type(builderAction: pbandk.wkt.MutableType.() -> Unit): pbandk.wkt.Type =
     pbandk.wkt.MutableType_Impl(
         name = "",
-        fields = pbandk.gen.MutableListField(),
-        oneofs = pbandk.gen.MutableListField(),
-        options = pbandk.gen.MutableListField(),
+        fields = pbandk.gen.MutableListField(pbandk.wkt.Type.FieldDescriptors.fields),
+        oneofs = pbandk.gen.MutableListField(pbandk.wkt.Type.FieldDescriptors.oneofs),
+        options = pbandk.gen.MutableListField(pbandk.wkt.Type.FieldDescriptors.options),
         sourceContext = null,
         syntax = pbandk.wkt.Syntax.fromValue(0),
     ).also(builderAction).toType()
@@ -839,7 +843,7 @@ public fun Field(builderAction: pbandk.wkt.MutableField.() -> Unit): pbandk.wkt.
         typeUrl = "",
         oneofIndex = 0,
         packed = false,
-        options = pbandk.gen.MutableListField(),
+        options = pbandk.gen.MutableListField(pbandk.wkt.Field.FieldDescriptors.options),
         jsonName = "",
         defaultValue = "",
     ).also(builderAction).toField()
@@ -973,8 +977,8 @@ public fun Enum(
 public fun Enum(builderAction: pbandk.wkt.MutableEnum.() -> Unit): pbandk.wkt.Enum =
     pbandk.wkt.MutableEnum_Impl(
         name = "",
-        enumvalue = pbandk.gen.MutableListField(),
-        options = pbandk.gen.MutableListField(),
+        enumvalue = pbandk.gen.MutableListField(pbandk.wkt.Enum.FieldDescriptors.enumvalue),
+        options = pbandk.gen.MutableListField(pbandk.wkt.Enum.FieldDescriptors.options),
         sourceContext = null,
         syntax = pbandk.wkt.Syntax.fromValue(0),
     ).also(builderAction).toEnum()
@@ -1075,7 +1079,7 @@ public fun EnumValue(builderAction: pbandk.wkt.MutableEnumValue.() -> Unit): pba
     pbandk.wkt.MutableEnumValue_Impl(
         name = "",
         number = 0,
-        options = pbandk.gen.MutableListField(),
+        options = pbandk.gen.MutableListField(pbandk.wkt.EnumValue.FieldDescriptors.options),
     ).also(builderAction).toEnumValue()
 
 @pbandk.Export

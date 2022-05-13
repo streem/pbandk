@@ -8,14 +8,10 @@ import pbandk.internal.forEach
 import pbandk.wkt.*
 import kotlin.Any
 
-internal fun FieldDescriptor.Type.shouldOutputValue(value: Any?): Boolean {
-    return (hasPresence || !isDefaultValue(value)) && value != null
-}
-
 internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEncoder) : MessageEncoder {
     override fun <M : Message> writeMessage(message: M) {
         message.fieldIterator().forEach { fd, value ->
-            if (fd.type.shouldOutputValue(value) && value != null) {
+            if (value != null && value != fd.type.defaultValue) {
                 writeFieldValue(fd.number, fd.type, value)
             }
         }
@@ -26,6 +22,7 @@ internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEnco
     }
 
     private fun writeFieldValue(fieldNum: Int, type: FieldDescriptor.Type, value: Any) {
+        @Suppress("UNCHECKED_CAST")
         when (type) {
             is FieldDescriptor.Type.Primitive<*> -> wireEncoder.writePrimitiveValue(fieldNum, type, value)
 
@@ -50,7 +47,7 @@ internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEnco
                 type.packed
             )
 
-            is FieldDescriptor.Type.Map<*, *> -> writeMapValue(fieldNum, value as Map<*, *>, type)
+            is FieldDescriptor.Type.Map<*, *> -> writeMapValue(fieldNum, value as Map<out Any, Any>, type)
         }
     }
 
@@ -61,7 +58,7 @@ internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEnco
         sizeFn: (T) -> Int
     ) {
         val valueType = type.messageCompanion.descriptor.fields.first().type
-        if (valueType.isDefaultValue(value)) {
+        if (value == valueType.defaultValue) {
             wireEncoder.writeLengthDelimitedHeader(fieldNum, 0)
         } else {
             wireEncoder.writeLengthDelimitedHeader(fieldNum, Sizer.tagSize(1) + sizeFn(value))
@@ -84,12 +81,12 @@ internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEnco
         }
     }
 
-    private fun writeMapValue(fieldNum: Int, map: Map<*, *>, type: FieldDescriptor.Type.Map<*, *>) {
+    private fun writeMapValue(fieldNum: Int, map: Map<out Any, Any>, type: FieldDescriptor.Type.Map<*, *>) {
         // TODO: make the generic map case more efficient by using the map entries as-is instead of constructing a new
         //  MapField.Entry for each one
         @Suppress("UNCHECKED_CAST")
         val mapField = map as? MapField<*, *>
-            ?: MutableMapField(type.entryCompanion as MapField.Entry.Companion<Any?, Any?>).apply {
+            ?: MutableMapField(type.entryCompanion as MapField.Entry.Companion<Any, Any>).apply {
                 putAll(map)
             }.toMapField()
         mapField.asMessages().forEach {

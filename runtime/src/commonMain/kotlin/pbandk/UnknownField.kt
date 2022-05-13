@@ -1,5 +1,7 @@
 package pbandk
 
+import pbandk.gen.MapField
+import pbandk.gen.MutableListField
 import pbandk.gen.MutableMapField
 import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.Sizer
@@ -10,6 +12,7 @@ import pbandk.internal.binary.kotlin.ByteArrayWireReader
 import pbandk.internal.binary.kotlin.KotlinBinaryWireDecoder
 import kotlin.js.JsExport
 import kotlin.js.JsName
+import kotlin.reflect.KClass
 
 @JsExport
 public data class UnknownField @PublicForGeneratedCode constructor(val fieldNum: Int, val values: List<Value>) {
@@ -40,7 +43,7 @@ private fun <T> UnknownField.Value.Companion.encode(type: FieldDescriptor.Type, 
  */
 
 @Suppress("UNCHECKED_CAST")
-internal fun <M : Message, T> UnknownField.decodeAs(fieldDescriptor: FieldDescriptor<M, T>): T =
+internal fun <M : Message, T : Any> UnknownField.decodeAs(fieldDescriptor: FieldDescriptor<M, T>): T =
     when (fieldDescriptor.type) {
         is FieldDescriptor.Type.Enum<*> -> decodeAsEnum(fieldDescriptor.type) as T
         is FieldDescriptor.Type.Map<*, *> -> decodeAsMap(fieldDescriptor.type) as T
@@ -68,7 +71,8 @@ private fun <T : Any> UnknownField.decodeAsRepeated(type: FieldDescriptor.Type.R
             val decoder = KotlinBinaryWireDecoder(ByteArrayWireReader(it.rawBytes.array))
             BinaryMessageDecoder.readRepeatedField(type, WireType(it.wireType), decoder)
         }
-        .toList()
+        .toCollection(MutableListField(type.valueType))
+        .toListField()
 }
 
 private fun <T> UnknownField.decodeAsPrimitive(type: FieldDescriptor.Type.Primitive<*>): T {
@@ -90,8 +94,9 @@ private fun <T : Message.Enum> UnknownField.decodeAsEnum(type: FieldDescriptor.T
     return values.last().decodeAs(type)
 }
 
-private fun <K, V> UnknownField.decodeAsMap(type: FieldDescriptor.Type.Map<K, V>): Map<K, V> {
-    val messageType = FieldDescriptor.Type.Message(type.entryCompanion)
+private fun <K : Any, V : Any> UnknownField.decodeAsMap(type: FieldDescriptor.Type.Map<K, V>): Map<K, V> {
+    @Suppress("UNCHECKED_CAST")
+    val messageType = FieldDescriptor.Type.Message(type.entryCompanion, MapField.Entry::class as KClass<MapField.Entry<K, V>>)
     return MutableMapField(type.entryCompanion).apply {
         putAll(this@decodeAsMap.values.asSequence().map { it.decodeAs(messageType) })
     }.toMapField()

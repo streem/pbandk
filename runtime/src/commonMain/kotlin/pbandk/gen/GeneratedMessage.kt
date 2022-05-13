@@ -11,6 +11,7 @@ import pbandk.MutableMessage
 import pbandk.PublicForGeneratedCode
 import pbandk.UnknownField
 import pbandk.decodeAs
+import kotlin.properties.Delegates
 
 @Suppress("EqualsOrHashCode")
 public abstract class GeneratedMessage<M : Message>
@@ -45,7 +46,8 @@ protected constructor(
 
     private val extensionFieldCache: FieldSetCache<M> = FieldSetCache()
 
-    public override fun <V> getExtension(fd: FieldDescriptor<M, V>): V {
+    public override fun <V : Any> getExtension(fd: FieldDescriptor<M, V>): V? {
+        require(fd.isExtension) { "Provided field descriptor does not describe an extension field" }
         var value: V? = extensionFields[fd]
         if (value != null) {
             // The extension value was provided when this message was constructed
@@ -66,16 +68,17 @@ protected constructor(
             // We found the field and were able to decode it. Cache a copy of the decoded value and return it.
             extensionFieldCache[fd] = value
             value
-        } else if (!fd.type.hasPresence) {
-            // A value for this extension field was not provided. If the field type has a non-null default value
-            // then return it.
-            @Suppress("UNCHECKED_CAST")
-            fd.type.defaultValue as V
         } else {
-            // A value was not provided and the default value for this field type is null, so just return null.
+            // A value for this extension field was not provided. Return the default value for this field type (which
+            // could be null, depending on the field type).
             @Suppress("UNCHECKED_CAST")
-            null as V
+            fd.type.defaultValue as V?
         }
+    }
+
+    override fun <T> getRepeatedExtension(fd: FieldDescriptor<M, List<T>>): List<T> {
+        require(fd.type is FieldDescriptor.Type.Repeated<*>) { "Provided field descriptor does not describe a repeated field" }
+        return getExtension(fd)!!
     }
 }
 
@@ -89,23 +92,27 @@ protected constructor(
 
     protected val extensionFields: MutableFieldSet<M> = MutableFieldSet()
 
-    override fun <V> getExtension(fd: FieldDescriptor<M, V>): V {
+    override fun <V : Any> getExtension(fd: FieldDescriptor<M, V>): V? {
         require(fd.isExtension) { "Provided field descriptor does not describe an extension field" }
+        @Suppress("UNCHECKED_CAST")
         return extensionFields[fd]
-            ?: if (!fd.type.hasPresence) {
-                // A value for this extension field was not provided. If the field type has a non-null default value
-                // then return it.
-                @Suppress("UNCHECKED_CAST")
-                fd.type.defaultValue as V
-            } else {
-                // A value was not provided and the default value for this field type is null, so just return null.
-                @Suppress("UNCHECKED_CAST")
-                null as V
-            }
+            // A value for this extension field was not provided. Return the default value for this field type (which
+            // could be null, depending on the field type).
+            ?: fd.type.defaultValue as V?
     }
 
-    override fun <V> setExtension(fd: FieldDescriptor<M, V>, newValue: V) {
+    override fun <T> getRepeatedExtension(fd: FieldDescriptor<M, List<T>>): MutableList<T> {
         require(fd.isExtension) { "Provided field descriptor does not describe an extension field" }
+        require(fd.type is FieldDescriptor.Type.Repeated<*>) { "Provided field descriptor does not describe a repeated field" }
+        if (fd !in extensionFields) {
+            extensionFields[fd] = emptyList()
+        }
+        return extensionFields[fd] as MutableList<T>
+    }
+
+    override fun <V : Any> setExtension(fd: FieldDescriptor<M, V>, newValue: V?) {
+        require(fd.isExtension) { "Provided field descriptor does not describe an extension field" }
+        require(fd.type !is FieldDescriptor.Type.Repeated<*>) { "Use getRepeatedExtension() to modify a repeated field" }
         if (newValue == null) {
             extensionFields.remove(fd)
         } else {

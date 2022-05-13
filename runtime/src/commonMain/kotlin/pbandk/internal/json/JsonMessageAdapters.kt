@@ -196,7 +196,7 @@ internal object JsonMessageAdapters {
         },
 
         ListValue.descriptor to object : JsonMessageAdapter<ListValue> {
-            private val fieldType = FieldDescriptor.Type.Message(Value.Companion)
+            private val fieldType = FieldDescriptor.Type.message(Value.Companion)
             override fun encode(message: ListValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeRepeated(message.values, fieldType)
 
@@ -218,7 +218,7 @@ internal object JsonMessageAdapters {
 
         Struct.descriptor to object : JsonMessageAdapter<Struct> {
             @Suppress("UNCHECKED_CAST")
-            private val fieldType = Struct.FieldDescriptors.fields.type as FieldDescriptor.Type.Map<String, Value?>
+            private val fieldType = Struct.FieldDescriptors.fields.type as FieldDescriptor.Type.Map<String, Value>
 
             override fun encode(message: Struct, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.fields, fieldType)
@@ -226,7 +226,7 @@ internal object JsonMessageAdapters {
             override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = try {
                 val fields = jsonValueDecoder.readMap(json, fieldType)
                 Struct {
-                    (this.fields as MutableMapField<String, Value?>).putAll(fields)
+                    (this.fields as MutableMapField<String, Value>).putAll(fields)
                 }
             } catch (e: InvalidProtocolBufferException) {
                 throw e
@@ -271,11 +271,11 @@ internal object JsonMessageAdapters {
                     }
                 is JsonArray -> Value {
                     listValue =
-                        jsonValueDecoder.readValue(json, FieldDescriptor.Type.Message(ListValue.Companion)) as ListValue
+                        jsonValueDecoder.readValue(json, FieldDescriptor.Type.message(ListValue.Companion)) as ListValue
                 }
                 is JsonObject -> Value {
                     structValue =
-                        jsonValueDecoder.readValue(json, FieldDescriptor.Type.Message(Struct.Companion)) as Struct
+                        jsonValueDecoder.readValue(json, FieldDescriptor.Type.message(Struct.Companion)) as Struct
                 }
             }
         },

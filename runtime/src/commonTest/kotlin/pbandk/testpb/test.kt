@@ -1,3 +1,4 @@
+@file:Suppress("RemoveRedundantQualifierName", "RedundantVisibilityModifier")
 @file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.testpb
@@ -30,7 +31,7 @@ public sealed interface Foo : pbandk.Message {
                 messageDescriptor = pbandk.testpb.Foo::descriptor,
                 name = "val",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                type = pbandk.FieldDescriptor.Type.string(),
                 jsonName = "val",
                 value = pbandk.testpb.Foo::`val`,
                 mutableValue = pbandk.testpb.MutableFoo::`val`,
@@ -90,17 +91,17 @@ public sealed interface Bar : pbandk.Message {
                 messageDescriptor = pbandk.testpb.Bar::descriptor,
                 name = "foos",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.Foo>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion)),
+                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.Foo.Companion)),
                 jsonName = "foos",
                 value = pbandk.testpb.Bar::foos,
                 mutableValue = pbandk.testpb.MutableBar::foos,
             )
-        public val singleFoo: pbandk.FieldDescriptor<pbandk.testpb.Bar, pbandk.testpb.Foo?> =
-            pbandk.FieldDescriptor.of(
+        public val singleFoo: pbandk.FieldDescriptor<pbandk.testpb.Bar, pbandk.testpb.Foo> =
+            pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Bar::descriptor,
                 name = "single_foo",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion),
+                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.Foo.Companion),
                 jsonName = "singleFoo",
                 value = pbandk.testpb.Bar::singleFoo,
                 mutableValue = pbandk.testpb.MutableBar::singleFoo,
@@ -160,7 +161,7 @@ public sealed interface MessageWithMap : pbandk.Message {
                 messageDescriptor = pbandk.testpb.MessageWithMap::descriptor,
                 name = "map",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Map<String, String>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                type = pbandk.FieldDescriptor.Type.map(keyType = pbandk.FieldDescriptor.Type.string(), valueType = pbandk.FieldDescriptor.Type.string()),
                 jsonName = "map",
                 value = pbandk.testpb.MessageWithMap::map,
                 mutableValue = pbandk.testpb.MutableMessageWithMap::map,
@@ -191,7 +192,7 @@ public sealed interface MutableMessageWithMap : pbandk.testpb.MessageWithMap, pb
 }
 
 public sealed interface FooMap : pbandk.Message {
-    public val map: Map<String, pbandk.testpb.Foo?>
+    public val map: Map<String, pbandk.testpb.Foo>
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.FooMap
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap>
@@ -207,18 +208,18 @@ public sealed interface FooMap : pbandk.Message {
     )
     @pbandk.JsName("copyDeprecated")
     public fun copy(
-        map: Map<String, pbandk.testpb.Foo?> = this.map,
+        map: Map<String, pbandk.testpb.Foo> = this.map,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.testpb.FooMap
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val map: pbandk.FieldDescriptor<pbandk.testpb.FooMap, Map<String, pbandk.testpb.Foo?>> =
+        public val map: pbandk.FieldDescriptor<pbandk.testpb.FooMap, Map<String, pbandk.testpb.Foo>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.testpb.FooMap::descriptor,
                 name = "map",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Map<String, pbandk.testpb.Foo?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion)),
+                type = pbandk.FieldDescriptor.Type.map(keyType = pbandk.FieldDescriptor.Type.string(), valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.Foo.Companion)),
                 jsonName = "map",
                 value = pbandk.testpb.FooMap::map,
                 mutableValue = pbandk.testpb.MutableFooMap::map,
@@ -245,7 +246,7 @@ public sealed interface FooMap : pbandk.Message {
 }
 
 public sealed interface MutableFooMap : pbandk.testpb.FooMap, pbandk.MutableMessage<pbandk.testpb.FooMap> {
-    public override val map: MutableMap<String, pbandk.testpb.Foo?>
+    public override val map: MutableMap<String, pbandk.testpb.Foo>
 }
 
 public sealed interface FooMapEntries : pbandk.Message {
@@ -276,7 +277,7 @@ public sealed interface FooMapEntries : pbandk.Message {
                 messageDescriptor = pbandk.testpb.FooMapEntries::descriptor,
                 name = "map",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.FooMapEntries.MapEntry>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.FooMapEntries.MapEntry.Companion)),
+                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.FooMapEntries.MapEntry.Companion)),
                 jsonName = "map",
                 value = pbandk.testpb.FooMapEntries::map,
                 mutableValue = pbandk.testpb.MutableFooMapEntries::map,
@@ -326,7 +327,7 @@ public sealed interface FooMapEntries : pbandk.Message {
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries.MapEntry>
 
         /**
-         * The [MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * The [FooMapEntries.MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
          * Using it outside of the function produces an unspecified behavior.
          */
         public fun copy(builderAction: pbandk.testpb.FooMapEntries.MutableMapEntry.() -> Unit): pbandk.testpb.FooMapEntries.MapEntry
@@ -348,17 +349,17 @@ public sealed interface FooMapEntries : pbandk.Message {
                     messageDescriptor = pbandk.testpb.FooMapEntries.MapEntry::descriptor,
                     name = "key",
                     number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                    type = pbandk.FieldDescriptor.Type.string(),
                     jsonName = "key",
                     value = pbandk.testpb.FooMapEntries.MapEntry::key,
                     mutableValue = pbandk.testpb.FooMapEntries.MutableMapEntry::key,
                 )
-            public val value: pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries.MapEntry, pbandk.testpb.Foo?> =
-                pbandk.FieldDescriptor.of(
+            public val value: pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries.MapEntry, pbandk.testpb.Foo> =
+                pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.testpb.FooMapEntries.MapEntry::descriptor,
                     name = "value",
                     number = 2,
-                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion),
+                    type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.Foo.Companion),
                     jsonName = "value",
                     value = pbandk.testpb.FooMapEntries.MapEntry::value,
                     mutableValue = pbandk.testpb.FooMapEntries.MutableMapEntry::value,
@@ -420,12 +421,12 @@ public sealed interface Wrappers : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val stringValue: pbandk.FieldDescriptor<pbandk.testpb.Wrappers, String?> =
-            pbandk.FieldDescriptor.of(
+        public val stringValue: pbandk.FieldDescriptor<pbandk.testpb.Wrappers, String> =
+            pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Wrappers::descriptor,
                 name = "string_value",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.StringValue.Companion),
+                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.StringValue.Companion),
                 jsonName = "stringValue",
                 value = pbandk.testpb.Wrappers::stringValue,
                 mutableValue = pbandk.testpb.MutableWrappers::stringValue,
@@ -435,7 +436,7 @@ public sealed interface Wrappers : pbandk.Message {
                 messageDescriptor = pbandk.testpb.Wrappers::descriptor,
                 name = "uint64_values",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt64Value.Companion)),
+                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.UInt64Value.Companion)),
                 jsonName = "uint64Values",
                 value = pbandk.testpb.Wrappers::uint64Values,
                 mutableValue = pbandk.testpb.MutableWrappers::uint64Values,
@@ -561,7 +562,7 @@ public fun Bar(
 @pbandk.JsName("buildBar")
 public fun Bar(builderAction: pbandk.testpb.MutableBar.() -> Unit): pbandk.testpb.Bar =
     pbandk.testpb.MutableBar_Impl(
-        foos = pbandk.gen.MutableListField(),
+        foos = pbandk.gen.MutableListField(pbandk.testpb.Bar.FieldDescriptors.foos),
         singleFoo = null,
     ).also(builderAction).toBar()
 
@@ -691,7 +692,7 @@ private class MutableMessageWithMap_Impl(
     )
 )
 public fun FooMap(
-    map: Map<String, pbandk.testpb.Foo?> = emptyMap(),
+    map: Map<String, pbandk.testpb.Foo> = emptyMap(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ): pbandk.testpb.FooMap = pbandk.testpb.FooMap {
     this.map += map
@@ -714,7 +715,7 @@ public fun FooMap(builderAction: pbandk.testpb.MutableFooMap.() -> Unit): pbandk
 public fun FooMap?.orDefault(): pbandk.testpb.FooMap = this ?: pbandk.testpb.FooMap.defaultInstance
 
 private class FooMap_Impl(
-    override val map: pbandk.gen.MapField<String, pbandk.testpb.Foo?>,
+    override val map: pbandk.gen.MapField<String, pbandk.testpb.Foo>,
     unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.testpb.FooMap, pbandk.gen.GeneratedMessage<pbandk.testpb.FooMap>(unknownFields) {
     override val descriptor get() = pbandk.testpb.FooMap.descriptor
@@ -724,7 +725,7 @@ private class FooMap_Impl(
 
     @Deprecated("Use copy { } instead")
     override fun copy(
-        map: Map<String, pbandk.testpb.Foo?>,
+        map: Map<String, pbandk.testpb.Foo>,
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = pbandk.testpb.FooMap {
         this.map += map
@@ -733,7 +734,7 @@ private class FooMap_Impl(
 }
 
 private class MutableFooMap_Impl(
-    override val map: pbandk.gen.MutableMapField<String, pbandk.testpb.Foo?>,
+    override val map: pbandk.gen.MutableMapField<String, pbandk.testpb.Foo>,
 ) : pbandk.testpb.MutableFooMap, pbandk.gen.MutableGeneratedMessage<pbandk.testpb.FooMap>() {
     override val descriptor get() = pbandk.testpb.FooMap.descriptor
 
@@ -742,7 +743,7 @@ private class MutableFooMap_Impl(
 
     @Deprecated("Use copy { } instead")
     override fun copy(
-        map: Map<String, pbandk.testpb.Foo?>,
+        map: Map<String, pbandk.testpb.Foo>,
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = throw UnsupportedOperationException()
 
@@ -775,7 +776,7 @@ public fun FooMapEntries(
 @pbandk.JsName("buildFooMapEntries")
 public fun FooMapEntries(builderAction: pbandk.testpb.MutableFooMapEntries.() -> Unit): pbandk.testpb.FooMapEntries =
     pbandk.testpb.MutableFooMapEntries_Impl(
-        map = pbandk.gen.MutableListField(),
+        map = pbandk.gen.MutableListField(pbandk.testpb.FooMapEntries.FieldDescriptors.map),
     ).also(builderAction).toFooMapEntries()
 
 @pbandk.Export
@@ -822,7 +823,7 @@ private class MutableFooMapEntries_Impl(
 }
 
 /**
- * The [MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * The [FooMapEntries.MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
@@ -834,7 +835,7 @@ public fun FooMapEntries.Companion.MapEntry(builderAction: pbandk.testpb.FooMapE
     ).also(builderAction).toMapEntry()
 
 /**
- * The [MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * The [FooMapEntries.MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
 public fun MutableFooMapEntries.MapEntry(builderAction: pbandk.testpb.FooMapEntries.MutableMapEntry.() -> Unit): pbandk.testpb.FooMapEntries.MapEntry =
@@ -915,7 +916,7 @@ public fun Wrappers(
 public fun Wrappers(builderAction: pbandk.testpb.MutableWrappers.() -> Unit): pbandk.testpb.Wrappers =
     pbandk.testpb.MutableWrappers_Impl(
         stringValue = null,
-        uint64Values = pbandk.gen.MutableListField(),
+        uint64Values = pbandk.gen.MutableListField(pbandk.testpb.Wrappers.FieldDescriptors.uint64Values),
     ).also(builderAction).toWrappers()
 
 @pbandk.Export

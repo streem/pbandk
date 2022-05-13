@@ -21,7 +21,7 @@ class RepeatedTest {
     @Test
     fun testListWithSizeEquality() {
         val list1 = listOf(1, 2, 3)
-        val list2 = MutableListField<Int>().apply {
+        val list2 = MutableListField<Int>(FieldDescriptor.Type.int32()).apply {
             add(1)
             add(2)
             add(3)

@@ -78,7 +78,7 @@ protected constructor(): Message {
             this as MutableMessage<M>
 
             this@AbstractGeneratedMessage.fieldIterator().forEach { fieldDescriptor, value ->
-                (fieldDescriptor as FieldDescriptor<M, Any?>).updateValue(this, value)
+                (fieldDescriptor as FieldDescriptor<M, Any>).updateValue(this, value)
             }
             unknownFields += this@AbstractGeneratedMessage.unknownFields
             (this as MM).builderAction()
@@ -97,13 +97,13 @@ protected constructor(): Message {
                 if (field.isOneofMember) {
                     return@forEachField
                 } else if (field.type is FieldDescriptor.Type.Message<*>) {
-                    field as FieldDescriptor<M, Message?>
+                    field as FieldDescriptor<M, Message>
                     value as Message?
                     otherValue as Message?
 
                     field.updateValue(this, value?.plus(otherValue) ?: otherValue)
                 } else if (field.type.hasPresence) {
-                    field as FieldDescriptor<M, Any?>
+                    field as FieldDescriptor<M, Any>
 
                     otherValue?.let { field.updateValue(this, it) }
                 } else {

@@ -1,15 +1,18 @@
 package pbandk
 
+import pbandk.gen.ListField
 import pbandk.gen.MapField
+import pbandk.gen.MutableListField
+import pbandk.gen.MutableMapField
 import pbandk.internal.binary.WireType
 import pbandk.wkt.FieldOptions
-import kotlin.js.JsExport
+import pbandk.wkt.orDefault
+import kotlin.reflect.KClass
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
-@JsExport
-public sealed class FieldDescriptor<M : Message, V> private constructor(
+public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
     getMessageDescriptor: () -> MessageDescriptor<M>,
     /** The field's unqualified name. */
     @ExperimentalProtoReflection
@@ -18,8 +21,12 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
     internal val type: Type,
     internal val jsonName: String,
     @ExperimentalProtoReflection
-    public val options: FieldOptions = FieldOptions.defaultInstance
-) : Comparable<FieldDescriptor<M, V>> {
+    private val _options: FieldOptions? = null,
+) : Comparable<FieldDescriptor<M, *>> {
+    // This has to be indirect to avoid a circular dependency when initializing the [FieldOptions] class, which has its
+    // own [FieldDescriptor]s that it tries to initialize.
+    public val options: FieldOptions get() = _options.orDefault()
+
     // At the time that the [FieldDescriptor] constructor is called, the parent [MessageDescriptor] has not been
     // constructed yet. This is because this [FieldDescriptor] is one of the parameters that will be passed to the
     // [MessageDescriptor] constructor. To avoid the circular dependency, this property is declared lazy.
@@ -58,71 +65,98 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
     /**
      * Returns the value of this field in the provided message.
      */
-    internal abstract fun getValue(message: M): V
+    internal abstract fun getValue(message: M): V?
 
     /**
      * Sets or updates the value of this field in the provided message.
      *
-     * NOTE: For `List` and `Map` fields, this function _appends_ to the existing list/map value rather than replacing
-     * the value. For all other fields, this function replaces the value with the new value.
+     * NOTE: For `repeated` and `map` fields, this function _appends_ to the existing list/map value rather than
+     * replacing the value. For all other fields, this function replaces the value with the new value.
      */
-    internal abstract fun updateValue(message: MutableMessage<M>, value: V)
+    internal abstract fun updateValue(message: MutableMessage<M>, value: V?)
+
+    internal abstract fun canonicalValue(value: Any): V
+    internal abstract fun canonicalMutableValue(value: Any): V
 
     /**
      * FieldDescriptors are sorted by their field number.
      */
-    override fun compareTo(other: FieldDescriptor<M, V>): Int {
+    override fun compareTo(other: FieldDescriptor<M, *>): Int {
         require(messageDescriptor == other.messageDescriptor) {
             "Only FieldDescriptors of the same message can be compared"
         }
         return number - other.number
     }
 
-    private class Standard<M : Message, V>(
+    private class Standard<M : Message, V : Any>(
         getMessageDescriptor: () -> MessageDescriptor<M>,
         name: String,
         number: Int,
         type: Type,
-        private val getValueFn: (M) -> V,
-        private val updateValueFn: (MutableMessage<M>, V) -> Unit,
+        private val getValueFn: (M) -> V?,
+        private val updateValueFn: (MutableMessage<M>, V?) -> Unit,
+        private val canonicalValueFn: (FieldDescriptor<M, V>, Any) -> V,
+        private val canonicalMutableValueFn: (FieldDescriptor<M, V>, Any) -> V,
         override val isOneofMember: Boolean = false,
         jsonName: String,
-        options: FieldOptions = FieldOptions.defaultInstance
+        options: FieldOptions? = null,
     ) : FieldDescriptor<M, V>(
         getMessageDescriptor = getMessageDescriptor,
         name = name,
         number = number,
         type = type,
         jsonName = jsonName,
-        options = options,
+        _options = options,
     ) {
         override val isExtension: Boolean get() = false
         override val fullName: String get() = "${messageDescriptor.fullName}.${name}"
-        override fun getValue(message: M): V = getValueFn(message)
-        override fun updateValue(message: MutableMessage<M>, value: V) = updateValueFn(message, value)
+        override fun getValue(message: M): V? = getValueFn(message)
+        override fun updateValue(message: MutableMessage<M>, value: V?) = updateValueFn(message, value)
+        override fun canonicalValue(value: Any): V = canonicalValueFn(this, value)
+        override fun canonicalMutableValue(value: Any): V = canonicalMutableValueFn(this, value)
     }
 
-    private class Extension<M : ExtendableMessage<M>, V>(
+    private class Extension<M : ExtendableMessage<M>, V : Any>(
         getMessageDescriptor: () -> MessageDescriptor<M>,
         extensionName: String,
         number: Int,
         type: Type,
         jsonName: String,
-        options: FieldOptions = FieldOptions.defaultInstance
+        options: FieldOptions? = null,
     ) : FieldDescriptor<M, V>(
         getMessageDescriptor = getMessageDescriptor,
         name = extensionName.substringAfterLast('.'),
         number = number,
         type = type,
         jsonName = jsonName,
-        options = options,
+        _options = options,
     ) {
         override val isOneofMember: Boolean get() = false
         override val isExtension get() = true
         override val fullName = extensionName
-        override fun getValue(message: M): V = message.getExtension(this)
-        override fun updateValue(message: MutableMessage<M>, value: V) =
-            (message as MutableExtendableMessage<M>).setExtension(this, value)
+        override fun getValue(message: M): V? = message.getExtension(this)
+        override fun updateValue(message: MutableMessage<M>, value: V?) {
+            if (type is Type.Repeated<*>) {
+                value?.let {
+                    (message as MutableExtendableMessage<M>).getRepeatedExtension(this as FieldDescriptor<M, List<*>>)
+                        .addAll(it as List<*>)
+                }
+            } else {
+                (message as MutableExtendableMessage<M>).setExtension(this, value)
+            }
+        }
+
+        override fun canonicalValue(value: Any): V = if (type is Type.Repeated<*>) {
+            canonicalRepeatedValue(this as FieldDescriptor<M, List<Any>>, value) as V
+        } else {
+            canonicalValue(this, value)
+        }
+
+        override fun canonicalMutableValue(value: Any): V = if (type is Type.Repeated<*>) {
+            canonicalMutableRepeatedValue(this as FieldDescriptor<M, List<Any>>, value) as V
+        } else {
+            canonicalValue(this, value)
+        }
     }
 
     @PublicForGeneratedCode
@@ -130,113 +164,148 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
         internal abstract val hasPresence: Boolean
         internal abstract val isPackable: Boolean
         internal abstract val wireType: WireType
+        internal abstract val kotlinType: KClass<*>
+        internal abstract val noPresenceDefaultValue: Any
         internal abstract val defaultValue: Any?
 
-        internal abstract fun isDefaultValue(value: Any?): Boolean
-
         @PublicForGeneratedCode
-        public sealed class Primitive<KotlinT : Any>(override val defaultValue: KotlinT) : Type() {
+        public sealed class Primitive<KotlinT : Any> : Type() {
+
+            abstract override val kotlinType: KClass<KotlinT>
+            abstract override val noPresenceDefaultValue: KotlinT
 
             override val isPackable: Boolean get() = wireType != WireType.LENGTH_DELIMITED
-
-            @Suppress("UNCHECKED_CAST")
-            override fun isDefaultValue(value: Any?) =
-                if (hasPresence) value == null else (value as? KotlinT) == defaultValue
+            override val defaultValue: KotlinT? get() = if (hasPresence) null else noPresenceDefaultValue
 
             @PublicForGeneratedCode
-            public class Double(override val hasPresence: Boolean = false) : Primitive<kotlin.Double>(0.0) {
-                override val wireType: WireType get() = WireType.FIXED64
+            public class Double(override val hasPresence: Boolean = false) : Primitive<kotlin.Double>() {
+                override val kotlinType = kotlin.Double::class
+                override val noPresenceDefaultValue = 0.0
+                override val wireType = WireType.FIXED64
             }
 
             @PublicForGeneratedCode
-            public class Float(override val hasPresence: Boolean = false) : Primitive<kotlin.Float>(0.0f) {
-                override val wireType: WireType get() = WireType.FIXED32
+            public class Float(override val hasPresence: Boolean = false) : Primitive<kotlin.Float>() {
+                override val kotlinType = kotlin.Float::class
+                override val noPresenceDefaultValue = 0.0f
+                override val wireType = WireType.FIXED32
             }
 
             @PublicForGeneratedCode
-            public class Int64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
-                override val wireType: WireType get() = WireType.VARINT
+            public class Int64(override val hasPresence: Boolean = false) : Primitive<Long>() {
+                override val kotlinType = Long::class
+                override val noPresenceDefaultValue = 0L
+                override val wireType = WireType.VARINT
             }
 
             @PublicForGeneratedCode
-            public class UInt64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
-                override val wireType: WireType get() = WireType.VARINT
+            public class UInt64(override val hasPresence: Boolean = false) : Primitive<Long>() {
+                override val kotlinType = Long::class
+                override val noPresenceDefaultValue = 0L
+                override val wireType = WireType.VARINT
             }
 
             @PublicForGeneratedCode
-            public class Int32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
-                override val wireType: WireType get() = WireType.VARINT
+            public class Int32(override val hasPresence: Boolean = false) : Primitive<Int>() {
+                override val kotlinType = Int::class
+                override val noPresenceDefaultValue = 0
+                override val wireType = WireType.VARINT
             }
 
             @PublicForGeneratedCode
-            public class Fixed64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
-                override val wireType: WireType get() = WireType.FIXED64
+            public class Fixed64(override val hasPresence: Boolean = false) : Primitive<Long>() {
+                override val kotlinType = Long::class
+                override val noPresenceDefaultValue = 0L
+                override val wireType = WireType.FIXED64
             }
 
             @PublicForGeneratedCode
-            public class Fixed32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
-                override val wireType: WireType get() = WireType.FIXED32
+            public class Fixed32(override val hasPresence: Boolean = false) : Primitive<Int>() {
+                override val kotlinType = Int::class
+                override val noPresenceDefaultValue = 0
+                override val wireType = WireType.FIXED32
             }
 
             @PublicForGeneratedCode
-            public class Bool(override val hasPresence: Boolean = false) : Primitive<Boolean>(false) {
-                override val wireType: WireType get() = WireType.VARINT
+            public class Bool(override val hasPresence: Boolean = false) : Primitive<Boolean>() {
+                override val kotlinType = Boolean::class
+                override val noPresenceDefaultValue = false
+                override val wireType = WireType.VARINT
             }
 
             @PublicForGeneratedCode
-            public class String(override val hasPresence: Boolean = false) : Primitive<kotlin.String>("") {
-                override val wireType: WireType get() = WireType.LENGTH_DELIMITED
+            public class String(override val hasPresence: Boolean = false) : Primitive<kotlin.String>() {
+                override val kotlinType = kotlin.String::class
+                override val noPresenceDefaultValue = ""
+                override val wireType = WireType.LENGTH_DELIMITED
             }
 
             @PublicForGeneratedCode
-            public class Bytes(override val hasPresence: Boolean = false) : Primitive<ByteArr>(ByteArr.empty) {
-                override val wireType: WireType get() = WireType.LENGTH_DELIMITED
+            public class Bytes(override val hasPresence: Boolean = false) : Primitive<ByteArr>() {
+                override val kotlinType = ByteArr::class
+                override val noPresenceDefaultValue = ByteArr.empty
+                override val wireType = WireType.LENGTH_DELIMITED
             }
 
             @PublicForGeneratedCode
-            public class UInt32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
-                override val wireType: WireType get() = WireType.VARINT
+            public class UInt32(override val hasPresence: Boolean = false) : Primitive<Int>() {
+                override val kotlinType = Int::class
+                override val noPresenceDefaultValue = 0
+                override val wireType = WireType.VARINT
             }
 
             @PublicForGeneratedCode
-            public class SFixed32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
-                override val wireType: WireType get() = WireType.FIXED32
+            public class SFixed32(override val hasPresence: Boolean = false) : Primitive<Int>() {
+                override val kotlinType = Int::class
+                override val noPresenceDefaultValue = 0
+                override val wireType = WireType.FIXED32
             }
 
             @PublicForGeneratedCode
-            public class SFixed64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
-                override val wireType: WireType get() = WireType.FIXED64
+            public class SFixed64(override val hasPresence: Boolean = false) : Primitive<Long>() {
+                override val kotlinType = Long::class
+                override val noPresenceDefaultValue = 0L
+                override val wireType = WireType.FIXED64
             }
 
             @PublicForGeneratedCode
-            public class SInt32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
-                override val wireType: WireType get() = WireType.VARINT
+            public class SInt32(override val hasPresence: Boolean = false) : Primitive<Int>() {
+                override val kotlinType = Int::class
+                override val noPresenceDefaultValue = 0
+                override val wireType = WireType.VARINT
             }
 
             @PublicForGeneratedCode
-            public class SInt64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
-                override val wireType: WireType get() = WireType.VARINT
+            public class SInt64(override val hasPresence: Boolean = false) : Primitive<Long>() {
+                override val kotlinType = Long::class
+                override val noPresenceDefaultValue = 0L
+                override val wireType = WireType.VARINT
             }
         }
 
         @PublicForGeneratedCode
-        public class Message<M : pbandk.Message>(internal val messageCompanion: pbandk.Message.Companion<M>) : Type() {
+        public class Message<M : pbandk.Message>(
+            internal val messageCompanion: pbandk.Message.Companion<M>,
+            override val kotlinType: KClass<M>,
+        ) : Type() {
             override val hasPresence get() = true
             override val isPackable: Boolean get() = false
             override val wireType: WireType get() = WireType.LENGTH_DELIMITED
-            override val defaultValue: Any? get() = null
-            override fun isDefaultValue(value: Any?) = value == null
+            // TODO
+            override val noPresenceDefaultValue: M get() = messageCompanion.decodeFromByteArray(byteArrayOf())
+            override val defaultValue: M? get() = null
         }
 
         @PublicForGeneratedCode
         public class Enum<E : pbandk.Message.Enum>(
             internal val enumCompanion: pbandk.Message.Enum.Companion<E>,
+            override val kotlinType: KClass<E>,
             override val hasPresence: Boolean = false
         ) : Type() {
             override val isPackable: Boolean get() = true
             override val wireType: WireType get() = WireType.VARINT
-            override val defaultValue: Any? = enumCompanion.fromValue(0)
-            override fun isDefaultValue(value: Any?) = (value as? pbandk.Message.Enum)?.value == 0
+            override val noPresenceDefaultValue: E = enumCompanion.fromValue(0)
+            override val defaultValue: E? = if (hasPresence) null else noPresenceDefaultValue
         }
 
         // TODO: replace [packed] with [FieldOptions] to be able to support custom options in the future
@@ -245,26 +314,167 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             override val hasPresence get() = false
             override val isPackable: Boolean get() = false
             override val wireType: WireType get() = valueType.wireType
-            override val defaultValue: Any? = emptyList<T>()
-            override fun isDefaultValue(value: Any?) = (value as? List<*>)?.isEmpty() == true
+            override val kotlinType: KClass<List<*>> get() = List::class
+            override val noPresenceDefaultValue: List<T> = ListField.empty()
+            override val defaultValue: List<T> = ListField.empty()
         }
 
         @PublicForGeneratedCode
-        public class Map<K, V>(keyType: Type, valueType: Type) : Type() {
+        public class Map<K : Any, V : Any>(keyType: Type, valueType: Type) : Type() {
             internal val entryCompanion: MapField.Entry.Companion<K, V> =
                 MapField.Entry.Companion(keyType, valueType)
             override val hasPresence get() = false
             override val isPackable: Boolean get() = false
             override val wireType: WireType get() = WireType.LENGTH_DELIMITED
-            override val defaultValue: Any? = emptyMap<K, V>()
-            override fun isDefaultValue(value: Any?) = (value as? kotlin.collections.Map<*, *>)?.isEmpty() == true
+            override val kotlinType: KClass<Map<*, *>> get() = Map::class
+            override val noPresenceDefaultValue: kotlin.collections.Map<K, V> = MapField.empty()
+            override val defaultValue: kotlin.collections.Map<K, V> = MapField.empty()
+        }
+
+        public companion object {
+            @PublicForGeneratedCode
+            public inline fun <reified E : pbandk.Message.Enum> enum(
+                enumCompanion: pbandk.Message.Enum.Companion<E>,
+                hasPresence: Boolean = false
+            ): Enum<E> = enum(enumCompanion, E::class, hasPresence)
+
+            @PublicForGeneratedCode
+            @JsName("enumWithKotlinType")
+            public fun <E : pbandk.Message.Enum> enum(
+                enumCompanion: pbandk.Message.Enum.Companion<E>,
+                kotlinType: KClass<E>,
+                hasPresence: Boolean = false
+            ): Enum<E> = Enum(enumCompanion, kotlinType, hasPresence)
+
+            @PublicForGeneratedCode
+            public fun <K : Any, V : Any> map(keyType: Type, valueType: Type): Map<K, V> = Map(keyType, valueType)
+
+            @PublicForGeneratedCode
+            public inline fun <reified M : pbandk.Message> message(messageCompanion: pbandk.Message.Companion<M>): Message<M> =
+                message(messageCompanion, M::class)
+
+            @PublicForGeneratedCode
+            @JsName("messageWithKotlinType")
+            public fun <M : pbandk.Message> message(
+                messageCompanion: pbandk.Message.Companion<M>,
+                kotlinType: KClass<M>
+            ): Message<M> = Message(messageCompanion, kotlinType)
+
+            @PublicForGeneratedCode
+            public fun <T : Any> repeated(valueType: Type, packed: Boolean = false): Repeated<T> =
+                Repeated(valueType, packed)
+
+            private val DoubleNoPresence = Primitive.Double()
+            private val DoubleHasPresence = Primitive.Double(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun double(hasPresence: Boolean = false): Primitive.Double =
+                if (hasPresence) DoubleHasPresence else DoubleNoPresence
+
+            private val FloatNoPresence = Primitive.Float()
+            private val FloatHasPresence = Primitive.Float(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun float(hasPresence: Boolean = false): Primitive.Float =
+                if (hasPresence) FloatHasPresence else FloatNoPresence
+
+            private val Int64NoPresence = Primitive.Int64()
+            private val Int64HasPresence = Primitive.Int64(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun int64(hasPresence: Boolean = false): Primitive.Int64 =
+                if (hasPresence) Int64HasPresence else Int64NoPresence
+
+            private val UInt64NoPresence = Primitive.UInt64()
+            private val UInt64HasPresence = Primitive.UInt64(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun uint64(hasPresence: Boolean = false): Primitive.UInt64 =
+                if (hasPresence) UInt64HasPresence else UInt64NoPresence
+
+            private val Int32NoPresence = Primitive.Int32()
+            private val Int32HasPresence = Primitive.Int32(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun int32(hasPresence: Boolean = false): Primitive.Int32 =
+                if (hasPresence) Int32HasPresence else Int32NoPresence
+
+            private val Fixed64NoPresence = Primitive.Fixed64()
+            private val Fixed64HasPresence = Primitive.Fixed64(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun fixed64(hasPresence: Boolean = false): Primitive.Fixed64 =
+                if (hasPresence) Fixed64HasPresence else Fixed64NoPresence
+
+            private val Fixed32NoPresence = Primitive.Fixed32()
+            private val Fixed32HasPresence = Primitive.Fixed32(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun fixed32(hasPresence: Boolean = false): Primitive.Fixed32 =
+                if (hasPresence) Fixed32HasPresence else Fixed32NoPresence
+
+            private val BoolNoPresence = Primitive.Bool()
+            private val BoolHasPresence = Primitive.Bool(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun bool(hasPresence: Boolean = false): Primitive.Bool =
+                if (hasPresence) BoolHasPresence else BoolNoPresence
+
+            private val StringNoPresence = Primitive.String()
+            private val StringHasPresence = Primitive.String(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun string(hasPresence: Boolean = false): Primitive.String =
+                if (hasPresence) StringHasPresence else StringNoPresence
+
+            private val BytesNoPresence = Primitive.Bytes()
+            private val BytesHasPresence = Primitive.Bytes(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun bytes(hasPresence: Boolean = false): Primitive.Bytes =
+                if (hasPresence) BytesHasPresence else BytesNoPresence
+
+            private val UInt32NoPresence = Primitive.UInt32()
+            private val UInt32HasPresence = Primitive.UInt32(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun uint32(hasPresence: Boolean = false): Primitive.UInt32 =
+                if (hasPresence) UInt32HasPresence else UInt32NoPresence
+
+            private val SFixed64NoPresence = Primitive.SFixed64()
+            private val SFixed64HasPresence = Primitive.SFixed64(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun sfixed64(hasPresence: Boolean = false): Primitive.SFixed64 =
+                if (hasPresence) SFixed64HasPresence else SFixed64NoPresence
+
+            private val SFixed32NoPresence = Primitive.SFixed32()
+            private val SFixed32HasPresence = Primitive.SFixed32(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun sfixed32(hasPresence: Boolean = false): Primitive.SFixed32 =
+                if (hasPresence) SFixed32HasPresence else SFixed32NoPresence
+
+            private val SInt64NoPresence = Primitive.SInt64()
+            private val SInt64HasPresence = Primitive.SInt64(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun sint64(hasPresence: Boolean = false): Primitive.SInt64 =
+                if (hasPresence) SInt64HasPresence else SInt64NoPresence
+
+            private val SInt32NoPresence = Primitive.SInt32()
+            private val SInt32HasPresence = Primitive.SInt32(hasPresence = true)
+
+            @PublicForGeneratedCode
+            public fun sint32(hasPresence: Boolean = false): Primitive.SInt32 =
+                if (hasPresence) SInt32HasPresence else SInt32NoPresence
         }
     }
 
     public companion object {
         @PublicForGeneratedCode
         @Suppress("UNCHECKED_CAST")
-        public fun <M : Message, MM : MutableMessage<M>, V> of(
+        public fun <M : Message, MM : MutableMessage<M>, V : Any> of(
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             name: String,
             number: Int,
@@ -272,14 +482,40 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             value: KProperty1<M, V>,
             mutableValue: KMutableProperty1<MM, V>,
             jsonName: String,
-            options: FieldOptions = FieldOptions.defaultInstance
+            options: FieldOptions? = null,
         ): FieldDescriptor<M, V> = Standard(
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             number = number,
             type = type,
             getValueFn = value::get,
-            updateValueFn = mutableValue::set as (MutableMessage<M>, V) -> Unit,
+            updateValueFn = { message, v -> v?.let { mutableValue.set(message as MM, it) } },
+            canonicalValueFn = ::canonicalValue,
+            canonicalMutableValueFn = ::canonicalValue,
+            jsonName = jsonName,
+            options = options
+        )
+
+        @PublicForGeneratedCode
+        @Suppress("UNCHECKED_CAST")
+        public fun <M : Message, MM : MutableMessage<M>, V : Any> ofOptional(
+            messageDescriptor: KProperty0<MessageDescriptor<M>>,
+            name: String,
+            number: Int,
+            type: Type,
+            value: KProperty1<M, V?>,
+            mutableValue: KMutableProperty1<MM, V?>,
+            jsonName: String,
+            options: FieldOptions? = null,
+        ): FieldDescriptor<M, V> = Standard(
+            getMessageDescriptor = messageDescriptor::get,
+            name = name,
+            number = number,
+            type = type,
+            getValueFn = value::get,
+            updateValueFn = mutableValue::set as (MutableMessage<M>, V?) -> Unit,
+            canonicalValueFn = ::canonicalValue,
+            canonicalMutableValueFn = ::canonicalValue,
             jsonName = jsonName,
             options = options
         )
@@ -294,14 +530,16 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             value: KProperty1<M, V?>,
             mutableValue: KMutableProperty1<MM, V?>,
             jsonName: String,
-            options: FieldOptions = FieldOptions.defaultInstance
-        ): FieldDescriptor<M, V?> = Standard(
+            options: FieldOptions? = null,
+        ): FieldDescriptor<M, V> = Standard(
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             number = number,
             type = type,
             getValueFn = value::get,
             updateValueFn = mutableValue::set as (MutableMessage<M>, V?) -> Unit,
+            canonicalValueFn = ::canonicalValue,
+            canonicalMutableValueFn = ::canonicalValue,
             isOneofMember = true,
             jsonName = jsonName,
             options = options
@@ -316,7 +554,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             value: KProperty1<M, List<T>>,
             mutableValue: KProperty1<MM, MutableList<T>>,
             jsonName: String,
-            options: FieldOptions = FieldOptions.defaultInstance
+            options: FieldOptions? = null,
         ): FieldDescriptor<M, List<T>> = Standard(
             getMessageDescriptor = messageDescriptor::get,
             name = name,
@@ -324,12 +562,14 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             type = type,
             getValueFn = value::get,
             updateValueFn = mutableValue::appendList,
+            canonicalValueFn = ::canonicalRepeatedValue,
+            canonicalMutableValueFn = ::canonicalMutableRepeatedValue,
             jsonName = jsonName,
             options = options
         )
 
         @PublicForGeneratedCode
-        public fun <M : Message, MM : MutableMessage<M>, K, V> ofMap(
+        public fun <M : Message, MM : MutableMessage<M>, K : Any, V : Any> ofMap(
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             name: String,
             number: Int,
@@ -337,7 +577,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             value: KProperty1<M, Map<K, V>>,
             mutableValue: KProperty1<MM, MutableMap<K, V>>,
             jsonName: String,
-            options: FieldOptions = FieldOptions.defaultInstance
+            options: FieldOptions? = null,
         ): FieldDescriptor<M, Map<K, V>> = Standard(
             getMessageDescriptor = messageDescriptor::get,
             name = name,
@@ -345,19 +585,21 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             type = type,
             getValueFn = value::get,
             updateValueFn = mutableValue::appendMap,
+            canonicalValueFn = ::canonicalMapValue,
+            canonicalMutableValueFn = ::canonicalMutableMapValue,
             jsonName = jsonName,
             options = options
         )
 
         @PublicForGeneratedCode
         @Suppress("UNCHECKED_CAST")
-        public fun <M : ExtendableMessage<M>, V> ofExtension(
+        public fun <M : ExtendableMessage<M>, V : Any> ofExtension(
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             fullName: String,
             number: Int,
             type: Type,
             jsonName: String,
-            options: FieldOptions = FieldOptions.defaultInstance
+            options: FieldOptions? = null,
         ): FieldDescriptor<M, V> = Extension(
             getMessageDescriptor = messageDescriptor::get,
             extensionName = fullName,
@@ -374,7 +616,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             number: Int,
             type: Type.Repeated<T>,
             jsonName: String,
-            options: FieldOptions = FieldOptions.defaultInstance
+            options: FieldOptions? = null,
         ): FieldDescriptor<M, List<T>> = Extension(
             getMessageDescriptor = messageDescriptor::get,
             extensionName = fullName,
@@ -387,18 +629,125 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
 
 }
 
-private fun <M : Message, MM : MutableMessage<M>, T> KProperty1<MM, MutableList<T>>.appendList(
+private fun <M : Message, MM : MutableMessage<M>, T : Any> KProperty1<MM, MutableList<T>>.appendList(
     message: MutableMessage<M>,
-    newValue: List<T>,
+    newValue: List<T>?,
 ) {
     @Suppress("UNCHECKED_CAST")
-    get(message as MM).addAll(newValue)
+    newValue?.let { get(message as MM).addAll(it) }
 }
 
-private fun <M : Message, MM : MutableMessage<M>, K, V> KProperty1<MM, MutableMap<K, V>>.appendMap(
+private fun <M : Message, MM : MutableMessage<M>, K : Any, V : Any> KProperty1<MM, MutableMap<K, V>>.appendMap(
     message: MutableMessage<M>,
-    newValue: Map<K, V>
+    newValue: Map<K, V>?
 ) {
     @Suppress("UNCHECKED_CAST")
-    get(message as MM).putAll(newValue)
+    newValue?.let { get(message as MM).putAll(it) }
+}
+
+@Suppress("UNCHECKED_CAST")
+private fun <M : Message, V : Any> canonicalValue(fd: FieldDescriptor<M, V>, value: Any): V {
+    require(fd.type.kotlinType.isInstance(value))
+    return value as V
+}
+
+@Suppress("UNCHECKED_CAST")
+private fun <M : Message, T : Any> canonicalRepeatedValue(fd: FieldDescriptor<M, List<T>>, value: Any): ListField<T> {
+    check(fd.type is FieldDescriptor.Type.Repeated<*>)
+
+    val valueType = (fd.type as FieldDescriptor.Type.Repeated<T>).valueType
+    return when (value) {
+        is ListField<*> -> {
+            require(value.valueType == valueType)
+            value as ListField<T>
+        }
+        is MutableListField<*> -> {
+            require(value.valueType == valueType)
+            (value as MutableListField<T>).toListField()
+        }
+        is Collection<*> -> {
+            require(value.all { valueType.kotlinType.isInstance(it) })
+            ListField(valueType, value as Collection<T>)
+        }
+        else -> throw IllegalArgumentException("value must be a Collection")
+    }
+}
+
+@Suppress("UNCHECKED_CAST")
+private fun <M : Message, T : Any> canonicalMutableRepeatedValue(
+    fd: FieldDescriptor<M, List<T>>,
+    value: Any
+): MutableListField<T> {
+    check(fd.type is FieldDescriptor.Type.Repeated<*>)
+
+    val valueType = (fd.type as FieldDescriptor.Type.Repeated<T>).valueType
+    return when (value) {
+        is MutableListField<*> -> {
+            require(value.valueType == valueType)
+            MutableListField(valueType, value as MutableListField<T>)
+        }
+        is ListField<*> -> {
+            require(value.valueType == valueType)
+            MutableListField(valueType, value as ListField<T>)
+        }
+        is Collection<*> -> {
+            require(value.all { valueType.kotlinType.isInstance(it) })
+            MutableListField(valueType, value as Collection<T>)
+        }
+        else -> throw IllegalArgumentException("value must be a Collection")
+    }
+}
+
+@Suppress("UNCHECKED_CAST")
+private fun <M : Message, K : Any, V : Any> canonicalMapValue(
+    fd: FieldDescriptor<M, Map<K, V>>,
+    value: Any
+): MapField<K, V> {
+    check(fd.type is FieldDescriptor.Type.Map<*, *>)
+
+    val companion = (fd.type as FieldDescriptor.Type.Map<K, V>).entryCompanion
+    return when (value) {
+        is MapField<*, *> -> {
+            require(value.entryCompanion == companion)
+            value as MapField<K, V>
+        }
+        is MutableMapField<*, *> -> {
+            require(value.entryCompanion == companion)
+            (value as MutableMapField<K, V>).toMapField()
+        }
+        is Map<*, *> -> {
+            require(value.all {
+                companion.keyType.kotlinType.isInstance(it.key) && companion.valueType.kotlinType.isInstance(it.value)
+            })
+            MapField(companion, value as Map<K, V>)
+        }
+        else -> throw IllegalArgumentException("value must be a Map")
+    }
+}
+
+@Suppress("UNCHECKED_CAST")
+private fun <M : Message, K : Any, V : Any> canonicalMutableMapValue(
+    fd: FieldDescriptor<M, Map<K, V>>,
+    value: Any
+): MutableMapField<K, V> {
+    check(fd.type is FieldDescriptor.Type.Map<*, *>)
+
+    val companion = (fd.type as FieldDescriptor.Type.Map<K, V>).entryCompanion
+    return when (value) {
+        is MutableMapField<*, *> -> {
+            require(value.entryCompanion == companion)
+            MutableMapField(companion).apply { putAll(value as MutableMapField<K, V>) }
+        }
+        is MapField<*, *> -> {
+            require(value.entryCompanion == companion)
+            MutableMapField(companion).apply { putAll(value as MapField<K, V>) }
+        }
+        is Map<*, *> -> {
+            require(value.all {
+                companion.keyType.kotlinType.isInstance(it.key) && companion.valueType.kotlinType.isInstance(it.value)
+            })
+            MutableMapField(companion).apply { putAll(value as Map<K, V>) }
+        }
+        else -> throw IllegalArgumentException("value must be a Map")
+    }
 }

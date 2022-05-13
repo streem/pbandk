@@ -4,8 +4,6 @@ import kotlin.Any
 import pbandk.*
 import pbandk.gen.MutableMapField
 import pbandk.wkt.*
-import kotlin.reflect.KMutableProperty1
-import kotlin.reflect.KProperty1
 
 internal fun FieldDescriptor.Type.allowedWireType(wireType: WireType) =
     this.wireType == wireType ||
@@ -86,13 +84,13 @@ internal class BinaryMessageDecoder(private val wireDecoder: BinaryWireDecoder) 
                         }
                         is FieldDescriptor.Type.Map<*, *> -> {
                             @Suppress("UNCHECKED_CAST")
-                            value as Sequence<Map.Entry<*, *>>
+                            value as Sequence<Map.Entry<Any, Any>>
                             @Suppress("UNCHECKED_CAST")
-                            (fd.getValue(this as M) as MutableMapField<Any?, Any?>).putAll(value)
+                            (fd.getValue(this as M) as MutableMapField<Any, Any>).putAll(value)
                         }
                         else -> {
                             @Suppress("UNCHECKED_CAST")
-                            (fd as FieldDescriptor<M, Any?>).updateValue(this, value)
+                            (fd as FieldDescriptor<M, Any>).updateValue(this, value)
                         }
                     }
                 }

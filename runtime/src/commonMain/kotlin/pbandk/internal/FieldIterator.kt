@@ -6,11 +6,11 @@ import pbandk.Message
 import pbandk.gen.GeneratedExtendableMessage
 import pbandk.gen.messageDescriptor
 
-internal interface FieldIterator<M : Message> : Iterator<FieldDescriptor<M, *>> {
+internal interface FieldIterator<M : Message> : Iterator<FieldDescriptor<M, out Any>> {
     fun nextValue(): Any?
 }
 
-internal inline fun <M : Message> FieldIterator<M>.forEach(operation: (FieldDescriptor<M, *>, Any?) -> Unit) {
+internal inline fun <M : Message> FieldIterator<M>.forEach(operation: (FieldDescriptor<M, out Any>, Any?) -> Unit) {
     while (hasNext()) {
         val fd = next()
         val value = nextValue()
@@ -30,7 +30,7 @@ internal fun <M : Message> M.fieldIterator(): FieldIterator<M> {
 
 private fun <T : Any> Iterator<T>.nextOrNull(): T? = if (hasNext()) next() else null
 
-internal inline fun <M : Message> forEachField(first: M, second: M, operation: (FieldDescriptor<M, *>, Any?, Any?) -> Unit) {
+internal inline fun <M : Message> forEachField(first: M, second: M, operation: (FieldDescriptor<M, out Any>, Any?, Any?) -> Unit) {
     require(first.descriptor == second.descriptor)
 
     val firstIter = first.messageDescriptor.fields.iteratorFor(first)
@@ -58,23 +58,23 @@ internal inline fun <M : Message> forEachField(first: M, second: M, operation: (
                     secondFd = secondExtensionIter.nextOrNull()
                 }
                 firstFd.number <= secondFd.number -> {
-                    operation(firstFd, firstExtensionIter.nextValue(), if (firstFd.type.hasPresence) firstFd.type.defaultValue else null)
+                    operation(firstFd, firstExtensionIter.nextValue(), firstFd.type.defaultValue)
                     firstFd = firstExtensionIter.nextOrNull()
                 }
                 else -> {
-                    operation(secondFd, if (secondFd.type.hasPresence) secondFd.type.defaultValue else null, secondExtensionIter.nextValue())
+                    operation(secondFd, secondFd.type.defaultValue, secondExtensionIter.nextValue())
                     secondFd = secondExtensionIter.nextOrNull()
                 }
             }
         }
 
         while (firstFd != null) {
-            operation(firstFd, firstExtensionIter.nextValue(), if (firstFd.type.hasPresence) firstFd.type.defaultValue else null)
+            operation(firstFd, firstExtensionIter.nextValue(), firstFd.type.defaultValue)
             firstFd = firstExtensionIter.nextOrNull()
         }
 
         while (secondFd != null) {
-            operation(secondFd, if (secondFd.type.hasPresence) secondFd.type.defaultValue else null, secondExtensionIter.nextValue())
+            operation(secondFd, secondFd.type.defaultValue, secondExtensionIter.nextValue())
             secondFd = secondExtensionIter.nextOrNull()
         }
     }
@@ -95,7 +95,7 @@ internal class ConcatFieldIterator<M : Message>(
         }
     }
 
-    override fun next(): FieldDescriptor<M, *> = try {
+    override fun next(): FieldDescriptor<M, out Any> = try {
         currentIter.next()
     } catch (e : NoSuchElementException) {
         if (currentIter == lastIter) {
