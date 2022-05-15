@@ -43,7 +43,7 @@ private fun <T> UnknownField.Value.Companion.encode(type: FieldDescriptor.Type, 
  */
 
 @Suppress("UNCHECKED_CAST")
-internal fun <M : Message, T : Any> UnknownField.decodeAs(fieldDescriptor: FieldDescriptor<M, T>): T =
+internal fun <M : Message, T> UnknownField.decodeAs(fieldDescriptor: FieldDescriptor<M, T>): T =
     when (fieldDescriptor.type) {
         is FieldDescriptor.Type.Enum<*> -> decodeAsEnum(fieldDescriptor.type) as T
         is FieldDescriptor.Type.Map<*, *> -> decodeAsMap(fieldDescriptor.type) as T

@@ -15,6 +15,16 @@ public interface Message {
 
     public operator fun plus(other: Message?): Message
 
+    /**
+     * Returns the value of the protocol buffer field from this message that is described by [fieldDescriptor]. If this
+     * message does not contain a value for this field, the field's default value will be returned.
+     *
+     * [fieldDescriptor] can be a descriptor for an extension field that was not defined on the original message, but it
+     * _MUST_ be a descriptor for fields in messages of type [M].
+     */
+    @ExperimentalProtoReflection
+    public fun <V> getFieldValue(fieldDescriptor: FieldDescriptor<*, V>): V
+
     public interface Companion<M : Message> {
         public val descriptor: MessageDescriptor<M>
     }
@@ -71,7 +81,7 @@ public operator fun <M : Message> M?.plus(other: M?): M? = this?.plus(other) as 
  * [fieldDescriptor] can be a descriptor for an extension field that was not defined on the original message, but it
  * _MUST_ be a descriptor for fields in messages of type [M].
  */
-@ExperimentalProtoReflection
-public fun <M : Message, V : Any> M.getFieldValue(fieldDescriptor: FieldDescriptor<M, out V>): V? {
-    return fieldDescriptor.getValue(this)
-}
+//@ExperimentalProtoReflection
+//public fun <M : Message, V : Any> M.getFieldValue(fieldDescriptor: FieldDescriptor<M, out V>): V? {
+//    return fieldDescriptor.getValue(this)
+//}

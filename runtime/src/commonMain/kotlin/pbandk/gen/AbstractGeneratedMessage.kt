@@ -78,7 +78,7 @@ protected constructor(): Message {
             this as MutableMessage<M>
 
             this@AbstractGeneratedMessage.fieldIterator().forEach { fieldDescriptor, value ->
-                (fieldDescriptor as FieldDescriptor<M, Any>).updateValue(this, value)
+                updateFieldValue(fieldDescriptor as FieldDescriptor<M, Any?>, value)
             }
             unknownFields += this@AbstractGeneratedMessage.unknownFields
             (this as MM).builderAction()
@@ -97,20 +97,20 @@ protected constructor(): Message {
                 if (field.isOneofMember) {
                     return@forEachField
                 } else if (field.type is FieldDescriptor.Type.Message<*>) {
-                    field as FieldDescriptor<M, Message>
+                    field as FieldDescriptor<M, Message?>
                     value as Message?
                     otherValue as Message?
 
-                    field.updateValue(this, value?.plus(otherValue) ?: otherValue)
+                    updateFieldValue(field, value?.plus(otherValue) ?: otherValue)
                 } else if (field.type.hasPresence) {
-                    field as FieldDescriptor<M, Any>
+                    field as FieldDescriptor<M, Any?>
 
-                    otherValue?.let { field.updateValue(this, it) }
+                    otherValue?.let { updateFieldValue(field, it) }
                 } else {
                     field as FieldDescriptor<M, Any>
                     otherValue as Any
 
-                    field.updateValue(this, otherValue)
+                    updateFieldValue(field, otherValue)
                 }
             }
 
@@ -125,8 +125,8 @@ protected constructor(): Message {
                     oneof.copyValue(other, this)
                 } else if (messageValue.value is Message) {
                     messageValue as GeneratedOneOf<M, Message>
-                    messageValue.currentFieldDescriptor.updateValue(
-                        this,
+                    updateFieldValue(
+                        messageValue.currentFieldDescriptor,
                         messageValue.value.plus(otherValue.value as Message)
                     )
                 } else {
@@ -136,6 +136,14 @@ protected constructor(): Message {
 
             unknownFields += other.unknownFields
         }
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    override fun <V> getFieldValue(fieldDescriptor: FieldDescriptor<*, V>): V {
+        require(fieldDescriptor.messageDescriptor == messageDescriptor)
+        require(fieldDescriptor is FieldDescriptor.Standard<*, *, V>)
+        fieldDescriptor as FieldDescriptor.Standard<M, *, V>
+        return fieldDescriptor.accessor.getValue(this as M)
     }
 
 }

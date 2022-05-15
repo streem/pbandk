@@ -512,7 +512,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalBytes,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalBytes,
             )
-        public val optionalNestedMessage: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.testpb.TestAllTypesProto3.NestedMessage> =
+        public val optionalNestedMessage: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.testpb.TestAllTypesProto3.NestedMessage?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_nested_message",
@@ -522,7 +522,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalNestedMessage,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalNestedMessage,
             )
-        public val optionalForeignMessage: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.testpb.ForeignMessage> =
+        public val optionalForeignMessage: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.testpb.ForeignMessage?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_foreign_message",
@@ -582,7 +582,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalCord,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalCord,
             )
-        public val recursiveMessage: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.testpb.TestAllTypesProto3> =
+        public val recursiveMessage: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.testpb.TestAllTypesProto3?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "recursive_message",
@@ -1272,7 +1272,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::unpackedNestedEnum,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::unpackedNestedEnum,
             )
-        public val oneofUint32: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Int> =
+        public val oneofUint32: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Int?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "oneof_uint32",
@@ -1282,7 +1282,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::oneofUint32,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::oneofUint32,
             )
-        public val oneofNestedMessage: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.testpb.TestAllTypesProto3.NestedMessage> =
+        public val oneofNestedMessage: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.testpb.TestAllTypesProto3.NestedMessage?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "oneof_nested_message",
@@ -1292,7 +1292,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::oneofNestedMessage,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::oneofNestedMessage,
             )
-        public val oneofString: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, String> =
+        public val oneofString: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, String?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "oneof_string",
@@ -1302,7 +1302,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::oneofString,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::oneofString,
             )
-        public val oneofBytes: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.ByteArr> =
+        public val oneofBytes: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.ByteArr?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "oneof_bytes",
@@ -1312,7 +1312,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::oneofBytes,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::oneofBytes,
             )
-        public val oneofBool: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Boolean> =
+        public val oneofBool: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "oneof_bool",
@@ -1322,7 +1322,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::oneofBool,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::oneofBool,
             )
-        public val oneofUint64: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Long> =
+        public val oneofUint64: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Long?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "oneof_uint64",
@@ -1332,7 +1332,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::oneofUint64,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::oneofUint64,
             )
-        public val oneofFloat: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Float> =
+        public val oneofFloat: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Float?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "oneof_float",
@@ -1342,7 +1342,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::oneofFloat,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::oneofFloat,
             )
-        public val oneofDouble: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Double> =
+        public val oneofDouble: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Double?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "oneof_double",
@@ -1352,7 +1352,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::oneofDouble,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::oneofDouble,
             )
-        public val oneofEnum: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.testpb.TestAllTypesProto3.NestedEnum> =
+        public val oneofEnum: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.testpb.TestAllTypesProto3.NestedEnum?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "oneof_enum",
@@ -1362,7 +1362,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::oneofEnum,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::oneofEnum,
             )
-        public val optionalBoolWrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Boolean> =
+        public val optionalBoolWrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_bool_wrapper",
@@ -1372,7 +1372,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalBoolWrapper,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalBoolWrapper,
             )
-        public val optionalInt32Wrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Int> =
+        public val optionalInt32Wrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_int32_wrapper",
@@ -1382,7 +1382,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalInt32Wrapper,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalInt32Wrapper,
             )
-        public val optionalInt64Wrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Long> =
+        public val optionalInt64Wrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_int64_wrapper",
@@ -1392,7 +1392,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalInt64Wrapper,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalInt64Wrapper,
             )
-        public val optionalUint32Wrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Int> =
+        public val optionalUint32Wrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_uint32_wrapper",
@@ -1402,7 +1402,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalUint32Wrapper,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalUint32Wrapper,
             )
-        public val optionalUint64Wrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Long> =
+        public val optionalUint64Wrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_uint64_wrapper",
@@ -1412,7 +1412,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalUint64Wrapper,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalUint64Wrapper,
             )
-        public val optionalFloatWrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Float> =
+        public val optionalFloatWrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Float?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_float_wrapper",
@@ -1422,7 +1422,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalFloatWrapper,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalFloatWrapper,
             )
-        public val optionalDoubleWrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Double> =
+        public val optionalDoubleWrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Double?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_double_wrapper",
@@ -1432,7 +1432,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalDoubleWrapper,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalDoubleWrapper,
             )
-        public val optionalStringWrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, String> =
+        public val optionalStringWrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_string_wrapper",
@@ -1442,7 +1442,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalStringWrapper,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalStringWrapper,
             )
-        public val optionalBytesWrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.ByteArr> =
+        public val optionalBytesWrapper: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.ByteArr?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_bytes_wrapper",
@@ -1542,7 +1542,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::repeatedBytesWrapper,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::repeatedBytesWrapper,
             )
-        public val optionalDuration: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.wkt.Duration> =
+        public val optionalDuration: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.wkt.Duration?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_duration",
@@ -1552,7 +1552,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalDuration,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalDuration,
             )
-        public val optionalTimestamp: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.wkt.Timestamp> =
+        public val optionalTimestamp: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.wkt.Timestamp?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_timestamp",
@@ -1562,7 +1562,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalTimestamp,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalTimestamp,
             )
-        public val optionalFieldMask: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.wkt.FieldMask> =
+        public val optionalFieldMask: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.wkt.FieldMask?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_field_mask",
@@ -1572,7 +1572,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalFieldMask,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalFieldMask,
             )
-        public val optionalStruct: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.wkt.Struct> =
+        public val optionalStruct: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.wkt.Struct?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_struct",
@@ -1582,7 +1582,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalStruct,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalStruct,
             )
-        public val optionalAny: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.wkt.Any> =
+        public val optionalAny: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.wkt.Any?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_any",
@@ -1592,7 +1592,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 value = pbandk.testpb.TestAllTypesProto3::optionalAny,
                 mutableValue = pbandk.testpb.MutableTestAllTypesProto3::optionalAny,
             )
-        public val optionalValue: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.wkt.Value> =
+        public val optionalValue: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.wkt.Value?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
                 name = "optional_value",
@@ -2140,7 +2140,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                     value = pbandk.testpb.TestAllTypesProto3.NestedMessage::a,
                     mutableValue = pbandk.testpb.TestAllTypesProto3.MutableNestedMessage::a,
                 )
-            public val corecursive: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3.NestedMessage, pbandk.testpb.TestAllTypesProto3> =
+            public val corecursive: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3.NestedMessage, pbandk.testpb.TestAllTypesProto3?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.testpb.TestAllTypesProto3.NestedMessage::descriptor,
                     name = "corecursive",

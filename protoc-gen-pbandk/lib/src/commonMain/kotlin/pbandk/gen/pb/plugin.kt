@@ -32,7 +32,7 @@ public sealed interface Version : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val major: pbandk.FieldDescriptor<pbandk.gen.pb.Version, Int> =
+        public val major: pbandk.FieldDescriptor<pbandk.gen.pb.Version, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.Version::descriptor,
                 name = "major",
@@ -42,7 +42,7 @@ public sealed interface Version : pbandk.Message {
                 value = pbandk.gen.pb.Version::major,
                 mutableValue = pbandk.gen.pb.MutableVersion::major,
             )
-        public val minor: pbandk.FieldDescriptor<pbandk.gen.pb.Version, Int> =
+        public val minor: pbandk.FieldDescriptor<pbandk.gen.pb.Version, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.Version::descriptor,
                 name = "minor",
@@ -52,7 +52,7 @@ public sealed interface Version : pbandk.Message {
                 value = pbandk.gen.pb.Version::minor,
                 mutableValue = pbandk.gen.pb.MutableVersion::minor,
             )
-        public val patch: pbandk.FieldDescriptor<pbandk.gen.pb.Version, Int> =
+        public val patch: pbandk.FieldDescriptor<pbandk.gen.pb.Version, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.Version::descriptor,
                 name = "patch",
@@ -62,7 +62,7 @@ public sealed interface Version : pbandk.Message {
                 value = pbandk.gen.pb.Version::patch,
                 mutableValue = pbandk.gen.pb.MutableVersion::patch,
             )
-        public val suffix: pbandk.FieldDescriptor<pbandk.gen.pb.Version, String> =
+        public val suffix: pbandk.FieldDescriptor<pbandk.gen.pb.Version, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.Version::descriptor,
                 name = "suffix",
@@ -142,7 +142,7 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
                 value = pbandk.gen.pb.CodeGeneratorRequest::fileToGenerate,
                 mutableValue = pbandk.gen.pb.MutableCodeGeneratorRequest::fileToGenerate,
             )
-        public val parameter: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorRequest, String> =
+        public val parameter: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorRequest, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.CodeGeneratorRequest::descriptor,
                 name = "parameter",
@@ -152,7 +152,7 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
                 value = pbandk.gen.pb.CodeGeneratorRequest::parameter,
                 mutableValue = pbandk.gen.pb.MutableCodeGeneratorRequest::parameter,
             )
-        public val compilerVersion: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorRequest, pbandk.gen.pb.Version> =
+        public val compilerVersion: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorRequest, pbandk.gen.pb.Version?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.CodeGeneratorRequest::descriptor,
                 name = "compiler_version",
@@ -230,7 +230,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val error: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, String> =
+        public val error: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse::descriptor,
                 name = "error",
@@ -240,7 +240,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
                 value = pbandk.gen.pb.CodeGeneratorResponse::error,
                 mutableValue = pbandk.gen.pb.MutableCodeGeneratorResponse::error,
             )
-        public val supportedFeatures: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, Long> =
+        public val supportedFeatures: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse::descriptor,
                 name = "supported_features",
@@ -355,7 +355,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
 
         @pbandk.PublicForGeneratedCode
         public object FieldDescriptors {
-            public val name: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, String> =
+            public val name: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, String?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse.File::descriptor,
                     name = "name",
@@ -365,7 +365,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
                     value = pbandk.gen.pb.CodeGeneratorResponse.File::name,
                     mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::name,
                 )
-            public val insertionPoint: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, String> =
+            public val insertionPoint: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, String?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse.File::descriptor,
                     name = "insertion_point",
@@ -375,7 +375,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
                     value = pbandk.gen.pb.CodeGeneratorResponse.File::insertionPoint,
                     mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::insertionPoint,
                 )
-            public val content: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, String> =
+            public val content: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, String?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse.File::descriptor,
                     name = "content",
@@ -385,7 +385,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
                     value = pbandk.gen.pb.CodeGeneratorResponse.File::content,
                     mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::content,
                 )
-            public val generatedCodeInfo: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, pbandk.wkt.GeneratedCodeInfo> =
+            public val generatedCodeInfo: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, pbandk.wkt.GeneratedCodeInfo?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse.File::descriptor,
                     name = "generated_code_info",

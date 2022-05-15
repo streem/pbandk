@@ -20,6 +20,7 @@ public class ListField<T : Any> internal constructor(
     override fun toString(): String = list.toString()
 
     internal companion object {
+        // TODO
         private val Empty = ListField(FieldDescriptor.Type.Primitive.Bool(), ArrayList<Nothing>(), 0)
 
         /**

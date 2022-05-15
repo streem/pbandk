@@ -134,7 +134,7 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val optionalMessage: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, pbandk.testpb.Proto3PresenceMessage> =
+        public val optionalMessage: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, pbandk.testpb.Proto3PresenceMessage?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "optional_message",
@@ -144,7 +144,7 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
                 value = pbandk.testpb.Proto3PresenceMain::optionalMessage,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::optionalMessage,
             )
-        public val message: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, pbandk.testpb.Proto3PresenceMessage> =
+        public val message: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, pbandk.testpb.Proto3PresenceMessage?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "message",
@@ -154,7 +154,7 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
                 value = pbandk.testpb.Proto3PresenceMain::message,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::message,
             )
-        public val optionalString: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, String> =
+        public val optionalString: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "optional_string",
@@ -174,7 +174,7 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
                 value = pbandk.testpb.Proto3PresenceMain::string,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::string,
             )
-        public val optionalInt: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, Int> =
+        public val optionalInt: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "optional_int",
@@ -194,7 +194,7 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
                 value = pbandk.testpb.Proto3PresenceMain::int,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::int,
             )
-        public val optionalEnum: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, pbandk.testpb.Proto3PresenceEnum> =
+        public val optionalEnum: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, pbandk.testpb.Proto3PresenceEnum?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "optional_enum",
@@ -214,7 +214,7 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
                 value = pbandk.testpb.Proto3PresenceMain::enum,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::enum,
             )
-        public val oneOfString: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, String> =
+        public val oneOfString: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, String?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "one_of_string",
@@ -224,7 +224,7 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
                 value = pbandk.testpb.Proto3PresenceMain::oneOfString,
                 mutableValue = pbandk.testpb.MutableProto3PresenceMain::oneOfString,
             )
-        public val oneOfInt: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, Int> =
+        public val oneOfInt: pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, Int?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Proto3PresenceMain::descriptor,
                 name = "one_of_int",

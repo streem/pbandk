@@ -23322,4005 +23322,4005 @@ public sealed interface MessageWithHugeOneof : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public lateinit var oneof1000: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1000: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1001: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1001: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1002: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1002: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1003: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1003: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1004: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1004: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1005: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1005: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1006: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1006: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1007: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1007: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1008: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1008: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1009: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1009: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1010: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1010: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1011: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1011: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1012: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1012: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1013: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1013: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1014: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1014: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1015: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1015: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1016: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1016: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1017: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1017: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1018: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1018: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1019: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1019: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1020: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1020: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1021: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1021: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1022: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1022: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1023: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1023: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1024: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1024: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1025: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1025: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1026: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1026: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1027: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1027: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1028: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1028: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1029: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1029: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1030: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1030: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1031: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1031: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1032: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1032: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1033: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1033: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1034: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1034: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1035: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1035: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1036: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1036: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1037: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1037: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1038: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1038: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1039: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1039: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1040: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1040: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1041: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1041: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1042: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1042: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1043: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1043: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1044: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1044: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1045: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1045: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1046: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1046: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1047: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1047: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1048: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1048: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1049: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1049: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1050: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1050: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1051: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1051: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1052: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1052: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1053: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1053: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1054: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1054: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1055: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1055: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1056: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1056: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1057: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1057: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1058: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1058: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1059: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1059: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1060: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1060: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1061: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1061: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1062: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1062: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1063: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1063: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1064: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1064: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1065: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1065: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1066: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1066: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1067: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1067: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1068: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1068: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1069: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1069: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1070: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1070: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1071: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1071: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1072: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1072: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1073: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1073: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1074: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1074: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1075: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1075: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1076: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1076: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1077: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1077: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1078: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1078: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1079: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1079: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1080: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1080: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1081: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1081: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1082: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1082: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1083: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1083: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1084: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1084: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1085: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1085: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1086: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1086: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1087: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1087: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1088: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1088: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1089: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1089: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1090: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1090: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1091: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1091: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1092: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1092: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1093: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1093: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1094: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1094: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1095: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1095: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1096: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1096: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1097: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1097: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1098: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1098: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1099: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1099: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1100: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1100: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1101: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1101: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1102: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1102: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1103: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1103: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1104: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1104: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1105: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1105: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1106: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1106: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1107: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1107: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1108: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1108: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1109: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1109: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1110: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1110: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1111: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1111: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1112: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1112: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1113: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1113: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1114: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1114: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1115: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1115: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1116: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1116: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1117: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1117: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1118: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1118: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1119: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1119: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1120: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1120: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1121: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1121: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1122: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1122: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1123: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1123: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1124: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1124: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1125: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1125: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1126: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1126: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1127: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1127: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1128: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1128: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1129: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1129: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1130: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1130: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1131: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1131: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1132: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1132: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1133: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1133: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1134: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1134: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1135: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1135: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1136: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1136: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1137: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1137: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1138: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1138: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1139: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1139: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1140: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1140: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1141: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1141: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1142: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1142: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1143: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1143: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1144: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1144: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1145: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1145: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1146: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1146: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1147: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1147: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1148: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1148: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1149: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1149: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1150: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1150: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1151: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1151: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1152: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1152: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1153: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1153: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1154: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1154: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1155: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1155: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1156: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1156: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1157: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1157: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1158: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1158: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1159: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1159: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1160: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1160: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1161: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1161: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1162: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1162: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1163: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1163: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1164: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1164: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1165: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1165: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1166: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1166: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1167: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1167: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1168: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1168: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1169: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1169: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1170: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1170: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1171: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1171: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1172: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1172: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1173: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1173: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1174: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1174: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1175: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1175: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1176: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1176: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1177: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1177: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1178: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1178: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1179: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1179: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1180: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1180: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1181: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1181: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1182: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1182: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1183: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1183: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1184: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1184: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1185: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1185: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1186: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1186: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1187: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1187: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1188: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1188: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1189: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1189: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1190: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1190: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1191: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1191: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1192: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1192: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1193: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1193: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1194: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1194: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1195: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1195: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1196: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1196: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1197: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1197: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1198: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1198: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1199: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1199: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1200: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1200: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1201: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1201: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1202: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1202: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1203: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1203: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1204: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1204: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1205: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1205: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1206: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1206: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1207: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1207: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1208: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1208: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1209: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1209: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1210: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1210: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1211: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1211: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1212: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1212: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1213: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1213: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1214: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1214: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1215: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1215: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1216: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1216: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1217: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1217: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1218: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1218: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1219: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1219: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1220: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1220: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1221: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1221: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1222: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1222: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1223: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1223: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1224: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1224: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1225: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1225: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1226: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1226: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1227: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1227: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1228: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1228: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1229: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1229: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1230: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1230: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1231: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1231: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1232: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1232: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1233: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1233: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1234: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1234: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1235: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1235: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1236: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1236: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1237: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1237: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1238: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1238: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1239: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1239: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1240: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1240: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1241: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1241: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1242: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1242: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1243: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1243: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1244: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1244: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1245: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1245: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1246: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1246: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1247: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1247: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1248: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1248: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1249: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1249: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1250: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1250: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1251: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1251: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1252: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1252: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1253: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1253: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1254: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1254: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1255: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1255: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1256: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1256: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1257: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1257: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1258: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1258: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1259: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1259: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1260: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1260: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1261: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1261: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1262: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1262: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1263: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1263: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1264: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1264: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1265: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1265: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1266: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1266: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1267: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1267: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1268: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1268: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1269: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1269: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1270: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1270: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1271: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1271: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1272: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1272: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1273: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1273: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1274: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1274: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1275: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1275: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1276: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1276: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1277: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1277: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1278: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1278: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1279: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1279: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1280: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1280: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1281: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1281: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1282: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1282: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1283: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1283: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1284: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1284: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1285: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1285: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1286: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1286: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1287: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1287: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1288: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1288: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1289: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1289: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1290: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1290: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1291: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1291: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1292: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1292: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1293: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1293: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1294: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1294: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1295: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1295: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1296: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1296: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1297: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1297: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1298: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1298: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1299: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1299: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1300: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1300: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1301: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1301: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1302: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1302: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1303: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1303: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1304: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1304: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1305: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1305: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1306: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1306: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1307: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1307: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1308: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1308: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1309: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1309: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1310: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1310: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1311: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1311: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1312: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1312: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1313: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1313: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1314: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1314: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1315: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1315: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1316: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1316: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1317: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1317: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1318: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1318: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1319: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1319: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1320: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1320: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1321: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1321: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1322: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1322: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1323: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1323: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1324: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1324: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1325: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1325: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1326: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1326: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1327: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1327: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1328: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1328: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1329: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1329: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1330: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1330: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1331: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1331: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1332: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1332: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1333: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1333: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1334: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1334: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1335: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1335: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1336: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1336: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1337: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1337: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1338: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1338: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1339: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1339: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1340: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1340: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1341: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1341: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1342: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1342: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1343: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1343: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1344: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1344: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1345: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1345: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1346: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1346: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1347: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1347: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1348: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1348: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1349: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1349: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1350: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1350: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1351: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1351: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1352: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1352: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1353: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1353: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1354: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1354: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1355: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1355: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1356: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1356: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1357: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1357: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1358: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1358: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1359: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1359: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1360: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1360: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1361: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1361: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1362: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1362: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1363: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1363: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1364: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1364: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1365: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1365: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1366: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1366: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1367: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1367: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1368: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1368: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1369: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1369: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1370: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1370: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1371: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1371: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1372: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1372: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1373: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1373: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1374: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1374: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1375: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1375: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1376: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1376: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1377: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1377: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1378: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1378: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1379: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1379: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1380: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1380: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1381: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1381: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1382: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1382: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1383: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1383: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1384: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1384: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1385: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1385: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1386: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1386: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1387: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1387: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1388: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1388: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1389: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1389: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1390: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1390: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1391: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1391: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1392: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1392: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1393: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1393: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1394: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1394: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1395: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1395: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1396: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1396: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1397: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1397: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1398: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1398: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1399: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1399: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1400: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1400: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1401: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1401: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1402: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1402: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1403: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1403: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1404: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1404: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1405: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1405: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1406: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1406: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1407: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1407: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1408: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1408: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1409: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1409: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1410: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1410: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1411: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1411: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1412: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1412: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1413: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1413: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1414: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1414: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1415: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1415: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1416: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1416: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1417: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1417: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1418: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1418: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1419: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1419: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1420: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1420: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1421: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1421: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1422: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1422: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1423: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1423: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1424: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1424: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1425: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1425: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1426: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1426: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1427: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1427: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1428: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1428: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1429: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1429: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1430: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1430: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1431: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1431: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1432: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1432: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1433: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1433: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1434: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1434: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1435: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1435: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1436: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1436: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1437: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1437: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1438: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1438: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1439: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1439: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1440: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1440: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1441: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1441: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1442: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1442: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1443: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1443: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1444: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1444: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1445: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1445: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1446: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1446: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1447: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1447: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1448: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1448: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1449: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1449: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1450: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1450: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1451: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1451: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1452: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1452: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1453: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1453: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1454: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1454: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1455: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1455: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1456: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1456: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1457: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1457: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1458: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1458: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1459: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1459: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1460: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1460: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1461: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1461: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1462: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1462: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1463: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1463: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1464: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1464: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1465: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1465: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1466: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1466: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1467: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1467: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1468: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1468: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1469: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1469: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1470: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1470: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1471: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1471: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1472: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1472: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1473: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1473: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1474: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1474: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1475: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1475: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1476: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1476: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1477: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1477: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1478: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1478: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1479: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1479: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1480: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1480: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1481: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1481: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1482: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1482: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1483: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1483: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1484: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1484: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1485: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1485: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1486: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1486: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1487: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1487: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1488: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1488: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1489: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1489: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1490: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1490: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1491: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1491: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1492: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1492: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1493: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1493: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1494: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1494: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1495: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1495: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1496: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1496: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1497: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1497: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1498: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1498: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1499: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1499: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1500: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1500: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1501: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1501: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1502: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1502: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1503: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1503: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1504: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1504: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1505: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1505: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1506: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1506: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1507: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1507: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1508: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1508: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1509: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1509: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1510: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1510: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1511: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1511: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1512: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1512: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1513: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1513: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1514: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1514: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1515: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1515: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1516: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1516: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1517: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1517: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1518: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1518: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1519: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1519: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1520: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1520: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1521: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1521: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1522: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1522: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1523: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1523: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1524: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1524: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1525: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1525: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1526: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1526: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1527: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1527: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1528: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1528: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1529: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1529: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1530: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1530: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1531: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1531: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1532: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1532: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1533: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1533: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1534: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1534: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1535: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1535: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1536: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1536: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1537: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1537: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1538: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1538: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1539: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1539: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1540: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1540: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1541: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1541: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1542: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1542: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1543: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1543: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1544: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1544: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1545: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1545: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1546: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1546: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1547: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1547: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1548: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1548: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1549: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1549: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1550: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1550: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1551: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1551: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1552: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1552: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1553: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1553: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1554: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1554: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1555: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1555: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1556: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1556: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1557: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1557: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1558: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1558: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1559: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1559: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1560: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1560: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1561: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1561: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1562: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1562: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1563: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1563: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1564: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1564: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1565: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1565: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1566: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1566: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1567: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1567: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1568: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1568: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1569: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1569: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1570: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1570: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1571: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1571: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1572: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1572: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1573: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1573: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1574: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1574: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1575: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1575: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1576: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1576: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1577: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1577: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1578: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1578: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1579: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1579: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1580: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1580: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1581: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1581: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1582: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1582: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1583: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1583: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1584: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1584: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1585: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1585: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1586: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1586: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1587: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1587: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1588: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1588: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1589: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1589: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1590: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1590: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1591: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1591: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1592: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1592: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1593: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1593: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1594: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1594: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1595: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1595: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1596: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1596: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1597: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1597: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1598: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1598: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1599: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1599: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1600: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1600: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1601: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1601: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1602: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1602: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1603: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1603: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1604: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1604: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1605: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1605: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1606: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1606: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1607: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1607: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1608: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1608: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1609: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1609: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1610: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1610: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1611: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1611: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1612: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1612: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1613: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1613: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1614: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1614: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1615: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1615: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1616: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1616: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1617: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1617: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1618: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1618: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1619: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1619: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1620: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1620: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1621: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1621: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1622: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1622: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1623: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1623: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1624: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1624: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1625: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1625: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1626: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1626: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1627: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1627: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1628: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1628: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1629: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1629: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1630: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1630: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1631: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1631: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1632: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1632: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1633: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1633: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1634: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1634: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1635: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1635: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1636: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1636: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1637: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1637: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1638: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1638: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1639: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1639: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1640: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1640: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1641: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1641: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1642: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1642: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1643: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1643: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1644: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1644: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1645: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1645: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1646: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1646: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1647: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1647: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1648: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1648: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1649: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1649: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1650: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1650: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1651: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1651: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1652: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1652: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1653: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1653: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1654: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1654: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1655: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1655: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1656: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1656: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1657: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1657: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1658: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1658: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1659: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1659: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1660: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1660: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1661: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1661: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1662: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1662: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1663: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1663: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1664: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1664: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1665: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1665: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1666: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1666: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1667: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1667: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1668: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1668: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1669: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1669: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1670: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1670: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1671: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1671: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1672: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1672: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1673: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1673: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1674: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1674: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1675: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1675: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1676: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1676: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1677: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1677: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1678: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1678: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1679: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1679: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1680: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1680: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1681: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1681: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1682: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1682: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1683: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1683: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1684: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1684: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1685: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1685: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1686: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1686: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1687: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1687: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1688: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1688: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1689: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1689: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1690: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1690: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1691: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1691: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1692: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1692: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1693: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1693: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1694: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1694: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1695: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1695: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1696: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1696: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1697: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1697: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1698: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1698: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1699: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1699: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1700: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1700: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1701: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1701: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1702: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1702: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1703: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1703: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1704: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1704: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1705: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1705: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1706: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1706: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1707: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1707: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1708: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1708: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1709: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1709: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1710: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1710: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1711: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1711: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1712: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1712: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1713: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1713: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1714: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1714: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1715: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1715: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1716: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1716: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1717: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1717: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1718: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1718: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1719: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1719: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1720: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1720: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1721: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1721: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1722: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1722: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1723: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1723: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1724: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1724: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1725: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1725: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1726: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1726: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1727: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1727: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1728: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1728: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1729: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1729: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1730: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1730: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1731: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1731: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1732: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1732: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1733: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1733: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1734: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1734: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1735: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1735: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1736: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1736: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1737: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1737: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1738: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1738: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1739: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1739: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1740: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1740: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1741: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1741: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1742: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1742: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1743: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1743: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1744: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1744: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1745: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1745: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1746: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1746: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1747: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1747: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1748: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1748: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1749: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1749: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1750: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1750: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1751: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1751: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1752: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1752: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1753: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1753: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1754: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1754: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1755: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1755: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1756: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1756: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1757: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1757: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1758: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1758: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1759: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1759: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1760: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1760: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1761: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1761: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1762: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1762: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1763: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1763: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1764: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1764: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1765: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1765: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1766: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1766: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1767: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1767: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1768: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1768: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1769: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1769: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1770: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1770: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1771: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1771: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1772: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1772: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1773: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1773: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1774: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1774: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1775: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1775: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1776: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1776: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1777: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1777: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1778: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1778: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1779: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1779: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1780: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1780: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1781: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1781: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1782: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1782: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1783: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1783: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1784: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1784: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1785: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1785: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1786: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1786: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1787: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1787: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1788: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1788: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1789: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1789: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1790: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1790: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1791: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1791: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1792: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1792: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1793: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1793: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1794: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1794: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1795: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1795: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1796: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1796: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1797: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1797: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1798: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1798: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1799: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1799: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1800: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1800: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1801: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1801: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1802: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1802: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1803: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1803: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1804: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1804: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1805: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1805: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1806: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1806: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1807: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1807: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1808: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1808: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1809: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1809: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1810: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1810: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1811: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1811: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1812: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1812: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1813: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1813: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1814: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1814: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1815: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1815: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1816: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1816: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1817: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1817: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1818: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1818: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1819: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1819: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1820: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1820: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1821: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1821: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1822: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1822: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1823: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1823: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1824: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1824: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1825: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1825: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1826: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1826: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1827: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1827: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1828: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1828: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1829: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1829: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1830: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1830: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1831: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1831: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1832: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1832: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1833: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1833: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1834: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1834: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1835: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1835: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1836: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1836: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1837: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1837: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1838: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1838: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1839: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1839: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1840: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1840: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1841: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1841: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1842: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1842: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1843: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1843: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1844: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1844: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1845: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1845: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1846: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1846: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1847: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1847: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1848: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1848: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1849: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1849: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1850: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1850: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1851: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1851: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1852: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1852: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1853: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1853: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1854: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1854: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1855: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1855: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1856: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1856: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1857: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1857: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1858: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1858: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1859: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1859: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1860: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1860: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1861: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1861: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1862: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1862: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1863: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1863: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1864: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1864: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1865: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1865: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1866: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1866: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1867: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1867: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1868: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1868: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1869: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1869: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1870: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1870: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1871: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1871: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1872: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1872: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1873: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1873: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1874: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1874: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1875: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1875: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1876: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1876: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1877: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1877: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1878: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1878: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1879: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1879: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1880: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1880: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1881: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1881: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1882: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1882: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1883: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1883: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1884: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1884: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1885: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1885: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1886: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1886: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1887: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1887: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1888: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1888: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1889: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1889: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1890: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1890: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1891: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1891: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1892: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1892: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1893: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1893: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1894: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1894: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1895: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1895: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1896: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1896: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1897: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1897: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1898: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1898: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1899: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1899: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1900: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1900: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1901: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1901: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1902: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1902: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1903: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1903: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1904: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1904: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1905: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1905: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1906: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1906: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1907: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1907: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1908: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1908: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1909: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1909: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1910: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1910: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1911: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1911: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1912: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1912: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1913: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1913: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1914: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1914: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1915: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1915: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1916: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1916: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1917: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1917: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1918: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1918: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1919: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1919: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1920: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1920: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1921: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1921: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1922: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1922: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1923: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1923: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1924: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1924: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1925: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1925: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1926: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1926: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1927: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1927: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1928: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1928: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1929: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1929: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1930: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1930: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1931: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1931: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1932: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1932: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1933: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1933: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1934: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1934: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1935: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1935: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1936: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1936: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1937: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1937: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1938: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1938: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1939: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1939: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1940: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1940: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1941: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1941: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1942: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1942: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1943: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1943: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1944: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1944: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1945: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1945: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1946: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1946: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1947: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1947: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1948: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1948: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1949: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1949: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1950: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1950: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1951: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1951: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1952: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1952: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1953: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1953: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1954: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1954: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1955: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1955: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1956: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1956: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1957: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1957: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1958: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1958: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1959: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1959: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1960: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1960: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1961: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1961: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1962: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1962: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1963: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1963: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1964: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1964: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1965: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1965: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1966: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1966: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1967: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1967: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1968: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1968: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1969: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1969: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1970: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1970: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1971: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1971: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1972: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1972: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1973: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1973: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1974: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1974: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1975: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1975: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1976: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1976: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1977: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1977: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1978: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1978: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1979: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1979: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1980: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1980: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1981: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1981: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1982: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1982: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1983: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1983: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1984: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1984: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1985: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1985: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1986: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1986: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1987: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1987: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1988: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1988: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1989: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1989: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1990: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1990: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1991: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1991: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1992: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1992: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1993: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1993: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1994: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1994: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1995: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1995: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1996: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1996: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1997: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1997: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1998: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1998: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof1999: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof1999: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2000: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2000: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2001: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2001: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2002: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2002: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2003: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2003: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2004: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2004: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2005: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2005: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2006: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2006: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2007: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2007: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2008: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2008: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2009: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2009: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2010: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2010: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2011: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2011: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2012: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2012: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2013: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2013: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2014: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2014: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2015: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2015: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2016: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2016: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2017: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2017: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2018: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2018: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2019: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2019: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2020: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2020: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2021: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2021: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2022: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2022: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2023: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2023: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2024: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2024: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2025: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2025: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2026: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2026: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2027: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2027: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2028: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2028: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2029: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2029: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2030: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2030: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2031: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2031: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2032: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2032: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2033: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2033: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2034: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2034: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2035: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2035: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2036: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2036: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2037: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2037: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2038: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2038: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2039: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2039: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2040: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2040: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2041: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2041: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2042: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2042: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2043: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2043: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2044: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2044: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2045: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2045: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2046: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2046: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2047: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2047: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2048: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2048: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2049: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2049: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2050: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2050: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2051: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2051: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2052: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2052: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2053: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2053: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2054: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2054: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2055: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2055: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2056: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2056: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2057: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2057: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2058: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2058: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2059: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2059: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2060: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2060: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2061: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2061: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2062: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2062: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2063: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2063: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2064: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2064: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2065: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2065: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2066: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2066: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2067: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2067: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2068: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2068: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2069: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2069: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2070: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2070: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2071: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2071: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2072: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2072: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2073: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2073: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2074: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2074: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2075: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2075: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2076: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2076: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2077: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2077: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2078: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2078: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2079: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2079: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2080: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2080: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2081: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2081: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2082: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2082: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2083: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2083: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2084: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2084: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2085: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2085: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2086: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2086: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2087: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2087: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2088: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2088: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2089: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2089: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2090: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2090: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2091: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2091: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2092: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2092: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2093: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2093: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2094: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2094: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2095: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2095: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2096: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2096: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2097: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2097: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2098: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2098: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2099: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2099: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2100: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2100: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2101: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2101: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2102: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2102: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2103: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2103: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2104: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2104: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2105: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2105: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2106: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2106: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2107: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2107: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2108: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2108: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2109: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2109: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2110: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2110: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2111: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2111: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2112: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2112: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2113: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2113: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2114: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2114: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2115: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2115: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2116: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2116: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2117: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2117: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2118: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2118: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2119: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2119: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2120: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2120: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2121: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2121: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2122: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2122: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2123: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2123: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2124: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2124: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2125: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2125: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2126: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2126: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2127: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2127: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2128: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2128: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2129: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2129: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2130: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2130: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2131: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2131: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2132: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2132: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2133: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2133: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2134: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2134: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2135: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2135: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2136: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2136: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2137: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2137: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2138: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2138: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2139: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2139: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2140: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2140: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2141: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2141: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2142: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2142: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2143: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2143: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2144: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2144: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2145: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2145: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2146: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2146: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2147: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2147: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2148: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2148: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2149: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2149: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2150: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2150: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2151: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2151: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2152: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2152: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2153: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2153: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2154: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2154: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2155: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2155: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2156: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2156: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2157: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2157: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2158: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2158: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2159: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2159: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2160: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2160: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2161: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2161: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2162: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2162: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2163: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2163: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2164: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2164: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2165: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2165: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2166: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2166: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2167: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2167: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2168: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2168: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2169: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2169: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2170: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2170: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2171: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2171: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2172: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2172: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2173: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2173: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2174: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2174: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2175: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2175: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2176: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2176: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2177: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2177: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2178: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2178: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2179: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2179: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2180: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2180: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2181: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2181: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2182: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2182: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2183: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2183: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2184: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2184: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2185: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2185: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2186: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2186: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2187: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2187: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2188: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2188: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2189: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2189: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2190: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2190: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2191: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2191: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2192: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2192: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2193: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2193: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2194: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2194: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2195: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2195: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2196: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2196: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2197: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2197: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2198: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2198: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2199: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2199: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2200: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2200: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2201: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2201: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2202: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2202: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2203: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2203: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2204: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2204: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2205: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2205: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2206: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2206: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2207: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2207: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2208: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2208: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2209: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2209: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2210: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2210: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2211: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2211: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2212: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2212: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2213: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2213: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2214: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2214: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2215: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2215: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2216: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2216: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2217: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2217: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2218: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2218: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2219: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2219: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2220: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2220: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2221: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2221: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2222: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2222: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2223: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2223: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2224: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2224: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2225: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2225: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2226: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2226: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2227: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2227: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2228: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2228: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2229: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2229: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2230: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2230: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2231: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2231: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2232: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2232: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2233: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2233: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2234: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2234: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2235: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2235: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2236: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2236: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2237: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2237: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2238: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2238: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2239: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2239: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2240: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2240: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2241: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2241: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2242: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2242: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2243: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2243: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2244: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2244: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2245: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2245: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2246: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2246: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2247: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2247: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2248: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2248: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2249: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2249: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2250: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2250: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2251: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2251: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2252: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2252: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2253: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2253: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2254: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2254: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2255: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2255: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2256: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2256: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2257: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2257: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2258: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2258: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2259: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2259: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2260: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2260: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2261: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2261: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2262: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2262: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2263: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2263: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2264: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2264: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2265: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2265: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2266: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2266: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2267: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2267: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2268: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2268: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2269: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2269: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2270: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2270: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2271: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2271: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2272: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2272: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2273: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2273: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2274: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2274: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2275: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2275: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2276: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2276: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2277: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2277: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2278: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2278: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2279: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2279: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2280: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2280: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2281: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2281: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2282: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2282: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2283: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2283: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2284: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2284: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2285: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2285: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2286: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2286: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2287: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2287: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2288: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2288: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2289: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2289: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2290: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2290: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2291: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2291: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2292: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2292: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2293: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2293: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2294: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2294: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2295: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2295: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2296: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2296: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2297: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2297: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2298: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2298: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2299: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2299: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2300: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2300: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2301: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2301: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2302: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2302: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2303: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2303: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2304: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2304: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2305: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2305: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2306: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2306: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2307: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2307: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2308: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2308: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2309: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2309: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2310: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2310: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2311: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2311: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2312: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2312: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2313: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2313: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2314: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2314: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2315: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2315: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2316: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2316: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2317: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2317: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2318: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2318: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2319: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2319: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2320: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2320: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2321: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2321: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2322: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2322: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2323: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2323: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2324: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2324: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2325: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2325: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2326: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2326: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2327: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2327: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2328: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2328: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2329: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2329: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2330: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2330: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2331: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2331: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2332: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2332: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2333: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2333: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2334: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2334: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2335: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2335: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2336: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2336: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2337: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2337: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2338: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2338: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2339: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2339: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2340: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2340: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2341: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2341: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2342: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2342: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2343: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2343: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2344: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2344: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2345: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2345: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2346: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2346: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2347: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2347: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2348: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2348: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2349: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2349: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2350: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2350: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2351: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2351: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2352: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2352: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2353: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2353: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2354: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2354: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2355: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2355: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2356: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2356: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2357: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2357: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2358: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2358: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2359: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2359: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2360: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2360: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2361: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2361: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2362: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2362: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2363: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2363: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2364: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2364: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2365: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2365: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2366: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2366: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2367: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2367: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2368: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2368: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2369: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2369: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2370: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2370: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2371: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2371: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2372: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2372: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2373: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2373: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2374: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2374: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2375: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2375: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2376: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2376: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2377: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2377: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2378: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2378: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2379: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2379: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2380: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2380: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2381: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2381: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2382: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2382: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2383: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2383: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2384: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2384: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2385: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2385: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2386: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2386: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2387: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2387: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2388: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2388: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2389: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2389: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2390: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2390: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2391: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2391: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2392: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2392: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2393: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2393: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2394: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2394: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2395: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2395: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2396: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2396: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2397: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2397: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2398: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2398: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2399: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2399: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2400: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2400: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2401: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2401: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2402: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2402: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2403: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2403: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2404: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2404: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2405: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2405: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2406: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2406: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2407: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2407: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2408: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2408: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2409: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2409: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2410: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2410: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2411: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2411: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2412: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2412: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2413: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2413: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2414: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2414: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2415: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2415: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2416: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2416: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2417: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2417: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2418: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2418: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2419: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2419: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2420: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2420: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2421: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2421: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2422: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2422: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2423: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2423: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2424: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2424: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2425: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2425: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2426: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2426: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2427: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2427: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2428: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2428: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2429: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2429: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2430: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2430: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2431: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2431: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2432: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2432: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2433: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2433: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2434: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2434: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2435: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2435: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2436: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2436: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2437: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2437: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2438: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2438: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2439: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2439: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2440: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2440: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2441: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2441: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2442: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2442: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2443: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2443: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2444: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2444: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2445: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2445: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2446: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2446: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2447: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2447: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2448: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2448: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2449: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2449: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2450: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2450: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2451: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2451: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2452: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2452: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2453: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2453: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2454: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2454: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2455: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2455: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2456: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2456: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2457: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2457: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2458: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2458: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2459: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2459: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2460: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2460: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2461: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2461: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2462: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2462: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2463: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2463: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2464: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2464: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2465: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2465: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2466: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2466: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2467: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2467: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2468: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2468: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2469: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2469: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2470: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2470: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2471: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2471: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2472: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2472: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2473: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2473: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2474: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2474: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2475: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2475: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2476: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2476: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2477: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2477: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2478: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2478: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2479: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2479: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2480: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2480: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2481: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2481: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2482: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2482: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2483: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2483: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2484: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2484: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2485: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2485: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2486: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2486: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2487: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2487: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2488: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2488: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2489: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2489: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2490: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2490: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2491: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2491: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2492: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2492: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2493: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2493: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2494: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2494: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2495: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2495: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2496: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2496: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2497: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2497: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2498: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2498: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2499: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2499: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2500: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2500: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2501: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2501: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2502: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2502: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2503: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2503: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2504: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2504: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2505: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2505: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2506: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2506: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2507: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2507: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2508: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2508: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2509: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2509: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2510: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2510: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2511: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2511: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2512: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2512: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2513: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2513: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2514: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2514: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2515: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2515: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2516: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2516: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2517: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2517: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2518: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2518: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2519: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2519: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2520: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2520: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2521: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2521: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2522: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2522: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2523: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2523: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2524: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2524: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2525: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2525: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2526: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2526: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2527: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2527: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2528: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2528: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2529: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2529: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2530: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2530: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2531: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2531: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2532: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2532: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2533: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2533: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2534: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2534: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2535: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2535: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2536: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2536: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2537: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2537: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2538: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2538: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2539: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2539: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2540: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2540: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2541: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2541: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2542: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2542: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2543: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2543: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2544: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2544: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2545: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2545: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2546: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2546: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2547: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2547: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2548: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2548: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2549: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2549: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2550: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2550: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2551: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2551: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2552: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2552: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2553: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2553: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2554: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2554: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2555: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2555: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2556: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2556: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2557: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2557: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2558: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2558: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2559: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2559: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2560: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2560: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2561: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2561: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2562: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2562: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2563: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2563: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2564: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2564: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2565: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2565: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2566: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2566: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2567: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2567: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2568: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2568: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2569: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2569: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2570: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2570: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2571: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2571: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2572: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2572: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2573: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2573: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2574: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2574: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2575: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2575: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2576: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2576: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2577: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2577: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2578: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2578: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2579: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2579: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2580: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2580: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2581: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2581: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2582: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2582: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2583: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2583: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2584: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2584: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2585: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2585: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2586: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2586: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2587: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2587: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2588: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2588: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2589: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2589: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2590: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2590: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2591: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2591: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2592: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2592: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2593: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2593: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2594: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2594: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2595: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2595: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2596: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2596: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2597: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2597: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2598: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2598: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2599: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2599: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2600: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2600: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2601: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2601: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2602: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2602: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2603: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2603: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2604: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2604: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2605: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2605: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2606: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2606: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2607: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2607: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2608: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2608: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2609: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2609: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2610: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2610: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2611: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2611: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2612: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2612: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2613: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2613: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2614: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2614: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2615: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2615: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2616: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2616: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2617: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2617: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2618: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2618: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2619: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2619: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2620: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2620: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2621: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2621: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2622: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2622: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2623: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2623: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2624: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2624: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2625: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2625: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2626: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2626: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2627: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2627: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2628: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2628: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2629: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2629: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2630: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2630: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2631: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2631: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2632: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2632: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2633: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2633: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2634: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2634: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2635: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2635: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2636: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2636: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2637: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2637: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2638: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2638: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2639: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2639: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2640: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2640: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2641: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2641: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2642: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2642: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2643: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2643: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2644: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2644: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2645: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2645: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2646: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2646: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2647: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2647: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2648: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2648: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2649: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2649: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2650: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2650: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2651: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2651: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2652: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2652: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2653: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2653: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2654: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2654: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2655: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2655: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2656: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2656: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2657: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2657: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2658: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2658: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2659: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2659: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2660: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2660: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2661: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2661: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2662: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2662: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2663: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2663: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2664: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2664: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2665: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2665: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2666: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2666: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2667: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2667: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2668: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2668: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2669: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2669: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2670: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2670: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2671: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2671: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2672: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2672: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2673: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2673: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2674: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2674: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2675: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2675: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2676: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2676: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2677: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2677: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2678: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2678: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2679: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2679: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2680: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2680: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2681: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2681: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2682: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2682: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2683: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2683: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2684: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2684: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2685: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2685: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2686: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2686: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2687: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2687: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2688: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2688: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2689: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2689: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2690: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2690: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2691: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2691: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2692: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2692: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2693: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2693: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2694: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2694: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2695: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2695: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2696: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2696: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2697: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2697: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2698: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2698: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2699: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2699: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2700: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2700: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2701: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2701: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2702: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2702: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2703: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2703: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2704: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2704: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2705: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2705: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2706: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2706: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2707: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2707: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2708: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2708: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2709: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2709: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2710: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2710: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2711: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2711: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2712: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2712: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2713: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2713: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2714: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2714: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2715: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2715: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2716: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2716: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2717: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2717: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2718: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2718: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2719: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2719: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2720: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2720: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2721: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2721: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2722: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2722: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2723: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2723: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2724: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2724: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2725: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2725: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2726: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2726: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2727: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2727: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2728: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2728: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2729: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2729: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2730: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2730: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2731: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2731: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2732: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2732: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2733: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2733: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2734: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2734: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2735: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2735: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2736: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2736: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2737: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2737: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2738: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2738: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2739: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2739: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2740: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2740: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2741: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2741: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2742: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2742: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2743: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2743: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2744: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2744: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2745: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2745: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2746: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2746: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2747: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2747: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2748: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2748: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2749: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2749: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2750: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2750: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2751: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2751: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2752: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2752: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2753: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2753: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2754: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2754: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2755: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2755: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2756: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2756: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2757: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2757: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2758: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2758: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2759: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2759: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2760: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2760: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2761: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2761: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2762: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2762: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2763: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2763: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2764: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2764: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2765: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2765: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2766: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2766: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2767: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2767: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2768: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2768: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2769: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2769: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2770: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2770: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2771: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2771: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2772: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2772: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2773: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2773: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2774: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2774: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2775: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2775: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2776: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2776: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2777: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2777: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2778: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2778: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2779: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2779: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2780: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2780: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2781: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2781: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2782: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2782: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2783: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2783: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2784: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2784: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2785: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2785: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2786: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2786: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2787: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2787: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2788: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2788: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2789: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2789: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2790: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2790: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2791: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2791: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2792: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2792: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2793: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2793: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2794: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2794: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2795: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2795: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2796: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2796: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2797: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2797: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2798: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2798: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2799: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2799: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2800: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2800: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2801: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2801: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2802: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2802: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2803: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2803: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2804: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2804: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2805: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2805: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2806: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2806: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2807: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2807: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2808: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2808: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2809: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2809: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2810: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2810: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2811: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2811: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2812: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2812: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2813: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2813: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2814: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2814: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2815: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2815: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2816: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2816: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2817: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2817: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2818: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2818: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2819: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2819: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2820: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2820: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2821: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2821: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2822: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2822: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2823: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2823: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2824: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2824: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2825: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2825: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2826: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2826: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2827: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2827: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2828: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2828: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2829: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2829: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2830: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2830: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2831: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2831: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2832: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2832: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2833: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2833: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2834: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2834: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2835: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2835: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2836: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2836: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2837: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2837: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2838: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2838: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2839: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2839: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2840: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2840: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2841: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2841: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2842: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2842: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2843: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2843: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2844: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2844: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2845: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2845: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2846: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2846: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2847: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2847: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2848: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2848: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2849: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2849: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2850: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2850: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2851: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2851: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2852: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2852: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2853: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2853: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2854: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2854: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2855: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2855: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2856: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2856: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2857: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2857: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2858: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2858: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2859: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2859: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2860: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2860: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2861: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2861: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2862: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2862: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2863: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2863: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2864: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2864: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2865: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2865: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2866: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2866: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2867: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2867: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2868: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2868: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2869: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2869: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2870: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2870: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2871: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2871: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2872: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2872: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2873: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2873: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2874: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2874: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2875: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2875: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2876: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2876: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2877: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2877: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2878: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2878: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2879: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2879: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2880: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2880: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2881: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2881: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2882: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2882: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2883: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2883: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2884: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2884: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2885: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2885: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2886: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2886: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2887: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2887: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2888: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2888: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2889: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2889: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2890: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2890: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2891: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2891: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2892: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2892: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2893: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2893: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2894: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2894: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2895: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2895: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2896: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2896: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2897: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2897: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2898: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2898: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2899: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2899: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2900: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2900: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2901: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2901: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2902: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2902: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2903: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2903: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2904: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2904: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2905: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2905: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2906: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2906: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2907: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2907: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2908: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2908: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2909: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2909: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2910: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2910: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2911: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2911: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2912: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2912: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2913: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2913: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2914: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2914: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2915: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2915: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2916: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2916: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2917: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2917: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2918: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2918: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2919: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2919: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2920: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2920: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2921: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2921: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2922: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2922: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2923: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2923: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2924: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2924: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2925: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2925: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2926: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2926: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2927: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2927: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2928: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2928: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2929: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2929: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2930: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2930: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2931: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2931: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2932: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2932: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2933: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2933: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2934: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2934: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2935: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2935: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2936: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2936: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2937: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2937: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2938: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2938: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2939: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2939: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2940: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2940: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2941: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2941: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2942: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2942: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2943: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2943: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2944: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2944: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2945: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2945: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2946: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2946: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2947: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2947: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2948: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2948: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2949: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2949: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2950: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2950: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2951: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2951: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2952: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2952: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2953: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2953: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2954: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2954: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2955: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2955: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2956: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2956: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2957: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2957: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2958: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2958: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2959: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2959: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2960: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2960: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2961: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2961: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2962: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2962: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2963: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2963: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2964: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2964: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2965: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2965: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2966: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2966: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2967: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2967: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2968: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2968: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2969: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2969: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2970: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2970: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2971: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2971: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2972: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2972: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2973: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2973: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2974: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2974: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2975: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2975: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2976: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2976: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2977: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2977: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2978: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2978: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2979: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2979: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2980: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2980: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2981: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2981: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2982: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2982: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2983: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2983: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2984: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2984: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2985: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2985: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2986: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2986: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2987: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2987: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2988: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2988: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2989: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2989: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2990: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2990: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2991: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2991: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2992: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2992: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2993: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2993: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2994: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2994: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2995: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2995: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2996: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2996: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2997: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2997: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2998: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2998: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
-        public lateinit var oneof2999: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int>
+        public lateinit var oneof2999: pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, Int?>
             private set
 
         public val hugeOneof: pbandk.OneofDescriptor<pbandk.testpb.MessageWithHugeOneof, pbandk.testpb.MessageWithHugeOneof.HugeOneof<*>> =

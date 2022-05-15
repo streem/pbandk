@@ -100,7 +100,7 @@ public sealed interface Type : pbandk.Message {
                 value = pbandk.wkt.Type::options,
                 mutableValue = pbandk.wkt.MutableType::options,
             )
-        public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Type, pbandk.wkt.SourceContext> =
+        public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Type, pbandk.wkt.SourceContext?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.Type::descriptor,
                 name = "source_context",
@@ -470,7 +470,7 @@ public sealed interface Enum : pbandk.Message {
                 value = pbandk.wkt.Enum::options,
                 mutableValue = pbandk.wkt.MutableEnum::options,
             )
-        public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Enum, pbandk.wkt.SourceContext> =
+        public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Enum, pbandk.wkt.SourceContext?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.Enum::descriptor,
                 name = "source_context",
@@ -644,7 +644,7 @@ public sealed interface Option : pbandk.Message {
                 value = pbandk.wkt.Option::name,
                 mutableValue = pbandk.wkt.MutableOption::name,
             )
-        public val value: pbandk.FieldDescriptor<pbandk.wkt.Option, pbandk.wkt.Any> =
+        public val value: pbandk.FieldDescriptor<pbandk.wkt.Option, pbandk.wkt.Any?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.Option::descriptor,
                 name = "value",

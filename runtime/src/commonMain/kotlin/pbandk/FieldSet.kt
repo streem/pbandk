@@ -2,8 +2,6 @@ package pbandk
 
 import pbandk.gen.ListField
 import pbandk.gen.MapField
-import pbandk.gen.MutableListField
-import pbandk.gen.MutableMapField
 import pbandk.internal.AtomicReference
 import pbandk.internal.FieldIterator
 
@@ -15,8 +13,8 @@ import pbandk.internal.FieldIterator
  */
 @PublicForGeneratedCode
 public class FieldSet<M : Message>
-private constructor(private val map: Map<FieldDescriptor<M, out Any>, Any>) {
-    internal operator fun <V : Any> get(fieldDescriptor: FieldDescriptor<M, V>): V? {
+private constructor(private val map: Map<FieldDescriptor<M, out Any?>, Any>) {
+    internal operator fun <V> get(fieldDescriptor: FieldDescriptor<M, V>): V? {
         @Suppress("UNCHECKED_CAST")
         return map[fieldDescriptor] as V?
 //        return map.getFieldValueOrDefault(fieldDescriptor)
@@ -32,9 +30,9 @@ private constructor(private val map: Map<FieldDescriptor<M, out Any>, Any>) {
     internal fun iterator(): FieldIterator<M> = Iterator(map.entries.iterator())
 
     private class Iterator<M : Message>(
-        private val iterator: kotlin.collections.Iterator<Map.Entry<FieldDescriptor<M, out Any>, Any>>
+        private val iterator: kotlin.collections.Iterator<Map.Entry<FieldDescriptor<M, out Any?>, Any>>
     ) : FieldIterator<M> {
-        private var lastEntry: Map.Entry<FieldDescriptor<M, out Any>, Any>? = null
+        private var lastEntry: Map.Entry<FieldDescriptor<M, out Any?>, Any>? = null
 
         override fun hasNext() = iterator.hasNext()
 
@@ -53,19 +51,19 @@ private constructor(private val map: Map<FieldDescriptor<M, out Any>, Any>) {
          * Assumes that the values in [map] are already the correct type for each corresponding field descriptor. E.g.
          * repeated field values are of type [ListField], map field values are of type [MapField].
          */
-        internal fun <M : Message> unsafeOf(mapEntries: Collection<Map.Entry<FieldDescriptor<M, out Any>, Any>>) =
+        internal fun <M : Message> unsafeOf(mapEntries: Collection<Map.Entry<FieldDescriptor<M, out Any?>, Any>>) =
             // We need to ensure that map iteration will always iterate over the fields in order of increasing field
             // number. So we store the fields in a `LinkedHashMap` (which preserves insertion order when iterating) and
             // sort them by field number before copying them into the map.
-            FieldSet(LinkedHashMap<FieldDescriptor<M, out Any>, Any>(mapEntries.size).apply {
+            FieldSet(LinkedHashMap<FieldDescriptor<M, out Any?>, Any>(mapEntries.size).apply {
                 mapEntries.sortedBy { it.key.number }.forEach { (fd, value) -> put(fd, value) }
             })
 
-        internal fun <M : Message> of(map: Map<FieldDescriptor<M, out Any>, Any>): FieldSet<M> {
+        internal fun <M : Message> of(map: Map<FieldDescriptor<M, out Any?>, Any>): FieldSet<M> {
             val safeEntries = map.entries.filterNot { (fd, value) ->
                 value == fd.type.defaultValue
             }.map { (fd, value) ->
-                fd to fd.canonicalValue(value)
+                fd to fd.type.canonicalValue(value)
             }
             // We need to ensure that map iteration will always iterate over the fields in order of increasing field
             // number. So we store the fields in a `LinkedHashMap` (which preserves insertion order when iterating) and
@@ -87,15 +85,15 @@ private constructor(private val map: Map<FieldDescriptor<M, out Any>, Any>) {
  * time it is accessed. However, this makes this class unsuitable for any other purposes.
  */
 internal class FieldSetCache<M : Message> {
-    private val map: AtomicReference<Map<FieldDescriptor<M, out Any>, Any>> = AtomicReference(emptyMap())
+    private val map: AtomicReference<Map<FieldDescriptor<M, out Any?>, Any>> = AtomicReference(emptyMap())
 
-    internal operator fun <V : Any> get(fieldDescriptor: FieldDescriptor<M, V>): V? {
+    internal operator fun <V> get(fieldDescriptor: FieldDescriptor<M, V>): V? {
         @Suppress("UNCHECKED_CAST")
         return map.get()[fieldDescriptor] as V?
 //        return map.get().getFieldValueOrDefault(fieldDescriptor)
     }
 
-    internal operator fun <V : Any> set(fieldDescriptor: FieldDescriptor<M, V>, value: V?) {
+    internal operator fun <V> set(fieldDescriptor: FieldDescriptor<M, V>, value: V) {
         if (value != null && value != fieldDescriptor.type.defaultValue) {
             map.set(map.get() + (fieldDescriptor to value))
         } else {
@@ -112,9 +110,9 @@ internal class FieldSetCache<M : Message> {
  */
 @PublicForGeneratedCode
 public class MutableFieldSet<M : Message> internal constructor() {
-    private val map: MutableMap<FieldDescriptor<M, out Any>, Any> = mutableMapOf()
+    private val map: MutableMap<FieldDescriptor<M, out Any?>, Any> = mutableMapOf()
 
-    internal operator fun <V : Any> get(fieldDescriptor: FieldDescriptor<M, V>): V? {
+    internal operator fun <V> get(fieldDescriptor: FieldDescriptor<M, V>): V? {
         @Suppress("UNCHECKED_CAST")
         return map[fieldDescriptor] as V?
 //        return map.getFieldValueOrDefault(fieldDescriptor)
@@ -124,9 +122,9 @@ public class MutableFieldSet<M : Message> internal constructor() {
         return fieldDescriptor in map
     }
 
-    internal operator fun <V : Any> set(fieldDescriptor: FieldDescriptor<M, V>, value: V?) {
+    internal operator fun <V> set(fieldDescriptor: FieldDescriptor<M, V>, value: V) {
         if (value != null) {
-            map[fieldDescriptor] = fieldDescriptor.canonicalMutableValue(value)
+            map[fieldDescriptor] = fieldDescriptor.type.canonicalMutableValue(value)
         } else {
             map.remove(fieldDescriptor)
         }
@@ -141,7 +139,7 @@ public class MutableFieldSet<M : Message> internal constructor() {
     }
 }
 
-private fun <M : Message, V : Any> Map<FieldDescriptor<M, out Any>, Any>.getFieldValueOrDefault(fieldDescriptor: FieldDescriptor<M, V>): V? {
+private fun <M : Message, V> Map<FieldDescriptor<M, out Any?>, Any>.getFieldValueOrDefault(fieldDescriptor: FieldDescriptor<M, V>): V {
     @Suppress("UNCHECKED_CAST")
-    return (this[fieldDescriptor] ?: fieldDescriptor.type.defaultValue) as V?
+    return (this[fieldDescriptor] ?: fieldDescriptor.type.defaultValue) as V
 }

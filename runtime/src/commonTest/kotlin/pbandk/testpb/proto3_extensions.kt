@@ -11,7 +11,7 @@ public var pbandk.wkt.MutableFieldOptions.nonOptionalInt32: Int?
     set(value) = setExtension(pbandk.testpb.nonOptionalInt32, value)
 
 @pbandk.Export
-public val nonOptionalInt32: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Int> = 
+public val nonOptionalInt32: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Int?> = 
     pbandk.FieldDescriptor.ofExtension(
         messageDescriptor = pbandk.wkt.FieldOptions.Companion::descriptor,
         fullName = "pbandk.testpb.non_optional_int32",
@@ -28,7 +28,7 @@ public var pbandk.wkt.MutableFieldOptions.optionalInt32: Int?
     set(value) = setExtension(pbandk.testpb.optionalInt32, value)
 
 @pbandk.Export
-public val optionalInt32: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Int> = 
+public val optionalInt32: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Int?> = 
     pbandk.FieldDescriptor.ofExtension(
         messageDescriptor = pbandk.wkt.FieldOptions.Companion::descriptor,
         fullName = "pbandk.testpb.optional_int32",

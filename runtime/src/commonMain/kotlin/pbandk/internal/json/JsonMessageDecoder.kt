@@ -47,7 +47,7 @@ internal class JsonMessageDecoder internal constructor(
             if (jsonValue is JsonNull) {
                 if (fd.type is FieldDescriptor.Type.Message<*> && fd.type.messageCompanion is Value.Companion) {
                     @Suppress("UNCHECKED_CAST")
-                    (fd as FieldDescriptor<M, Value>).updateValue(this, NullValueValue)
+                    updateFieldValue(fd as FieldDescriptor<M, Value?>, NullValueValue)
                 }
             } else {
                 jsonValueDecoder.readValue(jsonValue, fd.type)?.let { value ->
@@ -55,17 +55,17 @@ internal class JsonMessageDecoder internal constructor(
                         is FieldDescriptor.Type.Repeated<*> -> {
                             value as Sequence<*>
                             @Suppress("UNCHECKED_CAST")
-                            (fd.getValue(this as M) as MutableList<Any?>).addAll(value)
+                            (getFieldValue(fd) as MutableList<Any?>).addAll(value)
                         }
                         is FieldDescriptor.Type.Map<*, *> -> {
                             @Suppress("UNCHECKED_CAST")
                             value as Sequence<Map.Entry<Any, Any>>
                             @Suppress("UNCHECKED_CAST")
-                            (fd.getValue(this as M) as MutableMapField<Any, Any>).putAll(value)
+                            (getFieldValue(fd) as MutableMapField<Any, Any>).putAll(value)
                         }
                         else -> {
                             @Suppress("UNCHECKED_CAST")
-                            (fd as FieldDescriptor<M, Any>).updateValue(this, value)
+                            updateFieldValue(fd as FieldDescriptor<M, Any?>, value)
                         }
                     }
                 }

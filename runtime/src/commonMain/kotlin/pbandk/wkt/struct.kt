@@ -129,7 +129,7 @@ public sealed interface Value : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val nullValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.NullValue> =
+        public val nullValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.NullValue?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
                 name = "null_value",
@@ -139,7 +139,7 @@ public sealed interface Value : pbandk.Message {
                 value = pbandk.wkt.Value::nullValue,
                 mutableValue = pbandk.wkt.MutableValue::nullValue,
             )
-        public val numberValue: pbandk.FieldDescriptor<pbandk.wkt.Value, Double> =
+        public val numberValue: pbandk.FieldDescriptor<pbandk.wkt.Value, Double?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
                 name = "number_value",
@@ -149,7 +149,7 @@ public sealed interface Value : pbandk.Message {
                 value = pbandk.wkt.Value::numberValue,
                 mutableValue = pbandk.wkt.MutableValue::numberValue,
             )
-        public val stringValue: pbandk.FieldDescriptor<pbandk.wkt.Value, String> =
+        public val stringValue: pbandk.FieldDescriptor<pbandk.wkt.Value, String?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
                 name = "string_value",
@@ -159,7 +159,7 @@ public sealed interface Value : pbandk.Message {
                 value = pbandk.wkt.Value::stringValue,
                 mutableValue = pbandk.wkt.MutableValue::stringValue,
             )
-        public val boolValue: pbandk.FieldDescriptor<pbandk.wkt.Value, Boolean> =
+        public val boolValue: pbandk.FieldDescriptor<pbandk.wkt.Value, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
                 name = "bool_value",
@@ -169,7 +169,7 @@ public sealed interface Value : pbandk.Message {
                 value = pbandk.wkt.Value::boolValue,
                 mutableValue = pbandk.wkt.MutableValue::boolValue,
             )
-        public val structValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.Struct> =
+        public val structValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.Struct?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
                 name = "struct_value",
@@ -179,7 +179,7 @@ public sealed interface Value : pbandk.Message {
                 value = pbandk.wkt.Value::structValue,
                 mutableValue = pbandk.wkt.MutableValue::structValue,
             )
-        public val listValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.ListValue> =
+        public val listValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.ListValue?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
                 name = "list_value",

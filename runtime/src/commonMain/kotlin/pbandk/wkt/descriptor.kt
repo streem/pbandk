@@ -106,7 +106,7 @@ public sealed interface FileDescriptorProto : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val name: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, String> =
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
                 name = "name",
@@ -116,7 +116,7 @@ public sealed interface FileDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.FileDescriptorProto::name,
                 mutableValue = pbandk.wkt.MutableFileDescriptorProto::name,
             )
-        public val `package`: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, String> =
+        public val `package`: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
                 name = "package",
@@ -176,7 +176,7 @@ public sealed interface FileDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.FileDescriptorProto::extension,
                 mutableValue = pbandk.wkt.MutableFileDescriptorProto::extension,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, pbandk.wkt.FileOptions> =
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, pbandk.wkt.FileOptions?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
                 name = "options",
@@ -186,7 +186,7 @@ public sealed interface FileDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.FileDescriptorProto::options,
                 mutableValue = pbandk.wkt.MutableFileDescriptorProto::options,
             )
-        public val sourceCodeInfo: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, pbandk.wkt.SourceCodeInfo> =
+        public val sourceCodeInfo: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, pbandk.wkt.SourceCodeInfo?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
                 name = "source_code_info",
@@ -216,7 +216,7 @@ public sealed interface FileDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.FileDescriptorProto::weakDependency,
                 mutableValue = pbandk.wkt.MutableFileDescriptorProto::weakDependency,
             )
-        public val syntax: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, String> =
+        public val syntax: pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileDescriptorProto::descriptor,
                 name = "syntax",
@@ -314,7 +314,7 @@ public sealed interface DescriptorProto : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val name: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, String> =
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.DescriptorProto::descriptor,
                 name = "name",
@@ -374,7 +374,7 @@ public sealed interface DescriptorProto : pbandk.Message {
                 value = pbandk.wkt.DescriptorProto::extension,
                 mutableValue = pbandk.wkt.MutableDescriptorProto::extension,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, pbandk.wkt.MessageOptions> =
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, pbandk.wkt.MessageOptions?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.DescriptorProto::descriptor,
                 name = "options",
@@ -506,7 +506,7 @@ public sealed interface DescriptorProto : pbandk.Message {
 
         @pbandk.PublicForGeneratedCode
         public object FieldDescriptors {
-            public val start: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange, Int> =
+            public val start: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange, Int?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.wkt.DescriptorProto.ExtensionRange::descriptor,
                     name = "start",
@@ -516,7 +516,7 @@ public sealed interface DescriptorProto : pbandk.Message {
                     value = pbandk.wkt.DescriptorProto.ExtensionRange::start,
                     mutableValue = pbandk.wkt.DescriptorProto.MutableExtensionRange::start,
                 )
-            public val end: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange, Int> =
+            public val end: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange, Int?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.wkt.DescriptorProto.ExtensionRange::descriptor,
                     name = "end",
@@ -526,7 +526,7 @@ public sealed interface DescriptorProto : pbandk.Message {
                     value = pbandk.wkt.DescriptorProto.ExtensionRange::end,
                     mutableValue = pbandk.wkt.DescriptorProto.MutableExtensionRange::end,
                 )
-            public val options: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange, pbandk.wkt.ExtensionRangeOptions> =
+            public val options: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange, pbandk.wkt.ExtensionRangeOptions?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.wkt.DescriptorProto.ExtensionRange::descriptor,
                     name = "options",
@@ -590,7 +590,7 @@ public sealed interface DescriptorProto : pbandk.Message {
 
         @pbandk.PublicForGeneratedCode
         public object FieldDescriptors {
-            public val start: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ReservedRange, Int> =
+            public val start: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ReservedRange, Int?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.wkt.DescriptorProto.ReservedRange::descriptor,
                     name = "start",
@@ -600,7 +600,7 @@ public sealed interface DescriptorProto : pbandk.Message {
                     value = pbandk.wkt.DescriptorProto.ReservedRange::start,
                     mutableValue = pbandk.wkt.DescriptorProto.MutableReservedRange::start,
                 )
-            public val end: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ReservedRange, Int> =
+            public val end: pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ReservedRange, Int?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.wkt.DescriptorProto.ReservedRange::descriptor,
                     name = "end",
@@ -752,7 +752,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val name: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String> =
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
                 name = "name",
@@ -762,7 +762,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.FieldDescriptorProto::name,
                 mutableValue = pbandk.wkt.MutableFieldDescriptorProto::name,
             )
-        public val extendee: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String> =
+        public val extendee: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
                 name = "extendee",
@@ -772,7 +772,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.FieldDescriptorProto::extendee,
                 mutableValue = pbandk.wkt.MutableFieldDescriptorProto::extendee,
             )
-        public val number: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, Int> =
+        public val number: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
                 name = "number",
@@ -782,7 +782,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.FieldDescriptorProto::number,
                 mutableValue = pbandk.wkt.MutableFieldDescriptorProto::number,
             )
-        public val label: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, pbandk.wkt.FieldDescriptorProto.Label> =
+        public val label: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, pbandk.wkt.FieldDescriptorProto.Label?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
                 name = "label",
@@ -792,7 +792,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.FieldDescriptorProto::label,
                 mutableValue = pbandk.wkt.MutableFieldDescriptorProto::label,
             )
-        public val type: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, pbandk.wkt.FieldDescriptorProto.Type> =
+        public val type: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, pbandk.wkt.FieldDescriptorProto.Type?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
                 name = "type",
@@ -802,7 +802,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.FieldDescriptorProto::type,
                 mutableValue = pbandk.wkt.MutableFieldDescriptorProto::type,
             )
-        public val typeName: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String> =
+        public val typeName: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
                 name = "type_name",
@@ -812,7 +812,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.FieldDescriptorProto::typeName,
                 mutableValue = pbandk.wkt.MutableFieldDescriptorProto::typeName,
             )
-        public val defaultValue: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String> =
+        public val defaultValue: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
                 name = "default_value",
@@ -822,7 +822,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.FieldDescriptorProto::defaultValue,
                 mutableValue = pbandk.wkt.MutableFieldDescriptorProto::defaultValue,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, pbandk.wkt.FieldOptions> =
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, pbandk.wkt.FieldOptions?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
                 name = "options",
@@ -832,7 +832,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.FieldDescriptorProto::options,
                 mutableValue = pbandk.wkt.MutableFieldDescriptorProto::options,
             )
-        public val oneofIndex: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, Int> =
+        public val oneofIndex: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
                 name = "oneof_index",
@@ -842,7 +842,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.FieldDescriptorProto::oneofIndex,
                 mutableValue = pbandk.wkt.MutableFieldDescriptorProto::oneofIndex,
             )
-        public val jsonName: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String> =
+        public val jsonName: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
                 name = "json_name",
@@ -852,7 +852,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.FieldDescriptorProto::jsonName,
                 mutableValue = pbandk.wkt.MutableFieldDescriptorProto::jsonName,
             )
-        public val proto3Optional: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, Boolean> =
+        public val proto3Optional: pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldDescriptorProto::descriptor,
                 name = "proto3_optional",
@@ -1000,7 +1000,7 @@ public sealed interface OneofDescriptorProto : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val name: pbandk.FieldDescriptor<pbandk.wkt.OneofDescriptorProto, String> =
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.OneofDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.OneofDescriptorProto::descriptor,
                 name = "name",
@@ -1010,7 +1010,7 @@ public sealed interface OneofDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.OneofDescriptorProto::name,
                 mutableValue = pbandk.wkt.MutableOneofDescriptorProto::name,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.OneofDescriptorProto, pbandk.wkt.OneofOptions> =
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.OneofDescriptorProto, pbandk.wkt.OneofOptions?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.OneofDescriptorProto::descriptor,
                 name = "options",
@@ -1078,7 +1078,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val name: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto, String> =
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.EnumDescriptorProto::descriptor,
                 name = "name",
@@ -1098,7 +1098,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.EnumDescriptorProto::value,
                 mutableValue = pbandk.wkt.MutableEnumDescriptorProto::value,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto, pbandk.wkt.EnumOptions> =
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto, pbandk.wkt.EnumOptions?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.EnumDescriptorProto::descriptor,
                 name = "options",
@@ -1194,7 +1194,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
 
         @pbandk.PublicForGeneratedCode
         public object FieldDescriptors {
-            public val start: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto.EnumReservedRange, Int> =
+            public val start: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto.EnumReservedRange, Int?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.wkt.EnumDescriptorProto.EnumReservedRange::descriptor,
                     name = "start",
@@ -1204,7 +1204,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
                     value = pbandk.wkt.EnumDescriptorProto.EnumReservedRange::start,
                     mutableValue = pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange::start,
                 )
-            public val end: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto.EnumReservedRange, Int> =
+            public val end: pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto.EnumReservedRange, Int?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.wkt.EnumDescriptorProto.EnumReservedRange::descriptor,
                     name = "end",
@@ -1277,7 +1277,7 @@ public sealed interface EnumValueDescriptorProto : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val name: pbandk.FieldDescriptor<pbandk.wkt.EnumValueDescriptorProto, String> =
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.EnumValueDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.EnumValueDescriptorProto::descriptor,
                 name = "name",
@@ -1287,7 +1287,7 @@ public sealed interface EnumValueDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.EnumValueDescriptorProto::name,
                 mutableValue = pbandk.wkt.MutableEnumValueDescriptorProto::name,
             )
-        public val number: pbandk.FieldDescriptor<pbandk.wkt.EnumValueDescriptorProto, Int> =
+        public val number: pbandk.FieldDescriptor<pbandk.wkt.EnumValueDescriptorProto, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.EnumValueDescriptorProto::descriptor,
                 name = "number",
@@ -1297,7 +1297,7 @@ public sealed interface EnumValueDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.EnumValueDescriptorProto::number,
                 mutableValue = pbandk.wkt.MutableEnumValueDescriptorProto::number,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.EnumValueDescriptorProto, pbandk.wkt.EnumValueOptions> =
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.EnumValueDescriptorProto, pbandk.wkt.EnumValueOptions?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.EnumValueDescriptorProto::descriptor,
                 name = "options",
@@ -1363,7 +1363,7 @@ public sealed interface ServiceDescriptorProto : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val name: pbandk.FieldDescriptor<pbandk.wkt.ServiceDescriptorProto, String> =
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.ServiceDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.ServiceDescriptorProto::descriptor,
                 name = "name",
@@ -1383,7 +1383,7 @@ public sealed interface ServiceDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.ServiceDescriptorProto::method,
                 mutableValue = pbandk.wkt.MutableServiceDescriptorProto::method,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.ServiceDescriptorProto, pbandk.wkt.ServiceOptions> =
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.ServiceDescriptorProto, pbandk.wkt.ServiceOptions?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.ServiceDescriptorProto::descriptor,
                 name = "options",
@@ -1455,7 +1455,7 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val name: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, String> =
+        public val name: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.MethodDescriptorProto::descriptor,
                 name = "name",
@@ -1465,7 +1465,7 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.MethodDescriptorProto::name,
                 mutableValue = pbandk.wkt.MutableMethodDescriptorProto::name,
             )
-        public val inputType: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, String> =
+        public val inputType: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.MethodDescriptorProto::descriptor,
                 name = "input_type",
@@ -1475,7 +1475,7 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.MethodDescriptorProto::inputType,
                 mutableValue = pbandk.wkt.MutableMethodDescriptorProto::inputType,
             )
-        public val outputType: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, String> =
+        public val outputType: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.MethodDescriptorProto::descriptor,
                 name = "output_type",
@@ -1485,7 +1485,7 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.MethodDescriptorProto::outputType,
                 mutableValue = pbandk.wkt.MutableMethodDescriptorProto::outputType,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, pbandk.wkt.MethodOptions> =
+        public val options: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, pbandk.wkt.MethodOptions?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.MethodDescriptorProto::descriptor,
                 name = "options",
@@ -1495,7 +1495,7 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.MethodDescriptorProto::options,
                 mutableValue = pbandk.wkt.MutableMethodDescriptorProto::options,
             )
-        public val clientStreaming: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, Boolean> =
+        public val clientStreaming: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.MethodDescriptorProto::descriptor,
                 name = "client_streaming",
@@ -1505,7 +1505,7 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
                 value = pbandk.wkt.MethodDescriptorProto::clientStreaming,
                 mutableValue = pbandk.wkt.MutableMethodDescriptorProto::clientStreaming,
             )
-        public val serverStreaming: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, Boolean> =
+        public val serverStreaming: pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.MethodDescriptorProto::descriptor,
                 name = "server_streaming",
@@ -1614,7 +1614,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val javaPackage: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String> =
+        public val javaPackage: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "java_package",
@@ -1624,7 +1624,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::javaPackage,
                 mutableValue = pbandk.wkt.MutableFileOptions::javaPackage,
             )
-        public val javaOuterClassname: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String> =
+        public val javaOuterClassname: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "java_outer_classname",
@@ -1634,7 +1634,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::javaOuterClassname,
                 mutableValue = pbandk.wkt.MutableFileOptions::javaOuterClassname,
             )
-        public val optimizeFor: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, pbandk.wkt.FileOptions.OptimizeMode> =
+        public val optimizeFor: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, pbandk.wkt.FileOptions.OptimizeMode?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "optimize_for",
@@ -1644,7 +1644,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::optimizeFor,
                 mutableValue = pbandk.wkt.MutableFileOptions::optimizeFor,
             )
-        public val javaMultipleFiles: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean> =
+        public val javaMultipleFiles: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "java_multiple_files",
@@ -1654,7 +1654,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::javaMultipleFiles,
                 mutableValue = pbandk.wkt.MutableFileOptions::javaMultipleFiles,
             )
-        public val goPackage: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String> =
+        public val goPackage: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "go_package",
@@ -1664,7 +1664,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::goPackage,
                 mutableValue = pbandk.wkt.MutableFileOptions::goPackage,
             )
-        public val ccGenericServices: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean> =
+        public val ccGenericServices: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "cc_generic_services",
@@ -1674,7 +1674,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::ccGenericServices,
                 mutableValue = pbandk.wkt.MutableFileOptions::ccGenericServices,
             )
-        public val javaGenericServices: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean> =
+        public val javaGenericServices: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "java_generic_services",
@@ -1684,7 +1684,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::javaGenericServices,
                 mutableValue = pbandk.wkt.MutableFileOptions::javaGenericServices,
             )
-        public val pyGenericServices: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean> =
+        public val pyGenericServices: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "py_generic_services",
@@ -1694,7 +1694,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::pyGenericServices,
                 mutableValue = pbandk.wkt.MutableFileOptions::pyGenericServices,
             )
-        public val javaGenerateEqualsAndHash: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean> =
+        public val javaGenerateEqualsAndHash: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> =
             @Suppress("DEPRECATION")
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
@@ -1708,7 +1708,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::javaGenerateEqualsAndHash,
                 mutableValue = pbandk.wkt.MutableFileOptions::javaGenerateEqualsAndHash,
             )
-        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean> =
+        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "deprecated",
@@ -1718,7 +1718,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::deprecated,
                 mutableValue = pbandk.wkt.MutableFileOptions::deprecated,
             )
-        public val javaStringCheckUtf8: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean> =
+        public val javaStringCheckUtf8: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "java_string_check_utf8",
@@ -1728,7 +1728,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::javaStringCheckUtf8,
                 mutableValue = pbandk.wkt.MutableFileOptions::javaStringCheckUtf8,
             )
-        public val ccEnableArenas: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean> =
+        public val ccEnableArenas: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "cc_enable_arenas",
@@ -1738,7 +1738,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::ccEnableArenas,
                 mutableValue = pbandk.wkt.MutableFileOptions::ccEnableArenas,
             )
-        public val objcClassPrefix: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String> =
+        public val objcClassPrefix: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "objc_class_prefix",
@@ -1748,7 +1748,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::objcClassPrefix,
                 mutableValue = pbandk.wkt.MutableFileOptions::objcClassPrefix,
             )
-        public val csharpNamespace: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String> =
+        public val csharpNamespace: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "csharp_namespace",
@@ -1758,7 +1758,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::csharpNamespace,
                 mutableValue = pbandk.wkt.MutableFileOptions::csharpNamespace,
             )
-        public val swiftPrefix: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String> =
+        public val swiftPrefix: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "swift_prefix",
@@ -1768,7 +1768,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::swiftPrefix,
                 mutableValue = pbandk.wkt.MutableFileOptions::swiftPrefix,
             )
-        public val phpClassPrefix: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String> =
+        public val phpClassPrefix: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "php_class_prefix",
@@ -1778,7 +1778,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::phpClassPrefix,
                 mutableValue = pbandk.wkt.MutableFileOptions::phpClassPrefix,
             )
-        public val phpNamespace: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String> =
+        public val phpNamespace: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "php_namespace",
@@ -1788,7 +1788,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::phpNamespace,
                 mutableValue = pbandk.wkt.MutableFileOptions::phpNamespace,
             )
-        public val phpGenericServices: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean> =
+        public val phpGenericServices: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "php_generic_services",
@@ -1798,7 +1798,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::phpGenericServices,
                 mutableValue = pbandk.wkt.MutableFileOptions::phpGenericServices,
             )
-        public val phpMetadataNamespace: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String> =
+        public val phpMetadataNamespace: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "php_metadata_namespace",
@@ -1808,7 +1808,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                 value = pbandk.wkt.FileOptions::phpMetadataNamespace,
                 mutableValue = pbandk.wkt.MutableFileOptions::phpMetadataNamespace,
             )
-        public val rubyPackage: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String> =
+        public val rubyPackage: pbandk.FieldDescriptor<pbandk.wkt.FileOptions, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FileOptions::descriptor,
                 name = "ruby_package",
@@ -1949,7 +1949,7 @@ public sealed interface MessageOptions : pbandk.ExtendableMessage<pbandk.wkt.Mes
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val messageSetWireFormat: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean> =
+        public val messageSetWireFormat: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.MessageOptions::descriptor,
                 name = "message_set_wire_format",
@@ -1959,7 +1959,7 @@ public sealed interface MessageOptions : pbandk.ExtendableMessage<pbandk.wkt.Mes
                 value = pbandk.wkt.MessageOptions::messageSetWireFormat,
                 mutableValue = pbandk.wkt.MutableMessageOptions::messageSetWireFormat,
             )
-        public val noStandardDescriptorAccessor: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean> =
+        public val noStandardDescriptorAccessor: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.MessageOptions::descriptor,
                 name = "no_standard_descriptor_accessor",
@@ -1969,7 +1969,7 @@ public sealed interface MessageOptions : pbandk.ExtendableMessage<pbandk.wkt.Mes
                 value = pbandk.wkt.MessageOptions::noStandardDescriptorAccessor,
                 mutableValue = pbandk.wkt.MutableMessageOptions::noStandardDescriptorAccessor,
             )
-        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean> =
+        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.MessageOptions::descriptor,
                 name = "deprecated",
@@ -1979,7 +1979,7 @@ public sealed interface MessageOptions : pbandk.ExtendableMessage<pbandk.wkt.Mes
                 value = pbandk.wkt.MessageOptions::deprecated,
                 mutableValue = pbandk.wkt.MutableMessageOptions::deprecated,
             )
-        public val mapEntry: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean> =
+        public val mapEntry: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.MessageOptions::descriptor,
                 name = "map_entry",
@@ -2067,7 +2067,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val ctype: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, pbandk.wkt.FieldOptions.CType> =
+        public val ctype: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, pbandk.wkt.FieldOptions.CType?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
                 name = "ctype",
@@ -2077,7 +2077,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
                 value = pbandk.wkt.FieldOptions::ctype,
                 mutableValue = pbandk.wkt.MutableFieldOptions::ctype,
             )
-        public val packed: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Boolean> =
+        public val packed: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
                 name = "packed",
@@ -2087,7 +2087,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
                 value = pbandk.wkt.FieldOptions::packed,
                 mutableValue = pbandk.wkt.MutableFieldOptions::packed,
             )
-        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Boolean> =
+        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
                 name = "deprecated",
@@ -2097,7 +2097,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
                 value = pbandk.wkt.FieldOptions::deprecated,
                 mutableValue = pbandk.wkt.MutableFieldOptions::deprecated,
             )
-        public val lazy: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Boolean> =
+        public val lazy: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
                 name = "lazy",
@@ -2107,7 +2107,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
                 value = pbandk.wkt.FieldOptions::lazy,
                 mutableValue = pbandk.wkt.MutableFieldOptions::lazy,
             )
-        public val jstype: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, pbandk.wkt.FieldOptions.JSType> =
+        public val jstype: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, pbandk.wkt.FieldOptions.JSType?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
                 name = "jstype",
@@ -2117,7 +2117,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
                 value = pbandk.wkt.FieldOptions::jstype,
                 mutableValue = pbandk.wkt.MutableFieldOptions::jstype,
             )
-        public val weak: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Boolean> =
+        public val weak: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
                 name = "weak",
@@ -2307,7 +2307,7 @@ public sealed interface EnumOptions : pbandk.ExtendableMessage<pbandk.wkt.EnumOp
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val allowAlias: pbandk.FieldDescriptor<pbandk.wkt.EnumOptions, Boolean> =
+        public val allowAlias: pbandk.FieldDescriptor<pbandk.wkt.EnumOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.EnumOptions::descriptor,
                 name = "allow_alias",
@@ -2317,7 +2317,7 @@ public sealed interface EnumOptions : pbandk.ExtendableMessage<pbandk.wkt.EnumOp
                 value = pbandk.wkt.EnumOptions::allowAlias,
                 mutableValue = pbandk.wkt.MutableEnumOptions::allowAlias,
             )
-        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.EnumOptions, Boolean> =
+        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.EnumOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.EnumOptions::descriptor,
                 name = "deprecated",
@@ -2391,7 +2391,7 @@ public sealed interface EnumValueOptions : pbandk.ExtendableMessage<pbandk.wkt.E
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.EnumValueOptions, Boolean> =
+        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.EnumValueOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.EnumValueOptions::descriptor,
                 name = "deprecated",
@@ -2463,7 +2463,7 @@ public sealed interface ServiceOptions : pbandk.ExtendableMessage<pbandk.wkt.Ser
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.ServiceOptions, Boolean> =
+        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.ServiceOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.ServiceOptions::descriptor,
                 name = "deprecated",
@@ -2537,7 +2537,7 @@ public sealed interface MethodOptions : pbandk.ExtendableMessage<pbandk.wkt.Meth
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.MethodOptions, Boolean> =
+        public val deprecated: pbandk.FieldDescriptor<pbandk.wkt.MethodOptions, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.MethodOptions::descriptor,
                 name = "deprecated",
@@ -2547,7 +2547,7 @@ public sealed interface MethodOptions : pbandk.ExtendableMessage<pbandk.wkt.Meth
                 value = pbandk.wkt.MethodOptions::deprecated,
                 mutableValue = pbandk.wkt.MutableMethodOptions::deprecated,
             )
-        public val idempotencyLevel: pbandk.FieldDescriptor<pbandk.wkt.MethodOptions, pbandk.wkt.MethodOptions.IdempotencyLevel> =
+        public val idempotencyLevel: pbandk.FieldDescriptor<pbandk.wkt.MethodOptions, pbandk.wkt.MethodOptions.IdempotencyLevel?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.MethodOptions::descriptor,
                 name = "idempotency_level",
@@ -2665,7 +2665,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
                 value = pbandk.wkt.UninterpretedOption::name,
                 mutableValue = pbandk.wkt.MutableUninterpretedOption::name,
             )
-        public val identifierValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, String> =
+        public val identifierValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.UninterpretedOption::descriptor,
                 name = "identifier_value",
@@ -2675,7 +2675,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
                 value = pbandk.wkt.UninterpretedOption::identifierValue,
                 mutableValue = pbandk.wkt.MutableUninterpretedOption::identifierValue,
             )
-        public val positiveIntValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, Long> =
+        public val positiveIntValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.UninterpretedOption::descriptor,
                 name = "positive_int_value",
@@ -2685,7 +2685,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
                 value = pbandk.wkt.UninterpretedOption::positiveIntValue,
                 mutableValue = pbandk.wkt.MutableUninterpretedOption::positiveIntValue,
             )
-        public val negativeIntValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, Long> =
+        public val negativeIntValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.UninterpretedOption::descriptor,
                 name = "negative_int_value",
@@ -2695,7 +2695,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
                 value = pbandk.wkt.UninterpretedOption::negativeIntValue,
                 mutableValue = pbandk.wkt.MutableUninterpretedOption::negativeIntValue,
             )
-        public val doubleValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, Double> =
+        public val doubleValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, Double?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.UninterpretedOption::descriptor,
                 name = "double_value",
@@ -2705,7 +2705,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
                 value = pbandk.wkt.UninterpretedOption::doubleValue,
                 mutableValue = pbandk.wkt.MutableUninterpretedOption::doubleValue,
             )
-        public val stringValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, pbandk.ByteArr> =
+        public val stringValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, pbandk.ByteArr?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.UninterpretedOption::descriptor,
                 name = "string_value",
@@ -2715,7 +2715,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
                 value = pbandk.wkt.UninterpretedOption::stringValue,
                 mutableValue = pbandk.wkt.MutableUninterpretedOption::stringValue,
             )
-        public val aggregateValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, String> =
+        public val aggregateValue: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.UninterpretedOption::descriptor,
                 name = "aggregate_value",
@@ -2978,7 +2978,7 @@ public sealed interface SourceCodeInfo : pbandk.Message {
                     value = pbandk.wkt.SourceCodeInfo.Location::span,
                     mutableValue = pbandk.wkt.SourceCodeInfo.MutableLocation::span,
                 )
-            public val leadingComments: pbandk.FieldDescriptor<pbandk.wkt.SourceCodeInfo.Location, String> =
+            public val leadingComments: pbandk.FieldDescriptor<pbandk.wkt.SourceCodeInfo.Location, String?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.wkt.SourceCodeInfo.Location::descriptor,
                     name = "leading_comments",
@@ -2988,7 +2988,7 @@ public sealed interface SourceCodeInfo : pbandk.Message {
                     value = pbandk.wkt.SourceCodeInfo.Location::leadingComments,
                     mutableValue = pbandk.wkt.SourceCodeInfo.MutableLocation::leadingComments,
                 )
-            public val trailingComments: pbandk.FieldDescriptor<pbandk.wkt.SourceCodeInfo.Location, String> =
+            public val trailingComments: pbandk.FieldDescriptor<pbandk.wkt.SourceCodeInfo.Location, String?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.wkt.SourceCodeInfo.Location::descriptor,
                     name = "trailing_comments",
@@ -3159,7 +3159,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
                     value = pbandk.wkt.GeneratedCodeInfo.Annotation::path,
                     mutableValue = pbandk.wkt.GeneratedCodeInfo.MutableAnnotation::path,
                 )
-            public val sourceFile: pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation, String> =
+            public val sourceFile: pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation, String?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.wkt.GeneratedCodeInfo.Annotation::descriptor,
                     name = "source_file",
@@ -3169,7 +3169,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
                     value = pbandk.wkt.GeneratedCodeInfo.Annotation::sourceFile,
                     mutableValue = pbandk.wkt.GeneratedCodeInfo.MutableAnnotation::sourceFile,
                 )
-            public val begin: pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation, Int> =
+            public val begin: pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation, Int?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.wkt.GeneratedCodeInfo.Annotation::descriptor,
                     name = "begin",
@@ -3179,7 +3179,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
                     value = pbandk.wkt.GeneratedCodeInfo.Annotation::begin,
                     mutableValue = pbandk.wkt.GeneratedCodeInfo.MutableAnnotation::begin,
                 )
-            public val end: pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation, Int> =
+            public val end: pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation, Int?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.wkt.GeneratedCodeInfo.Annotation::descriptor,
                     name = "end",

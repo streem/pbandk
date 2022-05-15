@@ -78,7 +78,7 @@ public sealed interface Api : pbandk.Message {
                 value = pbandk.wkt.Api::version,
                 mutableValue = pbandk.wkt.MutableApi::version,
             )
-        public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Api, pbandk.wkt.SourceContext> =
+        public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Api, pbandk.wkt.SourceContext?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
                 name = "source_context",

@@ -39,7 +39,7 @@ public sealed interface Value : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val stringValue: pbandk.FieldDescriptor<pbandk.testpb.Value, String> =
+        public val stringValue: pbandk.FieldDescriptor<pbandk.testpb.Value, String?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Value::descriptor,
                 name = "string_value",
@@ -49,7 +49,7 @@ public sealed interface Value : pbandk.Message {
                 value = pbandk.testpb.Value::stringValue,
                 mutableValue = pbandk.testpb.MutableValue::stringValue,
             )
-        public val booleanValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Boolean> =
+        public val booleanValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Value::descriptor,
                 name = "boolean_value",
@@ -59,7 +59,7 @@ public sealed interface Value : pbandk.Message {
                 value = pbandk.testpb.Value::booleanValue,
                 mutableValue = pbandk.testpb.MutableValue::booleanValue,
             )
-        public val integerValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Int> =
+        public val integerValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Int?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Value::descriptor,
                 name = "integer_value",

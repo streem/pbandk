@@ -777,7 +777,11 @@ public open class CodeGenerator(
         get() = extendee?.let { kotlinTypeMappings[it] }
 
     protected fun File.Field.Numbered.fieldDescriptorType(typeName: Name, isOneOfMember: Boolean = false): String {
-        val fieldValueType = kotlinValueType(false)
+        val fieldValueType = if (isOneOfMember) {
+            "${kotlinValueType(false)}?"
+        } else {
+            kotlinValueType(true)
+        }
         return "pbandk.FieldDescriptor<${typeName.fullWithPackage}, $fieldValueType>"
     }
 

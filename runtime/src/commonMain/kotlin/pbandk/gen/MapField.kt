@@ -63,6 +63,7 @@ public interface MapField<K : Any, V : Any> : Map<K, V> {
 
     @PublicForGeneratedCode
     public companion object {
+        // TODO
         private val Empty = MapFieldImpl<Nothing, Nothing>(
             Entry.Companion(FieldDescriptor.Type.Primitive.Bool(), FieldDescriptor.Type.Primitive.Bool()),
             emptySet()

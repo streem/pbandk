@@ -96,7 +96,7 @@ public sealed interface Bar : pbandk.Message {
                 value = pbandk.testpb.Bar::foos,
                 mutableValue = pbandk.testpb.MutableBar::foos,
             )
-        public val singleFoo: pbandk.FieldDescriptor<pbandk.testpb.Bar, pbandk.testpb.Foo> =
+        public val singleFoo: pbandk.FieldDescriptor<pbandk.testpb.Bar, pbandk.testpb.Foo?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Bar::descriptor,
                 name = "single_foo",
@@ -354,7 +354,7 @@ public sealed interface FooMapEntries : pbandk.Message {
                     value = pbandk.testpb.FooMapEntries.MapEntry::key,
                     mutableValue = pbandk.testpb.FooMapEntries.MutableMapEntry::key,
                 )
-            public val value: pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries.MapEntry, pbandk.testpb.Foo> =
+            public val value: pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries.MapEntry, pbandk.testpb.Foo?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.testpb.FooMapEntries.MapEntry::descriptor,
                     name = "value",
@@ -421,7 +421,7 @@ public sealed interface Wrappers : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val stringValue: pbandk.FieldDescriptor<pbandk.testpb.Wrappers, String> =
+        public val stringValue: pbandk.FieldDescriptor<pbandk.testpb.Wrappers, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Wrappers::descriptor,
                 name = "string_value",

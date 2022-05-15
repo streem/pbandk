@@ -12,7 +12,7 @@ import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
-public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
+public sealed class FieldDescriptor<M : Message, V> private constructor(
     getMessageDescriptor: () -> MessageDescriptor<M>,
     /** The field's unqualified name. */
     @ExperimentalProtoReflection
@@ -63,22 +63,6 @@ public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
     public abstract val fullName: String
 
     /**
-     * Returns the value of this field in the provided message.
-     */
-    internal abstract fun getValue(message: M): V?
-
-    /**
-     * Sets or updates the value of this field in the provided message.
-     *
-     * NOTE: For `repeated` and `map` fields, this function _appends_ to the existing list/map value rather than
-     * replacing the value. For all other fields, this function replaces the value with the new value.
-     */
-    internal abstract fun updateValue(message: MutableMessage<M>, value: V?)
-
-    internal abstract fun canonicalValue(value: Any): V
-    internal abstract fun canonicalMutableValue(value: Any): V
-
-    /**
      * FieldDescriptors are sorted by their field number.
      */
     override fun compareTo(other: FieldDescriptor<M, *>): Int {
@@ -88,15 +72,12 @@ public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
         return number - other.number
     }
 
-    private class Standard<M : Message, V : Any>(
+    internal class Standard<M : Message, MM : MutableMessage<M>, V>(
         getMessageDescriptor: () -> MessageDescriptor<M>,
         name: String,
         number: Int,
         type: Type,
-        private val getValueFn: (M) -> V?,
-        private val updateValueFn: (MutableMessage<M>, V?) -> Unit,
-        private val canonicalValueFn: (FieldDescriptor<M, V>, Any) -> V,
-        private val canonicalMutableValueFn: (FieldDescriptor<M, V>, Any) -> V,
+        internal val accessor: FieldAccessor<M, MM, V>,
         override val isOneofMember: Boolean = false,
         jsonName: String,
         options: FieldOptions? = null,
@@ -110,13 +91,9 @@ public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
     ) {
         override val isExtension: Boolean get() = false
         override val fullName: String get() = "${messageDescriptor.fullName}.${name}"
-        override fun getValue(message: M): V? = getValueFn(message)
-        override fun updateValue(message: MutableMessage<M>, value: V?) = updateValueFn(message, value)
-        override fun canonicalValue(value: Any): V = canonicalValueFn(this, value)
-        override fun canonicalMutableValue(value: Any): V = canonicalMutableValueFn(this, value)
     }
 
-    private class Extension<M : ExtendableMessage<M>, V : Any>(
+    internal class Extension<M : ExtendableMessage<M>, V>(
         getMessageDescriptor: () -> MessageDescriptor<M>,
         extensionName: String,
         number: Int,
@@ -134,29 +111,6 @@ public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
         override val isOneofMember: Boolean get() = false
         override val isExtension get() = true
         override val fullName = extensionName
-        override fun getValue(message: M): V? = message.getExtension(this)
-        override fun updateValue(message: MutableMessage<M>, value: V?) {
-            if (type is Type.Repeated<*>) {
-                value?.let {
-                    (message as MutableExtendableMessage<M>).getRepeatedExtension(this as FieldDescriptor<M, List<*>>)
-                        .addAll(it as List<*>)
-                }
-            } else {
-                (message as MutableExtendableMessage<M>).setExtension(this, value)
-            }
-        }
-
-        override fun canonicalValue(value: Any): V = if (type is Type.Repeated<*>) {
-            canonicalRepeatedValue(this as FieldDescriptor<M, List<Any>>, value) as V
-        } else {
-            canonicalValue(this, value)
-        }
-
-        override fun canonicalMutableValue(value: Any): V = if (type is Type.Repeated<*>) {
-            canonicalMutableRepeatedValue(this as FieldDescriptor<M, List<Any>>, value) as V
-        } else {
-            canonicalValue(this, value)
-        }
     }
 
     @PublicForGeneratedCode
@@ -167,6 +121,16 @@ public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
         internal abstract val kotlinType: KClass<*>
         internal abstract val noPresenceDefaultValue: Any
         internal abstract val defaultValue: Any?
+
+        internal open fun canonicalValue(value: Any): Any {
+            require(kotlinType.isInstance(value))
+            return value
+        }
+
+        internal open fun canonicalMutableValue(value: Any): Any {
+            require(kotlinType.isInstance(value))
+            return value
+        }
 
         @PublicForGeneratedCode
         public sealed class Primitive<KotlinT : Any> : Type() {
@@ -291,6 +255,7 @@ public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
             override val hasPresence get() = true
             override val isPackable: Boolean get() = false
             override val wireType: WireType get() = WireType.LENGTH_DELIMITED
+
             // TODO
             override val noPresenceDefaultValue: M get() = messageCompanion.decodeFromByteArray(byteArrayOf())
             override val defaultValue: M? get() = null
@@ -317,6 +282,40 @@ public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
             override val kotlinType: KClass<List<*>> get() = List::class
             override val noPresenceDefaultValue: List<T> = ListField.empty()
             override val defaultValue: List<T> = ListField.empty()
+
+            override fun canonicalValue(value: Any): Any = when (value) {
+                is ListField<*> -> {
+                    require(value.valueType == valueType)
+                    value
+                }
+                is MutableListField<*> -> {
+                    require(value.valueType == valueType)
+                    value.toListField()
+                }
+                is Collection<*> -> {
+                    require(value.all { valueType.kotlinType.isInstance(it) })
+                    @Suppress("UNCHECKED_CAST")
+                    ListField(valueType, value as Collection<T>)
+                }
+                else -> throw IllegalArgumentException("value must be a Collection")
+            }
+
+            override fun canonicalMutableValue(value: Any): Any = when (value) {
+                is MutableListField<*> -> {
+                    require(value.valueType == valueType)
+                    MutableListField(valueType, value)
+                }
+                is ListField<*> -> {
+                    require(value.valueType == valueType)
+                    MutableListField(valueType, value)
+                }
+                is Collection<*> -> {
+                    require(value.all { valueType.kotlinType.isInstance(it) })
+                    @Suppress("UNCHECKED_CAST")
+                    MutableListField(valueType, value as Collection<T>)
+                }
+                else -> throw IllegalArgumentException("value must be a Collection")
+            }
         }
 
         @PublicForGeneratedCode
@@ -329,6 +328,46 @@ public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
             override val kotlinType: KClass<Map<*, *>> get() = Map::class
             override val noPresenceDefaultValue: kotlin.collections.Map<K, V> = MapField.empty()
             override val defaultValue: kotlin.collections.Map<K, V> = MapField.empty()
+
+            override fun canonicalValue(value: Any): Any = when (value) {
+                is MapField<*, *> -> {
+                    require(value.entryCompanion == entryCompanion)
+                    value
+                }
+                is MutableMapField<*, *> -> {
+                    require(value.entryCompanion == entryCompanion)
+                    value.toMapField()
+                }
+                is kotlin.collections.Map<*, *> -> {
+                    require(value.all {
+                        entryCompanion.keyType.kotlinType.isInstance(it.key) &&
+                                entryCompanion.valueType.kotlinType.isInstance(it.value)
+                    })
+                    @Suppress("UNCHECKED_CAST")
+                    MapField(entryCompanion, value as kotlin.collections.Map<K, V>)
+                }
+                else -> throw IllegalArgumentException("value must be a Map")
+            }
+
+            @Suppress("UNCHECKED_CAST")
+            override fun canonicalMutableValue(value: Any): Any = when (value) {
+                is MutableMapField<*, *> -> {
+                    require(value.entryCompanion == entryCompanion)
+                    MutableMapField(entryCompanion).apply { putAll(value as MutableMapField<K, V>) }
+                }
+                is MapField<*, *> -> {
+                    require(value.entryCompanion == entryCompanion)
+                    MutableMapField(entryCompanion).apply { putAll(value as MapField<K, V>) }
+                }
+                is kotlin.collections.Map<*, *> -> {
+                    require(value.all {
+                        entryCompanion.keyType.kotlinType.isInstance(it.key) &&
+                                entryCompanion.valueType.kotlinType.isInstance(it.value)
+                    })
+                    MutableMapField(entryCompanion).apply { putAll(value as kotlin.collections.Map<K, V>) }
+                }
+                else -> throw IllegalArgumentException("value must be a Map")
+            }
         }
 
         public companion object {
@@ -488,23 +527,20 @@ public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
             name = name,
             number = number,
             type = type,
-            getValueFn = value::get,
-            updateValueFn = { message, v -> v?.let { mutableValue.set(message as MM, it) } },
-            canonicalValueFn = ::canonicalValue,
-            canonicalMutableValueFn = ::canonicalValue,
+            accessor = FieldAccessor.Property(value, mutableValue),
             jsonName = jsonName,
             options = options
         )
 
         @PublicForGeneratedCode
         @Suppress("UNCHECKED_CAST")
-        public fun <M : Message, MM : MutableMessage<M>, V : Any> ofOptional(
+        public fun <M : Message, MM : MutableMessage<M>, V> ofOptional(
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             name: String,
             number: Int,
             type: Type,
-            value: KProperty1<M, V?>,
-            mutableValue: KMutableProperty1<MM, V?>,
+            value: KProperty1<M, V>,
+            mutableValue: KMutableProperty1<MM, V>,
             jsonName: String,
             options: FieldOptions? = null,
         ): FieldDescriptor<M, V> = Standard(
@@ -512,23 +548,20 @@ public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
             name = name,
             number = number,
             type = type,
-            getValueFn = value::get,
-            updateValueFn = mutableValue::set as (MutableMessage<M>, V?) -> Unit,
-            canonicalValueFn = ::canonicalValue,
-            canonicalMutableValueFn = ::canonicalValue,
+            accessor = FieldAccessor.OptionalProperty(value, mutableValue),
             jsonName = jsonName,
             options = options
         )
 
         @PublicForGeneratedCode
         @Suppress("UNCHECKED_CAST")
-        public fun <M : Message, MM : MutableMessage<M>, V : Any> ofOneof(
+        public fun <M : Message, MM : MutableMessage<M>, V> ofOneof(
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             name: String,
             number: Int,
             type: Type,
-            value: KProperty1<M, V?>,
-            mutableValue: KMutableProperty1<MM, V?>,
+            value: KProperty1<M, V>,
+            mutableValue: KMutableProperty1<MM, V>,
             jsonName: String,
             options: FieldOptions? = null,
         ): FieldDescriptor<M, V> = Standard(
@@ -536,10 +569,7 @@ public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
             name = name,
             number = number,
             type = type,
-            getValueFn = value::get,
-            updateValueFn = mutableValue::set as (MutableMessage<M>, V?) -> Unit,
-            canonicalValueFn = ::canonicalValue,
-            canonicalMutableValueFn = ::canonicalValue,
+            accessor = FieldAccessor.OptionalProperty(value, mutableValue),
             isOneofMember = true,
             jsonName = jsonName,
             options = options
@@ -560,10 +590,7 @@ public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
             name = name,
             number = number,
             type = type,
-            getValueFn = value::get,
-            updateValueFn = mutableValue::appendList,
-            canonicalValueFn = ::canonicalRepeatedValue,
-            canonicalMutableValueFn = ::canonicalMutableRepeatedValue,
+            accessor = FieldAccessor.RepeatedProperty(value, mutableValue),
             jsonName = jsonName,
             options = options
         )
@@ -583,17 +610,14 @@ public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
             name = name,
             number = number,
             type = type,
-            getValueFn = value::get,
-            updateValueFn = mutableValue::appendMap,
-            canonicalValueFn = ::canonicalMapValue,
-            canonicalMutableValueFn = ::canonicalMutableMapValue,
+            accessor = FieldAccessor.MapProperty(value, mutableValue),
             jsonName = jsonName,
             options = options
         )
 
         @PublicForGeneratedCode
         @Suppress("UNCHECKED_CAST")
-        public fun <M : ExtendableMessage<M>, V : Any> ofExtension(
+        public fun <M : ExtendableMessage<M>, V> ofExtension(
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             fullName: String,
             number: Int,
@@ -629,125 +653,66 @@ public sealed class FieldDescriptor<M : Message, V : Any> private constructor(
 
 }
 
-private fun <M : Message, MM : MutableMessage<M>, T : Any> KProperty1<MM, MutableList<T>>.appendList(
-    message: MutableMessage<M>,
-    newValue: List<T>?,
-) {
-    @Suppress("UNCHECKED_CAST")
-    newValue?.let { get(message as MM).addAll(it) }
-}
+internal sealed class FieldAccessor<M : Message, in MM : MutableMessage<M>, ValueType> {
+    /**
+     * Returns the value of this field in the provided message.
+     */
+    internal abstract fun getValue(message: M): ValueType
 
-private fun <M : Message, MM : MutableMessage<M>, K : Any, V : Any> KProperty1<MM, MutableMap<K, V>>.appendMap(
-    message: MutableMessage<M>,
-    newValue: Map<K, V>?
-) {
-    @Suppress("UNCHECKED_CAST")
-    newValue?.let { get(message as MM).putAll(it) }
-}
+    /**
+     * Sets or updates the value of this field in the provided message.
+     *
+     * NOTE: For `repeated` and `map` fields, this function _appends_ to the existing list/map value rather than
+     * replacing the value. For all other fields, this function replaces the value with the new value.
+     */
+    internal abstract fun updateValue(message: MM, value: ValueType)
 
-@Suppress("UNCHECKED_CAST")
-private fun <M : Message, V : Any> canonicalValue(fd: FieldDescriptor<M, V>, value: Any): V {
-    require(fd.type.kotlinType.isInstance(value))
-    return value as V
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun <M : Message, T : Any> canonicalRepeatedValue(fd: FieldDescriptor<M, List<T>>, value: Any): ListField<T> {
-    check(fd.type is FieldDescriptor.Type.Repeated<*>)
-
-    val valueType = (fd.type as FieldDescriptor.Type.Repeated<T>).valueType
-    return when (value) {
-        is ListField<*> -> {
-            require(value.valueType == valueType)
-            value as ListField<T>
-        }
-        is MutableListField<*> -> {
-            require(value.valueType == valueType)
-            (value as MutableListField<T>).toListField()
-        }
-        is Collection<*> -> {
-            require(value.all { valueType.kotlinType.isInstance(it) })
-            ListField(valueType, value as Collection<T>)
-        }
-        else -> throw IllegalArgumentException("value must be a Collection")
+    internal class Property<M : Message, MM : MutableMessage<M>, ValueType : Any>(
+        private val property: KProperty1<M, ValueType>,
+        private val mutableProperty: KMutableProperty1<MM, ValueType>,
+    ) : FieldAccessor<M, MM, ValueType>() {
+        override fun getValue(message: M): ValueType = property.get(message)
+        override fun updateValue(message: MM, value: ValueType) = mutableProperty.set(message, value)
     }
-}
 
-@Suppress("UNCHECKED_CAST")
-private fun <M : Message, T : Any> canonicalMutableRepeatedValue(
-    fd: FieldDescriptor<M, List<T>>,
-    value: Any
-): MutableListField<T> {
-    check(fd.type is FieldDescriptor.Type.Repeated<*>)
-
-    val valueType = (fd.type as FieldDescriptor.Type.Repeated<T>).valueType
-    return when (value) {
-        is MutableListField<*> -> {
-            require(value.valueType == valueType)
-            MutableListField(valueType, value as MutableListField<T>)
-        }
-        is ListField<*> -> {
-            require(value.valueType == valueType)
-            MutableListField(valueType, value as ListField<T>)
-        }
-        is Collection<*> -> {
-            require(value.all { valueType.kotlinType.isInstance(it) })
-            MutableListField(valueType, value as Collection<T>)
-        }
-        else -> throw IllegalArgumentException("value must be a Collection")
+    internal class OptionalProperty<M : Message, MM : MutableMessage<M>, ValueType>(
+        private val property: KProperty1<M, ValueType>,
+        private val mutableProperty: KMutableProperty1<MM, ValueType>,
+    ) : FieldAccessor<M, MM, ValueType>() {
+        override fun getValue(message: M): ValueType = property.get(message)
+        override fun updateValue(message: MM, value: ValueType) = mutableProperty.set(message, value)
     }
-}
 
-@Suppress("UNCHECKED_CAST")
-private fun <M : Message, K : Any, V : Any> canonicalMapValue(
-    fd: FieldDescriptor<M, Map<K, V>>,
-    value: Any
-): MapField<K, V> {
-    check(fd.type is FieldDescriptor.Type.Map<*, *>)
+    internal class RepeatedProperty<M : Message, MM : MutableMessage<M>, T : Any>(
+        private val property: KProperty1<M, List<T>>,
+        private val mutableProperty: KProperty1<MM, MutableList<T>>,
+    ) : FieldAccessor<M, MM, List<T>>() {
+        override fun getValue(message: M): List<T> = property.get(message)
 
-    val companion = (fd.type as FieldDescriptor.Type.Map<K, V>).entryCompanion
-    return when (value) {
-        is MapField<*, *> -> {
-            require(value.entryCompanion == companion)
-            value as MapField<K, V>
+        override fun updateValue(message: MM, value: List<T>) {
+            mutableProperty.get(message).addAll(value)
         }
-        is MutableMapField<*, *> -> {
-            require(value.entryCompanion == companion)
-            (value as MutableMapField<K, V>).toMapField()
-        }
-        is Map<*, *> -> {
-            require(value.all {
-                companion.keyType.kotlinType.isInstance(it.key) && companion.valueType.kotlinType.isInstance(it.value)
-            })
-            MapField(companion, value as Map<K, V>)
-        }
-        else -> throw IllegalArgumentException("value must be a Map")
     }
-}
 
-@Suppress("UNCHECKED_CAST")
-private fun <M : Message, K : Any, V : Any> canonicalMutableMapValue(
-    fd: FieldDescriptor<M, Map<K, V>>,
-    value: Any
-): MutableMapField<K, V> {
-    check(fd.type is FieldDescriptor.Type.Map<*, *>)
+    internal class MapProperty<M : Message, MM : MutableMessage<M>, K : Any, V : Any>(
+        private val property: KProperty1<M, Map<K, V>>,
+        private val mutableProperty: KProperty1<MM, MutableMap<K, V>>,
+    ) : FieldAccessor<M, MM, Map<K, V>>() {
+        override fun getValue(message: M): Map<K, V> = property.get(message)
 
-    val companion = (fd.type as FieldDescriptor.Type.Map<K, V>).entryCompanion
-    return when (value) {
-        is MutableMapField<*, *> -> {
-            require(value.entryCompanion == companion)
-            MutableMapField(companion).apply { putAll(value as MutableMapField<K, V>) }
+        override fun updateValue(message: MM, value: Map<K, V>) {
+            mutableProperty.get(message).putAll(value)
         }
-        is MapField<*, *> -> {
-            require(value.entryCompanion == companion)
-            MutableMapField(companion).apply { putAll(value as MapField<K, V>) }
-        }
-        is Map<*, *> -> {
-            require(value.all {
-                companion.keyType.kotlinType.isInstance(it.key) && companion.valueType.kotlinType.isInstance(it.value)
-            })
-            MutableMapField(companion).apply { putAll(value as Map<K, V>) }
-        }
-        else -> throw IllegalArgumentException("value must be a Map")
     }
+
+    /*
+    internal class Extension<M : ExtendableMessage<M>, MM : MutableExtendableMessage<M>, ValueType : Any>(
+        private val kotlinType: KClass<ValueType>,
+    ) : FieldAdapter<M, MM, ValueType, ValueType?>() {
+        override fun getValue(message: M): ValueType? = message.getExtension(...)
+        override fun updateValue(message: MM, value: ValueType?) = mutableProperty.set(message, value)
+        override fun canonicalValue(value: Any): ValueType = kotlinType.cast(value)
+        override fun canonicalMutableValue(value: Any): ValueType = kotlinType.cast(value)
+    }
+     */
 }
