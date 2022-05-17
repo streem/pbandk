@@ -20,14 +20,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 
+* **[BREAKING CHANGE] (for proto2 required fields only)** Fixed handling of `required` fields in `proto2` files. Required fields will no longer have a default value in generated code. (PR [#216], fixes [#71])
+    * Constructing an instance of a message with required fields will now require providing a value for those fields as part of the constructor call.
+    * Decoding of a message with required fields will throw an `InvalidProtocolBufferException` if the binary/JSON input did not include the field.
+    * Messages with required fields will no longer have a `Companion.defaultInstance` property in the generated code.
 * Fixed the `pbandk-protos` library to support Java 8. (PR [#212], fixes [#211])
 
 [field presence]: https://github.com/protocolbuffers/protobuf/blob/master/docs/field_presence.md
 [#34]: https://github.com/streem/pbandk/issues/34
+[#71]: https://github.com/streem/pbandk/issues/71
 [#211]: https://github.com/streem/pbandk/issues/211
 [#218]: https://github.com/streem/pbandk/issues/218
 [#200]: https://github.com/streem/pbandk/pull/200
 [#212]: https://github.com/streem/pbandk/pull/212
+[#216]: https://github.com/streem/pbandk/pull/216
 [#219]: https://github.com/streem/pbandk/pull/219
 
 
