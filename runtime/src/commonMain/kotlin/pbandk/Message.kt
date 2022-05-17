@@ -1,7 +1,7 @@
 package pbandk
 
-import pbandk.internal.binary.BinaryMessageEncoder
 import pbandk.internal.binary.BinaryMessageDecoder
+import pbandk.internal.binary.BinaryMessageEncoder
 import pbandk.internal.binary.allocate
 import pbandk.internal.binary.fromByteArray
 import pbandk.internal.types.MessageValueType
@@ -30,6 +30,11 @@ public interface Message {
 
     public abstract class Companion<M : Message> {
         public abstract val descriptor: MessageDescriptor<M>
+
+        /**
+         * Returns the default value for this message type. Can throw an exception if [M] is a message with `required`
+         * fields, since such messages do not have a default value.
+         */
         public abstract val defaultInstance: M
 
         @PublicForGeneratedCode
@@ -61,7 +66,6 @@ public interface Message {
     public interface OneOf<V : Any> {
         public val value: V
     }
-
 }
 
 @JsExport

@@ -3109,8 +3109,8 @@ public sealed interface UninterpretedOption : pbandk.Message {
             )
         )
         public fun NamePart(
-            namePart: String = "",
-            isExtension: Boolean = false,
+            namePart: String,
+            isExtension: Boolean,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.UninterpretedOption.NamePart = pbandk.wkt.UninterpretedOption.NamePart {
             this.namePart = namePart
@@ -3145,7 +3145,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
         @pbandk.PublicForGeneratedCode
         public object FieldDescriptors {
             public val namePart: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption.NamePart, String> =
-                pbandk.FieldDescriptor.ofSingular(
+                pbandk.FieldDescriptor.ofRequired(
                     messageDescriptor = pbandk.wkt.UninterpretedOption.NamePart::descriptor,
                     messageMetadata = pbandk.wkt.UninterpretedOption.NamePart.messageMetadata,
                     name = "name_part",
@@ -3156,7 +3156,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
                     mutableValue = pbandk.wkt.UninterpretedOption.MutableNamePart::namePart,
                 )
             public val isExtension: pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption.NamePart, Boolean> =
-                pbandk.FieldDescriptor.ofSingular(
+                pbandk.FieldDescriptor.ofRequired(
                     messageDescriptor = pbandk.wkt.UninterpretedOption.NamePart::descriptor,
                     messageMetadata = pbandk.wkt.UninterpretedOption.NamePart.messageMetadata,
                     name = "is_extension",
@@ -3169,9 +3169,8 @@ public sealed interface UninterpretedOption : pbandk.Message {
         }
 
         public companion object : pbandk.Message.Companion<pbandk.wkt.UninterpretedOption.NamePart>() {
-            override val defaultInstance: pbandk.wkt.UninterpretedOption.NamePart by lazy(LazyThreadSafetyMode.PUBLICATION) {
-                pbandk.wkt.UninterpretedOption.NamePart {}
-            }
+            override val defaultInstance: pbandk.wkt.UninterpretedOption.NamePart
+                get() = throw UnsupportedOperationException("Messages with required fields don't have a default instance")
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "google.protobuf.UninterpretedOption.NamePart",
@@ -5949,8 +5948,6 @@ private class MutableUninterpretedOption_Impl(
 @pbandk.JsName("buildUninterpretedOptionNamePart")
 public fun UninterpretedOption.Companion.NamePart(builderAction: pbandk.wkt.UninterpretedOption.MutableNamePart.() -> Unit): pbandk.wkt.UninterpretedOption.NamePart =
     pbandk.wkt.UninterpretedOption_MutableNamePart_Impl(
-        namePart = "",
-        isExtension = false,
     ).also(builderAction).toNamePart()
 
 /**
@@ -5959,10 +5956,6 @@ public fun UninterpretedOption.Companion.NamePart(builderAction: pbandk.wkt.Unin
  */
 public fun MutableUninterpretedOption.NamePart(builderAction: pbandk.wkt.UninterpretedOption.MutableNamePart.() -> Unit): pbandk.wkt.UninterpretedOption.NamePart =
     pbandk.wkt.UninterpretedOption.NamePart(builderAction)
-
-@pbandk.Export
-@pbandk.JsName("orDefaultForUninterpretedOptionNamePart")
-public fun UninterpretedOption.NamePart?.orDefault(): pbandk.wkt.UninterpretedOption.NamePart = this ?: pbandk.wkt.UninterpretedOption.NamePart.defaultInstance
 
 private class UninterpretedOption_NamePart_Impl(
     override val namePart: String,
@@ -5987,9 +5980,14 @@ private class UninterpretedOption_NamePart_Impl(
 }
 
 private class UninterpretedOption_MutableNamePart_Impl(
-    override var namePart: String,
-    override var isExtension: Boolean,
 ) : pbandk.wkt.UninterpretedOption.MutableNamePart, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.UninterpretedOption.NamePart>() {
+    override lateinit var namePart: String
+
+    private var hasIsExtension = false
+    override var isExtension: Boolean = false
+        get() = if (hasIsExtension) field else throw IllegalStateException("Property 'isExtension' should be initialized before get")
+        set(value) { field = value; hasIsExtension = true }
+
     override val descriptor get() = pbandk.wkt.UninterpretedOption.NamePart.descriptor
 
     @Suppress("RedundantOverride")
@@ -6003,8 +6001,16 @@ private class UninterpretedOption_MutableNamePart_Impl(
     ) = throw UnsupportedOperationException()
 
     fun toNamePart() = UninterpretedOption_NamePart_Impl(
-        namePart = namePart,
-        isExtension = isExtension,
+        namePart = if (this::namePart.isInitialized) {
+            namePart
+        } else {
+            throw pbandk.InvalidProtocolBufferException("Required field 'name_part' was not set.")
+        },
+        isExtension = if (hasIsExtension) {
+            isExtension
+        } else {
+            throw pbandk.InvalidProtocolBufferException("Required field 'is_extension' was not set.")
+        },
         unknownFields = unknownFields.toMap()
     )
 }

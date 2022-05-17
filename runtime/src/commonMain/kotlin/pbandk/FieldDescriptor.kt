@@ -5,12 +5,14 @@ import pbandk.binary.WireType
 import pbandk.internal.binary.BinaryFieldEncoder
 import pbandk.internal.json.JsonFieldEncoder
 import pbandk.internal.types.FieldType
+import pbandk.internal.types.MessageValueType
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.types.ValueType
 import pbandk.wkt.FieldOptions
 import pbandk.wkt.Syntax
 import pbandk.wkt.orDefault
 import kotlin.js.JsExport
+import kotlin.js.JsName
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
@@ -259,6 +261,28 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
         override fun setValue(message: MutableMessage<M>, value: V) {
             @Suppress("UNCHECKED_CAST")
             mutableProperty.set(message as MM, value)
+        }
+
+        override fun decodeFromBinary(decoder: BinaryFieldValueDecoder, message: MutableMessage<M>) {
+            val decodedValue = fieldType.decodeFromBinary(metadata, decoder)
+
+            // The `getValue()` might throw an exception if the field is required and this is the first instance of it
+            // seen by the decoder.
+            val currentValue = try {
+                @Suppress("UNCHECKED_CAST")
+                getValue(message as M)
+            } catch (e: Exception) {
+                null
+            }
+
+            if (currentValue != null) {
+                val newValue = fieldType.mergeValues(metadata, currentValue, decodedValue)
+                if (newValue !== currentValue) {
+                    setValue(message, newValue)
+                }
+            } else {
+                setValue(message, decodedValue)
+            }
         }
     }
 

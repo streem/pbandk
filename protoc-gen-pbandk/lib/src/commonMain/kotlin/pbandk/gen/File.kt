@@ -100,6 +100,9 @@ public data class File(
             public abstract val localTypeName: String?
             public abstract val repeated: Boolean
             public abstract val jsonName: String
+            // TODO: test explicitly set default value in proto2
+            public abstract val hasPresence: Boolean
+            public abstract val required: Boolean
             public abstract val options: FieldOptions
             public abstract val extendee: String?
 
@@ -110,9 +113,8 @@ public data class File(
                 override val localTypeName: String?,
                 override val repeated: Boolean,
                 override val jsonName: String,
-                // Note, this is only applicable for proto2
-                // TODO: test explicitly set default value in proto2
-                val optional: Boolean,
+                override val hasPresence: Boolean,
+                override val required: Boolean,
                 val map: Boolean,
                 override val kotlinName: Name,
                 // This can be null when localTypeName is not null which means it is fully qualified and should be looked up
@@ -128,6 +130,8 @@ public data class File(
                 override val kotlinName: Name,
                 override val repeated: Boolean,
                 override val jsonName: String,
+                override val hasPresence: Boolean,
+                override val required: Boolean,
                 val wrappedKotlinType: Name,
                 override val options: FieldOptions = FieldOptions.defaultInstance,
                 override val extendee: String? = null

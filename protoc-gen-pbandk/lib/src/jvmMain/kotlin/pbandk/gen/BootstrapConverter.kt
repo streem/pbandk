@@ -99,7 +99,12 @@ internal object BootstrapConverter {
     }
 
     private fun DescriptorProtos.UninterpretedOption.convert() = UninterpretedOption {
-        name += this@convert.nameList.map { UninterpretedOption.NamePart { namePart = it.namePart } }
+        name += this@convert.nameList.map {
+            UninterpretedOption.NamePart {
+                namePart = it.namePart
+                isExtension = false
+            }
+        }
         stringValue = this@convert.stringValue?.let { ByteArr(it.toByteArray()) }
     }
 

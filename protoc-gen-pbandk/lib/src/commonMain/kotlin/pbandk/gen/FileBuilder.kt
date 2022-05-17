@@ -147,7 +147,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         usedTypeNames: MutableSet<String>
     ): File.Field.OneOf {
         val fields = oneofFields.map {
-            numberedFieldFromProto(ctx, msgName, msgKotlinName, it, mutableSetOf(), true)
+            numberedFieldFromProto(ctx, msgName, msgKotlinName, it, mutableSetOf(), oneofField = true)
         }
         val kotlinTypeName = Name(msgKotlinName, namer.newTypeName(oneofName, usedTypeNames).also {
             usedTypeNames += it
@@ -171,7 +171,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         msgKotlinName: Name?,
         fieldDesc: FieldDescriptorProto,
         usedFieldNames: MutableSet<String>,
-        alwaysRequired: Boolean = false
+        oneofField: Boolean = false
     ): File.Field.Numbered {
         val type = fromProto(fieldDesc.type ?: error("Missing field type"))
         val wrappedKotlinType = fieldDesc.typeName
@@ -196,6 +196,8 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 ),
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
                 jsonName = fieldDesc.jsonName!!,
+                hasPresence = fieldDesc.label != FieldDescriptorProto.Label.REPEATED,
+                required = fieldDesc.label == FieldDescriptorProto.Label.REQUIRED,
                 options = fieldDesc.options ?: FieldOptions.defaultInstance,
                 extendee = fieldDesc.extendee,
                 localTypeName = fieldDesc.typeName!!,
@@ -211,6 +213,17 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 ),
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
                 jsonName = fieldDesc.jsonName!!,
+                hasPresence = (fieldDesc.label != FieldDescriptorProto.Label.REPEATED) &&
+                        (ctx.fileDesc.usesProto2Syntax ||
+                                oneofField ||
+                                // Extension fields follow the rules of the message they're extending, regardless of
+                                // whether the extension field is defined in a proto2 or proto3 file. Since only proto2
+                                // messages can be extended, non-repeated extension fields should always have presence
+                                // (just like other proto2 fields) even if they're in a proto3 file.
+                                (fieldDesc.extendee != null) ||
+                                (fieldDesc.proto3Optional ?: false) ||
+                                (type == File.Field.Type.MESSAGE)),
+                required = fieldDesc.label == FieldDescriptorProto.Label.REQUIRED,
                 options = fieldDesc.options ?: FieldOptions.defaultInstance,
                 extendee = fieldDesc.extendee,
                 localTypeName = fieldDesc.typeName,
@@ -218,14 +231,6 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                     namer.newTypeName(it, emptySet())
                 },
                 type = type,
-                optional = !alwaysRequired &&
-                        ((fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL && ctx.fileDesc.usesProto2Syntax) ||
-                                // Extension fields follow the rules of the message they're extending, regardless of
-                                // whether the extension field is defined in a proto2 or proto3 file. Since only proto2
-                                // messages can be extended, non-repeated extension fields should always have presence
-                                // (just like other proto2 fields) even if they're in a proto3 file.
-                                (fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL && fieldDesc.extendee != null) ||
-                                (fieldDesc.proto3Optional ?: false)),
                 map = supportMaps &&
                         fieldDesc.label == FieldDescriptorProto.Label.REPEATED &&
                         fieldDesc.type == FieldDescriptorProto.Type.MESSAGE &&

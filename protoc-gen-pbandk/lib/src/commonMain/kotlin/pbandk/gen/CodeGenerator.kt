@@ -1,4 +1,5 @@
-@file:OptIn(PbandkInternal::class)
+@file:OptIn(PbandkInternal::class, PbandkInternal::class)
+
 package pbandk.gen
 
 import pbandk.PbandkInternal
@@ -18,7 +19,8 @@ public open class CodeGenerator(
 
     public fun generate(): String {
         line("@file:Suppress(\"RemoveRedundantQualifierName\", \"RedundantVisibilityModifier\")")
-        line("@file:OptIn(pbandk.PublicForGeneratedCode::class)").line()
+        line("@file:OptIn(pbandk.PublicForGeneratedCode::class)")
+        line()
         file.kotlinPackageName?.let { line("package $it") }
         file.types.forEach { writeType(it) }
         file.extensions.forEach { writeExtension(it) }
@@ -40,7 +42,7 @@ public open class CodeGenerator(
         line()
         addDeprecatedAnnotation(field)
         lineBegin("$visibility val ${field.extendeeKotlinType!!.fullWithPackage}.${field.kotlinName.simple}: ")
-        lineEnd(field.kotlinValueType(nullableIfMessage = true)).indented {
+        lineEnd(field.kotlinValueType(allowNulls = true)).indented {
             line("get() = ${field.descriptorName.fullWithPackage}.getValue(this)")
         }
 
@@ -48,7 +50,7 @@ public open class CodeGenerator(
         addDeprecatedAnnotation(field)
         lineBegin("$visibility ${field.mutablePropertyDeclaration}")
         lineMid(" ${field.extendeeKotlinType!!.mutableTypeName.fullWithPackage}.${field.kotlinName.simple}: ")
-        lineEnd(field.kotlinValueType(nullableIfMessage = true, mutable = true)).indented {
+        lineEnd(field.kotlinValueType(allowNulls = true, mutable = true)).indented {
             val getValueMethod = if (field.repeated) "getMutableValue" else "getValue"
             line("get() = ${field.descriptorName.fullWithPackage}.${getValueMethod}(this)")
             if (field.mutablePropertyDeclaration == "var") {
@@ -149,7 +151,7 @@ public open class CodeGenerator(
                 addDeprecatedAnnotation(field)
                 lineBegin("$visibility val ${field.kotlinName.simple}: ")
                 when (field) {
-                    is File.Field.Numbered -> lineEnd(field.kotlinValueType(true))
+                    is File.Field.Numbered -> lineEnd(field.kotlinValueType(allowNulls = !field.required))
                     is File.Field.OneOf -> lineEnd("${field.kotlinTypeName.simple}<*>?")
                 }
             }
@@ -187,7 +189,7 @@ public open class CodeGenerator(
                 type.fields.forEach { field ->
                     lineBegin("${field.kotlinName.simple}: ")
                     when (field) {
-                        is File.Field.Numbered -> lineMid(field.kotlinValueType(true))
+                        is File.Field.Numbered -> lineMid(field.kotlinValueType(allowNulls = !field.required))
                         is File.Field.OneOf -> lineMid("${field.kotlinTypeName.fullWithPackage}<*>?")
                     }
                     lineMid(" = ")
@@ -208,11 +210,18 @@ public open class CodeGenerator(
             // Companion object
             line()
             line("$visibility companion object : pbandk.Message.Companion<${type.kotlinName.fullWithPackage}>() {").indented {
-                // TODO: for messages containing 1 or more required fields, this should throw an exception rather than
-                //  try to construct a default instance
-                line("override val defaultInstance: ${type.kotlinName.fullWithPackage} by lazy(LazyThreadSafetyMode.PUBLICATION) {").indented {
-                    line("${type.kotlinName.fullWithPackage} {}")
-                }.line("}")
+                lineBegin("override val defaultInstance: ${type.kotlinName.fullWithPackage}")
+                if (type.fields.any { it is File.Field.Numbered && it.required }) {
+                    // A message with required fields can't have a default instance since the required fields don't have
+                    // default values and can't be set to `null`
+                    lineEnd().indented {
+                        line("get() = throw UnsupportedOperationException(\"Messages with required fields don't have a default instance\")")
+                    }
+                } else {
+                    lineEnd(" by lazy(LazyThreadSafetyMode.PUBLICATION) {").indented {
+                        line("${type.kotlinName.fullWithPackage} {}")
+                    }.line("}")
+                }
                 line()
                 writeMessageDescriptor(type)
 
@@ -248,7 +257,7 @@ public open class CodeGenerator(
                 addDeprecatedAnnotation(field)
                 lineBegin("$visibility override ${field.mutablePropertyDeclaration} ${field.kotlinName.simple}: ")
                 when (field) {
-                    is File.Field.Numbered -> lineEnd(field.kotlinValueType(nullableIfMessage = true, mutable = true))
+                    is File.Field.Numbered -> lineEnd(field.kotlinValueType(allowNulls = true, mutable = true))
                     is File.Field.OneOf -> lineEnd("${field.kotlinTypeName.full}<*>?")
                 }
             }
@@ -258,7 +267,7 @@ public open class CodeGenerator(
                 oneOf.fields.forEach { field ->
                     addDeprecatedAnnotation(field)
                     lineBegin("$visibility override ${field.mutablePropertyDeclaration} ${field.kotlinName.simple}: ")
-                    lineEnd("${field.kotlinValueType(nullableIfMessage = false, mutable = true)}?")
+                    lineEnd("${field.kotlinValueType(allowNulls = false, mutable = true)}?")
                 }
             }
         }.line("}")
@@ -276,7 +285,7 @@ public open class CodeGenerator(
                 addDeprecatedAnnotation(field)
                 lineBegin("$visibility class ${oneOf.kotlinFieldNames[field.name.simple]!!.simple}(")
                 lineMid("${field.kotlinName.simple}: ${field.kotlinValueType(false)}")
-                if (field.type != File.Field.Type.MESSAGE) lineMid(" = ${field.defaultValue()}")
+                if (field.type != File.Field.Type.MESSAGE) lineMid(" = ${field.defaultValue(allowNulls = false)}")
                 lineEnd(") :").indented {
                     lineBegin("${oneOf.kotlinTypeName.simple}<${field.kotlinValueType(false)}>, ")
                     lineMid("pbandk.gen.GeneratedOneOf<${oneOf.kotlinTypeName.parent!!.fullWithPackage}, ${field.kotlinValueType(false)}>(${field.kotlinName.simple}, ")
@@ -478,7 +487,11 @@ public open class CodeGenerator(
         if (type.mapEntry) return
 
         writeMessageBuilder(type)
-        writeMessageOrDefaultExtension(type)
+        // A message with required fields can't have a default instance since the required fields don't have
+        // default values and can't be set to `null`
+        if (type.fields.none { it is File.Field.Numbered && it.required }) {
+            writeMessageOrDefaultExtension(type)
+        }
         writeMessageImpl(type)
         type.nestedTypes.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it) }
     }
@@ -503,10 +516,14 @@ public open class CodeGenerator(
                 type.fields.forEach { field ->
                     lineBegin("${field.kotlinName.simple}: ")
                     when (field) {
-                        is File.Field.Numbered -> lineMid(field.kotlinValueType(true))
+                        is File.Field.Numbered -> lineMid(field.kotlinValueType(allowNulls = true))
                         is File.Field.OneOf -> lineMid("${field.kotlinTypeName.fullWithPackage}<*>?")
                     }
-                    lineEnd(" = ${field.defaultValue()},")
+                    if (field is File.Field.Numbered && field.required) {
+                        lineEnd(",")
+                    } else {
+                        lineEnd(" = ${field.defaultValue()},")
+                    }
                 }
                 line("unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()")
             }.line("): ${type.kotlinName.fullWithPackage} = ${type.kotlinName.fullWithPackage} {").indented {
@@ -538,7 +555,9 @@ public open class CodeGenerator(
         line("@pbandk.JsName(\"build${type.kotlinName.full.replace(".", "")}\")")
         line("$visibility fun ${builderName.full}(builderAction: ${mutableTypeName.fullWithPackage}.() -> Unit): ${type.kotlinName.fullWithPackage} =").indented {
             line("${type.kotlinName.mutableImplName.fullWithPackage}(").indented {
-                type.fields.forEach { field -> line("${field.kotlinName.simple} = ${field.defaultValue(mutable = true)},") }
+                type.fields
+                    .filterNot { it is File.Field.Numbered && it.required }
+                    .forEach { field -> line("${field.kotlinName.simple} = ${field.defaultValue(mutable = true)},") }
             }.line(").also(builderAction).to${type.kotlinName.simple}()")
         }
 
@@ -577,7 +596,7 @@ public open class CodeGenerator(
                 type.fields.forEach { field ->
                     lineBegin("${field.kotlinName.simple}: ")
                     when (field) {
-                        is File.Field.Numbered -> lineMid(field.kotlinValueType(true))
+                        is File.Field.Numbered -> lineMid(field.kotlinValueType(allowNulls = true))
                         is File.Field.OneOf -> lineMid("${field.kotlinTypeName.fullWithPackage}<*>?")
                     }
                     lineEnd(",")
@@ -615,7 +634,7 @@ public open class CodeGenerator(
                 lineBegin("override val ${field.kotlinName.simple}: ")
                 when (field) {
                     is File.Field.Numbered -> lineMid(
-                        field.kotlinValueType(nullableIfMessage = true, mutable = false, impl = true)
+                        field.kotlinValueType(allowNulls = true, mutable = false, impl = true)
                     )
 
                     is File.Field.OneOf -> lineMid("${field.kotlinTypeName.fullWithPackage}<*>?")
@@ -657,12 +676,12 @@ public open class CodeGenerator(
         }
 
         line().line("private class ${type.kotlinName.mutableImplName.simple}(").indented {
-            type.fields.forEach { field ->
+            type.fields.filterNot { it is File.Field.Numbered && it.required }.forEach { field ->
                 addDeprecatedAnnotation(field)
                 lineBegin("override ${field.mutablePropertyDeclaration} ${field.kotlinName.simple}: ")
                 when (field) {
                     is File.Field.Numbered -> lineMid(
-                        field.kotlinValueType(nullableIfMessage = true, mutable = true, impl = true)
+                        field.kotlinValueType(allowNulls = true, mutable = true, impl = true)
                     )
 
                     is File.Field.OneOf -> lineMid("${field.kotlinTypeName.fullWithPackage}<*>?")
@@ -670,13 +689,29 @@ public open class CodeGenerator(
                 lineEnd(",")
             }
         }.line(") : ${mutableTypeName.fullWithPackage}, $mutableGeneratedMessageClass() {").indented {
+            type.fields.filterIsInstance<File.Field.Numbered>().filter { it.required }.forEach { field ->
+                if (field.type.isKotlinPrimitive) {
+                    val hazzerName = "has" + field.kotlinName.simple.replaceFirstChar { it.uppercaseChar() }
+                    line("private var $hazzerName = false")
+                    lineBegin("override var ${field.kotlinName.simple}: ")
+                    lineMid(field.kotlinValueType(allowNulls = true, mutable = true, impl = true))
+                    lineEnd(" = ${field.defaultValue(allowNulls = true, mutable = true)}").indented {
+                        line("get() = if ($hazzerName) field else throw IllegalStateException(\"Property '${field.kotlinName.simple}' should be initialized before get\")")
+                        line("set(value) { field = value; $hazzerName = true }")
+                    }
+                } else {
+                    lineBegin("override lateinit var ${field.kotlinName.simple}: ")
+                    lineEnd(field.kotlinValueType(allowNulls = true, mutable = true, impl = true))
+                }
+                line()
+            }
             line("override val descriptor get() = ${type.kotlinName.fullWithPackage}.descriptor")
 
             type.fields.filterIsInstance<File.Field.OneOf>().forEach { oneOf ->
                 line()
                 oneOf.fields.forEach { field ->
                     lineBegin("override ${field.mutablePropertyDeclaration} ${field.kotlinName.simple}: ")
-                    lineEnd("${field.kotlinValueType(nullableIfMessage = false, mutable = true)}?").indented {
+                    lineEnd("${field.kotlinValueType(allowNulls = false, mutable = true)}?").indented {
                         lineBegin("get() = ")
                         lineMid("(${oneOf.kotlinName.simple} as? ${oneOf.kotlinFieldNames[field.name.simple]!!.fullWithPackage})")
                         lineEnd("?.value")
@@ -701,13 +736,23 @@ public open class CodeGenerator(
                     if (field is File.Field.Numbered && field.options.deprecated == true) {
                         lineMid("@Suppress(\"DEPRECATION\") ")
                     }
-                    lineMid(field.kotlinName.simple)
-                    // TODO: update this to use `FieldType.fromMutableValue()` instead
-                    when {
-                        field is File.Field.Numbered.Standard && field.map -> lineMid(".toMapField()")
-                        field is File.Field.Numbered && field.repeated -> lineMid(".toListField()")
+                    if (field is File.Field.Numbered && field.required) {
+                        val hazzerName = "has" + field.kotlinName.simple.replaceFirstChar { it.uppercaseChar() }
+                        val initializedCheck = if (field.type.isKotlinPrimitive) hazzerName else "this::${field.kotlinName.simple}.isInitialized"
+                        lineEnd("if ($initializedCheck) {").indented {
+                            line(field.kotlinName.simple)
+                        }.line("} else {").indented {
+                            line("throw pbandk.InvalidProtocolBufferException(\"Required field '${field.name.simple}' was not set.\")")
+                        }.line("},")
+                    } else {
+                        lineMid(field.kotlinName.simple)
+                        // TODO: update this to use `FieldType.fromMutableValue()` instead
+                        when {
+                            field is File.Field.Numbered.Standard && field.map -> lineMid(".toMapField()")
+                            field is File.Field.Numbered && field.repeated -> lineMid(".toListField()")
+                        }
+                        lineEnd(",")
                     }
-                    lineEnd(",")
                 }
                 if (type.isExtendable) {
                     line("extensionFields = extensionFields.toFieldSet(),")
@@ -768,7 +813,7 @@ public open class CodeGenerator(
     protected val File.Type.Message.isExtendable: Boolean get() = extensionRange.isNotEmpty()
 
     protected fun File.Field.defaultValue(mutable: Boolean = false): String = when (this) {
-        is File.Field.Numbered -> defaultValue(mutable)
+        is File.Field.Numbered -> defaultValue(mutable = mutable)
         is File.Field.OneOf -> "null"
     }
 
@@ -792,11 +837,6 @@ public open class CodeGenerator(
         get() =
             kotlinName.parent?.let { Name(Name(it, "FieldDescriptors"), kotlinName.simple) } ?: kotlinName
 
-    protected val File.Field.Numbered.hasPresence: Boolean
-        get() = when (this) {
-            is File.Field.Numbered.Standard -> optional
-            is File.Field.Numbered.Wrapper -> !repeated
-        }
 
     protected val File.Field.Numbered.kotlinQualifiedTypeName: String
         get() = when (this) {
@@ -808,7 +848,7 @@ public open class CodeGenerator(
         }
 
     protected fun File.Field.Numbered.kotlinValueType(
-        nullableIfMessage: Boolean,
+        allowNulls: Boolean,
         mutable: Boolean = false,
         impl: Boolean = false
     ): String = when {
@@ -834,8 +874,7 @@ public open class CodeGenerator(
             "$typeName<$kotlinQualifiedTypeName>"
         }
 
-        (hasPresence || type == File.Field.Type.MESSAGE) && nullableIfMessage ->
-            "$kotlinQualifiedTypeName?"
+        allowNulls && hasPresence && !required -> "$kotlinQualifiedTypeName?"
 
         else -> kotlinQualifiedTypeName
     }
@@ -847,13 +886,13 @@ public open class CodeGenerator(
         val fieldValueType = if (isOneOfMember) {
             "${kotlinValueType(false)}?"
         } else {
-            kotlinValueType(true)
+            kotlinValueType(allowNulls = true)
         }
         return buildString {
             append("pbandk.FieldDescriptor")
             if (repeated) append(".MutableValue")
             append("<${typeName.fullWithPackage}, $fieldValueType")
-            if (repeated) append(", ${kotlinValueType(nullableIfMessage = false, mutable = true)}")
+            if (repeated) append(", ${kotlinValueType(allowNulls = false, mutable = true)}")
             append(">")
         }
     }
@@ -899,11 +938,15 @@ public open class CodeGenerator(
 
         repeated -> "pbandk.FieldDescriptor.ofRepeated"
         isOneOfMember -> "pbandk.FieldDescriptor.ofOneof"
-        hasPresence || type == File.Field.Type.MESSAGE -> "pbandk.FieldDescriptor.ofOptional"
+        required -> "pbandk.FieldDescriptor.ofRequired"
+        hasPresence -> "pbandk.FieldDescriptor.ofOptional"
         else -> "pbandk.FieldDescriptor.ofSingular"
     }
 
-    protected fun File.Field.Numbered.defaultValue(mutable: Boolean = false): String = when {
+    protected fun File.Field.Numbered.defaultValue(
+        allowNulls: Boolean = true,
+        mutable: Boolean = false
+    ): String = when {
         this is File.Field.Numbered.Standard && map -> if (mutable) {
             "pbandk.gen.MutableMapField(${descriptorName.fullWithPackage})"
         } else {
@@ -911,7 +954,7 @@ public open class CodeGenerator(
         }
 
         repeated -> if (mutable) "pbandk.gen.MutableListField(${descriptorName.fullWithPackage})" else "emptyList()"
-        hasPresence -> "null"
+        allowNulls && hasPresence && !required -> "null"
         type == File.Field.Type.ENUM -> "$kotlinQualifiedTypeName.fromValue(0)"
         else -> type.defaultValue
     }
@@ -963,6 +1006,26 @@ public open class CodeGenerator(
             File.Field.Type.UINT32 -> Name("Int")
             File.Field.Type.UINT64 -> Name("Long")
         }
+    protected val File.Field.Type.isKotlinPrimitive: Boolean
+        get() = when (this) {
+            File.Field.Type.BOOL -> true
+            File.Field.Type.BYTES -> false
+            File.Field.Type.DOUBLE -> true
+            File.Field.Type.ENUM -> false
+            File.Field.Type.FIXED32 -> true
+            File.Field.Type.FIXED64 -> true
+            File.Field.Type.FLOAT -> true
+            File.Field.Type.INT32 -> true
+            File.Field.Type.INT64 -> true
+            File.Field.Type.MESSAGE -> false
+            File.Field.Type.SFIXED32 -> true
+            File.Field.Type.SFIXED64 -> true
+            File.Field.Type.SINT32 -> true
+            File.Field.Type.SINT64 -> true
+            File.Field.Type.STRING -> false
+            File.Field.Type.UINT32 -> true
+            File.Field.Type.UINT64 -> true
+        }
     protected val File.Field.Type.defaultValue: String
         get() = when (this) {
             File.Field.Type.BOOL -> "false"
@@ -985,7 +1048,7 @@ public open class CodeGenerator(
         typeName: Name,
         oneof: File.Field.OneOf? = null,
     ) {
-        require(!(oneof != null && field.extendee != null)) { "extension fields can't be in a oneof" }
+        require(oneof == null || field.extendee == null) { "extension fields can't be in a oneof" }
 
         if (field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
         line("${field.descriptorFactoryMethod(oneof != null)}(").indented {

@@ -70,6 +70,7 @@
 - [ ] Add "generated from and by" comments to the top of the file, and to each field, similar to [protobuf-es](https://github.com/bufbuild/protobuf-es/blob/main/docs/generated_code.md#comments)
 - [ ] Store unknown JSON fields, just like we store unknown binary fields (possibly using `google.protobuf.Value` as the container)
 - [ ] Implement support for group fields in proto2
+- [ ] Explore delegated properties as a way to streamline some of the generated code (extension fields, oneof fields)
 
 ---
 

@@ -2,15 +2,21 @@ package pbandk.types
 
 import pbandk.PublicForGeneratedCode
 import pbandk.binary.BinaryFieldValueDecoder
-import pbandk.json.JsonFieldValueEncoder
 import pbandk.binary.BinaryFieldValueEncoder
 import pbandk.binary.WireType
 import pbandk.json.JsonFieldValueDecoder
+import pbandk.json.JsonFieldValueEncoder
 import kotlin.js.JsExport
 
 @PublicForGeneratedCode
 @JsExport
 public interface ValueType<KotlinType : Any> {
+    /**
+     * Returns the default value for this type. Can throw an exception if [KotlinType] is a [pbandk.Message] with
+     * `required` fields, since such messages do not have a default value. Prefer [isDefaultValue] over [defaultValue]
+     * when you only need to check if another value is the default, as this avoids the possibility of throwing an
+     * exception.
+     */
     public val defaultValue: KotlinType
     public fun isDefaultValue(value: KotlinType): Boolean
     public fun mergeValues(currentValue: KotlinType, newValue: KotlinType): KotlinType
