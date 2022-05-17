@@ -57,5 +57,6 @@ private fun SourceContext.Companion.decodeWithImpl(u: pbandk.MessageDecoder): So
             1 -> fileName = _fieldValue as String
         }
     }
+
     return SourceContext(fileName, unknownFields)
 }

@@ -138,7 +138,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
     ): File.Field.OneOf {
         val fields = oneofFields.map {
             // wrapper fields are not supposed to be used inside of oneof's
-            numberedFieldFromProto(ctx, it, mutableSetOf(), true) as File.Field.Numbered.Standard
+            numberedFieldFromProto(ctx, it, mutableSetOf(), oneofField = true) as File.Field.Numbered.Standard
         }
         return File.Field.OneOf(
             name = oneofName,
@@ -159,7 +159,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         ctx: Context,
         fieldDesc: FieldDescriptorProto,
         usedFieldNames: MutableSet<String>,
-        alwaysRequired: Boolean = false
+        oneofField: Boolean = false
     ): File.Field.Numbered {
         val type = fromProto(fieldDesc.type ?: error("Missing field type"))
         val wrappedType = fieldDesc.typeName
@@ -187,9 +187,12 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 localTypeName = fieldDesc.typeName,
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
                 jsonName = fieldDesc.jsonName,
-                optional = !alwaysRequired &&
-                        ((fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL && ctx.fileDesc.usesProto2Syntax) ||
-                                (fieldDesc.proto3Optional ?: false)),
+                hasPresence = (fieldDesc.label != FieldDescriptorProto.Label.REPEATED) &&
+                        (ctx.fileDesc.usesProto2Syntax ||
+                                oneofField ||
+                                (fieldDesc.proto3Optional ?: false) ||
+                                (type == File.Field.Type.MESSAGE)),
+                required = fieldDesc.label == FieldDescriptorProto.Label.REQUIRED,
                 packed = !type.neverPacked && (fieldDesc.options?.packed ?: (ctx.fileDesc.syntax == "proto3")),
                 map = supportMaps &&
                         fieldDesc.label == FieldDescriptorProto.Label.REPEATED &&

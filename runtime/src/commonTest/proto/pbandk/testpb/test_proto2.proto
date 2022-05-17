@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+package testpb;
+
+option java_package = "pbandk.testpb.java";
+
+message MessageWithRequiredField {
+    required bool foo = 1;
+}

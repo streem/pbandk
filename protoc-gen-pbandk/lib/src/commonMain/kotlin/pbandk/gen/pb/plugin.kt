@@ -311,6 +311,7 @@ private fun Version.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Version 
             4 -> suffix = _fieldValue as String
         }
     }
+
     return Version(major, minor, patch, suffix, unknownFields)
 }
 
@@ -343,6 +344,7 @@ private fun CodeGeneratorRequest.Companion.decodeWithImpl(u: pbandk.MessageDecod
             15 -> protoFile = (protoFile ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.FileDescriptorProto> }
         }
     }
+
     return CodeGeneratorRequest(pbandk.ListWithSize.Builder.fixed(fileToGenerate), parameter, pbandk.ListWithSize.Builder.fixed(protoFile), compilerVersion, unknownFields)
 }
 
@@ -372,6 +374,7 @@ private fun CodeGeneratorResponse.Companion.decodeWithImpl(u: pbandk.MessageDeco
             15 -> file = (file ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.gen.pb.CodeGeneratorResponse.File> }
         }
     }
+
     return CodeGeneratorResponse(error, supportedFeatures, pbandk.ListWithSize.Builder.fixed(file), unknownFields)
 }
 
@@ -404,5 +407,6 @@ private fun CodeGeneratorResponse.File.Companion.decodeWithImpl(u: pbandk.Messag
             16 -> generatedCodeInfo = _fieldValue as pbandk.wkt.GeneratedCodeInfo
         }
     }
+
     return CodeGeneratorResponse.File(name, insertionPoint, content, generatedCodeInfo, unknownFields)
 }

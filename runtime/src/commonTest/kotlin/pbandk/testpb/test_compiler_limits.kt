@@ -42161,6 +42161,7 @@ private fun MessageWithLotsOfFields.Companion.decodeWithImpl(u: pbandk.MessageDe
             1999 -> field1999 = _fieldValue as String
         }
     }
+
     return MessageWithLotsOfFields(field1000, field1001, field1002, field1003,
         field1004, field1005, field1006, field1007,
         field1008, field1009, field1010, field1011,
@@ -44432,5 +44433,6 @@ private fun MessageWithHugeOneof.Companion.decodeWithImpl(u: pbandk.MessageDecod
             2999 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2999(_fieldValue as Int)
         }
     }
+
     return MessageWithHugeOneof(hugeOneof, unknownFields)
 }

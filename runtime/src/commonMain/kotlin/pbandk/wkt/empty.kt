@@ -41,5 +41,6 @@ private fun Empty.protoMergeImpl(plus: pbandk.Message?): Empty = (plus as? Empty
 private fun Empty.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Empty {
 
     val unknownFields = u.readMessage(this) { _, _ -> }
+
     return Empty(unknownFields)
 }

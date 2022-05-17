@@ -106,7 +106,7 @@ public open class CodeGenerator(
                 when (field) {
                     is File.Field.Numbered -> {
                         addDeprecatedAnnotation(field)
-                        lineBegin(fieldBegin).writeConstructorField(field, true).lineEnd(",")
+                        lineBegin(fieldBegin).writeConstructorField(field).lineEnd(",")
                     }
                     is File.Field.OneOf -> line("val ${field.kotlinFieldName}: ${field.kotlinTypeName}<*>? = null,")
                 }
@@ -136,7 +136,11 @@ public open class CodeGenerator(
 
             // Companion object
             line("$visibility companion object : pbandk.Message.Companion<${type.kotlinTypeNameWithPackage}> {").indented {
-                line("$visibility val defaultInstance: ${type.kotlinTypeNameWithPackage} by lazy { ${type.kotlinTypeNameWithPackage}() }")
+                // A message with required fields can't have a default instance since the required fields don't have
+                // default values and can't be set to `null`
+                if (type.fields.none { it is File.Field.Numbered.Standard && it.required }) {
+                    line("$visibility val defaultInstance: ${type.kotlinTypeNameWithPackage} by lazy { ${type.kotlinTypeNameWithPackage}() }")
+                }
                 line("override fun decodeWith(u: pbandk.MessageDecoder): ${type.kotlinTypeNameWithPackage} = ${type.kotlinTypeNameWithPackage}.decodeWithImpl(u)")
                 line()
                 writeMessageDescriptor(type)
@@ -147,9 +151,13 @@ public open class CodeGenerator(
         }.line("}")
     }
 
-    protected fun writeConstructorField(field: File.Field.Numbered, nullableIfMessage: Boolean): CodeGenerator {
-        lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueType(nullableIfMessage)}")
-        if (field.type != File.Field.Type.MESSAGE || nullableIfMessage) lineMid(" = ${field.defaultValue}")
+    protected fun writeConstructorField(field: File.Field.Numbered): CodeGenerator {
+        if (field is File.Field.Numbered.Standard && field.required) {
+            lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}")
+        } else {
+            lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueType(true)}")
+            lineMid(" = ${field.defaultValue}")
+        }
         return this
     }
 
@@ -159,7 +167,7 @@ public open class CodeGenerator(
                 addDeprecatedAnnotation(field)
                 lineBegin("$visibility class ${oneOf.kotlinFieldTypeNames[field.name]}(")
                 lineMid("${field.kotlinFieldName}: ${field.kotlinValueType(false)}")
-                if (field.type != File.Field.Type.MESSAGE) lineMid(" = ${field.defaultValue}")
+                if (field.type != File.Field.Type.MESSAGE) lineMid(" = ${field.defaultValue(allowNulls = false)}")
                 lineEnd(") : ${oneOf.kotlinTypeName}<${field.kotlinValueType(false)}>(${field.kotlinFieldName})")
             }
         }.line("}").line()
@@ -279,7 +287,11 @@ public open class CodeGenerator(
     }
 
     protected fun writeMessageExtensions(type: File.Type.Message) {
-        writeMessageOrDefaultExtension(type)
+        // A message with required fields can't have a default instance since the required fields don't have
+        // default values and can't be set to `null`
+        if (type.fields.none { it is File.Field.Numbered.Standard && it.required }) {
+            writeMessageOrDefaultExtension(type)
+        }
         writeMessageMergeExtension(type)
         writeMessageDecodeWithExtension(type)
         type.nestedTypes.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it) }
@@ -300,15 +312,18 @@ public open class CodeGenerator(
 
     protected fun writeMessageMergeExtension(type: File.Type.Message) {
         fun mergeStandard(field: File.Field.Numbered.Standard) {
-            if (field.repeated) {
-                line("${field.kotlinFieldName} = ${field.kotlinFieldName} + plus.${field.kotlinFieldName},")
-            } else if (field.type == File.Field.Type.MESSAGE) {
-                line(
-                    "${field.kotlinFieldName} = " +
-                        "${field.kotlinFieldName}?.plus(plus.${field.kotlinFieldName}) ?: plus.${field.kotlinFieldName},"
-                )
-            } else if (field.hasPresence) {
-                line("${field.kotlinFieldName} = plus.${field.kotlinFieldName} ?: ${field.kotlinFieldName},")
+            val paramEquals = "${field.kotlinFieldName} ="
+            when {
+                field.repeated ->
+                    line("$paramEquals ${field.kotlinFieldName} + plus.${field.kotlinFieldName},")
+                field.type == File.Field.Type.MESSAGE ->
+                    if (field.required) {
+                        line("$paramEquals ${field.kotlinFieldName}.plus(plus.${field.kotlinFieldName}),")
+                    } else {
+                        line("$paramEquals ${field.kotlinFieldName}?.plus(plus.${field.kotlinFieldName}) ?: plus.${field.kotlinFieldName},")
+                    }
+                field.hasPresence && !field.required ->
+                    line("$paramEquals plus.${field.kotlinFieldName} ?: ${field.kotlinFieldName},")
             }
         }
 
@@ -435,6 +450,13 @@ public open class CodeGenerator(
                 }.line("}")
             } ?: lineEnd("_, _ -> }")
 
+            line()
+            type.fields.filterIsInstance<File.Field.Numbered.Standard>().filter { it.required }.forEach { field ->
+                line("if (${field.kotlinFieldName} == null) {").indented {
+                    line("throw pbandk.InvalidProtocolBufferException(\"Required field '${field.name}' was missing in protocol message.\")")
+                }.line("}")
+            }
+
             // Wrap the params to the class and return it
             lineBegin("return ${type.kotlinFullTypeName}(")
             val chunkedDoneFields = doneKotlinFields.chunked(4)
@@ -481,13 +503,13 @@ public open class CodeGenerator(
     protected val File.Type.Message.mapEntryValueField: File.Field.Numbered.Standard?
         get() = if (!mapEntry) null else (fields[1] as File.Field.Numbered.Standard)
     protected val File.Type.Message.mapEntryKeyKotlinType: String?
-        get() = if (!mapEntry) null else (fields[0] as File.Field.Numbered.Standard).kotlinValueType(false)
+        get() = if (!mapEntry) null else (fields[0] as File.Field.Numbered.Standard).kotlinValueType(true)
     protected val File.Type.Message.mapEntryValueKotlinType: String?
         get() = if (!mapEntry) null else (fields[1] as File.Field.Numbered.Standard).kotlinValueType(true)
 
-    protected fun File.Field.Numbered.kotlinValueType(nullableIfMessage: Boolean): String = when (this) {
-        is File.Field.Numbered.Standard -> kotlinValueType(nullableIfMessage)
-        is File.Field.Numbered.Wrapper -> kotlinValueType(nullableIfMessage)
+    protected fun File.Field.Numbered.kotlinValueType(allowNulls: Boolean): String = when (this) {
+        is File.Field.Numbered.Standard -> kotlinValueType(allowNulls)
+        is File.Field.Numbered.Wrapper -> kotlinValueType(allowNulls)
     }
 
     protected val File.Field.Numbered.extendeeKotlinType: String?
@@ -495,7 +517,7 @@ public open class CodeGenerator(
 
     protected val File.Field.Numbered.defaultValue: String
         get() = when (this) {
-            is File.Field.Numbered.Standard -> defaultValue
+            is File.Field.Numbered.Standard -> defaultValue()
             is File.Field.Numbered.Wrapper -> defaultValue
         }
 
@@ -511,8 +533,8 @@ public open class CodeGenerator(
                 }
                 repeated -> "Repeated<$kotlinQualifiedTypeName>(valueType = ${copy(repeated = false).fieldDescriptorType()}${if (packed) ", packed = true" else ""})"
                 type == File.Field.Type.MESSAGE -> "Message(messageCompanion = $kotlinQualifiedTypeName.Companion)"
-                type == File.Field.Type.ENUM -> "Enum(enumCompanion = $kotlinQualifiedTypeName.Companion" + (if (hasPresence || isOneOfMember) ", hasPresence = true" else "") + ")"
-                else -> "Primitive.${type.string.replaceFirstChar { it.titlecase() }}(" + (if (hasPresence || isOneOfMember) "hasPresence = true" else "") + ")"
+                type == File.Field.Type.ENUM -> "Enum(enumCompanion = $kotlinQualifiedTypeName.Companion" + (if (hasPresence) ", hasPresence = true" else "") + ")"
+                else -> "Primitive.${type.string.replaceFirstChar { it.titlecase() }}(" + (if (hasPresence) "hasPresence = true" else "") + ")"
             }
             is File.Field.Numbered.Wrapper -> when {
                 repeated -> "Repeated<${wrappedType.standardTypeName}>(valueType = ${copy(repeated = false).fieldDescriptorType()})"
@@ -521,7 +543,6 @@ public open class CodeGenerator(
         }
     }
 
-    protected val File.Field.Numbered.Standard.hasPresence: Boolean get() = optional
     protected fun File.Field.Numbered.Standard.mapEntry(): File.Type.Message? =
         if (!map) null else (localType as? File.Type.Message)?.takeIf { it.mapEntry }
 
@@ -537,32 +558,31 @@ public open class CodeGenerator(
                 else "var $kotlinFieldName: pbandk.MessageMap.Builder<" +
                     "${mapEntry.mapEntryKeyKotlinType}, ${mapEntry.mapEntryValueKotlinType}>? = null"
             }
-            requiresExplicitTypeWithVal -> "var $kotlinFieldName: ${kotlinValueType(true)} = $defaultValue"
-            else -> "var $kotlinFieldName = $defaultValue"
+            requiresExplicitTypeWithVal -> "var $kotlinFieldName: ${kotlinValueType(true)} = ${defaultValue()}"
+            else -> "var $kotlinFieldName = ${defaultValue()}"
         }
     protected val File.Field.Numbered.Standard.decodeWithVarDone: String
         get() = when {
             map -> "pbandk.MessageMap.Builder.fixed($kotlinFieldName)"
             repeated -> "pbandk.ListWithSize.Builder.fixed($kotlinFieldName)"
+            required -> "${kotlinFieldName}!!"
             else -> kotlinFieldName
         }
 
-    protected fun File.Field.Numbered.Standard.kotlinValueType(nullableIfMessage: Boolean): String = when {
+    protected fun File.Field.Numbered.Standard.kotlinValueType(allowNulls: Boolean): String = when {
         map -> mapEntry()!!.let { "Map<${it.mapEntryKeyKotlinType}, ${it.mapEntryValueKotlinType}>" }
         repeated -> "List<$kotlinQualifiedTypeName>"
-        hasPresence || (type == File.Field.Type.MESSAGE && nullableIfMessage) ->
-            "$kotlinQualifiedTypeName?"
+        allowNulls && hasPresence -> "$kotlinQualifiedTypeName?"
         else -> kotlinQualifiedTypeName
     }
 
-    protected val File.Field.Numbered.Standard.defaultValue: String
-        get() = when {
-            map -> "emptyMap()"
-            repeated -> "emptyList()"
-            hasPresence -> "null"
-            type == File.Field.Type.ENUM -> "$kotlinQualifiedTypeName.fromValue(0)"
-            else -> type.defaultValue
-        }
+    protected fun File.Field.Numbered.Standard.defaultValue(allowNulls: Boolean = true): String = when {
+        map -> "emptyMap()"
+        repeated -> "emptyList()"
+        allowNulls && hasPresence -> "null"
+        type == File.Field.Type.ENUM -> "$kotlinQualifiedTypeName.fromValue(0)"
+        else -> type.defaultValue
+    }
     protected val File.Field.Numbered.Standard.requiresExplicitTypeWithVal: Boolean
         get() = repeated || hasPresence || type.requiresExplicitTypeWithVal
 
@@ -577,9 +597,9 @@ public open class CodeGenerator(
             else -> kotlinFieldName
         }
 
-    protected fun File.Field.Numbered.Wrapper.kotlinValueType(nullableIfMessage: Boolean): String = when {
+    protected fun File.Field.Numbered.Wrapper.kotlinValueType(allowNulls: Boolean): String = when {
         repeated -> "List<${wrappedType.standardTypeName}>"
-        else -> wrappedType.standardTypeName + if (nullableIfMessage) "?" else ""
+        else -> wrappedType.standardTypeName + if (allowNulls) "?" else ""
     }
 
     protected val File.Field.Numbered.Wrapper.defaultValue: String

@@ -593,7 +593,6 @@ public final class pbandk/wkt/DescriptorKt {
 	public static final fun orDefault (Lpbandk/wkt/ServiceOptions;)Lpbandk/wkt/ServiceOptions;
 	public static final fun orDefault (Lpbandk/wkt/SourceCodeInfo$Location;)Lpbandk/wkt/SourceCodeInfo$Location;
 	public static final fun orDefault (Lpbandk/wkt/SourceCodeInfo;)Lpbandk/wkt/SourceCodeInfo;
-	public static final fun orDefault (Lpbandk/wkt/UninterpretedOption$NamePart;)Lpbandk/wkt/UninterpretedOption$NamePart;
 	public static final fun orDefault (Lpbandk/wkt/UninterpretedOption;)Lpbandk/wkt/UninterpretedOption;
 }
 
@@ -2681,7 +2680,6 @@ public final class pbandk/wkt/UninterpretedOption$Companion : pbandk/Message$Com
 
 public final class pbandk/wkt/UninterpretedOption$NamePart : pbandk/Message {
 	public static final field Companion Lpbandk/wkt/UninterpretedOption$NamePart$Companion;
-	public fun <init> ()V
 	public fun <init> (Ljava/lang/String;ZLjava/util/Map;)V
 	public synthetic fun <init> (Ljava/lang/String;ZLjava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
@@ -2704,7 +2702,6 @@ public final class pbandk/wkt/UninterpretedOption$NamePart : pbandk/Message {
 public final class pbandk/wkt/UninterpretedOption$NamePart$Companion : pbandk/Message$Companion {
 	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
 	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/UninterpretedOption$NamePart;
-	public final fun getDefaultInstance ()Lpbandk/wkt/UninterpretedOption$NamePart;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 

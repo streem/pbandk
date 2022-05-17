@@ -270,6 +270,7 @@ private fun Struct.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Struct {
             1 -> fields = (fields ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.wkt.Value?>> }
         }
     }
+
     return Struct(pbandk.MessageMap.Builder.fixed(fields), unknownFields)
 }
 
@@ -295,6 +296,7 @@ private fun Struct.FieldsEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder
             2 -> value = _fieldValue as pbandk.wkt.Value
         }
     }
+
     return Struct.FieldsEntry(key, value, unknownFields)
 }
 
@@ -330,6 +332,7 @@ private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Value {
             6 -> kind = Value.Kind.ListValue(_fieldValue as pbandk.wkt.ListValue)
         }
     }
+
     return Value(kind, unknownFields)
 }
 
@@ -353,5 +356,6 @@ private fun ListValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ListVa
             1 -> values = (values ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Value> }
         }
     }
+
     return ListValue(pbandk.ListWithSize.Builder.fixed(values), unknownFields)
 }
