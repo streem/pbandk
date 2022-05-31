@@ -742,7 +742,7 @@ public open class CodeGenerator(
                         lineEnd("if ($initializedCheck) {").indented {
                             line(field.kotlinName.simple)
                         }.line("} else {").indented {
-                            line("throw pbandk.InvalidProtocolBufferException(\"Required field '${field.name.simple}' was not set.\")")
+                            line("throw pbandk.InvalidProtocolBufferException.missingRequiredField(\"${field.name.simple}\")")
                         }.line("},")
                     } else {
                         lineMid(field.kotlinName.simple)

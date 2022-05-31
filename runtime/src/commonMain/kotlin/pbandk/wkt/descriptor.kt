@@ -6004,12 +6004,12 @@ private class UninterpretedOption_MutableNamePart_Impl(
         namePart = if (this::namePart.isInitialized) {
             namePart
         } else {
-            throw pbandk.InvalidProtocolBufferException("Required field 'name_part' was not set.")
+            throw pbandk.InvalidProtocolBufferException.missingRequiredField("name_part")
         },
         isExtension = if (hasIsExtension) {
             isExtension
         } else {
-            throw pbandk.InvalidProtocolBufferException("Required field 'is_extension' was not set.")
+            throw pbandk.InvalidProtocolBufferException.missingRequiredField("is_extension")
         },
         unknownFields = unknownFields.toMap()
     )

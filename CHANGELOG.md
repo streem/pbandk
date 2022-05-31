@@ -27,6 +27,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 
+* Fixed compile error about an inaccessible `InvalidProtocolBufferException` constructor for generated code that contained proto2 `required` fields. (PR [#222], fixes [#221])
+
+[#221]: https://github.com/streem/pbandk/issues/221
+[#222]: https://github.com/streem/pbandk/pull/222
+
 
 ## [0.14.0] - 2022-05-24
 

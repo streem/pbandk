@@ -7,10 +7,14 @@ public class InvalidProtocolBufferException : RuntimeException {
     internal constructor(message: String) : super(message)
     internal constructor(message: String, cause: Throwable) : super(message, cause)
 
-    internal companion object {
+    public companion object {
+        @PublicForGeneratedCode
+        public fun missingRequiredField(fieldName: String): InvalidProtocolBufferException =
+            InvalidProtocolBufferException("Required field '$fieldName' was not set.")
+
         internal fun truncatedMessage() = InvalidProtocolBufferException(
             "While parsing a protocol message, the input ended unexpectedly "
-                    + "in the middle of a field.  This could mean either that the "
+                    + "in the middle of a field. This could mean either that the "
                     + "input has been truncated or that an embedded message "
                     + "misreported its own length."
         )

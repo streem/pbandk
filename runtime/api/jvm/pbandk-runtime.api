@@ -129,6 +129,11 @@ protected final class pbandk/FieldSet$Iterator : pbandk/internal/FieldIterator {
 }
 
 public final class pbandk/InvalidProtocolBufferException : java/lang/RuntimeException {
+	public static final field Companion Lpbandk/InvalidProtocolBufferException$Companion;
+}
+
+public final class pbandk/InvalidProtocolBufferException$Companion {
+	public final fun missingRequiredField (Ljava/lang/String;)Lpbandk/InvalidProtocolBufferException;
 }
 
 public abstract interface annotation class pbandk/JsName : java/lang/annotation/Annotation {

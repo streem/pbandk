@@ -132,7 +132,7 @@ private class MutableMessageWithRequiredField_Impl(
         foo = if (hasFoo) {
             foo
         } else {
-            throw pbandk.InvalidProtocolBufferException("Required field 'foo' was not set.")
+            throw pbandk.InvalidProtocolBufferException.missingRequiredField("foo")
         },
         unknownFields = unknownFields.toMap()
     )
