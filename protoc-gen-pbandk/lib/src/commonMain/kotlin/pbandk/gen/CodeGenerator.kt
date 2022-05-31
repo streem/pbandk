@@ -453,7 +453,7 @@ public open class CodeGenerator(
             line()
             type.fields.filterIsInstance<File.Field.Numbered.Standard>().filter { it.required }.forEach { field ->
                 line("if (${field.kotlinFieldName} == null) {").indented {
-                    line("throw pbandk.InvalidProtocolBufferException(\"Required field '${field.name}' was missing in protocol message.\")")
+                    line("throw pbandk.InvalidProtocolBufferException.missingRequiredField(\"${field.name}\")")
                 }.line("}")
             }
 

@@ -54,7 +54,7 @@ private fun MessageWithRequiredField.Companion.decodeWithImpl(u: pbandk.MessageD
     }
 
     if (foo == null) {
-        throw pbandk.InvalidProtocolBufferException("Required field 'foo' was missing in protocol message.")
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("foo")
     }
     return MessageWithRequiredField(foo!!, unknownFields)
 }

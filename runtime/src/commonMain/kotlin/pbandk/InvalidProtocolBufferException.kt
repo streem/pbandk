@@ -7,10 +7,14 @@ public class InvalidProtocolBufferException : RuntimeException {
     internal constructor(message: String) : super(message)
     internal constructor(message: String, cause: Throwable) : super(message, cause)
 
-    internal companion object {
+    public companion object {
+        @PublicForGeneratedCode
+        public fun missingRequiredField(fieldName: String): InvalidProtocolBufferException =
+            InvalidProtocolBufferException("Required field '$fieldName' was missing in protocol message.")
+
         internal fun truncatedMessage() = InvalidProtocolBufferException(
             "While parsing a protocol message, the input ended unexpectedly "
-                    + "in the middle of a field.  This could mean either that the "
+                    + "in the middle of a field. This could mean either that the "
                     + "input has been truncated or that an embedded message "
                     + "misreported its own length."
         )
@@ -30,8 +34,7 @@ public class InvalidProtocolBufferException : RuntimeException {
         internal fun invalidWireType() = InvalidProtocolBufferException("Protocol message tag had invalid wire type.")
 
         internal fun sizeLimitExceeded() = InvalidProtocolBufferException(
-            "Protocol message was too large.  May be malicious.  "
-                    + "Use a higher sizeLimit when reading the reading the input."
+            "Protocol message was too large. May be malicious. Use a higher sizeLimit when reading the input."
         )
     }
 }
