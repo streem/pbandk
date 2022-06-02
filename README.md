@@ -527,17 +527,14 @@ well-known types (and other proto types used by pbandk) need to be re-generated 
 `protoc-gen-pbandk` binary:
 
 ```
-./gradlew :pbandk-runtime:generateWellKnownTypes \
-    :pbandk-runtime:generateTestTypes \
-    :protoc-gen-pbandk:protoc-gen-pbandk-lib:generateProto \
-    :conformance:conformance-lib:generateProto
+./gradlew generateProtos
 ```
 
 Important: If making changes in both the `:protoc-gen-pbandk:protoc-gen-pbandk-lib` _and_ `:pbandk-runtime` projects at
-the same time, then it's likely the `generateWellKnownTypes` task will fail to compile. To work around this, stash the
-changes in the `:pbandk-runtime` project, run the `generateWellKnownTypes` task with only
+the same time, then it's likely the `:pbandk-runtime:generateWellKnownTypeProtos` task will fail to compile. To work
+around this, stash the changes in the `:pbandk-runtime` project, run the `generateWellKnownTypeProtos` task with only
 the `:protoc-gen-pbandk:protoc-gen-pbandk-lib` changes, and then unstash the `:pbandk-runtime` changes and rerun the
-`generateWellKnownTypes` task.
+`generateWellKnownTypeProtos` task.
 
 ### Conformance Tests
 

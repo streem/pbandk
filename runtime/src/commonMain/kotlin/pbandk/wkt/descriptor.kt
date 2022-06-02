@@ -3019,10 +3019,10 @@ private fun UninterpretedOption.NamePart.Companion.decodeWithImpl(u: pbandk.Mess
     }
 
     if (namePart == null) {
-        throw pbandk.InvalidProtocolBufferException("Required field 'name_part' was missing in protocol message.")
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("name_part")
     }
     if (isExtension == null) {
-        throw pbandk.InvalidProtocolBufferException("Required field 'is_extension' was missing in protocol message.")
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("is_extension")
     }
     return UninterpretedOption.NamePart(namePart!!, isExtension!!, unknownFields)
 }
