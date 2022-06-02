@@ -63,10 +63,14 @@ kotlin {
 }
 
 tasks {
-    val generateProto by registering(KotlinProtocTask::class) {
+    val generateConformanceProtos by registering(KotlinProtocTask::class) {
         includeDir.set(project.file("src/commonMain/proto"))
         outputDir.set(project.file("src/commonMain/kotlin"))
         kotlinPackage.set("pbandk.conformance.pb")
         logLevel.set("debug")
+    }
+
+    val generateProtos by registering {
+        dependsOn(generateConformanceProtos)
     }
 }

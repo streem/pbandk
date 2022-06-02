@@ -52,12 +52,16 @@ kotlin {
 val extractWellKnownTypeProtos = rootProject.tasks.named<Sync>("extractWellKnownTypeProtos")
 
 tasks {
-    val generateProto by registering(KotlinProtocTask::class) {
+    val generateProtocProtos by registering(KotlinProtocTask::class) {
         includeDir.set(layout.dir(extractWellKnownTypeProtos.map { it.destinationDir }))
         outputDir.set(project.file("src/commonMain/kotlin"))
         kotlinPackage.set("pbandk.gen.pb")
         logLevel.set("debug")
         protoFileSubdir("google/protobuf/compiler")
+    }
+
+    val generateProtos by registering {
+        dependsOn(generateProtocProtos)
     }
 
     val generateTestProtoDescriptor by registering(DescriptorProtocTask::class) {
