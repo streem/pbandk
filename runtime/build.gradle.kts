@@ -64,6 +64,7 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+                implementation(project(":test-types"))
             }
         }
 
@@ -84,12 +85,6 @@ kotlin {
             kotlin.srcDir("src/commonJvmAndroid/kotlin")
             dependencies {
                 api(project(":pbandk-protos"))
-            }
-        }
-
-        val jvmTest by getting {
-            dependencies {
-                implementation(project(":jvm-test-types"))
             }
         }
 
@@ -127,7 +122,7 @@ android {
 val extractWellKnownTypeProtos = rootProject.tasks.named<Sync>("extractWellKnownTypeProtos")
 
 tasks {
-    val generateWellKnownTypes by registering(KotlinProtocTask::class) {
+    val generateWellKnownTypeProtos by registering(KotlinProtocTask::class) {
         includeDir.set(layout.dir(extractWellKnownTypeProtos.map { it.destinationDir }))
         outputDir.set(project.file("src/commonMain/kotlin"))
         kotlinPackage.set("pbandk.wkt")
@@ -135,24 +130,8 @@ tasks {
         protoFileSubdir("google/protobuf")
     }
 
-    val generateKotlinTestTypes by registering(KotlinProtocTask::class) {
-        includeDir.set(project.file("src/commonTest/proto"))
-        outputDir.set(project.file("src/commonTest/kotlin"))
-        kotlinPackage.set("pbandk.testpb")
-        logLevel.set("debug")
-        protoFileSubdir("pbandk/testpb")
-    }
-
-    val generateJavaTestTypes by registering(ProtocTask::class) {
-        includeDir.set(project.file("src/commonTest/proto"))
-        val outputProject = rootProject.findProject("jvm-test-types")!!
-        outputDir.set(outputProject.file("src/main/java"))
-        plugin.set("java")
-        protoFileSubdir("pbandk/testpb")
-    }
-
-    val generateTestTypes by registering {
-        dependsOn(generateKotlinTestTypes, generateJavaTestTypes)
+    val generateProtos by registering {
+        dependsOn(generateWellKnownTypeProtos)
     }
 }
 

@@ -87,10 +87,7 @@ jobs:
       - name: Ensure bundled types are up-to-date
         if: matrix.os-type == 'linux'
         run: |
-          ./gradlew :pbandk-runtime:generateWellKnownTypes \
-            :pbandk-runtime:generateTestTypes \
-            :protoc-gen-pbandk:protoc-gen-pbandk-lib:generateProto \
-            :conformance:conformance-lib:generateProto
+          ./gradlew generateProtos
           if [ -n "$(git status --porcelain)" ]; then
             echo "::error::Found uncommitted changes to bundled types"
             git status

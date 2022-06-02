@@ -24,7 +24,7 @@ include(":runtime")
 project(":runtime").name = "pbandk-runtime"
 include(":protos")
 project(":protos").name = "pbandk-protos"
-include(":jvm-test-types")
+include(":test-types")
 
 include(":protoc-gen-pbandk:lib")
 project(":protoc-gen-pbandk:lib").name = "protoc-gen-pbandk-lib"
