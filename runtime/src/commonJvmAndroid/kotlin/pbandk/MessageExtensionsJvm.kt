@@ -2,12 +2,13 @@ package pbandk
 
 import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.BinaryMessageEncoder
+import pbandk.internal.binary.InputStreamWireReader
+import pbandk.internal.binary.MAX_VARINT_SIZE
 import pbandk.internal.binary.OutputStreamWireWriter
 import pbandk.internal.binary.fromByteBuffer
 import pbandk.internal.binary.fromInputStream
+import pbandk.internal.binary.kotlin.KotlinBinaryWireDecoder
 import pbandk.internal.binary.kotlin.KotlinBinaryWireEncoder
-import pbandk.internal.binary.kotlin.readerRawVarint64
-import pbandk.internal.binary.kotlin.writerRawVarint32
 import java.io.InputStream
 import java.io.OutputStream
 import java.nio.ByteBuffer
@@ -38,9 +39,13 @@ public fun <T : Message> Message.Companion<T>.decodeFromByteBuffer(buffer: ByteB
     decodeWith(BinaryMessageDecoder.fromByteBuffer(buffer))
 
 /**
- * Read the next message of type T, in the [stream] of size-delimited Messages, such as is written by the Java method
- * AbstractMessageLite.writeDelimitedTo(OutputStream) and read by Message.parseDelimitedFrom(InputStream).
- * A null is returned when all messages have been read. The caller must close the stream.
+ * Decode the next message of type [T] from the [stream] of size-delimited binary protocol buffer messages. `null` is
+ * returned when all messages have been read. The caller is responsible for closing [stream].
+ *
+ * Supports the same encoding as is used by the Java methods `Message.writeDelimitedTo(OutputStream)` and
+ * `Message.parseDelimitedFrom(InputStream)`.
+ *
+ * @see [encodeDelimitedToStream]
  */
 public fun <T : Message> Message.Companion<T>.decodeDelimitedFromStream(stream: InputStream): T? {
     val firstByte = stream.read()
@@ -48,32 +53,29 @@ public fun <T : Message> Message.Companion<T>.decodeDelimitedFromStream(stream: 
         return null
     }
 
-    // variable length (base 128) integer returned as an Int
-    val length = (readerRawVarint64(firstByte.toByte()) { readByte(stream) }).toInt()
-    return this.decodeFromStream(stream, length)
-}
+    val wireReader = InputStreamWireReader(firstByte.toByte(), stream, MAX_VARINT_SIZE)
+    val wireDecoder = KotlinBinaryWireDecoder(wireReader)
+    val size = wireDecoder.readUInt32()
+    wireReader.resetSizeCounter()
+    wireReader.sizeLimit = size
 
-private fun readByte(input: InputStream): Byte {
-    val ib = input.read()
-    if (ib == -1) {  // eof
-        throw InvalidProtocolBufferException.truncatedMessage()
-    }
-    return ib.toByte()
+    return decodeWith(BinaryMessageDecoder(wireDecoder))
 }
 
 /**
- * Write a message of type T, to a [stream] of size-delimited Messages.
- * Like encodeToStream(OutputStream), but writes the size of the message as a varint before writing the data.
- * This allows more data to be written to the stream after the message without the need to delimit
- * the message data yourself.
- * Use Message.Companion<T>.parseDelimitedFrom(InputStream) to read these streams.
+ * Encode this message and its size to [stream], a stream of size-delimited messages using the protocol buffer binary
+ * encoding. Like [encodeToStream], but writes the size of the message as a varint before writing the data. This allows
+ * more data to be written to the stream after the message without the need to delimit the message data yourself.
+ *
+ * Supports the same encoding as is used by the Java methods `Message.writeDelimitedTo(OutputStream)` and
+ * `Message.parseDelimitedFrom(InputStream)`.
+ *
+ * @see [decodeDelimitedFromStream]
  */
 public fun <T : Message> T.encodeDelimitedToStream(stream: OutputStream) {
-    writeVlen(this.protoSize, stream)
-    this.encodeToStream(stream)
-}
-
-private fun writeVlen(value: Int, output: OutputStream) {
-    val buffer = writerRawVarint32(value)
-    output.write(buffer)
+    val wireWriter = OutputStreamWireWriter(stream)
+    val wireEncoder = KotlinBinaryWireEncoder(wireWriter)
+    wireEncoder.writeUInt32NoTag(protoSize)
+    encodeWith(BinaryMessageEncoder(wireEncoder))
+    wireWriter.flush()
 }

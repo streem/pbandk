@@ -73,7 +73,15 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
     private fun readRawVarint32(): Int = readRawVarint64().toInt()
 
     private fun readRawVarint64(): Long {
-        return readerRawVarint64(readRawByte()) { readRawByte() }
+        var result: Long = 0
+        for (shift in 0 until 64 step 7) {
+            val b = readRawByte()
+            result = result or ((b.toInt() and 0x7F).toLong() shl shift)
+            if (b.toInt() and 0x80 == 0) {
+                return result
+            }
+        }
+        throw InvalidProtocolBufferException.malformedVarint()
     }
 
     private fun decodeZigZag32(n: Int): Int = n.ushr(1) xor -(n and 1)
@@ -245,18 +253,4 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
             popLimit(oldLimit)
         }
     }
-}
-
-internal inline fun readerRawVarint64(firstByte: Byte, readRawByte: () -> Byte): Long {
-    var result: Long = (firstByte.toInt() and 0x7F).toLong()
-    if (firstByte.toInt() and 0x80 == 0) return result
-
-    for (shift in 7 until 64 step 7) {
-        val b = readRawByte()
-        result = result or ((b.toInt() and 0x7F).toLong() shl shift)
-        if (b.toInt() and 0x80 == 0) {
-            return result
-        }
-    }
-    throw InvalidProtocolBufferException.malformedVarint()
 }

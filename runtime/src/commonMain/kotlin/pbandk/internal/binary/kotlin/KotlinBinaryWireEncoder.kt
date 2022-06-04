@@ -61,8 +61,20 @@ internal class KotlinBinaryWireEncoder(private val wireWriter: WireWriter) : Bin
         }
     }
 
-    private fun writeUInt32NoTag(value: Int) {
-        wireWriter.write(writerRawVarint32(value))
+    internal fun writeUInt32NoTag(value: Int) {
+        val buffer = ByteArray(MAX_VARINT_SIZE)
+        var position = 0
+        var valueCur = value
+        while (position < MAX_VARINT_SIZE) {
+            if ((valueCur and 0x7F.inv()) == 0) {
+                buffer[position++] = valueCur.toByte()
+                break
+            } else {
+                buffer[position++] = ((valueCur and 0x7F) or 0x80).toByte()
+                valueCur = valueCur ushr 7
+            }
+        }
+        wireWriter.write(buffer, 0, position)
     }
 
     private fun writeUInt64NoTag(value: Long) {
@@ -242,20 +254,4 @@ internal class KotlinBinaryWireEncoder(private val wireWriter: WireWriter) : Bin
         writeTag(fieldNum, WireType.LENGTH_DELIMITED)
         writeBytesNoTag(value)
     }
-}
-
-internal fun writerRawVarint32(value: Int): ByteArray {
-    val buffer = ByteArray(MAX_VARINT_SIZE)
-    var position = 0
-    var valueCur = value
-    while (position < MAX_VARINT_SIZE) {
-        if ((valueCur and 0x7F.inv()) == 0) {
-            buffer[position++] = valueCur.toByte()
-            break
-        } else {
-            buffer[position++] = ((valueCur and 0x7F) or 0x80).toByte()
-            valueCur = valueCur ushr 7
-        }
-    }
-    return buffer.copyOfRange(0, position)
 }
