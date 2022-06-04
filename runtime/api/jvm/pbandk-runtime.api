@@ -197,9 +197,11 @@ public abstract interface class pbandk/MessageEncoder {
 }
 
 public final class pbandk/MessageExtensionsJvmKt {
+	public static final fun decodeDelimitedFromStream (Lpbandk/Message$Companion;Ljava/io/InputStream;)Lpbandk/Message;
 	public static final fun decodeFromByteBuffer (Lpbandk/Message$Companion;Ljava/nio/ByteBuffer;)Lpbandk/Message;
 	public static final fun decodeFromStream (Lpbandk/Message$Companion;Ljava/io/InputStream;I)Lpbandk/Message;
 	public static synthetic fun decodeFromStream$default (Lpbandk/Message$Companion;Ljava/io/InputStream;IILjava/lang/Object;)Lpbandk/Message;
+	public static final fun encodeDelimitedToStream (Lpbandk/Message;Ljava/io/OutputStream;)V
 	public static final fun encodeToStream (Lpbandk/Message;Ljava/io/OutputStream;)I
 }
 

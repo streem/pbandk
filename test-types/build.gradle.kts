@@ -8,10 +8,10 @@ kotlin {
     }
 
     jvmToolchain {
-        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(8))
+        languageVersion.set(JavaLanguageVersion.of(8))
     }
 
-    js(BOTH) {
+    js(IR) {
         browser {}
         nodejs {}
     }

@@ -37,19 +37,25 @@ import java.io.InputStream
 // Based on CodedInputStream.StreamDecoder from protobuf-java
 /**
  * @param input InputStream to read from
+ *
  * @param sizeLimit Set the maximum message size. In order to prevent malicious messages from exhausting memory or
  * causing integer overflows, `InputStreamWireReader` limits how large a message may be. The default limit is
- * [Int.MAX_VALUE]. You should set this limit as small as you can without harming your app's functionality.
+ * [Int.MAX_VALUE]. You should set this limit as small as you can without harming your app's functionality. If you want
+ * to read several messages from a single `InputStreamWireReader`, you could call [resetSizeCounter] after each one to
+ * avoid hitting the size limit.
+ *
  * @param bufferSize Number of bytes to read at a time. The default is [DEFAULT_BUFFER_SIZE].
  */
 internal class InputStreamWireReader(
     private val input: InputStream,
-    private val sizeLimit: Int = Int.MAX_VALUE,
+    sizeLimit: Int = Int.MAX_VALUE,
     bufferSize: Int = DEFAULT_BUFFER_SIZE
 ) : WireReader {
-    init {
-        require(sizeLimit >= 0) { "Size limit cannot be negative: $sizeLimit" }
-    }
+    var sizeLimit = sizeLimit
+        set(value) {
+            require(value >= 0) { "Size limit cannot be negative: $value" }
+            field = value
+        }
 
     private val buffer = ByteArray(bufferSize)
 
@@ -67,6 +73,16 @@ internal class InputStreamWireReader(
 
     /** The absolute position of the end of the current message. */
     private val currentLimit = Int.MAX_VALUE
+
+    constructor(
+        firstByte: Byte,
+        input: InputStream,
+        sizeLimit: Int = Int.MAX_VALUE,
+        bufferSize: Int = DEFAULT_BUFFER_SIZE
+    ) : this(input, sizeLimit, bufferSize) {
+        buffer[0] = firstByte
+        this.bufferSize = 1
+    }
 
     override fun read(length: Int): ByteArray {
         val tempPos = pos
@@ -241,6 +257,11 @@ internal class InputStreamWireReader(
         return chunks
     }
 
+    /** Resets the current size counter to zero (see [sizeLimit]). */
+    fun resetSizeCounter() {
+        totalBytesRetired = -pos
+    }
+
     private fun recomputeBufferSizeAfterLimit() {
         bufferSize += bufferSizeAfterLimit
         val bufferEnd = totalBytesRetired + bufferSize
@@ -252,6 +273,9 @@ internal class InputStreamWireReader(
             bufferSizeAfterLimit = 0
         }
     }
+
+    /** The total bytes read up to the current position. Calling [resetSizeCounter] resets this value to zero. */
+    val totalBytesRead: Int get() = totalBytesRetired + pos
 
     /**
      * Tries to read more bytes from the input, making at least [n] bytes available in the
