@@ -62,12 +62,12 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
 
     private fun readRawByte(): Byte = readRawBytes(1)[0]
 
-    private fun readRawLittleEndian32(): Int = readRawBytes(4).foldRight(0) {
-            byte, acc -> (acc shl 8) or (byte.toInt() and 0xff)
+    private fun readRawLittleEndian32(): Int = readRawBytes(4).foldRight(0) { byte, acc ->
+        (acc shl 8) or (byte.toInt() and 0xff)
     }
 
-    private fun readRawLittleEndian64(): Long = readRawBytes(8).foldRight(0L) {
-            byte, acc -> (acc shl 8) or (byte.toLong() and 0xff)
+    private fun readRawLittleEndian64(): Long = readRawBytes(8).foldRight(0L) { byte, acc ->
+        (acc shl 8) or (byte.toLong() and 0xff)
     }
 
     private fun readRawVarint32(): Int = readRawVarint64().toInt()

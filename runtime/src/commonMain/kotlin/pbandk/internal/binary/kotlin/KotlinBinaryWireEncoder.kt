@@ -61,7 +61,7 @@ internal class KotlinBinaryWireEncoder(private val wireWriter: WireWriter) : Bin
         }
     }
 
-    private fun writeUInt32NoTag(value: Int) {
+    internal fun writeUInt32NoTag(value: Int) {
         val buffer = ByteArray(MAX_VARINT_SIZE)
         var position = 0
         var valueCur = value
