@@ -1,11 +1,15 @@
 package pbandk
 
-import pbandk.internal.binary.*
+import pbandk.internal.binary.BinaryMessageDecoder
+import pbandk.internal.binary.BinaryMessageEncoder
+import pbandk.internal.binary.OutputStreamWireWriter
+import pbandk.internal.binary.fromByteBuffer
+import pbandk.internal.binary.fromInputStream
 import pbandk.internal.binary.kotlin.KotlinBinaryWireEncoder
-import pbandk.internal.binary.kotlin.ReturnRawByte
 import pbandk.internal.binary.kotlin.readerRawVarint64
 import pbandk.internal.binary.kotlin.writerRawVarint32
-import java.io.*
+import java.io.InputStream
+import java.io.OutputStream
 import java.nio.ByteBuffer
 
 /**
@@ -39,23 +43,22 @@ public fun <T : Message> Message.Companion<T>.decodeFromByteBuffer(buffer: ByteB
  * A null is returned when all messages have been read. The caller must close the stream.
  */
 public fun <T : Message> Message.Companion<T>.decodeDelimitedFromStream(stream: InputStream): T? {
-    val length = readVlen(stream)
-    if (length < 0) {
+    val firstByte = stream.read()
+    if (firstByte == -1) {  // eof
         return null
     }
+
+    // variable length (base 128) integer returned as an Int
+    val length = (readerRawVarint64(firstByte.toByte()) { readByte(stream) }).toInt()
     return this.decodeFromStream(stream, length)
 }
 
-// variable length (base 128) integer returned as an Int
-private fun readVlen(input: InputStream): Int {
-    val lenLong = readerRawVarint64 {readByte(input)}
-    return lenLong.toInt()
-}
-
-private fun readByte(input: InputStream): ReturnRawByte {
+private fun readByte(input: InputStream): Byte {
     val ib = input.read()
-    val eof = (ib == -1)
-    return ReturnRawByte(ib.toByte(), eof)
+    if (ib == -1) {  // eof
+        throw InvalidProtocolBufferException.truncatedMessage()
+    }
+    return ib.toByte()
 }
 
 /**

@@ -62,18 +62,18 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
 
     private fun readRawByte(): Byte = readRawBytes(1)[0]
 
-    private fun readRawLittleEndian32(): Int = readRawBytes(4).foldRight(0) {
-            byte, acc -> (acc shl 8) or (byte.toInt() and 0xff)
+    private fun readRawLittleEndian32(): Int = readRawBytes(4).foldRight(0) { byte, acc ->
+        (acc shl 8) or (byte.toInt() and 0xff)
     }
 
-    private fun readRawLittleEndian64(): Long = readRawBytes(8).foldRight(0L) {
-            byte, acc -> (acc shl 8) or (byte.toLong() and 0xff)
+    private fun readRawLittleEndian64(): Long = readRawBytes(8).foldRight(0L) { byte, acc ->
+        (acc shl 8) or (byte.toLong() and 0xff)
     }
 
     private fun readRawVarint32(): Int = readRawVarint64().toInt()
 
     private fun readRawVarint64(): Long {
-        return readerRawVarint64 {ReturnRawByte(readRawByte(), false)}
+        return readerRawVarint64(readRawByte()) { readRawByte() }
     }
 
     private fun decodeZigZag32(n: Int): Int = n.ushr(1) xor -(n and 1)
@@ -247,15 +247,12 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
     }
 }
 
-public data class ReturnRawByte(val b: Byte, val eof: Boolean)
+internal inline fun readerRawVarint64(firstByte: Byte, readRawByte: () -> Byte): Long {
+    var result: Long = (firstByte.toInt() and 0x7F).toLong()
+    if (firstByte.toInt() and 0x80 == 0) return result
 
-public fun readerRawVarint64(readRawByte: () -> ReturnRawByte): Long {
-    var result: Long = 0
-    for (shift in 0 until 64 step 7) {
-        val (b, eof) = readRawByte()
-        if (eof) {
-            return -1
-        }
+    for (shift in 7 until 64 step 7) {
+        val b = readRawByte()
         result = result or ((b.toInt() and 0x7F).toLong() shl shift)
         if (b.toInt() and 0x80 == 0) {
             return result
