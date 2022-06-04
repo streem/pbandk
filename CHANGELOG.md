@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
+* `Message.encodeDelimitedToStream()` and `Message.Companion.decodeDelimitedFromStream()`: these methods allow writing/reading multiple length-delimited messages to/from a single Java `OutputStream`/`InputStream`. They are compatible with the encoding used by `protobuf-java`'s `writeDelimitedTo()` and `parseDelimitedFrom()`/`mergeDelimitedFrom()` methods. (PR [#213]) (thanks @JohnLCaron)
+
 ### Changed
 
 ### Fixed
@@ -18,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * Fixed compile error about an inaccessible `InvalidProtocolBufferException` constructor for generated code that contained proto2 `required` fields. (PR [#222], fixes [#221])
 
 [#221]: https://github.com/streem/pbandk/issues/221
+[#213]: https://github.com/streem/pbandk/pull/213
 [#222]: https://github.com/streem/pbandk/pull/222
 
 
