@@ -239,13 +239,14 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             ?.associate { it.substringBefore("->") to it.substringAfter("->", "") }
             ?: emptyMap()
 
-        val kotlinPackageName = params["kotlin_package"]
+        private val kotlinPackagePrefix = params["kotlin_package_prefix"] ?: ""
+        val kotlinPackageName = kotlinPackagePrefix + (params["kotlin_package"]
             ?: fileDesc.options?.uninterpretedOption?.find {
                 it.name.singleOrNull()?.namePart == "kotlin_package"
             }?.stringValue?.array?.decodeToString()
             ?: packageMappings[fileDesc.`package`]
             ?: fileDesc.options?.javaPackage?.takeIf { it.isNotEmpty() }
-            ?: fileDesc.`package`?.takeIf { it.isNotEmpty() }
+            ?: fileDesc.`package`?.takeIf { it.isNotEmpty() })
 
         fun findLocalMessage(name: String, parent: DescriptorProto? = null): DescriptorProto? {
             // Get the set to look in and the type name
