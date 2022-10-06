@@ -232,7 +232,6 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         else -> error("Unknown type: $type")
     }
 
-
     data class Context(val fileDesc: FileDescriptorProto, val params: Map<String, String>) {
         // Support option kotlin_package_mapping=from.package1->to.package1;from.package2->to.package2
         val packageMappings = params["kotlin_package_mapping"]
@@ -250,20 +249,24 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             }
 
         private fun matchPackageNameWithRegex(): String? {
-            if (fileDesc.`package` == null)
-                return null
+            val packageName = fileDesc.`package` ?: return null
 
-            if (packageMappings.containsKey(fileDesc.`package`))
-                return packageMappings[fileDesc.`package`]
+            if (packageMappings.containsKey(packageName))
+                return packageMappings[packageName]
 
             val firstRegexMatch = packageMappingRegexes.firstNotNullOfOrNull { (from, to) ->
-                fileDesc.`package`?.let { from.matchEntire(it) }?.let { it to to }
+                from.matchEntire(packageName)?.let { it to to }
             }
 
             return firstRegexMatch?.let { (from, to) ->
                 val splitTo = to.split("*")
                 val groups = from.groupValues
 
+                // If there is only one element, reduce will fail.
+                if (splitTo.size == 1)
+                    return splitTo[0] + groups[1]
+
+                // Replace each * in to string with regex matches in order.
                 return splitTo.reduceRightIndexed { index, s, acc -> s + groups[index + 1] + acc }
             }
         }
