@@ -14,7 +14,7 @@ open class KotlinProtocTask : ProtocTask() {
 
     @Input
     @Optional
-    val kotlinPackagePrefix: Property<String> = project.objects.property()
+    val kotlinPackageMapping: Property<String> = project.objects.property()
 
     @Console
     val logLevel: Property<String> = project.objects.property()
@@ -30,7 +30,7 @@ open class KotlinProtocTask : ProtocTask() {
             it.resolve("bin/protoc-gen-pbandk" + ".bat".takeIf { OperatingSystem.current().isWindows }.orEmpty())
         }))
         pluginOptions.add(kotlinPackage.map { "kotlin_package" to it })
-        pluginOptions.add(kotlinPackagePrefix.map { "kotlin_package_prefix" to it })
+        pluginOptions.add(kotlinPackageMapping.map { "kotlin_package_mapping" to it })
         pluginOptions.add(logLevel.map { "log" to it })
     }
 }

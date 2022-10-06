@@ -232,6 +232,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         else -> error("Unknown type: $type")
     }
 
+
     data class Context(val fileDesc: FileDescriptorProto, val params: Map<String, String>) {
         // Support option kotlin_package_mapping=from.package1->to.package1;from.package2->to.package2
         val packageMappings = params["kotlin_package_mapping"]
@@ -239,14 +240,41 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             ?.associate { it.substringBefore("->") to it.substringAfter("->", "") }
             ?: emptyMap()
 
-        private val kotlinPackagePrefix = params["kotlin_package_prefix"] ?: ""
-        val kotlinPackageName = kotlinPackagePrefix + (params["kotlin_package"]
+        // Convert each mapping to a regex pattern, and then associate it with the replacement string
+        val packageMappingRegexes = packageMappings
+            .filter { it.value.contains("*") || it.value.contains("?") }
+            .map { (from, to) ->
+                from.replace(".", "\\.")
+                    .replace("*", "(.*)")
+                    .toRegex() to to
+            }
+
+        private fun matchPackageNameWithRegex(): String? {
+            if (fileDesc.`package` == null)
+                return null
+
+            if (packageMappings.containsKey(fileDesc.`package`))
+                return packageMappings[fileDesc.`package`]
+
+            val firstRegexMatch = packageMappingRegexes.firstNotNullOfOrNull { (from, to) ->
+                fileDesc.`package`?.let { from.matchEntire(it) }?.let { it to to }
+            }
+
+            return firstRegexMatch?.let { (from, to) ->
+                val splitTo = to.split("*")
+                val groups = from.groupValues
+
+                return splitTo.reduceRightIndexed { index, s, acc -> s + groups[index + 1] + acc }
+            }
+        }
+
+        val kotlinPackageName = params["kotlin_package"]
             ?: fileDesc.options?.uninterpretedOption?.find {
                 it.name.singleOrNull()?.namePart == "kotlin_package"
             }?.stringValue?.array?.decodeToString()
-            ?: packageMappings[fileDesc.`package`]
+            ?: matchPackageNameWithRegex()
             ?: fileDesc.options?.javaPackage?.takeIf { it.isNotEmpty() }
-            ?: fileDesc.`package`?.takeIf { it.isNotEmpty() })
+            ?: fileDesc.`package`?.takeIf { it.isNotEmpty() }
 
         fun findLocalMessage(name: String, parent: DescriptorProto? = null): DescriptorProto? {
             // Get the set to look in and the type name
