@@ -5,6 +5,7 @@ import kotlinx.serialization.json.buildJsonObject
 import pbandk.encodeToByteArray
 import pbandk.testpb.Bar
 import pbandk.testpb.TestAllTypesProto3
+import pbandk.testpb.MessageWithEnum
 import kotlin.test.*
 
 class JsonTest {
@@ -16,6 +17,19 @@ class JsonTest {
 
         val barBytes = bar.encodeToByteArray()
         assertContentEquals(byteArrayOf(), barBytes, "binary serialization should be empty for null field")
+    }
+
+    @Test
+    fun testMessageWithEnumProto2
+        val jsonConfig = JsonConfig.DEFAULT.copy(compactOutput = true)
+
+        // This points to a bug in JSON serialization implementation.
+        // In proto2, enum string value should be visible in JSON even if the enum value is set to 0th value.
+        val message0 = MessageWithEnum(value = MessageWithEnum.EnumType.FOO)
+        assertEquals(message0.encodeToJsonString(jsonConfig), "{}")
+
+        val message1 = MessageWithEnum(value = MessageWithEnum.EnumType.BAR)
+        assertEquals(message1.encodeToJsonString(jsonConfig), "{\"value\":\"BAR\"}")
     }
 
     @Test
