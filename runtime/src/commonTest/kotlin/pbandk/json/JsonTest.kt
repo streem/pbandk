@@ -37,6 +37,24 @@ class JsonTest {
     }
 
     @Test
+    fun testMessageWithEnumProto3() {
+        val jsonConfig = JsonConfig.DEFAULT.copy(compactOutput = true)
+
+        // This works as expected.
+        val message = TestAllTypesProto3()
+        assertEquals(message.encodeToJsonString(jsonConfig), "{}")
+
+        // This points to a bug: enum string value should be visible in JSON even if the enum value is set to 0th value.
+        // For proto3, this is not as big of a problem since we can't differentiate between 0th value and missing value.
+        val messageWith0 = TestAllTypesProto3(optionalNestedEnum = TestAllTypesProto3.NestedEnum.FOO)
+        assertEquals(messageWith0.encodeToJsonString(jsonConfig), "{}")
+
+        // This works as expected.
+        val messageWith1 = TestAllTypesProto3(optionalNestedEnum = TestAllTypesProto3.NestedEnum.BAR)
+        assertEquals(messageWith1.encodeToJsonString(jsonConfig), "{\"optionalNestedEnum\":\"BAR\"}")
+    }
+
+    @Test
     fun testNullValues() {
         val json = buildJsonObject {
             put("optionalInt32", JsonNull)
