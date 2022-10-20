@@ -20,16 +20,20 @@ class JsonTest {
     }
 
     @Test
-    fun testMessageWithEnumProto2
+    fun testMessageWithEnumProto2() {
         val jsonConfig = JsonConfig.DEFAULT.copy(compactOutput = true)
 
-        // This points to a bug in JSON serialization implementation.
-        // In proto2, enum string value should be visible in JSON even if the enum value is set to 0th value.
-        val message0 = MessageWithEnum(value = MessageWithEnum.EnumType.FOO)
-        assertEquals(message0.encodeToJsonString(jsonConfig), "{}")
+        // This points to a bug: although the 'value' is not set in 'message', we serialize it with a null.
+        val message = MessageWithEnum()
+        assertEquals(message.encodeToJsonString(jsonConfig), "{\"value\":null}")
 
-        val message1 = MessageWithEnum(value = MessageWithEnum.EnumType.BAR)
-        assertEquals(message1.encodeToJsonString(jsonConfig), "{\"value\":\"BAR\"}")
+        // This points to a bug: enum string value should be visible in JSON even if the enum value is set to 0th value.
+        val messageWith0 = MessageWithEnum(value = MessageWithEnum.EnumType.FOO)
+        assertEquals(messageWith0.encodeToJsonString(jsonConfig), "{}")
+
+        // This works as expected.
+        val messageWith1 = MessageWithEnum(value = MessageWithEnum.EnumType.BAR)
+        assertEquals(messageWith1.encodeToJsonString(jsonConfig), "{\"value\":\"BAR\"}")
     }
 
     @Test
