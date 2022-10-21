@@ -49,6 +49,14 @@ class JsonTest {
     }
 
     @Test
+    fun binaryJsonRoundTripDoesntLoseInformationForExplicitPresence() {
+        val originalMessage = TestAllTypesProto3(optionalInt32 = 0)
+        val roundTripMessage = TestAllTypesProto3.decodeFromJsonString(originalMessage.encodeToJsonString())
+
+        assertEquals(originalMessage.encodeToByteArray(), roundTripMessage.encodeToByteArray())
+    }
+
+    @Test
     fun testNullValues() {
         val json = buildJsonObject {
             put("optionalInt32", JsonNull)
