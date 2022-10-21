@@ -23,17 +23,12 @@ class JsonTest {
     fun testMessageWithEnumProto2() {
         val jsonConfig = JsonConfig.DEFAULT.copy(compactOutput = true)
 
-        // This behavior is unexpected and will be fixed in a follow-up.
-        // See https://github.com/streem/pbandk/issues/235 for more details.
         val message = MessageWithEnum()
-        assertEquals("{\"value\":null}", message.encodeToJsonString(jsonConfig))
+        assertEquals("{}", message.encodeToJsonString(jsonConfig))
 
-        // This behavior is unexpected and will be fixed in a follow-up.
-        // See https://github.com/streem/pbandk/issues/235 for more details.
         val messageWith0 = MessageWithEnum(value = MessageWithEnum.EnumType.FOO)
-        assertEquals("{}", messageWith0.encodeToJsonString(jsonConfig))
+        assertEquals("{\"value\":\"FOO\"}", messageWith0.encodeToJsonString(jsonConfig))
 
-        // This works as expected.
         val messageWith1 = MessageWithEnum(value = MessageWithEnum.EnumType.BAR)
         assertEquals("{\"value\":\"BAR\"}", messageWith1.encodeToJsonString(jsonConfig))
     }
