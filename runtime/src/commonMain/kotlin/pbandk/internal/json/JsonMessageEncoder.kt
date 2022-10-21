@@ -38,15 +38,8 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
             @Suppress("UNCHECKED_CAST")
             val value = (fd.value as KProperty1<T, *>).get(message)
 
-            if (value == null && fd.oneofMember) continue
-
-            // For optional enums (mostly relevant for proto2) we serialize the value whenever a value is set,
-            // regardless of whether it's set to a default enum value.
-            val isOptionalEnum = (fd.type is FieldDescriptor.Type.Enum<*> && fd.type.hasPresence)
-            if (isOptionalEnum && value == null) continue
-
-            // Don't serialize other default values unless 'outputDefaultValues' is set.
-            if (!fd.oneofMember && !jsonConfig.outputDefaultValues && !isOptionalEnum && fd.type.isDefaultValue(value)) continue
+            if (value == null && (fd.oneofMember || fd.type.hasPresence)) continue
+            if (!fd.oneofMember && !jsonConfig.outputDefaultValues && !fd.type.hasPresence && fd.type.isDefaultValue(value)) continue
 
             val jsonValue = value
                 ?.takeUnless {

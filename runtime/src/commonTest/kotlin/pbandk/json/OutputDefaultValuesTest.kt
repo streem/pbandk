@@ -29,12 +29,12 @@ class OutputDefaultValuesTest {
         assertEquals(JsonPrimitive(""), parsedJson["optionalBytes"])
         assertEquals(JsonPrimitive(TestAllTypesProto3.NestedEnum.fromValue(0).name!!), parsedJson["optionalNestedEnum"])
 
-        assertEquals(JsonNull, parsedJson["optionalNestedMessage"])
+        assertFalse(parsedJson.containsKey("optionalNestedMessage"))
 
         assertEquals(JsonArray(emptyList()), parsedJson["repeatedString"])
         assertEquals(JsonObject(emptyMap()), parsedJson["mapBoolBool"])
 
-        assertEquals(JsonNull, parsedJson["optionalStringWrapper"])
+        assertFalse(parsedJson.containsKey("optionalStringWrapper"))
         assertEquals(JsonPrimitive(false), parsedJson["optionalBoolWrapper"])
     }
 
