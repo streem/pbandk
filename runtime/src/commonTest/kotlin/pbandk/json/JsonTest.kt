@@ -26,16 +26,16 @@ class JsonTest {
         // This behavior is unexpected and will be fixed in a follow-up.
         // See https://github.com/streem/pbandk/issues/235 for more details.
         val message = MessageWithEnum()
-        assertEquals(message.encodeToJsonString(jsonConfig), "{\"value\":null}")
+        assertEquals("{\"value\":null}", message.encodeToJsonString(jsonConfig))
 
         // This behavior is unexpected and will be fixed in a follow-up.
         // See https://github.com/streem/pbandk/issues/235 for more details.
         val messageWith0 = MessageWithEnum(value = MessageWithEnum.EnumType.FOO)
-        assertEquals(messageWith0.encodeToJsonString(jsonConfig), "{}")
+        assertEquals("{}", messageWith0.encodeToJsonString(jsonConfig))
 
         // This works as expected.
         val messageWith1 = MessageWithEnum(value = MessageWithEnum.EnumType.BAR)
-        assertEquals(messageWith1.encodeToJsonString(jsonConfig), "{\"value\":\"BAR\"}")
+        assertEquals("{\"value\":\"BAR\"}", messageWith1.encodeToJsonString(jsonConfig))
     }
 
     @Test
@@ -43,14 +43,14 @@ class JsonTest {
         val jsonConfig = JsonConfig.DEFAULT.copy(compactOutput = true)
 
         val message = TestAllTypesProto3()
-        assertEquals(message.encodeToJsonString(jsonConfig), "{}")
+        assertEquals("{}", message.encodeToJsonString(jsonConfig))
 
         // See https://github.com/streem/pbandk/issues/235#issuecomment-1286122161 for more details.
         val messageWith0 = TestAllTypesProto3(optionalNestedEnum = TestAllTypesProto3.NestedEnum.FOO)
-        assertEquals(messageWith0.encodeToJsonString(jsonConfig), "{}")
+        assertEquals("{}", messageWith0.encodeToJsonString(jsonConfig))
 
         val messageWith1 = TestAllTypesProto3(optionalNestedEnum = TestAllTypesProto3.NestedEnum.BAR)
-        assertEquals(messageWith1.encodeToJsonString(jsonConfig), "{\"optionalNestedEnum\":\"BAR\"}")
+        assertEquals("{\"optionalNestedEnum\":\"BAR\"}", messageWith1.encodeToJsonString(jsonConfig))
     }
 
     @Test
