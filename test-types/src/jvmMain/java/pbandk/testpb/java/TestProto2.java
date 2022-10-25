@@ -545,11 +545,646 @@ public final class TestProto2 {
 
   }
 
+  public interface MessageWithEnumOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:testpb.MessageWithEnum)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .testpb.MessageWithEnum.EnumType value = 1;</code>
+     * @return Whether the value field is set.
+     */
+    boolean hasValue();
+    /**
+     * <code>optional .testpb.MessageWithEnum.EnumType value = 1;</code>
+     * @return The value.
+     */
+    pbandk.testpb.java.TestProto2.MessageWithEnum.EnumType getValue();
+  }
+  /**
+   * Protobuf type {@code testpb.MessageWithEnum}
+   */
+  public static final class MessageWithEnum extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:testpb.MessageWithEnum)
+      MessageWithEnumOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MessageWithEnum.newBuilder() to construct.
+    private MessageWithEnum(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MessageWithEnum() {
+      value_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MessageWithEnum();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MessageWithEnum(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+                @SuppressWarnings("deprecation")
+              pbandk.testpb.java.TestProto2.MessageWithEnum.EnumType value = pbandk.testpb.java.TestProto2.MessageWithEnum.EnumType.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(1, rawValue);
+              } else {
+                bitField0_ |= 0x00000001;
+                value_ = rawValue;
+              }
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return pbandk.testpb.java.TestProto2.internal_static_testpb_MessageWithEnum_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return pbandk.testpb.java.TestProto2.internal_static_testpb_MessageWithEnum_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              pbandk.testpb.java.TestProto2.MessageWithEnum.class, pbandk.testpb.java.TestProto2.MessageWithEnum.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code testpb.MessageWithEnum.EnumType}
+     */
+    public enum EnumType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>FOO = 0;</code>
+       */
+      FOO(0),
+      /**
+       * <code>BAR = 1;</code>
+       */
+      BAR(1),
+      ;
+
+      /**
+       * <code>FOO = 0;</code>
+       */
+      public static final int FOO_VALUE = 0;
+      /**
+       * <code>BAR = 1;</code>
+       */
+      public static final int BAR_VALUE = 1;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static EnumType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static EnumType forNumber(int value) {
+        switch (value) {
+          case 0: return FOO;
+          case 1: return BAR;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<EnumType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          EnumType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<EnumType>() {
+              public EnumType findValueByNumber(int number) {
+                return EnumType.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return pbandk.testpb.java.TestProto2.MessageWithEnum.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final EnumType[] VALUES = values();
+
+      public static EnumType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private EnumType(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:testpb.MessageWithEnum.EnumType)
+    }
+
+    private int bitField0_;
+    public static final int VALUE_FIELD_NUMBER = 1;
+    private int value_;
+    /**
+     * <code>optional .testpb.MessageWithEnum.EnumType value = 1;</code>
+     * @return Whether the value field is set.
+     */
+    @java.lang.Override public boolean hasValue() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional .testpb.MessageWithEnum.EnumType value = 1;</code>
+     * @return The value.
+     */
+    @java.lang.Override public pbandk.testpb.java.TestProto2.MessageWithEnum.EnumType getValue() {
+      @SuppressWarnings("deprecation")
+      pbandk.testpb.java.TestProto2.MessageWithEnum.EnumType result = pbandk.testpb.java.TestProto2.MessageWithEnum.EnumType.valueOf(value_);
+      return result == null ? pbandk.testpb.java.TestProto2.MessageWithEnum.EnumType.FOO : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeEnum(1, value_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, value_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof pbandk.testpb.java.TestProto2.MessageWithEnum)) {
+        return super.equals(obj);
+      }
+      pbandk.testpb.java.TestProto2.MessageWithEnum other = (pbandk.testpb.java.TestProto2.MessageWithEnum) obj;
+
+      if (hasValue() != other.hasValue()) return false;
+      if (hasValue()) {
+        if (value_ != other.value_) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasValue()) {
+        hash = (37 * hash) + VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + value_;
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static pbandk.testpb.java.TestProto2.MessageWithEnum parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.TestProto2.MessageWithEnum parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pbandk.testpb.java.TestProto2.MessageWithEnum parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.TestProto2.MessageWithEnum parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pbandk.testpb.java.TestProto2.MessageWithEnum parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.TestProto2.MessageWithEnum parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pbandk.testpb.java.TestProto2.MessageWithEnum parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static pbandk.testpb.java.TestProto2.MessageWithEnum parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static pbandk.testpb.java.TestProto2.MessageWithEnum parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static pbandk.testpb.java.TestProto2.MessageWithEnum parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static pbandk.testpb.java.TestProto2.MessageWithEnum parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static pbandk.testpb.java.TestProto2.MessageWithEnum parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(pbandk.testpb.java.TestProto2.MessageWithEnum prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code testpb.MessageWithEnum}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:testpb.MessageWithEnum)
+        pbandk.testpb.java.TestProto2.MessageWithEnumOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return pbandk.testpb.java.TestProto2.internal_static_testpb_MessageWithEnum_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return pbandk.testpb.java.TestProto2.internal_static_testpb_MessageWithEnum_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                pbandk.testpb.java.TestProto2.MessageWithEnum.class, pbandk.testpb.java.TestProto2.MessageWithEnum.Builder.class);
+      }
+
+      // Construct using pbandk.testpb.java.TestProto2.MessageWithEnum.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        value_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return pbandk.testpb.java.TestProto2.internal_static_testpb_MessageWithEnum_descriptor;
+      }
+
+      @java.lang.Override
+      public pbandk.testpb.java.TestProto2.MessageWithEnum getDefaultInstanceForType() {
+        return pbandk.testpb.java.TestProto2.MessageWithEnum.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public pbandk.testpb.java.TestProto2.MessageWithEnum build() {
+        pbandk.testpb.java.TestProto2.MessageWithEnum result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public pbandk.testpb.java.TestProto2.MessageWithEnum buildPartial() {
+        pbandk.testpb.java.TestProto2.MessageWithEnum result = new pbandk.testpb.java.TestProto2.MessageWithEnum(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.value_ = value_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof pbandk.testpb.java.TestProto2.MessageWithEnum) {
+          return mergeFrom((pbandk.testpb.java.TestProto2.MessageWithEnum)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(pbandk.testpb.java.TestProto2.MessageWithEnum other) {
+        if (other == pbandk.testpb.java.TestProto2.MessageWithEnum.getDefaultInstance()) return this;
+        if (other.hasValue()) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        pbandk.testpb.java.TestProto2.MessageWithEnum parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (pbandk.testpb.java.TestProto2.MessageWithEnum) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int value_ = 0;
+      /**
+       * <code>optional .testpb.MessageWithEnum.EnumType value = 1;</code>
+       * @return Whether the value field is set.
+       */
+      @java.lang.Override public boolean hasValue() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional .testpb.MessageWithEnum.EnumType value = 1;</code>
+       * @return The value.
+       */
+      @java.lang.Override
+      public pbandk.testpb.java.TestProto2.MessageWithEnum.EnumType getValue() {
+        @SuppressWarnings("deprecation")
+        pbandk.testpb.java.TestProto2.MessageWithEnum.EnumType result = pbandk.testpb.java.TestProto2.MessageWithEnum.EnumType.valueOf(value_);
+        return result == null ? pbandk.testpb.java.TestProto2.MessageWithEnum.EnumType.FOO : result;
+      }
+      /**
+       * <code>optional .testpb.MessageWithEnum.EnumType value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValue(pbandk.testpb.java.TestProto2.MessageWithEnum.EnumType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        value_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .testpb.MessageWithEnum.EnumType value = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValue() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        value_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:testpb.MessageWithEnum)
+    }
+
+    // @@protoc_insertion_point(class_scope:testpb.MessageWithEnum)
+    private static final pbandk.testpb.java.TestProto2.MessageWithEnum DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new pbandk.testpb.java.TestProto2.MessageWithEnum();
+    }
+
+    public static pbandk.testpb.java.TestProto2.MessageWithEnum getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<MessageWithEnum>
+        PARSER = new com.google.protobuf.AbstractParser<MessageWithEnum>() {
+      @java.lang.Override
+      public MessageWithEnum parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MessageWithEnum(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MessageWithEnum> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MessageWithEnum> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public pbandk.testpb.java.TestProto2.MessageWithEnum getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_testpb_MessageWithRequiredField_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_testpb_MessageWithRequiredField_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_testpb_MessageWithEnum_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_testpb_MessageWithEnum_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -561,7 +1196,10 @@ public final class TestProto2 {
     java.lang.String[] descriptorData = {
       "\n\037pbandk/testpb/test_proto2.proto\022\006testp" +
       "b\"\'\n\030MessageWithRequiredField\022\013\n\003foo\030\001 \002" +
-      "(\010B\024\n\022pbandk.testpb.java"
+      "(\010\"`\n\017MessageWithEnum\022/\n\005value\030\001 \001(\0162 .t" +
+      "estpb.MessageWithEnum.EnumType\"\034\n\010EnumTy" +
+      "pe\022\007\n\003FOO\020\000\022\007\n\003BAR\020\001B\024\n\022pbandk.testpb.ja" +
+      "va"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -573,6 +1211,12 @@ public final class TestProto2 {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_testpb_MessageWithRequiredField_descriptor,
         new java.lang.String[] { "Foo", });
+    internal_static_testpb_MessageWithEnum_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_testpb_MessageWithEnum_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_testpb_MessageWithEnum_descriptor,
+        new java.lang.String[] { "Value", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
