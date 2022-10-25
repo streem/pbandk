@@ -38,9 +38,8 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
             @Suppress("UNCHECKED_CAST")
             val value = (fd.value as KProperty1<T, *>).get(message)
 
-            val oneOfOrExplicitPresence = (fd.oneofMember || fd.type.hasPresence)
-            if (value == null && oneOfOrExplicitPresence) continue
-            if (!oneOfOrExplicitPresence && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) continue
+            if (value == null && fd.type.hasPresence) continue
+            if (!fd.type.hasPresence && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) continue
 
             val jsonValue = value
                 ?.takeUnless {
