@@ -123,14 +123,10 @@ internal sealed class FieldType<KotlinType> {
         }
 
         override fun encodeToJson(metadata: FieldMetadata, value: T?, encoder: JsonFieldEncoder) {
-            if (value == null && (metadata.isOneofMember || !encoder.jsonConfig.outputDefaultValues)) return
+            if (value == null) return
 
             encoder.encodeField(encoder.jsonConfig.getFieldJsonName(metadata)) { valueEncoder ->
-                if (value == null) {
-                    valueEncoder.encodeNull()
-                } else {
-                    valueType.encodeToJson(value, valueEncoder)
-                }
+                valueType.encodeToJson(value, valueEncoder)
             }
         }
 

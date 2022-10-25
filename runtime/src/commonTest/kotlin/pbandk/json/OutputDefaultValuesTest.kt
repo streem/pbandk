@@ -36,12 +36,12 @@ class OutputDefaultValuesTest {
         assertEquals(JsonPrimitive(""), parsedJson["optionalBytes"])
         assertEquals(JsonPrimitive(TestAllTypesProto3.NestedEnum.fromValue(0).name!!), parsedJson["optionalNestedEnum"])
 
-        assertEquals(JsonNull, parsedJson["optionalNestedMessage"])
+        assertFalse("optionalNestedMessage" in parsedJson)
 
         assertEquals(JsonArray(emptyList()), parsedJson["repeatedString"])
         assertEquals(JsonObject(emptyMap()), parsedJson["mapBoolBool"])
 
-        assertEquals(JsonNull, parsedJson["optionalStringWrapper"])
+        assertFalse("optionalStringWrapper" in parsedJson)
         assertEquals(JsonPrimitive(false), parsedJson["optionalBoolWrapper"])
     }
 
@@ -59,13 +59,13 @@ class OutputDefaultValuesTest {
     @Test
     fun testProto2EnumUnsetField() {
         val message = MessageWithEnum.defaultInstance
-        assertEquals("{\"value\":null}", message.encodeToJsonString(jsonConfigCompactOutput))
+        assertEquals("{}", message.encodeToJsonString(jsonConfigCompactOutput))
     }
 
     @Test
     fun testProto2EnumFieldSetToDefaultValue() {
         val message = MessageWithEnum { value = MessageWithEnum.EnumType.FOO }
-        assertEquals("{}", message.encodeToJsonString(jsonConfigCompactOutput))
+        assertEquals("{\"value\":\"FOO\"}", message.encodeToJsonString(jsonConfigCompactOutput))
     }
 
     @Test
