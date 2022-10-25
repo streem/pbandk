@@ -72,6 +72,7 @@ class OutputDefaultValuesTest {
 
     @Test
     fun testProto3EnumUnsetField() {
+        // Note that this is equivalent to 'testProto3EnumFieldSetToDefaultValue', adding for completeness.
         val message = TestAllTypesProto3()
         assertEquals("{}", message.encodeToJsonString(jsonConfigCompactOutput))
     }
