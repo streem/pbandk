@@ -1,6 +1,7 @@
 package pbandk.json
 
 import kotlinx.serialization.json.*
+import pbandk.testpb.MessageWithEnum
 import pbandk.testpb.TestAllTypesProto3
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -8,6 +9,8 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class OutputDefaultValuesTest {
+    private val jsonConfigCompactOutput = JsonConfig.DEFAULT.copy(compactOutput = true)
+
     @Test
     fun testOutputDefaultValues_false() {
         val testAllTypesProto3 = TestAllTypesProto3(optionalString = "")
@@ -47,5 +50,41 @@ class OutputDefaultValuesTest {
         assertEquals(JsonPrimitive(false), parsedJson["optionalBool"])
         assertEquals(JsonNull, parsedJson["optionalString"])
         assertEquals(JsonPrimitive(""), parsedJson["optionalStringWrapper"])
+    }
+
+    @Test
+    fun testProto2EnumUnsetField() {
+        val message = MessageWithEnum()
+        assertEquals("{\"value\":null}", message.encodeToJsonString(jsonConfigCompactOutput))
+    }
+
+    @Test
+    fun testProto2EnumFieldSetToDefaultValue() {
+        val message = MessageWithEnum(value = MessageWithEnum.EnumType.FOO)
+        assertEquals("{}", message.encodeToJsonString(jsonConfigCompactOutput))
+    }
+
+    @Test
+    fun testProto2EnumFieldSetToNonDefaultValue() {
+        val message = MessageWithEnum(value = MessageWithEnum.EnumType.BAR)
+        assertEquals("{\"value\":\"BAR\"}", message.encodeToJsonString(jsonConfigCompactOutput))
+    }
+
+    @Test
+    fun testProto3EnumUnsetField() {
+        val message = TestAllTypesProto3()
+        assertEquals("{}", message.encodeToJsonString(jsonConfigCompactOutput))
+    }
+
+    @Test
+    fun testProto3EnumFieldSetToDefaultValue() {
+        val message = TestAllTypesProto3(optionalNestedEnum = TestAllTypesProto3.NestedEnum.FOO)
+        assertEquals("{}", message.encodeToJsonString(jsonConfigCompactOutput))
+    }
+
+    @Test
+    fun testProto3EnumFieldSetToNonDefaultValue() {
+        val message = TestAllTypesProto3(optionalNestedEnum = TestAllTypesProto3.NestedEnum.BAR)
+        assertEquals("{\"optionalNestedEnum\":\"BAR\"}", message.encodeToJsonString(jsonConfigCompactOutput))
     }
 }
