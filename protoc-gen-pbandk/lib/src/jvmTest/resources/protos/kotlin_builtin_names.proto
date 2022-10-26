@@ -1,0 +1,78 @@
+syntax = "proto3";
+package foobar;
+
+import "google/protobuf/any.proto";
+
+// Include a message with the same name as every built-in Kotlin class that is used from the generated code
+
+message Any {
+  google.protobuf.Any any = 1;
+}
+
+message Boolean {
+  bool boolean = 1;
+}
+
+message Companion {
+  fixed32 companion = 1;
+}
+
+message Double {
+  double double = 1;
+}
+
+message Float {
+  float float = 1;
+}
+
+message Int {
+  int32 int = 1;
+}
+
+message List {
+  repeated string list = 1;
+}
+
+message Long {
+  int64 long = 1;
+}
+
+message Map {
+  map<string, bool> map = 1;
+}
+
+message Sequence {
+  repeated int32 sequence = 1;
+}
+
+message String {
+  string string = 1;
+}
+
+message FieldsTest {
+  Any any = 1;
+  Boolean boolean = 2;
+  Companion companion = 3;
+  Double double = 4;
+  Float float = 5;
+  Int int = 6;
+  List list = 7;
+  Long long = 8;
+  Map map = 9;
+  Sequence sequence = 10;
+  String string = 11;
+}
+
+message Enum {
+  enum Any {ANY = 0;}
+  enum Boolean {BOOLEAN = 0;}
+  enum Companion {COMPANION = 0;}
+  enum Double {DOUBLE = 0;}
+  enum Float {FLOAT = 0;}
+  enum Int {INT = 0;}
+  enum List {LIST = 0;}
+  enum Long {LONG = 0;}
+  enum Map {MAP = 0;}
+  enum Sequence {SEQUENCE = 0;}
+  enum String {STRING = 0;}
+}
