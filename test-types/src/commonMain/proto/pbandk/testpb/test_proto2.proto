@@ -7,3 +7,11 @@ option java_package = "pbandk.testpb.java";
 message MessageWithRequiredField {
     required bool foo = 1;
 }
+
+message MessageWithEnum {
+    enum EnumType {
+      FOO = 0;
+      BAR = 1;
+    }
+    optional EnumType value = 1;
+}

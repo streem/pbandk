@@ -15,6 +15,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 
+* Fixed JSON serialization of default values. (PR [#238], fixes [#235]) (thanks @antongrbin)
+    * Fields with explicit presence (such as proto2 `optional` fields) are no longer included in the JSON output when their value is `null`.
+    * Fields with explicit presence _are_ included in the JSON output when they contain the default value (e.g. an `optional int32` field with a value of `0`).
+    * Message fields with a `null` value are no longer included in the JSON output even if `JsonConfig.outputDefaultValues=true`. Only non-null default values are supposed to be output when `outputDefaultValues=true`.
+
+[#235]: https://github.com/streem/pbandk/issues/235
+[#238]: https://github.com/streem/pbandk/pull/238
+
 
 ## [0.14.1] - 2022-06-04
 
