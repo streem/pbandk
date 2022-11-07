@@ -305,7 +305,7 @@ comma-separated options can be added to `--pbandk_out` before the colon and out 
 *  If you have multiple proto packages, you can map them using `kotlin_package_mapping` option like so:
 
     ```
-    protoc --pbandk_out=kotlin_package_mapping="simple.package->new.package;foo.bar.*->my.foo.bar.*" sample.proto
+    protoc --pbandk_out=kotlin_package_mapping="simple.package->new.package;foo.bar.*->my.foo.bar.*":src/main/kotlin sample.proto
     ```
     The wildcards will be transferred in order to the target package name. The precedence decreases left to right.
 

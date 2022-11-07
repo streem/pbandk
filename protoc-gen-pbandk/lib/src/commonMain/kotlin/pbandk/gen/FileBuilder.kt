@@ -234,7 +234,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
 
     data class Context(val fileDesc: FileDescriptorProto, val params: Map<String, String>) {
         // Support option kotlin_package_mapping=from.package1->to.package1;from.package2->to.package2
-        // or kotlin_package_mapping="from.*->to.*
+        // or kotlin_package_mapping="from.*->to.*"
         val packageMappings = params["kotlin_package_mapping"]
             ?.split(";")
             ?.associate { it.substringBefore("->") to it.substringAfter("->", "") }
