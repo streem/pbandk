@@ -234,48 +234,40 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
 
     data class Context(val fileDesc: FileDescriptorProto, val params: Map<String, String>) {
         // Support option kotlin_package_mapping=from.package1->to.package1;from.package2->to.package2
+        // or kotlin_package_mapping="from.*->to.*
         val packageMappings = params["kotlin_package_mapping"]
             ?.split(";")
             ?.associate { it.substringBefore("->") to it.substringAfter("->", "") }
             ?: emptyMap()
 
-        // Convert each mapping to a regex pattern, and then associate it with the replacement string
-        val packageMappingRegexes = packageMappings
-            .filter { it.value.contains("*") || it.value.contains("?") }
-            .map { (from, to) ->
-                from.replace(".", "\\.")
-                    .replace("*", "(.*)")
-                    .toRegex() to to
-            }
 
-        private fun matchPackageNameWithRegex(): String? {
+        private fun matchPackageNameFromPackageMappings(): String? {
             val packageName = fileDesc.`package` ?: return null
 
             if (packageMappings.containsKey(packageName))
                 return packageMappings[packageName]
 
-            val firstRegexMatch = packageMappingRegexes.firstNotNullOfOrNull { (from, to) ->
-                from.matchEntire(packageName)?.let { it to to }
-            }
-
-            return firstRegexMatch?.let { (from, to) ->
-                val splitTo = to.split("*")
-                val groups = from.groupValues
-
-                // If there is only one element, reduce will fail.
-                if (splitTo.size == 1)
-                    return splitTo[0] + groups[1]
-
-                // Replace each * in to string with regex matches in order.
-                return splitTo.reduceRightIndexed { index, s, acc -> s + groups[index + 1] + acc }
-            }
+            return packageMappings
+                .filterKeys { it.endsWith("*") }
+                .firstNotNullOfOrNull { (from, to) ->
+                    val prefixToMatch = from.substringBefore("*")
+                    if (packageName.startsWith(prefixToMatch)) {
+                        if (to.contains("*")) {
+                            val prefixToReplaceWith = to.replace("*", "")
+                            packageName.replace(prefixToMatch, prefixToReplaceWith)
+                        } else {
+                            to
+                        }
+                    } else
+                        null
+                }
         }
 
         val kotlinPackageName = params["kotlin_package"]
             ?: fileDesc.options?.uninterpretedOption?.find {
                 it.name.singleOrNull()?.namePart == "kotlin_package"
             }?.stringValue?.array?.decodeToString()
-            ?: matchPackageNameWithRegex()
+            ?: matchPackageNameFromPackageMappings()
             ?: fileDesc.options?.javaPackage?.takeIf { it.isNotEmpty() }
             ?: fileDesc.`package`?.takeIf { it.isNotEmpty() }
 
