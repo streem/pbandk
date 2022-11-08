@@ -246,12 +246,12 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 ?: fileDesc.options?.uninterpretedOption?.find {
                     it.name.singleOrNull()?.namePart == "kotlin_package"
                 }?.stringValue?.array?.decodeToString()
+//                ?: packageMappings[fileDesc.`package`]
                 ?: fileDesc.options?.javaPackage?.takeIf { it.isNotEmpty() }
                 ?: fileDesc.`package`?.takeIf { it.isNotEmpty() }
 
         private fun matchPackageNameFromPackageMappings(packageName: String): String? {
-            if (packageMappings.containsKey(packageName))
-                return packageMappings[packageName]
+            if (packageMappings[fileDesc.`package`] != null) return packageMappings[fileDesc.`package`]
 
             return packageMappings
                 .filterKeys { it.endsWith("*") }
