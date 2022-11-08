@@ -241,9 +241,15 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             ?: emptyMap()
 
 
-        private fun matchPackageNameFromPackageMappings(): String? {
-            val packageName = fileDesc.`package` ?: return null
+        private fun getPackageName(): String? =
+            params["kotlin_package"]
+                ?: fileDesc.options?.uninterpretedOption?.find {
+                    it.name.singleOrNull()?.namePart == "kotlin_package"
+                }?.stringValue?.array?.decodeToString()
+                ?: fileDesc.options?.javaPackage?.takeIf { it.isNotEmpty() }
+                ?: fileDesc.`package`?.takeIf { it.isNotEmpty() }
 
+        private fun matchPackageNameFromPackageMappings(packageName: String): String? {
             if (packageMappings.containsKey(packageName))
                 return packageMappings[packageName]
 
@@ -254,7 +260,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                     if (packageName.startsWith(prefixToMatch)) {
                         if (to.contains("*")) {
                             val prefixToReplaceWith = to.replace("*", "")
-                            packageName.replace(prefixToMatch, prefixToReplaceWith)
+                            packageName.replaceFirst(prefixToMatch, prefixToReplaceWith)
                         } else {
                             to
                         }
@@ -263,13 +269,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 }
         }
 
-        val kotlinPackageName = params["kotlin_package"]
-            ?: fileDesc.options?.uninterpretedOption?.find {
-                it.name.singleOrNull()?.namePart == "kotlin_package"
-            }?.stringValue?.array?.decodeToString()
-            ?: matchPackageNameFromPackageMappings()
-            ?: fileDesc.options?.javaPackage?.takeIf { it.isNotEmpty() }
-            ?: fileDesc.`package`?.takeIf { it.isNotEmpty() }
+        val kotlinPackageName = getPackageName()?.let { matchPackageNameFromPackageMappings(it) ?: it }
 
         fun findLocalMessage(name: String, parent: DescriptorProto? = null): DescriptorProto? {
             // Get the set to look in and the type name
