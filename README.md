@@ -307,7 +307,6 @@ comma-separated options can be added to `--pbandk_out` before the colon and out 
     ```
     protoc --pbandk_out=kotlin_package_mapping="simple.package->new.package;foo.bar.*->my.foo.bar.*":src/main/kotlin sample.proto
     ```
-    The wildcards will be transferred in order to the target package name. The precedence decreases left to right.
 
     
 *   By default all generated classes have `public` visibility. To change the visibility to `internal`, use the
