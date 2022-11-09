@@ -83,7 +83,7 @@ class CodeGeneratorTest {
         result.classLoader.loadClass("newname.pkg.Message1").kotlin
         result.classLoader.loadClass("newname.pkg.Message2").kotlin
 
-        assertTrue(kotlin.runCatching { result.classLoader.loadClass("foobar.Message1").kotlin }.isFailure)
+        assertFails { result.classLoader.loadClass("foobar.Message1").kotlin }
     }
 
 
@@ -98,7 +98,7 @@ class CodeGeneratorTest {
         result.classLoader.loadClass("newname.pkg.foobar.Message1").kotlin
         result.classLoader.loadClass("newname.pkg.foobar.Message2").kotlin
 
-        assertTrue(kotlin.runCatching { result.classLoader.loadClass("foobar.Message1").kotlin }.isFailure)
+        assertFails { result.classLoader.loadClass("foobar.Message1").kotlin }
     }
 
     @Test
@@ -112,7 +112,7 @@ class CodeGeneratorTest {
         result.classLoader.loadClass("newname.pkg.Message1").kotlin
         result.classLoader.loadClass("newname.pkg.Message2").kotlin
 
-        assertTrue(kotlin.runCatching { result.classLoader.loadClass("foobar.Message1").kotlin }.isFailure)
+        assertFails { result.classLoader.loadClass("foobar.Message1").kotlin }
     }
 
     @Test
@@ -127,7 +127,7 @@ class CodeGeneratorTest {
         result.classLoader.loadClass("foobar.Message2").kotlin
 
 
-        assertTrue(kotlin.runCatching { result.classLoader.loadClass("newname.pkg.Message1").kotlin }.isFailure)
+        assertFails { result.classLoader.loadClass("newname.pkg.Message1").kotlin }
     }
 
     @Test
@@ -140,7 +140,7 @@ class CodeGeneratorTest {
         // New package name should replace the prefix.
         result.classLoader.loadClass("newname.testpb.Proto3PresenceMessage").kotlin
 
-        assertTrue(kotlin.runCatching { result.classLoader.loadClass("pbandk.testpb.Proto3PresenceMessage").kotlin }.isFailure)
+        assertFails { result.classLoader.loadClass("pbandk.testpb.Proto3PresenceMessage").kotlin }
     }
 
     @Test
@@ -154,7 +154,7 @@ class CodeGeneratorTest {
         result.classLoader.loadClass("newname.javapackage.Foo").kotlin
         result.classLoader.loadClass("newname.javapackage.Goo").kotlin
 
-        assertTrue(kotlin.runCatching { result.classLoader.loadClass("pbandk.javapackage.Foo").kotlin }.isFailure)
+        assertFails { result.classLoader.loadClass("pbandk.javapackage.Foo").kotlin }
     }
 
     private fun compileProto(inputProto: String, parameter: String? = null): KotlinCompilation.Result {

@@ -263,8 +263,9 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                         } else {
                             to
                         }
-                    } else
+                    } else {
                         null
+                    }
                 }
         }
 
