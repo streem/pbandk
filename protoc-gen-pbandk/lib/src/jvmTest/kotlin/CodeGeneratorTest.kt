@@ -11,11 +11,7 @@ import kotlin.reflect.full.declaredMemberExtensionProperties
 import kotlin.reflect.full.declaredMemberProperties
 import kotlin.reflect.full.hasAnnotation
 import kotlin.reflect.full.memberProperties
-import kotlin.test.Ignore
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
+import kotlin.test.*
 
 class CodeGeneratorTest {
     private val descriptorSetOutput = File("build/generateTestProtoDescriptor/fileDescriptor.protoset")
@@ -119,12 +115,101 @@ class CodeGeneratorTest {
         }
     }
 
-    private fun compileProto(inputProto: String): KotlinCompilation.Result {
+    @Test
+    fun testKotlinPackageMappingSimple() {
+        val result = compileProto("simple.proto", mapOf("kotlin_package_mapping" to "foobar->newname.pkg"))
+
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+
+        // Ensure classes and fields were generated successfully
+        result.classLoader.loadClass("newname.pkg.Message1").kotlin
+        result.classLoader.loadClass("newname.pkg.Message2").kotlin
+
+        assertFails { result.classLoader.loadClass("foobar.Message1").kotlin }
+    }
+
+    @Test
+    fun testKotlinPackageMappingSimpleWildcard() {
+        val result = compileProto("simple.proto", mapOf("kotlin_package_mapping" to "*->newname.pkg.*"))
+
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+
+        // Ensure classes and fields were generated successfully
+        // New package name should prefix the existing one.
+        result.classLoader.loadClass("newname.pkg.foobar.Message1").kotlin
+        result.classLoader.loadClass("newname.pkg.foobar.Message2").kotlin
+
+        assertFails { result.classLoader.loadClass("foobar.Message1").kotlin }
+    }
+
+    @Test
+    fun testKotlinPackageMappingSimpleWildcardSingle() {
+        val result = compileProto("simple.proto", mapOf("kotlin_package_mapping" to "*->newname.pkg"))
+
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+
+        // Ensure classes and fields were generated successfully
+        // New package name should overwrite the old one
+        result.classLoader.loadClass("newname.pkg.Message1").kotlin
+        result.classLoader.loadClass("newname.pkg.Message2").kotlin
+
+        assertFails { result.classLoader.loadClass("foobar.Message1").kotlin }
+    }
+
+    @Test
+    fun testKotlinPackageMappingSimpleWildcardNoMismatch() {
+        val result = compileProto("simple.proto", mapOf("kotlin_package_mapping" to "foobar.*->newname.pkg"))
+
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+
+        // Ensure classes and fields were generated successfully
+        // New package name shouldn't change.
+        result.classLoader.loadClass("foobar.Message1").kotlin
+        result.classLoader.loadClass("foobar.Message2").kotlin
+
+
+        assertFails { result.classLoader.loadClass("newname.pkg.Message1").kotlin }
+    }
+
+    @Test
+    fun testKotlinPackageMappingWildcardPrefixMatch() {
+        val result = compileProto("proto_3_presence.proto", mapOf("kotlin_package_mapping" to "pbandk.*->newname.*"))
+
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+
+        // Ensure classes and fields were generated successfully
+        // New package name should replace the prefix.
+        result.classLoader.loadClass("newname.testpb.Proto3PresenceMessage").kotlin
+
+        assertFails { result.classLoader.loadClass("pbandk.testpb.Proto3PresenceMessage").kotlin }
+    }
+
+    @Test
+    fun testKotlinPackageMappingWithJavaPackage() {
+        val result = compileProto("with_java_package.proto", mapOf("kotlin_package_mapping" to "pbandk.*->newname.*"))
+
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+
+        // Ensure classes and fields were generated successfully
+        // New package name should contain
+        result.classLoader.loadClass("newname.javapackage.Foo").kotlin
+        result.classLoader.loadClass("newname.javapackage.Goo").kotlin
+
+        assertFails { result.classLoader.loadClass("pbandk.javapackage.Foo").kotlin }
+    }
+
+    private fun compileProto(
+        inputProto: String,
+        parameters: Map<String, String> = emptyMap()
+    ): KotlinCompilation.Result {
         val gen = runGenerator(
             CodeGeneratorRequest {
                 fileToGenerate += inputProto
                 protoFile += fileDescriptorSet
-                parameter = "log=debug"
+                parameter = parameters
+                    .plus("log" to "debug")
+                    .map { (k, v) -> "$k=$v" }
+                    .joinToString(",")
             }
         )
 

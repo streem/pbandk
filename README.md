@@ -405,6 +405,13 @@ comma-separated options can be added to `--pbandk_out` before the colon and out 
     protoc --pbandk_out=kotlin_package=my.pkg:src/main/kotlin sample.proto
     ```
 
+*  If you have multiple proto packages, you can map them using `kotlin_package_mapping` option like so:
+
+    ```
+    protoc --pbandk_out=kotlin_package_mapping="simple.package->new.package;foo.bar.*->my.foo.bar.*":src/main/kotlin sample.proto
+    ```
+
+
 *   By default all generated classes have `public` visibility. To change the visibility to `internal`, use the
     `visibility` option like so:
 
