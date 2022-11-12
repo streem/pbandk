@@ -234,18 +234,42 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
 
     data class Context(val fileDesc: FileDescriptorProto, val params: Map<String, String>) {
         // Support option kotlin_package_mapping=from.package1->to.package1;from.package2->to.package2
+        // or kotlin_package_mapping="from.*->to.*"
         val packageMappings = params["kotlin_package_mapping"]
             ?.split(";")
             ?.associate { it.substringBefore("->") to it.substringAfter("->", "") }
             ?: emptyMap()
 
-        val kotlinPackageName = params["kotlin_package"]
-            ?: fileDesc.options?.uninterpretedOption?.find {
-                it.name.singleOrNull()?.namePart == "kotlin_package"
-            }?.stringValue?.array?.decodeToString()
-            ?: packageMappings[fileDesc.`package`]
-            ?: fileDesc.options?.javaPackage?.takeIf { it.isNotEmpty() }
-            ?: fileDesc.`package`?.takeIf { it.isNotEmpty() }
+
+        private fun getPackageName(): String? =
+            params["kotlin_package"]
+                ?: fileDesc.options?.uninterpretedOption?.find {
+                    it.name.singleOrNull()?.namePart == "kotlin_package"
+                }?.stringValue?.array?.decodeToString()
+                ?: fileDesc.options?.javaPackage?.takeIf { it.isNotEmpty() }
+                ?: fileDesc.`package`?.takeIf { it.isNotEmpty() }
+
+        private fun matchPackageNameFromPackageMappings(packageName: String): String? {
+            if (packageMappings[fileDesc.`package`] != null) return packageMappings[fileDesc.`package`]
+
+            return packageMappings
+                .filterKeys { it.endsWith("*") }
+                .firstNotNullOfOrNull { (from, to) ->
+                    val prefixToMatch = from.substringBefore("*")
+                    if (packageName.startsWith(prefixToMatch)) {
+                        if (to.contains("*")) {
+                            val prefixToReplaceWith = to.replace("*", "")
+                            packageName.replaceFirst(prefixToMatch, prefixToReplaceWith)
+                        } else {
+                            to
+                        }
+                    } else {
+                        null
+                    }
+                }
+        }
+
+        val kotlinPackageName = getPackageName()?.let { matchPackageNameFromPackageMappings(it) ?: it }
 
         fun findLocalMessage(name: String, parent: DescriptorProto? = null): DescriptorProto? {
             // Get the set to look in and the type name

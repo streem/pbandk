@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package pbandk.oldpackage;
+
+option java_package = "pbandk.javapackage";
+
+message Foo {
+    int32 bar = 1;
+}
+
+message Goo {
+    Foo foo = 1;
+}
