@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
+* Added ability to override the Kotlin package name for multiple packages by using a wildcard with the `kotlin_package_mapping` parameter to `protoc-gen-pbandk`. See the README for an example. (PR [#232], fixes [#230]) (thanks @Dogacel)
+
 ### Changed
 
 ### Fixed
@@ -20,7 +22,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
     * Fields with explicit presence _are_ included in the JSON output when they contain the default value (e.g. an `optional int32` field with a value of `0`).
     * Message fields with a `null` value are no longer included in the JSON output even if `JsonConfig.outputDefaultValues=true`. Only non-null default values are supposed to be output when `outputDefaultValues=true`.
 
+[#230]: https://github.com/streem/pbandk/issues/230
 [#235]: https://github.com/streem/pbandk/issues/235
+[#232]: https://github.com/streem/pbandk/pull/232
 [#238]: https://github.com/streem/pbandk/pull/238
 
 
