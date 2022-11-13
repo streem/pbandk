@@ -51,6 +51,10 @@ open class ProtocTask : AbstractExecTask<ProtocTask>(ProtocTask::class.java) {
     @Optional
     val pluginPath: RegularFileProperty = project.objects.fileProperty()
 
+    @Input
+    @Optional
+    val protocOptions: ListProperty<String> = project.objects.listProperty()
+
     private val protoFileDir: DirectoryProperty = project.objects.directoryProperty().apply {
         convention(includeDir)
     }
@@ -89,6 +93,10 @@ open class ProtocTask : AbstractExecTask<ProtocTask>(ProtocTask::class.java) {
 
         args("-I", wellKnownTypesDir.get())
         args("-I", includeDir.get())
+
+        protocOptions.orNull?.let {
+            args(it)
+        }
 
         args(protoFiles.map { it.absolutePath })
 
