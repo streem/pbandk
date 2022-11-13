@@ -418,12 +418,12 @@ public open class CodeGenerator(
                                 when {
                                     field is File.Field.Numbered.Standard && field.map -> {
                                         val mapEntry = field.mapEntry()!!
-                                        lineEnd("(${field.kotlinFieldName} ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<${mapEntry.mapEntryKeyKotlinType}, ${mapEntry.mapEntryValueKotlinType}>> }")
+                                        lineEnd("(${field.kotlinFieldName} ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as kotlin.sequences.Sequence<pbandk.MessageMap.Entry<${mapEntry.mapEntryKeyKotlinType}, ${mapEntry.mapEntryValueKotlinType}>> }")
                                     }
                                     field.repeated -> {
                                         // TODO update ListWithSize.protoSize as each field is read
                                         // or maybe just make the field lazy and computed the first time it's accessed?
-                                        lineEnd("(${field.kotlinFieldName} ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<$kotlinType> }")
+                                        lineEnd("(${field.kotlinFieldName} ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<$kotlinType> }")
                                     }
                                     else -> {
                                         // TODO: for message types, merge multiple instances of the same field
