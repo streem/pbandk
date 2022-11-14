@@ -420,7 +420,7 @@ private fun Bar.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bar {
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            1 -> foos = (foos ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.testpb.Foo> }
+            1 -> foos = (foos ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.testpb.Foo> }
             2 -> singleFoo = _fieldValue as pbandk.testpb.Foo
         }
     }
@@ -445,7 +445,7 @@ private fun MessageWithMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            1 -> map = (map ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, String>> }
+            1 -> map = (map ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as kotlin.sequences.Sequence<pbandk.MessageMap.Entry<String, String>> }
         }
     }
 
@@ -494,7 +494,7 @@ private fun FooMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMap {
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            1 -> map = (map ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.testpb.Foo?>> }
+            1 -> map = (map ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as kotlin.sequences.Sequence<pbandk.MessageMap.Entry<String, pbandk.testpb.Foo?>> }
         }
     }
 
@@ -544,7 +544,7 @@ private fun FooMapEntries.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fo
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            1 -> map = (map ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.testpb.FooMapEntries.MapEntry> }
+            1 -> map = (map ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.testpb.FooMapEntries.MapEntry> }
         }
     }
 
@@ -597,7 +597,7 @@ private fun Wrappers.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Wrapper
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             1 -> stringValue = _fieldValue as String
-            2 -> uint64Values = (uint64Values ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            2 -> uint64Values = (uint64Values ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Long> }
         }
     }
 

@@ -267,7 +267,7 @@ private fun Struct.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Struct {
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            1 -> fields = (fields ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.wkt.Value?>> }
+            1 -> fields = (fields ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as kotlin.sequences.Sequence<pbandk.MessageMap.Entry<String, pbandk.wkt.Value?>> }
         }
     }
 
@@ -353,7 +353,7 @@ private fun ListValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ListVa
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            1 -> values = (values ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Value> }
+            1 -> values = (values ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Value> }
         }
     }
 
