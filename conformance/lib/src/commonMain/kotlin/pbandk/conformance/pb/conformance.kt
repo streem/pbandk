@@ -415,7 +415,7 @@ private fun FailureSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Failu
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            1 -> failure = (failure ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
+            1 -> failure = (failure ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<String> }
         }
     }
 

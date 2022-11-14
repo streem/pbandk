@@ -21,11 +21,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
     * Fields with explicit presence (such as proto2 `optional` fields) are no longer included in the JSON output when their value is `null`.
     * Fields with explicit presence _are_ included in the JSON output when they contain the default value (e.g. an `optional int32` field with a value of `0`).
     * Message fields with a `null` value are no longer included in the JSON output even if `JsonConfig.outputDefaultValues=true`. Only non-null default values are supposed to be output when `outputDefaultValues=true`.
+* The generated code for a protobuf message named `Sequence` will no longer cause a compiler error. (PR [#241], fixes [#237])
 
 [#230]: https://github.com/streem/pbandk/issues/230
 [#235]: https://github.com/streem/pbandk/issues/235
+[#237]: https://github.com/streem/pbandk/issues/237
 [#232]: https://github.com/streem/pbandk/pull/232
 [#238]: https://github.com/streem/pbandk/pull/238
+[#241]: https://github.com/streem/pbandk/pull/241
 
 
 ## [0.14.1] - 2022-06-04

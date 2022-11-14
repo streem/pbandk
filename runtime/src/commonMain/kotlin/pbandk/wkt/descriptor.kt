@@ -2202,7 +2202,7 @@ private fun FileDescriptorSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder)
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            1 -> file = (file ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.FileDescriptorProto> }
+            1 -> file = (file ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.FileDescriptorProto> }
         }
     }
 
@@ -2250,15 +2250,15 @@ private fun FileDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
         when (_fieldNumber) {
             1 -> name = _fieldValue as String
             2 -> `package` = _fieldValue as String
-            3 -> dependency = (dependency ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
-            4 -> messageType = (messageType ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.DescriptorProto> }
-            5 -> enumType = (enumType ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.EnumDescriptorProto> }
-            6 -> service = (service ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.ServiceDescriptorProto> }
-            7 -> extension = (extension ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.FieldDescriptorProto> }
+            3 -> dependency = (dependency ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<String> }
+            4 -> messageType = (messageType ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.DescriptorProto> }
+            5 -> enumType = (enumType ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.EnumDescriptorProto> }
+            6 -> service = (service ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.ServiceDescriptorProto> }
+            7 -> extension = (extension ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.FieldDescriptorProto> }
             8 -> options = _fieldValue as pbandk.wkt.FileOptions
             9 -> sourceCodeInfo = _fieldValue as pbandk.wkt.SourceCodeInfo
-            10 -> publicDependency = (publicDependency ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            11 -> weakDependency = (weakDependency ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            10 -> publicDependency = (publicDependency ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
+            11 -> weakDependency = (weakDependency ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
             12 -> syntax = _fieldValue as String
         }
     }
@@ -2304,15 +2304,15 @@ private fun DescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             1 -> name = _fieldValue as String
-            2 -> field = (field ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.FieldDescriptorProto> }
-            3 -> nestedType = (nestedType ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.DescriptorProto> }
-            4 -> enumType = (enumType ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.EnumDescriptorProto> }
-            5 -> extensionRange = (extensionRange ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.DescriptorProto.ExtensionRange> }
-            6 -> extension = (extension ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.FieldDescriptorProto> }
+            2 -> field = (field ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.FieldDescriptorProto> }
+            3 -> nestedType = (nestedType ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.DescriptorProto> }
+            4 -> enumType = (enumType ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.EnumDescriptorProto> }
+            5 -> extensionRange = (extensionRange ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.DescriptorProto.ExtensionRange> }
+            6 -> extension = (extension ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.FieldDescriptorProto> }
             7 -> options = _fieldValue as pbandk.wkt.MessageOptions
-            8 -> oneofDecl = (oneofDecl ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.OneofDescriptorProto> }
-            9 -> reservedRange = (reservedRange ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.DescriptorProto.ReservedRange> }
-            10 -> reservedName = (reservedName ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
+            8 -> oneofDecl = (oneofDecl ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.OneofDescriptorProto> }
+            9 -> reservedRange = (reservedRange ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.DescriptorProto.ReservedRange> }
+            10 -> reservedName = (reservedName ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<String> }
         }
     }
 
@@ -2395,7 +2395,7 @@ private fun ExtensionRangeOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
+            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
@@ -2511,10 +2511,10 @@ private fun EnumDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             1 -> name = _fieldValue as String
-            2 -> value = (value ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.EnumValueDescriptorProto> }
+            2 -> value = (value ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.EnumValueDescriptorProto> }
             3 -> options = _fieldValue as pbandk.wkt.EnumOptions
-            4 -> reservedRange = (reservedRange ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> }
-            5 -> reservedName = (reservedName ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
+            4 -> reservedRange = (reservedRange ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> }
+            5 -> reservedName = (reservedName ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<String> }
         }
     }
 
@@ -2601,7 +2601,7 @@ private fun ServiceDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDec
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             1 -> name = _fieldValue as String
-            2 -> method = (method ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.MethodDescriptorProto> }
+            2 -> method = (method ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.MethodDescriptorProto> }
             3 -> options = _fieldValue as pbandk.wkt.ServiceOptions
         }
     }
@@ -2727,7 +2727,7 @@ private fun FileOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): File
             42 -> phpGenericServices = _fieldValue as Boolean
             44 -> phpMetadataNamespace = _fieldValue as String
             45 -> rubyPackage = _fieldValue as String
-            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
+            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
@@ -2768,7 +2768,7 @@ private fun MessageOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
             2 -> noStandardDescriptorAccessor = _fieldValue as Boolean
             3 -> deprecated = _fieldValue as Boolean
             7 -> mapEntry = _fieldValue as Boolean
-            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
+            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
@@ -2811,7 +2811,7 @@ private fun FieldOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fie
             5 -> lazy = _fieldValue as Boolean
             6 -> jstype = _fieldValue as pbandk.wkt.FieldOptions.JSType
             10 -> weak = _fieldValue as Boolean
-            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
+            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
@@ -2836,7 +2836,7 @@ private fun OneofOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): One
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
+            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
@@ -2866,7 +2866,7 @@ private fun EnumOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum
         when (_fieldNumber) {
             2 -> allowAlias = _fieldValue as Boolean
             3 -> deprecated = _fieldValue as Boolean
-            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
+            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
@@ -2893,7 +2893,7 @@ private fun EnumValueOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder):
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             1 -> deprecated = _fieldValue as Boolean
-            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
+            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
@@ -2920,7 +2920,7 @@ private fun ServiceOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): S
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             33 -> deprecated = _fieldValue as Boolean
-            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
+            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
@@ -2950,7 +2950,7 @@ private fun MethodOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Me
         when (_fieldNumber) {
             33 -> deprecated = _fieldValue as Boolean
             34 -> idempotencyLevel = _fieldValue as pbandk.wkt.MethodOptions.IdempotencyLevel
-            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
+            999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
@@ -2986,7 +2986,7 @@ private fun UninterpretedOption.Companion.decodeWithImpl(u: pbandk.MessageDecode
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            2 -> name = (name ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption.NamePart> }
+            2 -> name = (name ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption.NamePart> }
             3 -> identifierValue = _fieldValue as String
             4 -> positiveIntValue = _fieldValue as Long
             5 -> negativeIntValue = _fieldValue as Long
@@ -3044,7 +3044,7 @@ private fun SourceCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): S
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            1 -> location = (location ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.SourceCodeInfo.Location> }
+            1 -> location = (location ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.SourceCodeInfo.Location> }
         }
     }
 
@@ -3076,11 +3076,11 @@ private fun SourceCodeInfo.Location.Companion.decodeWithImpl(u: pbandk.MessageDe
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            1 -> path = (path ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            2 -> span = (span ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            1 -> path = (path ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
+            2 -> span = (span ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
             3 -> leadingComments = _fieldValue as String
             4 -> trailingComments = _fieldValue as String
-            6 -> leadingDetachedComments = (leadingDetachedComments ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
+            6 -> leadingDetachedComments = (leadingDetachedComments ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<String> }
         }
     }
 
@@ -3105,7 +3105,7 @@ private fun GeneratedCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder)
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            1 -> annotation = (annotation ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.GeneratedCodeInfo.Annotation> }
+            1 -> annotation = (annotation ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.GeneratedCodeInfo.Annotation> }
         }
     }
 
@@ -3135,7 +3135,7 @@ private fun GeneratedCodeInfo.Annotation.Companion.decodeWithImpl(u: pbandk.Mess
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            1 -> path = (path ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            1 -> path = (path ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
             2 -> sourceFile = _fieldValue as String
             3 -> begin = _fieldValue as Int
             4 -> end = _fieldValue as Int

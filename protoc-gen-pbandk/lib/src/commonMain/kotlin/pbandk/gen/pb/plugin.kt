@@ -338,10 +338,10 @@ private fun CodeGeneratorRequest.Companion.decodeWithImpl(u: pbandk.MessageDecod
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            1 -> fileToGenerate = (fileToGenerate ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
+            1 -> fileToGenerate = (fileToGenerate ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<String> }
             2 -> parameter = _fieldValue as String
             3 -> compilerVersion = _fieldValue as pbandk.gen.pb.Version
-            15 -> protoFile = (protoFile ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.FileDescriptorProto> }
+            15 -> protoFile = (protoFile ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.FileDescriptorProto> }
         }
     }
 
@@ -371,7 +371,7 @@ private fun CodeGeneratorResponse.Companion.decodeWithImpl(u: pbandk.MessageDeco
         when (_fieldNumber) {
             1 -> error = _fieldValue as String
             2 -> supportedFeatures = _fieldValue as Long
-            15 -> file = (file ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.gen.pb.CodeGeneratorResponse.File> }
+            15 -> file = (file ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.gen.pb.CodeGeneratorResponse.File> }
         }
     }
 

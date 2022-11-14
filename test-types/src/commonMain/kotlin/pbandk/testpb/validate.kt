@@ -2857,8 +2857,8 @@ private fun FloatRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Float
             3 -> lte = _fieldValue as Float
             4 -> gt = _fieldValue as Float
             5 -> gte = _fieldValue as Float
-            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Float> }
-            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Float> }
+            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Float> }
+            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Float> }
         }
     }
 
@@ -2900,8 +2900,8 @@ private fun DoubleRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Doub
             3 -> lte = _fieldValue as Double
             4 -> gt = _fieldValue as Double
             5 -> gte = _fieldValue as Double
-            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Double> }
-            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Double> }
+            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Double> }
+            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Double> }
         }
     }
 
@@ -2943,8 +2943,8 @@ private fun Int32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32
             3 -> lte = _fieldValue as Int
             4 -> gt = _fieldValue as Int
             5 -> gte = _fieldValue as Int
-            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
+            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
         }
     }
 
@@ -2986,8 +2986,8 @@ private fun Int64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64
             3 -> lte = _fieldValue as Long
             4 -> gt = _fieldValue as Long
             5 -> gte = _fieldValue as Long
-            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Long> }
+            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Long> }
         }
     }
 
@@ -3029,8 +3029,8 @@ private fun UInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
             3 -> lte = _fieldValue as Int
             4 -> gt = _fieldValue as Int
             5 -> gte = _fieldValue as Int
-            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
+            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
         }
     }
 
@@ -3072,8 +3072,8 @@ private fun UInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
             3 -> lte = _fieldValue as Long
             4 -> gt = _fieldValue as Long
             5 -> gte = _fieldValue as Long
-            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Long> }
+            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Long> }
         }
     }
 
@@ -3115,8 +3115,8 @@ private fun SInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt
             3 -> lte = _fieldValue as Int
             4 -> gt = _fieldValue as Int
             5 -> gte = _fieldValue as Int
-            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
+            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
         }
     }
 
@@ -3158,8 +3158,8 @@ private fun SInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt
             3 -> lte = _fieldValue as Long
             4 -> gt = _fieldValue as Long
             5 -> gte = _fieldValue as Long
-            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Long> }
+            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Long> }
         }
     }
 
@@ -3201,8 +3201,8 @@ private fun Fixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fix
             3 -> lte = _fieldValue as Int
             4 -> gt = _fieldValue as Int
             5 -> gte = _fieldValue as Int
-            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
+            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
         }
     }
 
@@ -3244,8 +3244,8 @@ private fun Fixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fix
             3 -> lte = _fieldValue as Long
             4 -> gt = _fieldValue as Long
             5 -> gte = _fieldValue as Long
-            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Long> }
+            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Long> }
         }
     }
 
@@ -3287,8 +3287,8 @@ private fun SFixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
             3 -> lte = _fieldValue as Int
             4 -> gt = _fieldValue as Int
             5 -> gte = _fieldValue as Int
-            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
+            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
         }
     }
 
@@ -3330,8 +3330,8 @@ private fun SFixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
             3 -> lte = _fieldValue as Long
             4 -> gt = _fieldValue as Long
             5 -> gte = _fieldValue as Long
-            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
-            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            6 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Long> }
+            7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Long> }
         }
     }
 
@@ -3419,8 +3419,8 @@ private fun StringRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
             7 -> prefix = _fieldValue as String
             8 -> suffix = _fieldValue as String
             9 -> contains = _fieldValue as String
-            10 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
-            11 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
+            10 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<String> }
+            11 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<String> }
             12 -> wellKnown = StringRules.WellKnown.Email(_fieldValue as Boolean)
             13 -> wellKnown = StringRules.WellKnown.Hostname(_fieldValue as Boolean)
             14 -> wellKnown = StringRules.WellKnown.Ip(_fieldValue as Boolean)
@@ -3488,8 +3488,8 @@ private fun BytesRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bytes
             5 -> prefix = _fieldValue as pbandk.ByteArr
             6 -> suffix = _fieldValue as pbandk.ByteArr
             7 -> contains = _fieldValue as pbandk.ByteArr
-            8 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.ByteArr> }
-            9 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.ByteArr> }
+            8 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.ByteArr> }
+            9 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.ByteArr> }
             10 -> wellKnown = BytesRules.WellKnown.Ip(_fieldValue as Boolean)
             11 -> wellKnown = BytesRules.WellKnown.Ipv4(_fieldValue as Boolean)
             12 -> wellKnown = BytesRules.WellKnown.Ipv6(_fieldValue as Boolean)
@@ -3527,8 +3527,8 @@ private fun EnumRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumRu
         when (_fieldNumber) {
             1 -> const = _fieldValue as Int
             2 -> definedOnly = _fieldValue as Boolean
-            3 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
-            4 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            3 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
+            4 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
         }
     }
 
@@ -3654,8 +3654,8 @@ private fun AnyRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): AnyRule
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             1 -> required = _fieldValue as Boolean
-            2 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
-            3 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
+            2 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<String> }
+            3 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<String> }
         }
     }
 
@@ -3699,8 +3699,8 @@ private fun DurationRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Du
             4 -> lte = _fieldValue as pbandk.wkt.Duration
             5 -> gt = _fieldValue as pbandk.wkt.Duration
             6 -> gte = _fieldValue as pbandk.wkt.Duration
-            7 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Duration> }
-            8 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Duration> }
+            7 -> `in` = (`in` ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Duration> }
+            8 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Duration> }
         }
     }
 

@@ -58,6 +58,47 @@ class CodeGeneratorTest {
     }
 
     @Test
+    fun testKotlinBuiltinNames() {
+        val result = compileProto("kotlin_builtin_names.proto")
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+
+        // Ensure the messages with the same names as built-in Kotlin classes were generated correctly
+
+        val anyClazz = result.classLoader.loadClass("foobar.Any").kotlin
+        anyClazz.declaredMemberProperties.single { it.name == "any" }
+
+        val booleanClazz = result.classLoader.loadClass("foobar.Boolean_").kotlin
+        booleanClazz.declaredMemberProperties.single { it.name == "boolean" }
+
+        val companionClazz = result.classLoader.loadClass("foobar.Companion_").kotlin
+        companionClazz.declaredMemberProperties.single { it.name == "companion" }
+
+        val doubleClazz = result.classLoader.loadClass("foobar.Double_").kotlin
+        doubleClazz.declaredMemberProperties.single { it.name == "double" }
+
+        val floatClazz = result.classLoader.loadClass("foobar.Float_").kotlin
+        floatClazz.declaredMemberProperties.single { it.name == "float" }
+
+        val intClazz = result.classLoader.loadClass("foobar.Int_").kotlin
+        intClazz.declaredMemberProperties.single { it.name == "int" }
+
+        val listClazz = result.classLoader.loadClass("foobar.List_").kotlin
+        listClazz.declaredMemberProperties.single { it.name == "list" }
+
+        val longClazz = result.classLoader.loadClass("foobar.Long_").kotlin
+        longClazz.declaredMemberProperties.single { it.name == "long" }
+
+        val mapClazz = result.classLoader.loadClass("foobar.Map_").kotlin
+        mapClazz.declaredMemberProperties.single { it.name == "map" }
+
+        val sequenceClazz = result.classLoader.loadClass("foobar.Sequence").kotlin
+        sequenceClazz.declaredMemberProperties.single { it.name == "sequence" }
+
+        val stringClazz = result.classLoader.loadClass("foobar.String_").kotlin
+        stringClazz.declaredMemberProperties.single { it.name == "string" }
+    }
+
+    @Test
     fun testProto3Optional() {
         val result = compileProto("proto_3_presence.proto")
         assertEquals(ExitCode.OK, result.exitCode, result.messages)

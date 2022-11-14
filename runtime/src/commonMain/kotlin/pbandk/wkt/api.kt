@@ -280,11 +280,11 @@ private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             1 -> name = _fieldValue as String
-            2 -> methods = (methods ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Method> }
-            3 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
+            2 -> methods = (methods ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Method> }
+            3 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Option> }
             4 -> version = _fieldValue as String
             5 -> sourceContext = _fieldValue as pbandk.wkt.SourceContext
-            6 -> mixins = (mixins ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Mixin> }
+            6 -> mixins = (mixins ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Mixin> }
             7 -> syntax = _fieldValue as pbandk.wkt.Syntax
         }
     }
@@ -321,7 +321,7 @@ private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
             3 -> requestStreaming = _fieldValue as Boolean
             4 -> responseTypeUrl = _fieldValue as String
             5 -> responseStreaming = _fieldValue as Boolean
-            6 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
+            6 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Option> }
             7 -> syntax = _fieldValue as pbandk.wkt.Syntax
         }
     }

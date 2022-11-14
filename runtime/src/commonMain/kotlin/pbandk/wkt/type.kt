@@ -507,9 +507,9 @@ private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Type {
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             1 -> name = _fieldValue as String
-            2 -> fields = (fields ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Field> }
-            3 -> oneofs = (oneofs ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
-            4 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
+            2 -> fields = (fields ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Field> }
+            3 -> oneofs = (oneofs ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<String> }
+            4 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Option> }
             5 -> sourceContext = _fieldValue as pbandk.wkt.SourceContext
             6 -> syntax = _fieldValue as pbandk.wkt.Syntax
         }
@@ -552,7 +552,7 @@ private fun Field.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field {
             6 -> typeUrl = _fieldValue as String
             7 -> oneofIndex = _fieldValue as Int
             8 -> packed = _fieldValue as Boolean
-            9 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
+            9 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Option> }
             10 -> jsonName = _fieldValue as String
             11 -> defaultValue = _fieldValue as String
         }
@@ -587,8 +587,8 @@ private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum {
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             1 -> name = _fieldValue as String
-            2 -> enumvalue = (enumvalue ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.EnumValue> }
-            3 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
+            2 -> enumvalue = (enumvalue ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.EnumValue> }
+            3 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Option> }
             4 -> sourceContext = _fieldValue as pbandk.wkt.SourceContext
             5 -> syntax = _fieldValue as pbandk.wkt.Syntax
         }
@@ -619,7 +619,7 @@ private fun EnumValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumVa
         when (_fieldNumber) {
             1 -> name = _fieldValue as String
             2 -> number = _fieldValue as Int
-            3 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
+            3 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Option> }
         }
     }
 
