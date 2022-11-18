@@ -47,6 +47,29 @@ class CodeGeneratorTest {
     }
 
     @Test
+    fun testCustomOptionsWithExtensionNumber() {
+        val result = compileProto("custom_options.proto", "required_field_extension_number=50008")
+
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+        val fooClazz = result.classLoader.loadClass("foobar.RequestType").kotlin
+
+        val requiredField = fooClazz.declaredMemberProperties.single { it.name == "myRequiredField" }
+        assertFalse(requiredField.returnType.isMarkedNullable)
+    }
+
+
+    @Test
+    fun testCustomOptionsWithoutExtensionNumber() {
+        val result = compileProto("custom_options.proto")
+
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+        val fooClazz = result.classLoader.loadClass("foobar.RequestType").kotlin
+
+        val requiredField = fooClazz.declaredMemberProperties.single { it.name == "myRequiredField" }
+        assertTrue(requiredField.returnType.isMarkedNullable)
+    }
+
+    @Test
     fun testOneOf_SameNameField() {
         val result = compileProto("oneof_same_name.proto")
 
