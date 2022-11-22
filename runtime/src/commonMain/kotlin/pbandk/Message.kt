@@ -9,7 +9,7 @@ import kotlin.js.JsExport
 public interface Message {
     public val unknownFields: Map<Int, UnknownField>
 
-    public val descriptor: MessageDescriptor<out Message>
+    public val descriptor: MessageDescriptor<out Message, out MutableMessage<*>>
 
     public val protoSize: Int
 
@@ -23,10 +23,10 @@ public interface Message {
      * _MUST_ be a descriptor for fields in messages of type [M].
      */
     @ExperimentalProtoReflection
-    public fun <V> getFieldValue(fieldDescriptor: FieldDescriptor<*, V>): V
+    public fun <V> getFieldValue(fieldDescriptor: FieldDescriptor<*, *, V>): V
 
     public interface Companion<M : Message> {
-        public val descriptor: MessageDescriptor<M>
+        public val descriptor: MessageDescriptor<M, out MutableMessage<M>>
     }
 
     public interface Enum {

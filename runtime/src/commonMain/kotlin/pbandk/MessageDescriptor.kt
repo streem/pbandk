@@ -2,7 +2,7 @@ package pbandk
 
 import kotlin.reflect.KClass
 
-public class MessageDescriptor<M : Message> private constructor(
+public class MessageDescriptor<M : Message, MM : MutableMessage<M>> private constructor(
     /**
      * The message type's fully-qualified name, within the proto language's namespace. This differs from
      * the Kotlin name. For example, given this `.proto`:
@@ -22,31 +22,30 @@ public class MessageDescriptor<M : Message> private constructor(
     @ExperimentalProtoReflection
     public val messageCompanion: Message.Companion<M>,
 
-    internal val builder: (MutableMessage<M>.() -> Unit) -> M,
+    internal val builder: (MM.() -> Unit) -> M,
 
     @ExperimentalProtoReflection
-    public val fields: FieldDescriptorSet<M>,
+    public val fields: FieldDescriptorSet<M, MM>,
 
-    internal val oneofs: Collection<OneofDescriptor<M, *>>,
+    internal val oneofs: Collection<OneofDescriptor<M, MM, *>>,
 ) {
     /** The message type's unqualified name. */
     public val name: String = fullName.substringAfterLast('.')
 
     public companion object {
         @PublicForGeneratedCode
-        @Suppress("UNCHECKED_CAST")
         public fun <M : Message, MM : MutableMessage<M>> of(
             fullName: String,
             messageClass: KClass<M>,
             messageCompanion: Message.Companion<M>,
             builder: (MM.() -> Unit) -> M,
-            fields: Collection<FieldDescriptor<M, *>> = emptyList(),
-            oneofs: Collection<OneofDescriptor<M, *>> = emptyList(),
-        ): MessageDescriptor<M> = MessageDescriptor(
+            fields: Collection<FieldDescriptor<M, MM, *>> = emptyList(),
+            oneofs: Collection<OneofDescriptor<M, MM, *>> = emptyList(),
+        ): MessageDescriptor<M, MM> = MessageDescriptor(
             fullName = fullName,
             messageClass = messageClass,
             messageCompanion = messageCompanion,
-            builder = builder as ((MutableMessage<M>.() -> Unit) -> M),
+            builder = builder,
             // Keep fields sorted by number so that message encoding outputs fields in order by number. This is not
             // required by the protobuf encoding spec, but is recommended (and is implemented by the official C++, Java,
             // and Python implementations).

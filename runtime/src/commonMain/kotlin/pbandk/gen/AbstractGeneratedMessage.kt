@@ -148,9 +148,9 @@ protected constructor(): Message {
 
 }
 
-internal inline val <M : Message> M.messageDescriptor: MessageDescriptor<M>
+internal inline val <M : Message> M.messageDescriptor: MessageDescriptor<M, out MutableMessage<M>>
     @Suppress("UNCHECKED_CAST")
-    get() = descriptor as MessageDescriptor<M>
+    get() = descriptor as MessageDescriptor<M, out MutableMessage<M>>
 
 @Suppress("NOTHING_TO_INLINE")
 private inline fun <M : Message, O : Message.OneOf<*>> OneofDescriptor<M, O>.copyValue(

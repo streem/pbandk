@@ -10,19 +10,16 @@ import pbandk.gen.ListField
 import pbandk.gen.MapField
 import pbandk.gen.MutableListField
 import pbandk.gen.MutableMapField
+import pbandk.gen.messageDescriptor
 import pbandk.internal.Util
 import pbandk.internal.binary.Sizer
 import pbandk.internal.binary.Tag
 import pbandk.internal.binary.WireType
-import pbandk.internal.fieldIterator
-import pbandk.internal.forEach
 import pbandk.wkt.FieldOptions
-import pbandk.wkt.orDefault
 import kotlin.reflect.KClass
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
-import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
 public class FieldMetadata(
@@ -67,12 +64,14 @@ public class FieldMetadata(
     public abstract val fullName: String
 }
 
-public sealed class FieldDescriptor<M : Message, V> private constructor(
-    getMessageDescriptor: () -> MessageDescriptor<M>,
+public sealed class FieldDescriptor<M : Message, MM : MutableMessage<M>, V> private constructor(
+    getMessageDescriptor: () -> MessageDescriptor<M, MM>,
     internal val metadata: FieldMetadata,
     internal val type: Type,
     internal val fieldType: FieldType<V>,
-) : Comparable<FieldDescriptor<M, *>> {
+    internal val accessor: FieldAccessor<M, MM, V>,
+) : Comparable<FieldDescriptor<M, MM, *>> {
+
     /** The field's unqualified name. */
     @ExperimentalProtoReflection
     public val name: String get() = metadata.name
@@ -86,7 +85,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
     // At the time that the [FieldDescriptor] constructor is called, the parent [MessageDescriptor] has not been
     // constructed yet. This is because this [FieldDescriptor] is one of the parameters that will be passed to the
     // [MessageDescriptor] constructor. To avoid the circular dependency, this property is declared lazy.
-    internal val messageDescriptor: MessageDescriptor<M> by lazy(LazyThreadSafetyMode.PUBLICATION) { getMessageDescriptor() }
+    internal val messageDescriptor: MessageDescriptor<M, MM> by lazy(LazyThreadSafetyMode.PUBLICATION) { getMessageDescriptor() }
 
     /**
      * The field's fully-qualified name.
@@ -118,7 +117,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
     /**
      * FieldDescriptors are sorted by their field number.
      */
-    override fun compareTo(other: FieldDescriptor<M, *>): Int {
+    override fun compareTo(other: FieldDescriptor<M, MM, *>): Int {
         require(messageDescriptor == other.messageDescriptor) {
             "Only FieldDescriptors of the same message can be compared"
         }
@@ -928,18 +927,40 @@ internal object ValueTypes {
 
         override fun binarySize(value: pbandk.Message) = Sizer.messageSize(value)
 
+        // Helper function to make the generic type checker happy
+        private fun <M : pbandk.Message, MM : MutableMessage<M>, V> encodeMessageField(
+            message: M,
+            fieldDescriptor: FieldDescriptor<M, MM, V>,
+            encoder: BinaryFieldEncoder,
+        ) {
+            with(fieldDescriptor) {
+                fieldType.encodeToBinary(metadata, accessor.getValue(message), encoder)
+            }
+        }
+
         override fun encodeToBinary(value: pbandk.Message, encoder: BinaryFieldValueEncoder) {
             encoder.writeFields(value.protoSize) { fieldEncoder ->
-                value.fieldIterator().forEach { fieldDescriptor, fieldValue ->
-                    fieldDescriptor.fieldType.encodeToBinary(fieldDescriptor.metadata, fieldValue, fieldEncoder)
+                value.messageDescriptor.fields.forEach { fieldDescriptor ->
+                    encodeMessageField(value, fieldDescriptor, fieldEncoder)
                 }
+            }
+        }
+
+        // Helper function to make the generic type checker happy
+        private fun <M : pbandk.Message, MM : MutableMessage<M>, V> encodeMessageField(
+            message: M,
+            fieldDescriptor: FieldDescriptor<M, MM, V>,
+            encoder: JsonFieldEncoder,
+        ) {
+            with(fieldDescriptor) {
+                fieldType.encodeToJson(metadata, accessor.getValue(message), encoder)
             }
         }
 
         override fun encodeToJson(value: pbandk.Message, encoder: JsonFieldValueEncoder) {
             encoder.writeObject { fieldEncoder ->
-                value.fieldIterator().forEach { fieldDescriptor, fieldValue ->
-                    fieldDescriptor.fieldType.encodeToJson(fieldDescriptor.metadata, fieldValue, fieldEncoder)
+                value.messageDescriptor.fields.forEach { fieldDescriptor ->
+                    encodeMessageField(value, fieldDescriptor, fieldEncoder)
                 }
             }
         }

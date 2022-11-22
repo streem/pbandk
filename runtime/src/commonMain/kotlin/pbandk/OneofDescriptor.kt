@@ -5,14 +5,14 @@ import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
-public class OneofDescriptor<M : Message, O : Message.OneOf<*>> private constructor(
+public class OneofDescriptor<M : Message, MM : MutableMessage<M>, O : Message.OneOf<*>> private constructor(
     getMessageDescriptor: () -> MessageDescriptor<M>,
     @ExperimentalProtoReflection
     public val name: String,
     internal val getValue: (M) -> O?,
     internal val updateValue: (MutableMessage<M>, O?) -> Unit,
     @ExperimentalProtoReflection
-    public val fields: FieldDescriptorSet<M>,
+    public val fields: FieldDescriptorSet<M, MM>,
     // TODO: make this public once we're actually populating it correctly in the CodeGenerator
     internal val options: OneofOptions = OneofOptions.defaultInstance
 ) {
@@ -29,9 +29,9 @@ public class OneofDescriptor<M : Message, O : Message.OneOf<*>> private construc
             name: String,
             value: KProperty1<M, O?>,
             mutableValue: KMutableProperty1<MM, O?>,
-            fields: Collection<FieldDescriptor<M, *>>,
+            fields: Collection<FieldDescriptor<M, MM, *>>,
             options: OneofOptions = OneofOptions.defaultInstance
-        ): OneofDescriptor<M, O> = OneofDescriptor(
+        ): OneofDescriptor<M, MM, O> = OneofDescriptor(
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             getValue = value::get,

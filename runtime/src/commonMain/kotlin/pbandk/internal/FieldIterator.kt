@@ -3,14 +3,15 @@ package pbandk.internal
 import pbandk.FieldDescriptor
 import pbandk.FieldSet
 import pbandk.Message
+import pbandk.MutableMessage
 import pbandk.gen.GeneratedExtendableMessage
 import pbandk.gen.messageDescriptor
 
-internal interface FieldIterator<M : Message> : Iterator<FieldDescriptor<M, out Any?>> {
+internal interface FieldIterator<M : Message> : Iterator<FieldDescriptor<M, out MutableMessage<M>, out Any?>> {
     fun nextValue(): Any?
 }
 
-internal inline fun <M : Message> FieldIterator<M>.forEach(operation: (FieldDescriptor<M, out Any?>, Any?) -> Unit) {
+internal inline fun <M : Message> FieldIterator<M>.forEach(operation: (FieldDescriptor<M, out MutableMessage<M>, out Any?>, Any?) -> Unit) {
     while (hasNext()) {
         val fd = next()
         val value = nextValue()
@@ -30,7 +31,7 @@ internal fun <M : Message> M.fieldIterator(): FieldIterator<M> {
 
 private fun <T : Any> Iterator<T>.nextOrNull(): T? = if (hasNext()) next() else null
 
-internal inline fun <M : Message> forEachField(first: M, second: M, operation: (FieldDescriptor<M, out Any?>, Any?, Any?) -> Unit) {
+internal inline fun <M : Message> forEachField(first: M, second: M, operation: (FieldDescriptor<M, out MutableMessage<M>, out Any?>, Any?, Any?) -> Unit) {
     require(first.descriptor == second.descriptor)
 
     val firstIter = first.messageDescriptor.fields.iteratorFor(first)
@@ -95,7 +96,7 @@ internal class ConcatFieldIterator<M : Message>(
         }
     }
 
-    override fun next(): FieldDescriptor<M, out Any?> = try {
+    override fun next(): FieldDescriptor<M, out MutableMessage<M>, out Any?> = try {
         currentIter.next()
     } catch (e : NoSuchElementException) {
         if (currentIter == lastIter) {
