@@ -64,13 +64,13 @@ public class FieldMetadata(
     public abstract val fullName: String
 }
 
-public sealed class FieldDescriptor<M : Message, MM : MutableMessage<M>, V> private constructor(
-    getMessageDescriptor: () -> MessageDescriptor<M, MM>,
+public sealed class FieldDescriptor<M : Message, V> private constructor(
+    getMessageDescriptor: () -> MessageDescriptor<M>,
     internal val metadata: FieldMetadata,
     internal val type: Type,
     internal val fieldType: FieldType<V>,
-    internal val accessor: FieldAccessor<M, MM, V>,
-) : Comparable<FieldDescriptor<M, MM, *>> {
+    internal val accessor: FieldAccessor<M, *, V>,
+) : Comparable<FieldDescriptor<M, *>> {
 
     /** The field's unqualified name. */
     @ExperimentalProtoReflection
@@ -85,7 +85,7 @@ public sealed class FieldDescriptor<M : Message, MM : MutableMessage<M>, V> priv
     // At the time that the [FieldDescriptor] constructor is called, the parent [MessageDescriptor] has not been
     // constructed yet. This is because this [FieldDescriptor] is one of the parameters that will be passed to the
     // [MessageDescriptor] constructor. To avoid the circular dependency, this property is declared lazy.
-    internal val messageDescriptor: MessageDescriptor<M, MM> by lazy(LazyThreadSafetyMode.PUBLICATION) { getMessageDescriptor() }
+    internal val messageDescriptor: MessageDescriptor<M> by lazy(LazyThreadSafetyMode.PUBLICATION) { getMessageDescriptor() }
 
     /**
      * The field's fully-qualified name.

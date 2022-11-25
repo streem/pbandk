@@ -2,7 +2,7 @@ package pbandk
 
 import kotlin.reflect.KClass
 
-public class MessageDescriptor<M : Message, MM : MutableMessage<M>> private constructor(
+public class MessageDescriptor<M : Message> private constructor(
     /**
      * The message type's fully-qualified name, within the proto language's namespace. This differs from
      * the Kotlin name. For example, given this `.proto`:
@@ -22,12 +22,12 @@ public class MessageDescriptor<M : Message, MM : MutableMessage<M>> private cons
     @ExperimentalProtoReflection
     public val messageCompanion: Message.Companion<M>,
 
-    internal val builder: (MM.() -> Unit) -> M,
+    internal val builder: (MutableMessage<M>.() -> Unit) -> M,
 
     @ExperimentalProtoReflection
-    public val fields: FieldDescriptorSet<M, MM>,
+    public val fields: FieldDescriptorSet<M>,
 
-    internal val oneofs: Collection<OneofDescriptor<M, MM, *>>,
+    internal val oneofs: Collection<OneofDescriptor<M, *>>,
 ) {
     /** The message type's unqualified name. */
     public val name: String = fullName.substringAfterLast('.')
@@ -39,9 +39,9 @@ public class MessageDescriptor<M : Message, MM : MutableMessage<M>> private cons
             messageClass: KClass<M>,
             messageCompanion: Message.Companion<M>,
             builder: (MM.() -> Unit) -> M,
-            fields: Collection<FieldDescriptor<M, MM, *>> = emptyList(),
-            oneofs: Collection<OneofDescriptor<M, MM, *>> = emptyList(),
-        ): MessageDescriptor<M, MM> = MessageDescriptor(
+            fields: Collection<FieldDescriptor<M, *>> = emptyList(),
+            oneofs: Collection<OneofDescriptor<M, *>> = emptyList(),
+        ): MessageDescriptor<M> = MessageDescriptor(
             fullName = fullName,
             messageClass = messageClass,
             messageCompanion = messageCompanion,
