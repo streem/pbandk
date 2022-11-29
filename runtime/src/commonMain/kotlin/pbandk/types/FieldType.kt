@@ -12,12 +12,17 @@ import pbandk.internal.json.JsonFieldEncoder
 import pbandk.internal.types.primitive.Message
 
 internal sealed class FieldType<KotlinType> {
+    abstract fun mergeValues(metadata: FieldMetadata, value: KotlinType, otherValue: KotlinType): KotlinType
+
     abstract fun binarySize(metadata: FieldMetadata, value: KotlinType): Int
     abstract fun encodeToBinary(metadata: FieldMetadata, value: KotlinType, encoder: BinaryFieldEncoder)
     abstract fun encodeToJson(metadata: FieldMetadata, value: KotlinType, encoder: JsonFieldEncoder)
 //    abstract fun decodeFromBinary(decoder: BinaryFieldDecoder)
 
-    class Required<T : Any>(private val valueType: ValueType<T>) : FieldType<T>() {
+    class Required<T : Any>(internal val valueType: ValueType<T>) : FieldType<T>() {
+        override fun mergeValues(metadata: FieldMetadata, value: T, otherValue: T) =
+            valueType.mergeValues(value, otherValue)
+
         override fun binarySize(metadata: FieldMetadata, value: T) =
             Sizer.tagSize(metadata.number) + valueType.binarySize(value)
 
@@ -34,7 +39,14 @@ internal sealed class FieldType<KotlinType> {
         }
     }
 
-    class ExplicitOptional<T : Any>(private val valueType: ValueType<T>) : FieldType<T?>() {
+    class HasPresence<T : Any>(internal val valueType: ValueType<T>) : FieldType<T?>() {
+        override fun mergeValues(metadata: FieldMetadata, value: T?, otherValue: T?) = when {
+            metadata.isOneofMember -> value
+            value == null -> otherValue
+            otherValue == null -> value
+            else -> valueType.mergeValues(value, otherValue)
+        }
+
         override fun binarySize(metadata: FieldMetadata, value: T?) =
             if (value == null) 0 else Sizer.tagSize(metadata.number) + valueType.binarySize(value)
 
@@ -59,7 +71,10 @@ internal sealed class FieldType<KotlinType> {
         }
     }
 
-    class ImplicitOptional<T : Any>(private val valueType: ValueType<T>) : FieldType<T>() {
+    class NoPresence<T : Any>(internal val valueType: ValueType<T>) : FieldType<T>() {
+        override fun mergeValues(metadata: FieldMetadata, value: T, otherValue: T) =
+            valueType.mergeValues(value, otherValue)
+
         override fun binarySize(metadata: FieldMetadata, value: T) =
             if (valueType.isDefaultValue(value)) 0 else Sizer.tagSize(metadata.number) + valueType.binarySize(value)
 
@@ -80,7 +95,11 @@ internal sealed class FieldType<KotlinType> {
         }
     }
 
-    class Repeated<T : Any>(private val valueType: ValueType<T>) : FieldType<List<T>>() {
+    class Repeated<T : Any>(internal val valueType: ValueType<T>) : FieldType<List<T>>() {
+        override fun mergeValues(metadata: FieldMetadata, value: List<T>, otherValue: List<T>): List<T> {
+
+        }
+
         override fun binarySize(metadata: FieldMetadata, value: List<T>) = when {
             value.isEmpty() -> 0
 
@@ -131,8 +150,8 @@ internal sealed class FieldType<KotlinType> {
     }
 
     class Map<K : Any, V : Any>(
-        private val keyType: ValueType<K>,
-        private val valueType: ValueType<V>,
+        internal val keyType: ValueType<K>,
+        internal val valueType: ValueType<V>,
     ) : FieldType<kotlin.collections.Map<K, V>>() {
         override fun binarySize(metadata: FieldMetadata, value: kotlin.collections.Map<K, V>): Int {
             return value.entries.sumOf { entry ->

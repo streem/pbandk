@@ -56,7 +56,7 @@ private constructor(private val map: Map<FieldDescriptor<M, out Any?>, Any>) {
             // number. So we store the fields in a `LinkedHashMap` (which preserves insertion order when iterating) and
             // sort them by field number before copying them into the map.
             FieldSet(LinkedHashMap<FieldDescriptor<M, out Any?>, Any>(mapEntries.size).apply {
-                mapEntries.sortedBy { it.key.number }.forEach { (fd, value) -> put(fd, value) }
+                mapEntries.sortedBy { it.key.metadata.number }.forEach { (fd, value) -> put(fd, value) }
             })
 
         internal fun <M : Message> of(map: Map<FieldDescriptor<M, out Any?>, Any>): FieldSet<M> {
@@ -68,7 +68,7 @@ private constructor(private val map: Map<FieldDescriptor<M, out Any?>, Any>) {
             // We need to ensure that map iteration will always iterate over the fields in order of increasing field
             // number. So we store the fields in a `LinkedHashMap` (which preserves insertion order when iterating) and
             // sort them by field number before copying them into the map.
-            return FieldSet(safeEntries.sortedBy { it.first.number }.toMap(LinkedHashMap(safeEntries.size)))
+            return FieldSet(safeEntries.sortedBy { it.first.metadata.number }.toMap(LinkedHashMap(safeEntries.size)))
 //                map.filterNot { (fd, value) ->
 //                    value == fd.type.defaultValue
 //                }.mapValues { (fd, value) ->

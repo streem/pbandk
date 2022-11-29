@@ -1,5 +1,6 @@
 package pbandk.gen
 
+import pbandk.FieldAccessor
 import pbandk.FieldDescriptor
 import pbandk.Message
 import pbandk.MessageDescriptor
@@ -10,6 +11,8 @@ import pbandk.internal.binary.Sizer
 import pbandk.internal.fieldIterator
 import pbandk.internal.forEach
 import pbandk.internal.forEachField
+import pbandk.internal.types.MessageValueType
+import pbandk.types.FieldType
 
 public abstract class AbstractGeneratedMessage<M : Message>
 @PublicForGeneratedCode
@@ -54,10 +57,10 @@ protected constructor(): Message {
         append("(")
 
         fieldIterator().forEach { fieldDescriptor, value ->
-            if (fieldDescriptor.isExtension) {
-                append("[${fieldDescriptor.fullName}]")
+            if (fieldDescriptor.metadata.isExtension) {
+                append("[${fieldDescriptor.metadata.fullName}]")
             } else {
-                append(fieldDescriptor.name)
+                append(fieldDescriptor.metadata.name)
             }
             append("=${value}, ")
         }
@@ -71,18 +74,17 @@ protected constructor(): Message {
         append(")")
     }
 
-    @Suppress("UNCHECKED_CAST")
     public open fun <MM : MutableMessage<M>> copy(builderAction: MM.() -> Unit): M {
-        this as M
-        return messageDescriptor.builder {
-            this as MutableMessage<M>
-
-            this@AbstractGeneratedMessage.fieldIterator().forEach { fieldDescriptor, value ->
-                updateFieldValue(fieldDescriptor as FieldDescriptor<M, Any?>, value)
+        val newMessage = messageDescriptor.builder {
+            this@AbstractGeneratedMessage.messageDescriptor.fields.forEach { fieldDescriptor ->
+                fieldDescriptor.fieldAccessor.copyValue(this@AbstractGeneratedMessage, this)
             }
             unknownFields += this@AbstractGeneratedMessage.unknownFields
+            @Suppress("UNCHECKED_CAST")
             (this as MM).builderAction()
         }
+        @Suppress("UNCHECKED_CAST")
+        return newMessage as M
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -93,24 +95,23 @@ protected constructor(): Message {
         other as M
 
         return copy<MutableMessage<M>> {
-            forEachField(this@AbstractGeneratedMessage, other) { field, value, otherValue ->
-                if (field.isOneofMember) {
-                    return@forEachField
-                } else if (field.type is FieldDescriptor.Type.Message<*>) {
-                    field as FieldDescriptor<M, Message?>
-                    value as Message?
-                    otherValue as Message?
-
-                    updateFieldValue(field, value?.plus(otherValue) ?: otherValue)
-                } else if (field.type.hasPresence) {
-                    field as FieldDescriptor<M, Any?>
-
-                    otherValue?.let { updateFieldValue(field, it) }
+            this@AbstractGeneratedMessage.messageDescriptor.fields.forEach { field ->
+                if (field.metadata.isOneofMember) {
+                    return@forEach
+                }
+                else if (field.fieldType is FieldType.HasPresence<*> && field.fieldType.valueType is MessageValueType<*>) {
+                    val accessor = field.accessor as FieldAccessor<M, MutableMessage<M>, Message?>
+                    val value = accessor.getValue(this@AbstractGeneratedMessage)
+                    val otherValue = accessor.getValue(other)
+                    accessor.updateValue(this, value?.plus(otherValue) ?: otherValue)
+                } else if (field.fieldType is FieldType.HasPresence<*>) {
+                    val accessor = field.accessor as FieldAccessor<M, MutableMessage<M>, Any?>
+                    val otherValue = accessor.getValue(other)
+                    otherValue?.let { accessor.updateValue(this, it) }
                 } else {
-                    field as FieldDescriptor<M, Any>
-                    otherValue as Any
-
-                    updateFieldValue(field, otherValue)
+                    val accessor = field.accessor as FieldAccessor<M, MutableMessage<M>, Any>
+                    val otherValue = accessor.getValue(other)
+                    field.accessor.updateValue(this, otherValue)
                 }
             }
 
@@ -125,8 +126,8 @@ protected constructor(): Message {
                     oneof.copyValue(other, this)
                 } else if (messageValue.value is Message) {
                     messageValue as GeneratedOneOf<M, Message>
-                    updateFieldValue(
-                        messageValue.currentFieldDescriptor,
+                    messageValue.currentFieldDescriptor.fieldAccessor.updateValue(
+                        this,
                         messageValue.value.plus(otherValue.value as Message)
                     )
                 } else {
@@ -151,6 +152,16 @@ protected constructor(): Message {
 internal inline val <M : Message> M.messageDescriptor: MessageDescriptor<M>
     @Suppress("UNCHECKED_CAST")
     get() = descriptor as MessageDescriptor<M>
+
+internal inline val <M : Message, T> FieldDescriptor<M, T>.fieldAccessor: FieldAccessor<M, MutableMessage<M>, T>
+    @Suppress("UNCHECKED_CAST")
+    get() = accessor as FieldAccessor<M, MutableMessage<M>, T>
+
+@Suppress("NOTHING_TO_INLINE")
+private inline fun <M : Message, MM : MutableMessage<M>, T> FieldAccessor<M, MM, T>.copyValue(
+    fromMessage: M,
+    toMessage: MM,
+) = updateValue(toMessage, getValue(fromMessage))
 
 @Suppress("NOTHING_TO_INLINE")
 private inline fun <M : Message, O : Message.OneOf<*>> OneofDescriptor<M, O>.copyValue(

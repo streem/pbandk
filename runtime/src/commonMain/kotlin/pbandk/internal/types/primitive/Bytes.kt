@@ -8,7 +8,7 @@ import pbandk.internal.binary.Sizer
 import pbandk.internal.binary.WireType
 import pbandk.types.ValueType
 
-internal object Bytes : ValueType<ByteArr> {
+internal object Bytes : PrimitiveValueType<ByteArr>() {
     override fun isDefaultValue(value: ByteArr) = value.array.isEmpty()
 
     override val binaryWireType = WireType.LENGTH_DELIMITED

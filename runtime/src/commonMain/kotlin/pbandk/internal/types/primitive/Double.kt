@@ -7,7 +7,7 @@ import pbandk.internal.binary.WireType
 import pbandk.types.ValueType
 import kotlin.Double
 
-internal object Double : ValueType<Double> {
+internal object Double : PrimitiveValueType<Double>() {
     override fun isDefaultValue(value: Double) = value == 0.0
 
     override val binaryWireType = WireType.FIXED64

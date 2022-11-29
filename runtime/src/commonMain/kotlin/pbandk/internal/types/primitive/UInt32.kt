@@ -6,7 +6,7 @@ import pbandk.internal.binary.Sizer
 import pbandk.internal.binary.WireType
 import pbandk.types.ValueType
 
-internal object UInt32 : ValueType<Int> {
+internal object UInt32 : PrimitiveValueType<Int>() {
     override fun isDefaultValue(value: Int) = value == 0
 
     override val binaryWireType = WireType.VARINT

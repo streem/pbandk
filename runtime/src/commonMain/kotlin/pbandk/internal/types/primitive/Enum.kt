@@ -8,7 +8,7 @@ import pbandk.internal.binary.WireType
 import pbandk.types.ValueType
 import pbandk.wkt.NullValue
 
-internal object Enum : ValueType<Message.Enum> {
+internal object Enum : PrimitiveValueType<Message.Enum>() {
     override fun isDefaultValue(value: Message.Enum) = value.value == 0
 
     override val binaryWireType = WireType.VARINT

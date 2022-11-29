@@ -4,8 +4,9 @@ import pbandk.internal.json.JsonFieldValueEncoder
 import pbandk.internal.binary.BinaryFieldValueEncoder
 import pbandk.internal.binary.WireType
 
-internal interface ValueType<KotlinType> {
+internal interface ValueType<KotlinType : Any> {
     fun isDefaultValue(value: KotlinType): Boolean
+    fun mergeValues(value: KotlinType, otherValue: KotlinType): KotlinType
 
     val binaryWireType: WireType
     fun binarySize(value: KotlinType): Int

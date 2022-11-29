@@ -7,7 +7,7 @@ import pbandk.internal.binary.WireType
 import pbandk.types.ValueType
 import kotlin.Float
 
-internal object Float : ValueType<Float> {
+internal object Float : PrimitiveValueType<Float>() {
     override fun isDefaultValue(value: Float) = value == 0.0f
 
     override val binaryWireType = WireType.FIXED32

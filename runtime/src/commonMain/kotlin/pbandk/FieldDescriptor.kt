@@ -4,7 +4,6 @@ import pbandk.gen.ListField
 import pbandk.gen.MapField
 import pbandk.gen.MutableListField
 import pbandk.gen.MutableMapField
-import pbandk.gen.messageDescriptor
 import pbandk.internal.binary.WireType
 import pbandk.types.FieldType
 import pbandk.wkt.FieldOptions
@@ -108,7 +107,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
     /**
      * FieldDescriptors are sorted by their field number.
      */
-    override fun compareTo(other: FieldDescriptor<M, MM, *>): Int {
+    override fun compareTo(other: FieldDescriptor<M, *>): Int {
         require(messageDescriptor == other.messageDescriptor) {
             "Only FieldDescriptors of the same message can be compared"
         }

@@ -14,6 +14,11 @@ import pbandk.types.ValueType
 internal abstract class MessageValueType<M : Message> : ValueType<M> {
     override fun isDefaultValue(value: M) = false
 
+    override fun mergeValues(value: M, otherValue: M): M {
+        @Suppress("UNCHECKED_CAST")
+        return value.plus(otherValue) as M
+    }
+
     override val binaryWireType = WireType.LENGTH_DELIMITED
 
     override fun binarySize(value: M) = Sizer.messageSize(value)

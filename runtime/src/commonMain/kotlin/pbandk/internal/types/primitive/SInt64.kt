@@ -6,7 +6,7 @@ import pbandk.internal.binary.Sizer
 import pbandk.internal.binary.WireType
 import pbandk.types.ValueType
 
-internal object SInt64 : ValueType<Long> {
+internal object SInt64 : PrimitiveValueType<Long>() {
     override fun isDefaultValue(value: Long) = value == 0L
 
     override val binaryWireType = WireType.VARINT

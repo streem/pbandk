@@ -7,7 +7,7 @@ import pbandk.internal.binary.WireType
 import pbandk.types.ValueType
 import kotlin.String
 
-internal object String : ValueType<String> {
+internal object String : PrimitiveValueType<String>() {
     override fun isDefaultValue(value: String) = value.isEmpty()
 
     override val binaryWireType = WireType.LENGTH_DELIMITED

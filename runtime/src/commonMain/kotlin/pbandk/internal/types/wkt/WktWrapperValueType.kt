@@ -13,6 +13,8 @@ internal abstract class WktWrapperValueType<T : kotlin.Any, M : pbandk.Message>(
 ) : WktValueType<T, M> {
     override fun isDefaultValue(value: T) = false
 
+    override fun mergeValues(value: T, otherValue: T) = otherValue
+
     override val binaryWireType = Message.binaryWireType
 
     override fun binarySize(value: T) =
