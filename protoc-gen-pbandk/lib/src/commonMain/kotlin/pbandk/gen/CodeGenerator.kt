@@ -86,6 +86,10 @@ public open class CodeGenerator(
         // Enums are sealed classes w/ a value and a name, and a companion object with all values
         line("$visibility sealed class ${type.kotlinName.simple}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {")
             .indented {
+                line("override val descriptor: pbandk.EnumDescriptor<${type.kotlinName.fullWithPackage}> get() =").indented {
+                    line("${type.kotlinName.fullWithPackage}.descriptor")
+                }
+
                 line("override fun equals(other: kotlin.Any?): Boolean = other is ${type.kotlinName.fullWithPackage} && other.value == value")
                 line("override fun hashCode(): Int = value.hashCode()")
                 line("override fun toString(): String = \"${type.kotlinName.full}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
@@ -94,6 +98,8 @@ public open class CodeGenerator(
                 line("$visibility class UNRECOGNIZED(value: Int) : ${type.kotlinName.simple}(value)")
                 line()
                 line("$visibility companion object : pbandk.Message.Enum.Companion<${type.kotlinName.fullWithPackage}> {").indented {
+                    writeEnumDescriptor(type)
+
                     line("$visibility val values: List<${type.kotlinName.full}> by lazy(LazyThreadSafetyMode.PUBLICATION) {").indented {
                         val chunkedValues = type.values.chunked(5)
                         if (chunkedValues.size <= 1) {
@@ -374,6 +380,16 @@ public open class CodeGenerator(
                 }
             }
         }.line("}")
+    }
+
+    protected fun writeEnumDescriptor(type: File.Type.Enum) {
+        line("override val descriptor: pbandk.EnumDescriptor<${type.kotlinName.fullWithPackage}> =").indented {
+            line("pbandk.EnumDescriptor.of(").indented {
+                line("fullName = \"${type.name.fullWithPackage.removePrefix(".")}\",")
+                line("enumClass = ${type.kotlinName.fullWithPackage}::class,")
+                line("enumCompanion = this,")
+            }.line(")")
+        }
     }
 
     protected fun writeMessageDescriptor(type: File.Type.Message) {

@@ -33,7 +33,11 @@ public interface Message {
         public val value: Int
         public val name: String?
 
+        public val descriptor: EnumDescriptor<out Enum>
+
         public interface Companion<E : Enum> {
+            public val descriptor: EnumDescriptor<E>
+
             /** Returns `E.UNRECOGNIZED` if [value] is not a known value of this enum. */
             public fun fromValue(value: Int): E
 
