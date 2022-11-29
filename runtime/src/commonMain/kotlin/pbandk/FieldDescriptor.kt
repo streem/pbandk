@@ -1,26 +1,17 @@
 package pbandk
 
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonElement
-import kotlinx.serialization.json.JsonNull
-import kotlinx.serialization.json.JsonObject
-import kotlinx.serialization.json.JsonPrimitive
-import kotlinx.serialization.json.buildJsonArray
 import pbandk.gen.ListField
 import pbandk.gen.MapField
 import pbandk.gen.MutableListField
 import pbandk.gen.MutableMapField
 import pbandk.gen.messageDescriptor
-import pbandk.internal.Util
-import pbandk.internal.binary.Sizer
-import pbandk.internal.binary.Tag
 import pbandk.internal.binary.WireType
+import pbandk.types.FieldType
 import pbandk.wkt.FieldOptions
 import kotlin.reflect.KClass
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
-import kotlin.time.ExperimentalTime
 
 public class FieldMetadata(
     /** The field's unqualified name. */
@@ -340,15 +331,18 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
                     require(value.valueType == valueType)
                     value
                 }
+
                 is MutableListField<*> -> {
                     require(value.valueType == valueType)
                     value.toListField()
                 }
+
                 is Collection<*> -> {
                     require(value.all { valueType.kotlinType.isInstance(it) })
                     @Suppress("UNCHECKED_CAST")
                     ListField(valueType, value as Collection<T>)
                 }
+
                 else -> throw IllegalArgumentException("value must be a Collection")
             }
 
@@ -357,15 +351,18 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
                     require(value.valueType == valueType)
                     MutableListField(valueType, value)
                 }
+
                 is ListField<*> -> {
                     require(value.valueType == valueType)
                     MutableListField(valueType, value)
                 }
+
                 is Collection<*> -> {
                     require(value.all { valueType.kotlinType.isInstance(it) })
                     @Suppress("UNCHECKED_CAST")
                     MutableListField(valueType, value as Collection<T>)
                 }
+
                 else -> throw IllegalArgumentException("value must be a Collection")
             }
         }
@@ -386,10 +383,12 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
                     require(value.entryCompanion == entryCompanion)
                     value
                 }
+
                 is MutableMapField<*, *> -> {
                     require(value.entryCompanion == entryCompanion)
                     value.toMapField()
                 }
+
                 is kotlin.collections.Map<*, *> -> {
                     require(value.all {
                         entryCompanion.keyType.kotlinType.isInstance(it.key) &&
@@ -398,6 +397,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
                     @Suppress("UNCHECKED_CAST")
                     MapField(entryCompanion, value as kotlin.collections.Map<K, V>)
                 }
+
                 else -> throw IllegalArgumentException("value must be a Map")
             }
 
@@ -407,10 +407,12 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
                     require(value.entryCompanion == entryCompanion)
                     MutableMapField(entryCompanion).apply { putAll(value as MutableMapField<K, V>) }
                 }
+
                 is MapField<*, *> -> {
                     require(value.entryCompanion == entryCompanion)
                     MutableMapField(entryCompanion).apply { putAll(value as MapField<K, V>) }
                 }
+
                 is kotlin.collections.Map<*, *> -> {
                     require(value.all {
                         entryCompanion.keyType.kotlinType.isInstance(it.key) &&
@@ -418,6 +420,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
                     })
                     MutableMapField(entryCompanion).apply { putAll(value as kotlin.collections.Map<K, V>) }
                 }
+
                 else -> throw IllegalArgumentException("value must be a Map")
             }
         }
@@ -763,410 +766,4 @@ internal sealed class FieldAccessor<M : Message, in MM : MutableMessage<M>, Valu
         override fun canonicalMutableValue(value: Any): ValueType = kotlinType.cast(value)
     }
      */
-}
-
-internal class BinaryFieldEncoder {
-    private val valueEncoder = BinaryFieldValueEncoder()
-    inline fun writeField(tag: Tag, valueBlock: (BinaryFieldValueEncoder) -> Unit) {
-        // todo: write out the tag
-        valueBlock(valueEncoder)
-    }
-}
-
-internal class BinaryFieldValueEncoder {
-    // Wire type: varint
-    fun writeVarint32(value: Int) {}
-    fun writeVarint64(value: Long) {}
-    fun writeBool(value: Boolean) {}
-
-    // Wire type: i32
-    fun writeFixed32(value: Int) {}
-    fun writeFloat(value: Float) {}
-
-    // Wire type: i64
-    fun writeFixed64(value: Long) {}
-    fun writeDouble(value: Double) {}
-
-    // Wire type: len
-    fun writeLengthPrefix(value: Int) {}
-    fun writeString(value: String) {}
-    fun writeBytes(value: ByteArr) {}
-    inline fun writeFields(length: Int, fieldBlock: (BinaryFieldEncoder) -> Unit) {
-        writeLengthPrefix(length)
-        // ...
-    }
-}
-
-internal class JsonFieldEncoder {
-    private val json = Json
-    val jsonContent: MutableMap<String, JsonElement> = linkedMapOf()
-
-    inline fun writeField(key: String, valueBlock: (JsonFieldValueEncoder) -> Unit) {
-        JsonFieldValueEncoder().also {
-            valueBlock(it)
-            jsonContent[key] = it.getResult()
-        }
-    }
-}
-
-
-internal class JsonFieldValueEncoder {
-    private var element: JsonElement = JsonNull
-
-    fun writeNumber(value: Int) {
-        element = JsonPrimitive(value)
-    }
-
-    fun writeFloat(value: Float) {
-        element = JsonPrimitive(value)
-    }
-
-    fun writeDouble(value: Double) {
-        element = JsonPrimitive(value)
-    }
-
-    fun writeString(value: String) {
-        element = JsonPrimitive(value)
-    }
-
-    fun writeBool(value: Boolean) {
-        element = JsonPrimitive(value)
-    }
-
-    fun writeNull() {
-        element = JsonNull
-    }
-
-    inline fun writeArray(valuesBlock: (JsonFieldValueEncoder) -> Unit) {
-        element = buildJsonArray {
-
-        }
-    }
-    inline fun writeObject(valuesBlock: (JsonFieldEncoder) -> Unit) {
-        element = JsonObject(JsonFieldEncoder().also(valuesBlock).jsonContent)
-    }
-
-    fun getResult() = element
-}
-
-
-internal interface ValueType<KotlinType> {
-    fun isDefaultValue(value: KotlinType): Boolean
-
-    val binaryWireType: WireType
-    fun binarySize(value: KotlinType): Int
-    fun encodeToBinary(value: KotlinType, encoder: BinaryFieldValueEncoder)
-
-    fun encodeToJson(value: KotlinType, encoder: JsonFieldValueEncoder)
-    fun encodeToJsonMapKey(value: KotlinType): String
-}
-
-internal object ValueTypes {
-    object UInt32 : ValueType<Int> {
-        override fun isDefaultValue(value: Int) = value == 0
-
-        override val binaryWireType = WireType.VARINT
-
-        override fun binarySize(value: Int) = Sizer.uInt32Size(value)
-
-        override fun encodeToBinary(value: Int, encoder: BinaryFieldValueEncoder) {
-            encoder.writeVarint32(value)
-        }
-
-        override fun encodeToJson(value: Int, encoder: JsonFieldValueEncoder) {
-            encoder.writeNumber(value)
-        }
-
-        override fun encodeToJsonMapKey(value: Int) = value.toString()
-    }
-
-    object String : ValueType<kotlin.String> {
-        override fun isDefaultValue(value: kotlin.String) = value.isEmpty()
-
-        override val binaryWireType = WireType.LENGTH_DELIMITED
-
-        override fun binarySize(value: kotlin.String) = Sizer.stringSize(value)
-
-        override fun encodeToBinary(value: kotlin.String, encoder: BinaryFieldValueEncoder) {
-            encoder.writeString(value)
-        }
-
-        override fun encodeToJson(value: kotlin.String, encoder: JsonFieldValueEncoder) {
-            encoder.writeString(value)
-        }
-
-        override fun encodeToJsonMapKey(value: kotlin.String) = value
-    }
-
-    object Enum : ValueType<pbandk.Message.Enum> {
-        override fun isDefaultValue(value: pbandk.Message.Enum) = value.value == 0
-
-        override val binaryWireType = WireType.VARINT
-
-        override fun binarySize(value: pbandk.Message.Enum) = Sizer.enumSize(value)
-
-        override fun encodeToBinary(value: pbandk.Message.Enum, encoder: BinaryFieldValueEncoder) {
-            encoder.writeVarint32(value.value)
-        }
-
-        override fun encodeToJson(value: pbandk.Message.Enum, encoder: JsonFieldValueEncoder) {
-            // TODO: maybe encode the numerical value if the name is unknown?
-            value.name?.let { name ->
-                encoder.writeString(name)
-            }
-        }
-
-        override fun encodeToJsonMapKey(value: pbandk.Message.Enum) =
-            throw UnsupportedOperationException("enums cannot be used as map keys")
-    }
-
-    object Message : ValueType<pbandk.Message> {
-        override fun isDefaultValue(value: pbandk.Message) = false
-
-        override val binaryWireType = WireType.LENGTH_DELIMITED
-
-        override fun binarySize(value: pbandk.Message) = Sizer.messageSize(value)
-
-        // Helper function to make the generic type checker happy
-        private fun <M : pbandk.Message, MM : MutableMessage<M>, V> encodeMessageField(
-            message: M,
-            fieldDescriptor: FieldDescriptor<M, MM, V>,
-            encoder: BinaryFieldEncoder,
-        ) {
-            with(fieldDescriptor) {
-                fieldType.encodeToBinary(metadata, accessor.getValue(message), encoder)
-            }
-        }
-
-        override fun encodeToBinary(value: pbandk.Message, encoder: BinaryFieldValueEncoder) {
-            encoder.writeFields(value.protoSize) { fieldEncoder ->
-                value.messageDescriptor.fields.forEach { fieldDescriptor ->
-                    encodeMessageField(value, fieldDescriptor, fieldEncoder)
-                }
-            }
-        }
-
-        // Helper function to make the generic type checker happy
-        private fun <M : pbandk.Message, MM : MutableMessage<M>, V> encodeMessageField(
-            message: M,
-            fieldDescriptor: FieldDescriptor<M, MM, V>,
-            encoder: JsonFieldEncoder,
-        ) {
-            with(fieldDescriptor) {
-                fieldType.encodeToJson(metadata, accessor.getValue(message), encoder)
-            }
-        }
-
-        override fun encodeToJson(value: pbandk.Message, encoder: JsonFieldValueEncoder) {
-            encoder.writeObject { fieldEncoder ->
-                value.messageDescriptor.fields.forEach { fieldDescriptor ->
-                    encodeMessageField(value, fieldDescriptor, fieldEncoder)
-                }
-            }
-        }
-
-        override fun encodeToJsonMapKey(value: pbandk.Message) =
-            throw UnsupportedOperationException("messages cannot be used as map keys")
-    }
-
-    object StringValue : ValueType<kotlin.String> {
-        override fun isDefaultValue(value: kotlin.String) = false
-
-        override val binaryWireType = Message.binaryWireType
-
-        override fun binarySize(value: kotlin.String): Int {
-            //return Sizer.messageSize(pbandk.wkt.StringValue { this.value = value })
-            // or
-            return 1 + Sizer.stringSize(value)
-        }
-
-        override fun encodeToBinary(value: kotlin.String, encoder: BinaryFieldValueEncoder) {
-//            Message.encodeToBinary(pbandk.wkt.StringValue { this.value = value }, encoder)
-            // or
-            encoder.writeFields(binarySize(value)) { fieldEncoder ->
-                fieldEncoder.writeField(Tag(1, WireType.LENGTH_DELIMITED)) { valueEncoder ->
-                    valueEncoder.writeString(value)
-                }
-            }
-        }
-
-        override fun encodeToJson(value: kotlin.String, encoder: JsonFieldValueEncoder) {
-            encoder.writeString(value)
-        }
-
-        override fun encodeToJsonMapKey(value: kotlin.String) = value
-    }
-
-    @OptIn(ExperimentalTime::class)
-    object Duration : ValueType<kotlin.time.Duration> {
-        override fun isDefaultValue(value: kotlin.time.Duration) = false
-
-        override val binaryWireType = Message.binaryWireType
-
-        override fun binarySize(value: kotlin.time.Duration): Int {
-            return value.toComponents { seconds, nanoseconds ->
-//                Sizer.messageSize(pbandk.wkt.Duration {
-//                    this.seconds = seconds
-//                    this.nanos = nanoseconds
-//                })
-                // or
-                1 + Sizer.int64Size(seconds) + 1 + Sizer.int32Size(nanoseconds)
-            }
-        }
-
-        override fun encodeToBinary(value: kotlin.time.Duration, encoder: BinaryFieldValueEncoder) {
-            value.toComponents { seconds, nanoseconds ->
-//                Message.encodeToBinary(pbandk.wkt.Duration {
-//                    this.seconds = seconds
-//                    this.nanos = nanoseconds
-//                }, encoder)
-                // or
-                encoder.writeFields(binarySize(value)) { fieldEncoder ->
-                    fieldEncoder.writeField(Tag(1, WireType.VARINT)) { valueEncoder ->
-                        valueEncoder.writeVarint64(seconds)
-                    }
-                    fieldEncoder.writeField(Tag(2, WireType.VARINT)) { valueEncoder ->
-                        valueEncoder.writeVarint32(nanoseconds)
-                    }
-                }
-            }
-        }
-
-        override fun encodeToJson(value: kotlin.time.Duration, encoder: JsonFieldValueEncoder) {
-            value.toComponents { seconds, nanoseconds ->
-                encoder.writeString(Util.durationToString(pbandk.wkt.Duration {
-                    this.seconds = seconds
-                    this.nanos = nanoseconds
-                }))
-            }
-        }
-
-        override fun encodeToJsonMapKey(value: kotlin.time.Duration) =
-            throw UnsupportedOperationException("google.protobuf.Duration cannot be used as a map key")
-    }
-}
-
-internal sealed class FieldType<KotlinType> {
-    abstract fun encodeToBinary(metadata: FieldMetadata, value: KotlinType, encoder: BinaryFieldEncoder)
-    abstract fun encodeToJson(metadata: FieldMetadata, value: KotlinType, encoder: JsonFieldEncoder)
-
-    class Required<T : Any>(private val valueType: ValueType<T>) : FieldType<T>() {
-        override fun encodeToBinary(metadata: FieldMetadata, value: T, encoder: BinaryFieldEncoder) {
-            encoder.writeField(Tag(metadata.number, valueType.binaryWireType)) { valueEncoder ->
-                valueType.encodeToBinary(value, valueEncoder)
-            }
-        }
-
-        override fun encodeToJson(metadata: FieldMetadata, value: T, encoder: JsonFieldEncoder) {
-            encoder.writeField(metadata.jsonName) { valueEncoder ->
-                valueType.encodeToJson(value, valueEncoder)
-            }
-        }
-    }
-
-    class ExplicitOptional<T : Any>(private val valueType: ValueType<T>) : FieldType<T?>() {
-        override fun encodeToBinary(metadata: FieldMetadata, value: T?, encoder: BinaryFieldEncoder) {
-            if (value == null) return
-            encoder.writeField(Tag(metadata.number, valueType.binaryWireType)) { valueEncoder ->
-                valueType.encodeToBinary(value, valueEncoder)
-            }
-        }
-
-        override fun encodeToJson(metadata: FieldMetadata, value: T?, encoder: JsonFieldEncoder) {
-            if (value == null) return
-            encoder.writeField(metadata.jsonName) { valueEncoder ->
-                valueType.encodeToJson(value, valueEncoder)
-            }
-        }
-    }
-
-    class ImplicitOptional<T : Any>(private val valueType: ValueType<T>) : FieldType<T>() {
-        override fun encodeToBinary(metadata: FieldMetadata, value: T, encoder: BinaryFieldEncoder) {
-            if (valueType.isDefaultValue(value)) return
-            encoder.writeField(Tag(metadata.number, valueType.binaryWireType)) { valueEncoder ->
-                valueType.encodeToBinary(value, valueEncoder)
-            }
-        }
-
-        override fun encodeToJson(metadata: FieldMetadata, value: T, encoder: JsonFieldEncoder) {
-            if (valueType.isDefaultValue(value)) return
-            encoder.writeField(metadata.jsonName) { valueEncoder ->
-                valueType.encodeToJson(value, valueEncoder)
-            }
-        }
-    }
-
-    class Repeated<T : Any>(private val valueType: ValueType<T>) : FieldType<List<T>>() {
-        override fun encodeToBinary(
-            metadata: FieldMetadata,
-            value: List<T>,
-            encoder: BinaryFieldEncoder
-        ) {
-            if (metadata.options.packed == true) {
-                encoder.writeField(Tag(metadata.number, WireType.LENGTH_DELIMITED)) { valueEncoder ->
-                    value.forEach {
-                        valueType.encodeToBinary(it, valueEncoder)
-                    }
-                }
-            } else {
-                value.forEach {
-                    encoder.writeField(Tag(metadata.number, valueType.binaryWireType)) { valueEncoder ->
-                        valueType.encodeToBinary(it, valueEncoder)
-                    }
-                }
-            }
-        }
-
-        override fun encodeToJson(metadata: FieldMetadata, value: List<T>, encoder: JsonFieldEncoder) {
-            encoder.writeField(metadata.jsonName) { valueEncoder ->
-                valueEncoder.writeArray { arrayValueEncoder ->
-                    value.forEach { valueType.encodeToJson(it, arrayValueEncoder) }
-                }
-            }
-        }
-    }
-
-    class Map<K : Any, V : Any>(
-        private val keyType: ValueType<K>,
-        private val valueType: ValueType<V>,
-    ) : FieldType<kotlin.collections.Map<K, V>>() {
-        override fun encodeToBinary(
-            metadata: FieldMetadata,
-            value: kotlin.collections.Map<K, V>,
-            encoder: BinaryFieldEncoder
-        ) {
-//            value as MapField<K, V>
-//            value.asMessages().forEach {
-//                encoder.writeField(Tag(metadata.number, WireType.LENGTH_DELIMITED)) { valueEncoder ->
-//                    ValueTypes.Message.encodeToBinary(it, valueEncoder)
-//                }
-//            }
-            // or
-            val entryTag = Tag(metadata.number, WireType.LENGTH_DELIMITED)
-            val keyTag = Tag(1, keyType.binaryWireType)
-            val valueTag = Tag(2, valueType.binaryWireType)
-            value.forEach { (k, v) ->
-                encoder.writeField(entryTag) { valueEncoder ->
-                    valueEncoder.writeFields(1 + keyType.binarySize(k) + 1 + valueType.binarySize(v)) { fieldEncoder ->
-                        fieldEncoder.writeField(keyTag) { keyType.encodeToBinary(k, it) }
-                        fieldEncoder.writeField(valueTag) { valueType.encodeToBinary(v, it) }
-                    }
-                }
-            }
-        }
-
-        override fun encodeToJson(
-            metadata: FieldMetadata,
-            value: kotlin.collections.Map<K, V>,
-            encoder: JsonFieldEncoder
-        ) {
-            encoder.writeField(metadata.jsonName) { valueEncoder ->
-                valueEncoder.writeObject { objectValueEncoder ->
-                    value.forEach { (k, v) ->
-                        objectValueEncoder.writeField(keyType.encodeToJsonMapKey(k)) { valueType.encodeToJson(v, it) }
-                    }
-                }
-            }
-        }
-    }
 }

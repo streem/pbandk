@@ -2,74 +2,22 @@ package pbandk.internal.json
 
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
-import kotlinx.serialization.json.JsonNull
-import kotlinx.serialization.json.JsonObject
-import pbandk.FieldDescriptor
 import pbandk.Message
 import pbandk.MessageEncoder
-import pbandk.internal.forEach
-import pbandk.internal.fieldIterator
+import pbandk.internal.types.primitive.Message.encodeToJson
 import pbandk.json.JsonConfig
-import kotlin.collections.MutableMap
-import kotlin.collections.linkedMapOf
-import kotlin.collections.set
 
 internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageEncoder {
     private val json = Json {
         prettyPrint = !jsonConfig.compactOutput
     }
-    private val jsonValueEncoder = JsonValueEncoder(jsonConfig)
-    private var currentMessage: JsonElement? = null
+    private val jsonFieldValueEncoder = JsonFieldValueEncoder(jsonConfig)
 
-    fun toJsonString(): String = currentMessage?.let { json.encodeToString(JsonElement.serializer(), it) }.orEmpty()
-
-    internal fun toJsonElement(): JsonElement =
-        currentMessage ?: error("Must call writeMessage() before toJsonElement()")
+    fun toJsonString(): String = json.encodeToString(JsonElement.serializer(), jsonFieldValueEncoder.getResult())
 
     override fun <M : Message> writeMessage(message: M) {
-        check(currentMessage == null) { "JsonMessageEncoder can't be reused with multiple messages" }
-        currentMessage =
-            JsonMessageAdapters.getAdapter(message)?.encode(message, jsonValueEncoder) ?: writeMessageObject(message)
-    }
-
-    private fun <M : Message> writeMessageObject(message: M): JsonObject {
-        val jsonContent: MutableMap<String, JsonElement> = linkedMapOf()
-
-        message.fieldIterator().forEach { fd, value ->
-            if (value == null && fd.isOneofMember) return@forEach
-            if (!fd.isOneofMember && !jsonConfig.outputDefaultValues && value == fd.type.defaultValue) return@forEach
-
-            val jsonValue = value
-                ?.takeUnless {
-                    @Suppress("DEPRECATION")
-                    jsonConfig.outputDefaultValues &&
-                            jsonConfig.outputDefaultStringsAsNull &&
-                            fd.type is FieldDescriptor.Type.Primitive.String &&
-                            it == fd.type.defaultValue
-                }
-                ?.let { jsonValueEncoder.writeValue(it, fd.type) }
-                ?: JsonNull
-
-            jsonContent[jsonConfig.getFieldJsonName(fd)] = jsonValue
-        }
-
-        return JsonObject(jsonContent)
-    }
-
-    private fun <M : Message> writeFieldValue(fd: FieldDescriptor<M, *>, value: Any?): JsonElement? {
-        if (value == null && fd.isOneofMember) return null
-        if (!fd.isOneofMember && !jsonConfig.outputDefaultValues && value == fd.type.defaultValue) return null
-
-        return value
-            ?.takeUnless {
-                @Suppress("DEPRECATION")
-                jsonConfig.outputDefaultValues &&
-                        jsonConfig.outputDefaultStringsAsNull &&
-                        fd.type is FieldDescriptor.Type.Primitive.String &&
-                        it == fd.type.defaultValue
-            }
-            ?.let { jsonValueEncoder.writeValue(it, fd.type) }
-            ?: JsonNull
+//        check(currentMessage == null) { "JsonMessageEncoder can't be reused with multiple messages" }
+        encodeToJson(message, jsonFieldValueEncoder)
     }
 }
 

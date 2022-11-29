@@ -1,11 +1,11 @@
 package pbandk
 
+import pbandk.internal.binary.BinaryFieldEncoder
 import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.BinaryMessageEncoder
 import pbandk.internal.binary.OutputStreamWireWriter
 import pbandk.internal.binary.fromByteBuffer
 import pbandk.internal.binary.fromInputStream
-import pbandk.internal.binary.kotlin.KotlinBinaryWireEncoder
 import java.io.InputStream
 import java.io.OutputStream
 import java.nio.ByteBuffer
@@ -17,7 +17,7 @@ import java.nio.ByteBuffer
  */
 public fun <T : Message> T.encodeToStream(stream: OutputStream): Int {
     val wireWriter = OutputStreamWireWriter(stream)
-    encodeWith(BinaryMessageEncoder(KotlinBinaryWireEncoder(wireWriter)))
+    encodeWith(BinaryMessageEncoder(BinaryFieldEncoder(wireWriter)))
     wireWriter.flush()
     return wireWriter.totalBytesWritten
 }

@@ -43,27 +43,3 @@ internal interface BinaryWireEncoder {
 
     fun writeBytes(fieldNum: Int, value: ByteArr)
 }
-
-internal fun BinaryWireEncoder.writePrimitiveValue(
-    fieldNum: Int,
-    type: FieldDescriptor.Type.Primitive<*>,
-    value: Any
-) {
-    when (type) {
-        is FieldDescriptor.Type.Primitive.Double -> writeDouble(fieldNum, value as Double)
-        is FieldDescriptor.Type.Primitive.Float -> writeFloat(fieldNum, value as Float)
-        is FieldDescriptor.Type.Primitive.Int64 -> writeInt64(fieldNum, value as Long)
-        is FieldDescriptor.Type.Primitive.UInt64 -> writeUInt64(fieldNum, value as Long)
-        is FieldDescriptor.Type.Primitive.Int32 -> writeInt32(fieldNum, value as Int)
-        is FieldDescriptor.Type.Primitive.Fixed64 -> writeFixed64(fieldNum, value as Long)
-        is FieldDescriptor.Type.Primitive.Fixed32 -> writeFixed32(fieldNum, value as Int)
-        is FieldDescriptor.Type.Primitive.Bool -> writeBool(fieldNum, value as Boolean)
-        is FieldDescriptor.Type.Primitive.String -> writeString(fieldNum, value as String)
-        is FieldDescriptor.Type.Primitive.Bytes -> writeBytes(fieldNum, value as ByteArr)
-        is FieldDescriptor.Type.Primitive.UInt32 -> writeUInt32(fieldNum, value as Int)
-        is FieldDescriptor.Type.Primitive.SFixed32 -> writeSFixed32(fieldNum, value as Int)
-        is FieldDescriptor.Type.Primitive.SFixed64 -> writeSFixed64(fieldNum, value as Long)
-        is FieldDescriptor.Type.Primitive.SInt32 -> writeSInt32(fieldNum, value as Int)
-        is FieldDescriptor.Type.Primitive.SInt64 -> writeSInt64(fieldNum, value as Long)
-    }
-}

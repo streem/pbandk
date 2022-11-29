@@ -2,6 +2,7 @@ package pbandk.json
 
 import pbandk.ExperimentalProtoJson
 import pbandk.FieldDescriptor
+import pbandk.FieldMetadata
 import pbandk.TypeRegistry
 import kotlin.js.JsExport
 
@@ -47,11 +48,11 @@ public data class JsonConfig(
      */
     val typeRegistry: TypeRegistry = TypeRegistry.EMPTY,
 ) {
-    internal fun getFieldJsonName(fieldDescriptor: FieldDescriptor<*, *>): String =
+    internal fun getFieldJsonName(fieldMetadata: FieldMetadata): String =
         when {
-            fieldDescriptor.isExtension -> "[${fieldDescriptor.fullName}]"
-            outputProtoFieldNames -> fieldDescriptor.name
-            else -> fieldDescriptor.jsonName
+            fieldMetadata.isExtension -> "[${fieldMetadata.fullName}]"
+            outputProtoFieldNames -> fieldMetadata.name
+            else -> fieldMetadata.jsonName
         }
 
     public companion object {
