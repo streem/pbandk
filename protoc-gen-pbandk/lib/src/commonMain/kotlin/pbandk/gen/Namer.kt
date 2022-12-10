@@ -35,6 +35,9 @@ public interface Namer {
             "interface", "is", "null", "object", "package", "return", "super", "this", "throw",
             "true", "try", "typealias", "typeof", "val", "var", "when", "while"
         )
+        // Based on the definition of identifiers at https://kotlinlang.org/spec/syntax-and-grammar.html#identifiers
+        private val validKotlinIdentifierPattern =
+            "^[\\p{Lu}\\p{Ll}\\p{Lt}\\p{Lm}\\p{Lo}_][\\p{Lu}\\p{Ll}\\p{Lt}\\p{Lm}\\p{Lo}\\p{Nd}_]*".toRegex()
 
         override fun newTypeName(preferred: String, nameSet: Collection<String>): String {
             var name = underscoreToCamelCase(preferred).replaceFirstChar { it.titlecase() }
@@ -52,7 +55,14 @@ public interface Namer {
 
         override fun newEnumValueTypeName(enumTypeName: String, preferred: String, nameSet: Collection<String>): String {
             val typePrefix = splitWordsToSnakeCase(enumTypeName) + '_'
-            var name = splitWordsToSnakeCase(preferred).substringAfter(typePrefix)
+            var name = splitWordsToSnakeCase(preferred)
+            val nameWithoutPrefix = name.substringAfter(typePrefix)
+            // Strip the enum's name from the enum value's name, if the resulting name is still a valid identifier. This
+            // ensures that protobuf enum value names such as `EDITION_2023` don't get turned into just `2023`, which
+            // is not a valid Kotlin identifier.
+            if (nameWithoutPrefix.matches(validKotlinIdentifierPattern)) {
+                name = nameWithoutPrefix
+            }
             name = name.uppercase()
 
             while (nameSet.contains(name) ||
