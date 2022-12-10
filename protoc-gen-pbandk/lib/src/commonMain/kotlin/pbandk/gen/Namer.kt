@@ -27,13 +27,13 @@ public interface Namer {
         private val disallowedFieldNamePrefixes = setOf(
             "decodeFrom", "encodeTo"
         )
-        private val disallowedValueTypeNames = disallowedTypeNames + setOf(
-            "UNRECOGNIZED"
-        )
         private val kotlinKeywords = setOf(
             "as", "break", "class", "continue", "do", "else", "false", "for", "fun", "if", "in",
             "interface", "is", "null", "object", "package", "return", "super", "this", "throw",
             "true", "try", "typealias", "typeof", "val", "var", "when", "while"
+        )
+        private val disallowedValueTypeNames = disallowedTypeNames + kotlinKeywords + setOf(
+            "UNRECOGNIZED"
         )
 
         override fun newTypeName(preferred: String, nameSet: Collection<String>): String {
@@ -52,11 +52,14 @@ public interface Namer {
 
         override fun newEnumValueTypeName(enumTypeName: String, preferred: String, nameSet: Collection<String>): String {
             val typePrefix = splitWordsToSnakeCase(enumTypeName) + '_'
-            var name = splitWordsToSnakeCase(preferred).substringAfter(typePrefix)
-            name = name.uppercase()
+            var name = splitWordsToSnakeCase(preferred).let { snakeCase ->
+                snakeCase.substringAfter(typePrefix).takeUnless {
+                    "^\\d|\\W".toRegex().matches(it)
+                } ?: snakeCase
+            }.apply { uppercase() }
 
             while (nameSet.contains(name) ||
-                    disallowedValueTypeNames.contains(name) ||
+                    disallowedValueTypeNames.any { it.equals(name, true) } ||
                     enumTypeName == name) {
                 name += '_'
             }
