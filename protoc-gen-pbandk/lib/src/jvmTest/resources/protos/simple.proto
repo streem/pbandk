@@ -8,3 +8,9 @@ message Message1 {
 message Message2 {
     string str_val = 1;
 }
+
+enum Variable {
+    NONE = 0;
+    VARIABLE_1 = 1;
+    VARIABLE_CLASS = 2;
+}
