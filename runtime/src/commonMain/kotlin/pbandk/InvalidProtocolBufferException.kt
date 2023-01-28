@@ -33,5 +33,8 @@ public class InvalidProtocolBufferException : RuntimeException {
             "Protocol message was too large.  May be malicious.  "
                     + "Use a higher sizeLimit when reading the reading the input."
         )
+
+        internal fun invalidJsonType() = InvalidProtocolBufferException("Protocol message JSON field had invalid type.")
+
     }
 }

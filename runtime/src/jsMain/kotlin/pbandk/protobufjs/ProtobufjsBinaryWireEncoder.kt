@@ -7,7 +7,7 @@ import pbandk.Message
 import pbandk.internal.asUint8Array
 import pbandk.internal.binary.BinaryWireEncoder
 import pbandk.internal.binary.Tag
-import pbandk.internal.binary.WireType
+import pbandk.binary.WireType
 
 private fun Writer.writeValueNoTag(type: FieldDescriptor.Type, value: Any) {
     when (type) {

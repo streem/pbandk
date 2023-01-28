@@ -1,10 +1,12 @@
-package pbandk.internal.binary
+package pbandk.binary
 
+import pbandk.PublicForGeneratedCode
 import kotlin.jvm.JvmInline
 
+@PublicForGeneratedCode
 @JvmInline
-internal value class WireType(val value: Int) {
-    companion object {
+public value class WireType internal constructor(internal val value: Int) {
+    internal companion object {
         val VARINT = WireType(0)
         val FIXED64 = WireType(1)
         val LENGTH_DELIMITED = WireType(2)

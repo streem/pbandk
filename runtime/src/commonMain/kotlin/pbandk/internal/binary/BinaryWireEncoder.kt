@@ -3,6 +3,7 @@ package pbandk.internal.binary
 import pbandk.ByteArr
 import pbandk.FieldDescriptor
 import pbandk.Message
+import pbandk.binary.WireType
 
 internal interface BinaryWireEncoder {
     fun writeRawBytes(fieldNum: Int, wireType: WireType, value: ByteArray)

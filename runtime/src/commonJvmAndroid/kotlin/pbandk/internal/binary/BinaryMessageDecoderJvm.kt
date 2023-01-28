@@ -2,12 +2,11 @@ package pbandk.internal.binary
 
 import pbandk.MessageDecoder
 import pbandk.internal.binary.kotlin.ByteArrayWireReader
-import pbandk.internal.binary.kotlin.KotlinBinaryWireDecoder
 import java.io.InputStream
 import java.nio.ByteBuffer
 
 private fun fromByteArray(arr: ByteArray, offset: Int, length: Int) =
-    BinaryMessageDecoder(KotlinBinaryWireDecoder(ByteArrayWireReader(arr, offset, length)))
+    BinaryMessageDecoder(BinaryFieldDecoder(ByteArrayWireReader(arr, offset, length)))
 
 // TODO: Maybe allow the caller to pass in optional offset and length for reading from the array
 internal actual fun BinaryMessageDecoder.Companion.fromByteArray(arr: ByteArray): MessageDecoder =
@@ -20,7 +19,7 @@ internal fun BinaryMessageDecoder.Companion.fromInputStream(stream: InputStream,
     } else {
         InputStreamWireReader(stream)
     }
-    return BinaryMessageDecoder(KotlinBinaryWireDecoder(wireReader))
+    return BinaryMessageDecoder(BinaryFieldDecoder(wireReader))
 }
 
 internal fun BinaryMessageDecoder.Companion.fromByteBuffer(buffer: ByteBuffer): MessageDecoder {

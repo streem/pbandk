@@ -30,6 +30,7 @@
 package pbandk.internal.binary
 
 import pbandk.*
+import pbandk.binary.WireType
 import pbandk.gen.ListField
 import pbandk.gen.MapField
 import pbandk.internal.fieldIterator

@@ -1,5 +1,6 @@
 package pbandk
 
+import pbandk.gen.GeneratedOneOf
 import pbandk.wkt.OneofOptions
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty0
@@ -10,7 +11,7 @@ public class OneofDescriptor<M : Message, O : Message.OneOf<*>> private construc
     @ExperimentalProtoReflection
     public val name: String,
     internal val getValue: (M) -> O?,
-    internal val updateValue: (MutableMessage<M>, O?) -> Unit,
+    internal val setValue: (MutableMessage<M>, O?) -> Unit,
     @ExperimentalProtoReflection
     public val fields: FieldDescriptorSet<M>,
     // TODO: make this public once we're actually populating it correctly in the CodeGenerator
@@ -20,6 +21,19 @@ public class OneofDescriptor<M : Message, O : Message.OneOf<*>> private construc
     // constructed yet. This is because this [OneofDescriptor] is one of the parameters that will be passed to the
     // [MessageDescriptor] constructor. To avoid the circular dependency, this property is declared lazy.
     internal val messageDescriptor: MessageDescriptor<M> by lazy(LazyThreadSafetyMode.PUBLICATION) { getMessageDescriptor() }
+
+    internal fun mergeValues(message: M, otherMessage: M, destination: MutableMessage<M>) {
+        val otherValue = getValue(otherMessage) ?: return
+        val value = getValue(message)
+
+        if (value == null || value::class != otherValue::class) {
+            setValue(destination, otherValue)
+        } else {
+            @Suppress("UNCHECKED_CAST")
+            val fd = (value as GeneratedOneOf<M, *>).currentFieldDescriptor
+            fd.mergeValues(message, otherMessage, destination)
+        }
+    }
 
     public companion object {
         @PublicForGeneratedCode
@@ -35,7 +49,7 @@ public class OneofDescriptor<M : Message, O : Message.OneOf<*>> private construc
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             getValue = value::get,
-            updateValue = mutableValue::set as (MutableMessage<M>, O?) -> Unit,
+            setValue = mutableValue::set as (MutableMessage<M>, O?) -> Unit,
             fields = FieldDescriptorSet(fields),
             options = options
         )

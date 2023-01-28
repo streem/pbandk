@@ -2,6 +2,7 @@ package pbandk.internal.json
 
 import kotlinx.serialization.json.JsonElement
 import pbandk.json.JsonConfig
+import pbandk.json.JsonFieldValueEncoder
 
 internal class JsonFieldEncoder(internal val jsonConfig: JsonConfig) {
     val jsonContent: MutableMap<String, JsonElement> = linkedMapOf()

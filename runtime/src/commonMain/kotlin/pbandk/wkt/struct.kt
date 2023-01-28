@@ -3,26 +3,44 @@
 
 package pbandk.wkt
 
+import pbandk.EnumDescriptor
+import pbandk.Message
+import pbandk.gen.GeneratedEnumCompanion
+import pbandk.gen.UnrecognizedEnumValue
+import kotlin.Any
+
 @pbandk.Export
 @Suppress("ClassName")
-public sealed class NullValue(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.NullValue && other.value == value
-    override fun hashCode(): Int = value.hashCode()
-    override fun toString(): String = "NullValue.${name ?: "UNRECOGNIZED"}(value=$value)"
+public sealed interface NullValue : pbandk.Message.Enum {
+    override val descriptor: EnumDescriptor<NullValue> get() = pbandk.wkt.NullValue.descriptor
 
-    public object NULL_VALUE : NullValue(0, "NULL_VALUE")
-    public class UNRECOGNIZED(value: Int) : NullValue(value)
+    public object NULL_VALUE : NullValue, pbandk.gen.GeneratedEnumValue<pbandk.wkt.NullValue>(
+        value = 0,
+        name = "NULL_VALUE",
+    )
+    public class UNRECOGNIZED(
+        override val value: Int? = null,
+        override val name: String? = null,
+    ) : NullValue, pbandk.gen.UnrecognizedEnumValue<pbandk.wkt.NullValue>() {
+        // public companion object : UnrecognizedEnumValue.Companion<UNRECOGNIZED>(::UNRECOGNIZED)
+    }
 
     public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.NullValue> {
+        override val descriptor: pbandk.EnumDescriptor<NullValue> = pbandk.EnumDescriptor.of(
+            fullName = "google.protobuf.NullValue",
+            enumClass = pbandk.wkt.NullValue::class,
+            enumCompanion = this,
+        )
+
         public val values: List<NullValue> by lazy(LazyThreadSafetyMode.PUBLICATION) {
             listOf(NULL_VALUE)
         }
 
         override fun fromValue(value: Int): pbandk.wkt.NullValue =
-            values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value = value)
 
         override fun fromName(name: String): pbandk.wkt.NullValue =
-            values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NullValue with name: $name")
+            values.firstOrNull { it.name == name } ?: UNRECOGNIZED(name = name)
     }
 }
 
@@ -51,10 +69,12 @@ public sealed interface Struct : pbandk.Message {
     public object FieldDescriptors {
         public val fields: pbandk.FieldDescriptor<pbandk.wkt.Struct, Map<String, pbandk.wkt.Value>> =
             pbandk.FieldDescriptor.ofMap(
+                messageMetadata = pbandk.wkt.Struct.messageMetadata,
                 messageDescriptor = pbandk.wkt.Struct::descriptor,
                 name = "fields",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.map(keyType = pbandk.FieldDescriptor.Type.string(), valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Value.Companion)),
+                keyType = pbandk.internal.types.primitive.String,
+                valueType = pbandk.wkt.Value.descriptor.valueType,
                 jsonName = "fields",
                 value = pbandk.wkt.Struct::fields,
                 mutableValue = pbandk.wkt.MutableStruct::fields,
@@ -62,13 +82,17 @@ public sealed interface Struct : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Struct> {
-        public val defaultInstance: pbandk.wkt.Struct by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Struct by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Struct {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Struct",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Struct> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.Struct",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Struct::class,
                 messageCompanion = this,
                 builder = ::Struct,

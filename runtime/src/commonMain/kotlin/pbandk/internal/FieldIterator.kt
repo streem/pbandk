@@ -31,15 +31,13 @@ internal fun <M : Message> M.fieldIterator(): FieldIterator<M> {
 
 private fun <T : Any> Iterator<T>.nextOrNull(): T? = if (hasNext()) next() else null
 
-internal inline fun <M : Message> forEachField(first: M, second: M, operation: (FieldDescriptor<M, out Any?>, Any?, Any?) -> Unit) {
+private typealias ForEachFieldFn<M, T> = (FieldDescriptor<M, out T>, T, T) -> Unit
+
+internal inline fun <M : Message> forEachField(first: M, second: M, operation: ForEachFieldFn<M, Any?>) {
     require(first.descriptor == second.descriptor)
 
-    val firstIter = first.messageDescriptor.fields.iteratorFor(first)
-    val secondIter = second.messageDescriptor.fields.iteratorFor(second)
-    while (firstIter.hasNext()) {
-        val firstFd = firstIter.next()
-        secondIter.next()
-        operation(firstFd, firstIter.nextValue(), secondIter.nextValue())
+    first.messageDescriptor.fields.forEach { fd ->
+        operation(fd, fd.getValue(first), fd.getValue(second))
     }
 
     if (first is GeneratedExtendableMessage<*> && second is GeneratedExtendableMessage<*>) {

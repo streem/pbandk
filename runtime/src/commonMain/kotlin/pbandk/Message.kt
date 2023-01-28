@@ -27,10 +27,11 @@ public interface Message {
 
     public interface Companion<M : Message> {
         public val descriptor: MessageDescriptor<M>
+        public val defaultInstance: M
     }
 
     public interface Enum {
-        public val value: Int
+        public val value: Int?
         public val name: String?
 
         public val descriptor: EnumDescriptor<out Enum>

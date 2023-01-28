@@ -1,18 +1,20 @@
 package pbandk
 
-import pbandk.gen.ListField
-import pbandk.gen.MapField
-import pbandk.gen.MutableListField
-import pbandk.gen.MutableMapField
-import pbandk.internal.binary.WireType
-import pbandk.types.FieldType
+import pbandk.internal.binary.BinaryFieldEncoder
+import pbandk.binary.BinaryFieldValueDecoder
+import pbandk.internal.binary.Tag
+import pbandk.internal.json.JsonFieldEncoder
+import pbandk.json.JsonFieldValueDecoder
+import pbandk.internal.types.FieldType
+import pbandk.internal.types.MessageValueType
+import pbandk.types.ValueType
 import pbandk.wkt.FieldOptions
-import kotlin.reflect.KClass
+import pbandk.wkt.orDefault
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
-public class FieldMetadata(
+public sealed class FieldMetadata(
     /** The field's unqualified name. */
     @ExperimentalProtoReflection
     public val name: String,
@@ -24,7 +26,7 @@ public class FieldMetadata(
     // TODO(still needed?): This has to be indirect to avoid a circular dependency when initializing the [FieldOptions]
     //  class, which has its own [FieldDescriptor]s that it tries to initialize.
     @ExperimentalProtoReflection
-    public val options: FieldOptions = FieldOptions.defaultInstance,
+    public val options: FieldOptions,
 ) {
     /**
      * The field's fully-qualified name.
@@ -52,15 +54,47 @@ public class FieldMetadata(
      */
     @ExperimentalProtoReflection
     public abstract val fullName: String
+
+    internal class Standard(
+        private val messageMetadata: MessageMetadata,
+        name: String,
+        number: Int,
+        jsonName: String,
+        isOneofMember: Boolean,
+        options: FieldOptions? = null,
+    ) : FieldMetadata(
+        name = name,
+        number = number,
+        jsonName = jsonName,
+        isOneofMember = isOneofMember,
+        isExtension = false,
+        options = options.orDefault()
+    ) {
+        override val fullName get() = "${messageMetadata.fullName}.${name}"
+    }
+
+    internal class Extension(
+        extensionName: String,
+        number: Int,
+        jsonName: String,
+        options: FieldOptions? = null,
+    ) : FieldMetadata(
+        name = extensionName.substringAfterLast('.'),
+        number = number,
+        jsonName = jsonName,
+        isOneofMember = false,
+        isExtension = true,
+        options = options.orDefault()
+    ) {
+        override val fullName = extensionName
+    }
 }
 
 public sealed class FieldDescriptor<M : Message, V> private constructor(
     getMessageDescriptor: () -> MessageDescriptor<M>,
     internal val metadata: FieldMetadata,
-    internal val type: Type,
-    internal val fieldType: FieldType<V>,
-    internal val accessor: FieldAccessor<M, *, V>,
 ) : Comparable<FieldDescriptor<M, *>> {
+    internal abstract val fieldType: FieldType<V>
 
     /** The field's unqualified name. */
     @ExperimentalProtoReflection
@@ -114,316 +148,413 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
         return number - other.number
     }
 
-    internal class Standard<M : Message, MM : MutableMessage<M>, V>(
+    internal abstract fun getValue(message: M): V
+    internal abstract fun setValue(message: MutableMessage<M>, value: V)
+
+    internal open fun mergeValues(message: M, otherMessage: M, destination: MutableMessage<M>) {
+        val value = getValue(message)
+        val otherValue = getValue(otherMessage)
+        val newValue = fieldType.mergeValues(metadata, value, otherValue)
+        if (newValue !== value) {
+            setValue(destination, newValue)
+        }
+    }
+
+    internal fun binarySize(message: M): Int {
+        val value = getValue(message)
+        return fieldType.binarySize(metadata, value)
+    }
+
+    internal fun encodeToBinary(encoder: BinaryFieldEncoder, message: M) {
+        val value = getValue(message)
+        fieldType.encodeToBinary(metadata, value, encoder)
+    }
+
+    internal open fun decodeFromBinary(tag: Tag, decoder: BinaryFieldValueDecoder, message: MutableMessage<M>) {
+        @Suppress("UNCHECKED_CAST")
+        val currentValue = getValue(message as M)
+        val decodedValue = fieldType.decodeFromBinary(metadata, tag, decoder)
+        val newValue = fieldType.mergeValues(metadata, currentValue, decodedValue)
+        if (newValue !== currentValue) {
+            setValue(message, newValue)
+        }
+    }
+
+    internal fun encodeToJson(encoder: JsonFieldEncoder, message: M) {
+        val value = getValue(message)
+        fieldType.encodeToJson(metadata, value, encoder)
+    }
+
+    internal open fun decodeFromJson(decoder: JsonFieldValueDecoder, message: MutableMessage<M>) {
+        setValue(message, fieldType.decodeFromJson(metadata, decoder))
+    }
+
+    internal class Required<M : Message, MM : MutableMessage<M>, V : Any>(
+        messageMetadata: MessageMetadata,
         getMessageDescriptor: () -> MessageDescriptor<M>,
         name: String,
         number: Int,
-        type: Type,
-        internal val accessor: FieldAccessor<M, MM, V>,
-        override val isOneofMember: Boolean = false,
         jsonName: String,
+        valueType: ValueType<V>,
+        private val property: KProperty1<M, V>,
+        private val mutableProperty: KMutableProperty1<MM, V>,
         options: FieldOptions? = null,
     ) : FieldDescriptor<M, V>(
         getMessageDescriptor = getMessageDescriptor,
-        name = name,
-        number = number,
-        type = type,
-        jsonName = jsonName,
-        _options = options,
+        metadata = FieldMetadata.Standard(
+            messageMetadata = messageMetadata,
+            name = name,
+            number = number,
+            jsonName = jsonName,
+            isOneofMember = false,
+            options = options,
+        )
     ) {
-        override val isExtension: Boolean get() = false
-        override val fullName: String get() = "${messageDescriptor.fullName}.${name}"
+        override val fieldType = FieldType.Required(valueType)
+
+        override fun getValue(message: M): V = property.get(message)
+        override fun setValue(message: MutableMessage<M>, value: V) {
+            @Suppress("UNCHECKED_CAST")
+            mutableProperty.set(message as MM, value)
+        }
     }
 
-    internal class Extension<M : ExtendableMessage<M>, V>(
+    internal class Optional<M : Message, MM : MutableMessage<M>, V : Any>(
+        messageMetadata: MessageMetadata,
+        getMessageDescriptor: () -> MessageDescriptor<M>,
+        name: String,
+        number: Int,
+        jsonName: String,
+        valueType: ValueType<V>,
+        private val property: KProperty1<M, V?>,
+        private val mutableProperty: KMutableProperty1<MM, V?>,
+        options: FieldOptions? = null,
+        isOneofMember: Boolean = false,
+    ) : FieldDescriptor<M, V?>(
+        getMessageDescriptor = getMessageDescriptor,
+        metadata = FieldMetadata.Standard(
+            messageMetadata = messageMetadata,
+            name = name,
+            number = number,
+            jsonName = jsonName,
+            isOneofMember = isOneofMember,
+            options = options,
+        ),
+    ) {
+        override val fieldType = FieldType.Optional(valueType)
+
+        override fun getValue(message: M): V? = property.get(message)
+
+        override fun setValue(message: MutableMessage<M>, value: V?) {
+            @Suppress("UNCHECKED_CAST")
+            mutableProperty.set(message as MM, value)
+        }
+    }
+
+    internal class Singular<M : Message, MM : MutableMessage<M>, V : Any>(
+        messageMetadata: MessageMetadata,
+        getMessageDescriptor: () -> MessageDescriptor<M>,
+        name: String,
+        number: Int,
+        jsonName: String,
+        private val valueType: ValueType<V>,
+        private val property: KProperty1<M, V>,
+        private val mutableProperty: KMutableProperty1<MM, V>,
+        options: FieldOptions? = null,
+    ) : FieldDescriptor<M, V>(
+        getMessageDescriptor = getMessageDescriptor,
+        metadata = FieldMetadata.Standard(
+            messageMetadata = messageMetadata,
+            name = name,
+            number = number,
+            jsonName = jsonName,
+            isOneofMember = false,
+            options = options,
+        ),
+    ) {
+        override val fieldType = FieldType.Singular(valueType)
+
+        override fun getValue(message: M): V {
+            return property.get(message)
+        }
+
+        override fun setValue(message: MutableMessage<M>, value: V) {
+            @Suppress("UNCHECKED_CAST")
+            mutableProperty.set(message as MM, value)
+        }
+    }
+
+    internal class Repeated<M : Message, MM : MutableMessage<M>, V : Any>(
+        messageMetadata: MessageMetadata,
+        getMessageDescriptor: () -> MessageDescriptor<M>,
+        name: String,
+        number: Int,
+        jsonName: String,
+        valueType: ValueType<V>,
+        private val property: KProperty1<M, List<V>>,
+        private val mutableProperty: KProperty1<MM, MutableList<V>>,
+        options: FieldOptions? = null,
+    ) : FieldDescriptor<M, List<V>>(
+        getMessageDescriptor = getMessageDescriptor,
+        metadata = FieldMetadata.Standard(
+            messageMetadata = messageMetadata,
+            name = name,
+            number = number,
+            jsonName = jsonName,
+            isOneofMember = false,
+            options = options,
+        ),
+    ) {
+        override val fieldType = FieldType.Repeated(valueType)
+
+        override fun getValue(message: M): List<V> = property.get(message)
+
+        private fun getMutableValue(message: MM): MutableList<V> = mutableProperty.get(message)
+
+        override fun setValue(message: MutableMessage<M>, value: List<V>) {
+            @Suppress("UNCHECKED_CAST")
+            val mutableList = getMutableValue(message as MM)
+            mutableList.clear()
+            mutableList.addAll(value)
+        }
+
+        override fun mergeValues(message: M, otherMessage: M, destination: MutableMessage<M>) {
+            val otherValue = getValue(otherMessage)
+            if (otherValue.isNotEmpty()) {
+                @Suppress("UNCHECKED_CAST")
+                getMutableValue(destination as MM).addAll(otherValue)
+            }
+        }
+
+        override fun decodeFromBinary(tag: Tag, decoder: BinaryFieldValueDecoder, message: MutableMessage<M>) {
+            @Suppress("UNCHECKED_CAST")
+            val mutableList = getMutableValue(message as MM)
+            fieldType.decodeFromBinary(metadata, tag, decoder, mutableList::add)
+        }
+    }
+
+    internal class Map<M : Message, MM : MutableMessage<M>, K : Any, V : Any>(
+        messageMetadata: MessageMetadata,
+        getMessageDescriptor: () -> MessageDescriptor<M>,
+        name: String,
+        number: Int,
+        jsonName: String,
+        keyType: ValueType<K>,
+        valueType: ValueType<V>,
+        private val property: KProperty1<M, kotlin.collections.Map<K, V>>,
+        private val mutableProperty: KProperty1<MM, MutableMap<K, V>>,
+        options: FieldOptions? = null,
+    ) : FieldDescriptor<M, kotlin.collections.Map<K, V>>(
+        getMessageDescriptor = getMessageDescriptor,
+        metadata = FieldMetadata.Standard(
+            messageMetadata = messageMetadata,
+            name = name,
+            number = number,
+            jsonName = jsonName,
+            isOneofMember = false,
+            options = options,
+        ),
+    ) {
+        override val fieldType = FieldType.Map(keyType, valueType)
+
+        override fun getValue(message: M): kotlin.collections.Map<K, V> = property.get(message)
+
+        private fun getMutableValue(message: MM): MutableMap<K, V> = mutableProperty.get(message)
+
+        override fun setValue(message: MutableMessage<M>, value: kotlin.collections.Map<K, V>) {
+            @Suppress("UNCHECKED_CAST")
+            val mutableMap = getMutableValue(message as MM)
+            mutableMap.clear()
+            mutableMap.putAll(value)
+        }
+
+        override fun mergeValues(message: M, otherMessage: M, destination: MutableMessage<M>) {
+            val otherValue = getValue(otherMessage)
+            if (otherValue.isNotEmpty()) {
+                @Suppress("UNCHECKED_CAST")
+                getMutableValue(destination as MM).putAll(otherValue)
+            }
+        }
+
+        override fun decodeFromBinary(tag: Tag, decoder: BinaryFieldValueDecoder, message: MutableMessage<M>) {
+            @Suppress("UNCHECKED_CAST")
+            val mutableMap = getMutableValue(message as MM)
+
+            fieldType.decodeFromBinary(metadata, tag, decoder, mutableMap::put)
+
+            // val entryCompanion = MapField.Entry.Companion<K, V>(keyType, valueType)
+            // val entry = entryCompanion.descriptor.valueType.decodeFromBinary(decoder)
+            // if (mutableMap is MutableMapField<K, V>) {
+            //     mutableMap.put(entry)
+            // } else {
+            //     mutableMap[entry.key] = entry.value
+            // }
+        }
+    }
+
+    internal class Extension<M : ExtendableMessage<M>, MM : MutableExtendableMessage<M>, V : Any>(
         getMessageDescriptor: () -> MessageDescriptor<M>,
         extensionName: String,
         number: Int,
-        type: Type,
         jsonName: String,
+        valueType: ValueType<V>,
         options: FieldOptions? = null,
-    ) : FieldDescriptor<M, V>(
+    ) : FieldDescriptor<M, V?>(
         getMessageDescriptor = getMessageDescriptor,
-        name = extensionName.substringAfterLast('.'),
-        number = number,
-        type = type,
-        jsonName = jsonName,
-        _options = options,
+        metadata = FieldMetadata.Extension(
+            extensionName = extensionName,
+            number = number,
+            jsonName = jsonName,
+            options = options,
+        )
     ) {
-        override val isOneofMember: Boolean get() = false
-        override val isExtension get() = true
-        override val fullName = extensionName
+        override val fieldType = FieldType.Optional(valueType)
+
+        override fun getValue(message: M): V? = message.getExtension(this)
+
+        override fun setValue(message: MutableMessage<M>, value: V?) {
+            require(message is MutableExtendableMessage<M>)
+            message.setExtension(this, value)
+        }
     }
 
-    @PublicForGeneratedCode
-    public sealed class Type {
-        internal abstract val hasPresence: Boolean
-        internal abstract val isPackable: Boolean
-        internal abstract val wireType: WireType
-        internal abstract val kotlinType: KClass<*>
-        internal abstract val noPresenceDefaultValue: Any
-        internal abstract val defaultValue: Any?
+    internal class RepeatedExtension<M : ExtendableMessage<M>, MM : MutableExtendableMessage<M>, V : Any>(
+        getMessageDescriptor: () -> MessageDescriptor<M>,
+        extensionName: String,
+        number: Int,
+        jsonName: String,
+        valueType: ValueType<V>,
+        options: FieldOptions? = null,
+    ) : FieldDescriptor<M, List<V>>(
+        getMessageDescriptor = getMessageDescriptor,
+        metadata = FieldMetadata.Extension(
+            extensionName = extensionName,
+            number = number,
+            jsonName = jsonName,
+            options = options,
+        )
+    ) {
+        override val fieldType = FieldType.Repeated(valueType)
 
-        internal open fun canonicalValue(value: Any): Any {
-            require(kotlinType.isInstance(value))
-            return value
-        }
+        override fun getValue(message: M): List<V> = message.getRepeatedExtension(this)
 
-        internal open fun canonicalMutableValue(value: Any): Any {
-            require(kotlinType.isInstance(value))
-            return value
-        }
+        internal fun getMutableValue(message: MM): MutableList<V> = message.getRepeatedExtension(this)
 
-        @PublicForGeneratedCode
-        public sealed class Primitive<KotlinT : Any> : Type() {
-
-            abstract override val kotlinType: KClass<KotlinT>
-            abstract override val noPresenceDefaultValue: KotlinT
-
-            override val isPackable: Boolean get() = wireType != WireType.LENGTH_DELIMITED
-            override val defaultValue: KotlinT? get() = if (hasPresence) null else noPresenceDefaultValue
-
-            @PublicForGeneratedCode
-            public class Double(override val hasPresence: Boolean = false) : Primitive<kotlin.Double>() {
-                override val kotlinType = kotlin.Double::class
-                override val noPresenceDefaultValue = 0.0
-                override val wireType = WireType.FIXED64
-            }
-
-            @PublicForGeneratedCode
-            public class Float(override val hasPresence: Boolean = false) : Primitive<kotlin.Float>() {
-                override val kotlinType = kotlin.Float::class
-                override val noPresenceDefaultValue = 0.0f
-                override val wireType = WireType.FIXED32
-            }
-
-            @PublicForGeneratedCode
-            public class Int64(override val hasPresence: Boolean = false) : Primitive<Long>() {
-                override val kotlinType = Long::class
-                override val noPresenceDefaultValue = 0L
-                override val wireType = WireType.VARINT
-            }
-
-            @PublicForGeneratedCode
-            public class UInt64(override val hasPresence: Boolean = false) : Primitive<Long>() {
-                override val kotlinType = Long::class
-                override val noPresenceDefaultValue = 0L
-                override val wireType = WireType.VARINT
-            }
-
-            @PublicForGeneratedCode
-            public class Int32(override val hasPresence: Boolean = false) : Primitive<Int>() {
-                override val kotlinType = Int::class
-                override val noPresenceDefaultValue = 0
-                override val wireType = WireType.VARINT
-            }
-
-            @PublicForGeneratedCode
-            public class Fixed64(override val hasPresence: Boolean = false) : Primitive<Long>() {
-                override val kotlinType = Long::class
-                override val noPresenceDefaultValue = 0L
-                override val wireType = WireType.FIXED64
-            }
-
-            @PublicForGeneratedCode
-            public class Fixed32(override val hasPresence: Boolean = false) : Primitive<Int>() {
-                override val kotlinType = Int::class
-                override val noPresenceDefaultValue = 0
-                override val wireType = WireType.FIXED32
-            }
-
-            @PublicForGeneratedCode
-            public class Bool(override val hasPresence: Boolean = false) : Primitive<Boolean>() {
-                override val kotlinType = Boolean::class
-                override val noPresenceDefaultValue = false
-                override val wireType = WireType.VARINT
-            }
-
-            @PublicForGeneratedCode
-            public class String(override val hasPresence: Boolean = false) : Primitive<kotlin.String>() {
-                override val kotlinType = kotlin.String::class
-                override val noPresenceDefaultValue = ""
-                override val wireType = WireType.LENGTH_DELIMITED
-            }
-
-            @PublicForGeneratedCode
-            public class Bytes(override val hasPresence: Boolean = false) : Primitive<ByteArr>() {
-                override val kotlinType = ByteArr::class
-                override val noPresenceDefaultValue = ByteArr.empty
-                override val wireType = WireType.LENGTH_DELIMITED
-            }
-
-            @PublicForGeneratedCode
-            public class UInt32(override val hasPresence: Boolean = false) : Primitive<Int>() {
-                override val kotlinType = Int::class
-                override val noPresenceDefaultValue = 0
-                override val wireType = WireType.VARINT
-            }
-
-            @PublicForGeneratedCode
-            public class SFixed32(override val hasPresence: Boolean = false) : Primitive<Int>() {
-                override val kotlinType = Int::class
-                override val noPresenceDefaultValue = 0
-                override val wireType = WireType.FIXED32
-            }
-
-            @PublicForGeneratedCode
-            public class SFixed64(override val hasPresence: Boolean = false) : Primitive<Long>() {
-                override val kotlinType = Long::class
-                override val noPresenceDefaultValue = 0L
-                override val wireType = WireType.FIXED64
-            }
-
-            @PublicForGeneratedCode
-            public class SInt32(override val hasPresence: Boolean = false) : Primitive<Int>() {
-                override val kotlinType = Int::class
-                override val noPresenceDefaultValue = 0
-                override val wireType = WireType.VARINT
-            }
-
-            @PublicForGeneratedCode
-            public class SInt64(override val hasPresence: Boolean = false) : Primitive<Long>() {
-                override val kotlinType = Long::class
-                override val noPresenceDefaultValue = 0L
-                override val wireType = WireType.VARINT
-            }
-        }
-
-        @PublicForGeneratedCode
-        public class Message<M : pbandk.Message>(
-            internal val messageCompanion: pbandk.Message.Companion<M>,
-            override val kotlinType: KClass<M>,
-        ) : Type() {
-            override val hasPresence get() = true
-            override val isPackable: Boolean get() = false
-            override val wireType: WireType get() = WireType.LENGTH_DELIMITED
-
-            // TODO
-            override val noPresenceDefaultValue: M get() = messageCompanion.decodeFromByteArray(byteArrayOf())
-            override val defaultValue: M? get() = null
-        }
-
-        @PublicForGeneratedCode
-        public class Enum<E : pbandk.Message.Enum>(
-            internal val enumCompanion: pbandk.Message.Enum.Companion<E>,
-            override val kotlinType: KClass<E>,
-            override val hasPresence: Boolean = false
-        ) : Type() {
-            override val isPackable: Boolean get() = true
-            override val wireType: WireType get() = WireType.VARINT
-            override val noPresenceDefaultValue: E = enumCompanion.fromValue(0)
-            override val defaultValue: E? = if (hasPresence) null else noPresenceDefaultValue
-        }
-
-        // TODO: replace [packed] with [FieldOptions] to be able to support custom options in the future
-        @PublicForGeneratedCode
-        public class Repeated<T : Any>(internal val valueType: Type, public val packed: Boolean = false) : Type() {
-            override val hasPresence get() = false
-            override val isPackable: Boolean get() = false
-            override val wireType: WireType get() = valueType.wireType
-            override val kotlinType: KClass<List<*>> get() = List::class
-            override val noPresenceDefaultValue: List<T> = ListField.empty()
-            override val defaultValue: List<T> = ListField.empty()
-
-            override fun canonicalValue(value: Any): Any = when (value) {
-                is ListField<*> -> {
-                    require(value.valueType == valueType)
-                    value
-                }
-
-                is MutableListField<*> -> {
-                    require(value.valueType == valueType)
-                    value.toListField()
-                }
-
-                is Collection<*> -> {
-                    require(value.all { valueType.kotlinType.isInstance(it) })
-                    @Suppress("UNCHECKED_CAST")
-                    ListField(valueType, value as Collection<T>)
-                }
-
-                else -> throw IllegalArgumentException("value must be a Collection")
-            }
-
-            override fun canonicalMutableValue(value: Any): Any = when (value) {
-                is MutableListField<*> -> {
-                    require(value.valueType == valueType)
-                    MutableListField(valueType, value)
-                }
-
-                is ListField<*> -> {
-                    require(value.valueType == valueType)
-                    MutableListField(valueType, value)
-                }
-
-                is Collection<*> -> {
-                    require(value.all { valueType.kotlinType.isInstance(it) })
-                    @Suppress("UNCHECKED_CAST")
-                    MutableListField(valueType, value as Collection<T>)
-                }
-
-                else -> throw IllegalArgumentException("value must be a Collection")
-            }
-        }
-
-        @PublicForGeneratedCode
-        public class Map<K : Any, V : Any>(keyType: Type, valueType: Type) : Type() {
-            internal val entryCompanion: MapField.Entry.Companion<K, V> =
-                MapField.Entry.Companion(keyType, valueType)
-            override val hasPresence get() = false
-            override val isPackable: Boolean get() = false
-            override val wireType: WireType get() = WireType.LENGTH_DELIMITED
-            override val kotlinType: KClass<Map<*, *>> get() = Map::class
-            override val noPresenceDefaultValue: kotlin.collections.Map<K, V> = MapField.empty()
-            override val defaultValue: kotlin.collections.Map<K, V> = MapField.empty()
-
-            override fun canonicalValue(value: Any): Any = when (value) {
-                is MapField<*, *> -> {
-                    require(value.entryCompanion == entryCompanion)
-                    value
-                }
-
-                is MutableMapField<*, *> -> {
-                    require(value.entryCompanion == entryCompanion)
-                    value.toMapField()
-                }
-
-                is kotlin.collections.Map<*, *> -> {
-                    require(value.all {
-                        entryCompanion.keyType.kotlinType.isInstance(it.key) &&
-                                entryCompanion.valueType.kotlinType.isInstance(it.value)
-                    })
-                    @Suppress("UNCHECKED_CAST")
-                    MapField(entryCompanion, value as kotlin.collections.Map<K, V>)
-                }
-
-                else -> throw IllegalArgumentException("value must be a Map")
-            }
-
+        override fun setValue(message: MutableMessage<M>, value: List<V>) {
+            require(message is MutableExtendableMessage<M>)
             @Suppress("UNCHECKED_CAST")
-            override fun canonicalMutableValue(value: Any): Any = when (value) {
-                is MutableMapField<*, *> -> {
-                    require(value.entryCompanion == entryCompanion)
-                    MutableMapField(entryCompanion).apply { putAll(value as MutableMapField<K, V>) }
-                }
+            val mutableList = getMutableValue(message as MM)
+            mutableList.clear()
+            mutableList.addAll(value)
+        }
 
-                is MapField<*, *> -> {
-                    require(value.entryCompanion == entryCompanion)
-                    MutableMapField(entryCompanion).apply { putAll(value as MapField<K, V>) }
-                }
-
-                is kotlin.collections.Map<*, *> -> {
-                    require(value.all {
-                        entryCompanion.keyType.kotlinType.isInstance(it.key) &&
-                                entryCompanion.valueType.kotlinType.isInstance(it.value)
-                    })
-                    MutableMapField(entryCompanion).apply { putAll(value as kotlin.collections.Map<K, V>) }
-                }
-
-                else -> throw IllegalArgumentException("value must be a Map")
+        override fun mergeValues(message: M, otherMessage: M, destination: MutableMessage<M>) {
+            val otherValue = getValue(otherMessage)
+            if (otherValue.isNotEmpty()) {
+                @Suppress("UNCHECKED_CAST")
+                getMutableValue(destination as MM).addAll(otherValue)
             }
         }
 
+        override fun decodeFromBinary(tag: Tag, decoder: BinaryFieldValueDecoder, message: MutableMessage<M>) {
+            @Suppress("UNCHECKED_CAST")
+            val mutableList = getMutableValue(message as MM)
+
+            fieldType.decodeFromBinary(metadata, tag, decoder, mutableList::add)
+        }
+    }
+
+    // public class Repeated<T : Any>(internal val valueType: Type, public val packed: Boolean = false) : Type() {
+    //     override fun canonicalValue(value: Any): Any = when (value) {
+    //         is ListField<*> -> {
+    //             require(value.valueType == valueType)
+    //             value
+    //         }
+    //
+    //         is MutableListField<*> -> {
+    //             require(value.valueType == valueType)
+    //             value.toListField()
+    //         }
+    //
+    //         is Collection<*> -> {
+    //             require(value.all { valueType.kotlinType.isInstance(it) })
+    //             @Suppress("UNCHECKED_CAST")
+    //             ListField(valueType, value as Collection<T>)
+    //         }
+    //
+    //         else -> throw IllegalArgumentException("value must be a Collection")
+    //     }
+    //
+    //     override fun canonicalMutableValue(value: Any): Any = when (value) {
+    //         is MutableListField<*> -> {
+    //             require(value.valueType == valueType)
+    //             MutableListField(valueType, value)
+    //         }
+    //
+    //         is ListField<*> -> {
+    //             require(value.valueType == valueType)
+    //             MutableListField(valueType, value)
+    //         }
+    //
+    //         is Collection<*> -> {
+    //             require(value.all { valueType.kotlinType.isInstance(it) })
+    //             @Suppress("UNCHECKED_CAST")
+    //             MutableListField(valueType, value as Collection<T>)
+    //         }
+    //
+    //         else -> throw IllegalArgumentException("value must be a Collection")
+    //     }
+    // }
+
+    // public class Map<K : Any, V : Any>(keyType: Type, valueType: Type) : Type() {
+    //     override fun canonicalValue(value: Any): Any = when (value) {
+    //         is MapField<*, *> -> {
+    //             require(value.entryCompanion == entryCompanion)
+    //             value
+    //         }
+    //
+    //         is MutableMapField<*, *> -> {
+    //             require(value.entryCompanion == entryCompanion)
+    //             value.toMapField()
+    //         }
+    //
+    //         is kotlin.collections.Map<*, *> -> {
+    //             require(value.all {
+    //                 entryCompanion.keyType.kotlinType.isInstance(it.key) &&
+    //                         entryCompanion.valueType.kotlinType.isInstance(it.value)
+    //             })
+    //             @Suppress("UNCHECKED_CAST")
+    //             MapField(entryCompanion, value as kotlin.collections.Map<K, V>)
+    //         }
+    //
+    //         else -> throw IllegalArgumentException("value must be a Map")
+    //     }
+    //
+    //     @Suppress("UNCHECKED_CAST")
+    //     override fun canonicalMutableValue(value: Any): Any = when (value) {
+    //         is MutableMapField<*, *> -> {
+    //             require(value.entryCompanion == entryCompanion)
+    //             MutableMapField(entryCompanion).apply { putAll(value as MutableMapField<K, V>) }
+    //         }
+    //
+    //         is MapField<*, *> -> {
+    //             require(value.entryCompanion == entryCompanion)
+    //             MutableMapField(entryCompanion).apply { putAll(value as MapField<K, V>) }
+    //         }
+    //
+    //         is kotlin.collections.Map<*, *> -> {
+    //             require(value.all {
+    //                 entryCompanion.keyType.kotlinType.isInstance(it.key) &&
+    //                         entryCompanion.valueType.kotlinType.isInstance(it.value)
+    //             })
+    //             MutableMapField(entryCompanion).apply { putAll(value as kotlin.collections.Map<K, V>) }
+    //         }
+    //
+    //         else -> throw IllegalArgumentException("value must be a Map")
+    //     }
+    // }
+
+    /*
         public companion object {
             @PublicForGeneratedCode
             public inline fun <reified E : pbandk.Message.Enum> enum(
@@ -563,124 +694,165 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
                 if (hasPresence) SInt32HasPresence else SInt32NoPresence
         }
     }
+     */
 
     public companion object {
         @PublicForGeneratedCode
-        public fun <M : Message, MM : MutableMessage<M>, V : Any> of(
+        public fun <M : Message, MM : MutableMessage<M>, V : Any> ofRequired(
+            messageMetadata: MessageMetadata,
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             name: String,
             number: Int,
-            type: Type,
+            valueType: ValueType<V>,
             value: KProperty1<M, V>,
             mutableValue: KMutableProperty1<MM, V>,
             jsonName: String,
             options: FieldOptions? = null,
-        ): FieldDescriptor<M, V> = Standard(
+        ): FieldDescriptor<M, V> = Required(
+            messageMetadata = messageMetadata,
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             number = number,
-            type = type,
-            accessor = FieldAccessor.Property(value, mutableValue),
             jsonName = jsonName,
-            options = options
+            options = options,
+            valueType = valueType,
+            property = value,
+            mutableProperty = mutableValue,
         )
 
         @PublicForGeneratedCode
-        public fun <M : Message, MM : MutableMessage<M>, V> ofOptional(
+        public fun <M : Message, MM : MutableMessage<M>, V : Any> ofOptional(
+            messageMetadata: MessageMetadata,
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             name: String,
             number: Int,
-            type: Type,
-            value: KProperty1<M, V>,
-            mutableValue: KMutableProperty1<MM, V>,
+            valueType: ValueType<V>,
+            value: KProperty1<M, V?>,
+            mutableValue: KMutableProperty1<MM, V?>,
             jsonName: String,
             options: FieldOptions? = null,
-        ): FieldDescriptor<M, V> = Standard(
+        ): FieldDescriptor<M, V?> = Optional(
+            messageMetadata = messageMetadata,
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             number = number,
-            type = type,
-            accessor = FieldAccessor.OptionalProperty(value, mutableValue),
             jsonName = jsonName,
-            options = options
+            options = options,
+            valueType = valueType,
+            property = value,
+            mutableProperty = mutableValue,
         )
 
         @PublicForGeneratedCode
-        public fun <M : Message, MM : MutableMessage<M>, V> ofOneof(
+        public fun <M : Message, MM : MutableMessage<M>, V : Any> ofSingular(
+            messageMetadata: MessageMetadata,
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             name: String,
             number: Int,
-            type: Type,
+            valueType: ValueType<V>,
             value: KProperty1<M, V>,
             mutableValue: KMutableProperty1<MM, V>,
             jsonName: String,
             options: FieldOptions? = null,
-        ): FieldDescriptor<M, V> = Standard(
+        ): FieldDescriptor<M, V> = Singular(
+            messageMetadata = messageMetadata,
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             number = number,
-            type = type,
-            accessor = FieldAccessor.OptionalProperty(value, mutableValue),
+            jsonName = jsonName,
+            options = options,
+            valueType = valueType,
+            property = value,
+            mutableProperty = mutableValue,
+        )
+
+        @PublicForGeneratedCode
+        public fun <M : Message, MM : MutableMessage<M>, V : Any> ofOneof(
+            messageMetadata: MessageMetadata,
+            messageDescriptor: KProperty0<MessageDescriptor<M>>,
+            name: String,
+            number: Int,
+            valueType: ValueType<V>,
+            value: KProperty1<M, V?>,
+            mutableValue: KMutableProperty1<MM, V?>,
+            jsonName: String,
+            options: FieldOptions? = null,
+        ): FieldDescriptor<M, V?> = Optional(
+            messageMetadata = messageMetadata,
+            getMessageDescriptor = messageDescriptor::get,
+            name = name,
+            number = number,
+            jsonName = jsonName,
+            options = options,
+            valueType = valueType,
+            property = value,
+            mutableProperty = mutableValue,
             isOneofMember = true,
-            jsonName = jsonName,
-            options = options
         )
 
         @PublicForGeneratedCode
         public fun <M : Message, MM : MutableMessage<M>, T : Any> ofRepeated(
+            messageMetadata: MessageMetadata,
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             name: String,
             number: Int,
-            type: Type.Repeated<T>,
+            valueType: ValueType<T>,
             value: KProperty1<M, List<T>>,
             mutableValue: KProperty1<MM, MutableList<T>>,
             jsonName: String,
             options: FieldOptions? = null,
-        ): FieldDescriptor<M, List<T>> = Standard(
+        ): FieldDescriptor<M, List<T>> = Repeated(
+            messageMetadata = messageMetadata,
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             number = number,
-            type = type,
-            accessor = FieldAccessor.RepeatedProperty(value, mutableValue),
             jsonName = jsonName,
-            options = options
+            options = options,
+            valueType = valueType,
+            property = value,
+            mutableProperty = mutableValue,
         )
 
         @PublicForGeneratedCode
         public fun <M : Message, MM : MutableMessage<M>, K : Any, V : Any> ofMap(
+            messageMetadata: MessageMetadata,
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             name: String,
             number: Int,
-            type: Type.Map<K, V>,
-            value: KProperty1<M, Map<K, V>>,
+            keyType: ValueType<K>,
+            valueType: ValueType<V>,
+            value: KProperty1<M, kotlin.collections.Map<K, V>>,
             mutableValue: KProperty1<MM, MutableMap<K, V>>,
             jsonName: String,
             options: FieldOptions? = null,
-        ): FieldDescriptor<M, Map<K, V>> = Standard(
+        ): FieldDescriptor<M, kotlin.collections.Map<K, V>> = Map(
+            messageMetadata = messageMetadata,
             getMessageDescriptor = messageDescriptor::get,
             name = name,
             number = number,
-            type = type,
-            accessor = FieldAccessor.MapProperty(value, mutableValue),
             jsonName = jsonName,
-            options = options
+            options = options,
+            keyType = keyType,
+            valueType = valueType,
+            property = value,
+            mutableProperty = mutableValue,
         )
 
         @PublicForGeneratedCode
-        public fun <M : ExtendableMessage<M>, V> ofExtension(
+        public fun <M : ExtendableMessage<M>, V : Any> ofExtension(
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             fullName: String,
             number: Int,
-            type: Type,
+            valueType: ValueType<V>,
             jsonName: String,
             options: FieldOptions? = null,
-        ): FieldDescriptor<M, V> = Extension(
+        ): FieldDescriptor<M, V?> = Extension(
             getMessageDescriptor = messageDescriptor::get,
             extensionName = fullName,
             number = number,
-            type = type,
             jsonName = jsonName,
             options = options,
+            valueType = valueType,
         )
 
         @PublicForGeneratedCode
@@ -688,81 +860,16 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
             fullName: String,
             number: Int,
-            type: Type.Repeated<T>,
+            valueType: ValueType<T>,
             jsonName: String,
             options: FieldOptions? = null,
-        ): FieldDescriptor<M, List<T>> = Extension(
+        ): FieldDescriptor<M, List<T>> = RepeatedExtension(
             getMessageDescriptor = messageDescriptor::get,
             extensionName = fullName,
             number = number,
-            type = type,
             jsonName = jsonName,
-            options = options
+            options = options,
+            valueType = valueType,
         )
     }
-
-}
-
-internal sealed class FieldAccessor<M : Message, in MM : MutableMessage<M>, ValueType> {
-    /**
-     * Returns the value of this field in the provided message.
-     */
-    internal abstract fun getValue(message: M): ValueType
-
-    /**
-     * Sets or updates the value of this field in the provided message.
-     *
-     * NOTE: For `repeated` and `map` fields, this function _appends_ to the existing list/map value rather than
-     * replacing the value. For all other fields, this function replaces the value with the new value.
-     */
-    internal abstract fun updateValue(message: MM, value: ValueType)
-
-    internal class Property<M : Message, MM : MutableMessage<M>, ValueType : Any>(
-        private val property: KProperty1<M, ValueType>,
-        private val mutableProperty: KMutableProperty1<MM, ValueType>,
-    ) : FieldAccessor<M, MM, ValueType>() {
-        override fun getValue(message: M): ValueType = property.get(message)
-        override fun updateValue(message: MM, value: ValueType) = mutableProperty.set(message, value)
-    }
-
-    internal class OptionalProperty<M : Message, MM : MutableMessage<M>, ValueType>(
-        private val property: KProperty1<M, ValueType>,
-        private val mutableProperty: KMutableProperty1<MM, ValueType>,
-    ) : FieldAccessor<M, MM, ValueType>() {
-        override fun getValue(message: M): ValueType = property.get(message)
-        override fun updateValue(message: MM, value: ValueType) = mutableProperty.set(message, value)
-    }
-
-    internal class RepeatedProperty<M : Message, MM : MutableMessage<M>, T : Any>(
-        private val property: KProperty1<M, List<T>>,
-        private val mutableProperty: KProperty1<MM, MutableList<T>>,
-    ) : FieldAccessor<M, MM, List<T>>() {
-        override fun getValue(message: M): List<T> = property.get(message)
-
-        override fun updateValue(message: MM, value: List<T>) {
-            mutableProperty.get(message).addAll(value)
-        }
-    }
-
-    internal class MapProperty<M : Message, MM : MutableMessage<M>, K : Any, V : Any>(
-        private val property: KProperty1<M, Map<K, V>>,
-        private val mutableProperty: KProperty1<MM, MutableMap<K, V>>,
-    ) : FieldAccessor<M, MM, Map<K, V>>() {
-        override fun getValue(message: M): Map<K, V> = property.get(message)
-
-        override fun updateValue(message: MM, value: Map<K, V>) {
-            mutableProperty.get(message).putAll(value)
-        }
-    }
-
-    /*
-    internal class Extension<M : ExtendableMessage<M>, MM : MutableExtendableMessage<M>, ValueType : Any>(
-        private val kotlinType: KClass<ValueType>,
-    ) : FieldAdapter<M, MM, ValueType, ValueType?>() {
-        override fun getValue(message: M): ValueType? = message.getExtension(...)
-        override fun updateValue(message: MM, value: ValueType?) = mutableProperty.set(message, value)
-        override fun canonicalValue(value: Any): ValueType = kotlinType.cast(value)
-        override fun canonicalMutableValue(value: Any): ValueType = kotlinType.cast(value)
-    }
-     */
 }

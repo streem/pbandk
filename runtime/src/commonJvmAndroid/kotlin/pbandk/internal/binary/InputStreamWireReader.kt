@@ -79,6 +79,14 @@ internal class InputStreamWireReader(
         }
     }
 
+    override fun readByte(): Byte {
+        return if (bufferSize > pos) {
+            buffer[pos++]
+        } else {
+            readRawBytesSlowPath(1, ensureNoLeakedReferences = false)[0]
+        }
+    }
+
     override fun isAtEnd(): Boolean {
         return pos == bufferSize && !tryRefillBuffer(1)
     }

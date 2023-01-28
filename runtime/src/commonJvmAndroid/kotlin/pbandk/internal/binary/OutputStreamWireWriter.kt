@@ -52,6 +52,22 @@ internal class OutputStreamWireWriter(
     private val limit = buffer.size
     private var position = 0
 
+    override fun writeByte(byte: Byte) {
+        if (limit > position) {
+            // We have room in the current buffer.
+            buffer[position++] = byte
+            totalBytesWritten += 1
+            return
+        }
+
+        // Write extends past current buffer. Since we have an output stream, this is our buffer
+        // and buffer offset == 0
+        doFlush()
+        buffer[0] = byte
+        position = 1
+        totalBytesWritten += 1
+    }
+
     override fun write(bytes: ByteArray, offset: Int, length: Int) {
         if (limit - position >= length) {
             // We have room in the current buffer.

@@ -1,7 +1,7 @@
 package pbandk
 
 public interface ExtendableMessage<M : Message> : Message {
-    public fun <V> getExtension(fd: FieldDescriptor<M, V>): V
+    public fun <V> getExtension(fd: FieldDescriptor<M, V>): V?
     public fun <T> getRepeatedExtension(fd: FieldDescriptor<M, List<T>>): List<T>
 }
 

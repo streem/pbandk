@@ -1,5 +1,7 @@
 package pbandk
 
+import pbandk.internal.types.primitive.Enum
+import pbandk.types.ValueType
 import kotlin.reflect.KClass
 
 public class EnumDescriptor<E : Message.Enum> private constructor(
@@ -19,11 +21,13 @@ public class EnumDescriptor<E : Message.Enum> private constructor(
 
     internal val enumClass: KClass<E>,
 
-    @ExperimentalProtoReflection
-    public val enumCompanion: Message.Enum.Companion<E>,
+    internal val enumValueType: Enum<E>,
 ) {
     /** The  type's unqualified name. */
     public val name: String = fullName.substringAfterLast('.')
+
+    @ExperimentalProtoReflection
+    public val enumCompanion: Message.Enum.Companion<E> = enumValueType.enumCompanion
 
     public companion object {
         @PublicForGeneratedCode
@@ -34,7 +38,7 @@ public class EnumDescriptor<E : Message.Enum> private constructor(
         ): EnumDescriptor<E> = EnumDescriptor(
             fullName = fullName,
             enumClass = enumClass,
-            enumCompanion = enumCompanion,
+            enumValueType = Enum(enumCompanion),
         )
     }
 }

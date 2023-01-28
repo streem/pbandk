@@ -2,11 +2,11 @@ package pbandk.internal.binary
 
 import pbandk.Message
 import pbandk.MessageEncoder
-import pbandk.internal.types.primitive.Message.encodeToBinaryNoLength
+import pbandk.gen.messageDescriptor
 
 internal open class BinaryMessageEncoder(private val fieldEncoder: BinaryFieldEncoder) : MessageEncoder {
     override fun <M : Message> writeMessage(message: M) {
-        encodeToBinaryNoLength(message, fieldEncoder)
+        message.messageDescriptor.messageValueType.encodeToBinaryNoLength(message, fieldEncoder)
     }
 
     companion object

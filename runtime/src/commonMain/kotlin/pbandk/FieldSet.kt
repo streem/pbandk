@@ -61,7 +61,7 @@ private constructor(private val map: Map<FieldDescriptor<M, out Any?>, Any>) {
 
         internal fun <M : Message> of(map: Map<FieldDescriptor<M, out Any?>, Any>): FieldSet<M> {
             val safeEntries = map.entries.filterNot { (fd, value) ->
-                value == fd.type.defaultValue
+                fd.fieldType.isDefaultValue(value)
             }.map { (fd, value) ->
                 fd to fd.type.canonicalValue(value)
             }
@@ -94,7 +94,7 @@ internal class FieldSetCache<M : Message> {
     }
 
     internal operator fun <V> set(fieldDescriptor: FieldDescriptor<M, V>, value: V) {
-        if (value != null && value != fieldDescriptor.type.defaultValue) {
+        if (value != null && !fieldDescriptor.fieldType.isDefaultValue(value)) {
             map.set(map.get() + (fieldDescriptor to value))
         } else {
             map.set(map.get() - fieldDescriptor)
@@ -135,7 +135,7 @@ public class MutableFieldSet<M : Message> internal constructor() {
     }
 
     public fun toFieldSet(): FieldSet<M> {
-        return FieldSet.unsafeOf(map.entries.filterNot { it.value == it.key.type.defaultValue })
+        return FieldSet.unsafeOf(map.entries.filterNot { it.key.fieldType.isDefaultValue(it.value) })
     }
 }
 

@@ -8,7 +8,7 @@ import pbandk.Message
 import pbandk.UnknownField
 import pbandk.decodeFromByteArray
 import pbandk.encodeToByteArray
-import pbandk.internal.binary.WireType
+import pbandk.binary.WireType
 import pbandk.testpb.Wrappers
 import kotlin.test.Test
 import kotlin.test.assertContentEquals

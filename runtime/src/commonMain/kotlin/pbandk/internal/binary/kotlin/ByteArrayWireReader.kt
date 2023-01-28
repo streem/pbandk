@@ -54,6 +54,12 @@ internal class ByteArrayWireReader(
         else -> throw InvalidProtocolBufferException.truncatedMessage()
     }
 
+    override fun readByte(): Byte {
+        if (limit > pos) return arr[pos++]
+
+        throw InvalidProtocolBufferException.truncatedMessage()
+    }
+
     override fun isAtEnd(): Boolean = pos == limit
 
     override fun skipRawBytes(length: Int) {

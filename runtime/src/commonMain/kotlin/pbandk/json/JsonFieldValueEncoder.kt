@@ -1,20 +1,22 @@
-package pbandk.internal.json
+package pbandk.json
 
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonArray
-import pbandk.json.JsonConfig
+import pbandk.PublicForGeneratedCode
+import pbandk.internal.json.JsonFieldEncoder
 
 /**
  * This class provides a method for encoding every JSON type. A specialized method is provided for every built-in
  * Kotlin type that can be used to hold one of the JSON type values.
  */
-internal class JsonFieldValueEncoder(internal val jsonConfig: JsonConfig) {
+@PublicForGeneratedCode
+public class JsonFieldValueEncoder internal constructor(internal val jsonConfig: JsonConfig) {
     private var element: JsonElement = JsonNull
 
-    fun encodeNumberUnsignedInt(value: Int) {
+    internal fun encodeNumberUnsignedInt(value: Int) {
         // XXX: [JsonPrimitive] does not support unsigned number types currently (they do not inherit from [Number]
         // because of limitations with Kotlin inline classes). To work around this, output unsigned integers that are
         // outside of the range of signed integers as strings rather than numeric literals. While the Proto3 JSON spec
@@ -27,19 +29,19 @@ internal class JsonFieldValueEncoder(internal val jsonConfig: JsonConfig) {
         }
     }
 
-    fun encodeNumberSignedInt(value: Int) {
+    internal fun encodeNumberSignedInt(value: Int) {
         element = JsonPrimitive(value)
     }
 
-    fun encodeNumberUnsignedLong(value: Long) {
+    internal fun encodeNumberUnsignedLong(value: Long) {
         encodeString(value.toULong().toString())
     }
 
-    fun encodeNumberSignedLong(value: Long) {
+    internal fun encodeNumberSignedLong(value: Long) {
         encodeString(value.toString())
     }
 
-    fun encodeNumberFloat(value: Float) {
+    internal fun encodeNumberFloat(value: Float) {
         if (value.isFinite()) {
             element = JsonPrimitive(value)
         } else {
@@ -47,7 +49,7 @@ internal class JsonFieldValueEncoder(internal val jsonConfig: JsonConfig) {
         }
     }
 
-    fun encodeNumberDouble(value: Double) {
+    internal fun encodeNumberDouble(value: Double) {
         if (value.isFinite()) {
             element = JsonPrimitive(value)
         } else {
@@ -55,19 +57,19 @@ internal class JsonFieldValueEncoder(internal val jsonConfig: JsonConfig) {
         }
     }
 
-    fun encodeString(value: String) {
+    internal fun encodeString(value: String) {
         element = JsonPrimitive(value)
     }
 
-    fun encodeBoolean(value: Boolean) {
+    internal fun encodeBoolean(value: Boolean) {
         element = JsonPrimitive(value)
     }
 
-    fun encodeNull() {
+    internal fun encodeNull() {
         element = JsonNull
     }
 
-    inline fun encodeArray(valuesBlock: (JsonFieldValueEncoder) -> Unit) {
+    internal inline fun encodeArray(valuesBlock: (JsonFieldValueEncoder) -> Unit) {
         // Warning: we reuse the current instance of `JsonFieldValueEncoder` to avoid creating too many new objects. For
         // this to work correctly with recursive calls to `writeArray()`, `element` must be the last thing written.
         val jsonArray = buildJsonArray {
@@ -77,9 +79,9 @@ internal class JsonFieldValueEncoder(internal val jsonConfig: JsonConfig) {
         element = jsonArray
     }
 
-    inline fun encodeObject(valuesBlock: (JsonFieldEncoder) -> Unit) {
+    internal inline fun encodeObject(valuesBlock: (JsonFieldEncoder) -> Unit) {
         element = JsonObject(JsonFieldEncoder(jsonConfig).also(valuesBlock).jsonContent)
     }
 
-    fun getResult() = element
+    internal fun getResult() = element
 }

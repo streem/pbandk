@@ -205,7 +205,9 @@ public open class CodeGenerator(
             // Companion object
             line()
             line("$visibility companion object : pbandk.Message.Companion<${type.kotlinName.fullWithPackage}> {").indented {
-                line("$visibility val defaultInstance: ${type.kotlinName.fullWithPackage} by lazy(LazyThreadSafetyMode.PUBLICATION) {").indented {
+                // TODO: for messages containing 1 or more required fields, this should throw an exception rather than
+                //  try to construct a default instance
+                line("override val defaultInstance: ${type.kotlinName.fullWithPackage} by lazy(LazyThreadSafetyMode.PUBLICATION) {").indented {
                     line("${type.kotlinName.fullWithPackage} {}")
                 }.line("}")
                 line()
@@ -393,6 +395,11 @@ public open class CodeGenerator(
     }
 
     protected fun writeMessageDescriptor(type: File.Type.Message) {
+        line("private val messageMetadata = pbandk.MessageMetadata(").indented {
+            line("fullName = \"${type.name.fullWithPackage.removePrefix(".")}\",")
+        }.line(")")
+        line()
+
         // Messages can have circular references to each other (e.g. `pbandk.wkt.Struct` includes a `pbandk.wkt.Value`
         // field, but `pbandk.wkt.Value` includes a `pbandk.wkt.Struct` field). On Kotlin/Native the companion object
         // (e.g. `pbandk.wkt.Value.Companion`) is automatically frozen because it's a singleton. But Kotlin/Native
@@ -408,7 +415,7 @@ public open class CodeGenerator(
             val (oneofFields, nonOneofFields) = type.fields.partition { it is File.Field.OneOf }
 
             line("pbandk.MessageDescriptor.of(").indented {
-                line("fullName = \"${type.name.fullWithPackage.removePrefix(".")}\",")
+                line("metadata = messageMetadata,")
                 line("messageClass = ${type.kotlinName.fullWithPackage}::class,")
                 line("messageCompanion = this,")
                 line("builder = ${builderName.parent?.full.orEmpty()}::${builderName.simple},")
@@ -434,6 +441,9 @@ public open class CodeGenerator(
                 fieldOptions.deprecated?.let {
                     line("deprecated = $it")
                 }
+                fieldOptions.packed?.let {
+                    line("packed = $it")
+                }
                 if (fieldOptions.unknownFields.isNotEmpty()) {
                     generateUnknownFields(fieldOptions.unknownFields)
                 }
@@ -442,23 +452,22 @@ public open class CodeGenerator(
     }
 
     private fun generateUnknownFields(unknownFields: Map<Int, UnknownField>) {
+        // TODO: update this to work with new WireValue representation
+        return
         line("unknownFields += mapOf(").indented {
-            val lastFieldIndex = unknownFields.size - 1
-            unknownFields.values.forEachIndexed { fieldIndex, field ->
+            unknownFields.values.forEach { field ->
                 line("${field.fieldNum} to pbandk.UnknownField(").indented {
                     line("fieldNum = ${field.fieldNum},")
-                    val lastValueIndex = field.values.size - 1
                     line("values = listOf(").indented {
-                        field.values.forEachIndexed { valueIndex, value ->
+                        field.values.forEach { value ->
                             lineBegin("pbandk.UnknownField.Value(")
                             lineMid("wireType = ${value.wireType}, ")
-                            lineMid("rawBytes = byteArrayOf(${value.rawBytes.array.joinToString()})")
-                            lineMid(")")
-                            if (valueIndex != lastValueIndex) lineEnd(",") else lineEnd()
+                            lineMid("wireValue = , ")
+                            // lineMid("rawBytes = byteArrayOf(${value.rawBytes.array.joinToString()})")
+                            lineEnd("),")
                         }
                     }.line(")")
-                }.lineBegin(")")
-                if (fieldIndex != lastFieldIndex) lineEnd(",") else lineEnd()
+                }.line("),")
             }
         }.line(")")
     }
@@ -801,24 +810,19 @@ public open class CodeGenerator(
         return "pbandk.FieldDescriptor<${typeName.fullWithPackage}, $fieldValueType>"
     }
 
-    protected fun File.Field.Numbered.fieldDescriptorTypeType(isOneOfMember: Boolean = false): String {
-        return "pbandk.FieldDescriptor.Type." + when (this) {
-            is File.Field.Numbered.Standard -> when {
-                map -> {
-                    val mapEntry = mapEntry()!!
-                    "map(keyType = ${mapEntry.mapEntryKeyField!!.fieldDescriptorTypeType()}, " +
-                            "valueType = ${mapEntry.mapEntryValueField!!.fieldDescriptorTypeType()})"
-                }
-                repeated -> "repeated(valueType = ${copy(repeated = false).fieldDescriptorTypeType()}${if (packed) ", packed = true" else ""})"
-                type == File.Field.Type.MESSAGE -> "message(messageCompanion = $kotlinQualifiedTypeName.Companion)"
-                type == File.Field.Type.ENUM -> "enum(enumCompanion = $kotlinQualifiedTypeName.Companion" + (if (hasPresence || isOneOfMember) ", hasPresence = true" else "") + ")"
-                else -> "${type.string}(" + (if (hasPresence || isOneOfMember) "hasPresence = true" else "") + ")"
+    protected fun File.Field.Numbered.valueType(): String = buildString {
+        append("pbandk.types.")
+        append(type.string)
+        append('(')
+        when (this@valueType) {
+            is File.Field.Numbered.Standard -> when (type) {
+                File.Field.Type.MESSAGE, File.Field.Type.ENUM -> append(kotlinQualifiedTypeName)
+                else -> {}
             }
-            is File.Field.Numbered.Wrapper -> when {
-                repeated -> "repeated(valueType = ${copy(repeated = false).fieldDescriptorTypeType()})"
-                else -> "message(messageCompanion = ${wrappedType.wrapperKotlinTypeName.fullWithPackage}.Companion)"
-            }
+            // is File.Field.Numbered.Wrapper -> "message(messageCompanion = ${wrappedType.wrapperKotlinTypeName.fullWithPackage}.Companion)"
+            is File.Field.Numbered.Wrapper -> append(wrappedType.wrapperKotlinTypeName.fullWithPackage)
         }
+        append(')')
     }
 
     protected fun File.Field.Numbered.descriptorFactoryMethod(isOneOfMember: Boolean = false): String = when {
@@ -832,7 +836,7 @@ public open class CodeGenerator(
         isOneOfMember -> "pbandk.FieldDescriptor.ofOneof"
         this is File.Field.Numbered.Standard && (hasPresence || type == File.Field.Type.MESSAGE) -> "pbandk.FieldDescriptor.ofOptional"
         this is File.Field.Numbered.Wrapper -> "pbandk.FieldDescriptor.ofOptional"
-        else -> "pbandk.FieldDescriptor.of"
+        else -> "pbandk.FieldDescriptor.ofSingular"
     }
 
     protected val File.Field.Numbered.Standard.hasPresence: Boolean get() = optional
@@ -986,10 +990,17 @@ public open class CodeGenerator(
             if (field.extendee != null) {
                 line("fullName = \"${field.name.fullWithPackage.removePrefix(".")}\",")
             } else {
+                line("messageMetadata = ${typeName.fullWithPackage}.messageMetadata,")
                 line("name = \"${field.name.simple}\",")
             }
             line("number = ${field.number},")
-            line("type = ${field.fieldDescriptorTypeType(oneof != null)},")
+            if (field is File.Field.Numbered.Standard && field.map) {
+                val mapEntry = field.mapEntry()!!
+                line("keyType = ${mapEntry.mapEntryKeyField!!.valueType()},")
+                line("valueType = ${mapEntry.mapEntryValueField!!.valueType()},")
+            } else {
+                line("valueType = ${field.valueType()},")
+            }
             line("jsonName = \"${field.jsonName}\",")
             generateFieldOptions(field.options)
             if (field.extendee == null) {

@@ -3,9 +3,8 @@ package pbandk.protobufjs
 import pbandk.*
 import pbandk.internal.asByteArray
 import pbandk.internal.binary.BinaryMessageDecoder
-import pbandk.internal.binary.BinaryWireDecoder
 import pbandk.internal.binary.Tag
-import pbandk.internal.binary.WireType
+import pbandk.binary.WireType
 
 internal class ProtobufjsBinaryWireDecoder(private val reader: Reader) : BinaryWireDecoder {
     private var endPos = reader.len

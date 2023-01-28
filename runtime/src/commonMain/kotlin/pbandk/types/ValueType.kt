@@ -1,17 +1,25 @@
 package pbandk.types
 
-import pbandk.internal.json.JsonFieldValueEncoder
-import pbandk.internal.binary.BinaryFieldValueEncoder
-import pbandk.internal.binary.WireType
+import pbandk.PublicForGeneratedCode
+import pbandk.binary.BinaryFieldValueDecoder
+import pbandk.json.JsonFieldValueEncoder
+import pbandk.binary.BinaryFieldValueEncoder
+import pbandk.binary.WireType
+import pbandk.json.JsonFieldValueDecoder
 
-internal interface ValueType<KotlinType : Any> {
-    fun isDefaultValue(value: KotlinType): Boolean
-    fun mergeValues(value: KotlinType, otherValue: KotlinType): KotlinType
+@PublicForGeneratedCode
+public interface ValueType<KotlinType : Any> {
+    public val defaultValue: KotlinType
+    public fun isDefaultValue(value: KotlinType): Boolean
+    public fun mergeValues(currentValue: KotlinType, newValue: KotlinType): KotlinType
 
-    val binaryWireType: WireType
-    fun binarySize(value: KotlinType): Int
-    fun encodeToBinary(value: KotlinType, encoder: BinaryFieldValueEncoder)
+    public val binaryWireType: WireType
+    public fun binarySize(value: KotlinType): Int
+    public fun encodeToBinary(value: KotlinType, encoder: BinaryFieldValueEncoder)
+    public fun decodeFromBinary(decoder: BinaryFieldValueDecoder): KotlinType
 
-    fun encodeToJson(value: KotlinType, encoder: JsonFieldValueEncoder)
-    fun encodeToJsonMapKey(value: KotlinType): String
+    public fun encodeToJson(value: KotlinType, encoder: JsonFieldValueEncoder)
+    public fun encodeToJsonMapKey(value: KotlinType): String
+    public fun decodeFromJson(decoder: JsonFieldValueDecoder): KotlinType
+    public fun decodeFromJsonMapKey(decoder: JsonFieldValueDecoder.String): KotlinType
 }

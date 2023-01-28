@@ -1,32 +1,48 @@
 package pbandk.internal.types.wkt
 
-import pbandk.internal.json.JsonFieldValueEncoder
-import pbandk.internal.binary.BinaryFieldValueEncoder
-import pbandk.internal.binary.Tag
-import pbandk.internal.types.primitive.Message
-import pbandk.types.ValueType
+import pbandk.FieldDescriptor
+import pbandk.Message
+import pbandk.binary.BinaryFieldValueDecoder
+import pbandk.json.JsonFieldValueEncoder
+import pbandk.binary.BinaryFieldValueEncoder
+import pbandk.binary.WireType
+import pbandk.binary.tryDecodeField
+import pbandk.json.JsonFieldValueDecoder
+import pbandk.internal.types.primitive.PrimitiveValueType
 
-internal abstract class WktWrapperValueType<T : kotlin.Any, M : pbandk.Message>(
-    private val wrappedValueType: ValueType<T>,
-    private val wrappedValueSizerFn: (T) -> Int,
-    private val wrappedValueAccessor: (M) -> T,
+internal abstract class WktWrapperValueType<T : kotlin.Any, M : Message>(
+    private val wrapperFieldDescriptor: FieldDescriptor<M, T>,
+    private val wrappedValueType: PrimitiveValueType<T>,
 ) : WktValueType<T, M> {
+    override val defaultValue: T = wrappedValueType.defaultValue
+
     override fun isDefaultValue(value: T) = false
 
-    override fun mergeValues(value: T, otherValue: T) = otherValue
+    override fun mergeValues(currentValue: T, newValue: T) = newValue
 
-    override val binaryWireType = Message.binaryWireType
+    override val binaryWireType = WireType.LENGTH_DELIMITED
 
     override fun binarySize(value: T) =
-        if (wrappedValueType.isDefaultValue(value)) 0 else 1 + wrappedValueSizerFn(value)
+        wrapperFieldDescriptor.fieldType.binarySize(wrapperFieldDescriptor.metadata, value)
 
     override fun encodeToBinary(value: T, encoder: BinaryFieldValueEncoder) {
         encoder.encodeLenFields(binarySize(value)) { fieldEncoder ->
-            if (wrappedValueType.isDefaultValue(value)) return@encodeLenFields
+            wrapperFieldDescriptor.fieldType.encodeToBinary(wrapperFieldDescriptor.metadata, value, fieldEncoder)
+        }
+    }
 
-            fieldEncoder.encodeField(Tag(1, wrappedValueType.binaryWireType)) { valueEncoder ->
-                wrappedValueType.encodeToBinary(value, valueEncoder)
-            }
+    override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): T {
+        return decoder.decodeLenFields { fieldDecoder ->
+            var value: T = wrappedValueType.defaultValue
+            do {
+                val fieldFound = fieldDecoder.decodeField { tag, valueDecoder ->
+                    when {
+                        valueDecoder.tryDecodeField(wrapperFieldDescriptor, tag) { value = it } -> {}
+                        else -> valueDecoder.skipField(tag)
+                    }
+                }
+            } while (fieldFound)
+            value
         }
     }
 
@@ -35,8 +51,21 @@ internal abstract class WktWrapperValueType<T : kotlin.Any, M : pbandk.Message>(
     }
 
     override fun encodeMessageToJson(message: M, encoder: JsonFieldValueEncoder) {
-        encodeToJson(wrappedValueAccessor(message), encoder)
+        encodeToJson(wrapperFieldDescriptor.getValue(message), encoder)
     }
 
     override fun encodeToJsonMapKey(value: T) = wrappedValueType.encodeToJsonMapKey(value)
+
+    override fun decodeFromJson(decoder: JsonFieldValueDecoder): T {
+        return wrappedValueType.decodeFromJson(decoder)
+    }
+
+    override fun decodeMessageFromJson(decoder: JsonFieldValueDecoder): M {
+        return wrapperFieldDescriptor.messageDescriptor.builder {
+            wrapperFieldDescriptor.setValue(this, decodeFromJson(decoder))
+        }
+    }
+
+    override fun decodeFromJsonMapKey(decoder: JsonFieldValueDecoder.String) =
+        wrappedValueType.decodeFromJsonMapKey(decoder)
 }
