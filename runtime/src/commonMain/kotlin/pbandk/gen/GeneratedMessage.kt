@@ -11,6 +11,7 @@ import pbandk.MutableMessage
 import pbandk.PublicForGeneratedCode
 import pbandk.UnknownField
 import pbandk.decodeAs
+import pbandk.internal.types.FieldType
 
 @Suppress("EqualsOrHashCode")
 public abstract class GeneratedMessage<M : Message>
@@ -47,17 +48,9 @@ protected constructor(
     private val _hashCode: Int by lazy(LazyThreadSafetyMode.PUBLICATION) { computeHashCode() }
     override fun hashCode(): Int = _hashCode
 
-    override fun <V> getFieldValue(fieldDescriptor: FieldDescriptor<*, V>): V {
-        if (!fieldDescriptor.metadata.isExtension) return super.getFieldValue(fieldDescriptor)
-
-        require(fieldDescriptor.messageDescriptor == messageDescriptor)
-        @Suppress("UNCHECKED_CAST")
-        return getExtension(fieldDescriptor as FieldDescriptor<M, V>)
-    }
-
     private val extensionFieldCache: FieldSetCache<M> = FieldSetCache()
 
-    public override fun <V> getExtension(fd: FieldDescriptor<M, V>): V? {
+    public override fun <V> getExtension(fd: FieldDescriptor<M, V>): V {
         require(fd.metadata.isExtension) { "Provided field descriptor does not describe an extension field" }
         var value: V? = extensionFields[fd]
         if (value != null) {
@@ -80,11 +73,11 @@ protected constructor(
             return value
         }
 
-        return null
+        return fd.fieldType.defaultValue
     }
 
-    override fun <T> getRepeatedExtension(fd: FieldDescriptor<M, List<T>>): List<T> {
-        require(fd.type is FieldDescriptor.Type.Repeated<*>) { "Provided field descriptor does not describe a repeated field" }
+    override fun <T : Any> getRepeatedExtension(fd: FieldDescriptor<M, List<T>>): List<T> {
+        require(fd.fieldType is FieldType.Repeated<T>) { "Provided field descriptor does not describe a repeated field" }
         return getExtension(fd)
     }
 }
@@ -97,14 +90,6 @@ protected constructor(
     override fun <MM : MutableMessage<M>> copy(builderAction: MM.() -> Unit): M = throw UnsupportedOperationException()
     override fun plus(other: Message?): M = throw UnsupportedOperationException()
 
-    override fun <V> getFieldValue(fieldDescriptor: FieldDescriptor<*, V>): V {
-        if (!fieldDescriptor.metadata.isExtension) return super.getFieldValue(fieldDescriptor)
-
-        require(fieldDescriptor.messageDescriptor == messageDescriptor)
-        @Suppress("UNCHECKED_CAST")
-        return getExtension(fieldDescriptor as FieldDescriptor<M, V>)
-    }
-
     override fun <V> updateFieldValue(fieldDescriptor: FieldDescriptor<M, V>, value: V) {
         fieldDescriptor.setValue(this, value)
     }
@@ -113,11 +98,10 @@ protected constructor(
 
     override fun <V> getExtension(fd: FieldDescriptor<M, V>): V {
         require(fd.metadata.isExtension) { "Provided field descriptor does not describe an extension field" }
-        @Suppress("UNCHECKED_CAST")
         return extensionFields[fd]
-            // A value for this extension field was not provided. Return the default value for this field type (which
-            // could be null, depending on the field type).
-            ?: fd.type.defaultValue as V
+        // A value for this extension field was not provided. Return the default value for this field type (which
+        // could be null, depending on the field type).
+            ?: fd.fieldType.defaultValue
     }
 
     override fun <T> getRepeatedExtension(fd: FieldDescriptor<M, List<T>>): MutableList<T> {

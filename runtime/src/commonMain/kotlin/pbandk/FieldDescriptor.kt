@@ -6,7 +6,6 @@ import pbandk.internal.binary.Tag
 import pbandk.internal.json.JsonFieldEncoder
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.internal.types.FieldType
-import pbandk.internal.types.MessageValueType
 import pbandk.types.ValueType
 import pbandk.wkt.FieldOptions
 import pbandk.wkt.orDefault

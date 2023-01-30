@@ -20,6 +20,14 @@ internal sealed class FieldType<KotlinType> {
     abstract fun mergeValues(metadata: FieldMetadata, currentValue: KotlinType, newValue: KotlinType): KotlinType
     abstract fun isDefaultValue(value: KotlinType): Boolean
 
+    /**
+     * Returns the default value for this field. Can throw an exception if [KotlinType] is a [pbandk.Message] with
+     * `required` fields, since such messages do not have a default value. Prefer [isDefaultValue] over [defaultValue]
+     * when you only need to check if another value is the default, as this avoids the possibility of throwing an
+     * exception.
+     */
+    abstract val defaultValue: KotlinType
+
     abstract fun allowsBinaryWireType(wireType: WireType): Boolean
     abstract fun binarySize(metadata: FieldMetadata, value: KotlinType): Int
     abstract fun encodeToBinary(metadata: FieldMetadata, value: KotlinType, encoder: BinaryFieldEncoder)
@@ -33,6 +41,8 @@ internal sealed class FieldType<KotlinType> {
             valueType.mergeValues(currentValue, newValue)
 
         override fun isDefaultValue(value: T) = valueType.isDefaultValue(value)
+
+        override val defaultValue: T get() = valueType.defaultValue
 
         override fun allowsBinaryWireType(wireType: WireType): Boolean {
             return valueType.binaryWireType == wireType
@@ -76,6 +86,8 @@ internal sealed class FieldType<KotlinType> {
         }
 
         override fun isDefaultValue(value: T?) = value == null
+
+        override val defaultValue: T? get() = null
 
         override fun allowsBinaryWireType(wireType: WireType): Boolean {
             return valueType.binaryWireType == wireType
@@ -126,6 +138,8 @@ internal sealed class FieldType<KotlinType> {
 
         override fun isDefaultValue(value: T) = valueType.isDefaultValue(value)
 
+        override val defaultValue: T get() = valueType.defaultValue
+
         override fun allowsBinaryWireType(wireType: WireType): Boolean {
             return valueType.binaryWireType == wireType
         }
@@ -172,10 +186,12 @@ internal sealed class FieldType<KotlinType> {
 
         override fun isDefaultValue(value: List<T>) = value.isEmpty()
 
+        override val defaultValue: List<T> get() = emptyList()
+
         override fun allowsBinaryWireType(wireType: WireType): Boolean {
             return (valueType.binaryWireType == wireType
-                // If the value is packable, then the wire type can be LENGTH_DELIMITED
-                || (wireType == WireType.LENGTH_DELIMITED && valueType.binaryWireType != WireType.LENGTH_DELIMITED))
+                    // If the value is packable, then the wire type can be LENGTH_DELIMITED
+                    || (wireType == WireType.LENGTH_DELIMITED && valueType.binaryWireType != WireType.LENGTH_DELIMITED))
         }
 
         override fun binarySize(metadata: FieldMetadata, value: List<T>) = when {
@@ -183,9 +199,9 @@ internal sealed class FieldType<KotlinType> {
 
             metadata.options.packed == true -> {
                 Sizer.tagSize(metadata.number) +
-                    ((value as? ListField)?.protoSize ?: value.sumOf(valueType::binarySize)).let {
-                        it + Sizer.uInt32Size(it)
-                    }
+                        ((value as? ListField)?.protoSize ?: value.sumOf(valueType::binarySize)).let {
+                            it + Sizer.uInt32Size(it)
+                        }
             }
 
             else -> (Sizer.tagSize(metadata.number) * value.size) + value.sumOf(valueType::binarySize)
@@ -286,6 +302,8 @@ internal sealed class FieldType<KotlinType> {
         }
 
         override fun isDefaultValue(value: kotlin.collections.Map<K, V>) = value.isEmpty()
+
+        override val defaultValue: kotlin.collections.Map<K, V> get() = emptyMap()
 
         override fun allowsBinaryWireType(wireType: WireType): Boolean {
             return wireType == WireType.LENGTH_DELIMITED
