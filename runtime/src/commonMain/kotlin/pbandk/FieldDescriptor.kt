@@ -148,6 +148,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
     }
 
     internal abstract fun getValue(message: M): V
+    // internal abstract fun getMutableValue(message: MutableMessage<M>): MV
     internal abstract fun setValue(message: MutableMessage<M>, value: V)
 
     internal open fun mergeValues(message: M, otherMessage: M, destination: MutableMessage<M>) {
@@ -212,6 +213,16 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
         override val fieldType = FieldType.Required(valueType)
 
         override fun getValue(message: M): V = property.get(message)
+        // override fun getMutableValue(message: MutableMessage<M>): V {
+        //     @Suppress("UNCHECKED_CAST")
+        //     return mutableProperty.get(message as MM)
+        // }
+        // override fun getMutableValue(message: MutableMessage<M>): (V) -> Unit {
+        //     return fun(value: V) {
+        //         @Suppress("UNCHECKED_CAST")
+        //         mutableProperty.set(this as MM, value)
+        //     }
+        // }
         override fun setValue(message: MutableMessage<M>, value: V) {
             @Suppress("UNCHECKED_CAST")
             mutableProperty.set(message as MM, value)

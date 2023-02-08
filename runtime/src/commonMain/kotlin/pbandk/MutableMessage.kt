@@ -14,7 +14,9 @@ public interface MutableMessage<M : Message> : Message {
      * [fieldDescriptor] can be a descriptor for an extension field that was not defined on the original message, but it
      * _MUST_ be a descriptor for fields in messages of type [M].
      */
-    @ExperimentalProtoReflection
-    public fun <V> updateFieldValue(fieldDescriptor: FieldDescriptor<M, V>, value: V)
+    // @ExperimentalProtoReflection
+    // public fun <V> updateFieldValue(fieldDescriptor: FieldDescriptor<M, V>, value: V)
+
+    public fun <V> getMutableFieldValue(fieldDescriptor: FieldDescriptor<M, V>): V
 
 }

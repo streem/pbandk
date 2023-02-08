@@ -17,7 +17,10 @@ protected constructor(
     override fun toString(): String = "${descriptor.name}.${name}(value=$value)"
 }
 
-public abstract class UnrecognizedEnumValue<E : Message.Enum> : Message.Enum {
+public abstract class UnrecognizedEnumValue<E : Message.Enum>(
+    override val value: Int?,
+    override val name: String?,
+) : Message.Enum {
     override fun equals(other: Any?): Boolean {
         if (!this::class.isInstance(other)) return false
         other as UnrecognizedEnumValue<*>
