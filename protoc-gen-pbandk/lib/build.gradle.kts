@@ -43,7 +43,7 @@ kotlin {
         val jvmTest by getting {
             dependencies {
                 implementation(kotlin("reflect"))
-                implementation("com.github.tschuchortdev:kotlin-compile-testing:1.4.5")
+                implementation("com.github.tschuchortdev:kotlin-compile-testing:1.4.9")
             }
         }
     }

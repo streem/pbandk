@@ -1,6 +1,6 @@
 plugins {
-    kotlin("js") version "1.5.32" apply false
-    id("com.google.protobuf") version "0.8.18" apply false
+    kotlin("js") version "1.8.10" apply false
+    id("com.google.protobuf") version "0.9.2" apply false
 }
 
 val pbandkVersion by extra("0.14.0-SNAPSHOT")
