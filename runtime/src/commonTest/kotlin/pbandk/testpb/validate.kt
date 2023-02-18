@@ -4,27 +4,41 @@
 package pbandk.testpb
 
 @pbandk.Export
-@Suppress("ClassName")
-public sealed class KnownRegex(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?): Boolean = other is pbandk.testpb.KnownRegex && other.value == value
-    override fun hashCode(): Int = value.hashCode()
-    override fun toString(): String = "KnownRegex.${name ?: "UNRECOGNIZED"}(value=$value)"
+public sealed interface KnownRegex : pbandk.Message.Enum {
+    override val descriptor: pbandk.EnumDescriptor<pbandk.testpb.KnownRegex>
+        get() = pbandk.testpb.KnownRegex.descriptor
 
-    public object UNKNOWN : KnownRegex(0, "UNKNOWN")
-    public object HTTP_HEADER_NAME : KnownRegex(1, "HTTP_HEADER_NAME")
-    public object HTTP_HEADER_VALUE : KnownRegex(2, "HTTP_HEADER_VALUE")
-    public class UNRECOGNIZED(value: Int) : KnownRegex(value)
+    public object UNKNOWN : KnownRegex, pbandk.gen.GeneratedEnumValue<pbandk.testpb.KnownRegex>(
+        value = 0,
+        name = "UNKNOWN",
+    )
+    public object HTTP_HEADER_NAME : KnownRegex, pbandk.gen.GeneratedEnumValue<pbandk.testpb.KnownRegex>(
+        value = 1,
+        name = "HTTP_HEADER_NAME",
+    )
+    public object HTTP_HEADER_VALUE : KnownRegex, pbandk.gen.GeneratedEnumValue<pbandk.testpb.KnownRegex>(
+        value = 2,
+        name = "HTTP_HEADER_VALUE",
+    )
+    public class UNRECOGNIZED(value: Int? = null, name: String? = null)
+        : KnownRegex, pbandk.gen.UnrecognizedEnumValue<pbandk.testpb.KnownRegex>(value, name)
 
     public companion object : pbandk.Message.Enum.Companion<pbandk.testpb.KnownRegex> {
+        override val descriptor: pbandk.EnumDescriptor<pbandk.testpb.KnownRegex> =
+            pbandk.EnumDescriptor.of(
+                fullName = "pbandk.testpb.KnownRegex",
+                enumClass = pbandk.testpb.KnownRegex::class,
+                enumCompanion = this,
+            )
         public val values: List<KnownRegex> by lazy(LazyThreadSafetyMode.PUBLICATION) {
             listOf(UNKNOWN, HTTP_HEADER_NAME, HTTP_HEADER_VALUE)
         }
 
         override fun fromValue(value: Int): pbandk.testpb.KnownRegex =
-            values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value = value)
 
         override fun fromName(name: String): pbandk.testpb.KnownRegex =
-            values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No KnownRegex with name: $name")
+            values.firstOrNull { it.name == name } ?: UNRECOGNIZED(name = name)
     }
 }
 
@@ -123,9 +137,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val float: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.FloatRules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "float",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.FloatRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.FloatRules),
                 jsonName = "float",
                 value = pbandk.testpb.FieldRules::float,
                 mutableValue = pbandk.testpb.MutableFieldRules::float,
@@ -133,9 +148,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val double: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.DoubleRules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "double",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.DoubleRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.DoubleRules),
                 jsonName = "double",
                 value = pbandk.testpb.FieldRules::double,
                 mutableValue = pbandk.testpb.MutableFieldRules::double,
@@ -143,9 +159,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val int32: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.Int32Rules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "int32",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.Int32Rules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.Int32Rules),
                 jsonName = "int32",
                 value = pbandk.testpb.FieldRules::int32,
                 mutableValue = pbandk.testpb.MutableFieldRules::int32,
@@ -153,9 +170,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val int64: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.Int64Rules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "int64",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.Int64Rules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.Int64Rules),
                 jsonName = "int64",
                 value = pbandk.testpb.FieldRules::int64,
                 mutableValue = pbandk.testpb.MutableFieldRules::int64,
@@ -163,9 +181,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val uint32: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.UInt32Rules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "uint32",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.UInt32Rules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.UInt32Rules),
                 jsonName = "uint32",
                 value = pbandk.testpb.FieldRules::uint32,
                 mutableValue = pbandk.testpb.MutableFieldRules::uint32,
@@ -173,9 +192,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val uint64: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.UInt64Rules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "uint64",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.UInt64Rules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.UInt64Rules),
                 jsonName = "uint64",
                 value = pbandk.testpb.FieldRules::uint64,
                 mutableValue = pbandk.testpb.MutableFieldRules::uint64,
@@ -183,9 +203,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val sint32: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.SInt32Rules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "sint32",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.SInt32Rules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.SInt32Rules),
                 jsonName = "sint32",
                 value = pbandk.testpb.FieldRules::sint32,
                 mutableValue = pbandk.testpb.MutableFieldRules::sint32,
@@ -193,9 +214,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val sint64: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.SInt64Rules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "sint64",
                 number = 8,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.SInt64Rules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.SInt64Rules),
                 jsonName = "sint64",
                 value = pbandk.testpb.FieldRules::sint64,
                 mutableValue = pbandk.testpb.MutableFieldRules::sint64,
@@ -203,9 +225,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val fixed32: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.Fixed32Rules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "fixed32",
                 number = 9,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.Fixed32Rules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.Fixed32Rules),
                 jsonName = "fixed32",
                 value = pbandk.testpb.FieldRules::fixed32,
                 mutableValue = pbandk.testpb.MutableFieldRules::fixed32,
@@ -213,9 +236,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val fixed64: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.Fixed64Rules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "fixed64",
                 number = 10,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.Fixed64Rules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.Fixed64Rules),
                 jsonName = "fixed64",
                 value = pbandk.testpb.FieldRules::fixed64,
                 mutableValue = pbandk.testpb.MutableFieldRules::fixed64,
@@ -223,9 +247,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val sfixed32: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.SFixed32Rules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "sfixed32",
                 number = 11,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.SFixed32Rules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.SFixed32Rules),
                 jsonName = "sfixed32",
                 value = pbandk.testpb.FieldRules::sfixed32,
                 mutableValue = pbandk.testpb.MutableFieldRules::sfixed32,
@@ -233,9 +258,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val sfixed64: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.SFixed64Rules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "sfixed64",
                 number = 12,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.SFixed64Rules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.SFixed64Rules),
                 jsonName = "sfixed64",
                 value = pbandk.testpb.FieldRules::sfixed64,
                 mutableValue = pbandk.testpb.MutableFieldRules::sfixed64,
@@ -243,9 +269,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val bool: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.BoolRules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "bool",
                 number = 13,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.BoolRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.BoolRules),
                 jsonName = "bool",
                 value = pbandk.testpb.FieldRules::bool,
                 mutableValue = pbandk.testpb.MutableFieldRules::bool,
@@ -253,9 +280,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val string: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.StringRules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "string",
                 number = 14,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.StringRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.StringRules),
                 jsonName = "string",
                 value = pbandk.testpb.FieldRules::string,
                 mutableValue = pbandk.testpb.MutableFieldRules::string,
@@ -263,9 +291,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val bytes: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.BytesRules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "bytes",
                 number = 15,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.BytesRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.BytesRules),
                 jsonName = "bytes",
                 value = pbandk.testpb.FieldRules::bytes,
                 mutableValue = pbandk.testpb.MutableFieldRules::bytes,
@@ -273,9 +302,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val enum: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.EnumRules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "enum",
                 number = 16,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.EnumRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.EnumRules),
                 jsonName = "enum",
                 value = pbandk.testpb.FieldRules::enum,
                 mutableValue = pbandk.testpb.MutableFieldRules::enum,
@@ -283,9 +313,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val message: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.MessageRules?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "message",
                 number = 17,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.MessageRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.MessageRules),
                 jsonName = "message",
                 value = pbandk.testpb.FieldRules::message,
                 mutableValue = pbandk.testpb.MutableFieldRules::message,
@@ -293,9 +324,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val repeated: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.RepeatedRules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "repeated",
                 number = 18,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.RepeatedRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.RepeatedRules),
                 jsonName = "repeated",
                 value = pbandk.testpb.FieldRules::repeated,
                 mutableValue = pbandk.testpb.MutableFieldRules::repeated,
@@ -303,9 +335,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val map: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.MapRules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "map",
                 number = 19,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.MapRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.MapRules),
                 jsonName = "map",
                 value = pbandk.testpb.FieldRules::map,
                 mutableValue = pbandk.testpb.MutableFieldRules::map,
@@ -313,9 +346,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val any: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.AnyRules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "any",
                 number = 20,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.AnyRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.AnyRules),
                 jsonName = "any",
                 value = pbandk.testpb.FieldRules::any,
                 mutableValue = pbandk.testpb.MutableFieldRules::any,
@@ -323,9 +357,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val duration: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.DurationRules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "duration",
                 number = 21,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.DurationRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.DurationRules),
                 jsonName = "duration",
                 value = pbandk.testpb.FieldRules::duration,
                 mutableValue = pbandk.testpb.MutableFieldRules::duration,
@@ -333,9 +368,10 @@ public sealed interface FieldRules : pbandk.Message {
         public val timestamp: pbandk.FieldDescriptor<pbandk.testpb.FieldRules, pbandk.testpb.TimestampRules?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.FieldRules::descriptor,
+                messageMetadata = pbandk.testpb.FieldRules.messageMetadata,
                 name = "timestamp",
                 number = 22,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.TimestampRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.TimestampRules),
                 jsonName = "timestamp",
                 value = pbandk.testpb.FieldRules::timestamp,
                 mutableValue = pbandk.testpb.MutableFieldRules::timestamp,
@@ -374,13 +410,17 @@ public sealed interface FieldRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FieldRules> {
-        public val defaultInstance: pbandk.testpb.FieldRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.FieldRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.FieldRules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.FieldRules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FieldRules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.FieldRules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.FieldRules::class,
                 messageCompanion = this,
                 builder = ::FieldRules,
@@ -460,9 +500,10 @@ public sealed interface FloatRules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.FloatRules, Float?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.FloatRules::descriptor,
+                messageMetadata = pbandk.testpb.FloatRules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.float(hasPresence = true),
+                valueType = pbandk.types.float(),
                 jsonName = "const",
                 value = pbandk.testpb.FloatRules::const,
                 mutableValue = pbandk.testpb.MutableFloatRules::const,
@@ -470,9 +511,10 @@ public sealed interface FloatRules : pbandk.Message {
         public val lt: pbandk.FieldDescriptor<pbandk.testpb.FloatRules, Float?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.FloatRules::descriptor,
+                messageMetadata = pbandk.testpb.FloatRules.messageMetadata,
                 name = "lt",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.float(hasPresence = true),
+                valueType = pbandk.types.float(),
                 jsonName = "lt",
                 value = pbandk.testpb.FloatRules::lt,
                 mutableValue = pbandk.testpb.MutableFloatRules::lt,
@@ -480,9 +522,10 @@ public sealed interface FloatRules : pbandk.Message {
         public val lte: pbandk.FieldDescriptor<pbandk.testpb.FloatRules, Float?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.FloatRules::descriptor,
+                messageMetadata = pbandk.testpb.FloatRules.messageMetadata,
                 name = "lte",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.float(hasPresence = true),
+                valueType = pbandk.types.float(),
                 jsonName = "lte",
                 value = pbandk.testpb.FloatRules::lte,
                 mutableValue = pbandk.testpb.MutableFloatRules::lte,
@@ -490,9 +533,10 @@ public sealed interface FloatRules : pbandk.Message {
         public val gt: pbandk.FieldDescriptor<pbandk.testpb.FloatRules, Float?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.FloatRules::descriptor,
+                messageMetadata = pbandk.testpb.FloatRules.messageMetadata,
                 name = "gt",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.float(hasPresence = true),
+                valueType = pbandk.types.float(),
                 jsonName = "gt",
                 value = pbandk.testpb.FloatRules::gt,
                 mutableValue = pbandk.testpb.MutableFloatRules::gt,
@@ -500,29 +544,32 @@ public sealed interface FloatRules : pbandk.Message {
         public val gte: pbandk.FieldDescriptor<pbandk.testpb.FloatRules, Float?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.FloatRules::descriptor,
+                messageMetadata = pbandk.testpb.FloatRules.messageMetadata,
                 name = "gte",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.float(hasPresence = true),
+                valueType = pbandk.types.float(),
                 jsonName = "gte",
                 value = pbandk.testpb.FloatRules::gte,
                 mutableValue = pbandk.testpb.MutableFloatRules::gte,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.FloatRules, List<Float>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.FloatRules, List<Float>, MutableList<Float>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.FloatRules::descriptor,
+                messageMetadata = pbandk.testpb.FloatRules.messageMetadata,
                 name = "in",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.float()),
+                valueType = pbandk.types.float(),
                 jsonName = "in",
                 value = pbandk.testpb.FloatRules::`in`,
                 mutableValue = pbandk.testpb.MutableFloatRules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.FloatRules, List<Float>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.FloatRules, List<Float>, MutableList<Float>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.FloatRules::descriptor,
+                messageMetadata = pbandk.testpb.FloatRules.messageMetadata,
                 name = "not_in",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.float()),
+                valueType = pbandk.types.float(),
                 jsonName = "notIn",
                 value = pbandk.testpb.FloatRules::notIn,
                 mutableValue = pbandk.testpb.MutableFloatRules::notIn,
@@ -530,13 +577,17 @@ public sealed interface FloatRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FloatRules> {
-        public val defaultInstance: pbandk.testpb.FloatRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.FloatRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.FloatRules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.FloatRules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FloatRules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.FloatRules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.FloatRules::class,
                 messageCompanion = this,
                 builder = ::FloatRules,
@@ -602,9 +653,10 @@ public sealed interface DoubleRules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.DoubleRules, Double?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.DoubleRules::descriptor,
+                messageMetadata = pbandk.testpb.DoubleRules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.double(hasPresence = true),
+                valueType = pbandk.types.double(),
                 jsonName = "const",
                 value = pbandk.testpb.DoubleRules::const,
                 mutableValue = pbandk.testpb.MutableDoubleRules::const,
@@ -612,9 +664,10 @@ public sealed interface DoubleRules : pbandk.Message {
         public val lt: pbandk.FieldDescriptor<pbandk.testpb.DoubleRules, Double?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.DoubleRules::descriptor,
+                messageMetadata = pbandk.testpb.DoubleRules.messageMetadata,
                 name = "lt",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.double(hasPresence = true),
+                valueType = pbandk.types.double(),
                 jsonName = "lt",
                 value = pbandk.testpb.DoubleRules::lt,
                 mutableValue = pbandk.testpb.MutableDoubleRules::lt,
@@ -622,9 +675,10 @@ public sealed interface DoubleRules : pbandk.Message {
         public val lte: pbandk.FieldDescriptor<pbandk.testpb.DoubleRules, Double?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.DoubleRules::descriptor,
+                messageMetadata = pbandk.testpb.DoubleRules.messageMetadata,
                 name = "lte",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.double(hasPresence = true),
+                valueType = pbandk.types.double(),
                 jsonName = "lte",
                 value = pbandk.testpb.DoubleRules::lte,
                 mutableValue = pbandk.testpb.MutableDoubleRules::lte,
@@ -632,9 +686,10 @@ public sealed interface DoubleRules : pbandk.Message {
         public val gt: pbandk.FieldDescriptor<pbandk.testpb.DoubleRules, Double?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.DoubleRules::descriptor,
+                messageMetadata = pbandk.testpb.DoubleRules.messageMetadata,
                 name = "gt",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.double(hasPresence = true),
+                valueType = pbandk.types.double(),
                 jsonName = "gt",
                 value = pbandk.testpb.DoubleRules::gt,
                 mutableValue = pbandk.testpb.MutableDoubleRules::gt,
@@ -642,29 +697,32 @@ public sealed interface DoubleRules : pbandk.Message {
         public val gte: pbandk.FieldDescriptor<pbandk.testpb.DoubleRules, Double?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.DoubleRules::descriptor,
+                messageMetadata = pbandk.testpb.DoubleRules.messageMetadata,
                 name = "gte",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.double(hasPresence = true),
+                valueType = pbandk.types.double(),
                 jsonName = "gte",
                 value = pbandk.testpb.DoubleRules::gte,
                 mutableValue = pbandk.testpb.MutableDoubleRules::gte,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.DoubleRules, List<Double>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.DoubleRules, List<Double>, MutableList<Double>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.DoubleRules::descriptor,
+                messageMetadata = pbandk.testpb.DoubleRules.messageMetadata,
                 name = "in",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.double()),
+                valueType = pbandk.types.double(),
                 jsonName = "in",
                 value = pbandk.testpb.DoubleRules::`in`,
                 mutableValue = pbandk.testpb.MutableDoubleRules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.DoubleRules, List<Double>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.DoubleRules, List<Double>, MutableList<Double>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.DoubleRules::descriptor,
+                messageMetadata = pbandk.testpb.DoubleRules.messageMetadata,
                 name = "not_in",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.double()),
+                valueType = pbandk.types.double(),
                 jsonName = "notIn",
                 value = pbandk.testpb.DoubleRules::notIn,
                 mutableValue = pbandk.testpb.MutableDoubleRules::notIn,
@@ -672,13 +730,17 @@ public sealed interface DoubleRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.DoubleRules> {
-        public val defaultInstance: pbandk.testpb.DoubleRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.DoubleRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.DoubleRules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.DoubleRules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.DoubleRules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.DoubleRules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.DoubleRules::class,
                 messageCompanion = this,
                 builder = ::DoubleRules,
@@ -744,9 +806,10 @@ public sealed interface Int32Rules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.Int32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Int32Rules::descriptor,
+                messageMetadata = pbandk.testpb.Int32Rules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
+                valueType = pbandk.types.int32(),
                 jsonName = "const",
                 value = pbandk.testpb.Int32Rules::const,
                 mutableValue = pbandk.testpb.MutableInt32Rules::const,
@@ -754,9 +817,10 @@ public sealed interface Int32Rules : pbandk.Message {
         public val lt: pbandk.FieldDescriptor<pbandk.testpb.Int32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Int32Rules::descriptor,
+                messageMetadata = pbandk.testpb.Int32Rules.messageMetadata,
                 name = "lt",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
+                valueType = pbandk.types.int32(),
                 jsonName = "lt",
                 value = pbandk.testpb.Int32Rules::lt,
                 mutableValue = pbandk.testpb.MutableInt32Rules::lt,
@@ -764,9 +828,10 @@ public sealed interface Int32Rules : pbandk.Message {
         public val lte: pbandk.FieldDescriptor<pbandk.testpb.Int32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Int32Rules::descriptor,
+                messageMetadata = pbandk.testpb.Int32Rules.messageMetadata,
                 name = "lte",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
+                valueType = pbandk.types.int32(),
                 jsonName = "lte",
                 value = pbandk.testpb.Int32Rules::lte,
                 mutableValue = pbandk.testpb.MutableInt32Rules::lte,
@@ -774,9 +839,10 @@ public sealed interface Int32Rules : pbandk.Message {
         public val gt: pbandk.FieldDescriptor<pbandk.testpb.Int32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Int32Rules::descriptor,
+                messageMetadata = pbandk.testpb.Int32Rules.messageMetadata,
                 name = "gt",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
+                valueType = pbandk.types.int32(),
                 jsonName = "gt",
                 value = pbandk.testpb.Int32Rules::gt,
                 mutableValue = pbandk.testpb.MutableInt32Rules::gt,
@@ -784,29 +850,32 @@ public sealed interface Int32Rules : pbandk.Message {
         public val gte: pbandk.FieldDescriptor<pbandk.testpb.Int32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Int32Rules::descriptor,
+                messageMetadata = pbandk.testpb.Int32Rules.messageMetadata,
                 name = "gte",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
+                valueType = pbandk.types.int32(),
                 jsonName = "gte",
                 value = pbandk.testpb.Int32Rules::gte,
                 mutableValue = pbandk.testpb.MutableInt32Rules::gte,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.Int32Rules, List<Int>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.Int32Rules, List<Int>, MutableList<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.Int32Rules::descriptor,
+                messageMetadata = pbandk.testpb.Int32Rules.messageMetadata,
                 name = "in",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.int32()),
+                valueType = pbandk.types.int32(),
                 jsonName = "in",
                 value = pbandk.testpb.Int32Rules::`in`,
                 mutableValue = pbandk.testpb.MutableInt32Rules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.Int32Rules, List<Int>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.Int32Rules, List<Int>, MutableList<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.Int32Rules::descriptor,
+                messageMetadata = pbandk.testpb.Int32Rules.messageMetadata,
                 name = "not_in",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.int32()),
+                valueType = pbandk.types.int32(),
                 jsonName = "notIn",
                 value = pbandk.testpb.Int32Rules::notIn,
                 mutableValue = pbandk.testpb.MutableInt32Rules::notIn,
@@ -814,13 +883,17 @@ public sealed interface Int32Rules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Int32Rules> {
-        public val defaultInstance: pbandk.testpb.Int32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.Int32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Int32Rules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.Int32Rules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Int32Rules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.Int32Rules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.Int32Rules::class,
                 messageCompanion = this,
                 builder = ::Int32Rules,
@@ -886,9 +959,10 @@ public sealed interface Int64Rules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.Int64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Int64Rules::descriptor,
+                messageMetadata = pbandk.testpb.Int64Rules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.int64(hasPresence = true),
+                valueType = pbandk.types.int64(),
                 jsonName = "const",
                 value = pbandk.testpb.Int64Rules::const,
                 mutableValue = pbandk.testpb.MutableInt64Rules::const,
@@ -896,9 +970,10 @@ public sealed interface Int64Rules : pbandk.Message {
         public val lt: pbandk.FieldDescriptor<pbandk.testpb.Int64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Int64Rules::descriptor,
+                messageMetadata = pbandk.testpb.Int64Rules.messageMetadata,
                 name = "lt",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.int64(hasPresence = true),
+                valueType = pbandk.types.int64(),
                 jsonName = "lt",
                 value = pbandk.testpb.Int64Rules::lt,
                 mutableValue = pbandk.testpb.MutableInt64Rules::lt,
@@ -906,9 +981,10 @@ public sealed interface Int64Rules : pbandk.Message {
         public val lte: pbandk.FieldDescriptor<pbandk.testpb.Int64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Int64Rules::descriptor,
+                messageMetadata = pbandk.testpb.Int64Rules.messageMetadata,
                 name = "lte",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.int64(hasPresence = true),
+                valueType = pbandk.types.int64(),
                 jsonName = "lte",
                 value = pbandk.testpb.Int64Rules::lte,
                 mutableValue = pbandk.testpb.MutableInt64Rules::lte,
@@ -916,9 +992,10 @@ public sealed interface Int64Rules : pbandk.Message {
         public val gt: pbandk.FieldDescriptor<pbandk.testpb.Int64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Int64Rules::descriptor,
+                messageMetadata = pbandk.testpb.Int64Rules.messageMetadata,
                 name = "gt",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.int64(hasPresence = true),
+                valueType = pbandk.types.int64(),
                 jsonName = "gt",
                 value = pbandk.testpb.Int64Rules::gt,
                 mutableValue = pbandk.testpb.MutableInt64Rules::gt,
@@ -926,29 +1003,32 @@ public sealed interface Int64Rules : pbandk.Message {
         public val gte: pbandk.FieldDescriptor<pbandk.testpb.Int64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Int64Rules::descriptor,
+                messageMetadata = pbandk.testpb.Int64Rules.messageMetadata,
                 name = "gte",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.int64(hasPresence = true),
+                valueType = pbandk.types.int64(),
                 jsonName = "gte",
                 value = pbandk.testpb.Int64Rules::gte,
                 mutableValue = pbandk.testpb.MutableInt64Rules::gte,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.Int64Rules, List<Long>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.Int64Rules, List<Long>, MutableList<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.Int64Rules::descriptor,
+                messageMetadata = pbandk.testpb.Int64Rules.messageMetadata,
                 name = "in",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.int64()),
+                valueType = pbandk.types.int64(),
                 jsonName = "in",
                 value = pbandk.testpb.Int64Rules::`in`,
                 mutableValue = pbandk.testpb.MutableInt64Rules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.Int64Rules, List<Long>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.Int64Rules, List<Long>, MutableList<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.Int64Rules::descriptor,
+                messageMetadata = pbandk.testpb.Int64Rules.messageMetadata,
                 name = "not_in",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.int64()),
+                valueType = pbandk.types.int64(),
                 jsonName = "notIn",
                 value = pbandk.testpb.Int64Rules::notIn,
                 mutableValue = pbandk.testpb.MutableInt64Rules::notIn,
@@ -956,13 +1036,17 @@ public sealed interface Int64Rules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Int64Rules> {
-        public val defaultInstance: pbandk.testpb.Int64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.Int64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Int64Rules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.Int64Rules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Int64Rules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.Int64Rules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.Int64Rules::class,
                 messageCompanion = this,
                 builder = ::Int64Rules,
@@ -1028,9 +1112,10 @@ public sealed interface UInt32Rules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.UInt32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.UInt32Rules::descriptor,
+                messageMetadata = pbandk.testpb.UInt32Rules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.uint32(hasPresence = true),
+                valueType = pbandk.types.uint32(),
                 jsonName = "const",
                 value = pbandk.testpb.UInt32Rules::const,
                 mutableValue = pbandk.testpb.MutableUInt32Rules::const,
@@ -1038,9 +1123,10 @@ public sealed interface UInt32Rules : pbandk.Message {
         public val lt: pbandk.FieldDescriptor<pbandk.testpb.UInt32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.UInt32Rules::descriptor,
+                messageMetadata = pbandk.testpb.UInt32Rules.messageMetadata,
                 name = "lt",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.uint32(hasPresence = true),
+                valueType = pbandk.types.uint32(),
                 jsonName = "lt",
                 value = pbandk.testpb.UInt32Rules::lt,
                 mutableValue = pbandk.testpb.MutableUInt32Rules::lt,
@@ -1048,9 +1134,10 @@ public sealed interface UInt32Rules : pbandk.Message {
         public val lte: pbandk.FieldDescriptor<pbandk.testpb.UInt32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.UInt32Rules::descriptor,
+                messageMetadata = pbandk.testpb.UInt32Rules.messageMetadata,
                 name = "lte",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.uint32(hasPresence = true),
+                valueType = pbandk.types.uint32(),
                 jsonName = "lte",
                 value = pbandk.testpb.UInt32Rules::lte,
                 mutableValue = pbandk.testpb.MutableUInt32Rules::lte,
@@ -1058,9 +1145,10 @@ public sealed interface UInt32Rules : pbandk.Message {
         public val gt: pbandk.FieldDescriptor<pbandk.testpb.UInt32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.UInt32Rules::descriptor,
+                messageMetadata = pbandk.testpb.UInt32Rules.messageMetadata,
                 name = "gt",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.uint32(hasPresence = true),
+                valueType = pbandk.types.uint32(),
                 jsonName = "gt",
                 value = pbandk.testpb.UInt32Rules::gt,
                 mutableValue = pbandk.testpb.MutableUInt32Rules::gt,
@@ -1068,29 +1156,32 @@ public sealed interface UInt32Rules : pbandk.Message {
         public val gte: pbandk.FieldDescriptor<pbandk.testpb.UInt32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.UInt32Rules::descriptor,
+                messageMetadata = pbandk.testpb.UInt32Rules.messageMetadata,
                 name = "gte",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.uint32(hasPresence = true),
+                valueType = pbandk.types.uint32(),
                 jsonName = "gte",
                 value = pbandk.testpb.UInt32Rules::gte,
                 mutableValue = pbandk.testpb.MutableUInt32Rules::gte,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.UInt32Rules, List<Int>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.UInt32Rules, List<Int>, MutableList<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.UInt32Rules::descriptor,
+                messageMetadata = pbandk.testpb.UInt32Rules.messageMetadata,
                 name = "in",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.uint32()),
+                valueType = pbandk.types.uint32(),
                 jsonName = "in",
                 value = pbandk.testpb.UInt32Rules::`in`,
                 mutableValue = pbandk.testpb.MutableUInt32Rules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.UInt32Rules, List<Int>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.UInt32Rules, List<Int>, MutableList<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.UInt32Rules::descriptor,
+                messageMetadata = pbandk.testpb.UInt32Rules.messageMetadata,
                 name = "not_in",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.uint32()),
+                valueType = pbandk.types.uint32(),
                 jsonName = "notIn",
                 value = pbandk.testpb.UInt32Rules::notIn,
                 mutableValue = pbandk.testpb.MutableUInt32Rules::notIn,
@@ -1098,13 +1189,17 @@ public sealed interface UInt32Rules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.UInt32Rules> {
-        public val defaultInstance: pbandk.testpb.UInt32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.UInt32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.UInt32Rules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.UInt32Rules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.UInt32Rules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.UInt32Rules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.UInt32Rules::class,
                 messageCompanion = this,
                 builder = ::UInt32Rules,
@@ -1170,9 +1265,10 @@ public sealed interface UInt64Rules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.UInt64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.UInt64Rules::descriptor,
+                messageMetadata = pbandk.testpb.UInt64Rules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "const",
                 value = pbandk.testpb.UInt64Rules::const,
                 mutableValue = pbandk.testpb.MutableUInt64Rules::const,
@@ -1180,9 +1276,10 @@ public sealed interface UInt64Rules : pbandk.Message {
         public val lt: pbandk.FieldDescriptor<pbandk.testpb.UInt64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.UInt64Rules::descriptor,
+                messageMetadata = pbandk.testpb.UInt64Rules.messageMetadata,
                 name = "lt",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "lt",
                 value = pbandk.testpb.UInt64Rules::lt,
                 mutableValue = pbandk.testpb.MutableUInt64Rules::lt,
@@ -1190,9 +1287,10 @@ public sealed interface UInt64Rules : pbandk.Message {
         public val lte: pbandk.FieldDescriptor<pbandk.testpb.UInt64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.UInt64Rules::descriptor,
+                messageMetadata = pbandk.testpb.UInt64Rules.messageMetadata,
                 name = "lte",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "lte",
                 value = pbandk.testpb.UInt64Rules::lte,
                 mutableValue = pbandk.testpb.MutableUInt64Rules::lte,
@@ -1200,9 +1298,10 @@ public sealed interface UInt64Rules : pbandk.Message {
         public val gt: pbandk.FieldDescriptor<pbandk.testpb.UInt64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.UInt64Rules::descriptor,
+                messageMetadata = pbandk.testpb.UInt64Rules.messageMetadata,
                 name = "gt",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "gt",
                 value = pbandk.testpb.UInt64Rules::gt,
                 mutableValue = pbandk.testpb.MutableUInt64Rules::gt,
@@ -1210,29 +1309,32 @@ public sealed interface UInt64Rules : pbandk.Message {
         public val gte: pbandk.FieldDescriptor<pbandk.testpb.UInt64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.UInt64Rules::descriptor,
+                messageMetadata = pbandk.testpb.UInt64Rules.messageMetadata,
                 name = "gte",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "gte",
                 value = pbandk.testpb.UInt64Rules::gte,
                 mutableValue = pbandk.testpb.MutableUInt64Rules::gte,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.UInt64Rules, List<Long>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.UInt64Rules, List<Long>, MutableList<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.UInt64Rules::descriptor,
+                messageMetadata = pbandk.testpb.UInt64Rules.messageMetadata,
                 name = "in",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.uint64()),
+                valueType = pbandk.types.uint64(),
                 jsonName = "in",
                 value = pbandk.testpb.UInt64Rules::`in`,
                 mutableValue = pbandk.testpb.MutableUInt64Rules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.UInt64Rules, List<Long>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.UInt64Rules, List<Long>, MutableList<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.UInt64Rules::descriptor,
+                messageMetadata = pbandk.testpb.UInt64Rules.messageMetadata,
                 name = "not_in",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.uint64()),
+                valueType = pbandk.types.uint64(),
                 jsonName = "notIn",
                 value = pbandk.testpb.UInt64Rules::notIn,
                 mutableValue = pbandk.testpb.MutableUInt64Rules::notIn,
@@ -1240,13 +1342,17 @@ public sealed interface UInt64Rules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.UInt64Rules> {
-        public val defaultInstance: pbandk.testpb.UInt64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.UInt64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.UInt64Rules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.UInt64Rules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.UInt64Rules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.UInt64Rules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.UInt64Rules::class,
                 messageCompanion = this,
                 builder = ::UInt64Rules,
@@ -1312,9 +1418,10 @@ public sealed interface SInt32Rules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.SInt32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SInt32Rules::descriptor,
+                messageMetadata = pbandk.testpb.SInt32Rules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.sint32(hasPresence = true),
+                valueType = pbandk.types.sint32(),
                 jsonName = "const",
                 value = pbandk.testpb.SInt32Rules::const,
                 mutableValue = pbandk.testpb.MutableSInt32Rules::const,
@@ -1322,9 +1429,10 @@ public sealed interface SInt32Rules : pbandk.Message {
         public val lt: pbandk.FieldDescriptor<pbandk.testpb.SInt32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SInt32Rules::descriptor,
+                messageMetadata = pbandk.testpb.SInt32Rules.messageMetadata,
                 name = "lt",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.sint32(hasPresence = true),
+                valueType = pbandk.types.sint32(),
                 jsonName = "lt",
                 value = pbandk.testpb.SInt32Rules::lt,
                 mutableValue = pbandk.testpb.MutableSInt32Rules::lt,
@@ -1332,9 +1440,10 @@ public sealed interface SInt32Rules : pbandk.Message {
         public val lte: pbandk.FieldDescriptor<pbandk.testpb.SInt32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SInt32Rules::descriptor,
+                messageMetadata = pbandk.testpb.SInt32Rules.messageMetadata,
                 name = "lte",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.sint32(hasPresence = true),
+                valueType = pbandk.types.sint32(),
                 jsonName = "lte",
                 value = pbandk.testpb.SInt32Rules::lte,
                 mutableValue = pbandk.testpb.MutableSInt32Rules::lte,
@@ -1342,9 +1451,10 @@ public sealed interface SInt32Rules : pbandk.Message {
         public val gt: pbandk.FieldDescriptor<pbandk.testpb.SInt32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SInt32Rules::descriptor,
+                messageMetadata = pbandk.testpb.SInt32Rules.messageMetadata,
                 name = "gt",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.sint32(hasPresence = true),
+                valueType = pbandk.types.sint32(),
                 jsonName = "gt",
                 value = pbandk.testpb.SInt32Rules::gt,
                 mutableValue = pbandk.testpb.MutableSInt32Rules::gt,
@@ -1352,29 +1462,32 @@ public sealed interface SInt32Rules : pbandk.Message {
         public val gte: pbandk.FieldDescriptor<pbandk.testpb.SInt32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SInt32Rules::descriptor,
+                messageMetadata = pbandk.testpb.SInt32Rules.messageMetadata,
                 name = "gte",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.sint32(hasPresence = true),
+                valueType = pbandk.types.sint32(),
                 jsonName = "gte",
                 value = pbandk.testpb.SInt32Rules::gte,
                 mutableValue = pbandk.testpb.MutableSInt32Rules::gte,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.SInt32Rules, List<Int>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.SInt32Rules, List<Int>, MutableList<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.SInt32Rules::descriptor,
+                messageMetadata = pbandk.testpb.SInt32Rules.messageMetadata,
                 name = "in",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.sint32()),
+                valueType = pbandk.types.sint32(),
                 jsonName = "in",
                 value = pbandk.testpb.SInt32Rules::`in`,
                 mutableValue = pbandk.testpb.MutableSInt32Rules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.SInt32Rules, List<Int>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.SInt32Rules, List<Int>, MutableList<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.SInt32Rules::descriptor,
+                messageMetadata = pbandk.testpb.SInt32Rules.messageMetadata,
                 name = "not_in",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.sint32()),
+                valueType = pbandk.types.sint32(),
                 jsonName = "notIn",
                 value = pbandk.testpb.SInt32Rules::notIn,
                 mutableValue = pbandk.testpb.MutableSInt32Rules::notIn,
@@ -1382,13 +1495,17 @@ public sealed interface SInt32Rules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SInt32Rules> {
-        public val defaultInstance: pbandk.testpb.SInt32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.SInt32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.SInt32Rules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.SInt32Rules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SInt32Rules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.SInt32Rules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.SInt32Rules::class,
                 messageCompanion = this,
                 builder = ::SInt32Rules,
@@ -1454,9 +1571,10 @@ public sealed interface SInt64Rules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.SInt64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SInt64Rules::descriptor,
+                messageMetadata = pbandk.testpb.SInt64Rules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.sint64(hasPresence = true),
+                valueType = pbandk.types.sint64(),
                 jsonName = "const",
                 value = pbandk.testpb.SInt64Rules::const,
                 mutableValue = pbandk.testpb.MutableSInt64Rules::const,
@@ -1464,9 +1582,10 @@ public sealed interface SInt64Rules : pbandk.Message {
         public val lt: pbandk.FieldDescriptor<pbandk.testpb.SInt64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SInt64Rules::descriptor,
+                messageMetadata = pbandk.testpb.SInt64Rules.messageMetadata,
                 name = "lt",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.sint64(hasPresence = true),
+                valueType = pbandk.types.sint64(),
                 jsonName = "lt",
                 value = pbandk.testpb.SInt64Rules::lt,
                 mutableValue = pbandk.testpb.MutableSInt64Rules::lt,
@@ -1474,9 +1593,10 @@ public sealed interface SInt64Rules : pbandk.Message {
         public val lte: pbandk.FieldDescriptor<pbandk.testpb.SInt64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SInt64Rules::descriptor,
+                messageMetadata = pbandk.testpb.SInt64Rules.messageMetadata,
                 name = "lte",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.sint64(hasPresence = true),
+                valueType = pbandk.types.sint64(),
                 jsonName = "lte",
                 value = pbandk.testpb.SInt64Rules::lte,
                 mutableValue = pbandk.testpb.MutableSInt64Rules::lte,
@@ -1484,9 +1604,10 @@ public sealed interface SInt64Rules : pbandk.Message {
         public val gt: pbandk.FieldDescriptor<pbandk.testpb.SInt64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SInt64Rules::descriptor,
+                messageMetadata = pbandk.testpb.SInt64Rules.messageMetadata,
                 name = "gt",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.sint64(hasPresence = true),
+                valueType = pbandk.types.sint64(),
                 jsonName = "gt",
                 value = pbandk.testpb.SInt64Rules::gt,
                 mutableValue = pbandk.testpb.MutableSInt64Rules::gt,
@@ -1494,29 +1615,32 @@ public sealed interface SInt64Rules : pbandk.Message {
         public val gte: pbandk.FieldDescriptor<pbandk.testpb.SInt64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SInt64Rules::descriptor,
+                messageMetadata = pbandk.testpb.SInt64Rules.messageMetadata,
                 name = "gte",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.sint64(hasPresence = true),
+                valueType = pbandk.types.sint64(),
                 jsonName = "gte",
                 value = pbandk.testpb.SInt64Rules::gte,
                 mutableValue = pbandk.testpb.MutableSInt64Rules::gte,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.SInt64Rules, List<Long>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.SInt64Rules, List<Long>, MutableList<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.SInt64Rules::descriptor,
+                messageMetadata = pbandk.testpb.SInt64Rules.messageMetadata,
                 name = "in",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.sint64()),
+                valueType = pbandk.types.sint64(),
                 jsonName = "in",
                 value = pbandk.testpb.SInt64Rules::`in`,
                 mutableValue = pbandk.testpb.MutableSInt64Rules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.SInt64Rules, List<Long>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.SInt64Rules, List<Long>, MutableList<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.SInt64Rules::descriptor,
+                messageMetadata = pbandk.testpb.SInt64Rules.messageMetadata,
                 name = "not_in",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.sint64()),
+                valueType = pbandk.types.sint64(),
                 jsonName = "notIn",
                 value = pbandk.testpb.SInt64Rules::notIn,
                 mutableValue = pbandk.testpb.MutableSInt64Rules::notIn,
@@ -1524,13 +1648,17 @@ public sealed interface SInt64Rules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SInt64Rules> {
-        public val defaultInstance: pbandk.testpb.SInt64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.SInt64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.SInt64Rules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.SInt64Rules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SInt64Rules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.SInt64Rules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.SInt64Rules::class,
                 messageCompanion = this,
                 builder = ::SInt64Rules,
@@ -1596,9 +1724,10 @@ public sealed interface Fixed32Rules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.Fixed32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Fixed32Rules::descriptor,
+                messageMetadata = pbandk.testpb.Fixed32Rules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.fixed32(hasPresence = true),
+                valueType = pbandk.types.fixed32(),
                 jsonName = "const",
                 value = pbandk.testpb.Fixed32Rules::const,
                 mutableValue = pbandk.testpb.MutableFixed32Rules::const,
@@ -1606,9 +1735,10 @@ public sealed interface Fixed32Rules : pbandk.Message {
         public val lt: pbandk.FieldDescriptor<pbandk.testpb.Fixed32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Fixed32Rules::descriptor,
+                messageMetadata = pbandk.testpb.Fixed32Rules.messageMetadata,
                 name = "lt",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.fixed32(hasPresence = true),
+                valueType = pbandk.types.fixed32(),
                 jsonName = "lt",
                 value = pbandk.testpb.Fixed32Rules::lt,
                 mutableValue = pbandk.testpb.MutableFixed32Rules::lt,
@@ -1616,9 +1746,10 @@ public sealed interface Fixed32Rules : pbandk.Message {
         public val lte: pbandk.FieldDescriptor<pbandk.testpb.Fixed32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Fixed32Rules::descriptor,
+                messageMetadata = pbandk.testpb.Fixed32Rules.messageMetadata,
                 name = "lte",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.fixed32(hasPresence = true),
+                valueType = pbandk.types.fixed32(),
                 jsonName = "lte",
                 value = pbandk.testpb.Fixed32Rules::lte,
                 mutableValue = pbandk.testpb.MutableFixed32Rules::lte,
@@ -1626,9 +1757,10 @@ public sealed interface Fixed32Rules : pbandk.Message {
         public val gt: pbandk.FieldDescriptor<pbandk.testpb.Fixed32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Fixed32Rules::descriptor,
+                messageMetadata = pbandk.testpb.Fixed32Rules.messageMetadata,
                 name = "gt",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.fixed32(hasPresence = true),
+                valueType = pbandk.types.fixed32(),
                 jsonName = "gt",
                 value = pbandk.testpb.Fixed32Rules::gt,
                 mutableValue = pbandk.testpb.MutableFixed32Rules::gt,
@@ -1636,29 +1768,32 @@ public sealed interface Fixed32Rules : pbandk.Message {
         public val gte: pbandk.FieldDescriptor<pbandk.testpb.Fixed32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Fixed32Rules::descriptor,
+                messageMetadata = pbandk.testpb.Fixed32Rules.messageMetadata,
                 name = "gte",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.fixed32(hasPresence = true),
+                valueType = pbandk.types.fixed32(),
                 jsonName = "gte",
                 value = pbandk.testpb.Fixed32Rules::gte,
                 mutableValue = pbandk.testpb.MutableFixed32Rules::gte,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.Fixed32Rules, List<Int>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.Fixed32Rules, List<Int>, MutableList<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.Fixed32Rules::descriptor,
+                messageMetadata = pbandk.testpb.Fixed32Rules.messageMetadata,
                 name = "in",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.fixed32()),
+                valueType = pbandk.types.fixed32(),
                 jsonName = "in",
                 value = pbandk.testpb.Fixed32Rules::`in`,
                 mutableValue = pbandk.testpb.MutableFixed32Rules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.Fixed32Rules, List<Int>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.Fixed32Rules, List<Int>, MutableList<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.Fixed32Rules::descriptor,
+                messageMetadata = pbandk.testpb.Fixed32Rules.messageMetadata,
                 name = "not_in",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.fixed32()),
+                valueType = pbandk.types.fixed32(),
                 jsonName = "notIn",
                 value = pbandk.testpb.Fixed32Rules::notIn,
                 mutableValue = pbandk.testpb.MutableFixed32Rules::notIn,
@@ -1666,13 +1801,17 @@ public sealed interface Fixed32Rules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed32Rules> {
-        public val defaultInstance: pbandk.testpb.Fixed32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.Fixed32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Fixed32Rules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.Fixed32Rules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Fixed32Rules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.Fixed32Rules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.Fixed32Rules::class,
                 messageCompanion = this,
                 builder = ::Fixed32Rules,
@@ -1738,9 +1877,10 @@ public sealed interface Fixed64Rules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.Fixed64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Fixed64Rules::descriptor,
+                messageMetadata = pbandk.testpb.Fixed64Rules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.fixed64(hasPresence = true),
+                valueType = pbandk.types.fixed64(),
                 jsonName = "const",
                 value = pbandk.testpb.Fixed64Rules::const,
                 mutableValue = pbandk.testpb.MutableFixed64Rules::const,
@@ -1748,9 +1888,10 @@ public sealed interface Fixed64Rules : pbandk.Message {
         public val lt: pbandk.FieldDescriptor<pbandk.testpb.Fixed64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Fixed64Rules::descriptor,
+                messageMetadata = pbandk.testpb.Fixed64Rules.messageMetadata,
                 name = "lt",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.fixed64(hasPresence = true),
+                valueType = pbandk.types.fixed64(),
                 jsonName = "lt",
                 value = pbandk.testpb.Fixed64Rules::lt,
                 mutableValue = pbandk.testpb.MutableFixed64Rules::lt,
@@ -1758,9 +1899,10 @@ public sealed interface Fixed64Rules : pbandk.Message {
         public val lte: pbandk.FieldDescriptor<pbandk.testpb.Fixed64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Fixed64Rules::descriptor,
+                messageMetadata = pbandk.testpb.Fixed64Rules.messageMetadata,
                 name = "lte",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.fixed64(hasPresence = true),
+                valueType = pbandk.types.fixed64(),
                 jsonName = "lte",
                 value = pbandk.testpb.Fixed64Rules::lte,
                 mutableValue = pbandk.testpb.MutableFixed64Rules::lte,
@@ -1768,9 +1910,10 @@ public sealed interface Fixed64Rules : pbandk.Message {
         public val gt: pbandk.FieldDescriptor<pbandk.testpb.Fixed64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Fixed64Rules::descriptor,
+                messageMetadata = pbandk.testpb.Fixed64Rules.messageMetadata,
                 name = "gt",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.fixed64(hasPresence = true),
+                valueType = pbandk.types.fixed64(),
                 jsonName = "gt",
                 value = pbandk.testpb.Fixed64Rules::gt,
                 mutableValue = pbandk.testpb.MutableFixed64Rules::gt,
@@ -1778,29 +1921,32 @@ public sealed interface Fixed64Rules : pbandk.Message {
         public val gte: pbandk.FieldDescriptor<pbandk.testpb.Fixed64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Fixed64Rules::descriptor,
+                messageMetadata = pbandk.testpb.Fixed64Rules.messageMetadata,
                 name = "gte",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.fixed64(hasPresence = true),
+                valueType = pbandk.types.fixed64(),
                 jsonName = "gte",
                 value = pbandk.testpb.Fixed64Rules::gte,
                 mutableValue = pbandk.testpb.MutableFixed64Rules::gte,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.Fixed64Rules, List<Long>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.Fixed64Rules, List<Long>, MutableList<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.Fixed64Rules::descriptor,
+                messageMetadata = pbandk.testpb.Fixed64Rules.messageMetadata,
                 name = "in",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.fixed64()),
+                valueType = pbandk.types.fixed64(),
                 jsonName = "in",
                 value = pbandk.testpb.Fixed64Rules::`in`,
                 mutableValue = pbandk.testpb.MutableFixed64Rules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.Fixed64Rules, List<Long>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.Fixed64Rules, List<Long>, MutableList<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.Fixed64Rules::descriptor,
+                messageMetadata = pbandk.testpb.Fixed64Rules.messageMetadata,
                 name = "not_in",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.fixed64()),
+                valueType = pbandk.types.fixed64(),
                 jsonName = "notIn",
                 value = pbandk.testpb.Fixed64Rules::notIn,
                 mutableValue = pbandk.testpb.MutableFixed64Rules::notIn,
@@ -1808,13 +1954,17 @@ public sealed interface Fixed64Rules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed64Rules> {
-        public val defaultInstance: pbandk.testpb.Fixed64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.Fixed64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Fixed64Rules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.Fixed64Rules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Fixed64Rules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.Fixed64Rules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.Fixed64Rules::class,
                 messageCompanion = this,
                 builder = ::Fixed64Rules,
@@ -1880,9 +2030,10 @@ public sealed interface SFixed32Rules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.SFixed32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SFixed32Rules::descriptor,
+                messageMetadata = pbandk.testpb.SFixed32Rules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.sfixed32(hasPresence = true),
+                valueType = pbandk.types.sfixed32(),
                 jsonName = "const",
                 value = pbandk.testpb.SFixed32Rules::const,
                 mutableValue = pbandk.testpb.MutableSFixed32Rules::const,
@@ -1890,9 +2041,10 @@ public sealed interface SFixed32Rules : pbandk.Message {
         public val lt: pbandk.FieldDescriptor<pbandk.testpb.SFixed32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SFixed32Rules::descriptor,
+                messageMetadata = pbandk.testpb.SFixed32Rules.messageMetadata,
                 name = "lt",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.sfixed32(hasPresence = true),
+                valueType = pbandk.types.sfixed32(),
                 jsonName = "lt",
                 value = pbandk.testpb.SFixed32Rules::lt,
                 mutableValue = pbandk.testpb.MutableSFixed32Rules::lt,
@@ -1900,9 +2052,10 @@ public sealed interface SFixed32Rules : pbandk.Message {
         public val lte: pbandk.FieldDescriptor<pbandk.testpb.SFixed32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SFixed32Rules::descriptor,
+                messageMetadata = pbandk.testpb.SFixed32Rules.messageMetadata,
                 name = "lte",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.sfixed32(hasPresence = true),
+                valueType = pbandk.types.sfixed32(),
                 jsonName = "lte",
                 value = pbandk.testpb.SFixed32Rules::lte,
                 mutableValue = pbandk.testpb.MutableSFixed32Rules::lte,
@@ -1910,9 +2063,10 @@ public sealed interface SFixed32Rules : pbandk.Message {
         public val gt: pbandk.FieldDescriptor<pbandk.testpb.SFixed32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SFixed32Rules::descriptor,
+                messageMetadata = pbandk.testpb.SFixed32Rules.messageMetadata,
                 name = "gt",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.sfixed32(hasPresence = true),
+                valueType = pbandk.types.sfixed32(),
                 jsonName = "gt",
                 value = pbandk.testpb.SFixed32Rules::gt,
                 mutableValue = pbandk.testpb.MutableSFixed32Rules::gt,
@@ -1920,29 +2074,32 @@ public sealed interface SFixed32Rules : pbandk.Message {
         public val gte: pbandk.FieldDescriptor<pbandk.testpb.SFixed32Rules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SFixed32Rules::descriptor,
+                messageMetadata = pbandk.testpb.SFixed32Rules.messageMetadata,
                 name = "gte",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.sfixed32(hasPresence = true),
+                valueType = pbandk.types.sfixed32(),
                 jsonName = "gte",
                 value = pbandk.testpb.SFixed32Rules::gte,
                 mutableValue = pbandk.testpb.MutableSFixed32Rules::gte,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.SFixed32Rules, List<Int>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.SFixed32Rules, List<Int>, MutableList<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.SFixed32Rules::descriptor,
+                messageMetadata = pbandk.testpb.SFixed32Rules.messageMetadata,
                 name = "in",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.sfixed32()),
+                valueType = pbandk.types.sfixed32(),
                 jsonName = "in",
                 value = pbandk.testpb.SFixed32Rules::`in`,
                 mutableValue = pbandk.testpb.MutableSFixed32Rules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.SFixed32Rules, List<Int>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.SFixed32Rules, List<Int>, MutableList<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.SFixed32Rules::descriptor,
+                messageMetadata = pbandk.testpb.SFixed32Rules.messageMetadata,
                 name = "not_in",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.sfixed32()),
+                valueType = pbandk.types.sfixed32(),
                 jsonName = "notIn",
                 value = pbandk.testpb.SFixed32Rules::notIn,
                 mutableValue = pbandk.testpb.MutableSFixed32Rules::notIn,
@@ -1950,13 +2107,17 @@ public sealed interface SFixed32Rules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed32Rules> {
-        public val defaultInstance: pbandk.testpb.SFixed32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.SFixed32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.SFixed32Rules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.SFixed32Rules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SFixed32Rules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.SFixed32Rules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.SFixed32Rules::class,
                 messageCompanion = this,
                 builder = ::SFixed32Rules,
@@ -2022,9 +2183,10 @@ public sealed interface SFixed64Rules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.SFixed64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SFixed64Rules::descriptor,
+                messageMetadata = pbandk.testpb.SFixed64Rules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.sfixed64(hasPresence = true),
+                valueType = pbandk.types.sfixed64(),
                 jsonName = "const",
                 value = pbandk.testpb.SFixed64Rules::const,
                 mutableValue = pbandk.testpb.MutableSFixed64Rules::const,
@@ -2032,9 +2194,10 @@ public sealed interface SFixed64Rules : pbandk.Message {
         public val lt: pbandk.FieldDescriptor<pbandk.testpb.SFixed64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SFixed64Rules::descriptor,
+                messageMetadata = pbandk.testpb.SFixed64Rules.messageMetadata,
                 name = "lt",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.sfixed64(hasPresence = true),
+                valueType = pbandk.types.sfixed64(),
                 jsonName = "lt",
                 value = pbandk.testpb.SFixed64Rules::lt,
                 mutableValue = pbandk.testpb.MutableSFixed64Rules::lt,
@@ -2042,9 +2205,10 @@ public sealed interface SFixed64Rules : pbandk.Message {
         public val lte: pbandk.FieldDescriptor<pbandk.testpb.SFixed64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SFixed64Rules::descriptor,
+                messageMetadata = pbandk.testpb.SFixed64Rules.messageMetadata,
                 name = "lte",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.sfixed64(hasPresence = true),
+                valueType = pbandk.types.sfixed64(),
                 jsonName = "lte",
                 value = pbandk.testpb.SFixed64Rules::lte,
                 mutableValue = pbandk.testpb.MutableSFixed64Rules::lte,
@@ -2052,9 +2216,10 @@ public sealed interface SFixed64Rules : pbandk.Message {
         public val gt: pbandk.FieldDescriptor<pbandk.testpb.SFixed64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SFixed64Rules::descriptor,
+                messageMetadata = pbandk.testpb.SFixed64Rules.messageMetadata,
                 name = "gt",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.sfixed64(hasPresence = true),
+                valueType = pbandk.types.sfixed64(),
                 jsonName = "gt",
                 value = pbandk.testpb.SFixed64Rules::gt,
                 mutableValue = pbandk.testpb.MutableSFixed64Rules::gt,
@@ -2062,29 +2227,32 @@ public sealed interface SFixed64Rules : pbandk.Message {
         public val gte: pbandk.FieldDescriptor<pbandk.testpb.SFixed64Rules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.SFixed64Rules::descriptor,
+                messageMetadata = pbandk.testpb.SFixed64Rules.messageMetadata,
                 name = "gte",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.sfixed64(hasPresence = true),
+                valueType = pbandk.types.sfixed64(),
                 jsonName = "gte",
                 value = pbandk.testpb.SFixed64Rules::gte,
                 mutableValue = pbandk.testpb.MutableSFixed64Rules::gte,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.SFixed64Rules, List<Long>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.SFixed64Rules, List<Long>, MutableList<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.SFixed64Rules::descriptor,
+                messageMetadata = pbandk.testpb.SFixed64Rules.messageMetadata,
                 name = "in",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.sfixed64()),
+                valueType = pbandk.types.sfixed64(),
                 jsonName = "in",
                 value = pbandk.testpb.SFixed64Rules::`in`,
                 mutableValue = pbandk.testpb.MutableSFixed64Rules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.SFixed64Rules, List<Long>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.SFixed64Rules, List<Long>, MutableList<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.SFixed64Rules::descriptor,
+                messageMetadata = pbandk.testpb.SFixed64Rules.messageMetadata,
                 name = "not_in",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.sfixed64()),
+                valueType = pbandk.types.sfixed64(),
                 jsonName = "notIn",
                 value = pbandk.testpb.SFixed64Rules::notIn,
                 mutableValue = pbandk.testpb.MutableSFixed64Rules::notIn,
@@ -2092,13 +2260,17 @@ public sealed interface SFixed64Rules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed64Rules> {
-        public val defaultInstance: pbandk.testpb.SFixed64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.SFixed64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.SFixed64Rules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.SFixed64Rules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SFixed64Rules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.SFixed64Rules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.SFixed64Rules::class,
                 messageCompanion = this,
                 builder = ::SFixed64Rules,
@@ -2152,9 +2324,10 @@ public sealed interface BoolRules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.BoolRules, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.BoolRules::descriptor,
+                messageMetadata = pbandk.testpb.BoolRules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "const",
                 value = pbandk.testpb.BoolRules::const,
                 mutableValue = pbandk.testpb.MutableBoolRules::const,
@@ -2162,13 +2335,17 @@ public sealed interface BoolRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.BoolRules> {
-        public val defaultInstance: pbandk.testpb.BoolRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.BoolRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.BoolRules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.BoolRules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.BoolRules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.BoolRules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.BoolRules::class,
                 messageCompanion = this,
                 builder = ::BoolRules,
@@ -2274,9 +2451,10 @@ public sealed interface StringRules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.StringRules, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
+                valueType = pbandk.types.string(),
                 jsonName = "const",
                 value = pbandk.testpb.StringRules::const,
                 mutableValue = pbandk.testpb.MutableStringRules::const,
@@ -2284,9 +2462,10 @@ public sealed interface StringRules : pbandk.Message {
         public val minLen: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "min_len",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "minLen",
                 value = pbandk.testpb.StringRules::minLen,
                 mutableValue = pbandk.testpb.MutableStringRules::minLen,
@@ -2294,9 +2473,10 @@ public sealed interface StringRules : pbandk.Message {
         public val maxLen: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "max_len",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "maxLen",
                 value = pbandk.testpb.StringRules::maxLen,
                 mutableValue = pbandk.testpb.MutableStringRules::maxLen,
@@ -2304,9 +2484,10 @@ public sealed interface StringRules : pbandk.Message {
         public val minBytes: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "min_bytes",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "minBytes",
                 value = pbandk.testpb.StringRules::minBytes,
                 mutableValue = pbandk.testpb.MutableStringRules::minBytes,
@@ -2314,9 +2495,10 @@ public sealed interface StringRules : pbandk.Message {
         public val maxBytes: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "max_bytes",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "maxBytes",
                 value = pbandk.testpb.StringRules::maxBytes,
                 mutableValue = pbandk.testpb.MutableStringRules::maxBytes,
@@ -2324,9 +2506,10 @@ public sealed interface StringRules : pbandk.Message {
         public val pattern: pbandk.FieldDescriptor<pbandk.testpb.StringRules, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "pattern",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
+                valueType = pbandk.types.string(),
                 jsonName = "pattern",
                 value = pbandk.testpb.StringRules::pattern,
                 mutableValue = pbandk.testpb.MutableStringRules::pattern,
@@ -2334,9 +2517,10 @@ public sealed interface StringRules : pbandk.Message {
         public val prefix: pbandk.FieldDescriptor<pbandk.testpb.StringRules, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "prefix",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
+                valueType = pbandk.types.string(),
                 jsonName = "prefix",
                 value = pbandk.testpb.StringRules::prefix,
                 mutableValue = pbandk.testpb.MutableStringRules::prefix,
@@ -2344,9 +2528,10 @@ public sealed interface StringRules : pbandk.Message {
         public val suffix: pbandk.FieldDescriptor<pbandk.testpb.StringRules, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "suffix",
                 number = 8,
-                type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
+                valueType = pbandk.types.string(),
                 jsonName = "suffix",
                 value = pbandk.testpb.StringRules::suffix,
                 mutableValue = pbandk.testpb.MutableStringRules::suffix,
@@ -2354,29 +2539,32 @@ public sealed interface StringRules : pbandk.Message {
         public val contains: pbandk.FieldDescriptor<pbandk.testpb.StringRules, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "contains",
                 number = 9,
-                type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
+                valueType = pbandk.types.string(),
                 jsonName = "contains",
                 value = pbandk.testpb.StringRules::contains,
                 mutableValue = pbandk.testpb.MutableStringRules::contains,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.StringRules, List<String>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.StringRules, List<String>, MutableList<String>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "in",
                 number = 10,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.string()),
+                valueType = pbandk.types.string(),
                 jsonName = "in",
                 value = pbandk.testpb.StringRules::`in`,
                 mutableValue = pbandk.testpb.MutableStringRules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.StringRules, List<String>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.StringRules, List<String>, MutableList<String>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "not_in",
                 number = 11,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.string()),
+                valueType = pbandk.types.string(),
                 jsonName = "notIn",
                 value = pbandk.testpb.StringRules::notIn,
                 mutableValue = pbandk.testpb.MutableStringRules::notIn,
@@ -2384,9 +2572,10 @@ public sealed interface StringRules : pbandk.Message {
         public val email: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "email",
                 number = 12,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "email",
                 value = pbandk.testpb.StringRules::email,
                 mutableValue = pbandk.testpb.MutableStringRules::email,
@@ -2394,9 +2583,10 @@ public sealed interface StringRules : pbandk.Message {
         public val hostname: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "hostname",
                 number = 13,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "hostname",
                 value = pbandk.testpb.StringRules::hostname,
                 mutableValue = pbandk.testpb.MutableStringRules::hostname,
@@ -2404,9 +2594,10 @@ public sealed interface StringRules : pbandk.Message {
         public val ip: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "ip",
                 number = 14,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "ip",
                 value = pbandk.testpb.StringRules::ip,
                 mutableValue = pbandk.testpb.MutableStringRules::ip,
@@ -2414,9 +2605,10 @@ public sealed interface StringRules : pbandk.Message {
         public val ipv4: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "ipv4",
                 number = 15,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "ipv4",
                 value = pbandk.testpb.StringRules::ipv4,
                 mutableValue = pbandk.testpb.MutableStringRules::ipv4,
@@ -2424,9 +2616,10 @@ public sealed interface StringRules : pbandk.Message {
         public val ipv6: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "ipv6",
                 number = 16,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "ipv6",
                 value = pbandk.testpb.StringRules::ipv6,
                 mutableValue = pbandk.testpb.MutableStringRules::ipv6,
@@ -2434,9 +2627,10 @@ public sealed interface StringRules : pbandk.Message {
         public val uri: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "uri",
                 number = 17,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "uri",
                 value = pbandk.testpb.StringRules::uri,
                 mutableValue = pbandk.testpb.MutableStringRules::uri,
@@ -2444,9 +2638,10 @@ public sealed interface StringRules : pbandk.Message {
         public val uriRef: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "uri_ref",
                 number = 18,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "uriRef",
                 value = pbandk.testpb.StringRules::uriRef,
                 mutableValue = pbandk.testpb.MutableStringRules::uriRef,
@@ -2454,9 +2649,10 @@ public sealed interface StringRules : pbandk.Message {
         public val len: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "len",
                 number = 19,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "len",
                 value = pbandk.testpb.StringRules::len,
                 mutableValue = pbandk.testpb.MutableStringRules::len,
@@ -2464,9 +2660,10 @@ public sealed interface StringRules : pbandk.Message {
         public val lenBytes: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "len_bytes",
                 number = 20,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "lenBytes",
                 value = pbandk.testpb.StringRules::lenBytes,
                 mutableValue = pbandk.testpb.MutableStringRules::lenBytes,
@@ -2474,9 +2671,10 @@ public sealed interface StringRules : pbandk.Message {
         public val address: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "address",
                 number = 21,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "address",
                 value = pbandk.testpb.StringRules::address,
                 mutableValue = pbandk.testpb.MutableStringRules::address,
@@ -2484,9 +2682,10 @@ public sealed interface StringRules : pbandk.Message {
         public val uuid: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "uuid",
                 number = 22,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "uuid",
                 value = pbandk.testpb.StringRules::uuid,
                 mutableValue = pbandk.testpb.MutableStringRules::uuid,
@@ -2494,9 +2693,10 @@ public sealed interface StringRules : pbandk.Message {
         public val notContains: pbandk.FieldDescriptor<pbandk.testpb.StringRules, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "not_contains",
                 number = 23,
-                type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
+                valueType = pbandk.types.string(),
                 jsonName = "notContains",
                 value = pbandk.testpb.StringRules::notContains,
                 mutableValue = pbandk.testpb.MutableStringRules::notContains,
@@ -2504,9 +2704,10 @@ public sealed interface StringRules : pbandk.Message {
         public val wellKnownRegex: pbandk.FieldDescriptor<pbandk.testpb.StringRules, pbandk.testpb.KnownRegex?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "well_known_regex",
                 number = 24,
-                type = pbandk.FieldDescriptor.Type.enum(enumCompanion = pbandk.testpb.KnownRegex.Companion, hasPresence = true),
+                valueType = pbandk.types.enum(pbandk.testpb.KnownRegex),
                 jsonName = "wellKnownRegex",
                 value = pbandk.testpb.StringRules::wellKnownRegex,
                 mutableValue = pbandk.testpb.MutableStringRules::wellKnownRegex,
@@ -2514,9 +2715,10 @@ public sealed interface StringRules : pbandk.Message {
         public val strict: pbandk.FieldDescriptor<pbandk.testpb.StringRules, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.StringRules::descriptor,
+                messageMetadata = pbandk.testpb.StringRules.messageMetadata,
                 name = "strict",
                 number = 25,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "strict",
                 value = pbandk.testpb.StringRules::strict,
                 mutableValue = pbandk.testpb.MutableStringRules::strict,
@@ -2544,13 +2746,17 @@ public sealed interface StringRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.StringRules> {
-        public val defaultInstance: pbandk.testpb.StringRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.StringRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.StringRules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.StringRules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.StringRules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.StringRules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.StringRules::class,
                 messageCompanion = this,
                 builder = ::StringRules,
@@ -2668,9 +2874,10 @@ public sealed interface BytesRules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.BytesRules, pbandk.ByteArr?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.BytesRules::descriptor,
+                messageMetadata = pbandk.testpb.BytesRules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.bytes(hasPresence = true),
+                valueType = pbandk.types.bytes(),
                 jsonName = "const",
                 value = pbandk.testpb.BytesRules::const,
                 mutableValue = pbandk.testpb.MutableBytesRules::const,
@@ -2678,9 +2885,10 @@ public sealed interface BytesRules : pbandk.Message {
         public val minLen: pbandk.FieldDescriptor<pbandk.testpb.BytesRules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.BytesRules::descriptor,
+                messageMetadata = pbandk.testpb.BytesRules.messageMetadata,
                 name = "min_len",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "minLen",
                 value = pbandk.testpb.BytesRules::minLen,
                 mutableValue = pbandk.testpb.MutableBytesRules::minLen,
@@ -2688,9 +2896,10 @@ public sealed interface BytesRules : pbandk.Message {
         public val maxLen: pbandk.FieldDescriptor<pbandk.testpb.BytesRules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.BytesRules::descriptor,
+                messageMetadata = pbandk.testpb.BytesRules.messageMetadata,
                 name = "max_len",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "maxLen",
                 value = pbandk.testpb.BytesRules::maxLen,
                 mutableValue = pbandk.testpb.MutableBytesRules::maxLen,
@@ -2698,9 +2907,10 @@ public sealed interface BytesRules : pbandk.Message {
         public val pattern: pbandk.FieldDescriptor<pbandk.testpb.BytesRules, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.BytesRules::descriptor,
+                messageMetadata = pbandk.testpb.BytesRules.messageMetadata,
                 name = "pattern",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
+                valueType = pbandk.types.string(),
                 jsonName = "pattern",
                 value = pbandk.testpb.BytesRules::pattern,
                 mutableValue = pbandk.testpb.MutableBytesRules::pattern,
@@ -2708,9 +2918,10 @@ public sealed interface BytesRules : pbandk.Message {
         public val prefix: pbandk.FieldDescriptor<pbandk.testpb.BytesRules, pbandk.ByteArr?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.BytesRules::descriptor,
+                messageMetadata = pbandk.testpb.BytesRules.messageMetadata,
                 name = "prefix",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.bytes(hasPresence = true),
+                valueType = pbandk.types.bytes(),
                 jsonName = "prefix",
                 value = pbandk.testpb.BytesRules::prefix,
                 mutableValue = pbandk.testpb.MutableBytesRules::prefix,
@@ -2718,9 +2929,10 @@ public sealed interface BytesRules : pbandk.Message {
         public val suffix: pbandk.FieldDescriptor<pbandk.testpb.BytesRules, pbandk.ByteArr?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.BytesRules::descriptor,
+                messageMetadata = pbandk.testpb.BytesRules.messageMetadata,
                 name = "suffix",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.bytes(hasPresence = true),
+                valueType = pbandk.types.bytes(),
                 jsonName = "suffix",
                 value = pbandk.testpb.BytesRules::suffix,
                 mutableValue = pbandk.testpb.MutableBytesRules::suffix,
@@ -2728,29 +2940,32 @@ public sealed interface BytesRules : pbandk.Message {
         public val contains: pbandk.FieldDescriptor<pbandk.testpb.BytesRules, pbandk.ByteArr?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.BytesRules::descriptor,
+                messageMetadata = pbandk.testpb.BytesRules.messageMetadata,
                 name = "contains",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.bytes(hasPresence = true),
+                valueType = pbandk.types.bytes(),
                 jsonName = "contains",
                 value = pbandk.testpb.BytesRules::contains,
                 mutableValue = pbandk.testpb.MutableBytesRules::contains,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.BytesRules, List<pbandk.ByteArr>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.BytesRules, List<pbandk.ByteArr>, MutableList<pbandk.ByteArr>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.BytesRules::descriptor,
+                messageMetadata = pbandk.testpb.BytesRules.messageMetadata,
                 name = "in",
                 number = 8,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.bytes()),
+                valueType = pbandk.types.bytes(),
                 jsonName = "in",
                 value = pbandk.testpb.BytesRules::`in`,
                 mutableValue = pbandk.testpb.MutableBytesRules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.BytesRules, List<pbandk.ByteArr>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.BytesRules, List<pbandk.ByteArr>, MutableList<pbandk.ByteArr>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.BytesRules::descriptor,
+                messageMetadata = pbandk.testpb.BytesRules.messageMetadata,
                 name = "not_in",
                 number = 9,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.bytes()),
+                valueType = pbandk.types.bytes(),
                 jsonName = "notIn",
                 value = pbandk.testpb.BytesRules::notIn,
                 mutableValue = pbandk.testpb.MutableBytesRules::notIn,
@@ -2758,9 +2973,10 @@ public sealed interface BytesRules : pbandk.Message {
         public val ip: pbandk.FieldDescriptor<pbandk.testpb.BytesRules, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.BytesRules::descriptor,
+                messageMetadata = pbandk.testpb.BytesRules.messageMetadata,
                 name = "ip",
                 number = 10,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "ip",
                 value = pbandk.testpb.BytesRules::ip,
                 mutableValue = pbandk.testpb.MutableBytesRules::ip,
@@ -2768,9 +2984,10 @@ public sealed interface BytesRules : pbandk.Message {
         public val ipv4: pbandk.FieldDescriptor<pbandk.testpb.BytesRules, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.BytesRules::descriptor,
+                messageMetadata = pbandk.testpb.BytesRules.messageMetadata,
                 name = "ipv4",
                 number = 11,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "ipv4",
                 value = pbandk.testpb.BytesRules::ipv4,
                 mutableValue = pbandk.testpb.MutableBytesRules::ipv4,
@@ -2778,9 +2995,10 @@ public sealed interface BytesRules : pbandk.Message {
         public val ipv6: pbandk.FieldDescriptor<pbandk.testpb.BytesRules, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.BytesRules::descriptor,
+                messageMetadata = pbandk.testpb.BytesRules.messageMetadata,
                 name = "ipv6",
                 number = 12,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "ipv6",
                 value = pbandk.testpb.BytesRules::ipv6,
                 mutableValue = pbandk.testpb.MutableBytesRules::ipv6,
@@ -2788,9 +3006,10 @@ public sealed interface BytesRules : pbandk.Message {
         public val len: pbandk.FieldDescriptor<pbandk.testpb.BytesRules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.BytesRules::descriptor,
+                messageMetadata = pbandk.testpb.BytesRules.messageMetadata,
                 name = "len",
                 number = 13,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "len",
                 value = pbandk.testpb.BytesRules::len,
                 mutableValue = pbandk.testpb.MutableBytesRules::len,
@@ -2811,13 +3030,17 @@ public sealed interface BytesRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.BytesRules> {
-        public val defaultInstance: pbandk.testpb.BytesRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.BytesRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.BytesRules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.BytesRules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.BytesRules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.BytesRules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.BytesRules::class,
                 messageCompanion = this,
                 builder = ::BytesRules,
@@ -2891,9 +3114,10 @@ public sealed interface EnumRules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.EnumRules, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.EnumRules::descriptor,
+                messageMetadata = pbandk.testpb.EnumRules.messageMetadata,
                 name = "const",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
+                valueType = pbandk.types.int32(),
                 jsonName = "const",
                 value = pbandk.testpb.EnumRules::const,
                 mutableValue = pbandk.testpb.MutableEnumRules::const,
@@ -2901,29 +3125,32 @@ public sealed interface EnumRules : pbandk.Message {
         public val definedOnly: pbandk.FieldDescriptor<pbandk.testpb.EnumRules, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.EnumRules::descriptor,
+                messageMetadata = pbandk.testpb.EnumRules.messageMetadata,
                 name = "defined_only",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "definedOnly",
                 value = pbandk.testpb.EnumRules::definedOnly,
                 mutableValue = pbandk.testpb.MutableEnumRules::definedOnly,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.EnumRules, List<Int>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.EnumRules, List<Int>, MutableList<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.EnumRules::descriptor,
+                messageMetadata = pbandk.testpb.EnumRules.messageMetadata,
                 name = "in",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.int32()),
+                valueType = pbandk.types.int32(),
                 jsonName = "in",
                 value = pbandk.testpb.EnumRules::`in`,
                 mutableValue = pbandk.testpb.MutableEnumRules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.EnumRules, List<Int>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.EnumRules, List<Int>, MutableList<Int>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.EnumRules::descriptor,
+                messageMetadata = pbandk.testpb.EnumRules.messageMetadata,
                 name = "not_in",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.int32()),
+                valueType = pbandk.types.int32(),
                 jsonName = "notIn",
                 value = pbandk.testpb.EnumRules::notIn,
                 mutableValue = pbandk.testpb.MutableEnumRules::notIn,
@@ -2931,13 +3158,17 @@ public sealed interface EnumRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.EnumRules> {
-        public val defaultInstance: pbandk.testpb.EnumRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.EnumRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.EnumRules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.EnumRules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.EnumRules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.EnumRules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.EnumRules::class,
                 messageCompanion = this,
                 builder = ::EnumRules,
@@ -2987,9 +3218,10 @@ public sealed interface MessageRules : pbandk.Message {
         public val skip: pbandk.FieldDescriptor<pbandk.testpb.MessageRules, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.MessageRules::descriptor,
+                messageMetadata = pbandk.testpb.MessageRules.messageMetadata,
                 name = "skip",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "skip",
                 value = pbandk.testpb.MessageRules::skip,
                 mutableValue = pbandk.testpb.MutableMessageRules::skip,
@@ -2997,9 +3229,10 @@ public sealed interface MessageRules : pbandk.Message {
         public val required: pbandk.FieldDescriptor<pbandk.testpb.MessageRules, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.MessageRules::descriptor,
+                messageMetadata = pbandk.testpb.MessageRules.messageMetadata,
                 name = "required",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "required",
                 value = pbandk.testpb.MessageRules::required,
                 mutableValue = pbandk.testpb.MutableMessageRules::required,
@@ -3007,13 +3240,17 @@ public sealed interface MessageRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MessageRules> {
-        public val defaultInstance: pbandk.testpb.MessageRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.MessageRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.MessageRules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.MessageRules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageRules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.MessageRules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.MessageRules::class,
                 messageCompanion = this,
                 builder = ::MessageRules,
@@ -3063,9 +3300,10 @@ public sealed interface RepeatedRules : pbandk.Message {
         public val minItems: pbandk.FieldDescriptor<pbandk.testpb.RepeatedRules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.RepeatedRules::descriptor,
+                messageMetadata = pbandk.testpb.RepeatedRules.messageMetadata,
                 name = "min_items",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "minItems",
                 value = pbandk.testpb.RepeatedRules::minItems,
                 mutableValue = pbandk.testpb.MutableRepeatedRules::minItems,
@@ -3073,9 +3311,10 @@ public sealed interface RepeatedRules : pbandk.Message {
         public val maxItems: pbandk.FieldDescriptor<pbandk.testpb.RepeatedRules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.RepeatedRules::descriptor,
+                messageMetadata = pbandk.testpb.RepeatedRules.messageMetadata,
                 name = "max_items",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "maxItems",
                 value = pbandk.testpb.RepeatedRules::maxItems,
                 mutableValue = pbandk.testpb.MutableRepeatedRules::maxItems,
@@ -3083,9 +3322,10 @@ public sealed interface RepeatedRules : pbandk.Message {
         public val unique: pbandk.FieldDescriptor<pbandk.testpb.RepeatedRules, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.RepeatedRules::descriptor,
+                messageMetadata = pbandk.testpb.RepeatedRules.messageMetadata,
                 name = "unique",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "unique",
                 value = pbandk.testpb.RepeatedRules::unique,
                 mutableValue = pbandk.testpb.MutableRepeatedRules::unique,
@@ -3093,9 +3333,10 @@ public sealed interface RepeatedRules : pbandk.Message {
         public val items: pbandk.FieldDescriptor<pbandk.testpb.RepeatedRules, pbandk.testpb.FieldRules?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.RepeatedRules::descriptor,
+                messageMetadata = pbandk.testpb.RepeatedRules.messageMetadata,
                 name = "items",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.FieldRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.FieldRules),
                 jsonName = "items",
                 value = pbandk.testpb.RepeatedRules::items,
                 mutableValue = pbandk.testpb.MutableRepeatedRules::items,
@@ -3103,13 +3344,17 @@ public sealed interface RepeatedRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.RepeatedRules> {
-        public val defaultInstance: pbandk.testpb.RepeatedRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.RepeatedRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.RepeatedRules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.RepeatedRules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.RepeatedRules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.RepeatedRules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.RepeatedRules::class,
                 messageCompanion = this,
                 builder = ::RepeatedRules,
@@ -3165,9 +3410,10 @@ public sealed interface MapRules : pbandk.Message {
         public val minPairs: pbandk.FieldDescriptor<pbandk.testpb.MapRules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.MapRules::descriptor,
+                messageMetadata = pbandk.testpb.MapRules.messageMetadata,
                 name = "min_pairs",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "minPairs",
                 value = pbandk.testpb.MapRules::minPairs,
                 mutableValue = pbandk.testpb.MutableMapRules::minPairs,
@@ -3175,9 +3421,10 @@ public sealed interface MapRules : pbandk.Message {
         public val maxPairs: pbandk.FieldDescriptor<pbandk.testpb.MapRules, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.MapRules::descriptor,
+                messageMetadata = pbandk.testpb.MapRules.messageMetadata,
                 name = "max_pairs",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "maxPairs",
                 value = pbandk.testpb.MapRules::maxPairs,
                 mutableValue = pbandk.testpb.MutableMapRules::maxPairs,
@@ -3185,9 +3432,10 @@ public sealed interface MapRules : pbandk.Message {
         public val noSparse: pbandk.FieldDescriptor<pbandk.testpb.MapRules, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.MapRules::descriptor,
+                messageMetadata = pbandk.testpb.MapRules.messageMetadata,
                 name = "no_sparse",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "noSparse",
                 value = pbandk.testpb.MapRules::noSparse,
                 mutableValue = pbandk.testpb.MutableMapRules::noSparse,
@@ -3195,9 +3443,10 @@ public sealed interface MapRules : pbandk.Message {
         public val keys: pbandk.FieldDescriptor<pbandk.testpb.MapRules, pbandk.testpb.FieldRules?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.MapRules::descriptor,
+                messageMetadata = pbandk.testpb.MapRules.messageMetadata,
                 name = "keys",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.FieldRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.FieldRules),
                 jsonName = "keys",
                 value = pbandk.testpb.MapRules::keys,
                 mutableValue = pbandk.testpb.MutableMapRules::keys,
@@ -3205,9 +3454,10 @@ public sealed interface MapRules : pbandk.Message {
         public val values: pbandk.FieldDescriptor<pbandk.testpb.MapRules, pbandk.testpb.FieldRules?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.MapRules::descriptor,
+                messageMetadata = pbandk.testpb.MapRules.messageMetadata,
                 name = "values",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.FieldRules.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.FieldRules),
                 jsonName = "values",
                 value = pbandk.testpb.MapRules::values,
                 mutableValue = pbandk.testpb.MutableMapRules::values,
@@ -3215,13 +3465,17 @@ public sealed interface MapRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MapRules> {
-        public val defaultInstance: pbandk.testpb.MapRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.MapRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.MapRules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.MapRules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MapRules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.MapRules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.MapRules::class,
                 messageCompanion = this,
                 builder = ::MapRules,
@@ -3275,29 +3529,32 @@ public sealed interface AnyRules : pbandk.Message {
         public val required: pbandk.FieldDescriptor<pbandk.testpb.AnyRules, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.AnyRules::descriptor,
+                messageMetadata = pbandk.testpb.AnyRules.messageMetadata,
                 name = "required",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "required",
                 value = pbandk.testpb.AnyRules::required,
                 mutableValue = pbandk.testpb.MutableAnyRules::required,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.AnyRules, List<String>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.AnyRules, List<String>, MutableList<String>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.AnyRules::descriptor,
+                messageMetadata = pbandk.testpb.AnyRules.messageMetadata,
                 name = "in",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.string()),
+                valueType = pbandk.types.string(),
                 jsonName = "in",
                 value = pbandk.testpb.AnyRules::`in`,
                 mutableValue = pbandk.testpb.MutableAnyRules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.AnyRules, List<String>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.AnyRules, List<String>, MutableList<String>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.AnyRules::descriptor,
+                messageMetadata = pbandk.testpb.AnyRules.messageMetadata,
                 name = "not_in",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.string()),
+                valueType = pbandk.types.string(),
                 jsonName = "notIn",
                 value = pbandk.testpb.AnyRules::notIn,
                 mutableValue = pbandk.testpb.MutableAnyRules::notIn,
@@ -3305,13 +3562,17 @@ public sealed interface AnyRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.AnyRules> {
-        public val defaultInstance: pbandk.testpb.AnyRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.AnyRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.AnyRules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.AnyRules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.AnyRules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.AnyRules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.AnyRules::class,
                 messageCompanion = this,
                 builder = ::AnyRules,
@@ -3371,9 +3632,10 @@ public sealed interface DurationRules : pbandk.Message {
         public val required: pbandk.FieldDescriptor<pbandk.testpb.DurationRules, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.DurationRules::descriptor,
+                messageMetadata = pbandk.testpb.DurationRules.messageMetadata,
                 name = "required",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "required",
                 value = pbandk.testpb.DurationRules::required,
                 mutableValue = pbandk.testpb.MutableDurationRules::required,
@@ -3381,9 +3643,10 @@ public sealed interface DurationRules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.DurationRules, pbandk.wkt.Duration?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.DurationRules::descriptor,
+                messageMetadata = pbandk.testpb.DurationRules.messageMetadata,
                 name = "const",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Duration.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.Duration),
                 jsonName = "const",
                 value = pbandk.testpb.DurationRules::const,
                 mutableValue = pbandk.testpb.MutableDurationRules::const,
@@ -3391,9 +3654,10 @@ public sealed interface DurationRules : pbandk.Message {
         public val lt: pbandk.FieldDescriptor<pbandk.testpb.DurationRules, pbandk.wkt.Duration?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.DurationRules::descriptor,
+                messageMetadata = pbandk.testpb.DurationRules.messageMetadata,
                 name = "lt",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Duration.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.Duration),
                 jsonName = "lt",
                 value = pbandk.testpb.DurationRules::lt,
                 mutableValue = pbandk.testpb.MutableDurationRules::lt,
@@ -3401,9 +3665,10 @@ public sealed interface DurationRules : pbandk.Message {
         public val lte: pbandk.FieldDescriptor<pbandk.testpb.DurationRules, pbandk.wkt.Duration?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.DurationRules::descriptor,
+                messageMetadata = pbandk.testpb.DurationRules.messageMetadata,
                 name = "lte",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Duration.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.Duration),
                 jsonName = "lte",
                 value = pbandk.testpb.DurationRules::lte,
                 mutableValue = pbandk.testpb.MutableDurationRules::lte,
@@ -3411,9 +3676,10 @@ public sealed interface DurationRules : pbandk.Message {
         public val gt: pbandk.FieldDescriptor<pbandk.testpb.DurationRules, pbandk.wkt.Duration?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.DurationRules::descriptor,
+                messageMetadata = pbandk.testpb.DurationRules.messageMetadata,
                 name = "gt",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Duration.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.Duration),
                 jsonName = "gt",
                 value = pbandk.testpb.DurationRules::gt,
                 mutableValue = pbandk.testpb.MutableDurationRules::gt,
@@ -3421,29 +3687,32 @@ public sealed interface DurationRules : pbandk.Message {
         public val gte: pbandk.FieldDescriptor<pbandk.testpb.DurationRules, pbandk.wkt.Duration?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.DurationRules::descriptor,
+                messageMetadata = pbandk.testpb.DurationRules.messageMetadata,
                 name = "gte",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Duration.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.Duration),
                 jsonName = "gte",
                 value = pbandk.testpb.DurationRules::gte,
                 mutableValue = pbandk.testpb.MutableDurationRules::gte,
             )
-        public val `in`: pbandk.FieldDescriptor<pbandk.testpb.DurationRules, List<pbandk.wkt.Duration>> =
+        public val `in`: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.DurationRules, List<pbandk.wkt.Duration>, MutableList<pbandk.wkt.Duration>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.DurationRules::descriptor,
+                messageMetadata = pbandk.testpb.DurationRules.messageMetadata,
                 name = "in",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Duration.Companion)),
+                valueType = pbandk.types.message(pbandk.wkt.Duration),
                 jsonName = "in",
                 value = pbandk.testpb.DurationRules::`in`,
                 mutableValue = pbandk.testpb.MutableDurationRules::`in`,
             )
-        public val notIn: pbandk.FieldDescriptor<pbandk.testpb.DurationRules, List<pbandk.wkt.Duration>> =
+        public val notIn: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.DurationRules, List<pbandk.wkt.Duration>, MutableList<pbandk.wkt.Duration>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.DurationRules::descriptor,
+                messageMetadata = pbandk.testpb.DurationRules.messageMetadata,
                 name = "not_in",
                 number = 8,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Duration.Companion)),
+                valueType = pbandk.types.message(pbandk.wkt.Duration),
                 jsonName = "notIn",
                 value = pbandk.testpb.DurationRules::notIn,
                 mutableValue = pbandk.testpb.MutableDurationRules::notIn,
@@ -3451,13 +3720,17 @@ public sealed interface DurationRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.DurationRules> {
-        public val defaultInstance: pbandk.testpb.DurationRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.DurationRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.DurationRules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.DurationRules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.DurationRules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.DurationRules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.DurationRules::class,
                 messageCompanion = this,
                 builder = ::DurationRules,
@@ -3529,9 +3802,10 @@ public sealed interface TimestampRules : pbandk.Message {
         public val required: pbandk.FieldDescriptor<pbandk.testpb.TimestampRules, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TimestampRules::descriptor,
+                messageMetadata = pbandk.testpb.TimestampRules.messageMetadata,
                 name = "required",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "required",
                 value = pbandk.testpb.TimestampRules::required,
                 mutableValue = pbandk.testpb.MutableTimestampRules::required,
@@ -3539,9 +3813,10 @@ public sealed interface TimestampRules : pbandk.Message {
         public val const: pbandk.FieldDescriptor<pbandk.testpb.TimestampRules, pbandk.wkt.Timestamp?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TimestampRules::descriptor,
+                messageMetadata = pbandk.testpb.TimestampRules.messageMetadata,
                 name = "const",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Timestamp.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.Timestamp),
                 jsonName = "const",
                 value = pbandk.testpb.TimestampRules::const,
                 mutableValue = pbandk.testpb.MutableTimestampRules::const,
@@ -3549,9 +3824,10 @@ public sealed interface TimestampRules : pbandk.Message {
         public val lt: pbandk.FieldDescriptor<pbandk.testpb.TimestampRules, pbandk.wkt.Timestamp?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TimestampRules::descriptor,
+                messageMetadata = pbandk.testpb.TimestampRules.messageMetadata,
                 name = "lt",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Timestamp.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.Timestamp),
                 jsonName = "lt",
                 value = pbandk.testpb.TimestampRules::lt,
                 mutableValue = pbandk.testpb.MutableTimestampRules::lt,
@@ -3559,9 +3835,10 @@ public sealed interface TimestampRules : pbandk.Message {
         public val lte: pbandk.FieldDescriptor<pbandk.testpb.TimestampRules, pbandk.wkt.Timestamp?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TimestampRules::descriptor,
+                messageMetadata = pbandk.testpb.TimestampRules.messageMetadata,
                 name = "lte",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Timestamp.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.Timestamp),
                 jsonName = "lte",
                 value = pbandk.testpb.TimestampRules::lte,
                 mutableValue = pbandk.testpb.MutableTimestampRules::lte,
@@ -3569,9 +3846,10 @@ public sealed interface TimestampRules : pbandk.Message {
         public val gt: pbandk.FieldDescriptor<pbandk.testpb.TimestampRules, pbandk.wkt.Timestamp?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TimestampRules::descriptor,
+                messageMetadata = pbandk.testpb.TimestampRules.messageMetadata,
                 name = "gt",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Timestamp.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.Timestamp),
                 jsonName = "gt",
                 value = pbandk.testpb.TimestampRules::gt,
                 mutableValue = pbandk.testpb.MutableTimestampRules::gt,
@@ -3579,9 +3857,10 @@ public sealed interface TimestampRules : pbandk.Message {
         public val gte: pbandk.FieldDescriptor<pbandk.testpb.TimestampRules, pbandk.wkt.Timestamp?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TimestampRules::descriptor,
+                messageMetadata = pbandk.testpb.TimestampRules.messageMetadata,
                 name = "gte",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Timestamp.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.Timestamp),
                 jsonName = "gte",
                 value = pbandk.testpb.TimestampRules::gte,
                 mutableValue = pbandk.testpb.MutableTimestampRules::gte,
@@ -3589,9 +3868,10 @@ public sealed interface TimestampRules : pbandk.Message {
         public val ltNow: pbandk.FieldDescriptor<pbandk.testpb.TimestampRules, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TimestampRules::descriptor,
+                messageMetadata = pbandk.testpb.TimestampRules.messageMetadata,
                 name = "lt_now",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "ltNow",
                 value = pbandk.testpb.TimestampRules::ltNow,
                 mutableValue = pbandk.testpb.MutableTimestampRules::ltNow,
@@ -3599,9 +3879,10 @@ public sealed interface TimestampRules : pbandk.Message {
         public val gtNow: pbandk.FieldDescriptor<pbandk.testpb.TimestampRules, Boolean?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TimestampRules::descriptor,
+                messageMetadata = pbandk.testpb.TimestampRules.messageMetadata,
                 name = "gt_now",
                 number = 8,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "gtNow",
                 value = pbandk.testpb.TimestampRules::gtNow,
                 mutableValue = pbandk.testpb.MutableTimestampRules::gtNow,
@@ -3609,9 +3890,10 @@ public sealed interface TimestampRules : pbandk.Message {
         public val within: pbandk.FieldDescriptor<pbandk.testpb.TimestampRules, pbandk.wkt.Duration?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.TimestampRules::descriptor,
+                messageMetadata = pbandk.testpb.TimestampRules.messageMetadata,
                 name = "within",
                 number = 9,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Duration.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.Duration),
                 jsonName = "within",
                 value = pbandk.testpb.TimestampRules::within,
                 mutableValue = pbandk.testpb.MutableTimestampRules::within,
@@ -3619,13 +3901,17 @@ public sealed interface TimestampRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.TimestampRules> {
-        public val defaultInstance: pbandk.testpb.TimestampRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.TimestampRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.TimestampRules {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.TimestampRules",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.TimestampRules> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.TimestampRules",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.TimestampRules::class,
                 messageCompanion = this,
                 builder = ::TimestampRules,
@@ -3658,53 +3944,53 @@ public sealed interface MutableTimestampRules : pbandk.testpb.TimestampRules, pb
 }
 
 public val pbandk.wkt.MessageOptions.disabled: Boolean?
-    get() = getExtension(pbandk.testpb.disabled)
+    get() = pbandk.testpb.disabled.getValue(this)
 
 public var pbandk.wkt.MutableMessageOptions.disabled: Boolean?
-    get() = getExtension(pbandk.testpb.disabled)
-    set(value) = setExtension(pbandk.testpb.disabled, value)
+    get() = pbandk.testpb.disabled.getValue(this)
+    set(value) = pbandk.testpb.disabled.setValue(this, value)
 
 @pbandk.Export
 public val disabled: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean?> = 
     pbandk.FieldDescriptor.ofExtension(
-        messageDescriptor = pbandk.wkt.MessageOptions.Companion::descriptor,
+        messageDescriptor = pbandk.wkt.MessageOptions::descriptor,
         fullName = "pbandk.testpb.disabled",
         number = 1071,
-        type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+        valueType = pbandk.types.bool(),
         jsonName = "disabled",
     )
 
 public val pbandk.wkt.OneofOptions.required: Boolean?
-    get() = getExtension(pbandk.testpb.required)
+    get() = pbandk.testpb.required.getValue(this)
 
 public var pbandk.wkt.MutableOneofOptions.required: Boolean?
-    get() = getExtension(pbandk.testpb.required)
-    set(value) = setExtension(pbandk.testpb.required, value)
+    get() = pbandk.testpb.required.getValue(this)
+    set(value) = pbandk.testpb.required.setValue(this, value)
 
 @pbandk.Export
 public val required: pbandk.FieldDescriptor<pbandk.wkt.OneofOptions, Boolean?> = 
     pbandk.FieldDescriptor.ofExtension(
-        messageDescriptor = pbandk.wkt.OneofOptions.Companion::descriptor,
+        messageDescriptor = pbandk.wkt.OneofOptions::descriptor,
         fullName = "pbandk.testpb.required",
         number = 1071,
-        type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+        valueType = pbandk.types.bool(),
         jsonName = "required",
     )
 
 public val pbandk.wkt.FieldOptions.rules: pbandk.testpb.FieldRules?
-    get() = getExtension(pbandk.testpb.rules)
+    get() = pbandk.testpb.rules.getValue(this)
 
 public var pbandk.wkt.MutableFieldOptions.rules: pbandk.testpb.FieldRules?
-    get() = getExtension(pbandk.testpb.rules)
-    set(value) = setExtension(pbandk.testpb.rules, value)
+    get() = pbandk.testpb.rules.getValue(this)
+    set(value) = pbandk.testpb.rules.setValue(this, value)
 
 @pbandk.Export
 public val rules: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, pbandk.testpb.FieldRules?> = 
     pbandk.FieldDescriptor.ofExtension(
-        messageDescriptor = pbandk.wkt.FieldOptions.Companion::descriptor,
+        messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
         fullName = "pbandk.testpb.rules",
         number = 1071,
-        type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.FieldRules.Companion),
+        valueType = pbandk.types.message(pbandk.testpb.FieldRules),
         jsonName = "rules",
     )
 

@@ -4,26 +4,37 @@
 package pbandk.wkt
 
 @pbandk.Export
-@Suppress("ClassName")
-public sealed class Syntax(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.Syntax && other.value == value
-    override fun hashCode(): Int = value.hashCode()
-    override fun toString(): String = "Syntax.${name ?: "UNRECOGNIZED"}(value=$value)"
+public sealed interface Syntax : pbandk.Message.Enum {
+    override val descriptor: pbandk.EnumDescriptor<pbandk.wkt.Syntax>
+        get() = pbandk.wkt.Syntax.descriptor
 
-    public object PROTO2 : Syntax(0, "SYNTAX_PROTO2")
-    public object PROTO3 : Syntax(1, "SYNTAX_PROTO3")
-    public class UNRECOGNIZED(value: Int) : Syntax(value)
+    public object PROTO2 : Syntax, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Syntax>(
+        value = 0,
+        name = "SYNTAX_PROTO2",
+    )
+    public object PROTO3 : Syntax, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Syntax>(
+        value = 1,
+        name = "SYNTAX_PROTO3",
+    )
+    public class UNRECOGNIZED(value: Int? = null, name: String? = null)
+        : Syntax, pbandk.gen.UnrecognizedEnumValue<pbandk.wkt.Syntax>(value, name)
 
     public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.Syntax> {
+        override val descriptor: pbandk.EnumDescriptor<pbandk.wkt.Syntax> =
+            pbandk.EnumDescriptor.of(
+                fullName = "google.protobuf.Syntax",
+                enumClass = pbandk.wkt.Syntax::class,
+                enumCompanion = this,
+            )
         public val values: List<Syntax> by lazy(LazyThreadSafetyMode.PUBLICATION) {
             listOf(PROTO2, PROTO3)
         }
 
         override fun fromValue(value: Int): pbandk.wkt.Syntax =
-            values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value = value)
 
         override fun fromName(name: String): pbandk.wkt.Syntax =
-            values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Syntax with name: $name")
+            values.firstOrNull { it.name == name } ?: UNRECOGNIZED(name = name)
     }
 }
 
@@ -61,41 +72,45 @@ public sealed interface Type : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val name: pbandk.FieldDescriptor<pbandk.wkt.Type, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Type::descriptor,
+                messageMetadata = pbandk.wkt.Type.messageMetadata,
                 name = "name",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "name",
                 value = pbandk.wkt.Type::name,
                 mutableValue = pbandk.wkt.MutableType::name,
             )
-        public val fields: pbandk.FieldDescriptor<pbandk.wkt.Type, List<pbandk.wkt.Field>> =
+        public val fields: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.Type, List<pbandk.wkt.Field>, MutableList<pbandk.wkt.Field>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.Type::descriptor,
+                messageMetadata = pbandk.wkt.Type.messageMetadata,
                 name = "fields",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Field.Companion)),
+                valueType = pbandk.types.message(pbandk.wkt.Field),
                 jsonName = "fields",
                 value = pbandk.wkt.Type::fields,
                 mutableValue = pbandk.wkt.MutableType::fields,
             )
-        public val oneofs: pbandk.FieldDescriptor<pbandk.wkt.Type, List<String>> =
+        public val oneofs: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.Type, List<String>, MutableList<String>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.Type::descriptor,
+                messageMetadata = pbandk.wkt.Type.messageMetadata,
                 name = "oneofs",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.string()),
+                valueType = pbandk.types.string(),
                 jsonName = "oneofs",
                 value = pbandk.wkt.Type::oneofs,
                 mutableValue = pbandk.wkt.MutableType::oneofs,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.Type, List<pbandk.wkt.Option>> =
+        public val options: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.Type, List<pbandk.wkt.Option>, MutableList<pbandk.wkt.Option>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.Type::descriptor,
+                messageMetadata = pbandk.wkt.Type.messageMetadata,
                 name = "options",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Option.Companion)),
+                valueType = pbandk.types.message(pbandk.wkt.Option),
                 jsonName = "options",
                 value = pbandk.wkt.Type::options,
                 mutableValue = pbandk.wkt.MutableType::options,
@@ -103,19 +118,21 @@ public sealed interface Type : pbandk.Message {
         public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Type, pbandk.wkt.SourceContext?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.Type::descriptor,
+                messageMetadata = pbandk.wkt.Type.messageMetadata,
                 name = "source_context",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.SourceContext.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.SourceContext),
                 jsonName = "sourceContext",
                 value = pbandk.wkt.Type::sourceContext,
                 mutableValue = pbandk.wkt.MutableType::sourceContext,
             )
         public val syntax: pbandk.FieldDescriptor<pbandk.wkt.Type, pbandk.wkt.Syntax> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Type::descriptor,
+                messageMetadata = pbandk.wkt.Type.messageMetadata,
                 name = "syntax",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.enum(enumCompanion = pbandk.wkt.Syntax.Companion),
+                valueType = pbandk.types.enum(pbandk.wkt.Syntax),
                 jsonName = "syntax",
                 value = pbandk.wkt.Type::syntax,
                 mutableValue = pbandk.wkt.MutableType::syntax,
@@ -123,13 +140,17 @@ public sealed interface Type : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Type> {
-        public val defaultInstance: pbandk.wkt.Type by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Type by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Type {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Type",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Type> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.Type",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Type::class,
                 messageCompanion = this,
                 builder = ::Type,
@@ -197,101 +218,111 @@ public sealed interface Field : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val kind: pbandk.FieldDescriptor<pbandk.wkt.Field, pbandk.wkt.Field.Kind> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Field::descriptor,
+                messageMetadata = pbandk.wkt.Field.messageMetadata,
                 name = "kind",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.enum(enumCompanion = pbandk.wkt.Field.Kind.Companion),
+                valueType = pbandk.types.enum(pbandk.wkt.Field.Kind),
                 jsonName = "kind",
                 value = pbandk.wkt.Field::kind,
                 mutableValue = pbandk.wkt.MutableField::kind,
             )
         public val cardinality: pbandk.FieldDescriptor<pbandk.wkt.Field, pbandk.wkt.Field.Cardinality> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Field::descriptor,
+                messageMetadata = pbandk.wkt.Field.messageMetadata,
                 name = "cardinality",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.enum(enumCompanion = pbandk.wkt.Field.Cardinality.Companion),
+                valueType = pbandk.types.enum(pbandk.wkt.Field.Cardinality),
                 jsonName = "cardinality",
                 value = pbandk.wkt.Field::cardinality,
                 mutableValue = pbandk.wkt.MutableField::cardinality,
             )
         public val number: pbandk.FieldDescriptor<pbandk.wkt.Field, Int> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Field::descriptor,
+                messageMetadata = pbandk.wkt.Field.messageMetadata,
                 name = "number",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.int32(),
+                valueType = pbandk.types.int32(),
                 jsonName = "number",
                 value = pbandk.wkt.Field::number,
                 mutableValue = pbandk.wkt.MutableField::number,
             )
         public val name: pbandk.FieldDescriptor<pbandk.wkt.Field, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Field::descriptor,
+                messageMetadata = pbandk.wkt.Field.messageMetadata,
                 name = "name",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "name",
                 value = pbandk.wkt.Field::name,
                 mutableValue = pbandk.wkt.MutableField::name,
             )
         public val typeUrl: pbandk.FieldDescriptor<pbandk.wkt.Field, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Field::descriptor,
+                messageMetadata = pbandk.wkt.Field.messageMetadata,
                 name = "type_url",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "typeUrl",
                 value = pbandk.wkt.Field::typeUrl,
                 mutableValue = pbandk.wkt.MutableField::typeUrl,
             )
         public val oneofIndex: pbandk.FieldDescriptor<pbandk.wkt.Field, Int> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Field::descriptor,
+                messageMetadata = pbandk.wkt.Field.messageMetadata,
                 name = "oneof_index",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.int32(),
+                valueType = pbandk.types.int32(),
                 jsonName = "oneofIndex",
                 value = pbandk.wkt.Field::oneofIndex,
                 mutableValue = pbandk.wkt.MutableField::oneofIndex,
             )
         public val packed: pbandk.FieldDescriptor<pbandk.wkt.Field, Boolean> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Field::descriptor,
+                messageMetadata = pbandk.wkt.Field.messageMetadata,
                 name = "packed",
                 number = 8,
-                type = pbandk.FieldDescriptor.Type.bool(),
+                valueType = pbandk.types.bool(),
                 jsonName = "packed",
                 value = pbandk.wkt.Field::packed,
                 mutableValue = pbandk.wkt.MutableField::packed,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.Field, List<pbandk.wkt.Option>> =
+        public val options: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.Field, List<pbandk.wkt.Option>, MutableList<pbandk.wkt.Option>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.Field::descriptor,
+                messageMetadata = pbandk.wkt.Field.messageMetadata,
                 name = "options",
                 number = 9,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Option.Companion)),
+                valueType = pbandk.types.message(pbandk.wkt.Option),
                 jsonName = "options",
                 value = pbandk.wkt.Field::options,
                 mutableValue = pbandk.wkt.MutableField::options,
             )
         public val jsonName: pbandk.FieldDescriptor<pbandk.wkt.Field, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Field::descriptor,
+                messageMetadata = pbandk.wkt.Field.messageMetadata,
                 name = "json_name",
                 number = 10,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "jsonName",
                 value = pbandk.wkt.Field::jsonName,
                 mutableValue = pbandk.wkt.MutableField::jsonName,
             )
         public val defaultValue: pbandk.FieldDescriptor<pbandk.wkt.Field, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Field::descriptor,
+                messageMetadata = pbandk.wkt.Field.messageMetadata,
                 name = "default_value",
                 number = 11,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "defaultValue",
                 value = pbandk.wkt.Field::defaultValue,
                 mutableValue = pbandk.wkt.MutableField::defaultValue,
@@ -299,13 +330,17 @@ public sealed interface Field : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Field> {
-        public val defaultInstance: pbandk.wkt.Field by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Field by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Field {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Field",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Field> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.Field",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Field::class,
                 messageCompanion = this,
                 builder = ::Field,
@@ -325,34 +360,96 @@ public sealed interface Field : pbandk.Message {
         }
     }
 
-    @Suppress("ClassName")
-    public sealed class Kind(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.Field.Kind && other.value == value
-        override fun hashCode(): Int = value.hashCode()
-        override fun toString(): String = "Field.Kind.${name ?: "UNRECOGNIZED"}(value=$value)"
+    public sealed interface Kind : pbandk.Message.Enum {
+        override val descriptor: pbandk.EnumDescriptor<pbandk.wkt.Field.Kind>
+            get() = pbandk.wkt.Field.Kind.descriptor
 
-        public object TYPE_UNKNOWN : Kind(0, "TYPE_UNKNOWN")
-        public object TYPE_DOUBLE : Kind(1, "TYPE_DOUBLE")
-        public object TYPE_FLOAT : Kind(2, "TYPE_FLOAT")
-        public object TYPE_INT64 : Kind(3, "TYPE_INT64")
-        public object TYPE_UINT64 : Kind(4, "TYPE_UINT64")
-        public object TYPE_INT32 : Kind(5, "TYPE_INT32")
-        public object TYPE_FIXED64 : Kind(6, "TYPE_FIXED64")
-        public object TYPE_FIXED32 : Kind(7, "TYPE_FIXED32")
-        public object TYPE_BOOL : Kind(8, "TYPE_BOOL")
-        public object TYPE_STRING : Kind(9, "TYPE_STRING")
-        public object TYPE_GROUP : Kind(10, "TYPE_GROUP")
-        public object TYPE_MESSAGE : Kind(11, "TYPE_MESSAGE")
-        public object TYPE_BYTES : Kind(12, "TYPE_BYTES")
-        public object TYPE_UINT32 : Kind(13, "TYPE_UINT32")
-        public object TYPE_ENUM : Kind(14, "TYPE_ENUM")
-        public object TYPE_SFIXED32 : Kind(15, "TYPE_SFIXED32")
-        public object TYPE_SFIXED64 : Kind(16, "TYPE_SFIXED64")
-        public object TYPE_SINT32 : Kind(17, "TYPE_SINT32")
-        public object TYPE_SINT64 : Kind(18, "TYPE_SINT64")
-        public class UNRECOGNIZED(value: Int) : Kind(value)
+        public object TYPE_UNKNOWN : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 0,
+            name = "TYPE_UNKNOWN",
+        )
+        public object TYPE_DOUBLE : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 1,
+            name = "TYPE_DOUBLE",
+        )
+        public object TYPE_FLOAT : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 2,
+            name = "TYPE_FLOAT",
+        )
+        public object TYPE_INT64 : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 3,
+            name = "TYPE_INT64",
+        )
+        public object TYPE_UINT64 : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 4,
+            name = "TYPE_UINT64",
+        )
+        public object TYPE_INT32 : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 5,
+            name = "TYPE_INT32",
+        )
+        public object TYPE_FIXED64 : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 6,
+            name = "TYPE_FIXED64",
+        )
+        public object TYPE_FIXED32 : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 7,
+            name = "TYPE_FIXED32",
+        )
+        public object TYPE_BOOL : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 8,
+            name = "TYPE_BOOL",
+        )
+        public object TYPE_STRING : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 9,
+            name = "TYPE_STRING",
+        )
+        public object TYPE_GROUP : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 10,
+            name = "TYPE_GROUP",
+        )
+        public object TYPE_MESSAGE : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 11,
+            name = "TYPE_MESSAGE",
+        )
+        public object TYPE_BYTES : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 12,
+            name = "TYPE_BYTES",
+        )
+        public object TYPE_UINT32 : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 13,
+            name = "TYPE_UINT32",
+        )
+        public object TYPE_ENUM : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 14,
+            name = "TYPE_ENUM",
+        )
+        public object TYPE_SFIXED32 : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 15,
+            name = "TYPE_SFIXED32",
+        )
+        public object TYPE_SFIXED64 : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 16,
+            name = "TYPE_SFIXED64",
+        )
+        public object TYPE_SINT32 : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 17,
+            name = "TYPE_SINT32",
+        )
+        public object TYPE_SINT64 : Kind, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Kind>(
+            value = 18,
+            name = "TYPE_SINT64",
+        )
+        public class UNRECOGNIZED(value: Int? = null, name: String? = null)
+            : Kind, pbandk.gen.UnrecognizedEnumValue<pbandk.wkt.Field.Kind>(value, name)
 
         public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.Field.Kind> {
+            override val descriptor: pbandk.EnumDescriptor<pbandk.wkt.Field.Kind> =
+                pbandk.EnumDescriptor.of(
+                    fullName = "google.protobuf.Field.Kind",
+                    enumClass = pbandk.wkt.Field.Kind::class,
+                    enumCompanion = this,
+                )
             public val values: List<Field.Kind> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(
                     TYPE_UNKNOWN, TYPE_DOUBLE, TYPE_FLOAT, TYPE_INT64, TYPE_UINT64,
@@ -363,35 +460,52 @@ public sealed interface Field : pbandk.Message {
             }
 
             override fun fromValue(value: Int): pbandk.wkt.Field.Kind =
-                values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+                values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value = value)
 
             override fun fromName(name: String): pbandk.wkt.Field.Kind =
-                values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Kind with name: $name")
+                values.firstOrNull { it.name == name } ?: UNRECOGNIZED(name = name)
         }
     }
 
-    @Suppress("ClassName")
-    public sealed class Cardinality(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.Field.Cardinality && other.value == value
-        override fun hashCode(): Int = value.hashCode()
-        override fun toString(): String = "Field.Cardinality.${name ?: "UNRECOGNIZED"}(value=$value)"
+    public sealed interface Cardinality : pbandk.Message.Enum {
+        override val descriptor: pbandk.EnumDescriptor<pbandk.wkt.Field.Cardinality>
+            get() = pbandk.wkt.Field.Cardinality.descriptor
 
-        public object UNKNOWN : Cardinality(0, "CARDINALITY_UNKNOWN")
-        public object OPTIONAL : Cardinality(1, "CARDINALITY_OPTIONAL")
-        public object REQUIRED : Cardinality(2, "CARDINALITY_REQUIRED")
-        public object REPEATED : Cardinality(3, "CARDINALITY_REPEATED")
-        public class UNRECOGNIZED(value: Int) : Cardinality(value)
+        public object UNKNOWN : Cardinality, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Cardinality>(
+            value = 0,
+            name = "CARDINALITY_UNKNOWN",
+        )
+        public object OPTIONAL : Cardinality, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Cardinality>(
+            value = 1,
+            name = "CARDINALITY_OPTIONAL",
+        )
+        public object REQUIRED : Cardinality, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Cardinality>(
+            value = 2,
+            name = "CARDINALITY_REQUIRED",
+        )
+        public object REPEATED : Cardinality, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Field.Cardinality>(
+            value = 3,
+            name = "CARDINALITY_REPEATED",
+        )
+        public class UNRECOGNIZED(value: Int? = null, name: String? = null)
+            : Cardinality, pbandk.gen.UnrecognizedEnumValue<pbandk.wkt.Field.Cardinality>(value, name)
 
         public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.Field.Cardinality> {
+            override val descriptor: pbandk.EnumDescriptor<pbandk.wkt.Field.Cardinality> =
+                pbandk.EnumDescriptor.of(
+                    fullName = "google.protobuf.Field.Cardinality",
+                    enumClass = pbandk.wkt.Field.Cardinality::class,
+                    enumCompanion = this,
+                )
             public val values: List<Field.Cardinality> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(UNKNOWN, OPTIONAL, REQUIRED, REPEATED)
             }
 
             override fun fromValue(value: Int): pbandk.wkt.Field.Cardinality =
-                values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+                values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value = value)
 
             override fun fromName(name: String): pbandk.wkt.Field.Cardinality =
-                values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Cardinality with name: $name")
+                values.firstOrNull { it.name == name } ?: UNRECOGNIZED(name = name)
         }
     }
 }
@@ -441,31 +555,34 @@ public sealed interface Enum : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val name: pbandk.FieldDescriptor<pbandk.wkt.Enum, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Enum::descriptor,
+                messageMetadata = pbandk.wkt.Enum.messageMetadata,
                 name = "name",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "name",
                 value = pbandk.wkt.Enum::name,
                 mutableValue = pbandk.wkt.MutableEnum::name,
             )
-        public val enumvalue: pbandk.FieldDescriptor<pbandk.wkt.Enum, List<pbandk.wkt.EnumValue>> =
+        public val enumvalue: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.Enum, List<pbandk.wkt.EnumValue>, MutableList<pbandk.wkt.EnumValue>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.Enum::descriptor,
+                messageMetadata = pbandk.wkt.Enum.messageMetadata,
                 name = "enumvalue",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.EnumValue.Companion)),
+                valueType = pbandk.types.message(pbandk.wkt.EnumValue),
                 jsonName = "enumvalue",
                 value = pbandk.wkt.Enum::enumvalue,
                 mutableValue = pbandk.wkt.MutableEnum::enumvalue,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.Enum, List<pbandk.wkt.Option>> =
+        public val options: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.Enum, List<pbandk.wkt.Option>, MutableList<pbandk.wkt.Option>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.Enum::descriptor,
+                messageMetadata = pbandk.wkt.Enum.messageMetadata,
                 name = "options",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Option.Companion)),
+                valueType = pbandk.types.message(pbandk.wkt.Option),
                 jsonName = "options",
                 value = pbandk.wkt.Enum::options,
                 mutableValue = pbandk.wkt.MutableEnum::options,
@@ -473,19 +590,21 @@ public sealed interface Enum : pbandk.Message {
         public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Enum, pbandk.wkt.SourceContext?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.Enum::descriptor,
+                messageMetadata = pbandk.wkt.Enum.messageMetadata,
                 name = "source_context",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.SourceContext.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.SourceContext),
                 jsonName = "sourceContext",
                 value = pbandk.wkt.Enum::sourceContext,
                 mutableValue = pbandk.wkt.MutableEnum::sourceContext,
             )
         public val syntax: pbandk.FieldDescriptor<pbandk.wkt.Enum, pbandk.wkt.Syntax> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Enum::descriptor,
+                messageMetadata = pbandk.wkt.Enum.messageMetadata,
                 name = "syntax",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.enum(enumCompanion = pbandk.wkt.Syntax.Companion),
+                valueType = pbandk.types.enum(pbandk.wkt.Syntax),
                 jsonName = "syntax",
                 value = pbandk.wkt.Enum::syntax,
                 mutableValue = pbandk.wkt.MutableEnum::syntax,
@@ -493,13 +612,17 @@ public sealed interface Enum : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Enum> {
-        public val defaultInstance: pbandk.wkt.Enum by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Enum by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Enum {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Enum",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Enum> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.Enum",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Enum::class,
                 messageCompanion = this,
                 builder = ::Enum,
@@ -551,31 +674,34 @@ public sealed interface EnumValue : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val name: pbandk.FieldDescriptor<pbandk.wkt.EnumValue, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.EnumValue::descriptor,
+                messageMetadata = pbandk.wkt.EnumValue.messageMetadata,
                 name = "name",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "name",
                 value = pbandk.wkt.EnumValue::name,
                 mutableValue = pbandk.wkt.MutableEnumValue::name,
             )
         public val number: pbandk.FieldDescriptor<pbandk.wkt.EnumValue, Int> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.EnumValue::descriptor,
+                messageMetadata = pbandk.wkt.EnumValue.messageMetadata,
                 name = "number",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.int32(),
+                valueType = pbandk.types.int32(),
                 jsonName = "number",
                 value = pbandk.wkt.EnumValue::number,
                 mutableValue = pbandk.wkt.MutableEnumValue::number,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.EnumValue, List<pbandk.wkt.Option>> =
+        public val options: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.EnumValue, List<pbandk.wkt.Option>, MutableList<pbandk.wkt.Option>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.EnumValue::descriptor,
+                messageMetadata = pbandk.wkt.EnumValue.messageMetadata,
                 name = "options",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Option.Companion)),
+                valueType = pbandk.types.message(pbandk.wkt.Option),
                 jsonName = "options",
                 value = pbandk.wkt.EnumValue::options,
                 mutableValue = pbandk.wkt.MutableEnumValue::options,
@@ -583,13 +709,17 @@ public sealed interface EnumValue : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValue> {
-        public val defaultInstance: pbandk.wkt.EnumValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.EnumValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.EnumValue {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.EnumValue",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValue> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.EnumValue",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.EnumValue::class,
                 messageCompanion = this,
                 builder = ::EnumValue,
@@ -635,11 +765,12 @@ public sealed interface Option : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val name: pbandk.FieldDescriptor<pbandk.wkt.Option, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Option::descriptor,
+                messageMetadata = pbandk.wkt.Option.messageMetadata,
                 name = "name",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "name",
                 value = pbandk.wkt.Option::name,
                 mutableValue = pbandk.wkt.MutableOption::name,
@@ -647,9 +778,10 @@ public sealed interface Option : pbandk.Message {
         public val value: pbandk.FieldDescriptor<pbandk.wkt.Option, pbandk.wkt.Any?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.Option::descriptor,
+                messageMetadata = pbandk.wkt.Option.messageMetadata,
                 name = "value",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Any.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.Any),
                 jsonName = "value",
                 value = pbandk.wkt.Option::value,
                 mutableValue = pbandk.wkt.MutableOption::value,
@@ -657,13 +789,17 @@ public sealed interface Option : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Option> {
-        public val defaultInstance: pbandk.wkt.Option by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Option by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Option {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Option",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Option> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.Option",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Option::class,
                 messageCompanion = this,
                 builder = ::Option,

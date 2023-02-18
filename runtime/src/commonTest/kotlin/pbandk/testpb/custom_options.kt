@@ -27,21 +27,14 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val single: pbandk.FieldDescriptor<pbandk.testpb.SingleRequiredCustomOption, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.testpb.SingleRequiredCustomOption::descriptor,
+                messageMetadata = pbandk.testpb.SingleRequiredCustomOption.messageMetadata,
                 name = "single",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "single",
                 options = pbandk.wkt.FieldOptions {
-                    unknownFields += mapOf(
-                        1071 to pbandk.UnknownField(
-                            fieldNum = 1071,
-                            values = listOf(
-                                pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(5, -118, 1, 2, 16, 1))
-                            )
-                        )
-                    )
                 },
                 value = pbandk.testpb.SingleRequiredCustomOption::single,
                 mutableValue = pbandk.testpb.MutableSingleRequiredCustomOption::single,
@@ -49,13 +42,17 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SingleRequiredCustomOption> {
-        public val defaultInstance: pbandk.testpb.SingleRequiredCustomOption by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.SingleRequiredCustomOption by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.SingleRequiredCustomOption {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.SingleRequiredCustomOption",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SingleRequiredCustomOption> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.SingleRequiredCustomOption",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.SingleRequiredCustomOption::class,
                 messageCompanion = this,
                 builder = ::SingleRequiredCustomOption,
@@ -95,22 +92,14 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val multiple: pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptions, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.testpb.MultipleCustomOptions::descriptor,
+                messageMetadata = pbandk.testpb.MultipleCustomOptions.messageMetadata,
                 name = "multiple",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "multiple",
                 options = pbandk.wkt.FieldOptions {
-                    unknownFields += mapOf(
-                        1071 to pbandk.UnknownField(
-                            fieldNum = 1071,
-                            values = listOf(
-                                pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(5, -118, 1, 2, 16, 1)),
-                                pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(4, 114, 2, 16, 10))
-                            )
-                        )
-                    )
                 },
                 value = pbandk.testpb.MultipleCustomOptions::multiple,
                 mutableValue = pbandk.testpb.MutableMultipleCustomOptions::multiple,
@@ -118,13 +107,17 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptions> {
-        public val defaultInstance: pbandk.testpb.MultipleCustomOptions by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.MultipleCustomOptions by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.MultipleCustomOptions {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.MultipleCustomOptions",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptions> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.MultipleCustomOptions",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.MultipleCustomOptions::class,
                 messageCompanion = this,
                 builder = ::MultipleCustomOptions,
@@ -166,23 +159,15 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
     public object FieldDescriptors {
         public val multipleDeprecated: pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated, String> =
             @Suppress("DEPRECATION")
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::descriptor,
+                messageMetadata = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.messageMetadata,
                 name = "multiple_deprecated",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "multipleDeprecated",
                 options = pbandk.wkt.FieldOptions {
                     deprecated = true
-                    unknownFields += mapOf(
-                        1071 to pbandk.UnknownField(
-                            fieldNum = 1071,
-                            values = listOf(
-                                pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(4, 114, 2, 24, 32)),
-                                pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(4, 114, 2, 16, 10))
-                            )
-                        )
-                    )
                 },
                 value = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::multipleDeprecated,
                 mutableValue = pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated::multipleDeprecated,
@@ -190,13 +175,17 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> {
-        public val defaultInstance: pbandk.testpb.MultipleCustomOptionsPlusDeprecated by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.MultipleCustomOptionsPlusDeprecated by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.MultipleCustomOptionsPlusDeprecated {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "pbandk.testpb.MultipleCustomOptionsPlusDeprecated",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "pbandk.testpb.MultipleCustomOptionsPlusDeprecated",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::class,
                 messageCompanion = this,
                 builder = ::MultipleCustomOptionsPlusDeprecated,
@@ -392,7 +381,6 @@ private class MultipleCustomOptionsPlusDeprecated_Impl(
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit) = super.copy(builderAction)
 
-    @Suppress("DEPRECATION")
     @Deprecated("Use copy { } instead")
     override fun copy(
         multipleDeprecated: String,
@@ -413,7 +401,6 @@ private class MutableMultipleCustomOptionsPlusDeprecated_Impl(
     @Suppress("RedundantOverride")
     override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit) = super.copy(builderAction)
 
-    @Suppress("DEPRECATION")
     @Deprecated("Use copy { } instead")
     override fun copy(
         multipleDeprecated: String,

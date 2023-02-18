@@ -27,11 +27,12 @@ public sealed interface SourceContext : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val fileName: pbandk.FieldDescriptor<pbandk.wkt.SourceContext, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.SourceContext::descriptor,
+                messageMetadata = pbandk.wkt.SourceContext.messageMetadata,
                 name = "file_name",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "fileName",
                 value = pbandk.wkt.SourceContext::fileName,
                 mutableValue = pbandk.wkt.MutableSourceContext::fileName,
@@ -39,13 +40,17 @@ public sealed interface SourceContext : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
-        public val defaultInstance: pbandk.wkt.SourceContext by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.SourceContext by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.SourceContext {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.SourceContext",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.SourceContext",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.SourceContext::class,
                 messageCompanion = this,
                 builder = ::SourceContext,

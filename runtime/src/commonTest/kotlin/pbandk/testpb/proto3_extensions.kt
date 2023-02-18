@@ -4,51 +4,51 @@
 package pbandk.testpb
 
 public val pbandk.wkt.FieldOptions.nonOptionalInt32: Int?
-    get() = getExtension(pbandk.testpb.nonOptionalInt32)
+    get() = pbandk.testpb.nonOptionalInt32.getValue(this)
 
 public var pbandk.wkt.MutableFieldOptions.nonOptionalInt32: Int?
-    get() = getExtension(pbandk.testpb.nonOptionalInt32)
-    set(value) = setExtension(pbandk.testpb.nonOptionalInt32, value)
+    get() = pbandk.testpb.nonOptionalInt32.getValue(this)
+    set(value) = pbandk.testpb.nonOptionalInt32.setValue(this, value)
 
 @pbandk.Export
 public val nonOptionalInt32: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Int?> = 
     pbandk.FieldDescriptor.ofExtension(
-        messageDescriptor = pbandk.wkt.FieldOptions.Companion::descriptor,
+        messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
         fullName = "pbandk.testpb.non_optional_int32",
         number = 50000,
-        type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
+        valueType = pbandk.types.int32(),
         jsonName = "nonOptionalInt32",
     )
 
 public val pbandk.wkt.FieldOptions.optionalInt32: Int?
-    get() = getExtension(pbandk.testpb.optionalInt32)
+    get() = pbandk.testpb.optionalInt32.getValue(this)
 
 public var pbandk.wkt.MutableFieldOptions.optionalInt32: Int?
-    get() = getExtension(pbandk.testpb.optionalInt32)
-    set(value) = setExtension(pbandk.testpb.optionalInt32, value)
+    get() = pbandk.testpb.optionalInt32.getValue(this)
+    set(value) = pbandk.testpb.optionalInt32.setValue(this, value)
 
 @pbandk.Export
 public val optionalInt32: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, Int?> = 
     pbandk.FieldDescriptor.ofExtension(
-        messageDescriptor = pbandk.wkt.FieldOptions.Companion::descriptor,
+        messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
         fullName = "pbandk.testpb.optional_int32",
         number = 50001,
-        type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
+        valueType = pbandk.types.int32(),
         jsonName = "optionalInt32",
     )
 
 public val pbandk.wkt.FieldOptions.repeatedInt32: List<Int>
-    get() = getRepeatedExtension(pbandk.testpb.repeatedInt32)
+    get() = pbandk.testpb.repeatedInt32.getValue(this)
 
 public val pbandk.wkt.MutableFieldOptions.repeatedInt32: MutableList<Int>
-    get() = getRepeatedExtension(pbandk.testpb.repeatedInt32)
+    get() = pbandk.testpb.repeatedInt32.getMutableValue(this)
 
 @pbandk.Export
-public val repeatedInt32: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, List<Int>> = 
+public val repeatedInt32: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.FieldOptions, List<Int>, MutableList<Int>> = 
     pbandk.FieldDescriptor.ofRepeatedExtension(
-        messageDescriptor = pbandk.wkt.FieldOptions.Companion::descriptor,
+        messageDescriptor = pbandk.wkt.FieldOptions::descriptor,
         fullName = "pbandk.testpb.repeated_int32",
         number = 50002,
-        type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.int32(), packed = true),
+        valueType = pbandk.types.int32(),
         jsonName = "repeatedInt32",
     )

@@ -39,41 +39,45 @@ public sealed interface Api : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val name: pbandk.FieldDescriptor<pbandk.wkt.Api, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
+                messageMetadata = pbandk.wkt.Api.messageMetadata,
                 name = "name",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "name",
                 value = pbandk.wkt.Api::name,
                 mutableValue = pbandk.wkt.MutableApi::name,
             )
-        public val methods: pbandk.FieldDescriptor<pbandk.wkt.Api, List<pbandk.wkt.Method>> =
+        public val methods: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.Api, List<pbandk.wkt.Method>, MutableList<pbandk.wkt.Method>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
+                messageMetadata = pbandk.wkt.Api.messageMetadata,
                 name = "methods",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Method.Companion)),
+                valueType = pbandk.types.message(pbandk.wkt.Method),
                 jsonName = "methods",
                 value = pbandk.wkt.Api::methods,
                 mutableValue = pbandk.wkt.MutableApi::methods,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.Api, List<pbandk.wkt.Option>> =
+        public val options: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.Api, List<pbandk.wkt.Option>, MutableList<pbandk.wkt.Option>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
+                messageMetadata = pbandk.wkt.Api.messageMetadata,
                 name = "options",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Option.Companion)),
+                valueType = pbandk.types.message(pbandk.wkt.Option),
                 jsonName = "options",
                 value = pbandk.wkt.Api::options,
                 mutableValue = pbandk.wkt.MutableApi::options,
             )
         public val version: pbandk.FieldDescriptor<pbandk.wkt.Api, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
+                messageMetadata = pbandk.wkt.Api.messageMetadata,
                 name = "version",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "version",
                 value = pbandk.wkt.Api::version,
                 mutableValue = pbandk.wkt.MutableApi::version,
@@ -81,29 +85,32 @@ public sealed interface Api : pbandk.Message {
         public val sourceContext: pbandk.FieldDescriptor<pbandk.wkt.Api, pbandk.wkt.SourceContext?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
+                messageMetadata = pbandk.wkt.Api.messageMetadata,
                 name = "source_context",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.SourceContext.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.SourceContext),
                 jsonName = "sourceContext",
                 value = pbandk.wkt.Api::sourceContext,
                 mutableValue = pbandk.wkt.MutableApi::sourceContext,
             )
-        public val mixins: pbandk.FieldDescriptor<pbandk.wkt.Api, List<pbandk.wkt.Mixin>> =
+        public val mixins: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.Api, List<pbandk.wkt.Mixin>, MutableList<pbandk.wkt.Mixin>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
+                messageMetadata = pbandk.wkt.Api.messageMetadata,
                 name = "mixins",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Mixin.Companion)),
+                valueType = pbandk.types.message(pbandk.wkt.Mixin),
                 jsonName = "mixins",
                 value = pbandk.wkt.Api::mixins,
                 mutableValue = pbandk.wkt.MutableApi::mixins,
             )
         public val syntax: pbandk.FieldDescriptor<pbandk.wkt.Api, pbandk.wkt.Syntax> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Api::descriptor,
+                messageMetadata = pbandk.wkt.Api.messageMetadata,
                 name = "syntax",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.enum(enumCompanion = pbandk.wkt.Syntax.Companion),
+                valueType = pbandk.types.enum(pbandk.wkt.Syntax),
                 jsonName = "syntax",
                 value = pbandk.wkt.Api::syntax,
                 mutableValue = pbandk.wkt.MutableApi::syntax,
@@ -111,13 +118,17 @@ public sealed interface Api : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
-        public val defaultInstance: pbandk.wkt.Api by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Api by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Api {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Api",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.Api",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Api::class,
                 messageCompanion = this,
                 builder = ::Api,
@@ -181,71 +192,78 @@ public sealed interface Method : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val name: pbandk.FieldDescriptor<pbandk.wkt.Method, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Method::descriptor,
+                messageMetadata = pbandk.wkt.Method.messageMetadata,
                 name = "name",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "name",
                 value = pbandk.wkt.Method::name,
                 mutableValue = pbandk.wkt.MutableMethod::name,
             )
         public val requestTypeUrl: pbandk.FieldDescriptor<pbandk.wkt.Method, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Method::descriptor,
+                messageMetadata = pbandk.wkt.Method.messageMetadata,
                 name = "request_type_url",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "requestTypeUrl",
                 value = pbandk.wkt.Method::requestTypeUrl,
                 mutableValue = pbandk.wkt.MutableMethod::requestTypeUrl,
             )
         public val requestStreaming: pbandk.FieldDescriptor<pbandk.wkt.Method, Boolean> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Method::descriptor,
+                messageMetadata = pbandk.wkt.Method.messageMetadata,
                 name = "request_streaming",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.bool(),
+                valueType = pbandk.types.bool(),
                 jsonName = "requestStreaming",
                 value = pbandk.wkt.Method::requestStreaming,
                 mutableValue = pbandk.wkt.MutableMethod::requestStreaming,
             )
         public val responseTypeUrl: pbandk.FieldDescriptor<pbandk.wkt.Method, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Method::descriptor,
+                messageMetadata = pbandk.wkt.Method.messageMetadata,
                 name = "response_type_url",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "responseTypeUrl",
                 value = pbandk.wkt.Method::responseTypeUrl,
                 mutableValue = pbandk.wkt.MutableMethod::responseTypeUrl,
             )
         public val responseStreaming: pbandk.FieldDescriptor<pbandk.wkt.Method, Boolean> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Method::descriptor,
+                messageMetadata = pbandk.wkt.Method.messageMetadata,
                 name = "response_streaming",
                 number = 5,
-                type = pbandk.FieldDescriptor.Type.bool(),
+                valueType = pbandk.types.bool(),
                 jsonName = "responseStreaming",
                 value = pbandk.wkt.Method::responseStreaming,
                 mutableValue = pbandk.wkt.MutableMethod::responseStreaming,
             )
-        public val options: pbandk.FieldDescriptor<pbandk.wkt.Method, List<pbandk.wkt.Option>> =
+        public val options: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.Method, List<pbandk.wkt.Option>, MutableList<pbandk.wkt.Option>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.Method::descriptor,
+                messageMetadata = pbandk.wkt.Method.messageMetadata,
                 name = "options",
                 number = 6,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.Option.Companion)),
+                valueType = pbandk.types.message(pbandk.wkt.Option),
                 jsonName = "options",
                 value = pbandk.wkt.Method::options,
                 mutableValue = pbandk.wkt.MutableMethod::options,
             )
         public val syntax: pbandk.FieldDescriptor<pbandk.wkt.Method, pbandk.wkt.Syntax> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Method::descriptor,
+                messageMetadata = pbandk.wkt.Method.messageMetadata,
                 name = "syntax",
                 number = 7,
-                type = pbandk.FieldDescriptor.Type.enum(enumCompanion = pbandk.wkt.Syntax.Companion),
+                valueType = pbandk.types.enum(pbandk.wkt.Syntax),
                 jsonName = "syntax",
                 value = pbandk.wkt.Method::syntax,
                 mutableValue = pbandk.wkt.MutableMethod::syntax,
@@ -253,13 +271,17 @@ public sealed interface Method : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
-        public val defaultInstance: pbandk.wkt.Method by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Method by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Method {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Method",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.Method",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Method::class,
                 messageCompanion = this,
                 builder = ::Method,
@@ -313,21 +335,23 @@ public sealed interface Mixin : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val name: pbandk.FieldDescriptor<pbandk.wkt.Mixin, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Mixin::descriptor,
+                messageMetadata = pbandk.wkt.Mixin.messageMetadata,
                 name = "name",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "name",
                 value = pbandk.wkt.Mixin::name,
                 mutableValue = pbandk.wkt.MutableMixin::name,
             )
         public val root: pbandk.FieldDescriptor<pbandk.wkt.Mixin, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Mixin::descriptor,
+                messageMetadata = pbandk.wkt.Mixin.messageMetadata,
                 name = "root",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "root",
                 value = pbandk.wkt.Mixin::root,
                 mutableValue = pbandk.wkt.MutableMixin::root,
@@ -335,13 +359,17 @@ public sealed interface Mixin : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
-        public val defaultInstance: pbandk.wkt.Mixin by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Mixin by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Mixin {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Mixin",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.Mixin",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Mixin::class,
                 messageCompanion = this,
                 builder = ::Mixin,

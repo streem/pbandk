@@ -29,21 +29,23 @@ public sealed interface Duration : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val seconds: pbandk.FieldDescriptor<pbandk.wkt.Duration, Long> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Duration::descriptor,
+                messageMetadata = pbandk.wkt.Duration.messageMetadata,
                 name = "seconds",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.int64(),
+                valueType = pbandk.types.int64(),
                 jsonName = "seconds",
                 value = pbandk.wkt.Duration::seconds,
                 mutableValue = pbandk.wkt.MutableDuration::seconds,
             )
         public val nanos: pbandk.FieldDescriptor<pbandk.wkt.Duration, Int> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Duration::descriptor,
+                messageMetadata = pbandk.wkt.Duration.messageMetadata,
                 name = "nanos",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.int32(),
+                valueType = pbandk.types.int32(),
                 jsonName = "nanos",
                 value = pbandk.wkt.Duration::nanos,
                 mutableValue = pbandk.wkt.MutableDuration::nanos,
@@ -51,13 +53,17 @@ public sealed interface Duration : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
-        public val defaultInstance: pbandk.wkt.Duration by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Duration by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Duration {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Duration",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.Duration",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Duration::class,
                 messageCompanion = this,
                 builder = ::Duration,

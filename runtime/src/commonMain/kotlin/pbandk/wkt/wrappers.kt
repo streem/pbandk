@@ -27,11 +27,12 @@ public sealed interface DoubleValue : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val value: pbandk.FieldDescriptor<pbandk.wkt.DoubleValue, Double> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.DoubleValue::descriptor,
+                messageMetadata = pbandk.wkt.DoubleValue.messageMetadata,
                 name = "value",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.double(),
+                valueType = pbandk.types.double(),
                 jsonName = "value",
                 value = pbandk.wkt.DoubleValue::value,
                 mutableValue = pbandk.wkt.MutableDoubleValue::value,
@@ -39,13 +40,17 @@ public sealed interface DoubleValue : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.DoubleValue> {
-        public val defaultInstance: pbandk.wkt.DoubleValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.DoubleValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.DoubleValue {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.DoubleValue",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DoubleValue> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.DoubleValue",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.DoubleValue::class,
                 messageCompanion = this,
                 builder = ::DoubleValue,
@@ -85,11 +90,12 @@ public sealed interface FloatValue : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val value: pbandk.FieldDescriptor<pbandk.wkt.FloatValue, Float> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.FloatValue::descriptor,
+                messageMetadata = pbandk.wkt.FloatValue.messageMetadata,
                 name = "value",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.float(),
+                valueType = pbandk.types.float(),
                 jsonName = "value",
                 value = pbandk.wkt.FloatValue::value,
                 mutableValue = pbandk.wkt.MutableFloatValue::value,
@@ -97,13 +103,17 @@ public sealed interface FloatValue : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FloatValue> {
-        public val defaultInstance: pbandk.wkt.FloatValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.FloatValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.FloatValue {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.FloatValue",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FloatValue> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.FloatValue",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.FloatValue::class,
                 messageCompanion = this,
                 builder = ::FloatValue,
@@ -143,11 +153,12 @@ public sealed interface Int64Value : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val value: pbandk.FieldDescriptor<pbandk.wkt.Int64Value, Long> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Int64Value::descriptor,
+                messageMetadata = pbandk.wkt.Int64Value.messageMetadata,
                 name = "value",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.int64(),
+                valueType = pbandk.types.int64(),
                 jsonName = "value",
                 value = pbandk.wkt.Int64Value::value,
                 mutableValue = pbandk.wkt.MutableInt64Value::value,
@@ -155,13 +166,17 @@ public sealed interface Int64Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Int64Value> {
-        public val defaultInstance: pbandk.wkt.Int64Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Int64Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Int64Value {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Int64Value",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int64Value> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.Int64Value",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Int64Value::class,
                 messageCompanion = this,
                 builder = ::Int64Value,
@@ -201,11 +216,12 @@ public sealed interface UInt64Value : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val value: pbandk.FieldDescriptor<pbandk.wkt.UInt64Value, Long> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.UInt64Value::descriptor,
+                messageMetadata = pbandk.wkt.UInt64Value.messageMetadata,
                 name = "value",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.uint64(),
+                valueType = pbandk.types.uint64(),
                 jsonName = "value",
                 value = pbandk.wkt.UInt64Value::value,
                 mutableValue = pbandk.wkt.MutableUInt64Value::value,
@@ -213,13 +229,17 @@ public sealed interface UInt64Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UInt64Value> {
-        public val defaultInstance: pbandk.wkt.UInt64Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.UInt64Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.UInt64Value {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.UInt64Value",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt64Value> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.UInt64Value",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.UInt64Value::class,
                 messageCompanion = this,
                 builder = ::UInt64Value,
@@ -259,11 +279,12 @@ public sealed interface Int32Value : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val value: pbandk.FieldDescriptor<pbandk.wkt.Int32Value, Int> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Int32Value::descriptor,
+                messageMetadata = pbandk.wkt.Int32Value.messageMetadata,
                 name = "value",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.int32(),
+                valueType = pbandk.types.int32(),
                 jsonName = "value",
                 value = pbandk.wkt.Int32Value::value,
                 mutableValue = pbandk.wkt.MutableInt32Value::value,
@@ -271,13 +292,17 @@ public sealed interface Int32Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Int32Value> {
-        public val defaultInstance: pbandk.wkt.Int32Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Int32Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Int32Value {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Int32Value",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int32Value> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.Int32Value",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Int32Value::class,
                 messageCompanion = this,
                 builder = ::Int32Value,
@@ -317,11 +342,12 @@ public sealed interface UInt32Value : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val value: pbandk.FieldDescriptor<pbandk.wkt.UInt32Value, Int> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.UInt32Value::descriptor,
+                messageMetadata = pbandk.wkt.UInt32Value.messageMetadata,
                 name = "value",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.uint32(),
+                valueType = pbandk.types.uint32(),
                 jsonName = "value",
                 value = pbandk.wkt.UInt32Value::value,
                 mutableValue = pbandk.wkt.MutableUInt32Value::value,
@@ -329,13 +355,17 @@ public sealed interface UInt32Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UInt32Value> {
-        public val defaultInstance: pbandk.wkt.UInt32Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.UInt32Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.UInt32Value {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.UInt32Value",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt32Value> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.UInt32Value",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.UInt32Value::class,
                 messageCompanion = this,
                 builder = ::UInt32Value,
@@ -375,11 +405,12 @@ public sealed interface BoolValue : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val value: pbandk.FieldDescriptor<pbandk.wkt.BoolValue, Boolean> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.BoolValue::descriptor,
+                messageMetadata = pbandk.wkt.BoolValue.messageMetadata,
                 name = "value",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.bool(),
+                valueType = pbandk.types.bool(),
                 jsonName = "value",
                 value = pbandk.wkt.BoolValue::value,
                 mutableValue = pbandk.wkt.MutableBoolValue::value,
@@ -387,13 +418,17 @@ public sealed interface BoolValue : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.BoolValue> {
-        public val defaultInstance: pbandk.wkt.BoolValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.BoolValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.BoolValue {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.BoolValue",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BoolValue> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.BoolValue",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.BoolValue::class,
                 messageCompanion = this,
                 builder = ::BoolValue,
@@ -433,11 +468,12 @@ public sealed interface StringValue : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val value: pbandk.FieldDescriptor<pbandk.wkt.StringValue, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.StringValue::descriptor,
+                messageMetadata = pbandk.wkt.StringValue.messageMetadata,
                 name = "value",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "value",
                 value = pbandk.wkt.StringValue::value,
                 mutableValue = pbandk.wkt.MutableStringValue::value,
@@ -445,13 +481,17 @@ public sealed interface StringValue : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.StringValue> {
-        public val defaultInstance: pbandk.wkt.StringValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.StringValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.StringValue {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.StringValue",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.StringValue> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.StringValue",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.StringValue::class,
                 messageCompanion = this,
                 builder = ::StringValue,
@@ -491,11 +531,12 @@ public sealed interface BytesValue : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val value: pbandk.FieldDescriptor<pbandk.wkt.BytesValue, pbandk.ByteArr> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.BytesValue::descriptor,
+                messageMetadata = pbandk.wkt.BytesValue.messageMetadata,
                 name = "value",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.bytes(),
+                valueType = pbandk.types.bytes(),
                 jsonName = "value",
                 value = pbandk.wkt.BytesValue::value,
                 mutableValue = pbandk.wkt.MutableBytesValue::value,
@@ -503,13 +544,17 @@ public sealed interface BytesValue : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.BytesValue> {
-        public val defaultInstance: pbandk.wkt.BytesValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.BytesValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.BytesValue {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.BytesValue",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BytesValue> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.BytesValue",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.BytesValue::class,
                 messageCompanion = this,
                 builder = ::BytesValue,

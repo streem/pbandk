@@ -26,12 +26,13 @@ public sealed interface FieldMask : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val paths: pbandk.FieldDescriptor<pbandk.wkt.FieldMask, List<String>> =
+        public val paths: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.FieldMask, List<String>, MutableList<String>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.FieldMask::descriptor,
+                messageMetadata = pbandk.wkt.FieldMask.messageMetadata,
                 name = "paths",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.string()),
+                valueType = pbandk.types.string(),
                 jsonName = "paths",
                 value = pbandk.wkt.FieldMask::paths,
                 mutableValue = pbandk.wkt.MutableFieldMask::paths,
@@ -39,13 +40,17 @@ public sealed interface FieldMask : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FieldMask> {
-        public val defaultInstance: pbandk.wkt.FieldMask by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.FieldMask by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.FieldMask {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.FieldMask",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldMask> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.FieldMask",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.FieldMask::class,
                 messageCompanion = this,
                 builder = ::FieldMask,

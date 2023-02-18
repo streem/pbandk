@@ -29,21 +29,23 @@ public sealed interface Timestamp : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val seconds: pbandk.FieldDescriptor<pbandk.wkt.Timestamp, Long> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Timestamp::descriptor,
+                messageMetadata = pbandk.wkt.Timestamp.messageMetadata,
                 name = "seconds",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.int64(),
+                valueType = pbandk.types.int64(),
                 jsonName = "seconds",
                 value = pbandk.wkt.Timestamp::seconds,
                 mutableValue = pbandk.wkt.MutableTimestamp::seconds,
             )
         public val nanos: pbandk.FieldDescriptor<pbandk.wkt.Timestamp, Int> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Timestamp::descriptor,
+                messageMetadata = pbandk.wkt.Timestamp.messageMetadata,
                 name = "nanos",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.int32(),
+                valueType = pbandk.types.int32(),
                 jsonName = "nanos",
                 value = pbandk.wkt.Timestamp::nanos,
                 mutableValue = pbandk.wkt.MutableTimestamp::nanos,
@@ -51,13 +53,17 @@ public sealed interface Timestamp : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Timestamp> {
-        public val defaultInstance: pbandk.wkt.Timestamp by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Timestamp by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Timestamp {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Timestamp",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.Timestamp",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Timestamp::class,
                 messageCompanion = this,
                 builder = ::Timestamp,

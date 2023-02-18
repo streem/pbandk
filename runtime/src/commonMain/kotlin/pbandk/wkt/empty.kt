@@ -27,13 +27,17 @@ public sealed interface Empty : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Empty> {
-        public val defaultInstance: pbandk.wkt.Empty by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Empty by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Empty {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Empty",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Empty> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.Empty",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Empty::class,
                 messageCompanion = this,
                 builder = ::Empty,

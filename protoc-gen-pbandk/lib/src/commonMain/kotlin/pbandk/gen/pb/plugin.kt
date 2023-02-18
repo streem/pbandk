@@ -35,9 +35,10 @@ public sealed interface Version : pbandk.Message {
         public val major: pbandk.FieldDescriptor<pbandk.gen.pb.Version, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.Version::descriptor,
+                messageMetadata = pbandk.gen.pb.Version.messageMetadata,
                 name = "major",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
+                valueType = pbandk.types.int32(),
                 jsonName = "major",
                 value = pbandk.gen.pb.Version::major,
                 mutableValue = pbandk.gen.pb.MutableVersion::major,
@@ -45,9 +46,10 @@ public sealed interface Version : pbandk.Message {
         public val minor: pbandk.FieldDescriptor<pbandk.gen.pb.Version, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.Version::descriptor,
+                messageMetadata = pbandk.gen.pb.Version.messageMetadata,
                 name = "minor",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
+                valueType = pbandk.types.int32(),
                 jsonName = "minor",
                 value = pbandk.gen.pb.Version::minor,
                 mutableValue = pbandk.gen.pb.MutableVersion::minor,
@@ -55,9 +57,10 @@ public sealed interface Version : pbandk.Message {
         public val patch: pbandk.FieldDescriptor<pbandk.gen.pb.Version, Int?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.Version::descriptor,
+                messageMetadata = pbandk.gen.pb.Version.messageMetadata,
                 name = "patch",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
+                valueType = pbandk.types.int32(),
                 jsonName = "patch",
                 value = pbandk.gen.pb.Version::patch,
                 mutableValue = pbandk.gen.pb.MutableVersion::patch,
@@ -65,9 +68,10 @@ public sealed interface Version : pbandk.Message {
         public val suffix: pbandk.FieldDescriptor<pbandk.gen.pb.Version, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.Version::descriptor,
+                messageMetadata = pbandk.gen.pb.Version.messageMetadata,
                 name = "suffix",
                 number = 4,
-                type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
+                valueType = pbandk.types.string(),
                 jsonName = "suffix",
                 value = pbandk.gen.pb.Version::suffix,
                 mutableValue = pbandk.gen.pb.MutableVersion::suffix,
@@ -75,13 +79,17 @@ public sealed interface Version : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.gen.pb.Version> {
-        public val defaultInstance: pbandk.gen.pb.Version by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.gen.pb.Version by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.gen.pb.Version {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.compiler.Version",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.Version> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.compiler.Version",
+                metadata = messageMetadata,
                 messageClass = pbandk.gen.pb.Version::class,
                 messageCompanion = this,
                 builder = ::Version,
@@ -132,12 +140,13 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val fileToGenerate: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorRequest, List<String>> =
+        public val fileToGenerate: pbandk.FieldDescriptor.MutableValue<pbandk.gen.pb.CodeGeneratorRequest, List<String>, MutableList<String>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.gen.pb.CodeGeneratorRequest::descriptor,
+                messageMetadata = pbandk.gen.pb.CodeGeneratorRequest.messageMetadata,
                 name = "file_to_generate",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.string()),
+                valueType = pbandk.types.string(),
                 jsonName = "fileToGenerate",
                 value = pbandk.gen.pb.CodeGeneratorRequest::fileToGenerate,
                 mutableValue = pbandk.gen.pb.MutableCodeGeneratorRequest::fileToGenerate,
@@ -145,9 +154,10 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
         public val parameter: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorRequest, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.CodeGeneratorRequest::descriptor,
+                messageMetadata = pbandk.gen.pb.CodeGeneratorRequest.messageMetadata,
                 name = "parameter",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
+                valueType = pbandk.types.string(),
                 jsonName = "parameter",
                 value = pbandk.gen.pb.CodeGeneratorRequest::parameter,
                 mutableValue = pbandk.gen.pb.MutableCodeGeneratorRequest::parameter,
@@ -155,19 +165,21 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
         public val compilerVersion: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorRequest, pbandk.gen.pb.Version?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.CodeGeneratorRequest::descriptor,
+                messageMetadata = pbandk.gen.pb.CodeGeneratorRequest.messageMetadata,
                 name = "compiler_version",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.gen.pb.Version.Companion),
+                valueType = pbandk.types.message(pbandk.gen.pb.Version),
                 jsonName = "compilerVersion",
                 value = pbandk.gen.pb.CodeGeneratorRequest::compilerVersion,
                 mutableValue = pbandk.gen.pb.MutableCodeGeneratorRequest::compilerVersion,
             )
-        public val protoFile: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorRequest, List<pbandk.wkt.FileDescriptorProto>> =
+        public val protoFile: pbandk.FieldDescriptor.MutableValue<pbandk.gen.pb.CodeGeneratorRequest, List<pbandk.wkt.FileDescriptorProto>, MutableList<pbandk.wkt.FileDescriptorProto>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.gen.pb.CodeGeneratorRequest::descriptor,
+                messageMetadata = pbandk.gen.pb.CodeGeneratorRequest.messageMetadata,
                 name = "proto_file",
                 number = 15,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.FileDescriptorProto.Companion)),
+                valueType = pbandk.types.message(pbandk.wkt.FileDescriptorProto),
                 jsonName = "protoFile",
                 value = pbandk.gen.pb.CodeGeneratorRequest::protoFile,
                 mutableValue = pbandk.gen.pb.MutableCodeGeneratorRequest::protoFile,
@@ -175,13 +187,17 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorRequest> {
-        public val defaultInstance: pbandk.gen.pb.CodeGeneratorRequest by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.gen.pb.CodeGeneratorRequest by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.gen.pb.CodeGeneratorRequest {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.compiler.CodeGeneratorRequest",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorRequest> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.compiler.CodeGeneratorRequest",
+                metadata = messageMetadata,
                 messageClass = pbandk.gen.pb.CodeGeneratorRequest::class,
                 messageCompanion = this,
                 builder = ::CodeGeneratorRequest,
@@ -233,9 +249,10 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
         public val error: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse::descriptor,
+                messageMetadata = pbandk.gen.pb.CodeGeneratorResponse.messageMetadata,
                 name = "error",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
+                valueType = pbandk.types.string(),
                 jsonName = "error",
                 value = pbandk.gen.pb.CodeGeneratorResponse::error,
                 mutableValue = pbandk.gen.pb.MutableCodeGeneratorResponse::error,
@@ -243,19 +260,21 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
         public val supportedFeatures: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, Long?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse::descriptor,
+                messageMetadata = pbandk.gen.pb.CodeGeneratorResponse.messageMetadata,
                 name = "supported_features",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.uint64(hasPresence = true),
+                valueType = pbandk.types.uint64(),
                 jsonName = "supportedFeatures",
                 value = pbandk.gen.pb.CodeGeneratorResponse::supportedFeatures,
                 mutableValue = pbandk.gen.pb.MutableCodeGeneratorResponse::supportedFeatures,
             )
-        public val file: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, List<pbandk.gen.pb.CodeGeneratorResponse.File>> =
+        public val file: pbandk.FieldDescriptor.MutableValue<pbandk.gen.pb.CodeGeneratorResponse, List<pbandk.gen.pb.CodeGeneratorResponse.File>, MutableList<pbandk.gen.pb.CodeGeneratorResponse.File>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse::descriptor,
+                messageMetadata = pbandk.gen.pb.CodeGeneratorResponse.messageMetadata,
                 name = "file",
                 number = 15,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.gen.pb.CodeGeneratorResponse.File.Companion)),
+                valueType = pbandk.types.message(pbandk.gen.pb.CodeGeneratorResponse.File),
                 jsonName = "file",
                 value = pbandk.gen.pb.CodeGeneratorResponse::file,
                 mutableValue = pbandk.gen.pb.MutableCodeGeneratorResponse::file,
@@ -263,13 +282,17 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse> {
-        public val defaultInstance: pbandk.gen.pb.CodeGeneratorResponse by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.gen.pb.CodeGeneratorResponse by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.gen.pb.CodeGeneratorResponse {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.compiler.CodeGeneratorResponse",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.compiler.CodeGeneratorResponse",
+                metadata = messageMetadata,
                 messageClass = pbandk.gen.pb.CodeGeneratorResponse::class,
                 messageCompanion = this,
                 builder = ::CodeGeneratorResponse,
@@ -303,26 +326,37 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
         }
     }
 
-    @Suppress("ClassName")
-    public sealed class Feature(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.gen.pb.CodeGeneratorResponse.Feature && other.value == value
-        override fun hashCode(): Int = value.hashCode()
-        override fun toString(): String = "CodeGeneratorResponse.Feature.${name ?: "UNRECOGNIZED"}(value=$value)"
+    public sealed interface Feature : pbandk.Message.Enum {
+        override val descriptor: pbandk.EnumDescriptor<pbandk.gen.pb.CodeGeneratorResponse.Feature>
+            get() = pbandk.gen.pb.CodeGeneratorResponse.Feature.descriptor
 
-        public object NONE : Feature(0, "FEATURE_NONE")
-        public object PROTO3_OPTIONAL : Feature(1, "FEATURE_PROTO3_OPTIONAL")
-        public class UNRECOGNIZED(value: Int) : Feature(value)
+        public object NONE : Feature, pbandk.gen.GeneratedEnumValue<pbandk.gen.pb.CodeGeneratorResponse.Feature>(
+            value = 0,
+            name = "FEATURE_NONE",
+        )
+        public object PROTO3_OPTIONAL : Feature, pbandk.gen.GeneratedEnumValue<pbandk.gen.pb.CodeGeneratorResponse.Feature>(
+            value = 1,
+            name = "FEATURE_PROTO3_OPTIONAL",
+        )
+        public class UNRECOGNIZED(value: Int? = null, name: String? = null)
+            : Feature, pbandk.gen.UnrecognizedEnumValue<pbandk.gen.pb.CodeGeneratorResponse.Feature>(value, name)
 
         public companion object : pbandk.Message.Enum.Companion<pbandk.gen.pb.CodeGeneratorResponse.Feature> {
+            override val descriptor: pbandk.EnumDescriptor<pbandk.gen.pb.CodeGeneratorResponse.Feature> =
+                pbandk.EnumDescriptor.of(
+                    fullName = "google.protobuf.compiler.CodeGeneratorResponse.Feature",
+                    enumClass = pbandk.gen.pb.CodeGeneratorResponse.Feature::class,
+                    enumCompanion = this,
+                )
             public val values: List<CodeGeneratorResponse.Feature> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(NONE, PROTO3_OPTIONAL)
             }
 
             override fun fromValue(value: Int): pbandk.gen.pb.CodeGeneratorResponse.Feature =
-                values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+                values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value = value)
 
             override fun fromName(name: String): pbandk.gen.pb.CodeGeneratorResponse.Feature =
-                values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Feature with name: $name")
+                values.firstOrNull { it.name == name } ?: UNRECOGNIZED(name = name)
         }
     }
 
@@ -358,9 +392,10 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
             public val name: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, String?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse.File::descriptor,
+                    messageMetadata = pbandk.gen.pb.CodeGeneratorResponse.File.messageMetadata,
                     name = "name",
                     number = 1,
-                    type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
+                    valueType = pbandk.types.string(),
                     jsonName = "name",
                     value = pbandk.gen.pb.CodeGeneratorResponse.File::name,
                     mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::name,
@@ -368,9 +403,10 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
             public val insertionPoint: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, String?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse.File::descriptor,
+                    messageMetadata = pbandk.gen.pb.CodeGeneratorResponse.File.messageMetadata,
                     name = "insertion_point",
                     number = 2,
-                    type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
+                    valueType = pbandk.types.string(),
                     jsonName = "insertionPoint",
                     value = pbandk.gen.pb.CodeGeneratorResponse.File::insertionPoint,
                     mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::insertionPoint,
@@ -378,9 +414,10 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
             public val content: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, String?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse.File::descriptor,
+                    messageMetadata = pbandk.gen.pb.CodeGeneratorResponse.File.messageMetadata,
                     name = "content",
                     number = 15,
-                    type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
+                    valueType = pbandk.types.string(),
                     jsonName = "content",
                     value = pbandk.gen.pb.CodeGeneratorResponse.File::content,
                     mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::content,
@@ -388,9 +425,10 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
             public val generatedCodeInfo: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, pbandk.wkt.GeneratedCodeInfo?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse.File::descriptor,
+                    messageMetadata = pbandk.gen.pb.CodeGeneratorResponse.File.messageMetadata,
                     name = "generated_code_info",
                     number = 16,
-                    type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.GeneratedCodeInfo.Companion),
+                    valueType = pbandk.types.message(pbandk.wkt.GeneratedCodeInfo),
                     jsonName = "generatedCodeInfo",
                     value = pbandk.gen.pb.CodeGeneratorResponse.File::generatedCodeInfo,
                     mutableValue = pbandk.gen.pb.CodeGeneratorResponse.MutableFile::generatedCodeInfo,
@@ -398,13 +436,17 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
         }
 
         public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse.File> {
-            public val defaultInstance: pbandk.gen.pb.CodeGeneratorResponse.File by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            override val defaultInstance: pbandk.gen.pb.CodeGeneratorResponse.File by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.gen.pb.CodeGeneratorResponse.File {}
             }
 
+            private val messageMetadata = pbandk.MessageMetadata(
+                fullName = "google.protobuf.compiler.CodeGeneratorResponse.File",
+            )
+
             override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File> by lazy {
                 pbandk.MessageDescriptor.of(
-                    fullName = "google.protobuf.compiler.CodeGeneratorResponse.File",
+                    metadata = messageMetadata,
                     messageClass = pbandk.gen.pb.CodeGeneratorResponse.File::class,
                     messageCompanion = this,
                     builder = CodeGeneratorResponse.Companion::File,

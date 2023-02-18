@@ -29,21 +29,23 @@ public sealed interface Any : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val typeUrl: pbandk.FieldDescriptor<pbandk.wkt.Any, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Any::descriptor,
+                messageMetadata = pbandk.wkt.Any.messageMetadata,
                 name = "type_url",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "typeUrl",
                 value = pbandk.wkt.Any::typeUrl,
                 mutableValue = pbandk.wkt.MutableAny::typeUrl,
             )
         public val value: pbandk.FieldDescriptor<pbandk.wkt.Any, pbandk.ByteArr> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.wkt.Any::descriptor,
+                messageMetadata = pbandk.wkt.Any.messageMetadata,
                 name = "value",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.bytes(),
+                valueType = pbandk.types.bytes(),
                 jsonName = "value",
                 value = pbandk.wkt.Any::value,
                 mutableValue = pbandk.wkt.MutableAny::value,
@@ -51,13 +53,17 @@ public sealed interface Any : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Any> {
-        public val defaultInstance: pbandk.wkt.Any by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Any by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Any {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Any",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "google.protobuf.Any",
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Any::class,
                 messageCompanion = this,
                 builder = ::Any,

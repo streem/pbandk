@@ -27,11 +27,12 @@ public sealed interface Foo : pbandk.Message {
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
         public val `val`: pbandk.FieldDescriptor<pbandk.testpb.Foo, String> =
-            pbandk.FieldDescriptor.of(
+            pbandk.FieldDescriptor.ofSingular(
                 messageDescriptor = pbandk.testpb.Foo::descriptor,
+                messageMetadata = pbandk.testpb.Foo.messageMetadata,
                 name = "val",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "val",
                 value = pbandk.testpb.Foo::`val`,
                 mutableValue = pbandk.testpb.MutableFoo::`val`,
@@ -39,13 +40,17 @@ public sealed interface Foo : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Foo> {
-        public val defaultInstance: pbandk.testpb.Foo by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.Foo by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Foo {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "testpb.Foo",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Foo> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "testpb.Foo",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.Foo::class,
                 messageCompanion = this,
                 builder = ::Foo,
@@ -86,12 +91,13 @@ public sealed interface Bar : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val foos: pbandk.FieldDescriptor<pbandk.testpb.Bar, List<pbandk.testpb.Foo>> =
+        public val foos: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.Bar, List<pbandk.testpb.Foo>, MutableList<pbandk.testpb.Foo>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.Bar::descriptor,
+                messageMetadata = pbandk.testpb.Bar.messageMetadata,
                 name = "foos",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.Foo.Companion)),
+                valueType = pbandk.types.message(pbandk.testpb.Foo),
                 jsonName = "foos",
                 value = pbandk.testpb.Bar::foos,
                 mutableValue = pbandk.testpb.MutableBar::foos,
@@ -99,9 +105,10 @@ public sealed interface Bar : pbandk.Message {
         public val singleFoo: pbandk.FieldDescriptor<pbandk.testpb.Bar, pbandk.testpb.Foo?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Bar::descriptor,
+                messageMetadata = pbandk.testpb.Bar.messageMetadata,
                 name = "single_foo",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.Foo.Companion),
+                valueType = pbandk.types.message(pbandk.testpb.Foo),
                 jsonName = "singleFoo",
                 value = pbandk.testpb.Bar::singleFoo,
                 mutableValue = pbandk.testpb.MutableBar::singleFoo,
@@ -109,13 +116,17 @@ public sealed interface Bar : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Bar> {
-        public val defaultInstance: pbandk.testpb.Bar by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.Bar by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Bar {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "testpb.Bar",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Bar> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "testpb.Bar",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.Bar::class,
                 messageCompanion = this,
                 builder = ::Bar,
@@ -156,12 +167,14 @@ public sealed interface MessageWithMap : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val map: pbandk.FieldDescriptor<pbandk.testpb.MessageWithMap, Map<String, String>> =
+        public val map: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.MessageWithMap, Map<String, String>, MutableMap<String, String>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.testpb.MessageWithMap::descriptor,
+                messageMetadata = pbandk.testpb.MessageWithMap.messageMetadata,
                 name = "map",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.map(keyType = pbandk.FieldDescriptor.Type.string(), valueType = pbandk.FieldDescriptor.Type.string()),
+                keyType = pbandk.types.string(),
+                valueType = pbandk.types.string(),
                 jsonName = "map",
                 value = pbandk.testpb.MessageWithMap::map,
                 mutableValue = pbandk.testpb.MutableMessageWithMap::map,
@@ -169,13 +182,17 @@ public sealed interface MessageWithMap : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithMap> {
-        public val defaultInstance: pbandk.testpb.MessageWithMap by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.MessageWithMap by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.MessageWithMap {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "testpb.MessageWithMap",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "testpb.MessageWithMap",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.MessageWithMap::class,
                 messageCompanion = this,
                 builder = ::MessageWithMap,
@@ -214,12 +231,14 @@ public sealed interface FooMap : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val map: pbandk.FieldDescriptor<pbandk.testpb.FooMap, Map<String, pbandk.testpb.Foo>> =
+        public val map: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.FooMap, Map<String, pbandk.testpb.Foo>, MutableMap<String, pbandk.testpb.Foo>> =
             pbandk.FieldDescriptor.ofMap(
                 messageDescriptor = pbandk.testpb.FooMap::descriptor,
+                messageMetadata = pbandk.testpb.FooMap.messageMetadata,
                 name = "map",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.map(keyType = pbandk.FieldDescriptor.Type.string(), valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.Foo.Companion)),
+                keyType = pbandk.types.string(),
+                valueType = pbandk.types.message(pbandk.testpb.Foo),
                 jsonName = "map",
                 value = pbandk.testpb.FooMap::map,
                 mutableValue = pbandk.testpb.MutableFooMap::map,
@@ -227,13 +246,17 @@ public sealed interface FooMap : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FooMap> {
-        public val defaultInstance: pbandk.testpb.FooMap by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.FooMap by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.FooMap {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "testpb.FooMap",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "testpb.FooMap",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.FooMap::class,
                 messageCompanion = this,
                 builder = ::FooMap,
@@ -272,12 +295,13 @@ public sealed interface FooMapEntries : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val map: pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries, List<pbandk.testpb.FooMapEntries.MapEntry>> =
+        public val map: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.FooMapEntries, List<pbandk.testpb.FooMapEntries.MapEntry>, MutableList<pbandk.testpb.FooMapEntries.MapEntry>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.FooMapEntries::descriptor,
+                messageMetadata = pbandk.testpb.FooMapEntries.messageMetadata,
                 name = "map",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.FooMapEntries.MapEntry.Companion)),
+                valueType = pbandk.types.message(pbandk.testpb.FooMapEntries.MapEntry),
                 jsonName = "map",
                 value = pbandk.testpb.FooMapEntries::map,
                 mutableValue = pbandk.testpb.MutableFooMapEntries::map,
@@ -285,13 +309,17 @@ public sealed interface FooMapEntries : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries> {
-        public val defaultInstance: pbandk.testpb.FooMapEntries by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.FooMapEntries by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.FooMapEntries {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "testpb.FooMapEntries",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "testpb.FooMapEntries",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.FooMapEntries::class,
                 messageCompanion = this,
                 builder = ::FooMapEntries,
@@ -345,11 +373,12 @@ public sealed interface FooMapEntries : pbandk.Message {
         @pbandk.PublicForGeneratedCode
         public object FieldDescriptors {
             public val key: pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries.MapEntry, String> =
-                pbandk.FieldDescriptor.of(
+                pbandk.FieldDescriptor.ofSingular(
                     messageDescriptor = pbandk.testpb.FooMapEntries.MapEntry::descriptor,
+                    messageMetadata = pbandk.testpb.FooMapEntries.MapEntry.messageMetadata,
                     name = "key",
                     number = 1,
-                    type = pbandk.FieldDescriptor.Type.string(),
+                    valueType = pbandk.types.string(),
                     jsonName = "key",
                     value = pbandk.testpb.FooMapEntries.MapEntry::key,
                     mutableValue = pbandk.testpb.FooMapEntries.MutableMapEntry::key,
@@ -357,9 +386,10 @@ public sealed interface FooMapEntries : pbandk.Message {
             public val value: pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries.MapEntry, pbandk.testpb.Foo?> =
                 pbandk.FieldDescriptor.ofOptional(
                     messageDescriptor = pbandk.testpb.FooMapEntries.MapEntry::descriptor,
+                    messageMetadata = pbandk.testpb.FooMapEntries.MapEntry.messageMetadata,
                     name = "value",
                     number = 2,
-                    type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.testpb.Foo.Companion),
+                    valueType = pbandk.types.message(pbandk.testpb.Foo),
                     jsonName = "value",
                     value = pbandk.testpb.FooMapEntries.MapEntry::value,
                     mutableValue = pbandk.testpb.FooMapEntries.MutableMapEntry::value,
@@ -367,13 +397,17 @@ public sealed interface FooMapEntries : pbandk.Message {
         }
 
         public companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries.MapEntry> {
-            public val defaultInstance: pbandk.testpb.FooMapEntries.MapEntry by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            override val defaultInstance: pbandk.testpb.FooMapEntries.MapEntry by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.testpb.FooMapEntries.MapEntry {}
             }
 
+            private val messageMetadata = pbandk.MessageMetadata(
+                fullName = "testpb.FooMapEntries.MapEntry",
+            )
+
             override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries.MapEntry> by lazy {
                 pbandk.MessageDescriptor.of(
-                    fullName = "testpb.FooMapEntries.MapEntry",
+                    metadata = messageMetadata,
                     messageClass = pbandk.testpb.FooMapEntries.MapEntry::class,
                     messageCompanion = this,
                     builder = FooMapEntries.Companion::MapEntry,
@@ -424,19 +458,21 @@ public sealed interface Wrappers : pbandk.Message {
         public val stringValue: pbandk.FieldDescriptor<pbandk.testpb.Wrappers, String?> =
             pbandk.FieldDescriptor.ofOptional(
                 messageDescriptor = pbandk.testpb.Wrappers::descriptor,
+                messageMetadata = pbandk.testpb.Wrappers.messageMetadata,
                 name = "string_value",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.StringValue.Companion),
+                valueType = pbandk.types.message(pbandk.wkt.StringValue),
                 jsonName = "stringValue",
                 value = pbandk.testpb.Wrappers::stringValue,
                 mutableValue = pbandk.testpb.MutableWrappers::stringValue,
             )
-        public val uint64Values: pbandk.FieldDescriptor<pbandk.testpb.Wrappers, List<Long>> =
+        public val uint64Values: pbandk.FieldDescriptor.MutableValue<pbandk.testpb.Wrappers, List<Long>, MutableList<Long>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.testpb.Wrappers::descriptor,
+                messageMetadata = pbandk.testpb.Wrappers.messageMetadata,
                 name = "uint64_values",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.repeated(valueType = pbandk.FieldDescriptor.Type.message(messageCompanion = pbandk.wkt.UInt64Value.Companion)),
+                valueType = pbandk.types.message(pbandk.wkt.UInt64Value),
                 jsonName = "uint64Values",
                 value = pbandk.testpb.Wrappers::uint64Values,
                 mutableValue = pbandk.testpb.MutableWrappers::uint64Values,
@@ -444,13 +480,17 @@ public sealed interface Wrappers : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Wrappers> {
-        public val defaultInstance: pbandk.testpb.Wrappers by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.Wrappers by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Wrappers {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "testpb.Wrappers",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Wrappers> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "testpb.Wrappers",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.Wrappers::class,
                 messageCompanion = this,
                 builder = ::Wrappers,

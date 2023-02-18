@@ -4,27 +4,24 @@
 package pbandk.wkt
 
 @pbandk.Export
-@Suppress("ClassName")
 public sealed interface NullValue : pbandk.Message.Enum {
-    override val descriptor: pbandk.EnumDescriptor<pbandk.wkt.NullValue> get() =
-        pbandk.wkt.NullValue.descriptor
+    override val descriptor: pbandk.EnumDescriptor<pbandk.wkt.NullValue>
+        get() = pbandk.wkt.NullValue.descriptor
 
     public object NULL_VALUE : NullValue, pbandk.gen.GeneratedEnumValue<pbandk.wkt.NullValue>(
         value = 0,
         name = "NULL_VALUE",
     )
     public class UNRECOGNIZED(value: Int? = null, name: String? = null)
-        : NullValue, pbandk.gen.UnrecognizedEnumValue<pbandk.wkt.NullValue>(value, name) {
-        // public companion object : UnrecognizedEnumValue.Companion<UNRECOGNIZED>(::UNRECOGNIZED)
-    }
+        : NullValue, pbandk.gen.UnrecognizedEnumValue<pbandk.wkt.NullValue>(value, name)
 
     public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.NullValue> {
-        override val descriptor: pbandk.EnumDescriptor<NullValue> = pbandk.EnumDescriptor.of(
-            fullName = "google.protobuf.NullValue",
-            enumClass = pbandk.wkt.NullValue::class,
-            enumCompanion = this,
-        )
-
+        override val descriptor: pbandk.EnumDescriptor<pbandk.wkt.NullValue> =
+            pbandk.EnumDescriptor.of(
+                fullName = "google.protobuf.NullValue",
+                enumClass = pbandk.wkt.NullValue::class,
+                enumCompanion = this,
+            )
         public val values: List<NullValue> by lazy(LazyThreadSafetyMode.PUBLICATION) {
             listOf(NULL_VALUE)
         }
@@ -60,13 +57,13 @@ public sealed interface Struct : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val fields: pbandk.FieldDescriptor<pbandk.wkt.Struct, Map<String, pbandk.wkt.Value>> =
+        public val fields: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.Struct, Map<String, pbandk.wkt.Value>, MutableMap<String, pbandk.wkt.Value>> =
             pbandk.FieldDescriptor.ofMap(
-                messageMetadata = pbandk.wkt.Struct.messageMetadata,
                 messageDescriptor = pbandk.wkt.Struct::descriptor,
+                messageMetadata = pbandk.wkt.Struct.messageMetadata,
                 name = "fields",
                 number = 1,
-                keyType = pbandk.internal.types.primitive.String,
+                keyType = pbandk.types.string(),
                 valueType = pbandk.types.message(pbandk.wkt.Value),
                 jsonName = "fields",
                 value = pbandk.wkt.Struct::fields,
@@ -149,7 +146,7 @@ public sealed interface Value : pbandk.Message {
         public val nullValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.NullValue?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
-                messageMetadata = pbandk.wkt.Value.descriptor.metadata,
+                messageMetadata = pbandk.wkt.Value.messageMetadata,
                 name = "null_value",
                 number = 1,
                 valueType = pbandk.types.enum(pbandk.wkt.NullValue),
@@ -160,7 +157,7 @@ public sealed interface Value : pbandk.Message {
         public val numberValue: pbandk.FieldDescriptor<pbandk.wkt.Value, Double?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
-                messageMetadata = pbandk.wkt.Value.descriptor.metadata,
+                messageMetadata = pbandk.wkt.Value.messageMetadata,
                 name = "number_value",
                 number = 2,
                 valueType = pbandk.types.double(),
@@ -171,7 +168,7 @@ public sealed interface Value : pbandk.Message {
         public val stringValue: pbandk.FieldDescriptor<pbandk.wkt.Value, String?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
-                messageMetadata = pbandk.wkt.Value.descriptor.metadata,
+                messageMetadata = pbandk.wkt.Value.messageMetadata,
                 name = "string_value",
                 number = 3,
                 valueType = pbandk.types.string(),
@@ -182,7 +179,7 @@ public sealed interface Value : pbandk.Message {
         public val boolValue: pbandk.FieldDescriptor<pbandk.wkt.Value, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
-                messageMetadata = pbandk.wkt.Value.descriptor.metadata,
+                messageMetadata = pbandk.wkt.Value.messageMetadata,
                 name = "bool_value",
                 number = 4,
                 valueType = pbandk.types.bool(),
@@ -193,10 +190,10 @@ public sealed interface Value : pbandk.Message {
         public val structValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.Struct?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
-                messageMetadata = pbandk.wkt.Value.descriptor.metadata,
+                messageMetadata = pbandk.wkt.Value.messageMetadata,
                 name = "struct_value",
                 number = 5,
-                valueType = pbandk.wkt.Struct.descriptor.messageValueType,
+                valueType = pbandk.types.message(pbandk.wkt.Struct),
                 jsonName = "structValue",
                 value = pbandk.wkt.Value::structValue,
                 mutableValue = pbandk.wkt.MutableValue::structValue,
@@ -204,10 +201,10 @@ public sealed interface Value : pbandk.Message {
         public val listValue: pbandk.FieldDescriptor<pbandk.wkt.Value, pbandk.wkt.ListValue?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.wkt.Value::descriptor,
-                messageMetadata = pbandk.wkt.Value.descriptor.metadata,
+                messageMetadata = pbandk.wkt.Value.messageMetadata,
                 name = "list_value",
                 number = 6,
-                valueType = pbandk.wkt.ListValue.descriptor.messageValueType,
+                valueType = pbandk.types.message(pbandk.wkt.ListValue),
                 jsonName = "listValue",
                 value = pbandk.wkt.Value::listValue,
                 mutableValue = pbandk.wkt.MutableValue::listValue,
@@ -231,15 +228,17 @@ public sealed interface Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Value> {
-        public override val defaultInstance: pbandk.wkt.Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Value {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.Value",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Value> by lazy {
             pbandk.MessageDescriptor.of(
-                metadata = pbandk.MessageMetadata(
-                    fullName = "google.protobuf.Value",
-                ),
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.Value::class,
                 messageCompanion = this,
                 builder = ::Value,
@@ -285,13 +284,13 @@ public sealed interface ListValue : pbandk.Message {
 
     @pbandk.PublicForGeneratedCode
     public object FieldDescriptors {
-        public val values: pbandk.FieldDescriptor<pbandk.wkt.ListValue, List<pbandk.wkt.Value>> =
+        public val values: pbandk.FieldDescriptor.MutableValue<pbandk.wkt.ListValue, List<pbandk.wkt.Value>, MutableList<pbandk.wkt.Value>> =
             pbandk.FieldDescriptor.ofRepeated(
                 messageDescriptor = pbandk.wkt.ListValue::descriptor,
-                messageMetadata = pbandk.wkt.ListValue.descriptor.metadata,
+                messageMetadata = pbandk.wkt.ListValue.messageMetadata,
                 name = "values",
                 number = 1,
-                valueType = pbandk.wkt.Value.descriptor.messageValueType,
+                valueType = pbandk.types.message(pbandk.wkt.Value),
                 jsonName = "values",
                 value = pbandk.wkt.ListValue::values,
                 mutableValue = pbandk.wkt.MutableListValue::values,
@@ -299,15 +298,17 @@ public sealed interface ListValue : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.ListValue> {
-        public override val defaultInstance: pbandk.wkt.ListValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.wkt.ListValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.ListValue {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "google.protobuf.ListValue",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ListValue> by lazy {
             pbandk.MessageDescriptor.of(
-                metadata = pbandk.MessageMetadata(
-                    fullName = "google.protobuf.ListValue",
-                ),
+                metadata = messageMetadata,
                 messageClass = pbandk.wkt.ListValue::class,
                 messageCompanion = this,
                 builder = ::ListValue,

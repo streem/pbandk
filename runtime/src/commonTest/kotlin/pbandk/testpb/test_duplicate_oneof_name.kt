@@ -42,9 +42,10 @@ public sealed interface Value : pbandk.Message {
         public val stringValue: pbandk.FieldDescriptor<pbandk.testpb.Value, String?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Value::descriptor,
+                messageMetadata = pbandk.testpb.Value.messageMetadata,
                 name = "string_value",
                 number = 1,
-                type = pbandk.FieldDescriptor.Type.string(hasPresence = true),
+                valueType = pbandk.types.string(),
                 jsonName = "stringValue",
                 value = pbandk.testpb.Value::stringValue,
                 mutableValue = pbandk.testpb.MutableValue::stringValue,
@@ -52,9 +53,10 @@ public sealed interface Value : pbandk.Message {
         public val booleanValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Boolean?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Value::descriptor,
+                messageMetadata = pbandk.testpb.Value.messageMetadata,
                 name = "boolean_value",
                 number = 2,
-                type = pbandk.FieldDescriptor.Type.bool(hasPresence = true),
+                valueType = pbandk.types.bool(),
                 jsonName = "booleanValue",
                 value = pbandk.testpb.Value::booleanValue,
                 mutableValue = pbandk.testpb.MutableValue::booleanValue,
@@ -62,9 +64,10 @@ public sealed interface Value : pbandk.Message {
         public val integerValue: pbandk.FieldDescriptor<pbandk.testpb.Value, Int?> =
             pbandk.FieldDescriptor.ofOneof(
                 messageDescriptor = pbandk.testpb.Value::descriptor,
+                messageMetadata = pbandk.testpb.Value.messageMetadata,
                 name = "integer_value",
                 number = 3,
-                type = pbandk.FieldDescriptor.Type.int32(hasPresence = true),
+                valueType = pbandk.types.int32(),
                 jsonName = "integerValue",
                 value = pbandk.testpb.Value::integerValue,
                 mutableValue = pbandk.testpb.MutableValue::integerValue,
@@ -85,13 +88,17 @@ public sealed interface Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
-        public val defaultInstance: pbandk.testpb.Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        override val defaultInstance: pbandk.testpb.Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Value {}
         }
 
+        private val messageMetadata = pbandk.MessageMetadata(
+            fullName = "testpb.Value",
+        )
+
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> by lazy {
             pbandk.MessageDescriptor.of(
-                fullName = "testpb.Value",
+                metadata = messageMetadata,
                 messageClass = pbandk.testpb.Value::class,
                 messageCompanion = this,
                 builder = ::Value,
