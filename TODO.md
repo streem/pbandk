@@ -25,7 +25,7 @@
 - [X] Support extension fields nested in messages
 - [X] All non-repeated extension fields should have presence (i.e. be treated as if they are optional), even if defined in proto3 without the `optional` keyword
     - see https://github.com/protocolbuffers/protobuf/issues/8234
-- [ ] Ensure `FieldDescriptor.Repeated.updateValue` does the right thing and updates the existing list rather than overwriting it
+- [X] Ensure `FieldDescriptor.Repeated.updateValue` does the right thing and updates the existing list rather than overwriting it
     - might also impact the way the `MutableExtendableMessage.setExtension()` method works
     - write some unit tests
 

@@ -2,17 +2,19 @@ package pbandk.internal.types
 
 import pbandk.FieldMetadata
 import pbandk.InvalidProtocolBufferException
+import pbandk.binary.BinaryFieldValueDecoder
+import pbandk.binary.WireType
 import pbandk.gen.ListField
 import pbandk.gen.MapField
+import pbandk.gen.MutableListField
+import pbandk.gen.MutableMapField
 import pbandk.gen.MutableMapFieldEntry
 import pbandk.internal.binary.BinaryFieldEncoder
-import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.internal.binary.Sizer
 import pbandk.internal.binary.Tag
-import pbandk.binary.WireType
 import pbandk.internal.json.JsonFieldEncoder
-import pbandk.json.JsonFieldValueDecoder
 import pbandk.internal.types.primitive.Enum
+import pbandk.json.JsonFieldValueDecoder
 import pbandk.types.ValueType
 import pbandk.wkt.NullValue
 
@@ -35,6 +37,18 @@ internal sealed class FieldType<KotlinType> {
 
     abstract fun decodeFromBinary(metadata: FieldMetadata, tag: Tag, decoder: BinaryFieldValueDecoder): KotlinType
     abstract fun decodeFromJson(metadata: FieldMetadata, decoder: JsonFieldValueDecoder): KotlinType
+
+    sealed class MutableValue<KotlinType, MutableKotlinType : Any> : FieldType<KotlinType>() {
+        abstract fun newMutableValue(): MutableKotlinType
+        abstract fun setMutableValue(mutableValue: MutableKotlinType, newValue: KotlinType)
+
+        abstract fun decodeFromBinary(
+            metadata: FieldMetadata,
+            tag: Tag,
+            decoder: BinaryFieldValueDecoder,
+            mutableValue: MutableKotlinType,
+        )
+    }
 
     class Required<T : Any>(internal val valueType: ValueType<T>) : FieldType<T>() {
         override fun mergeValues(metadata: FieldMetadata, currentValue: T, newValue: T) =
@@ -179,14 +193,21 @@ internal sealed class FieldType<KotlinType> {
             }
     }
 
-    class Repeated<T : Any>(internal val valueType: ValueType<T>) : FieldType<List<T>>() {
+    class Repeated<T : Any>(internal val valueType: ValueType<T>) : MutableValue<List<T>, MutableList<T>>() {
         override fun mergeValues(metadata: FieldMetadata, currentValue: List<T>, newValue: List<T>): List<T> {
             return currentValue + newValue
         }
 
         override fun isDefaultValue(value: List<T>) = value.isEmpty()
 
-        override val defaultValue: List<T> get() = emptyList()
+        override val defaultValue: List<T> get() = ListField.empty()
+
+        override fun newMutableValue(): MutableList<T> = MutableListField(valueType)
+
+        override fun setMutableValue(mutableValue: MutableList<T>, newValue: List<T>) {
+            mutableValue.clear()
+            mutableValue.addAll(newValue)
+        }
 
         override fun allowsBinaryWireType(wireType: WireType): Boolean {
             return (valueType.binaryWireType == wireType
@@ -232,28 +253,27 @@ internal sealed class FieldType<KotlinType> {
             }
         }
 
-        internal fun decodeFromBinary(
+        override fun decodeFromBinary(
             metadata: FieldMetadata,
             tag: Tag,
             decoder: BinaryFieldValueDecoder,
-            valueBlock: (T) -> Unit,
+            mutableValue: MutableList<T>,
         ) {
             // Check if the field is "packed" (multiple values from the repeated list encoded into a single field). Only
             // repeated values that don't use [WireType.LENGTH_DELIMITED] can be packed. If the value uses
             // [WireType.LENGTH_DELIMITED], then this field can only represent a single value from the repeated list.
             if (tag.wireType == WireType.LENGTH_DELIMITED && valueType.binaryWireType != WireType.LENGTH_DELIMITED) {
                 decoder.decodeLenPackedValues {
-                    valueBlock(valueType.decodeFromBinary(it))
+                    mutableValue.add(valueType.decodeFromBinary(it))
                 }
             } else {
-                valueBlock(valueType.decodeFromBinary(decoder))
+                mutableValue.add(valueType.decodeFromBinary(decoder))
             }
         }
 
-        @OptIn(ExperimentalStdlibApi::class)
         override fun decodeFromBinary(metadata: FieldMetadata, tag: Tag, decoder: BinaryFieldValueDecoder): List<T> {
-            return buildList {
-                decodeFromBinary(metadata, tag, decoder, ::add)
+            return newMutableValue().apply {
+                decodeFromBinary(metadata, tag, decoder, this)
             }
         }
 
@@ -267,14 +287,13 @@ internal sealed class FieldType<KotlinType> {
             }
         }
 
-        @OptIn(ExperimentalStdlibApi::class)
         override fun decodeFromJson(metadata: FieldMetadata, decoder: JsonFieldValueDecoder): List<T> = when (decoder) {
             is JsonFieldValueDecoder.Null -> {
                 decoder.consumeNull()
                 emptyList()
             }
 
-            is JsonFieldValueDecoder.Array -> buildList {
+            is JsonFieldValueDecoder.Array -> newMutableValue().apply {
                 decoder.forEachValue { arrayValueDecoder ->
                     when (arrayValueDecoder) {
                         is JsonFieldValueDecoder.Null -> add(valueType.defaultValue)
@@ -290,7 +309,7 @@ internal sealed class FieldType<KotlinType> {
     class Map<K : Any, V : Any>(
         internal val keyType: ValueType<K>,
         internal val valueType: ValueType<V>,
-    ) : FieldType<kotlin.collections.Map<K, V>>() {
+    ) : MutableValue<kotlin.collections.Map<K, V>, MutableMap<K, V>>() {
         private val entryCompanion = MapField.Entry.Companion<K, V>(keyType, valueType)
 
         override fun mergeValues(
@@ -303,7 +322,14 @@ internal sealed class FieldType<KotlinType> {
 
         override fun isDefaultValue(value: kotlin.collections.Map<K, V>) = value.isEmpty()
 
-        override val defaultValue: kotlin.collections.Map<K, V> get() = emptyMap()
+        override val defaultValue: kotlin.collections.Map<K, V> get() = MapField.empty()
+
+        override fun newMutableValue(): MutableMap<K, V> = mutableMapOf()
+
+        override fun setMutableValue(mutableValue: MutableMap<K, V>, newValue: kotlin.collections.Map<K, V>) {
+            mutableValue.clear()
+            mutableValue.putAll(newValue)
+        }
 
         override fun allowsBinaryWireType(wireType: WireType): Boolean {
             return wireType == WireType.LENGTH_DELIMITED
@@ -374,24 +400,23 @@ internal sealed class FieldType<KotlinType> {
             }
         }
 
-        internal fun decodeFromBinary(
+        override fun decodeFromBinary(
             metadata: FieldMetadata,
             tag: Tag,
             decoder: BinaryFieldValueDecoder,
-            entryBlock: (K, V) -> Unit
+            mutableValue: MutableMap<K, V>,
         ) {
             val entry = entryCompanion.descriptor.messageValueType.decodeFromBinary(decoder)
-            entryBlock(entry.key, entry.value)
+            mutableValue[entry.key] = entry.value
         }
 
-        @OptIn(ExperimentalStdlibApi::class)
         override fun decodeFromBinary(
             metadata: FieldMetadata,
             tag: Tag,
             decoder: BinaryFieldValueDecoder
         ): kotlin.collections.Map<K, V> {
-            return buildMap(1) {
-                decodeFromBinary(metadata, tag, decoder, ::put)
+            return newMutableValue().apply {
+                decodeFromBinary(metadata, tag, decoder, this)
             }
         }
 
@@ -411,7 +436,6 @@ internal sealed class FieldType<KotlinType> {
             }
         }
 
-        @OptIn(ExperimentalStdlibApi::class)
         override fun decodeFromJson(
             metadata: FieldMetadata,
             decoder: JsonFieldValueDecoder,
@@ -421,7 +445,7 @@ internal sealed class FieldType<KotlinType> {
                 emptyMap()
             }
 
-            is JsonFieldValueDecoder.Object -> buildMap {
+            is JsonFieldValueDecoder.Object -> newMutableValue().apply {
                 decoder.decodeFields { fieldDecoder ->
                     fieldDecoder.forEachField(keyType::decodeFromJson) { mapKey, fieldValueDecoder ->
                         val mapValue = if (fieldValueDecoder is JsonFieldValueDecoder.Null) {

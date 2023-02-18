@@ -5,7 +5,7 @@ import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.WireType
 import pbandk.internal.binary.kotlin.WireReader
 
-internal class BinaryFieldDecoder(private val wireReader: WireReader) {
+internal class BinaryFieldDecoder(wireReader: WireReader) {
     private val valueDecoder = BinaryFieldValueDecoder(wireReader, this)
 
     private var lastTag: Tag = Tag.Zero

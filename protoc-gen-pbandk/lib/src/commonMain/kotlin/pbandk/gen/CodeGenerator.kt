@@ -38,8 +38,7 @@ public open class CodeGenerator(
         addDeprecatedAnnotation(field)
         lineBegin("$visibility val ${field.extendeeKotlinType!!.fullWithPackage}.${field.kotlinName.simple}: ")
         lineEnd(field.kotlinValueType(nullableIfMessage = true)).indented {
-            val getExtensionMethod = if (field.repeated) "getRepeatedExtension" else "getExtension"
-            line("get() = $getExtensionMethod(${field.descriptorName.fullWithPackage})")
+            line("get() = ${field.descriptorName.fullWithPackage}.getValue(this)")
         }
 
         line()
@@ -47,10 +46,10 @@ public open class CodeGenerator(
         lineBegin("$visibility ${field.mutablePropertyDeclaration}")
         lineMid(" ${field.extendeeKotlinType!!.mutableTypeName.fullWithPackage}.${field.kotlinName.simple}: ")
         lineEnd(field.kotlinValueType(nullableIfMessage = true, mutable = true)).indented {
-            val getExtensionMethod = if (field.repeated) "getRepeatedExtension" else "getExtension"
-            line("get() = $getExtensionMethod(${field.descriptorName.fullWithPackage})")
+            val getValueMethod = if (field.repeated) "getMutableValue" else "getValue"
+            line("get() = ${field.descriptorName.fullWithPackage}.${getValueMethod}(this)")
             if (field.mutablePropertyDeclaration == "var") {
-                line("set(value) = setExtension(${field.descriptorName.fullWithPackage}, value)")
+                line("set(value) = ${field.descriptorName.fullWithPackage}.setValue(this, value)")
             }
         }
 
@@ -61,11 +60,7 @@ public open class CodeGenerator(
     protected fun writeExtensionFieldDescriptor(field: File.Field.Numbered) {
         addDeprecatedAnnotation(field)
         line("$visibility val ${field.descriptorName.simple}: ${field.fieldDescriptorType(field.extendeeKotlinType!!)} = ").indented {
-            generateFieldDescriptorConstructor(
-                field,
-                field.extendeeKotlinType!!,
-                "${field.extendeeKotlinType!!.fullWithPackage}.Companion::descriptor",
-            )
+            generateFieldDescriptorConstructor(field, field.extendeeKotlinType!!)
         }
     }
 
@@ -80,19 +75,12 @@ public open class CodeGenerator(
         line()
         // Only mark top-level classes for export, internal classes will be exported transitively
         if (type.kotlinName.parent == null) line("@pbandk.Export")
-        // Enum value names use UPPER_CASE in the generated code. But since enum values are `object`s rather than true
-        // Kotlin enums, the Kotlin compiler complains because the official Kotlin style uses CamelCase for `object`s.
-        line("@Suppress(\"ClassName\")")
         // Enums are sealed interfaces w/ a value and a name, and a companion object with all values
         line("$visibility sealed interface ${type.kotlinName.simple} : pbandk.Message.Enum {").indented {
             // """ (override val value: Int, override val name: String? = null) """
-            line("override val descriptor: pbandk.EnumDescriptor<${type.kotlinName.fullWithPackage}> get() =").indented {
-                line("${type.kotlinName.fullWithPackage}.descriptor")
+            line("override val descriptor: pbandk.EnumDescriptor<${type.kotlinName.fullWithPackage}>").indented {
+                line("get() = ${type.kotlinName.fullWithPackage}.descriptor")
             }
-
-            line("override fun equals(other: kotlin.Any?): Boolean = other is ${type.kotlinName.fullWithPackage} && other.value == value")
-            line("override fun hashCode(): Int = value.hashCode()")
-            line("override fun toString(): String = \"${type.kotlinName.full}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
             line()
             type.values.forEach {
                 lineBegin("$visibility object ${it.kotlinName} : ${type.kotlinName.simple}, ")
@@ -310,12 +298,7 @@ public open class CodeGenerator(
                     lineBegin("$visibility val ${field.descriptorName.simple}: ")
                     lineMid(field.fieldDescriptorType(type.kotlinName, isOneOfMember = oneof != null))
                     lineEnd(" =").indented {
-                        generateFieldDescriptorConstructor(
-                            field,
-                            type.kotlinName,
-                            "${type.kotlinName.fullWithPackage}::descriptor",
-                            oneof
-                        )
+                        generateFieldDescriptorConstructor(field, type.kotlinName, oneof)
                     }
                 }
             }
@@ -362,12 +345,7 @@ public open class CodeGenerator(
                         line("private fun addFields${index}() {").indented {
                             chunk.forEach { (field, oneof) ->
                                 line("${field.descriptorName.simple} =").indented {
-                                    generateFieldDescriptorConstructor(
-                                        field,
-                                        type.kotlinName,
-                                        "${type.kotlinName.fullWithPackage}::descriptor",
-                                        oneof
-                                    )
+                                    generateFieldDescriptorConstructor(field, type.kotlinName, oneof)
                                 }
                             }
                         }.line("}")
@@ -446,7 +424,7 @@ public open class CodeGenerator(
     private fun generateFieldOptions(fieldOptions: FieldOptions) {
         // We don't use/support other field option values currently. Once we support all of the options, this check
         // should change to `fieldOptions != FieldOptions.defaultInstance`
-        if (fieldOptions.deprecated != null || fieldOptions.unknownFields.isNotEmpty()) {
+        if (fieldOptions.deprecated != null || fieldOptions.packed != null || fieldOptions.unknownFields.isNotEmpty()) {
             line("options = pbandk.wkt.FieldOptions {").indented {
                 fieldOptions.deprecated?.let {
                     line("deprecated = $it")
@@ -471,7 +449,7 @@ public open class CodeGenerator(
                     line("values = listOf(").indented {
                         field.values.forEach { value ->
                             lineBegin("pbandk.UnknownField.Value(")
-                            lineMid("wireType = ${value.wireType}, ")
+//                            lineMid("wireType = ${value.wireType}, ")
                             lineMid("wireValue = , ")
                             // lineMid("rawBytes = byteArrayOf(${value.rawBytes.array.joinToString()})")
                             lineEnd("),")
@@ -580,9 +558,6 @@ public open class CodeGenerator(
 
     protected fun writeMessageImpl(type: File.Type.Message) {
         fun writeDeprecatedCopyMethod(isMutable: Boolean) {
-            if (type.fields.filterIsInstance<File.Field.Numbered>().any { it.options.deprecated == true }) {
-                line("@Suppress(\"DEPRECATION\")")
-            }
             line("@Deprecated(\"Use copy { } instead\")")
             line("override fun copy(").indented {
                 type.fields.forEach { field ->
@@ -817,21 +792,41 @@ public open class CodeGenerator(
         } else {
             kotlinValueType(true)
         }
-        return "pbandk.FieldDescriptor<${typeName.fullWithPackage}, $fieldValueType>"
+        return buildString {
+            append("pbandk.FieldDescriptor")
+            if (repeated) append(".MutableValue")
+            append("<${typeName.fullWithPackage}, $fieldValueType")
+            if (repeated) append(", ${kotlinValueType(nullableIfMessage = false, mutable = true)}")
+            append(">")
+        }
     }
 
-    protected fun File.Field.Numbered.valueType(): String = buildString {
+    protected fun File.Field.Numbered.valueType(parentType: Name): String = buildString {
         append("pbandk.types.")
         append(type.string)
         append('(')
+
         when (this@valueType) {
             is File.Field.Numbered.Standard -> when (type) {
-                File.Field.Type.MESSAGE, File.Field.Type.ENUM -> append(kotlinQualifiedTypeName)
+                File.Field.Type.MESSAGE, File.Field.Type.ENUM -> {
+                    append(kotlinQualifiedTypeName)
+                    if (kotlinQualifiedTypeName == parentType.fullWithPackage) {
+                        append(", recursive = true")
+                    }
+                }
+
                 else -> {}
             }
+
             // is File.Field.Numbered.Wrapper -> "message(messageCompanion = ${wrappedType.wrapperKotlinTypeName.fullWithPackage}.Companion)"
-            is File.Field.Numbered.Wrapper -> append(wrappedType.wrapperKotlinTypeName.fullWithPackage)
+            is File.Field.Numbered.Wrapper -> {
+                append(wrappedType.wrapperKotlinTypeName.fullWithPackage)
+                if (wrappedType.wrapperKotlinTypeName.fullWithPackage == parentType.fullWithPackage) {
+                    append(", recursive = true")
+                }
+            }
         }
+
         append(')')
     }
 
@@ -989,14 +984,13 @@ public open class CodeGenerator(
     private fun generateFieldDescriptorConstructor(
         field: File.Field.Numbered,
         typeName: Name,
-        messageDescriptorCompanion: String,
         oneof: File.Field.OneOf? = null,
     ) {
         require(!(oneof != null && field.extendee != null)) { "extension fields can't be in a oneof" }
 
         if (field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
         line("${field.descriptorFactoryMethod(oneof != null)}(").indented {
-            line("messageDescriptor = ${messageDescriptorCompanion},")
+            line("messageDescriptor = ${typeName.fullWithPackage}::descriptor,")
             if (field.extendee != null) {
                 line("fullName = \"${field.name.fullWithPackage.removePrefix(".")}\",")
             } else {
@@ -1006,10 +1000,10 @@ public open class CodeGenerator(
             line("number = ${field.number},")
             if (field is File.Field.Numbered.Standard && field.map) {
                 val mapEntry = field.mapEntry()!!
-                line("keyType = ${mapEntry.mapEntryKeyField!!.valueType()},")
-                line("valueType = ${mapEntry.mapEntryValueField!!.valueType()},")
+                line("keyType = ${mapEntry.mapEntryKeyField!!.valueType(typeName)},")
+                line("valueType = ${mapEntry.mapEntryValueField!!.valueType(typeName)},")
             } else {
-                line("valueType = ${field.valueType()},")
+                line("valueType = ${field.valueType(typeName)},")
             }
             line("jsonName = \"${field.jsonName}\",")
             generateFieldOptions(field.options)

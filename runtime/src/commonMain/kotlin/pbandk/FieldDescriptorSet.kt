@@ -23,6 +23,6 @@ public class FieldDescriptorSet<M : Message>(
             lastDescriptor = it
         }
 
-        override fun nextValue() = lastDescriptor?.let { message.getFieldValue(it) }
+        override fun nextValue() = lastDescriptor?.getValue(message)
     }
 }

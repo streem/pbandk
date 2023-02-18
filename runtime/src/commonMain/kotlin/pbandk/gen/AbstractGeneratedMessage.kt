@@ -107,9 +107,9 @@ protected constructor(): Message {
         }
     }
 
-    @Suppress("UNCHECKED_CAST")
     override fun <V> getFieldValue(fieldDescriptor: FieldDescriptor<*, V>): V {
         require(fieldDescriptor.messageDescriptor == messageDescriptor)
+        @Suppress("UNCHECKED_CAST")
         return (fieldDescriptor as FieldDescriptor<M, V>).getValue(this as M)
     }
 }
