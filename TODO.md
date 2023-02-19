@@ -44,7 +44,7 @@
 - [X] Implement the body of `BinaryFieldEncoder`, `BinaryFieldValueEncoder`, `JsonFieldEncoder`, `JsonFieldValueEncoder`
 - [ ] Get rid of `protobuf.js` dependency
 - [X] Redo the split of what gets done in `ValueType` vs `Json/BinaryFieldValueEncoder`
-- [ ] Move `Sizer` functionality into `ValueType`
+- [X] Move `Sizer` functionality into `ValueType`
 - [ ] Update binary decoding to stop passing around the `tag` and to include the wire type in the value decoder type
 - [X] Ensure that decoding multiple message field values in the same message will merge all of the messages
 - [ ] Update unknown field decoding to work with new decoders

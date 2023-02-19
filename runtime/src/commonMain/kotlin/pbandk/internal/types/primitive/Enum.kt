@@ -5,7 +5,6 @@ import pbandk.Message
 import pbandk.gen.UnrecognizedEnumValue
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.BinaryFieldValueEncoder
-import pbandk.internal.binary.Sizer
 import pbandk.binary.WireType
 import pbandk.internal.binary.WireValue
 import pbandk.json.JsonFieldValueDecoder
@@ -19,7 +18,9 @@ internal class Enum<E : Message.Enum>(val enumCompanion: Message.Enum.Companion<
 
     override val binaryWireType = WireType.VARINT
 
-    override fun binarySize(value: E) = Sizer.enumSize(value)
+    // TODO: ensure that the code that calls this function skips the entire field when the enum's numeric value
+    //  is unknown
+    override fun binarySize(value: E) = value.value?.let { WireValue.Varint.encodeSignedInt(it).size } ?: 0
 
     override fun encodeToBinary(value: E, encoder: BinaryFieldValueEncoder) {
         // TODO: ensure that the code that calls this function skips the entire field when the enum's numeric value

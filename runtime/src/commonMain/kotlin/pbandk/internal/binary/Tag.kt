@@ -19,5 +19,8 @@ internal value class Tag(val value: UInt) {
 
     companion object {
         val Zero = Tag(0)
+
+        fun size(fieldNumber: Int): Int =
+            WireValue.Varint.encodeUnsignedInt(Tag(fieldNumber, WireType(0)).value).size
     }
 }

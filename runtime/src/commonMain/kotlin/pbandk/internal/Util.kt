@@ -4,6 +4,8 @@ import pbandk.wkt.Duration
 import pbandk.wkt.Timestamp
 
 internal expect object Util {
+    fun utf8len(str: String): Int
+
     fun base64ToBytes(str: String): ByteArray
     fun bytesToBase64(bytes: ByteArray): String
 

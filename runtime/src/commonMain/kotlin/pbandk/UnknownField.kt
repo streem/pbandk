@@ -3,7 +3,7 @@ package pbandk
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.WireType
 import pbandk.internal.binary.BinaryFieldDecoder
-import pbandk.internal.binary.Sizer
+import pbandk.internal.binary.Tag
 import pbandk.internal.binary.WireValue
 import pbandk.internal.binary.kotlin.ByteArrayWireReader
 import pbandk.internal.types.FieldType
@@ -13,7 +13,7 @@ import kotlin.js.JsExport
 @JsExport
 public data class UnknownField @PublicForGeneratedCode constructor(val fieldNum: Int, val values: List<Value>) {
 
-    internal val size get() = (Sizer.tagSize(fieldNum) * values.size) + values.sumOf { it.size }
+    internal val size get() = (Tag.size(fieldNum) * values.size) + values.sumOf { it.size }
 
     public data class Value @PublicForGeneratedCode constructor(val wireType: Int, val wireValue: WireValue) {
         // public data class Value @PublicForGeneratedCode constructor(val wireType: Int, val rawBytes: ByteArr) {

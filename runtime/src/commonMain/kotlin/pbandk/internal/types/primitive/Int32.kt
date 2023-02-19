@@ -3,7 +3,6 @@ package pbandk.internal.types.primitive
 import pbandk.InvalidProtocolBufferException
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.BinaryFieldValueEncoder
-import pbandk.internal.binary.Sizer
 import pbandk.binary.WireType
 import pbandk.internal.binary.WireValue
 import pbandk.json.JsonFieldValueDecoder
@@ -16,7 +15,7 @@ internal object Int32 : PrimitiveValueType<Int>() {
 
     override val binaryWireType = WireType.VARINT
 
-    override fun binarySize(value: Int) = Sizer.int32Size(value)
+    override fun binarySize(value: Int) = WireValue.Varint.encodeSignedInt(value).size
 
     override fun encodeToBinary(value: Int, encoder: BinaryFieldValueEncoder) {
         encoder.encodeVarint(WireValue.Varint.encodeSignedInt(value))

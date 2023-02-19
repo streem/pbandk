@@ -2,12 +2,11 @@ package pbandk.internal.types.primitive
 
 import pbandk.InvalidProtocolBufferException
 import pbandk.binary.BinaryFieldValueDecoder
-import pbandk.json.JsonFieldValueEncoder
 import pbandk.binary.BinaryFieldValueEncoder
-import pbandk.internal.binary.Sizer
 import pbandk.binary.WireType
 import pbandk.internal.binary.WireValue
 import pbandk.json.JsonFieldValueDecoder
+import pbandk.json.JsonFieldValueEncoder
 
 internal object SInt64 : PrimitiveValueType<Long>() {
     override val defaultValue: Long = 0L
@@ -16,7 +15,7 @@ internal object SInt64 : PrimitiveValueType<Long>() {
 
     override val binaryWireType = WireType.VARINT
 
-    override fun binarySize(value: Long) = Sizer.sInt64Size(value)
+    override fun binarySize(value: Long) = WireValue.Varint.encodeZigZagLong(value).size
 
     override fun encodeToBinary(value: Long, encoder: BinaryFieldValueEncoder) {
         encoder.encodeVarint(WireValue.Varint.encodeZigZagLong(value))

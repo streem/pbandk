@@ -3,7 +3,6 @@ package pbandk.internal.types.primitive
 import pbandk.InvalidProtocolBufferException
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.BinaryFieldValueEncoder
-import pbandk.internal.binary.Sizer
 import pbandk.binary.WireType
 import pbandk.internal.binary.WireValue
 import pbandk.json.JsonFieldValueDecoder
@@ -16,7 +15,7 @@ internal object Fixed64 : PrimitiveValueType<Long>() {
 
     override val binaryWireType = WireType.FIXED64
 
-    override fun binarySize(value: Long) = Sizer.fixed64Size(value)
+    override fun binarySize(value: Long) = WireValue.I64.encodeUnsignedLong(value.toULong()).size
 
     override fun encodeToBinary(value: Long, encoder: BinaryFieldValueEncoder) {
         encoder.encodeI64(WireValue.I64.encodeUnsignedLong(value.toULong()))

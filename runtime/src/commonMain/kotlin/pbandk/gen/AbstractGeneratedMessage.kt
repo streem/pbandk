@@ -6,15 +6,16 @@ import pbandk.MessageDescriptor
 import pbandk.MutableMessage
 import pbandk.OneofDescriptor
 import pbandk.PublicForGeneratedCode
-import pbandk.internal.binary.Sizer
 import pbandk.internal.fieldIterator
 import pbandk.internal.forEach
 import pbandk.internal.forEachField
 
 public abstract class AbstractGeneratedMessage<M : Message>
 @PublicForGeneratedCode
-protected constructor(): Message {
-    protected open fun computeProtoSize(): Int = Sizer.rawMessageSize(this)
+protected constructor() : Message {
+    protected open fun computeProtoSize(): Int =
+        @Suppress("UNCHECKED_CAST")
+        messageDescriptor.messageValueType.rawBinarySize(this as M)
 
     override val protoSize: Int get() = computeProtoSize()
 
@@ -30,7 +31,7 @@ protected constructor(): Message {
         return hash
     }
 
-    override fun hashCode(): Int = computeProtoSize()
+    override fun hashCode(): Int = computeHashCode()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

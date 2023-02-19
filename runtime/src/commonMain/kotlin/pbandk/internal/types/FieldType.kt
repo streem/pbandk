@@ -7,11 +7,10 @@ import pbandk.binary.WireType
 import pbandk.gen.ListField
 import pbandk.gen.MapField
 import pbandk.gen.MutableListField
-import pbandk.gen.MutableMapField
 import pbandk.gen.MutableMapFieldEntry
 import pbandk.internal.binary.BinaryFieldEncoder
-import pbandk.internal.binary.Sizer
 import pbandk.internal.binary.Tag
+import pbandk.internal.binary.WireValue
 import pbandk.internal.json.JsonFieldEncoder
 import pbandk.internal.types.primitive.Enum
 import pbandk.json.JsonFieldValueDecoder
@@ -63,7 +62,7 @@ internal sealed class FieldType<KotlinType> {
         }
 
         override fun binarySize(metadata: FieldMetadata, value: T) =
-            Sizer.tagSize(metadata.number) + valueType.binarySize(value)
+            Tag.size(metadata.number) + valueType.binarySize(value)
 
         override fun encodeToBinary(metadata: FieldMetadata, value: T, encoder: BinaryFieldEncoder) {
             encoder.encodeField(Tag(metadata.number, valueType.binaryWireType)) { valueEncoder ->
@@ -108,7 +107,7 @@ internal sealed class FieldType<KotlinType> {
         }
 
         override fun binarySize(metadata: FieldMetadata, value: T?) =
-            if (value == null) 0 else Sizer.tagSize(metadata.number) + valueType.binarySize(value)
+            if (value == null) 0 else Tag.size(metadata.number) + valueType.binarySize(value)
 
         override fun encodeToBinary(metadata: FieldMetadata, value: T?, encoder: BinaryFieldEncoder) {
             if (value == null) return
@@ -159,7 +158,7 @@ internal sealed class FieldType<KotlinType> {
         }
 
         override fun binarySize(metadata: FieldMetadata, value: T) =
-            if (valueType.isDefaultValue(value)) 0 else Sizer.tagSize(metadata.number) + valueType.binarySize(value)
+            if (valueType.isDefaultValue(value)) 0 else Tag.size(metadata.number) + valueType.binarySize(value)
 
         override fun encodeToBinary(metadata: FieldMetadata, value: T, encoder: BinaryFieldEncoder) {
             if (valueType.isDefaultValue(value)) return
@@ -219,13 +218,13 @@ internal sealed class FieldType<KotlinType> {
             value.isEmpty() -> 0
 
             metadata.options.packed == true -> {
-                Sizer.tagSize(metadata.number) +
+                Tag.size(metadata.number) +
                         ((value as? ListField)?.protoSize ?: value.sumOf(valueType::binarySize)).let {
-                            it + Sizer.uInt32Size(it)
+                            WireValue.Len.sizeWithLenPrefix(it)
                         }
             }
 
-            else -> (Sizer.tagSize(metadata.number) * value.size) + value.sumOf(valueType::binarySize)
+            else -> (Tag.size(metadata.number) * value.size) + value.sumOf(valueType::binarySize)
         }
 
         override fun encodeToBinary(
@@ -342,17 +341,15 @@ internal sealed class FieldType<KotlinType> {
                 } else {
                     val keySize = entry.key
                         .takeIf { !keyType.isDefaultValue(it) }
-                        ?.let { Sizer.tagSize(1) + keyType.binarySize(it) }
+                        ?.let { Tag.size(1) + keyType.binarySize(it) }
                         ?: 0
                     val valueSize = entry.value
                         .takeIf { !valueType.isDefaultValue(it) }
-                        ?.let { Sizer.tagSize(2) + valueType.binarySize(it) }
+                        ?.let { Tag.size(2) + valueType.binarySize(it) }
                         ?: 0
                     keySize + valueSize
-                }.let { size ->
-                    Sizer.uInt32Size(size) + size
-                }
-            } + (value.size * Sizer.tagSize(metadata.number))
+                }.let { size -> WireValue.Len.sizeWithLenPrefix(size) }
+            } + (value.size * Tag.size(metadata.number))
         }
 
         override fun encodeToBinary(
@@ -381,11 +378,11 @@ internal sealed class FieldType<KotlinType> {
                         mapFieldEntry.descriptor.messageValueType.encodeToBinary(mapFieldEntry, valueEncoder)
 //                        val keySize = entry.key
 //                            .takeIf { !keyType.isDefaultValue(it) }
-//                            ?.let { Sizer.tagSize(1) + keyType.binarySize(it) }
+//                            ?.let { Tag.size(1) + keyType.binarySize(it) }
 //                            ?: 0
 //                        val valueSize = entry.value
 //                            .takeIf { !valueType.isDefaultValue(it) }
-//                            ?.let { Sizer.tagSize(2) + valueType.binarySize(it) }
+//                            ?.let { Tag.size(2) + valueType.binarySize(it) }
 //                            ?: 0
 //                        valueEncoder.encodeLenFields(keySize + valueSize) { fieldEncoder ->
 //                            if (!keyType.isDefaultValue(entry.key)) {

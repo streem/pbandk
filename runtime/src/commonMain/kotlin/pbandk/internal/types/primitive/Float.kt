@@ -3,7 +3,6 @@ package pbandk.internal.types.primitive
 import pbandk.InvalidProtocolBufferException
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.BinaryFieldValueEncoder
-import pbandk.internal.binary.Sizer
 import pbandk.binary.WireType
 import pbandk.internal.binary.WireValue
 import pbandk.json.JsonFieldValueDecoder
@@ -17,7 +16,7 @@ internal object Float : PrimitiveValueType<Float>() {
 
     override val binaryWireType = WireType.FIXED32
 
-    override fun binarySize(value: Float) = Sizer.floatSize(value)
+    override fun binarySize(value: Float) = WireValue.I32.encodeFloat(value).size
 
     override fun encodeToBinary(value: Float, encoder: BinaryFieldValueEncoder) {
         encoder.encodeI32(WireValue.I32.encodeFloat(value))

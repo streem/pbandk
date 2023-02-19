@@ -2,12 +2,11 @@ package pbandk.internal.types.primitive
 
 import pbandk.InvalidProtocolBufferException
 import pbandk.binary.BinaryFieldValueDecoder
-import pbandk.json.JsonFieldValueEncoder
 import pbandk.binary.BinaryFieldValueEncoder
-import pbandk.internal.binary.Sizer
 import pbandk.binary.WireType
 import pbandk.internal.binary.WireValue
 import pbandk.json.JsonFieldValueDecoder
+import pbandk.json.JsonFieldValueEncoder
 
 internal object Bool : PrimitiveValueType<Boolean>() {
     override val defaultValue: Boolean = false
@@ -16,7 +15,7 @@ internal object Bool : PrimitiveValueType<Boolean>() {
 
     override val binaryWireType = WireType.VARINT
 
-    override fun binarySize(value: Boolean) = Sizer.boolSize(value)
+    override fun binarySize(value: Boolean) = WireValue.Varint.encodeBoolean(value).size
 
     override fun encodeToBinary(value: Boolean, encoder: BinaryFieldValueEncoder) {
         encoder.encodeVarint(WireValue.Varint.encodeBoolean(value))

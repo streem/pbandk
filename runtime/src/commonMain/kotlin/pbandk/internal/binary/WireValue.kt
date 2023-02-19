@@ -4,6 +4,8 @@ import pbandk.UnknownField
 import pbandk.binary.WireType
 import kotlin.jvm.JvmInline
 
+internal const val MAX_VARINT_SIZE = 10
+
 public sealed interface WireValue {
     public val wireType: Int
 
@@ -13,26 +15,36 @@ public sealed interface WireValue {
     public value class Varint internal constructor(internal val value: ULong) : WireValue {
         override val wireType: Int get() = WireType.VARINT.value
 
-        override val size: Int get() {
-            // Taken from CodedOutputStream.java's computeUInt64SizeNoTag
-            @Suppress("NAME_SHADOWING")
-            var value = value.toLong()
-            if (value and (0L.inv() shl 7) == 0L) return 1
-            if (value < 0L) return 10
-            var n = 2
-            if (value and (0L.inv() shl 35) != 0L) {
-                n += 4
-                value = value ushr 28
-            }
-            if (value and (0L.inv() shl 21) != 0L) {
-                n += 2
-                value = value ushr 14
-            }
-            if (value and (0L.inv() shl 14) != 0L) {
-                n += 1
-            }
-            return n
+        /*
+        fun uInt32Size(value: Int) = when {
+            value and (0.inv() shl 7) == 0 -> 1
+            value and (0.inv() shl 14) == 0 -> 2
+            value and (0.inv() shl 21) == 0 -> 3
+            value and (0.inv() shl 28) == 0 -> 4
+            else -> 5
         }
+        */
+
+        override val size: Int
+            get() {
+                // Taken from CodedOutputStream.java's computeUInt64SizeNoTag
+                var value = value.toLong()
+                if (value and (0L.inv() shl 7) == 0L) return 1
+                if (value < 0L) return 10
+                var n = 2
+                if (value and (0L.inv() shl 35) != 0L) {
+                    n += 4
+                    value = value ushr 28
+                }
+                if (value and (0L.inv() shl 21) != 0L) {
+                    n += 2
+                    value = value ushr 14
+                }
+                if (value and (0L.inv() shl 14) != 0L) {
+                    n += 1
+                }
+                return n
+            }
 
         internal val decodeUnsignedInt: UInt get() = value.toUInt()
         internal val decodeSignedInt: Int get() = value.toInt()
@@ -93,7 +105,7 @@ public sealed interface WireValue {
     public value class Len internal constructor(internal val value: ByteArray) : WireValue {
         override val wireType: Int get() = WireType.LENGTH_DELIMITED.value
 
-        override val size: Int get() = Varint.encodeUnsignedInt(value.size.toUInt()).size + value.size
+        override val size: Int get() = sizeWithLenPrefix(value.size)
 
         internal val decodeByteArray: ByteArray get() = value
         internal val decodeString: String get() = value.decodeToString()
@@ -101,6 +113,8 @@ public sealed interface WireValue {
         public companion object {
             internal fun encodeByteArray(value: ByteArray) = Len(value)
             internal fun encodeString(value: String) = Len(value.encodeToByteArray())
+
+            internal fun sizeWithLenPrefix(rawSize: Int) = Varint.encodeUnsignedInt(rawSize.toUInt()).size + rawSize
         }
     }
 

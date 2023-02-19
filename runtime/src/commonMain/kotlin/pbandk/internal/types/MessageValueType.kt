@@ -5,18 +5,19 @@ import pbandk.FieldDescriptorSet
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
 import pbandk.UnknownField
+import pbandk.binary.BinaryFieldValueDecoder
+import pbandk.binary.BinaryFieldValueEncoder
+import pbandk.binary.WireType
+import pbandk.gen.AbstractGeneratedMessage
 import pbandk.gen.messageDescriptor
 import pbandk.internal.binary.BinaryFieldDecoder
 import pbandk.internal.binary.BinaryFieldEncoder
-import pbandk.binary.BinaryFieldValueDecoder
-import pbandk.binary.BinaryFieldValueEncoder
-import pbandk.internal.binary.Sizer
 import pbandk.internal.binary.Tag
-import pbandk.binary.WireType
-import pbandk.json.JsonFieldValueDecoder
-import pbandk.json.JsonFieldValueEncoder
+import pbandk.internal.binary.WireValue
 import pbandk.internal.types.wkt.WktValueType
 import pbandk.internal.types.wkt.customJsonMappings
+import pbandk.json.JsonFieldValueDecoder
+import pbandk.json.JsonFieldValueEncoder
 import pbandk.types.ValueType
 
 internal fun <M : Message> FieldDescriptorSet<M>.findByJsonName(keyDecoder: JsonFieldValueDecoder.String): FieldDescriptor<M, *>? {
@@ -40,7 +41,21 @@ internal open class MessageValueType<M : Message>(val companion: Message.Compani
 
     override val binaryWireType = WireType.LENGTH_DELIMITED
 
-    override fun binarySize(value: M) = Sizer.messageSize(value)
+    override fun binarySize(value: M) = WireValue.Len.sizeWithLenPrefix(value.protoSize)
+
+    internal fun rawBinarySize(message: M): Int {
+        @Suppress("UNCHECKED_CAST")
+        message as AbstractGeneratedMessage<M>
+
+        var protoSize = 0
+
+        message.fieldDescriptors().forEach { fd ->
+            protoSize += fd.binarySize(message)
+        }
+
+        protoSize += message.unknownFields.values.sumOf { it.size }
+        return protoSize
+    }
 
     internal fun encodeToBinaryNoLength(value: M, fieldEncoder: BinaryFieldEncoder) {
         for (fieldDescriptor in value.messageDescriptor.fields) {

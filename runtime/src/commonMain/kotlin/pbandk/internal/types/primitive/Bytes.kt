@@ -2,14 +2,13 @@ package pbandk.internal.types.primitive
 
 import pbandk.ByteArr
 import pbandk.InvalidProtocolBufferException
-import pbandk.json.JsonFieldValueEncoder
-import pbandk.internal.Util
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.BinaryFieldValueEncoder
-import pbandk.internal.binary.Sizer
 import pbandk.binary.WireType
+import pbandk.internal.Util
 import pbandk.internal.binary.WireValue
 import pbandk.json.JsonFieldValueDecoder
+import pbandk.json.JsonFieldValueEncoder
 
 internal object Bytes : PrimitiveValueType<ByteArr>() {
     override val defaultValue: ByteArr = ByteArr.empty
@@ -18,7 +17,7 @@ internal object Bytes : PrimitiveValueType<ByteArr>() {
 
     override val binaryWireType = WireType.LENGTH_DELIMITED
 
-    override fun binarySize(value: ByteArr) = Sizer.bytesSize(value)
+    override fun binarySize(value: ByteArr) = WireValue.Len.encodeByteArray(value.array).size
 
     override fun encodeToBinary(value: ByteArr, encoder: BinaryFieldValueEncoder) {
         encoder.encodeLen(WireValue.Len.encodeByteArray(value.array))
