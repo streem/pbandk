@@ -1,7 +1,7 @@
 package pbandk.internal.binary
 
-import pbandk.protobufjs.ProtobufjsBinaryMessageEncoder
+import pbandk.internal.binary.kotlin.KotlinBinaryMessageEncoder
 
 internal actual fun BinaryMessageEncoder.Companion.allocate(size: Int): ByteArrayMessageEncoder {
-    return ProtobufjsBinaryMessageEncoder.allocate(size)
+    return KotlinBinaryMessageEncoder.allocate(size)
 }
