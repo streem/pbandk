@@ -21,12 +21,13 @@ public sealed class FieldMetadata(
     internal val jsonName: String,
     internal val isOneofMember: Boolean,
     internal val isExtension: Boolean,
-
-    // TODO(still needed?): This has to be indirect to avoid a circular dependency when initializing the [FieldOptions]
-    //  class, which has its own [FieldDescriptor]s that it tries to initialize.
-    @ExperimentalProtoReflection
-    public val options: FieldOptions,
+    private val _options: FieldOptions? = null,
 ) {
+    // This has to be indirect to avoid a circular dependency when initializing the [FieldOptions]
+    // class, which has its own [FieldDescriptor]s that it tries to initialize.
+    @ExperimentalProtoReflection
+    public val options: FieldOptions get() = _options.orDefault()
+
     /**
      * The field's fully-qualified name.
      *
@@ -67,7 +68,7 @@ public sealed class FieldMetadata(
         jsonName = jsonName,
         isOneofMember = isOneofMember,
         isExtension = false,
-        options = options.orDefault()
+        _options = options,
     ) {
         override val fullName get() = "${messageMetadata.fullName}.${name}"
     }
@@ -83,7 +84,7 @@ public sealed class FieldMetadata(
         jsonName = jsonName,
         isOneofMember = false,
         isExtension = true,
-        options = options.orDefault()
+        _options = options,
     ) {
         override val fullName = extensionName
     }
@@ -816,7 +817,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             options = options,
             valueType = valueType,
             property = value,
-            mutableProperty = mutableValue as KProperty1<MutableMessage<M>, MutableList<T>>,
+            mutableProperty = mutableValue,
         )
 
         @PublicForGeneratedCode

@@ -7,7 +7,7 @@ internal class BinaryFieldEncoder(wireWriter: WireWriter) {
     private val valueEncoder = BinaryFieldValueEncoder(wireWriter, this)
 
     inline fun encodeField(tag: Tag, valueBlock: (BinaryFieldValueEncoder) -> Unit) {
-        valueEncoder.encodeVarintUnsignedInt(tag.value)
+        valueEncoder.encodeVarint(WireValue.Varint.encodeUnsignedInt(tag.value))
         valueBlock(valueEncoder)
     }
 }

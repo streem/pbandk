@@ -4,15 +4,16 @@ import pbandk.FieldDescriptor
 import pbandk.Message
 import pbandk.MessageDescriptor
 import pbandk.MutableMessage
-import pbandk.OneofDescriptor
 import pbandk.PublicForGeneratedCode
-import pbandk.internal.fieldIterator
-import pbandk.internal.forEach
 import pbandk.internal.forEachField
 
 public abstract class AbstractGeneratedMessage<M : Message>
 @PublicForGeneratedCode
 protected constructor() : Message {
+    internal open fun fieldDescriptors(ordered: Boolean = false): Collection<FieldDescriptor<M, out Any?>> {
+        return messageDescriptor.fields
+    }
+
     protected open fun computeProtoSize(): Int =
         @Suppress("UNCHECKED_CAST")
         messageDescriptor.messageValueType.rawBinarySize(this as M)
@@ -22,7 +23,7 @@ protected constructor() : Message {
     protected open fun computeHashCode(): Int {
         var hash = 1
 
-        fieldIterator().forEach { _, value ->
+        fieldDescriptors().forEachWithValue(this.asMessage()) { _, value ->
             hash = (31 * hash) + value.hashCode()
         }
 
@@ -54,11 +55,11 @@ protected constructor() : Message {
         append(descriptor.name)
         append("(")
 
-        fieldIterator().forEach { fieldDescriptor, value ->
-            if (fieldDescriptor.metadata.isExtension) {
-                append("[${fieldDescriptor.metadata.fullName}]")
+        fieldDescriptors(ordered = true).forEachWithValue(this@AbstractGeneratedMessage.asMessage()) { fd, value ->
+            if (fd.metadata.isExtension) {
+                append("[${fd.metadata.fullName}]")
             } else {
-                append(fieldDescriptor.metadata.name)
+                append(fd.metadata.name)
             }
             append("=${value}, ")
         }
@@ -74,37 +75,38 @@ protected constructor() : Message {
 
     public open fun <MM : MutableMessage<M>> copy(builderAction: MM.() -> Unit): M {
         val newMessage = messageDescriptor.builder {
-            this@AbstractGeneratedMessage.messageDescriptor.fields.forEach { fieldDescriptor ->
-                fieldDescriptor.copyValue(this@AbstractGeneratedMessage, this)
+            this@AbstractGeneratedMessage.fieldDescriptors().forEach { fieldDescriptor ->
+                fieldDescriptor.copyValue(this@AbstractGeneratedMessage.asMessage(), this)
             }
             unknownFields += this@AbstractGeneratedMessage.unknownFields
             @Suppress("UNCHECKED_CAST")
             (this as MM).builderAction()
         }
-        @Suppress("UNCHECKED_CAST")
-        return newMessage as M
+        return newMessage
     }
 
-    @Suppress("UNCHECKED_CAST")
     override fun plus(other: Message?): M {
-        this as M
-
-        if (descriptor != other?.descriptor) return this
+        if (descriptor != other?.descriptor) return this.asMessage()
+        @Suppress("UNCHECKED_CAST")
         other as M
 
         return copy<MutableMessage<M>> {
-            this@AbstractGeneratedMessage.messageDescriptor.fields.forEach { field ->
+            this@AbstractGeneratedMessage.fieldDescriptors().forEach { field ->
                 if (field.metadata.isOneofMember) return@forEach
-                field as FieldDescriptor<M, out Any?>
-                field.mergeValues(this@AbstractGeneratedMessage, other, this)
+                field.mergeValues(this@AbstractGeneratedMessage.asMessage(), other, this)
             }
 
             for (oneof in this@AbstractGeneratedMessage.messageDescriptor.oneofs) {
-                oneof as OneofDescriptor<M, *>
-                oneof.mergeValues(this@AbstractGeneratedMessage, other, this)
+                oneof.mergeValues(this@AbstractGeneratedMessage.asMessage(), other, this)
             }
 
-            unknownFields += other.unknownFields
+            other.unknownFields.forEach { (fieldNum, unknownField) ->
+                unknownFields[fieldNum] = unknownFields[fieldNum]?.let { prevValue ->
+                    // TODO: make parsing of repeated unknown fields more efficient by not creating a copy of
+                    //  the list with each new element.
+                    prevValue.copy(values = prevValue.values + unknownField.values)
+                } ?: unknownField
+            }
         }
     }
 
@@ -115,7 +117,17 @@ protected constructor() : Message {
     }
 }
 
+@Suppress("NOTHING_TO_INLINE")
+internal inline fun <M : Message, T : AbstractGeneratedMessage<M>> T.asMessage(): M {
+    @Suppress("UNCHECKED_CAST")
+    return this as M
+}
+
 internal inline val <M : Message> M.messageDescriptor: MessageDescriptor<M>
+    @Suppress("UNCHECKED_CAST")
+    get() = descriptor as MessageDescriptor<M>
+
+internal inline val <M : Message, T : AbstractGeneratedMessage<M>> T.messageDescriptor: MessageDescriptor<M>
     @Suppress("UNCHECKED_CAST")
     get() = descriptor as MessageDescriptor<M>
 
@@ -124,3 +136,13 @@ private inline fun <M : Message, MM : MutableMessage<M>, T> FieldDescriptor<M, T
     fromMessage: M,
     toMessage: MM,
 ) = setValue(toMessage, getValue(fromMessage))
+
+internal inline fun <M : Message> Iterable<FieldDescriptor<M, out Any?>>.forEachWithValue(
+    message: M,
+    action: (FieldDescriptor<M, out Any?>, Any?) -> Unit,
+) {
+    forEach { fd ->
+        val value = fd.getValue(message)
+        action(fd, value)
+    }
+}

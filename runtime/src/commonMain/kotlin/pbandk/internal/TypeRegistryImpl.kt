@@ -1,8 +1,9 @@
 package pbandk.internal
 
-import pbandk.FieldDescriptor
 import pbandk.MessageDescriptor
 import pbandk.TypeRegistry
+import pbandk.internal.types.FieldType
+import pbandk.internal.types.MessageValueType
 
 internal class TypeRegistryImpl : TypeRegistry.Builder {
     private val registry = mutableMapOf<String, MessageDescriptor<*>>()
@@ -15,16 +16,24 @@ internal class TypeRegistryImpl : TypeRegistry.Builder {
         if (descriptor.fullName in registry) return
 
         registry[descriptor.fullName] = descriptor
-        for (fieldType in descriptor.fields.map { it.type }) {
+        for (fieldType in descriptor.fields.map { it.fieldType }) {
             when (fieldType) {
-                is FieldDescriptor.Type.Message<*> -> add(fieldType.messageCompanion.descriptor)
-                is FieldDescriptor.Type.Repeated<*> -> {
-                    if (fieldType.valueType is FieldDescriptor.Type.Message<*>) {
-                        add(fieldType.valueType.messageCompanion.descriptor)
-                    }
+                is FieldType.Map<*, *> -> add(fieldType.entryCompanion.descriptor)
+                is FieldType.Repeated<*> -> (fieldType.valueType as? MessageValueType<*>)?.let {
+                    add(it.companion.descriptor)
                 }
-                is FieldDescriptor.Type.Map<*, *> -> add(fieldType.entryCompanion.descriptor)
-                else -> {}
+
+                is FieldType.Optional<*> -> (fieldType.valueType as? MessageValueType<*>)?.let {
+                    add(it.companion.descriptor)
+                }
+
+                is FieldType.Singular<*> -> (fieldType.valueType as? MessageValueType<*>)?.let {
+                    add(it.companion.descriptor)
+                }
+
+                is FieldType.Required<*> -> (fieldType.valueType as? MessageValueType<*>)?.let {
+                    add(it.companion.descriptor)
+                }
             }
         }
     }

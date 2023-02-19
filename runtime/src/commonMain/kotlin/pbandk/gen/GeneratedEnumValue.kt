@@ -9,9 +9,14 @@ protected constructor(
     final override val value: Int,
     final override val name: String,
 ) : Message.Enum {
-    override fun equals(other: Any?): Boolean = other === this
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Message.Enum) return false
+        if (descriptor != other.descriptor) return false
+        return value == other.value && name == other.name
+    }
 
-    private val _hashCode: Int = value.hashCode()
+    private val _hashCode: Int = (31 * value.hashCode()) + name.hashCode()
     override fun hashCode(): Int = _hashCode
 
     override fun toString(): String = "${descriptor.name}.${name}(value=$value)"
@@ -22,8 +27,9 @@ public abstract class UnrecognizedEnumValue<E : Message.Enum>(
     override val name: String?,
 ) : Message.Enum {
     override fun equals(other: Any?): Boolean {
-        if (!this::class.isInstance(other)) return false
-        other as UnrecognizedEnumValue<*>
+        if (this === other) return true
+        if (other !is Message.Enum) return false
+        if (descriptor != other.descriptor) return false
         return value == other.value && name == other.name
     }
 

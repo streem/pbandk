@@ -211,7 +211,7 @@ public class BinaryFieldValueDecoder internal constructor(
             WireType.START_GROUP -> decodeGroup(tag.fieldNumber)
             else -> throw InvalidProtocolBufferException("Unrecognized wire type: $tag.wireType")
         }
-        return UnknownField.Value(tag.wireType.value, wireValue)
+        return UnknownField.Value(wireValue)
     }
 }
 

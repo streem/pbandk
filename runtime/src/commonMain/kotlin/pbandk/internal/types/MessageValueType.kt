@@ -58,13 +58,16 @@ internal open class MessageValueType<M : Message>(val companion: Message.Compani
     }
 
     internal fun encodeToBinaryNoLength(value: M, fieldEncoder: BinaryFieldEncoder) {
-        for (fieldDescriptor in value.messageDescriptor.fields) {
-            fieldDescriptor.encodeToBinary(fieldEncoder, value)
+        @Suppress("UNCHECKED_CAST")
+        value as AbstractGeneratedMessage<M>
+
+        value.fieldDescriptors(ordered = true).forEach { fd ->
+            fd.encodeToBinary(fieldEncoder, value)
         }
         for (field in value.unknownFields.values) {
             field.values.forEach {
-                fieldEncoder.encodeField(Tag(field.fieldNum, WireType(it.wireType))) { valueEncoder ->
-                    valueEncoder.encodeUnknownField(it.wireValue)
+                fieldEncoder.encodeField(Tag(field.fieldNum, WireType(it.wireValue.wireType))) { valueEncoder ->
+                    valueEncoder.encodeUnknownField(field.fieldNum, it.wireValue)
                 }
             }
         }
@@ -135,8 +138,11 @@ internal open class MessageValueType<M : Message>(val companion: Message.Compani
             customValueType.encodeMessageToJson(value, encoder)
         } else {
             encoder.encodeObject { fieldEncoder ->
-                value.messageDescriptor.fields.forEach { fieldDescriptor ->
-                    fieldDescriptor.encodeToJson(fieldEncoder, value)
+                @Suppress("UNCHECKED_CAST")
+                value as AbstractGeneratedMessage<M>
+
+                value.fieldDescriptors(ordered = true).forEach { fd ->
+                    fd.encodeToJson(fieldEncoder, value)
                 }
             }
         }

@@ -18,7 +18,7 @@ internal object ListValue : WktMessageValueType<ListValue>(ListValue) {
         }
         return ListValue {
             decoder.forEachValue { valueDecoder ->
-                values.add(Value.decodeFromJson(decoder))
+                values.add(Value.decodeFromJson(valueDecoder))
             }
         }
     }

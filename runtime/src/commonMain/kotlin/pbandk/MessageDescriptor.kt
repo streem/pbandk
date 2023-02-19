@@ -4,7 +4,7 @@ import pbandk.internal.types.MessageValueType
 import pbandk.types.ValueType
 import kotlin.reflect.KClass
 
-public class MessageMetadata internal constructor(
+public class MessageMetadata @PublicForGeneratedCode constructor(
     /**
      * The message type's fully-qualified name, within the proto language's namespace. This differs from
      * the Kotlin name. For example, given this `.proto`:

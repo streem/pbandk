@@ -15,6 +15,8 @@ import pbandk.internal.types.FieldType
  */
 @PublicForGeneratedCode
 public sealed class FieldSet<M : Message> {
+    internal abstract val size: Int
+
     internal abstract operator fun <V> get(fieldDescriptor: FieldDescriptor<M, V>): V?
 
     public fun <V> getOrDefault(fieldDescriptor: FieldDescriptor<M, V>): V {
@@ -38,6 +40,8 @@ public sealed class FieldSet<M : Message> {
     }
 
     private object Empty : FieldSet<Message>() {
+        override val size: Int = 0
+
         override fun <V> get(fieldDescriptor: FieldDescriptor<Message, V>) = null
 
         override fun contains(fieldDescriptor: FieldDescriptor<Message, *>) = false
@@ -86,6 +90,8 @@ internal class ExtensionFieldSet<M : Message>(
 ) : FieldSet<M>() {
     private val extensionFieldCache: FieldSetCache<M> = FieldSetCache()
 
+    override val size: Int get() = fieldSet.size
+
     override fun <V> get(fieldDescriptor: FieldDescriptor<M, V>): V? {
         require(fieldDescriptor.metadata.isExtension) { "Provided field descriptor does not describe an extension field" }
 
@@ -128,14 +134,17 @@ internal class ExtensionFieldSet<M : Message>(
         // We need to ensure that map iteration will always iterate over the fields in order of increasing field
         // number. So we store the fields in a `LinkedHashMap` (which preserves insertion order when iterating) and
         // sort them by field number before copying them into the map.
-        val entries = mutableListOf<Pair<FieldDescriptor<M, out Any?>, Any>>().apply {
-            fieldSet.iterator().forEach { fd, value ->
-                if (value != null) add(fd to value)
+        val entries =
+            ArrayList<Pair<FieldDescriptor<M, out Any?>, Any>>(fieldSet.size /*+ extensionFieldCache.size*/).apply {
+                fieldSet.iterator().forEach { fd, value ->
+                    if (value != null) add(fd to value)
+                }
+                /*
+                extensionFieldCache.iterator().forEach { fd, value ->
+                    if (value != null) add(fd to value)
+                }
+                 */
             }
-            extensionFieldCache.iterator().forEach { fd, value ->
-                if (value != null) add(fd to value)
-            }
-        }
         val map = LinkedHashMap<FieldDescriptor<M, out Any?>, Any>(entries.size).apply {
             entries.sortedBy { it.first.metadata.number }.toMap(this)
         }
@@ -151,6 +160,8 @@ internal class ExtensionFieldSet<M : Message>(
  */
 private class FieldSetCache<M : Message> : FieldSet<M>() {
     private val map: AtomicReference<Map<FieldDescriptor<M, out Any?>, Any>> = AtomicReference(emptyMap())
+
+    override val size: Int get() = map.get().size
 
     override operator fun <V> get(fieldDescriptor: FieldDescriptor<M, V>): V? {
         @Suppress("UNCHECKED_CAST")
@@ -177,6 +188,8 @@ internal class MutableExtensionFieldSet<M : Message>(
     map: Map<FieldDescriptor<M, out Any?>, Any> = emptyMap(),
 ) : MutableFieldSet<M>() {
     private val map: MutableMap<FieldDescriptor<M, out Any?>, Any> = map.toMutableMap()
+
+    override val size: Int get() = map.size
 
     override fun <V> get(fieldDescriptor: FieldDescriptor<M, V>): V? {
         require(fieldDescriptor.metadata.isExtension) { "Provided field descriptor does not describe an extension field" }

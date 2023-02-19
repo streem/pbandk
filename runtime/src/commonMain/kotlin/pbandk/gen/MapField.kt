@@ -121,7 +121,7 @@ public fun <K : Any, V : Any> MutableMapField(entryCompanion: MapField.Entry.Com
 @PublicForGeneratedCode
 public fun <K : Any, V : Any> MutableMapField(fieldDescriptor: FieldDescriptor<*, Map<K, V>>): MutableMapField<K, V> {
     val mapFd = fieldDescriptor.fieldType as FieldType.Map<K, V>
-    return MutableMapFieldImpl(MapField.Entry.Companion(mapFd.keyType, mapFd.valueType))
+    return MutableMapFieldImpl(mapFd.entryCompanion)
 }
 
 // Begin: private implementations

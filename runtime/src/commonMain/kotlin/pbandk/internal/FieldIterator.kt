@@ -1,9 +1,8 @@
 package pbandk.internal
 
+import pbandk.ExtendableMessage
 import pbandk.FieldDescriptor
-import pbandk.FieldSet
 import pbandk.Message
-import pbandk.gen.GeneratedExtendableMessage
 import pbandk.gen.messageDescriptor
 
 internal interface FieldIterator<M : Message> : Iterator<FieldDescriptor<M, out Any?>> {
@@ -18,16 +17,6 @@ internal inline fun <M : Message> FieldIterator<M>.forEach(operation: (FieldDesc
     }
 }
 
-internal fun <M : Message> M.fieldIterator(): FieldIterator<M> {
-    val iter = messageDescriptor.fields.iteratorFor(this)
-    return if (this is GeneratedExtendableMessage<*>) {
-        @Suppress("UNCHECKED_CAST")
-        (ConcatFieldIterator(iter, (extensionFields as FieldSet<M>).iterator()))
-    } else {
-        iter
-    }
-}
-
 private fun <T : Any> Iterator<T>.nextOrNull(): T? = if (hasNext()) next() else null
 
 private typealias ForEachFieldFn<M, T> = (FieldDescriptor<M, out T>, T, T) -> Unit
@@ -39,12 +28,15 @@ internal inline fun <M : Message> forEachField(first: M, second: M, operation: F
         operation(fd, fd.getValue(first), fd.getValue(second))
     }
 
-    if (first is GeneratedExtendableMessage<*> && second is GeneratedExtendableMessage<*>) {
-        @Suppress("UNCHECKED_CAST")
-        val firstExtensionIter = (first.extensionFields as FieldSet<M>).iterator()
+    @Suppress("UNCHECKED_CAST")
+    val firstExtensionFields = (first as? ExtendableMessage<M>)?.extensionFields
 
-        @Suppress("UNCHECKED_CAST")
-        val secondExtensionIter = (second.extensionFields as FieldSet<M>).iterator()
+    @Suppress("UNCHECKED_CAST")
+    val secondExtensionFields = (second as? ExtendableMessage<M>)?.extensionFields
+
+    if (firstExtensionFields != null && secondExtensionFields != null) {
+        val firstExtensionIter = firstExtensionFields.iterator()
+        val secondExtensionIter = secondExtensionFields.iterator()
 
         var firstFd = firstExtensionIter.nextOrNull()
         var secondFd = secondExtensionIter.nextOrNull()
@@ -79,32 +71,4 @@ internal inline fun <M : Message> forEachField(first: M, second: M, operation: F
             secondFd = secondExtensionIter.nextOrNull()
         }
     }
-}
-
-internal class ConcatFieldIterator<M : Message>(
-    firstIter: FieldIterator<M>,
-    private val lastIter: FieldIterator<M>
-) : FieldIterator<M> {
-    private var currentIter = firstIter
-
-    override fun hasNext(): Boolean = when {
-        currentIter.hasNext() -> true
-        currentIter == lastIter -> false
-        else -> {
-            currentIter = lastIter
-            currentIter.hasNext()
-        }
-    }
-
-    override fun next(): FieldDescriptor<M, out Any?> = try {
-        currentIter.next()
-    } catch (e: NoSuchElementException) {
-        if (currentIter == lastIter) {
-            throw e
-        }
-        currentIter = lastIter
-        currentIter.next()
-    }
-
-    override fun nextValue(): Any? = currentIter.nextValue()
 }

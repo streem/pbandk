@@ -22,7 +22,7 @@ internal object DurationNew : WktValueType<kotlin.time.Duration, Duration> {
 
     // Both fields of `google.protobuf.Duration` are scalar types, so the result of merging two `Duration` messages will
     // be equal to the contents of the second message as long as it's non-null.
-    override fun mergeValues(value: kotlin.time.Duration, otherValue: kotlin.time.Duration) = otherValue
+    override fun mergeValues(currentValue: kotlin.time.Duration, newValue: kotlin.time.Duration) = newValue
 
     override val binaryWireType = WireType.LENGTH_DELIMITED
 

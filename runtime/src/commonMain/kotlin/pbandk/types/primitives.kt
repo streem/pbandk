@@ -3,6 +3,7 @@ package pbandk.types
 import pbandk.ByteArr
 import pbandk.Message
 import pbandk.PublicForGeneratedCode
+import pbandk.internal.types.MessageValueType
 import pbandk.internal.types.primitive.Bool
 import pbandk.internal.types.primitive.Bytes
 import pbandk.internal.types.primitive.Fixed32
@@ -69,5 +70,12 @@ public fun <E : Message.Enum> enum(enumCompanion: Message.Enum.Companion<E>): Va
     enumCompanion.descriptor.enumValueType
 
 @PublicForGeneratedCode
-public fun <M : Message> message(messageCompanion: Message.Companion<M>): ValueType<M> =
+public fun <M : Message> message(
+    messageCompanion: Message.Companion<M>,
+    // TODO: add docs
+    recursive: Boolean = false,
+): ValueType<M> = if (recursive) {
+    MessageValueType(messageCompanion)
+} else {
     messageCompanion.descriptor.messageValueType
+}

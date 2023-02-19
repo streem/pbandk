@@ -15,7 +15,7 @@ public data class UnknownField @PublicForGeneratedCode constructor(val fieldNum:
 
     internal val size get() = (Tag.size(fieldNum) * values.size) + values.sumOf { it.size }
 
-    public data class Value @PublicForGeneratedCode constructor(val wireType: Int, val wireValue: WireValue) {
+    public data class Value @PublicForGeneratedCode constructor(val wireValue: WireValue) {
         // public data class Value @PublicForGeneratedCode constructor(val wireType: Int, val rawBytes: ByteArr) {
         //     @PublicForGeneratedCode
         //     @JsName("fromByteArray")
@@ -50,8 +50,8 @@ internal fun <M : Message, T> UnknownField.decodeAs(fieldDescriptor: FieldDescri
     }
 
 private fun <T : Any> UnknownField.Value.decodeAs(valueType: ValueType<T>): T {
-    if (valueType.binaryWireType != WireType(wireType)) {
-        throw InvalidProtocolBufferException("Unknown field with wire type $wireType can't be decoded as a '$valueType' field")
+    if (valueType.binaryWireType != WireType(wireValue.wireType)) {
+        throw InvalidProtocolBufferException("Unknown field with wire type ${wireValue.wireType} can't be decoded as a '$valueType' field")
     }
     // TODO
     val wireReader = ByteArrayWireReader(byteArrayOf())

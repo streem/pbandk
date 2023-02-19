@@ -309,7 +309,7 @@ internal sealed class FieldType<KotlinType> {
         internal val keyType: ValueType<K>,
         internal val valueType: ValueType<V>,
     ) : MutableValue<kotlin.collections.Map<K, V>, MutableMap<K, V>>() {
-        private val entryCompanion = MapField.Entry.Companion<K, V>(keyType, valueType)
+        internal val entryCompanion = MapField.Entry.Companion(keyType, valueType)
 
         override fun mergeValues(
             metadata: FieldMetadata,
