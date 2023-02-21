@@ -73,8 +73,10 @@ public open class CodeGenerator(
 
     protected fun writeEnumType(type: File.Type.Enum) {
         line()
+        // TODO: temporarily disabled because interfaces can't be exported in Kotlin 1.5. This can be reenabled after
+        //  upgrading to Kotlin 1.6.20
         // Only mark top-level classes for export, internal classes will be exported transitively
-        if (type.kotlinName.parent == null) line("@pbandk.Export")
+//        if (type.kotlinName.parent == null) line("@pbandk.Export")
         // Enums are sealed interfaces w/ a value and a name, and a companion object with all values
         line("$visibility sealed interface ${type.kotlinName.simple} : pbandk.Message.Enum {").indented {
             // """ (override val value: Int, override val name: String? = null) """
@@ -734,26 +736,24 @@ public open class CodeGenerator(
     protected fun File.Type.Message.sortedStandardFieldsWithOneOfs(): List<Pair<File.Field.Numbered, File.Field.OneOf?>> =
         fields.flatMap {
             when (it) {
-                is File.Field.Numbered.Standard -> listOf(it to null)
-                is File.Field.Numbered.Wrapper -> listOf(it to null)
+                is File.Field.Numbered -> listOf(it to null)
                 is File.Field.OneOf -> it.fields.map { f -> f to it }
             }
         }.sortedBy { it.first.number }
 
-    protected val File.Type.Message.mapEntryKeyField: File.Field.Numbered.Standard?
-        get() = if (!mapEntry) null else (fields[0] as File.Field.Numbered.Standard)
-    protected val File.Type.Message.mapEntryValueField: File.Field.Numbered.Standard?
-        get() = if (!mapEntry) null else (fields[1] as File.Field.Numbered.Standard)
+    protected val File.Type.Message.mapEntryKeyField: File.Field.Numbered?
+        get() = if (!mapEntry) null else (fields[0] as File.Field.Numbered)
+    protected val File.Type.Message.mapEntryValueField: File.Field.Numbered?
+        get() = if (!mapEntry) null else (fields[1] as File.Field.Numbered)
     protected val File.Type.Message.mapEntryKeyKotlinType: String?
-        get() = if (!mapEntry) null else (fields[0] as File.Field.Numbered.Standard).kotlinValueType(false)
+        get() = if (!mapEntry) null else (fields[0] as File.Field.Numbered).kotlinValueType(false)
     protected val File.Type.Message.mapEntryValueKotlinType: String?
-        get() = if (!mapEntry) null else (fields[1] as File.Field.Numbered.Standard).kotlinValueType(false)
+        get() = if (!mapEntry) null else (fields[1] as File.Field.Numbered).kotlinValueType(false)
 
     protected val File.Type.Message.isExtendable: Boolean get() = extensionRange.isNotEmpty()
 
     protected fun File.Field.defaultValue(mutable: Boolean = false): String = when (this) {
-        is File.Field.Numbered.Standard -> defaultValue(mutable)
-        is File.Field.Numbered.Wrapper -> defaultValue(mutable)
+        is File.Field.Numbered -> defaultValue(mutable)
         is File.Field.OneOf -> "null"
     }
     protected val File.Field.mutablePropertyDeclaration: String
@@ -762,6 +762,7 @@ public open class CodeGenerator(
                 repeated -> "val"
                 else -> "var"
             }
+
             is File.Field.OneOf -> "var"
         }
 
@@ -771,16 +772,56 @@ public open class CodeGenerator(
         else -> " = $valueQualifier${kotlinName.simple}"
     }
 
-    protected val File.Field.descriptorName: Name get() =
-        kotlinName.parent?.let { Name(Name(it, "FieldDescriptors"), kotlinName.simple) } ?: kotlinName
+    protected val File.Field.descriptorName: Name
+        get() =
+            kotlinName.parent?.let { Name(Name(it, "FieldDescriptors"), kotlinName.simple) } ?: kotlinName
+
+    protected val File.Field.Numbered.hasPresence: Boolean
+        get() = when (this) {
+            is File.Field.Numbered.Standard -> optional
+            is File.Field.Numbered.Wrapper -> !repeated
+        }
+
+    protected val File.Field.Numbered.kotlinQualifiedTypeName: String
+        get() = when (this) {
+            is File.Field.Numbered.Standard -> kotlinLocalTypeName
+                ?: localTypeName?.let { kotlinTypeMappings.getOrElse(it) { error("Unable to find mapping for $it") } }?.fullWithPackage
+                ?: type.standardTypeName.fullWithPackage
+
+            is File.Field.Numbered.Wrapper -> wrappedKotlinType.fullWithPackage
+        }
 
     protected fun File.Field.Numbered.kotlinValueType(
         nullableIfMessage: Boolean,
         mutable: Boolean = false,
         impl: Boolean = false
-    ): String = when (this) {
-        is File.Field.Numbered.Standard -> kotlinValueType(nullableIfMessage, mutable, impl)
-        is File.Field.Numbered.Wrapper -> kotlinValueType(nullableIfMessage, mutable, impl)
+    ): String = when {
+        this is File.Field.Numbered.Standard && map -> mapEntry()!!.let {
+            val typeName = when {
+                impl && mutable -> "pbandk.gen.MutableMapField"
+                impl && !mutable -> "pbandk.gen.MapField"
+                !impl && mutable -> "MutableMap"
+                !impl && !mutable -> "Map"
+                else -> error("Can't get here")
+            }
+            "$typeName<${it.mapEntryKeyKotlinType}, ${it.mapEntryValueKotlinType}>"
+        }
+
+        repeated -> {
+            val typeName = when {
+                impl && mutable -> "pbandk.gen.MutableListField"
+                impl && !mutable -> "pbandk.gen.ListField"
+                !impl && mutable -> "MutableList"
+                !impl && !mutable -> "List"
+                else -> error("Can't get here")
+            }
+            "$typeName<$kotlinQualifiedTypeName>"
+        }
+
+        (hasPresence || type == File.Field.Type.MESSAGE) && nullableIfMessage ->
+            "$kotlinQualifiedTypeName?"
+
+        else -> kotlinQualifiedTypeName
     }
 
     protected val File.Field.Numbered.extendeeKotlinType: Name?
@@ -802,32 +843,34 @@ public open class CodeGenerator(
     }
 
     protected fun File.Field.Numbered.valueType(parentType: Name): String = buildString {
-        append("pbandk.types.")
-        append(type.string)
-        append('(')
-
         when (this@valueType) {
-            is File.Field.Numbered.Standard -> when (type) {
-                File.Field.Type.MESSAGE, File.Field.Type.ENUM -> {
-                    append(kotlinQualifiedTypeName)
-                    if (kotlinQualifiedTypeName == parentType.fullWithPackage) {
-                        append(", recursive = true")
-                    }
-                }
-
-                else -> {}
+            is File.Field.Numbered.Wrapper -> {
+                append("pbandk.types.")
+                append(this@valueType.localTypeName.substringAfterLast('.').replaceFirstChar { it.lowercase() })
+                append("()")
             }
 
-            // is File.Field.Numbered.Wrapper -> "message(messageCompanion = ${wrappedType.wrapperKotlinTypeName.fullWithPackage}.Companion)"
-            is File.Field.Numbered.Wrapper -> {
-                append(wrappedType.wrapperKotlinTypeName.fullWithPackage)
-                if (wrappedType.wrapperKotlinTypeName.fullWithPackage == parentType.fullWithPackage) {
-                    append(", recursive = true")
+            is File.Field.Numbered.Standard -> {
+                append("pbandk.types.")
+                append(type.string)
+                append('(')
+
+                when (this@valueType.type) {
+                    File.Field.Type.MESSAGE, File.Field.Type.ENUM -> {
+                        append(kotlinQualifiedTypeName)
+                        generateSequence(parentType) { it.parent }
+                            .firstOrNull { kotlinQualifiedTypeName == it.fullWithPackage }
+                            ?.let {
+                                append(", recursive = true")
+                            }
+                    }
+
+                    else -> {}
                 }
+
+                append(')')
             }
         }
-
-        append(')')
     }
 
     protected fun File.Field.Numbered.descriptorFactoryMethod(isOneOfMember: Boolean = false): String = when {
@@ -837,87 +880,28 @@ public open class CodeGenerator(
         } else {
             "pbandk.FieldDescriptor.ofExtension"
         }
+
         repeated -> "pbandk.FieldDescriptor.ofRepeated"
         isOneOfMember -> "pbandk.FieldDescriptor.ofOneof"
-        this is File.Field.Numbered.Standard && (hasPresence || type == File.Field.Type.MESSAGE) -> "pbandk.FieldDescriptor.ofOptional"
-        this is File.Field.Numbered.Wrapper -> "pbandk.FieldDescriptor.ofOptional"
+        hasPresence || type == File.Field.Type.MESSAGE -> "pbandk.FieldDescriptor.ofOptional"
         else -> "pbandk.FieldDescriptor.ofSingular"
     }
 
-    protected val File.Field.Numbered.Standard.hasPresence: Boolean get() = optional
-    protected fun File.Field.Numbered.Standard.mapEntry(): File.Type.Message? =
-        if (!map) null else (localType as? File.Type.Message)?.takeIf { it.mapEntry }
-
-    protected val File.Field.Numbered.Standard.localType: File.Type? get() = localTypeName?.let { findLocalType(it) }
-    protected val File.Field.Numbered.Standard.kotlinQualifiedTypeName: String
-        get() = kotlinLocalTypeName
-            ?: localTypeName?.let { kotlinTypeMappings.getOrElse(it) { error("Unable to find mapping for $it") } }?.fullWithPackage
-            ?: type.standardTypeName.fullWithPackage
-
-    protected fun File.Field.Numbered.Standard.kotlinValueType(
-        nullableIfMessage: Boolean,
-        mutable: Boolean = false,
-        impl: Boolean = false
-    ): String = when {
-        map -> mapEntry()!!.let {
-            val typeName = when {
-                impl && mutable -> "pbandk.gen.MutableMapField"
-                impl && !mutable -> "pbandk.gen.MapField"
-                !impl && mutable -> "MutableMap"
-                !impl && !mutable -> "Map"
-                else -> error("Can't get here")
-            }
-            "$typeName<${it.mapEntryKeyKotlinType}, ${it.mapEntryValueKotlinType}>"
-        }
-        repeated -> {
-            val typeName = when {
-                impl && mutable -> "pbandk.gen.MutableListField"
-                impl && !mutable -> "pbandk.gen.ListField"
-                !impl && mutable -> "MutableList"
-                !impl && !mutable -> "List"
-                else -> error("Can't get here")
-            }
-            "$typeName<$kotlinQualifiedTypeName>"
-        }
-        (hasPresence || type == File.Field.Type.MESSAGE) && nullableIfMessage ->
-            "$kotlinQualifiedTypeName?"
-        else -> kotlinQualifiedTypeName
-    }
-
-    protected fun File.Field.Numbered.Standard.defaultValue(mutable: Boolean = false): String = when {
-        map -> if (mutable) {
+    protected fun File.Field.Numbered.defaultValue(mutable: Boolean = false): String = when {
+        this is File.Field.Numbered.Standard && map -> if (mutable) {
             "pbandk.gen.MutableMapField(${descriptorName.fullWithPackage})"
         } else {
             "emptyMap()"
         }
+
         repeated -> if (mutable) "pbandk.gen.MutableListField(${descriptorName.fullWithPackage})" else "emptyList()"
         hasPresence -> "null"
         type == File.Field.Type.ENUM -> "$kotlinQualifiedTypeName.fromValue(0)"
         else -> type.defaultValue
     }
 
-    protected fun File.Field.Numbered.Wrapper.kotlinValueType(
-        nullableIfMessage: Boolean,
-        mutable: Boolean = false,
-        impl: Boolean = false
-    ): String = when {
-        repeated -> {
-            val typeName = when {
-                impl && mutable -> "pbandk.gen.MutableListField"
-                impl && !mutable -> "pbandk.gen.ListField"
-                !impl && mutable -> "MutableList"
-                !impl && !mutable -> "List"
-                else -> error("Can't get here")
-            }
-            "$typeName<${wrappedType.standardTypeName.fullWithPackage}>"
-        }
-        else -> wrappedType.standardTypeName.fullWithPackage + if (nullableIfMessage) "?" else ""
-    }
-
-    protected fun File.Field.Numbered.Wrapper.defaultValue(mutable: Boolean = false): String = when {
-        repeated -> if (mutable) "pbandk.gen.MutableListField(${descriptorName.fullWithPackage})" else "emptyList()"
-        else -> "null"
-    }
+    protected fun File.Field.Numbered.Standard.mapEntry(): File.Type.Message? =
+        if (!map) null else (localTypeName?.let { findLocalType(it) } as? File.Type.Message)?.takeIf { it.mapEntry }
 
     protected fun File.Field.OneOf.oneofDescriptorType(typeName: Name): String {
         return "pbandk.OneofDescriptor<${typeName.fullWithPackage}, ${kotlinTypeName.fullWithPackage}<*>>"
@@ -977,9 +961,6 @@ public open class CodeGenerator(
             File.Field.Type.MESSAGE -> "null"
             File.Field.Type.STRING -> "\"\""
         }
-    protected val File.Field.Type.wrapperKotlinTypeName: Name
-        get() = kotlinTypeMappings[wrapperTypeName.fullWithPackage] ?: error("No Kotlin type found for wrapper")
-
 
     private fun generateFieldDescriptorConstructor(
         field: File.Field.Numbered,

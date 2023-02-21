@@ -147,8 +147,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         usedTypeNames: MutableSet<String>
     ): File.Field.OneOf {
         val fields = oneofFields.map {
-            // wrapper fields are not supposed to be used inside of oneof's
-            numberedFieldFromProto(ctx, msgName, msgKotlinName, it, mutableSetOf(), true) as File.Field.Numbered.Standard
+            numberedFieldFromProto(ctx, msgName, msgKotlinName, it, mutableSetOf(), true)
         }
         val kotlinTypeName = Name(msgKotlinName, namer.newTypeName(oneofName, usedTypeNames).also {
             usedTypeNames += it
@@ -175,32 +174,50 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         alwaysRequired: Boolean = false
     ): File.Field.Numbered {
         val type = fromProto(fieldDesc.type ?: error("Missing field type"))
-        val wrappedType = fieldDesc.typeName
-            ?.takeIf { type == File.Field.Type.MESSAGE && it.startsWith(".google.protobuf")}
-            ?.let { File.Field.Type.WRAPPER_TYPE_NAME_TO_TYPE[Name(".google.protobuf", it.removePrefix(".google.protobuf."))] }
+        val wrappedKotlinType = fieldDesc.typeName
+            ?.takeIf { type == File.Field.Type.MESSAGE && it.startsWith(".google.protobuf") }
+            ?.let {
+                File.Type.Message.CustomKotlinTypeMappings[
+                    Name(".google.protobuf", it.removePrefix(".google.protobuf."))
+                ]
+            }
         val simpleKotlinName = namer.newFieldName(fieldDesc.name!!, usedFieldNames).also {
             usedFieldNames += it
         }
 
-        return if (wrappedType != null) {
+        return if (wrappedKotlinType != null) {
+            // TODO deal with wrapped messages inside of oneofs
             File.Field.Numbered.Wrapper(
                 number = fieldDesc.number!!,
                 name = msgName?.let { Name(it, fieldDesc.name!!) } ?: Name(ctx.packageName, fieldDesc.name!!),
-                kotlinName = msgKotlinName?.let { Name(it, simpleKotlinName) } ?: Name(ctx.kotlinPackageName, simpleKotlinName),
+                kotlinName = msgKotlinName?.let { Name(it, simpleKotlinName) } ?: Name(
+                    ctx.kotlinPackageName,
+                    simpleKotlinName
+                ),
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
                 jsonName = fieldDesc.jsonName!!,
-                wrappedType = wrappedType,
                 options = fieldDesc.options ?: FieldOptions.defaultInstance,
-                extendee = fieldDesc.extendee
+                extendee = fieldDesc.extendee,
+                localTypeName = fieldDesc.typeName!!,
+                wrappedKotlinType = wrappedKotlinType,
             )
         } else {
             File.Field.Numbered.Standard(
                 number = fieldDesc.number!!,
                 name = msgName?.let { Name(it, fieldDesc.name!!) } ?: Name(ctx.packageName, fieldDesc.name!!),
-                type = type,
-                localTypeName = fieldDesc.typeName,
+                kotlinName = msgKotlinName?.let { Name(it, simpleKotlinName) } ?: Name(
+                    ctx.kotlinPackageName,
+                    simpleKotlinName
+                ),
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
                 jsonName = fieldDesc.jsonName!!,
+                options = fieldDesc.options ?: FieldOptions.defaultInstance,
+                extendee = fieldDesc.extendee,
+                localTypeName = fieldDesc.typeName,
+                kotlinLocalTypeName = fieldDesc.typeName?.takeUnless { it.startsWith('.') }?.let {
+                    namer.newTypeName(it, emptySet())
+                },
+                type = type,
                 optional = !alwaysRequired &&
                         ((fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL && ctx.fileDesc.usesProto2Syntax) ||
                                 // Extension fields follow the rules of the message they're extending, regardless of
@@ -214,12 +231,6 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                         fieldDesc.label == FieldDescriptorProto.Label.REPEATED &&
                         fieldDesc.type == FieldDescriptorProto.Type.MESSAGE &&
                         ctx.findLocalMessage(fieldDesc.typeName!!)?.options?.mapEntry == true,
-                kotlinName = msgKotlinName?.let { Name(it, simpleKotlinName) } ?: Name(ctx.kotlinPackageName, simpleKotlinName),
-                kotlinLocalTypeName = fieldDesc.typeName?.takeUnless { it.startsWith('.') }?.let {
-                    namer.newTypeName(it, emptySet())
-                },
-                options = fieldDesc.options ?: FieldOptions.defaultInstance,
-                extendee = fieldDesc.extendee
             )
         }
     }

@@ -37,11 +37,18 @@ internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse 
             val needToGenerate = request.fileToGenerate.contains(protoFile.name)
 
             // Convert the file to our model
-            val file = FileBuilder.buildFile(FileBuilder.Context(protoFile, params.let {
-                // As a special case, if we're not generating it but it's a well-known type package, change it our known one
-                if (needToGenerate || packageName != "google.protobuf") it
-                else it + ("kotlin_package" to "pbandk.wkt")
-            }))
+            val file = FileBuilder.buildFile(
+                FileBuilder.Context(
+                    fileDesc = protoFile,
+                    // As a special case, if we're not generating it but it's a well-known type package, change it to our
+                    // known one
+                    params = if (needToGenerate || packageName != "google.protobuf") {
+                        params
+                    } else {
+                        params + ("kotlin_package" to "pbandk.wkt")
+                    },
+                )
+            )
 
             // Update the type mappings
             kotlinTypeMappings += file.kotlinTypeMappings()
