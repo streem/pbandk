@@ -8,6 +8,9 @@ import pbandk.testpb.ForeignEnum
 import pbandk.testpb.ForeignMessage
 import pbandk.testpb.MapEntry
 import pbandk.testpb.TestAllTypesProto3
+import pbandk.types.enum
+import pbandk.types.message
+import pbandk.types.string
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
@@ -24,14 +27,14 @@ class MapTest {
     fun testMapEntryEquivalence() {
         val testWithMapFieldEntries = TestAllTypesProto3 {
             mapStringForeignMessage += MapField.of(
-                FieldDescriptor.Type.string(),
-                FieldDescriptor.Type.message(ForeignMessage),
+                string(),
+                message(ForeignMessage),
                 "a" to ForeignMessage {},
                 "b" to ForeignMessage { c = 5 },
             )
             mapStringForeignEnum += MapField.of(
-                FieldDescriptor.Type.string(),
-                FieldDescriptor.Type.enum(ForeignEnum),
+                string(),
+                enum(ForeignEnum),
                 "a" to ForeignEnum.FOREIGN_FOO,
                 "b" to ForeignEnum.FOREIGN_BAR
             )

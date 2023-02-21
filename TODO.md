@@ -35,6 +35,8 @@
 - [ ] Make sure maps are deserialized properly: null keys and null values should be replaced with default values
     - include unknown field decoding
 - [X] Refactor `FieldDescriptor` to split out a separate `FieldAccessor`
+- [ ] Update to Kotlin 1.8
+- [ ] Update to latest protobuf conformance tests
 
 ## FieldType / ValueType
 
@@ -48,6 +50,7 @@
 - [ ] Update binary decoding to stop passing around the `tag` and to include the wire type in the value decoder type
 - [X] Ensure that decoding multiple message field values in the same message will merge all of the messages
 - [ ] Update unknown field decoding to work with new decoders
+- [ ] Write unit test for recursively-nested protobuf message
 
 ## Later
 

@@ -1,6 +1,7 @@
 package pbandk.pbandk
 
 import org.junit.Test
+import pbandk.internal.types.FieldType
 import pbandk.kotlinJavaRoundtripTest
 import pbandk.testpb.Proto3Presence
 import pbandk.testpb.Proto3PresenceEnum
@@ -18,9 +19,9 @@ class JvmProto3PresenceTest {
         fieldsPairs.forEach { (field, jField) ->
             // If instead of assertEquals, to generate more verbose error messages.
             if (jField.hasPresence()) {
-                assertTrue("${field.name} should have presence.") { field.type.hasPresence }
+                assertTrue("${field.name} should have presence.") { field.fieldType is FieldType.Optional }
             } else {
-                assertFalse("${field.name} should NOT have presence.") { field.type.hasPresence }
+                assertFalse("${field.name} should NOT have presence.") { field.fieldType is FieldType.Optional }
             }
         }
     }

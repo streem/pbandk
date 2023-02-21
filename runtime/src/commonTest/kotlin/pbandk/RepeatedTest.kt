@@ -3,6 +3,7 @@ package pbandk
 import pbandk.gen.MutableListField
 import pbandk.testpb.Bar
 import pbandk.testpb.Foo
+import pbandk.types.int32
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
@@ -21,7 +22,7 @@ class RepeatedTest {
     @Test
     fun testListWithSizeEquality() {
         val list1 = listOf(1, 2, 3)
-        val list2 = MutableListField<Int>(FieldDescriptor.Type.int32()).apply {
+        val list2 = MutableListField(int32()).apply {
             add(1)
             add(2)
             add(3)
@@ -33,4 +34,3 @@ class RepeatedTest {
         assertEquals(list1, list2)
     }
 }
-

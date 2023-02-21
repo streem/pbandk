@@ -1,6 +1,7 @@
 package pbandk
 
 import pbandk.internal.types.MessageValueType
+import pbandk.internal.types.wkt.customJsonMappings
 import pbandk.types.ValueType
 import kotlin.reflect.KClass
 
@@ -65,7 +66,10 @@ public class MessageDescriptor<M : Message> private constructor(
             metadata = metadata,
             messageClass = messageClass,
             builder = builder,
-            messageValueType = MessageValueType(messageCompanion),
+            messageValueType = customJsonMappings[messageCompanion]?.let {
+                @Suppress("UNCHECKED_CAST")
+                it as? MessageValueType<M>
+            } ?: MessageValueType(messageCompanion),
             // Keep fields sorted by number so that message encoding outputs fields in order by number. This is not
             // required by the protobuf encoding spec, but is recommended (and is implemented by the official C++, Java,
             // and Python implementations).

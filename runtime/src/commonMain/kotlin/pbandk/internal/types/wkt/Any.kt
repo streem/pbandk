@@ -60,7 +60,7 @@ private inline fun <T : Message> encodeToJson(
     val unpackedMessage = value.unpack(valueCompanion)
     encoder.encodeObject { fieldEncoder ->
         fieldEncoder.encodeField("@type") { it.encodeString(value.typeUrl) }
-        customJsonMappings[valueCompanion.descriptor]?.let { valueType ->
+        customJsonMappings[valueCompanion]?.let { valueType ->
             @Suppress("UNCHECKED_CAST")
             valueType as WktValueType<*, T>
 
@@ -80,7 +80,7 @@ private inline fun <T : Message> decodeFromJson(
     typeUrl: String,
     decoder: JsonFieldDecoder,
 ): Any {
-    val message = customJsonMappings[valueCompanion.descriptor]?.let { valueType ->
+    val message = customJsonMappings[valueCompanion]?.let { valueType ->
         @Suppress("UNCHECKED_CAST")
         valueType as WktValueType<*, T>
 

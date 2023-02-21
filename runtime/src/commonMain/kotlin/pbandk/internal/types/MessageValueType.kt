@@ -132,7 +132,7 @@ internal open class MessageValueType<M : Message>(val companion: Message.Compani
 
     override fun encodeToJson(value: M, encoder: JsonFieldValueEncoder) {
         @Suppress("UNCHECKED_CAST")
-        val customValueType = customJsonMappings[value.messageDescriptor] as? WktValueType<*, M>?
+        val customValueType = customJsonMappings[value.messageDescriptor.messageCompanion] as? WktValueType<*, M>?
 
         if (customValueType != null) {
             customValueType.encodeMessageToJson(value, encoder)

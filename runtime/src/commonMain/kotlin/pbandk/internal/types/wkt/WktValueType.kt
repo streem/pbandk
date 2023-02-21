@@ -2,7 +2,6 @@ package pbandk.internal.types.wkt
 
 import pbandk.json.JsonFieldValueEncoder
 import pbandk.Message
-import pbandk.MessageDescriptor
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.types.ValueType
 
@@ -13,20 +12,20 @@ internal interface WktValueType<KotlinType : kotlin.Any, MessageType : Message> 
     fun decodeMessageFromJson(decoder: JsonFieldValueDecoder): MessageType
 }
 
-internal val customJsonMappings: Map<MessageDescriptor<*>, WktValueType<*, *>> = mapOf(
-    pbandk.wkt.Any.descriptor to Any,
-    pbandk.wkt.BoolValue.descriptor to BoolValue,
-    pbandk.wkt.BytesValue.descriptor to BytesValue,
-    pbandk.wkt.DoubleValue.descriptor to DoubleValue,
-    pbandk.wkt.Duration.descriptor to Duration,
-    pbandk.wkt.FloatValue.descriptor to FloatValue,
-    pbandk.wkt.Int32Value.descriptor to Int32Value,
-    pbandk.wkt.Int64Value.descriptor to Int64Value,
-    pbandk.wkt.ListValue.descriptor to ListValue,
-    pbandk.wkt.StringValue.descriptor to StringValue,
-    pbandk.wkt.Struct.descriptor to Struct,
-    pbandk.wkt.Timestamp.descriptor to Timestamp,
-    pbandk.wkt.UInt32Value.descriptor to UInt32Value,
-    pbandk.wkt.UInt64Value.descriptor to UInt64Value,
-    pbandk.wkt.Value.descriptor to Value,
+internal val customJsonMappings: Map<Message.Companion<*>, WktValueType<*, *>> = mapOf(
+    pbandk.wkt.Any to Any,
+    pbandk.wkt.BoolValue to BoolValue,
+    pbandk.wkt.BytesValue to BytesValue,
+    pbandk.wkt.DoubleValue to DoubleValue,
+    pbandk.wkt.Duration to Duration,
+    pbandk.wkt.FloatValue to FloatValue,
+    pbandk.wkt.Int32Value to Int32Value,
+    pbandk.wkt.Int64Value to Int64Value,
+    pbandk.wkt.ListValue to ListValue,
+    pbandk.wkt.StringValue to StringValue,
+    pbandk.wkt.Struct to Struct,
+    pbandk.wkt.Timestamp to Timestamp,
+    pbandk.wkt.UInt32Value to UInt32Value,
+    pbandk.wkt.UInt64Value to UInt64Value,
+    pbandk.wkt.Value to Value,
 )
