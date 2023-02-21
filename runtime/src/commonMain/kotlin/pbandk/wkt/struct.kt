@@ -3,7 +3,6 @@
 
 package pbandk.wkt
 
-@pbandk.Export
 public sealed interface NullValue : pbandk.Message.Enum {
     override val descriptor: pbandk.EnumDescriptor<pbandk.wkt.NullValue>
         get() = pbandk.wkt.NullValue.descriptor
@@ -64,7 +63,7 @@ public sealed interface Struct : pbandk.Message {
                 name = "fields",
                 number = 1,
                 keyType = pbandk.types.string(),
-                valueType = pbandk.types.message(pbandk.wkt.Value),
+                valueType = pbandk.types.value(),
                 jsonName = "fields",
                 value = pbandk.wkt.Struct::fields,
                 mutableValue = pbandk.wkt.MutableStruct::fields,
@@ -193,7 +192,7 @@ public sealed interface Value : pbandk.Message {
                 messageMetadata = pbandk.wkt.Value.messageMetadata,
                 name = "struct_value",
                 number = 5,
-                valueType = pbandk.types.message(pbandk.wkt.Struct),
+                valueType = pbandk.types.struct(),
                 jsonName = "structValue",
                 value = pbandk.wkt.Value::structValue,
                 mutableValue = pbandk.wkt.MutableValue::structValue,
@@ -204,7 +203,7 @@ public sealed interface Value : pbandk.Message {
                 messageMetadata = pbandk.wkt.Value.messageMetadata,
                 name = "list_value",
                 number = 6,
-                valueType = pbandk.types.message(pbandk.wkt.ListValue),
+                valueType = pbandk.types.listValue(),
                 jsonName = "listValue",
                 value = pbandk.wkt.Value::listValue,
                 mutableValue = pbandk.wkt.MutableValue::listValue,
@@ -290,7 +289,7 @@ public sealed interface ListValue : pbandk.Message {
                 messageMetadata = pbandk.wkt.ListValue.messageMetadata,
                 name = "values",
                 number = 1,
-                valueType = pbandk.types.message(pbandk.wkt.Value),
+                valueType = pbandk.types.value(),
                 jsonName = "values",
                 value = pbandk.wkt.ListValue::values,
                 mutableValue = pbandk.wkt.MutableListValue::values,

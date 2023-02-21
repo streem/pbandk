@@ -3,7 +3,6 @@
 
 package pbandk.wkt
 
-@pbandk.Export
 public sealed interface Syntax : pbandk.Message.Enum {
     override val descriptor: pbandk.EnumDescriptor<pbandk.wkt.Syntax>
         get() = pbandk.wkt.Syntax.descriptor
@@ -781,7 +780,7 @@ public sealed interface Option : pbandk.Message {
                 messageMetadata = pbandk.wkt.Option.messageMetadata,
                 name = "value",
                 number = 2,
-                valueType = pbandk.types.message(pbandk.wkt.Any),
+                valueType = pbandk.types.any(),
                 jsonName = "value",
                 value = pbandk.wkt.Option::value,
                 mutableValue = pbandk.wkt.MutableOption::value,

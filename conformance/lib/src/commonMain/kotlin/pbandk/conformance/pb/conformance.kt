@@ -3,7 +3,6 @@
 
 package pbandk.conformance.pb
 
-@pbandk.Export
 public sealed interface WireFormat : pbandk.Message.Enum {
     override val descriptor: pbandk.EnumDescriptor<pbandk.conformance.pb.WireFormat>
         get() = pbandk.conformance.pb.WireFormat.descriptor
@@ -50,7 +49,6 @@ public sealed interface WireFormat : pbandk.Message.Enum {
     }
 }
 
-@pbandk.Export
 public sealed interface TestCategory : pbandk.Message.Enum {
     override val descriptor: pbandk.EnumDescriptor<pbandk.conformance.pb.TestCategory>
         get() = pbandk.conformance.pb.TestCategory.descriptor

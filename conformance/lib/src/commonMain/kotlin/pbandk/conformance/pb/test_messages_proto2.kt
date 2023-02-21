@@ -3,7 +3,6 @@
 
 package pbandk.conformance.pb
 
-@pbandk.Export
 public sealed interface ForeignEnumProto2 : pbandk.Message.Enum {
     override val descriptor: pbandk.EnumDescriptor<pbandk.conformance.pb.ForeignEnumProto2>
         get() = pbandk.conformance.pb.ForeignEnumProto2.descriptor
@@ -2016,7 +2015,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                     messageMetadata = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.messageMetadata,
                     name = "corecursive",
                     number = 2,
-                    valueType = pbandk.types.message(pbandk.conformance.pb.TestAllTypesProto2),
+                    valueType = pbandk.types.message(pbandk.conformance.pb.TestAllTypesProto2, recursive = true),
                     jsonName = "corecursive",
                     value = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage::corecursive,
                     mutableValue = pbandk.conformance.pb.TestAllTypesProto2.MutableNestedMessage::corecursive,

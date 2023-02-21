@@ -3,7 +3,6 @@
 
 package pbandk.testpb
 
-@pbandk.Export
 public sealed interface Proto3PresenceEnum : pbandk.Message.Enum {
     override val descriptor: pbandk.EnumDescriptor<pbandk.testpb.Proto3PresenceEnum>
         get() = pbandk.testpb.Proto3PresenceEnum.descriptor
