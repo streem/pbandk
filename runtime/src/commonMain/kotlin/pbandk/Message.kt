@@ -4,6 +4,9 @@ import pbandk.internal.binary.BinaryMessageEncoder
 import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.allocate
 import pbandk.internal.binary.fromByteArray
+import pbandk.internal.types.MessageValueType
+import pbandk.internal.types.wkt.customJsonMappings
+import pbandk.types.ValueType
 import kotlin.js.JsExport
 
 public interface Message {
@@ -25,9 +28,17 @@ public interface Message {
     @ExperimentalProtoReflection
     public fun <V> getFieldValue(fieldDescriptor: FieldDescriptor<*, V>): V
 
-    public interface Companion<M : Message> {
-        public val descriptor: MessageDescriptor<M>
-        public val defaultInstance: M
+    public abstract class Companion<M : Message> {
+        public abstract val descriptor: MessageDescriptor<M>
+        public abstract val defaultInstance: M
+
+        @PublicForGeneratedCode
+        public val messageValueType: ValueType<M> by lazy {
+            customJsonMappings[this]?.let {
+                @Suppress("UNCHECKED_CAST")
+                it as? MessageValueType<M>
+            } ?: MessageValueType(this)
+        }
     }
 
     public interface Enum {

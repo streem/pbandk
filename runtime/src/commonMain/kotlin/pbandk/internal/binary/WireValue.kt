@@ -1,5 +1,7 @@
 package pbandk.internal.binary
 
+import pbandk.PbandkInternal
+import pbandk.PublicForGeneratedCode
 import pbandk.UnknownField
 import pbandk.binary.WireType
 import kotlin.jvm.JvmInline
@@ -12,7 +14,10 @@ public sealed interface WireValue {
     public val size: Int
 
     @JvmInline
-    public value class Varint internal constructor(internal val value: ULong) : WireValue {
+    public value class Varint @PublicForGeneratedCode constructor(
+        @property:PbandkInternal
+        public val value: ULong
+    ) : WireValue {
         override val wireType: Int get() = WireType.VARINT.value
 
         /*
@@ -68,7 +73,10 @@ public sealed interface WireValue {
     }
 
     @JvmInline
-    public value class I32 internal constructor(internal val value: UInt) : WireValue {
+    public value class I32 @PublicForGeneratedCode constructor(
+        @property:PbandkInternal
+        public val value: UInt
+    ) : WireValue {
         override val wireType: Int get() = WireType.FIXED32.value
 
         override val size: Int get() = 4
@@ -85,7 +93,10 @@ public sealed interface WireValue {
     }
 
     @JvmInline
-    public value class I64 internal constructor(internal val value: ULong) : WireValue {
+    public value class I64 @PublicForGeneratedCode constructor(
+        @property:PbandkInternal
+        public val value: ULong
+    ) : WireValue {
         override val wireType: Int get() = WireType.FIXED64.value
 
         override val size: Int get() = 8
@@ -102,7 +113,10 @@ public sealed interface WireValue {
     }
 
     @JvmInline
-    public value class Len internal constructor(internal val value: ByteArray) : WireValue {
+    public value class Len @PublicForGeneratedCode constructor(
+        @property:PbandkInternal
+        public val value: ByteArray
+    ) : WireValue {
         override val wireType: Int get() = WireType.LENGTH_DELIMITED.value
 
         override val size: Int get() = sizeWithLenPrefix(value.size)

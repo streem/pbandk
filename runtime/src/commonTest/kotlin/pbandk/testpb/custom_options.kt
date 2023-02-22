@@ -35,13 +35,21 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
                 valueType = pbandk.types.string(),
                 jsonName = "single",
                 options = pbandk.wkt.FieldOptions {
+                    unknownFields += mapOf(
+                        1071 to pbandk.UnknownField(
+                            fieldNum = 1071,
+                            values = listOf(
+                                pbandk.UnknownField.Value(wireValue = pbandk.internal.binary.WireValue.Len(byteArrayOf(-118, 1, 2, 16, 1))),
+                            )
+                        ),
+                    )
                 },
                 value = pbandk.testpb.SingleRequiredCustomOption::single,
                 mutableValue = pbandk.testpb.MutableSingleRequiredCustomOption::single,
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.SingleRequiredCustomOption> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.SingleRequiredCustomOption>() {
         override val defaultInstance: pbandk.testpb.SingleRequiredCustomOption by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.SingleRequiredCustomOption {}
         }
@@ -100,13 +108,22 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
                 valueType = pbandk.types.string(),
                 jsonName = "multiple",
                 options = pbandk.wkt.FieldOptions {
+                    unknownFields += mapOf(
+                        1071 to pbandk.UnknownField(
+                            fieldNum = 1071,
+                            values = listOf(
+                                pbandk.UnknownField.Value(wireValue = pbandk.internal.binary.WireValue.Len(byteArrayOf(-118, 1, 2, 16, 1))),
+                                pbandk.UnknownField.Value(wireValue = pbandk.internal.binary.WireValue.Len(byteArrayOf(114, 2, 16, 10))),
+                            )
+                        ),
+                    )
                 },
                 value = pbandk.testpb.MultipleCustomOptions::multiple,
                 mutableValue = pbandk.testpb.MutableMultipleCustomOptions::multiple,
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptions> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptions>() {
         override val defaultInstance: pbandk.testpb.MultipleCustomOptions by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.MultipleCustomOptions {}
         }
@@ -168,13 +185,22 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
                 jsonName = "multipleDeprecated",
                 options = pbandk.wkt.FieldOptions {
                     deprecated = true
+                    unknownFields += mapOf(
+                        1071 to pbandk.UnknownField(
+                            fieldNum = 1071,
+                            values = listOf(
+                                pbandk.UnknownField.Value(wireValue = pbandk.internal.binary.WireValue.Len(byteArrayOf(114, 2, 24, 32))),
+                                pbandk.UnknownField.Value(wireValue = pbandk.internal.binary.WireValue.Len(byteArrayOf(114, 2, 16, 10))),
+                            )
+                        ),
+                    )
                 },
                 value = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::multipleDeprecated,
                 mutableValue = pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated::multipleDeprecated,
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptionsPlusDeprecated>() {
         override val defaultInstance: pbandk.testpb.MultipleCustomOptionsPlusDeprecated by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.MultipleCustomOptionsPlusDeprecated {}
         }

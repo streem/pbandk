@@ -1,11 +1,12 @@
 package pbandk.internal.types.wkt
 
 import pbandk.InvalidProtocolBufferException
-import pbandk.internal.Util
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.BinaryFieldValueEncoder
 import pbandk.binary.WireType
 import pbandk.binary.tryDecodeField
+import pbandk.internal.Util
+import pbandk.internal.types.MessageValueType
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.json.JsonFieldValueEncoder
 import pbandk.wkt.Duration
@@ -13,6 +14,8 @@ import kotlin.time.ExperimentalTime
 
 @OptIn(ExperimentalTime::class)
 internal object DurationNew : WktValueType<kotlin.time.Duration, Duration> {
+    override val companion = Duration
+
     private val secondsField = Duration.FieldDescriptors.seconds
     private val nanosField = Duration.FieldDescriptors.nanos
 
@@ -98,7 +101,7 @@ internal object DurationNew : WktValueType<kotlin.time.Duration, Duration> {
         throw UnsupportedOperationException("google.protobuf.Duration cannot be used as a map key")
 }
 
-internal object Duration : WktMessageValueType<Duration>(Duration) {
+internal object Duration : MessageValueType<Duration>(Duration) {
     override fun encodeToJson(value: Duration, encoder: JsonFieldValueEncoder) {
         encoder.encodeString(Util.durationToString(value))
     }

@@ -2,19 +2,20 @@ package pbandk.internal.types.wkt
 
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
-import pbandk.gen.messageDescriptor
+import pbandk.gen.AbstractGeneratedMessage
 import pbandk.getTypeNameFromTypeUrl
 import pbandk.getTypePrefixFromTypeUrl
 import pbandk.getTypeUrl
 import pbandk.internal.json.JsonFieldDecoder
+import pbandk.internal.types.MessageValueType
+import pbandk.internal.types.findByJsonName
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.json.JsonFieldValueEncoder
-import pbandk.internal.types.findByJsonName
 import pbandk.pack
 import pbandk.unpack
 import pbandk.wkt.Any
 
-internal object Any : WktMessageValueType<Any>(Any) {
+internal object Any : MessageValueType<Any>(Any) {
     override fun encodeToJson(value: Any, encoder: JsonFieldValueEncoder) {
         val valueCompanion = encoder.jsonConfig.typeRegistry.getTypeUrl(value.typeUrl)?.messageCompanion
             ?: throw InvalidProtocolBufferException("Type URL not found in type registry: ${value.typeUrl}")
@@ -60,15 +61,21 @@ private inline fun <T : Message> encodeToJson(
     val unpackedMessage = value.unpack(valueCompanion)
     encoder.encodeObject { fieldEncoder ->
         fieldEncoder.encodeField("@type") { it.encodeString(value.typeUrl) }
-        customJsonMappings[valueCompanion]?.let { valueType ->
+        val customValueType = customJsonMappings[valueCompanion]
+        if (customValueType != null) {
             @Suppress("UNCHECKED_CAST")
-            valueType as WktValueType<*, T>
+            customValueType as WktValueType<*, T>
 
             fieldEncoder.encodeField("value") {
-                valueType.encodeMessageToJson(unpackedMessage, it)
+                customValueType.encodeMessageToJson(unpackedMessage, it)
             }
-        } ?: value.messageDescriptor.fields.forEach { fieldDescriptor ->
-            fieldDescriptor.encodeToJson(fieldEncoder, value)
+        } else {
+            @Suppress("UNCHECKED_CAST")
+            unpackedMessage as AbstractGeneratedMessage<T>
+
+            unpackedMessage.fieldDescriptors(ordered = true).forEach { fd ->
+                fd.encodeToJson(fieldEncoder, unpackedMessage)
+            }
         }
     }
 }

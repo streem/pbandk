@@ -73,7 +73,7 @@ public sealed interface Proto3PresenceMessage : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.Proto3PresenceMessage> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Proto3PresenceMessage>() {
         override val defaultInstance: pbandk.testpb.Proto3PresenceMessage by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Proto3PresenceMessage {}
         }
@@ -273,7 +273,7 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.Proto3PresenceMain> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Proto3PresenceMain>() {
         override val defaultInstance: pbandk.testpb.Proto3PresenceMain by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Proto3PresenceMain {}
         }

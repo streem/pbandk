@@ -26,7 +26,7 @@ public interface MapField<K : Any, V : Any> : Map<K, V> {
         public class Companion<K : Any, V : Any>(
             internal val keyType: ValueType<K>,
             internal val valueType: ValueType<V>,
-        ) : Message.Companion<Entry<K, V>> {
+        ) : Message.Companion<Entry<K, V>>() {
             private fun entryBuilder(builderAction: MutableMapField.MutableEntry<K, V>.() -> Unit): Entry<K, V> =
                 MutableMapFieldEntry(keyType.defaultValue, valueType.defaultValue, this).also(builderAction)
 

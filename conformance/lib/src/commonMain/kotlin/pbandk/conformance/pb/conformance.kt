@@ -138,7 +138,7 @@ public sealed interface FailureSet : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.FailureSet> {
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.FailureSet>() {
         override val defaultInstance: pbandk.conformance.pb.FailureSet by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.conformance.pb.FailureSet {}
         }
@@ -329,7 +329,7 @@ public sealed interface ConformanceRequest : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceRequest> {
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceRequest>() {
         override val defaultInstance: pbandk.conformance.pb.ConformanceRequest by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.conformance.pb.ConformanceRequest {}
         }
@@ -532,7 +532,7 @@ public sealed interface ConformanceResponse : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceResponse> {
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceResponse>() {
         override val defaultInstance: pbandk.conformance.pb.ConformanceResponse by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.conformance.pb.ConformanceResponse {}
         }
@@ -604,7 +604,7 @@ public sealed interface JspbEncodingConfig : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.JspbEncodingConfig> {
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.JspbEncodingConfig>() {
         override val defaultInstance: pbandk.conformance.pb.JspbEncodingConfig by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.conformance.pb.JspbEncodingConfig {}
         }

@@ -117,7 +117,7 @@ public sealed interface Api : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Api>() {
         override val defaultInstance: pbandk.wkt.Api by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Api {}
         }
@@ -270,7 +270,7 @@ public sealed interface Method : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Method>() {
         override val defaultInstance: pbandk.wkt.Method by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Method {}
         }
@@ -358,7 +358,7 @@ public sealed interface Mixin : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin>() {
         override val defaultInstance: pbandk.wkt.Mixin by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Mixin {}
         }

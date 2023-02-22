@@ -39,7 +39,7 @@ public sealed interface SourceContext : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext>() {
         override val defaultInstance: pbandk.wkt.SourceContext by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.SourceContext {}
         }

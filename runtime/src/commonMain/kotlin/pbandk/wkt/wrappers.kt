@@ -39,7 +39,7 @@ public sealed interface DoubleValue : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.DoubleValue> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.DoubleValue>() {
         override val defaultInstance: pbandk.wkt.DoubleValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.DoubleValue {}
         }
@@ -102,7 +102,7 @@ public sealed interface FloatValue : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.FloatValue> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.FloatValue>() {
         override val defaultInstance: pbandk.wkt.FloatValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.FloatValue {}
         }
@@ -165,7 +165,7 @@ public sealed interface Int64Value : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Int64Value> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Int64Value>() {
         override val defaultInstance: pbandk.wkt.Int64Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Int64Value {}
         }
@@ -228,7 +228,7 @@ public sealed interface UInt64Value : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.UInt64Value> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.UInt64Value>() {
         override val defaultInstance: pbandk.wkt.UInt64Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.UInt64Value {}
         }
@@ -291,7 +291,7 @@ public sealed interface Int32Value : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Int32Value> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Int32Value>() {
         override val defaultInstance: pbandk.wkt.Int32Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Int32Value {}
         }
@@ -354,7 +354,7 @@ public sealed interface UInt32Value : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.UInt32Value> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.UInt32Value>() {
         override val defaultInstance: pbandk.wkt.UInt32Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.UInt32Value {}
         }
@@ -417,7 +417,7 @@ public sealed interface BoolValue : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.BoolValue> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.BoolValue>() {
         override val defaultInstance: pbandk.wkt.BoolValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.BoolValue {}
         }
@@ -480,7 +480,7 @@ public sealed interface StringValue : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.StringValue> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.StringValue>() {
         override val defaultInstance: pbandk.wkt.StringValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.StringValue {}
         }
@@ -543,7 +543,7 @@ public sealed interface BytesValue : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.BytesValue> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.BytesValue>() {
         override val defaultInstance: pbandk.wkt.BytesValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.BytesValue {}
         }

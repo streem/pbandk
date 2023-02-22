@@ -1,11 +1,12 @@
 package pbandk.internal.types.wkt
 
+import pbandk.internal.types.MessageValueType
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.json.JsonFieldValueEncoder
 import pbandk.wkt.NullValue
 import pbandk.wkt.Value
 
-internal object Value : WktMessageValueType<Value>(Value) {
+internal object Value : MessageValueType<Value>(Value) {
     override fun encodeToJson(value: Value, encoder: JsonFieldValueEncoder) {
         when (val kind = value.kind) {
             is Value.Kind.StringValue -> encoder.encodeString(kind.value)

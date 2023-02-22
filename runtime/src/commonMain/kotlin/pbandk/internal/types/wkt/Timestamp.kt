@@ -2,11 +2,12 @@ package pbandk.internal.types.wkt
 
 import pbandk.InvalidProtocolBufferException
 import pbandk.internal.Util
+import pbandk.internal.types.MessageValueType
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.json.JsonFieldValueEncoder
 import pbandk.wkt.Timestamp
 
-internal object Timestamp : WktMessageValueType<Timestamp>(Timestamp) {
+internal object Timestamp : MessageValueType<Timestamp>(Timestamp) {
     override fun encodeToJson(value: Timestamp, encoder: JsonFieldValueEncoder) {
         encoder.encodeString(Util.timestampToString(value))
     }

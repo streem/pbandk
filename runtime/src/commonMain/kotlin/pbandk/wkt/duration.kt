@@ -52,7 +52,7 @@ public sealed interface Duration : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Duration>() {
         override val defaultInstance: pbandk.wkt.Duration by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Duration {}
         }

@@ -26,7 +26,7 @@ public sealed interface Empty : pbandk.Message {
     public object FieldDescriptors {
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Empty> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Empty>() {
         override val defaultInstance: pbandk.wkt.Empty by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Empty {}
         }

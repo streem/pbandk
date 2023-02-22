@@ -1,6 +1,9 @@
+@file:OptIn(PbandkInternal::class)
 package pbandk.gen
 
+import pbandk.PbandkInternal
 import pbandk.UnknownField
+import pbandk.internal.binary.WireValue
 import pbandk.wkt.FieldOptions
 
 public open class CodeGenerator(
@@ -204,7 +207,7 @@ public open class CodeGenerator(
 
             // Companion object
             line()
-            line("$visibility companion object : pbandk.Message.Companion<${type.kotlinName.fullWithPackage}> {").indented {
+            line("$visibility companion object : pbandk.Message.Companion<${type.kotlinName.fullWithPackage}>() {").indented {
                 // TODO: for messages containing 1 or more required fields, this should throw an exception rather than
                 //  try to construct a default instance
                 line("override val defaultInstance: ${type.kotlinName.fullWithPackage} by lazy(LazyThreadSafetyMode.PUBLICATION) {").indented {
@@ -443,7 +446,6 @@ public open class CodeGenerator(
 
     private fun generateUnknownFields(unknownFields: Map<Int, UnknownField>) {
         // TODO: update this to work with new WireValue representation
-        return
         line("unknownFields += mapOf(").indented {
             unknownFields.values.forEach { field ->
                 line("${field.fieldNum} to pbandk.UnknownField(").indented {
@@ -452,7 +454,7 @@ public open class CodeGenerator(
                         field.values.forEach { value ->
                             lineBegin("pbandk.UnknownField.Value(")
 //                            lineMid("wireType = ${value.wireType}, ")
-                            lineMid("wireValue = , ")
+                            lineMid("wireValue = ${value.wireValue.stringRepresentation()}")
                             // lineMid("rawBytes = byteArrayOf(${value.rawBytes.array.joinToString()})")
                             lineEnd("),")
                         }
@@ -460,6 +462,14 @@ public open class CodeGenerator(
                 }.line("),")
             }
         }.line(")")
+    }
+
+    private fun WireValue.stringRepresentation(): String = "pbandk.internal.binary.WireValue." + when (this) {
+        is WireValue.Varint -> "Varint(${this.value}UL)"
+        is WireValue.I32 -> "I32(${this.value}U)"
+        is WireValue.I64 -> "I64(${this.value}UL)"
+        is WireValue.Len -> "Len(byteArrayOf(${this.value.joinToString()}))"
+        is WireValue.Group -> TODO()
     }
 
     protected fun writeMessageExtensions(type: File.Type.Message) {
@@ -605,6 +615,7 @@ public open class CodeGenerator(
                     is File.Field.Numbered -> lineMid(
                         field.kotlinValueType(nullableIfMessage = true, mutable = false, impl = true)
                     )
+
                     is File.Field.OneOf -> lineMid("${field.kotlinTypeName.fullWithPackage}<*>?")
                 }
                 lineEnd(",")
@@ -651,6 +662,7 @@ public open class CodeGenerator(
                     is File.Field.Numbered -> lineMid(
                         field.kotlinValueType(nullableIfMessage = true, mutable = true, impl = true)
                     )
+
                     is File.Field.OneOf -> lineMid("${field.kotlinTypeName.fullWithPackage}<*>?")
                 }
                 lineEnd(",")
@@ -756,6 +768,7 @@ public open class CodeGenerator(
         is File.Field.Numbered -> defaultValue(mutable)
         is File.Field.OneOf -> "null"
     }
+
     protected val File.Field.mutablePropertyDeclaration: String
         get() = when (this) {
             is File.Field.Numbered -> when {
@@ -955,8 +968,10 @@ public open class CodeGenerator(
             File.Field.Type.ENUM -> error("No generic default value for enums")
             File.Field.Type.FIXED32, File.Field.Type.INT32, File.Field.Type.SFIXED32,
             File.Field.Type.SINT32, File.Field.Type.UINT32 -> "0"
+
             File.Field.Type.FIXED64, File.Field.Type.INT64, File.Field.Type.SFIXED64,
             File.Field.Type.SINT64, File.Field.Type.UINT64 -> "0L"
+
             File.Field.Type.FLOAT -> "0.0F"
             File.Field.Type.MESSAGE -> "null"
             File.Field.Type.STRING -> "\"\""

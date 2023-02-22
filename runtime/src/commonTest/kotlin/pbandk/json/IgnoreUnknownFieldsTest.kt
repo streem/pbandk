@@ -23,9 +23,11 @@ class IgnoreUnknownFieldsTest {
             TestAllTypesProto3.decodeFromJsonString(json)
         }
 
-        // With [ignoreUnknownFieldsInInput], the enum field should be ignored during decoding if it contains an unknown
-        // value.
-        val expected = TestAllTypesProto3 {}
+        // With [ignoreUnknownFieldsInInput], the enum field should be parsed as an UNRECOGNIZED value during decoding
+        // if it contains an unknown value.
+        val expected = TestAllTypesProto3 {
+            optionalForeignEnum = ForeignEnum.UNRECOGNIZED(name = "XXX")
+        }
         val parsed = TestAllTypesProto3.decodeFromJsonString(
             json, JsonConfig.DEFAULT.copy(ignoreUnknownFieldsInInput = true)
         )
@@ -67,10 +69,14 @@ class IgnoreUnknownFieldsTest {
             TestAllTypesProto3.decodeFromJsonString(json)
         }
 
-        // With [ignoreUnknownFieldsInInput], the unknown values in a repeated enum should be skipped during decoding
-        // but the other values should be returned successfully.
+        // With [ignoreUnknownFieldsInInput], the unknown values in a repeated enum should be parsed as UNRECOGNIZED
+        // during decoding and included alongside the other values.
         val expected = TestAllTypesProto3 {
-            repeatedForeignEnum += listOf(ForeignEnum.FOREIGN_FOO, ForeignEnum.FOREIGN_BAR)
+            repeatedForeignEnum += listOf(
+                ForeignEnum.FOREIGN_FOO,
+                ForeignEnum.UNRECOGNIZED(name = "XXX"),
+                ForeignEnum.FOREIGN_BAR
+            )
         }
         val parsed = TestAllTypesProto3.decodeFromJsonString(
             json, JsonConfig.DEFAULT.copy(ignoreUnknownFieldsInInput = true)
@@ -93,10 +99,11 @@ class IgnoreUnknownFieldsTest {
             TestAllTypesProto3.decodeFromJsonString(json)
         }
 
-        // With [ignoreUnknownFieldsInInput], the unknown enum values in a map field should be skipped during decoding
-        // but the other values should be returned successfully.
+        // With [ignoreUnknownFieldsInInput], the unknown enum values in a map field should be parsed as an UNRECOGNIZED
+        // value during decoding and included alongside the other values.
         val expected = TestAllTypesProto3 {
             mapStringForeignEnum["a"] = ForeignEnum.FOREIGN_FOO
+            mapStringForeignEnum["b"] = ForeignEnum.UNRECOGNIZED(name = "XXX")
         }
         val parsed = TestAllTypesProto3.decodeFromJsonString(
             json, JsonConfig.DEFAULT.copy(ignoreUnknownFieldsInInput = true)

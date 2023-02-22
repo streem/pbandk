@@ -6,8 +6,11 @@ import pbandk.json.JsonFieldValueDecoder
 import pbandk.types.ValueType
 
 internal interface WktValueType<KotlinType : kotlin.Any, MessageType : Message> : ValueType<KotlinType> {
+    val companion: Message.Companion<MessageType>
+
     /** Used primarily when this message is stored inside a `google.protobuf.Any`. */
     fun encodeMessageToJson(message: MessageType, encoder: JsonFieldValueEncoder)
+
     /** Used primarily when this message is stored inside a `google.protobuf.Any`. */
     fun decodeMessageFromJson(decoder: JsonFieldValueDecoder): MessageType
 }

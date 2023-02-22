@@ -77,5 +77,5 @@ public fun <M : Message> message(
 ): ValueType<M> = if (recursive) {
     MessageValueType(messageCompanion)
 } else {
-    messageCompanion.descriptor.messageValueType
+    messageCompanion.messageValueType
 }

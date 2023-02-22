@@ -39,7 +39,7 @@ public sealed interface FieldMask : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.FieldMask> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.FieldMask>() {
         override val defaultInstance: pbandk.wkt.FieldMask by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.FieldMask {}
         }

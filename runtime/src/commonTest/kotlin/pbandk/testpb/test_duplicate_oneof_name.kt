@@ -87,7 +87,7 @@ public sealed interface Value : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Value>() {
         override val defaultInstance: pbandk.testpb.Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Value {}
         }

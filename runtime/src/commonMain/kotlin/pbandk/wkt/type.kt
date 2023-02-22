@@ -138,7 +138,7 @@ public sealed interface Type : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Type> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Type>() {
         override val defaultInstance: pbandk.wkt.Type by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Type {}
         }
@@ -328,7 +328,7 @@ public sealed interface Field : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Field> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Field>() {
         override val defaultInstance: pbandk.wkt.Field by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Field {}
         }
@@ -610,7 +610,7 @@ public sealed interface Enum : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Enum> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Enum>() {
         override val defaultInstance: pbandk.wkt.Enum by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Enum {}
         }
@@ -707,7 +707,7 @@ public sealed interface EnumValue : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValue> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValue>() {
         override val defaultInstance: pbandk.wkt.EnumValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.EnumValue {}
         }
@@ -787,7 +787,7 @@ public sealed interface Option : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Option> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Option>() {
         override val defaultInstance: pbandk.wkt.Option by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Option {}
         }

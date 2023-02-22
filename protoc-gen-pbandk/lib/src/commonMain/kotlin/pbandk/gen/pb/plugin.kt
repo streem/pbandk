@@ -78,7 +78,7 @@ public sealed interface Version : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.gen.pb.Version> {
+    public companion object : pbandk.Message.Companion<pbandk.gen.pb.Version>() {
         override val defaultInstance: pbandk.gen.pb.Version by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.gen.pb.Version {}
         }
@@ -186,7 +186,7 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorRequest> {
+    public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorRequest>() {
         override val defaultInstance: pbandk.gen.pb.CodeGeneratorRequest by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.gen.pb.CodeGeneratorRequest {}
         }
@@ -281,7 +281,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse> {
+    public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse>() {
         override val defaultInstance: pbandk.gen.pb.CodeGeneratorResponse by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.gen.pb.CodeGeneratorResponse {}
         }
@@ -435,7 +435,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
                 )
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse.File> {
+        public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse.File>() {
             override val defaultInstance: pbandk.gen.pb.CodeGeneratorResponse.File by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.gen.pb.CodeGeneratorResponse.File {}
             }

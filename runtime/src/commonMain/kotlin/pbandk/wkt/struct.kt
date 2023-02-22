@@ -70,7 +70,7 @@ public sealed interface Struct : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Struct> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Struct>() {
         override val defaultInstance: pbandk.wkt.Struct by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Struct {}
         }
@@ -226,7 +226,7 @@ public sealed interface Value : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Value> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Value>() {
         override val defaultInstance: pbandk.wkt.Value by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.Value {}
         }
@@ -296,7 +296,7 @@ public sealed interface ListValue : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.ListValue> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.ListValue>() {
         override val defaultInstance: pbandk.wkt.ListValue by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.ListValue {}
         }

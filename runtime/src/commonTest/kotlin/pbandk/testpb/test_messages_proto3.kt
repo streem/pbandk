@@ -2138,7 +2138,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.TestAllTypesProto3> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.TestAllTypesProto3>() {
         override val defaultInstance: pbandk.testpb.TestAllTypesProto3 by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.TestAllTypesProto3 {}
         }
@@ -2463,7 +2463,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                 )
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.testpb.TestAllTypesProto3.NestedMessage> {
+        public companion object : pbandk.Message.Companion<pbandk.testpb.TestAllTypesProto3.NestedMessage>() {
             override val defaultInstance: pbandk.testpb.TestAllTypesProto3.NestedMessage by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.testpb.TestAllTypesProto3.NestedMessage {}
             }
@@ -2683,7 +2683,7 @@ public sealed interface ForeignMessage : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.ForeignMessage> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.ForeignMessage>() {
         override val defaultInstance: pbandk.testpb.ForeignMessage by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.ForeignMessage {}
         }

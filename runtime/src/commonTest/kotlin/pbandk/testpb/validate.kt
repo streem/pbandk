@@ -408,7 +408,7 @@ public sealed interface FieldRules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.FieldRules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.FieldRules>() {
         override val defaultInstance: pbandk.testpb.FieldRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.FieldRules {}
         }
@@ -575,7 +575,7 @@ public sealed interface FloatRules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.FloatRules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.FloatRules>() {
         override val defaultInstance: pbandk.testpb.FloatRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.FloatRules {}
         }
@@ -728,7 +728,7 @@ public sealed interface DoubleRules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.DoubleRules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.DoubleRules>() {
         override val defaultInstance: pbandk.testpb.DoubleRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.DoubleRules {}
         }
@@ -881,7 +881,7 @@ public sealed interface Int32Rules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.Int32Rules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Int32Rules>() {
         override val defaultInstance: pbandk.testpb.Int32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Int32Rules {}
         }
@@ -1034,7 +1034,7 @@ public sealed interface Int64Rules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.Int64Rules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Int64Rules>() {
         override val defaultInstance: pbandk.testpb.Int64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Int64Rules {}
         }
@@ -1187,7 +1187,7 @@ public sealed interface UInt32Rules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.UInt32Rules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.UInt32Rules>() {
         override val defaultInstance: pbandk.testpb.UInt32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.UInt32Rules {}
         }
@@ -1340,7 +1340,7 @@ public sealed interface UInt64Rules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.UInt64Rules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.UInt64Rules>() {
         override val defaultInstance: pbandk.testpb.UInt64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.UInt64Rules {}
         }
@@ -1493,7 +1493,7 @@ public sealed interface SInt32Rules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.SInt32Rules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.SInt32Rules>() {
         override val defaultInstance: pbandk.testpb.SInt32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.SInt32Rules {}
         }
@@ -1646,7 +1646,7 @@ public sealed interface SInt64Rules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.SInt64Rules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.SInt64Rules>() {
         override val defaultInstance: pbandk.testpb.SInt64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.SInt64Rules {}
         }
@@ -1799,7 +1799,7 @@ public sealed interface Fixed32Rules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed32Rules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed32Rules>() {
         override val defaultInstance: pbandk.testpb.Fixed32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Fixed32Rules {}
         }
@@ -1952,7 +1952,7 @@ public sealed interface Fixed64Rules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed64Rules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed64Rules>() {
         override val defaultInstance: pbandk.testpb.Fixed64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Fixed64Rules {}
         }
@@ -2105,7 +2105,7 @@ public sealed interface SFixed32Rules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed32Rules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed32Rules>() {
         override val defaultInstance: pbandk.testpb.SFixed32Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.SFixed32Rules {}
         }
@@ -2258,7 +2258,7 @@ public sealed interface SFixed64Rules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed64Rules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed64Rules>() {
         override val defaultInstance: pbandk.testpb.SFixed64Rules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.SFixed64Rules {}
         }
@@ -2333,7 +2333,7 @@ public sealed interface BoolRules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.BoolRules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.BoolRules>() {
         override val defaultInstance: pbandk.testpb.BoolRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.BoolRules {}
         }
@@ -2744,7 +2744,7 @@ public sealed interface StringRules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.StringRules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.StringRules>() {
         override val defaultInstance: pbandk.testpb.StringRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.StringRules {}
         }
@@ -3028,7 +3028,7 @@ public sealed interface BytesRules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.BytesRules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.BytesRules>() {
         override val defaultInstance: pbandk.testpb.BytesRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.BytesRules {}
         }
@@ -3156,7 +3156,7 @@ public sealed interface EnumRules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.EnumRules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.EnumRules>() {
         override val defaultInstance: pbandk.testpb.EnumRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.EnumRules {}
         }
@@ -3238,7 +3238,7 @@ public sealed interface MessageRules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.MessageRules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.MessageRules>() {
         override val defaultInstance: pbandk.testpb.MessageRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.MessageRules {}
         }
@@ -3342,7 +3342,7 @@ public sealed interface RepeatedRules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.RepeatedRules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.RepeatedRules>() {
         override val defaultInstance: pbandk.testpb.RepeatedRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.RepeatedRules {}
         }
@@ -3463,7 +3463,7 @@ public sealed interface MapRules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.MapRules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.MapRules>() {
         override val defaultInstance: pbandk.testpb.MapRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.MapRules {}
         }
@@ -3560,7 +3560,7 @@ public sealed interface AnyRules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.AnyRules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.AnyRules>() {
         override val defaultInstance: pbandk.testpb.AnyRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.AnyRules {}
         }
@@ -3718,7 +3718,7 @@ public sealed interface DurationRules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.DurationRules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.DurationRules>() {
         override val defaultInstance: pbandk.testpb.DurationRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.DurationRules {}
         }
@@ -3899,7 +3899,7 @@ public sealed interface TimestampRules : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.TimestampRules> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.TimestampRules>() {
         override val defaultInstance: pbandk.testpb.TimestampRules by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.TimestampRules {}
         }

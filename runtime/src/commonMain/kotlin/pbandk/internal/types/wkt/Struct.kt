@@ -1,11 +1,12 @@
 package pbandk.internal.types.wkt
 
 import pbandk.InvalidProtocolBufferException
+import pbandk.internal.types.MessageValueType
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.json.JsonFieldValueEncoder
 import pbandk.wkt.Struct
 
-internal object Struct : WktMessageValueType<Struct>(Struct) {
+internal object Struct : MessageValueType<Struct>(Struct) {
     override fun encodeToJson(value: Struct, encoder: JsonFieldValueEncoder) {
         encoder.encodeObject { fieldEncoder ->
             value.fields.forEach { (k, v) ->

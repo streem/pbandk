@@ -28,7 +28,8 @@ public class MessageDescriptor<M : Message> private constructor(
     internal val metadata: MessageMetadata,
     internal val messageClass: KClass<M>,
     internal val builder: (MutableMessage<M>.() -> Unit) -> M,
-    internal val messageValueType: MessageValueType<M>,
+    @ExperimentalProtoReflection
+    public val messageCompanion: Message.Companion<M>,
     @ExperimentalProtoReflection
     public val fields: FieldDescriptorSet<M>,
     internal val oneofs: Collection<OneofDescriptor<M, *>>,
@@ -50,8 +51,7 @@ public class MessageDescriptor<M : Message> private constructor(
     /** The message type's unqualified name. */
     public val name: String get() = metadata.name
 
-    @ExperimentalProtoReflection
-    public val messageCompanion: Message.Companion<M> get() = messageValueType.companion
+    internal val messageValueType: MessageValueType<M> get() = messageCompanion.messageValueType as MessageValueType<M>
 
     public companion object {
         @PublicForGeneratedCode
@@ -66,10 +66,7 @@ public class MessageDescriptor<M : Message> private constructor(
             metadata = metadata,
             messageClass = messageClass,
             builder = builder,
-            messageValueType = customJsonMappings[messageCompanion]?.let {
-                @Suppress("UNCHECKED_CAST")
-                it as? MessageValueType<M>
-            } ?: MessageValueType(messageCompanion),
+            messageCompanion = messageCompanion,
             // Keep fields sorted by number so that message encoding outputs fields in order by number. This is not
             // required by the protobuf encoding spec, but is recommended (and is implemented by the official C++, Java,
             // and Python implementations).

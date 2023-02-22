@@ -28,15 +28,7 @@ internal object String : PrimitiveValueType<String>() {
     }
 
     override fun encodeToJson(value: String, encoder: JsonFieldValueEncoder) {
-        @Suppress("DEPRECATION")
-        if (encoder.jsonConfig.outputDefaultValues &&
-            encoder.jsonConfig.outputDefaultStringsAsNull &&
-            value.isEmpty()
-        ) {
-            encoder.encodeNull()
-        } else {
-            encoder.encodeString(value)
-        }
+        encoder.encodeString(value)
     }
 
     override fun encodeToJsonMapKey(value: String) = value

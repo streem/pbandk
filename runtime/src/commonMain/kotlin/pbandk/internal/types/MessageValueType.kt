@@ -29,7 +29,8 @@ internal fun <M : Message> FieldDescriptorSet<M>.findByJsonName(keyDecoder: Json
     return fd
 }
 
-internal open class MessageValueType<M : Message>(val companion: Message.Companion<M>) : ValueType<M> {
+internal open class MessageValueType<M : Message>(override val companion: Message.Companion<M>) : WktValueType<M, M>,
+    ValueType<M> {
     override val defaultValue get() = companion.defaultInstance
 
     override fun isDefaultValue(value: M) = false
@@ -130,6 +131,8 @@ internal open class MessageValueType<M : Message>(val companion: Message.Compani
         }
     }
 
+    override fun decodeMessageFromJson(decoder: JsonFieldValueDecoder) = decodeFromJson(decoder)
+
     override fun encodeToJson(value: M, encoder: JsonFieldValueEncoder) {
         @Suppress("UNCHECKED_CAST")
         val customValueType = customJsonMappings[value.messageDescriptor.messageCompanion] as? WktValueType<*, M>?
@@ -146,6 +149,10 @@ internal open class MessageValueType<M : Message>(val companion: Message.Compani
                 }
             }
         }
+    }
+
+    override fun encodeMessageToJson(message: M, encoder: JsonFieldValueEncoder) {
+        encodeToJson(message, encoder)
     }
 
     override fun encodeToJsonMapKey(value: M) =

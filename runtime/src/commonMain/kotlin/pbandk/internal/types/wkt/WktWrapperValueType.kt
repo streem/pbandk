@@ -7,6 +7,7 @@ import pbandk.json.JsonFieldValueEncoder
 import pbandk.binary.BinaryFieldValueEncoder
 import pbandk.binary.WireType
 import pbandk.binary.tryDecodeField
+import pbandk.internal.binary.WireValue
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.internal.types.primitive.PrimitiveValueType
 
@@ -14,6 +15,8 @@ internal abstract class WktWrapperValueType<T : kotlin.Any, M : Message>(
     private val wrapperFieldDescriptor: FieldDescriptor<M, T>,
     private val wrappedValueType: PrimitiveValueType<T>,
 ) : WktValueType<T, M> {
+    override val companion: Message.Companion<M> = wrapperFieldDescriptor.messageDescriptor.messageCompanion
+
     override val defaultValue: T = wrappedValueType.defaultValue
 
     override fun isDefaultValue(value: T) = false
@@ -22,11 +25,14 @@ internal abstract class WktWrapperValueType<T : kotlin.Any, M : Message>(
 
     override val binaryWireType = WireType.LENGTH_DELIMITED
 
-    override fun binarySize(value: T) =
+    override fun binarySize(value: T) = WireValue.Len.sizeWithLenPrefix(
         wrapperFieldDescriptor.fieldType.binarySize(wrapperFieldDescriptor.metadata, value)
+    )
 
     override fun encodeToBinary(value: T, encoder: BinaryFieldValueEncoder) {
-        encoder.encodeLenFields(binarySize(value)) { fieldEncoder ->
+        encoder.encodeLenFields(
+            wrapperFieldDescriptor.fieldType.binarySize(wrapperFieldDescriptor.metadata, value)
+        ) { fieldEncoder ->
             wrapperFieldDescriptor.fieldType.encodeToBinary(wrapperFieldDescriptor.metadata, value, fieldEncoder)
         }
     }

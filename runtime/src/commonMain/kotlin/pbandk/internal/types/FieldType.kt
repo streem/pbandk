@@ -176,7 +176,15 @@ internal sealed class FieldType<KotlinType> {
             if (!encoder.jsonConfig.outputDefaultValues && valueType.isDefaultValue(value)) return
 
             encoder.encodeField(encoder.jsonConfig.getFieldJsonName(metadata)) { valueEncoder ->
-                valueType.encodeToJson(value, valueEncoder)
+                @Suppress("DEPRECATION")
+                if (encoder.jsonConfig.outputDefaultValues &&
+                    encoder.jsonConfig.outputDefaultStringsAsNull &&
+                    value is String && value.isEmpty()
+                ) {
+                    valueEncoder.encodeNull()
+                } else {
+                    valueType.encodeToJson(value, valueEncoder)
+                }
             }
         }
 
@@ -447,6 +455,12 @@ internal sealed class FieldType<KotlinType> {
                     fieldDecoder.forEachField(keyType::decodeFromJson) { mapKey, fieldValueDecoder ->
                         val mapValue = if (fieldValueDecoder is JsonFieldValueDecoder.Null) {
                             fieldValueDecoder.consumeNull()
+                            // According to https://protobuf.dev/programming-guides/proto3/#maps: "If you provide a key
+                            // but no value for a map field, the behavior when the field is serialized is
+                            // language-dependent. In C++, Java, Kotlin, and Python the default value for the type is
+                            // serialized, while in other languages nothing is serialized."
+                            // So we can choose to handle null map values either by ignoring the map entry or by
+                            // treating it as the default value. Currently pbandk implements the latter approach.
                             valueType.defaultValue
                         } else {
                             valueType.decodeFromJson(fieldValueDecoder)

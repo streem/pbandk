@@ -1722,7 +1722,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2> {
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2>() {
         override val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2 by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.conformance.pb.TestAllTypesProto2 {}
         }
@@ -2022,7 +2022,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 )
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage> {
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>() {
             override val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.conformance.pb.TestAllTypesProto2.NestedMessage {}
             }
@@ -2100,7 +2100,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 )
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.Data> {
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.Data>() {
             override val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.Data by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.conformance.pb.TestAllTypesProto2.Data {}
             }
@@ -2152,7 +2152,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
         public object FieldDescriptors {
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect> {
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect>() {
             override val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect {}
             }
@@ -2211,7 +2211,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 )
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1> {
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1>() {
             override val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 {}
             }
@@ -2283,7 +2283,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                 )
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2> {
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2>() {
             override val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 {}
             }
@@ -2478,7 +2478,7 @@ public sealed interface ForeignMessageProto2 : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ForeignMessageProto2> {
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ForeignMessageProto2>() {
         override val defaultInstance: pbandk.conformance.pb.ForeignMessageProto2 by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.conformance.pb.ForeignMessageProto2 {}
         }
@@ -2593,7 +2593,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.UnknownToTestAllTypes> {
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.UnknownToTestAllTypes>() {
         override val defaultInstance: pbandk.conformance.pb.UnknownToTestAllTypes by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.conformance.pb.UnknownToTestAllTypes {}
         }
@@ -2670,7 +2670,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
                 )
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup> {
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup>() {
             override val defaultInstance: pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup {}
             }

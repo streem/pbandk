@@ -39,7 +39,7 @@ public sealed interface Foo : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.Foo> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Foo>() {
         override val defaultInstance: pbandk.testpb.Foo by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Foo {}
         }
@@ -115,7 +115,7 @@ public sealed interface Bar : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.Bar> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Bar>() {
         override val defaultInstance: pbandk.testpb.Bar by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Bar {}
         }
@@ -181,7 +181,7 @@ public sealed interface MessageWithMap : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithMap> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithMap>() {
         override val defaultInstance: pbandk.testpb.MessageWithMap by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.MessageWithMap {}
         }
@@ -245,7 +245,7 @@ public sealed interface FooMap : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.FooMap> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.FooMap>() {
         override val defaultInstance: pbandk.testpb.FooMap by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.FooMap {}
         }
@@ -308,7 +308,7 @@ public sealed interface FooMapEntries : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries>() {
         override val defaultInstance: pbandk.testpb.FooMapEntries by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.FooMapEntries {}
         }
@@ -396,7 +396,7 @@ public sealed interface FooMapEntries : pbandk.Message {
                 )
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries.MapEntry> {
+        public companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries.MapEntry>() {
             override val defaultInstance: pbandk.testpb.FooMapEntries.MapEntry by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.testpb.FooMapEntries.MapEntry {}
             }
@@ -479,7 +479,7 @@ public sealed interface Wrappers : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.testpb.Wrappers> {
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Wrappers>() {
         override val defaultInstance: pbandk.testpb.Wrappers by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.testpb.Wrappers {}
         }

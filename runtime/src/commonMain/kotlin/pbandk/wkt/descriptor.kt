@@ -39,7 +39,7 @@ public sealed interface FileDescriptorSet : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.FileDescriptorSet> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.FileDescriptorSet>() {
         override val defaultInstance: pbandk.wkt.FileDescriptorSet by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.FileDescriptorSet {}
         }
@@ -245,7 +245,7 @@ public sealed interface FileDescriptorProto : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.FileDescriptorProto> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.FileDescriptorProto>() {
         override val defaultInstance: pbandk.wkt.FileDescriptorProto by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.FileDescriptorProto {}
         }
@@ -447,7 +447,7 @@ public sealed interface DescriptorProto : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto>() {
         override val defaultInstance: pbandk.wkt.DescriptorProto by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.DescriptorProto {}
         }
@@ -576,7 +576,7 @@ public sealed interface DescriptorProto : pbandk.Message {
                 )
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto.ExtensionRange> {
+        public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto.ExtensionRange>() {
             override val defaultInstance: pbandk.wkt.DescriptorProto.ExtensionRange by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.wkt.DescriptorProto.ExtensionRange {}
             }
@@ -656,7 +656,7 @@ public sealed interface DescriptorProto : pbandk.Message {
                 )
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto.ReservedRange> {
+        public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto.ReservedRange>() {
             override val defaultInstance: pbandk.wkt.DescriptorProto.ReservedRange by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.wkt.DescriptorProto.ReservedRange {}
             }
@@ -735,7 +735,7 @@ public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage<pbandk.
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.ExtensionRangeOptions> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.ExtensionRangeOptions>() {
         override val defaultInstance: pbandk.wkt.ExtensionRangeOptions by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.ExtensionRangeOptions {}
         }
@@ -928,7 +928,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.FieldDescriptorProto> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.FieldDescriptorProto>() {
         override val defaultInstance: pbandk.wkt.FieldDescriptorProto by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.FieldDescriptorProto {}
         }
@@ -1165,7 +1165,7 @@ public sealed interface OneofDescriptorProto : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.OneofDescriptorProto> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.OneofDescriptorProto>() {
         override val defaultInstance: pbandk.wkt.OneofDescriptorProto by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.OneofDescriptorProto {}
         }
@@ -1282,7 +1282,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.EnumDescriptorProto> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.EnumDescriptorProto>() {
         override val defaultInstance: pbandk.wkt.EnumDescriptorProto by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.EnumDescriptorProto {}
         }
@@ -1374,7 +1374,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
                 )
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> {
+        public companion object : pbandk.Message.Companion<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>() {
             override val defaultInstance: pbandk.wkt.EnumDescriptorProto.EnumReservedRange by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.wkt.EnumDescriptorProto.EnumReservedRange {}
             }
@@ -1474,7 +1474,7 @@ public sealed interface EnumValueDescriptorProto : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValueDescriptorProto> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValueDescriptorProto>() {
         override val defaultInstance: pbandk.wkt.EnumValueDescriptorProto by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.EnumValueDescriptorProto {}
         }
@@ -1567,7 +1567,7 @@ public sealed interface ServiceDescriptorProto : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.ServiceDescriptorProto> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.ServiceDescriptorProto>() {
         override val defaultInstance: pbandk.wkt.ServiceDescriptorProto by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.ServiceDescriptorProto {}
         }
@@ -1699,7 +1699,7 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.MethodDescriptorProto> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.MethodDescriptorProto>() {
         override val defaultInstance: pbandk.wkt.MethodDescriptorProto by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.MethodDescriptorProto {}
         }
@@ -2037,7 +2037,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.FileOptions> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.FileOptions>() {
         override val defaultInstance: pbandk.wkt.FileOptions by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.FileOptions {}
         }
@@ -2231,7 +2231,7 @@ public sealed interface MessageOptions : pbandk.ExtendableMessage<pbandk.wkt.Mes
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.MessageOptions> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.MessageOptions>() {
         override val defaultInstance: pbandk.wkt.MessageOptions by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.MessageOptions {}
         }
@@ -2380,7 +2380,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.FieldOptions> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.FieldOptions>() {
         override val defaultInstance: pbandk.wkt.FieldOptions by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.FieldOptions {}
         }
@@ -2531,7 +2531,7 @@ public sealed interface OneofOptions : pbandk.ExtendableMessage<pbandk.wkt.Oneof
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.OneofOptions> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.OneofOptions>() {
         override val defaultInstance: pbandk.wkt.OneofOptions by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.OneofOptions {}
         }
@@ -2620,7 +2620,7 @@ public sealed interface EnumOptions : pbandk.ExtendableMessage<pbandk.wkt.EnumOp
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.EnumOptions> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.EnumOptions>() {
         override val defaultInstance: pbandk.wkt.EnumOptions by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.EnumOptions {}
         }
@@ -2700,7 +2700,7 @@ public sealed interface EnumValueOptions : pbandk.ExtendableMessage<pbandk.wkt.E
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValueOptions> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValueOptions>() {
         override val defaultInstance: pbandk.wkt.EnumValueOptions by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.EnumValueOptions {}
         }
@@ -2778,7 +2778,7 @@ public sealed interface ServiceOptions : pbandk.ExtendableMessage<pbandk.wkt.Ser
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.ServiceOptions> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.ServiceOptions>() {
         override val defaultInstance: pbandk.wkt.ServiceOptions by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.ServiceOptions {}
         }
@@ -2869,7 +2869,7 @@ public sealed interface MethodOptions : pbandk.ExtendableMessage<pbandk.wkt.Meth
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.MethodOptions> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.MethodOptions>() {
         override val defaultInstance: pbandk.wkt.MethodOptions by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.MethodOptions {}
         }
@@ -3052,7 +3052,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.UninterpretedOption> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.UninterpretedOption>() {
         override val defaultInstance: pbandk.wkt.UninterpretedOption by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.UninterpretedOption {}
         }
@@ -3146,7 +3146,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
                 )
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.wkt.UninterpretedOption.NamePart> {
+        public companion object : pbandk.Message.Companion<pbandk.wkt.UninterpretedOption.NamePart>() {
             override val defaultInstance: pbandk.wkt.UninterpretedOption.NamePart by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.wkt.UninterpretedOption.NamePart {}
             }
@@ -3222,7 +3222,7 @@ public sealed interface SourceCodeInfo : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.SourceCodeInfo> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.SourceCodeInfo>() {
         override val defaultInstance: pbandk.wkt.SourceCodeInfo by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.SourceCodeInfo {}
         }
@@ -3361,7 +3361,7 @@ public sealed interface SourceCodeInfo : pbandk.Message {
                 )
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.wkt.SourceCodeInfo.Location> {
+        public companion object : pbandk.Message.Companion<pbandk.wkt.SourceCodeInfo.Location>() {
             override val defaultInstance: pbandk.wkt.SourceCodeInfo.Location by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.wkt.SourceCodeInfo.Location {}
             }
@@ -3437,7 +3437,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
             )
     }
 
-    public companion object : pbandk.Message.Companion<pbandk.wkt.GeneratedCodeInfo> {
+    public companion object : pbandk.Message.Companion<pbandk.wkt.GeneratedCodeInfo>() {
         override val defaultInstance: pbandk.wkt.GeneratedCodeInfo by lazy(LazyThreadSafetyMode.PUBLICATION) {
             pbandk.wkt.GeneratedCodeInfo {}
         }
@@ -3558,7 +3558,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
                 )
         }
 
-        public companion object : pbandk.Message.Companion<pbandk.wkt.GeneratedCodeInfo.Annotation> {
+        public companion object : pbandk.Message.Companion<pbandk.wkt.GeneratedCodeInfo.Annotation>() {
             override val defaultInstance: pbandk.wkt.GeneratedCodeInfo.Annotation by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 pbandk.wkt.GeneratedCodeInfo.Annotation {}
             }

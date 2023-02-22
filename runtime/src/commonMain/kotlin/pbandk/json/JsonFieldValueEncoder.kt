@@ -74,7 +74,9 @@ public class JsonFieldValueEncoder internal constructor(internal val jsonConfig:
         // this to work correctly with recursive calls to `writeArray()`, `element` must be the last thing written.
         val jsonArray = buildJsonArray {
             valuesBlock(this@JsonFieldValueEncoder)
-            add(element)
+            if (element !is JsonNull) {
+                add(element)
+            }
         }
         element = jsonArray
     }
