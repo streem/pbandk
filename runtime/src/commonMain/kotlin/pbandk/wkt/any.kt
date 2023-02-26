@@ -59,6 +59,7 @@ public sealed interface Any : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.Any",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any> by lazy {

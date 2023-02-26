@@ -21,6 +21,5 @@ Required.Proto3.JsonInput.OneofFieldDuplicate
 ## These failures need to be investigated
 ## See https://github.com/streem/pbandk/issues/22
 ##
-Required.Proto2.ProtobufInput.RepeatedScalarMessageMerge.ProtobufOutput
 Required.Proto3.ProtobufInput.RepeatedScalarMessageMerge.JsonOutput
 Required.Proto3.ProtobufInput.RepeatedScalarMessageMerge.ProtobufOutput

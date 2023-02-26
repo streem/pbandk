@@ -46,6 +46,7 @@ public sealed interface FieldMask : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.FieldMask",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldMask> by lazy {

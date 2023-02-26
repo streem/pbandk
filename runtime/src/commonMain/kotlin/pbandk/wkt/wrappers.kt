@@ -46,6 +46,7 @@ public sealed interface DoubleValue : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.DoubleValue",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DoubleValue> by lazy {
@@ -109,6 +110,7 @@ public sealed interface FloatValue : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.FloatValue",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FloatValue> by lazy {
@@ -172,6 +174,7 @@ public sealed interface Int64Value : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.Int64Value",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int64Value> by lazy {
@@ -235,6 +238,7 @@ public sealed interface UInt64Value : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.UInt64Value",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt64Value> by lazy {
@@ -298,6 +302,7 @@ public sealed interface Int32Value : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.Int32Value",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int32Value> by lazy {
@@ -361,6 +366,7 @@ public sealed interface UInt32Value : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.UInt32Value",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt32Value> by lazy {
@@ -424,6 +430,7 @@ public sealed interface BoolValue : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.BoolValue",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BoolValue> by lazy {
@@ -487,6 +494,7 @@ public sealed interface StringValue : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.StringValue",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.StringValue> by lazy {
@@ -550,6 +558,7 @@ public sealed interface BytesValue : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.BytesValue",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BytesValue> by lazy {

@@ -8,8 +8,8 @@ import pbandk.wkt.ListValue
 
 internal object ListValue : MessageValueType<ListValue>(ListValue) {
     override fun encodeToJson(value: ListValue, encoder: JsonFieldValueEncoder) {
-        encoder.encodeArray { valueEncoder ->
-            value.values.forEach { Value.encodeToJson(it, valueEncoder) }
+        encoder.encodeArrayWithValues(value.values) { arrayValue, arrayValueEncoder ->
+            Value.encodeToJson(arrayValue, arrayValueEncoder)
         }
     }
 

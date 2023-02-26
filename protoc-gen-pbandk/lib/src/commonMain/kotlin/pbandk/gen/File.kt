@@ -113,7 +113,6 @@ public data class File(
                 // Note, this is only applicable for proto2
                 // TODO: test explicitly set default value in proto2
                 val optional: Boolean,
-                val packed: Boolean,
                 val map: Boolean,
                 override val kotlinName: Name,
                 // This can be null when localTypeName is not null which means it is fully qualified and should be looked up

@@ -201,7 +201,10 @@ internal sealed class FieldType<KotlinType> {
             }
     }
 
-    class Repeated<T : Any>(internal val valueType: ValueType<T>) : MutableValue<List<T>, MutableList<T>>() {
+    class Repeated<T : Any>(
+        internal val valueType: ValueType<T>,
+        private val packed: Boolean,
+    ) : MutableValue<List<T>, MutableList<T>>() {
         override fun mergeValues(metadata: FieldMetadata, currentValue: List<T>, newValue: List<T>): List<T> {
             return currentValue + newValue
         }
@@ -233,7 +236,7 @@ internal sealed class FieldType<KotlinType> {
         override fun binarySize(metadata: FieldMetadata, value: List<T>) = when {
             value.isEmpty() -> 0
 
-            metadata.options.packed == true -> {
+            packed -> {
                 Tag.size(metadata.number) +
                         ((value as? ListField)?.protoSize ?: value.sumOf(valueType::binarySize)).let {
                             WireValue.Len.sizeWithLenPrefix(it)
@@ -250,7 +253,7 @@ internal sealed class FieldType<KotlinType> {
         ) {
             if (value.isEmpty()) return
 
-            if (metadata.options.packed == true) {
+            if (packed) {
                 encoder.encodeField(Tag(metadata.number, WireType.LENGTH_DELIMITED)) { valueEncoder ->
                     val listSize = (value as? ListField)?.protoSize ?: value.sumOf { valueType.binarySize(it) }
                     valueEncoder.encodeLenPrefix(listSize.toUInt())
@@ -295,8 +298,8 @@ internal sealed class FieldType<KotlinType> {
             if (!encoder.jsonConfig.outputDefaultValues && value.isEmpty()) return
 
             encoder.encodeField(encoder.jsonConfig.getFieldJsonName(metadata)) { valueEncoder ->
-                valueEncoder.encodeArray { arrayValueEncoder ->
-                    value.forEach { valueType.encodeToJson(it, arrayValueEncoder) }
+                valueEncoder.encodeArrayWithValues(value) { arrayValue, arrayValueEncoder ->
+                    valueType.encodeToJson(arrayValue, arrayValueEncoder)
                 }
             }
         }
@@ -310,7 +313,9 @@ internal sealed class FieldType<KotlinType> {
             is JsonFieldValueDecoder.Array -> newMutableValue().apply {
                 decoder.forEachValue { arrayValueDecoder ->
                     when (arrayValueDecoder) {
-                        is JsonFieldValueDecoder.Null -> add(valueType.defaultValue)
+                        is JsonFieldValueDecoder.Null ->
+                            throw InvalidProtocolBufferException("JSON repeated values must not contain nulls")
+
                         else -> add(valueType.decodeFromJson(arrayValueDecoder))
                     }
                 }
@@ -466,16 +471,10 @@ internal sealed class FieldType<KotlinType> {
             is JsonFieldValueDecoder.Object -> newMutableValue().apply {
                 decoder.decodeFields { fieldDecoder ->
                     fieldDecoder.forEachField { fieldKeyDecoder, fieldValueDecoder ->
-                        val mapKey = keyType.decodeFromJson(fieldKeyDecoder)
+                        val mapKey = keyType.decodeFromJsonMapKey(fieldKeyDecoder)
                         val mapValue = if (fieldValueDecoder is JsonFieldValueDecoder.Null) {
                             fieldValueDecoder.consumeNull()
-                            // According to https://protobuf.dev/programming-guides/proto3/#maps: "If you provide a key
-                            // but no value for a map field, the behavior when the field is serialized is
-                            // language-dependent. In C++, Java, Kotlin, and Python the default value for the type is
-                            // serialized, while in other languages nothing is serialized."
-                            // So we can choose to handle null map values either by ignoring the map entry or by
-                            // treating it as the default value. Currently pbandk implements the latter approach.
-                            valueType.defaultValue
+                            throw InvalidProtocolBufferException("JSON map values must not be null")
                         } else {
                             valueType.decodeFromJson(fieldValueDecoder)
                         }

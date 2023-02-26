@@ -124,6 +124,7 @@ public sealed interface Api : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.Api",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api> by lazy {
@@ -277,6 +278,7 @@ public sealed interface Method : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.Method",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method> by lazy {
@@ -365,6 +367,7 @@ public sealed interface Mixin : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.Mixin",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> by lazy {

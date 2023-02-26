@@ -46,6 +46,7 @@ public sealed interface SourceContext : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.SourceContext",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> by lazy {

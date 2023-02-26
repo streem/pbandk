@@ -94,6 +94,7 @@ public sealed interface Value : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "testpb.Value",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> by lazy {

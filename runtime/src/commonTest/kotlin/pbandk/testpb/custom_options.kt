@@ -56,6 +56,7 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.SingleRequiredCustomOption",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SingleRequiredCustomOption> by lazy {
@@ -130,6 +131,7 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.MultipleCustomOptions",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptions> by lazy {
@@ -207,6 +209,7 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.MultipleCustomOptionsPlusDeprecated",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> by lazy {

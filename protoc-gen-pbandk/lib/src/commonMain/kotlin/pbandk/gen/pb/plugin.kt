@@ -85,6 +85,7 @@ public sealed interface Version : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.compiler.Version",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.Version> by lazy {
@@ -193,6 +194,7 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.compiler.CodeGeneratorRequest",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorRequest> by lazy {
@@ -288,6 +290,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.compiler.CodeGeneratorResponse",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse> by lazy {
@@ -442,6 +445,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "google.protobuf.compiler.CodeGeneratorResponse.File",
+                syntax = pbandk.wkt.Syntax.PROTO2,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File> by lazy {

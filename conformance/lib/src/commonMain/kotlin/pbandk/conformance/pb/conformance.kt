@@ -145,6 +145,7 @@ public sealed interface FailureSet : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "conformance.FailureSet",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.FailureSet> by lazy {
@@ -336,6 +337,7 @@ public sealed interface ConformanceRequest : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "conformance.ConformanceRequest",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceRequest> by lazy {
@@ -539,6 +541,7 @@ public sealed interface ConformanceResponse : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "conformance.ConformanceResponse",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceResponse> by lazy {
@@ -611,6 +614,7 @@ public sealed interface JspbEncodingConfig : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "conformance.JspbEncodingConfig",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.JspbEncodingConfig> by lazy {

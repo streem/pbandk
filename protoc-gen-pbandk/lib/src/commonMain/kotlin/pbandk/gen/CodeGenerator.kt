@@ -390,6 +390,7 @@ public open class CodeGenerator(
     protected fun writeMessageDescriptor(type: File.Type.Message) {
         line("private val messageMetadata = pbandk.MessageMetadata(").indented {
             line("fullName = \"${type.name.fullWithPackage.removePrefix(".")}\",")
+            line("syntax = pbandk.wkt.Syntax.PROTO${file.version},")
         }.line(")")
         line()
 

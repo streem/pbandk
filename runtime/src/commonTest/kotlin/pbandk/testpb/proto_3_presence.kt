@@ -80,6 +80,7 @@ public sealed interface Proto3PresenceMessage : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.Proto3PresenceMessage",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Proto3PresenceMessage> by lazy {
@@ -280,6 +281,7 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.Proto3PresenceMain",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Proto3PresenceMain> by lazy {

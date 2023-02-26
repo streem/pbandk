@@ -1729,6 +1729,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "protobuf_test_messages.proto2.TestAllTypesProto2",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2> by lazy {
@@ -2029,6 +2030,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage",
+                syntax = pbandk.wkt.Syntax.PROTO2,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage> by lazy {
@@ -2107,6 +2109,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.Data",
+                syntax = pbandk.wkt.Syntax.PROTO2,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.Data> by lazy {
@@ -2159,6 +2162,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrect",
+                syntax = pbandk.wkt.Syntax.PROTO2,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect> by lazy {
@@ -2218,6 +2222,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrectExtension1",
+                syntax = pbandk.wkt.Syntax.PROTO2,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1> by lazy {
@@ -2290,6 +2295,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrectExtension2",
+                syntax = pbandk.wkt.Syntax.PROTO2,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2> by lazy {
@@ -2485,6 +2491,7 @@ public sealed interface ForeignMessageProto2 : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "protobuf_test_messages.proto2.ForeignMessageProto2",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ForeignMessageProto2> by lazy {
@@ -2600,6 +2607,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "protobuf_test_messages.proto2.UnknownToTestAllTypes",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes> by lazy {
@@ -2677,6 +2685,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "protobuf_test_messages.proto2.UnknownToTestAllTypes.OptionalGroup",
+                syntax = pbandk.wkt.Syntax.PROTO2,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup> by lazy {

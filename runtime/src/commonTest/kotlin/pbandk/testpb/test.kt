@@ -46,6 +46,7 @@ public sealed interface Foo : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "testpb.Foo",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Foo> by lazy {
@@ -122,6 +123,7 @@ public sealed interface Bar : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "testpb.Bar",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Bar> by lazy {
@@ -188,6 +190,7 @@ public sealed interface MessageWithMap : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "testpb.MessageWithMap",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap> by lazy {
@@ -252,6 +255,7 @@ public sealed interface FooMap : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "testpb.FooMap",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap> by lazy {
@@ -315,6 +319,7 @@ public sealed interface FooMapEntries : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "testpb.FooMapEntries",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries> by lazy {
@@ -403,6 +408,7 @@ public sealed interface FooMapEntries : pbandk.Message {
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "testpb.FooMapEntries.MapEntry",
+                syntax = pbandk.wkt.Syntax.PROTO3,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries.MapEntry> by lazy {
@@ -486,6 +492,7 @@ public sealed interface Wrappers : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "testpb.Wrappers",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Wrappers> by lazy {

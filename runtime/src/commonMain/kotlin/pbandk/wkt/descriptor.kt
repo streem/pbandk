@@ -46,6 +46,7 @@ public sealed interface FileDescriptorSet : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.FileDescriptorSet",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileDescriptorSet> by lazy {
@@ -252,6 +253,7 @@ public sealed interface FileDescriptorProto : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.FileDescriptorProto",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileDescriptorProto> by lazy {
@@ -454,6 +456,7 @@ public sealed interface DescriptorProto : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.DescriptorProto",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto> by lazy {
@@ -583,6 +586,7 @@ public sealed interface DescriptorProto : pbandk.Message {
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "google.protobuf.DescriptorProto.ExtensionRange",
+                syntax = pbandk.wkt.Syntax.PROTO2,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange> by lazy {
@@ -663,6 +667,7 @@ public sealed interface DescriptorProto : pbandk.Message {
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "google.protobuf.DescriptorProto.ReservedRange",
+                syntax = pbandk.wkt.Syntax.PROTO2,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto.ReservedRange> by lazy {
@@ -742,6 +747,7 @@ public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage<pbandk.
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.ExtensionRangeOptions",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ExtensionRangeOptions> by lazy {
@@ -935,6 +941,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.FieldDescriptorProto",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldDescriptorProto> by lazy {
@@ -1172,6 +1179,7 @@ public sealed interface OneofDescriptorProto : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.OneofDescriptorProto",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.OneofDescriptorProto> by lazy {
@@ -1289,6 +1297,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.EnumDescriptorProto",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumDescriptorProto> by lazy {
@@ -1381,6 +1390,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "google.protobuf.EnumDescriptorProto.EnumReservedRange",
+                syntax = pbandk.wkt.Syntax.PROTO2,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> by lazy {
@@ -1481,6 +1491,7 @@ public sealed interface EnumValueDescriptorProto : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.EnumValueDescriptorProto",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValueDescriptorProto> by lazy {
@@ -1574,6 +1585,7 @@ public sealed interface ServiceDescriptorProto : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.ServiceDescriptorProto",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ServiceDescriptorProto> by lazy {
@@ -1706,6 +1718,7 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.MethodDescriptorProto",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MethodDescriptorProto> by lazy {
@@ -2044,6 +2057,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.FileOptions",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileOptions> by lazy {
@@ -2238,6 +2252,7 @@ public sealed interface MessageOptions : pbandk.ExtendableMessage<pbandk.wkt.Mes
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.MessageOptions",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MessageOptions> by lazy {
@@ -2387,6 +2402,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.FieldOptions",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldOptions> by lazy {
@@ -2538,6 +2554,7 @@ public sealed interface OneofOptions : pbandk.ExtendableMessage<pbandk.wkt.Oneof
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.OneofOptions",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.OneofOptions> by lazy {
@@ -2627,6 +2644,7 @@ public sealed interface EnumOptions : pbandk.ExtendableMessage<pbandk.wkt.EnumOp
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.EnumOptions",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumOptions> by lazy {
@@ -2707,6 +2725,7 @@ public sealed interface EnumValueOptions : pbandk.ExtendableMessage<pbandk.wkt.E
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.EnumValueOptions",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValueOptions> by lazy {
@@ -2785,6 +2804,7 @@ public sealed interface ServiceOptions : pbandk.ExtendableMessage<pbandk.wkt.Ser
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.ServiceOptions",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ServiceOptions> by lazy {
@@ -2876,6 +2896,7 @@ public sealed interface MethodOptions : pbandk.ExtendableMessage<pbandk.wkt.Meth
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.MethodOptions",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MethodOptions> by lazy {
@@ -3059,6 +3080,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.UninterpretedOption",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UninterpretedOption> by lazy {
@@ -3153,6 +3175,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "google.protobuf.UninterpretedOption.NamePart",
+                syntax = pbandk.wkt.Syntax.PROTO2,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UninterpretedOption.NamePart> by lazy {
@@ -3229,6 +3252,7 @@ public sealed interface SourceCodeInfo : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.SourceCodeInfo",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceCodeInfo> by lazy {
@@ -3368,6 +3392,7 @@ public sealed interface SourceCodeInfo : pbandk.Message {
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "google.protobuf.SourceCodeInfo.Location",
+                syntax = pbandk.wkt.Syntax.PROTO2,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceCodeInfo.Location> by lazy {
@@ -3444,6 +3469,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "google.protobuf.GeneratedCodeInfo",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.GeneratedCodeInfo> by lazy {
@@ -3565,6 +3591,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "google.protobuf.GeneratedCodeInfo.Annotation",
+                syntax = pbandk.wkt.Syntax.PROTO2,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation> by lazy {

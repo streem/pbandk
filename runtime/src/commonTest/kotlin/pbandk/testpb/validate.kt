@@ -415,6 +415,7 @@ public sealed interface FieldRules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.FieldRules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FieldRules> by lazy {
@@ -582,6 +583,7 @@ public sealed interface FloatRules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.FloatRules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FloatRules> by lazy {
@@ -735,6 +737,7 @@ public sealed interface DoubleRules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.DoubleRules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.DoubleRules> by lazy {
@@ -888,6 +891,7 @@ public sealed interface Int32Rules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.Int32Rules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Int32Rules> by lazy {
@@ -1041,6 +1045,7 @@ public sealed interface Int64Rules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.Int64Rules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Int64Rules> by lazy {
@@ -1194,6 +1199,7 @@ public sealed interface UInt32Rules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.UInt32Rules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.UInt32Rules> by lazy {
@@ -1347,6 +1353,7 @@ public sealed interface UInt64Rules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.UInt64Rules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.UInt64Rules> by lazy {
@@ -1500,6 +1507,7 @@ public sealed interface SInt32Rules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.SInt32Rules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SInt32Rules> by lazy {
@@ -1653,6 +1661,7 @@ public sealed interface SInt64Rules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.SInt64Rules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SInt64Rules> by lazy {
@@ -1806,6 +1815,7 @@ public sealed interface Fixed32Rules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.Fixed32Rules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Fixed32Rules> by lazy {
@@ -1959,6 +1969,7 @@ public sealed interface Fixed64Rules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.Fixed64Rules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Fixed64Rules> by lazy {
@@ -2112,6 +2123,7 @@ public sealed interface SFixed32Rules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.SFixed32Rules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SFixed32Rules> by lazy {
@@ -2265,6 +2277,7 @@ public sealed interface SFixed64Rules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.SFixed64Rules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SFixed64Rules> by lazy {
@@ -2340,6 +2353,7 @@ public sealed interface BoolRules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.BoolRules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.BoolRules> by lazy {
@@ -2751,6 +2765,7 @@ public sealed interface StringRules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.StringRules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.StringRules> by lazy {
@@ -3035,6 +3050,7 @@ public sealed interface BytesRules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.BytesRules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.BytesRules> by lazy {
@@ -3163,6 +3179,7 @@ public sealed interface EnumRules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.EnumRules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.EnumRules> by lazy {
@@ -3245,6 +3262,7 @@ public sealed interface MessageRules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.MessageRules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageRules> by lazy {
@@ -3349,6 +3367,7 @@ public sealed interface RepeatedRules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.RepeatedRules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.RepeatedRules> by lazy {
@@ -3470,6 +3489,7 @@ public sealed interface MapRules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.MapRules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MapRules> by lazy {
@@ -3567,6 +3587,7 @@ public sealed interface AnyRules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.AnyRules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.AnyRules> by lazy {
@@ -3725,6 +3746,7 @@ public sealed interface DurationRules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.DurationRules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.DurationRules> by lazy {
@@ -3906,6 +3928,7 @@ public sealed interface TimestampRules : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "pbandk.testpb.TimestampRules",
+            syntax = pbandk.wkt.Syntax.PROTO2,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.TimestampRules> by lazy {

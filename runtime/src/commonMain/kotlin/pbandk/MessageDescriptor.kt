@@ -3,6 +3,7 @@ package pbandk
 import pbandk.internal.types.MessageValueType
 import pbandk.internal.types.wkt.customJsonMappings
 import pbandk.types.ValueType
+import pbandk.wkt.Syntax
 import kotlin.reflect.KClass
 
 public class MessageMetadata @PublicForGeneratedCode constructor(
@@ -19,6 +20,11 @@ public class MessageMetadata @PublicForGeneratedCode constructor(
      * `Baz`'s [fullName] is "foo.bar.Baz".
      */
     public val fullName: String,
+
+    // The syntax used in the file that this message was defined in. Eventually when pbandk is generating
+    // FileDescriptors too, then this can reference the value from the FileDescriptor. For now, we store it in each
+    // message separately.
+    internal val syntax: Syntax,
 ) {
     /** The message type's unqualified name. */
     public val name: String = fullName.substringAfterLast('.')

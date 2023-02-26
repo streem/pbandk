@@ -1,12 +1,14 @@
 package pbandk
 
 import pbandk.binary.BinaryFieldValueDecoder
+import pbandk.binary.WireType
 import pbandk.internal.binary.BinaryFieldEncoder
 import pbandk.internal.json.JsonFieldEncoder
 import pbandk.internal.types.FieldType
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.types.ValueType
 import pbandk.wkt.FieldOptions
+import pbandk.wkt.Syntax
 import pbandk.wkt.orDefault
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty0
@@ -86,6 +88,29 @@ public sealed class FieldMetadata(
         _options = options,
     ) {
         override val fullName = extensionName
+    }
+}
+
+// Proto2 encodes repeated fields unpacked by default, whereas proto3 encodes them packed by default as
+// long as the valueType supports it. Both versions allow fields to explicitly override the default.
+private fun isFieldPacked(
+    fieldOptions: FieldOptions?,
+    messageMetadata: MessageMetadata,
+    valueType: ValueType<*>
+): Boolean = when (fieldOptions?.packed) {
+    true -> {
+        require(valueType.binaryWireType != WireType.LENGTH_DELIMITED) {
+            "Values with LEN wire type cannot use the packed encoding"
+        }
+        true
+    }
+
+    false -> false
+
+    null -> if (messageMetadata.syntax == Syntax.PROTO2) {
+        false
+    } else {
+        valueType.binaryWireType != WireType.LENGTH_DELIMITED
     }
 }
 
@@ -321,7 +346,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             options = options,
         ),
     ) {
-        override val fieldType = FieldType.Repeated(valueType)
+        override val fieldType = FieldType.Repeated(valueType, isFieldPacked(options, messageMetadata, valueType))
 
         override fun getValue(message: M): List<V> = property.get(message)
 
@@ -444,7 +469,8 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             options = options,
         )
     ) {
-        override val fieldType = FieldType.Repeated(valueType)
+        override val fieldType =
+            FieldType.Repeated(valueType, isFieldPacked(options, messageDescriptor.metadata, valueType))
 
         override fun getValue(message: M): List<V> = message.extensionFields.getOrDefault(this)
 
@@ -559,148 +585,6 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
     //         else -> throw IllegalArgumentException("value must be a Map")
     //     }
     // }
-
-    /*
-        public companion object {
-            @PublicForGeneratedCode
-            public inline fun <reified E : pbandk.Message.Enum> enum(
-                enumCompanion: pbandk.Message.Enum.Companion<E>,
-                hasPresence: Boolean = false
-            ): Enum<E> = enum(enumCompanion, E::class, hasPresence)
-
-            @PublicForGeneratedCode
-            @JsName("enumWithKotlinType")
-            public fun <E : pbandk.Message.Enum> enum(
-                enumCompanion: pbandk.Message.Enum.Companion<E>,
-                kotlinType: KClass<E>,
-                hasPresence: Boolean = false
-            ): Enum<E> = Enum(enumCompanion, kotlinType, hasPresence)
-
-            @PublicForGeneratedCode
-            public fun <K : Any, V : Any> map(keyType: Type, valueType: Type): Map<K, V> = Map(keyType, valueType)
-
-            @PublicForGeneratedCode
-            public inline fun <reified M : pbandk.Message> message(messageCompanion: pbandk.Message.Companion<M>): Message<M> =
-                message(messageCompanion, M::class)
-
-            @PublicForGeneratedCode
-            @JsName("messageWithKotlinType")
-            public fun <M : pbandk.Message> message(
-                messageCompanion: pbandk.Message.Companion<M>,
-                kotlinType: KClass<M>
-            ): Message<M> = Message(messageCompanion, kotlinType)
-
-            @PublicForGeneratedCode
-            public fun <T : Any> repeated(valueType: Type, packed: Boolean = false): Repeated<T> =
-                Repeated(valueType, packed)
-
-            private val DoubleNoPresence = Primitive.Double()
-            private val DoubleHasPresence = Primitive.Double(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun double(hasPresence: Boolean = false): Primitive.Double =
-                if (hasPresence) DoubleHasPresence else DoubleNoPresence
-
-            private val FloatNoPresence = Primitive.Float()
-            private val FloatHasPresence = Primitive.Float(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun float(hasPresence: Boolean = false): Primitive.Float =
-                if (hasPresence) FloatHasPresence else FloatNoPresence
-
-            private val Int64NoPresence = Primitive.Int64()
-            private val Int64HasPresence = Primitive.Int64(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun int64(hasPresence: Boolean = false): Primitive.Int64 =
-                if (hasPresence) Int64HasPresence else Int64NoPresence
-
-            private val UInt64NoPresence = Primitive.UInt64()
-            private val UInt64HasPresence = Primitive.UInt64(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun uint64(hasPresence: Boolean = false): Primitive.UInt64 =
-                if (hasPresence) UInt64HasPresence else UInt64NoPresence
-
-            private val Int32NoPresence = Primitive.Int32()
-            private val Int32HasPresence = Primitive.Int32(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun int32(hasPresence: Boolean = false): Primitive.Int32 =
-                if (hasPresence) Int32HasPresence else Int32NoPresence
-
-            private val Fixed64NoPresence = Primitive.Fixed64()
-            private val Fixed64HasPresence = Primitive.Fixed64(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun fixed64(hasPresence: Boolean = false): Primitive.Fixed64 =
-                if (hasPresence) Fixed64HasPresence else Fixed64NoPresence
-
-            private val Fixed32NoPresence = Primitive.Fixed32()
-            private val Fixed32HasPresence = Primitive.Fixed32(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun fixed32(hasPresence: Boolean = false): Primitive.Fixed32 =
-                if (hasPresence) Fixed32HasPresence else Fixed32NoPresence
-
-            private val BoolNoPresence = Primitive.Bool()
-            private val BoolHasPresence = Primitive.Bool(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun bool(hasPresence: Boolean = false): Primitive.Bool =
-                if (hasPresence) BoolHasPresence else BoolNoPresence
-
-            private val StringNoPresence = Primitive.String()
-            private val StringHasPresence = Primitive.String(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun string(hasPresence: Boolean = false): Primitive.String =
-                if (hasPresence) StringHasPresence else StringNoPresence
-
-            private val BytesNoPresence = Primitive.Bytes()
-            private val BytesHasPresence = Primitive.Bytes(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun bytes(hasPresence: Boolean = false): Primitive.Bytes =
-                if (hasPresence) BytesHasPresence else BytesNoPresence
-
-            private val UInt32NoPresence = Primitive.UInt32()
-            private val UInt32HasPresence = Primitive.UInt32(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun uint32(hasPresence: Boolean = false): Primitive.UInt32 =
-                if (hasPresence) UInt32HasPresence else UInt32NoPresence
-
-            private val SFixed64NoPresence = Primitive.SFixed64()
-            private val SFixed64HasPresence = Primitive.SFixed64(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun sfixed64(hasPresence: Boolean = false): Primitive.SFixed64 =
-                if (hasPresence) SFixed64HasPresence else SFixed64NoPresence
-
-            private val SFixed32NoPresence = Primitive.SFixed32()
-            private val SFixed32HasPresence = Primitive.SFixed32(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun sfixed32(hasPresence: Boolean = false): Primitive.SFixed32 =
-                if (hasPresence) SFixed32HasPresence else SFixed32NoPresence
-
-            private val SInt64NoPresence = Primitive.SInt64()
-            private val SInt64HasPresence = Primitive.SInt64(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun sint64(hasPresence: Boolean = false): Primitive.SInt64 =
-                if (hasPresence) SInt64HasPresence else SInt64NoPresence
-
-            private val SInt32NoPresence = Primitive.SInt32()
-            private val SInt32HasPresence = Primitive.SInt32(hasPresence = true)
-
-            @PublicForGeneratedCode
-            public fun sint32(hasPresence: Boolean = false): Primitive.SInt32 =
-                if (hasPresence) SInt32HasPresence else SInt32NoPresence
-        }
-    }
-     */
 
     public companion object {
         @PublicForGeneratedCode

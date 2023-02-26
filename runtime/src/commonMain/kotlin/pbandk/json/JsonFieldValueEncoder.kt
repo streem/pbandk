@@ -69,13 +69,15 @@ public class JsonFieldValueEncoder internal constructor(internal val jsonConfig:
         element = JsonNull
     }
 
-    internal inline fun encodeArray(valuesBlock: (JsonFieldValueEncoder) -> Unit) {
+    internal inline fun <T> encodeArrayWithValues(values: Iterable<T>, valueBlock: (T, JsonFieldValueEncoder) -> Unit) {
         // Warning: we reuse the current instance of `JsonFieldValueEncoder` to avoid creating too many new objects. For
-        // this to work correctly with recursive calls to `writeArray()`, `element` must be the last thing written.
+        // this to work correctly with recursive calls to `encodeArray()`, `element` must be the last thing written.
         val jsonArray = buildJsonArray {
-            valuesBlock(this@JsonFieldValueEncoder)
-            if (element !is JsonNull) {
-                add(element)
+            values.forEach {
+                valueBlock(it, this@JsonFieldValueEncoder)
+                if (element !is JsonNull) {
+                    add(element)
+                }
             }
         }
         element = jsonArray

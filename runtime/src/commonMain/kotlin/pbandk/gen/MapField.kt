@@ -10,6 +10,7 @@ import pbandk.UnknownField
 import pbandk.internal.types.FieldType
 import pbandk.internal.types.primitive.Bool
 import pbandk.types.ValueType
+import pbandk.wkt.Syntax
 import kotlin.reflect.KClass
 
 @PublicForGeneratedCode
@@ -34,6 +35,7 @@ public interface MapField<K : Any, V : Any> : Map<K, V> {
 
             private val messageMetadata = MessageMetadata(
                 fullName = "MapFieldEntry",
+                syntax = Syntax.PROTO3,
             )
 
             @Suppress("UNCHECKED_CAST")

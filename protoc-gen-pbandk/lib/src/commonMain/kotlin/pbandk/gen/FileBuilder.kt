@@ -226,7 +226,6 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                                 // (just like other proto2 fields) even if they're in a proto3 file.
                                 (fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL && fieldDesc.extendee != null) ||
                                 (fieldDesc.proto3Optional ?: false)),
-                packed = !type.neverPacked && (fieldDesc.options?.packed ?: (ctx.fileDesc.syntax == "proto3")),
                 map = supportMaps &&
                         fieldDesc.label == FieldDescriptorProto.Label.REPEATED &&
                         fieldDesc.type == FieldDescriptorProto.Type.MESSAGE &&

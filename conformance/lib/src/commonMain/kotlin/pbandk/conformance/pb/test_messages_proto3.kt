@@ -2145,6 +2145,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "protobuf_test_messages.proto3.TestAllTypesProto3",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto3> by lazy {
@@ -2470,6 +2471,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
 
             private val messageMetadata = pbandk.MessageMetadata(
                 fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage",
+                syntax = pbandk.wkt.Syntax.PROTO3,
             )
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage> by lazy {
@@ -2690,6 +2692,7 @@ public sealed interface ForeignMessage : pbandk.Message {
 
         private val messageMetadata = pbandk.MessageMetadata(
             fullName = "protobuf_test_messages.proto3.ForeignMessage",
+            syntax = pbandk.wkt.Syntax.PROTO3,
         )
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ForeignMessage> by lazy {
