@@ -22,7 +22,10 @@ internal object SFixed64 : PrimitiveValueType<Long>() {
     }
 
     override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): Long {
-        return decoder.decodeI64().decodeSignedLong
+        if (decoder !is BinaryFieldValueDecoder.I64) {
+            throw InvalidProtocolBufferException("Unexpected wire type for sfixed64 value: ${decoder.wireType}")
+        }
+        return decoder.decodeValue().decodeSignedLong
     }
 
     override fun encodeToJson(value: Long, encoder: JsonFieldValueEncoder) {

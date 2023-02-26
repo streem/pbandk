@@ -24,7 +24,10 @@ internal object String : PrimitiveValueType<String>() {
     }
 
     override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): String {
-        return decoder.decodeLen().decodeString
+        if (decoder !is BinaryFieldValueDecoder.Len) {
+            throw InvalidProtocolBufferException("Unexpected wire type for string value: ${decoder.wireType}")
+        }
+        return decoder.decodeValue().decodeString
     }
 
     override fun encodeToJson(value: String, encoder: JsonFieldValueEncoder) {

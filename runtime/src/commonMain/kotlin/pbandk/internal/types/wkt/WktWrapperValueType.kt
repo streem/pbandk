@@ -1,15 +1,16 @@
 package pbandk.internal.types.wkt
 
 import pbandk.FieldDescriptor
+import pbandk.InvalidProtocolBufferException
 import pbandk.Message
 import pbandk.binary.BinaryFieldValueDecoder
-import pbandk.json.JsonFieldValueEncoder
 import pbandk.binary.BinaryFieldValueEncoder
 import pbandk.binary.WireType
 import pbandk.binary.tryDecodeField
 import pbandk.internal.binary.WireValue
-import pbandk.json.JsonFieldValueDecoder
 import pbandk.internal.types.primitive.PrimitiveValueType
+import pbandk.json.JsonFieldValueDecoder
+import pbandk.json.JsonFieldValueEncoder
 
 internal abstract class WktWrapperValueType<T : kotlin.Any, M : Message>(
     private val wrapperFieldDescriptor: FieldDescriptor<M, T>,
@@ -38,16 +39,17 @@ internal abstract class WktWrapperValueType<T : kotlin.Any, M : Message>(
     }
 
     override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): T {
-        return decoder.decodeLenFields { fieldDecoder ->
+        if (decoder !is BinaryFieldValueDecoder.Len) {
+            throw InvalidProtocolBufferException("Unexpected wire type for message value: ${decoder.wireType}")
+        }
+        return decoder.decodeFields { fieldDecoder ->
             var value: T = wrappedValueType.defaultValue
-            do {
-                val fieldFound = fieldDecoder.decodeField { tag, valueDecoder ->
-                    when {
-                        valueDecoder.tryDecodeField(wrapperFieldDescriptor, tag) { value = it } -> {}
-                        else -> valueDecoder.skipField(tag)
-                    }
+            fieldDecoder.forEachField { fieldNumber, valueDecoder ->
+                when {
+                    valueDecoder.tryDecodeField(wrapperFieldDescriptor, fieldNumber) { value = it } -> {}
+                    else -> valueDecoder.skipValue()
                 }
-            } while (fieldFound)
+            }
             value
         }
     }

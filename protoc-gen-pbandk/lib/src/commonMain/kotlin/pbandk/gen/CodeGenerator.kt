@@ -470,6 +470,7 @@ public open class CodeGenerator(
         is WireValue.I64 -> "I64(${this.value}UL)"
         is WireValue.Len -> "Len(byteArrayOf(${this.value.joinToString()}))"
         is WireValue.Group -> TODO()
+        is WireValue.EndGroup -> "EndGroup"
     }
 
     protected fun writeMessageExtensions(type: File.Type.Message) {
@@ -700,6 +701,7 @@ public open class CodeGenerator(
                         lineMid("@Suppress(\"DEPRECATION\") ")
                     }
                     lineMid(field.kotlinName.simple)
+                    // TODO: update this to use `FieldType.fromMutableValue()` instead
                     when {
                         field is File.Field.Numbered.Standard && field.map -> lineMid(".toMapField()")
                         field is File.Field.Numbered && field.repeated -> lineMid(".toListField()")

@@ -2,12 +2,10 @@ package pbandk
 
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.WireType
-import pbandk.internal.binary.BinaryFieldDecoder
 import pbandk.internal.binary.Tag
 import pbandk.internal.binary.WireValue
-import pbandk.internal.binary.kotlin.ByteArrayWireReader
 import pbandk.internal.types.FieldType
-import pbandk.types.ValueType
+import pbandk.internal.types.MessageValueType
 import kotlin.js.JsExport
 
 @JsExport
@@ -22,6 +20,27 @@ public data class UnknownField @PublicForGeneratedCode constructor(val fieldNum:
         //     public constructor(wireType: Int, rawBytes: ByteArray) : this(wireType, ByteArr(rawBytes))
 
         internal val size get() = wireValue.size
+
+        override fun equals(other: Any?): Boolean {
+            if (this === other) return true
+            if (other == null || this::class != other::class) return false
+
+            other as Value
+
+            return if (wireValue is WireValue.Len) {
+                if (other.wireValue !is WireValue.Len) {
+                    false
+                } else {
+                    wireValue.value.contentEquals(other.wireValue.value)
+                }
+            } else {
+                wireValue == other.wireValue
+            }
+        }
+
+        override fun hashCode(): Int {
+            return wireValue.hashCode()
+        }
 
         internal companion object
     }
@@ -40,74 +59,65 @@ private fun <T> UnknownField.Value.Companion.encode(type: FieldDescriptor.Type, 
  */
 
 @Suppress("UNCHECKED_CAST")
-internal fun <M : Message, T> UnknownField.decodeAs(fieldDescriptor: FieldDescriptor<M, T>): T =
-    when (val fieldType = fieldDescriptor.fieldType) {
-        is FieldType.Optional<*> -> null as T // TODO
-        is FieldType.Required<*> -> TODO()
-        is FieldType.Singular<*> -> fieldType.valueType.defaultValue as T // TODO
-        is FieldType.Repeated<*> -> decodeAsRepeated(fieldDescriptor.metadata, fieldType) as T
-        is FieldType.Map<*, *> -> decodeAsMap(fieldDescriptor.metadata, fieldType) as T
+internal fun <M : Message, T> UnknownField.decodeAs(fieldDescriptor: FieldDescriptor<M, T>): T {
+    if (fieldDescriptor.number != fieldNum) {
+        throw InvalidProtocolBufferException("Unknown field number $fieldNum does not match field descriptor field number ${fieldDescriptor.number}")
     }
 
-private fun <T : Any> UnknownField.Value.decodeAs(valueType: ValueType<T>): T {
-    if (valueType.binaryWireType != WireType(wireValue.wireType)) {
-        throw InvalidProtocolBufferException("Unknown field with wire type ${wireValue.wireType} can't be decoded as a '$valueType' field")
-    }
-    // TODO
-    val wireReader = ByteArrayWireReader(byteArrayOf())
-    val decoder = BinaryFieldValueDecoder(wireReader, BinaryFieldDecoder(wireReader))
-    return valueType.decodeFromBinary(decoder)
-}
-
-private fun <T : Any> UnknownField.decodeAsRepeated(
-    fieldMetadata: FieldMetadata,
-    fieldType: FieldType.Repeated<T>
-): List<T> {
-    return emptyList()
-    // TODO
-    /*
-    return values.asSequence()
-        .flatMap {
-            if (!fieldType.allowsBinaryWireType(WireType(it.wireType)))
-                throw InvalidProtocolBufferException("Unknown field with wire type ${it.wireType} can't be decoded as a '$fieldType' field")
-            }
-            fieldType.decodeFromBinary(fieldMetadata, Tag.Zero, BinaryFieldValueDecoder())
-            fieldType.valueType.decodeFromBinary()
-            val decoder = KotlinBinaryWireDecoder(ByteArrayWireReader(it.rawBytes.array))
-            BinaryMessageDecoder.readRepeatedField(type, WireType(it.wireType), decoder)
+    return when (val fieldType = fieldDescriptor.fieldType) {
+        is FieldType.Optional<*> -> if (fieldType.valueType is MessageValueType<*>) {
+            decodeAsMessage(fieldDescriptor as FieldDescriptor<M, out Message?>) as T
+        } else {
+            decodeAsPrimitive(fieldDescriptor)
         }
-        .toCollection(MutableListField(type.valueType))
-        .toListField()
-     */
+
+        is FieldType.Required<*> -> if (fieldType.valueType is MessageValueType<*>) {
+            decodeAsMessage(fieldDescriptor as FieldDescriptor<M, out Message>) as T
+        } else {
+            decodeAsPrimitive(fieldDescriptor)
+        }
+
+        is FieldType.Singular<*> -> if (fieldType.valueType is MessageValueType<*>) {
+            decodeAsMessage(fieldDescriptor as FieldDescriptor<M, out Message>) as T
+        } else {
+            decodeAsPrimitive(fieldDescriptor)
+        }
+
+        is FieldType.MutableValue<*, *> -> decodeAsMutableValue(fieldDescriptor.metadata, fieldType) as T
+    }
 }
 
-/*
-private fun <T> UnknownField.decodeAsPrimitive(fieldType: FieldType<T>): T {
+private fun <T> UnknownField.Value.decodeAs(fieldMetadata: FieldMetadata, fieldType: FieldType<T>): T {
+    if (!fieldType.allowsBinaryWireType(WireType(wireValue.wireType))) {
+        throw InvalidProtocolBufferException("Unknown field with wire type ${wireValue.wireType} can't be decoded as a '$fieldType' field")
+    }
+    return fieldType.decodeFromBinary(fieldMetadata, BinaryFieldValueDecoder.forWireValue(wireValue))
+}
+
+private fun <T> UnknownField.decodeAsPrimitive(fieldDescriptor: FieldDescriptor<*, T>): T {
     // Protobuf states it will only use the last value for multiple primitive types.
-    return values.last().decodeAs(fieldType)
+    return values.last().decodeAs(fieldDescriptor.metadata, fieldDescriptor.fieldType)
 }
 
-private fun <T : Message> UnknownField.decodeAsMessage(fieldType: FieldType<T>): T {
+private fun <T : Message?> UnknownField.decodeAsMessage(fieldDescriptor: FieldDescriptor<*, T>): T {
     return values.asSequence()
-        .map { it.decodeAs<T>(fieldType) }
-        .reduce { acc, t ->
-            @Suppress("UNCHECKED_CAST")
-            acc.plus(t) as T
+        .map { it.decodeAs(fieldDescriptor.metadata, fieldDescriptor.fieldType) }
+        .reduce { mergedMessage, newMessage ->
+            fieldDescriptor.fieldType.mergeValues(fieldDescriptor.metadata, mergedMessage, newMessage)
         }
 }
- */
 
-private fun <K : Any, V : Any> UnknownField.decodeAsMap(
+private fun <T, MT : Any> UnknownField.decodeAsMutableValue(
     fieldMetadata: FieldMetadata,
-    fieldType: FieldType.Map<K, V>
-): Map<K, V> {
-    return emptyMap()
-    // TODO
-    /*
-    @Suppress("UNCHECKED_CAST")
-    val messageType = FieldDescriptor.Type.Message(type.entryCompanion, MapField.Entry::class as KClass<MapField.Entry<K, V>>)
-    return MutableMapField(type.entryCompanion).apply {
-        putAll(this@decodeAsMap.values.asSequence().map { it.decodeAs(messageType) })
-    }.toMapField()
-     */
+    fieldType: FieldType.MutableValue<T, MT>
+): T {
+    val mutableValue = fieldType.newMutableValue()
+    values.forEach { value ->
+        val wireType = WireType(value.wireValue.wireType)
+        if (!fieldType.allowsBinaryWireType(wireType)) {
+            throw InvalidProtocolBufferException("Unknown field with wire type $wireType can't be decoded as a '$fieldType' field")
+        }
+        fieldType.decodeFromBinary(fieldMetadata, BinaryFieldValueDecoder.forWireValue(value.wireValue), mutableValue)
+    }
+    return fieldType.fromMutableValue(mutableValue)
 }

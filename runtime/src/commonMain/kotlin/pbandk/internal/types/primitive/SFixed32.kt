@@ -22,7 +22,10 @@ internal object SFixed32 : PrimitiveValueType<Int>() {
     }
 
     override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): Int {
-        return decoder.decodeI32().decodeSignedInt
+        if (decoder !is BinaryFieldValueDecoder.I32) {
+            throw InvalidProtocolBufferException("Unexpected wire type for sfixed32 value: ${decoder.wireType}")
+        }
+        return decoder.decodeValue().decodeSignedInt
     }
 
     override fun encodeToJson(value: Int, encoder: JsonFieldValueEncoder) {

@@ -29,12 +29,19 @@ public class InvalidProtocolBufferException : RuntimeException {
 
         internal fun invalidWireType() = InvalidProtocolBufferException("Protocol message tag had invalid wire type.")
 
-        internal fun sizeLimitExceeded() = InvalidProtocolBufferException(
-            "Protocol message was too large.  May be malicious.  "
-                    + "Use a higher sizeLimit when reading the reading the input."
+        internal fun recursionLimitExceeded() = InvalidProtocolBufferException(
+            "Protocol message had too many levels of nesting.  May be malicious.  "
+                    + "Use a higher recursionLimit when reading the input."
         )
 
-        internal fun invalidJsonType() = InvalidProtocolBufferException("Protocol message JSON field had invalid type.")
+        internal fun sizeLimitExceeded() = InvalidProtocolBufferException(
+            "Protocol message was too large.  May be malicious.  Use a higher sizeLimit when reading the input."
+        )
 
+        internal fun parseFailure() = InvalidProtocolBufferException("Failed to parse the message.")
+
+        internal fun invalidUtf8() = InvalidProtocolBufferException("Protocol message had invalid UTF-8.")
+
+        internal fun invalidJsonType() = InvalidProtocolBufferException("Protocol message JSON field had invalid type.")
     }
 }

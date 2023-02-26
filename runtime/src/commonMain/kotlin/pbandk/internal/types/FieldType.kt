@@ -7,6 +7,7 @@ import pbandk.binary.WireType
 import pbandk.gen.ListField
 import pbandk.gen.MapField
 import pbandk.gen.MutableListField
+import pbandk.gen.MutableMapField
 import pbandk.gen.MutableMapFieldEntry
 import pbandk.internal.binary.BinaryFieldEncoder
 import pbandk.internal.binary.Tag
@@ -34,16 +35,16 @@ internal sealed class FieldType<KotlinType> {
     abstract fun encodeToBinary(metadata: FieldMetadata, value: KotlinType, encoder: BinaryFieldEncoder)
     abstract fun encodeToJson(metadata: FieldMetadata, value: KotlinType, encoder: JsonFieldEncoder)
 
-    abstract fun decodeFromBinary(metadata: FieldMetadata, tag: Tag, decoder: BinaryFieldValueDecoder): KotlinType
+    abstract fun decodeFromBinary(metadata: FieldMetadata, decoder: BinaryFieldValueDecoder): KotlinType
     abstract fun decodeFromJson(metadata: FieldMetadata, decoder: JsonFieldValueDecoder): KotlinType
 
     sealed class MutableValue<KotlinType, MutableKotlinType : Any> : FieldType<KotlinType>() {
         abstract fun newMutableValue(): MutableKotlinType
         abstract fun setMutableValue(mutableValue: MutableKotlinType, newValue: KotlinType)
+        abstract fun fromMutableValue(mutableValue: MutableKotlinType): KotlinType
 
         abstract fun decodeFromBinary(
             metadata: FieldMetadata,
-            tag: Tag,
             decoder: BinaryFieldValueDecoder,
             mutableValue: MutableKotlinType,
         )
@@ -70,7 +71,7 @@ internal sealed class FieldType<KotlinType> {
             }
         }
 
-        override fun decodeFromBinary(metadata: FieldMetadata, tag: Tag, decoder: BinaryFieldValueDecoder): T {
+        override fun decodeFromBinary(metadata: FieldMetadata, decoder: BinaryFieldValueDecoder): T {
             return valueType.decodeFromBinary(decoder)
         }
 
@@ -117,7 +118,7 @@ internal sealed class FieldType<KotlinType> {
             }
         }
 
-        override fun decodeFromBinary(metadata: FieldMetadata, tag: Tag, decoder: BinaryFieldValueDecoder): T {
+        override fun decodeFromBinary(metadata: FieldMetadata, decoder: BinaryFieldValueDecoder): T {
             return valueType.decodeFromBinary(decoder)
         }
 
@@ -168,7 +169,7 @@ internal sealed class FieldType<KotlinType> {
             }
         }
 
-        override fun decodeFromBinary(metadata: FieldMetadata, tag: Tag, decoder: BinaryFieldValueDecoder): T {
+        override fun decodeFromBinary(metadata: FieldMetadata, decoder: BinaryFieldValueDecoder): T {
             return valueType.decodeFromBinary(decoder)
         }
 
@@ -209,12 +210,19 @@ internal sealed class FieldType<KotlinType> {
 
         override val defaultValue: List<T> get() = ListField.empty()
 
-        override fun newMutableValue(): MutableList<T> = MutableListField(valueType)
+        override fun newMutableValue(): MutableListField<T> = MutableListField(valueType)
 
         override fun setMutableValue(mutableValue: MutableList<T>, newValue: List<T>) {
             mutableValue.clear()
             mutableValue.addAll(newValue)
         }
+
+        override fun fromMutableValue(mutableValue: MutableList<T>): List<T> =
+            if (mutableValue is MutableListField<T>) {
+                mutableValue.toListField()
+            } else {
+                ListField(valueType, mutableValue)
+            }
 
         override fun allowsBinaryWireType(wireType: WireType): Boolean {
             return (valueType.binaryWireType == wireType
@@ -262,15 +270,14 @@ internal sealed class FieldType<KotlinType> {
 
         override fun decodeFromBinary(
             metadata: FieldMetadata,
-            tag: Tag,
             decoder: BinaryFieldValueDecoder,
             mutableValue: MutableList<T>,
         ) {
             // Check if the field is "packed" (multiple values from the repeated list encoded into a single field). Only
             // repeated values that don't use [WireType.LENGTH_DELIMITED] can be packed. If the value uses
             // [WireType.LENGTH_DELIMITED], then this field can only represent a single value from the repeated list.
-            if (tag.wireType == WireType.LENGTH_DELIMITED && valueType.binaryWireType != WireType.LENGTH_DELIMITED) {
-                decoder.decodeLenPackedValues {
+            if (decoder is BinaryFieldValueDecoder.Len && valueType.binaryWireType != WireType.LENGTH_DELIMITED) {
+                decoder.decodePackedValues(valueType.binaryWireType) {
                     mutableValue.add(valueType.decodeFromBinary(it))
                 }
             } else {
@@ -278,10 +285,10 @@ internal sealed class FieldType<KotlinType> {
             }
         }
 
-        override fun decodeFromBinary(metadata: FieldMetadata, tag: Tag, decoder: BinaryFieldValueDecoder): List<T> {
+        override fun decodeFromBinary(metadata: FieldMetadata, decoder: BinaryFieldValueDecoder): List<T> {
             return newMutableValue().apply {
-                decodeFromBinary(metadata, tag, decoder, this)
-            }
+                decodeFromBinary(metadata, decoder, this)
+            }.toListField()
         }
 
         override fun encodeToJson(metadata: FieldMetadata, value: List<T>, encoder: JsonFieldEncoder) {
@@ -307,7 +314,7 @@ internal sealed class FieldType<KotlinType> {
                         else -> add(valueType.decodeFromJson(arrayValueDecoder))
                     }
                 }
-            }
+            }.toListField()
 
             else -> TODO()
         }
@@ -331,11 +338,19 @@ internal sealed class FieldType<KotlinType> {
 
         override val defaultValue: kotlin.collections.Map<K, V> get() = MapField.empty()
 
-        override fun newMutableValue(): MutableMap<K, V> = mutableMapOf()
+        override fun newMutableValue(): MutableMapField<K, V> = MutableMapField(entryCompanion)
 
         override fun setMutableValue(mutableValue: MutableMap<K, V>, newValue: kotlin.collections.Map<K, V>) {
             mutableValue.clear()
             mutableValue.putAll(newValue)
+        }
+
+        override fun fromMutableValue(mutableValue: MutableMap<K, V>): kotlin.collections.Map<K, V> {
+            return if (mutableValue is MutableMapField<K, V>) {
+                mutableValue.toMapField()
+            } else {
+                MapField(entryCompanion, mutableValue)
+            }
         }
 
         override fun allowsBinaryWireType(wireType: WireType): Boolean {
@@ -407,7 +422,6 @@ internal sealed class FieldType<KotlinType> {
 
         override fun decodeFromBinary(
             metadata: FieldMetadata,
-            tag: Tag,
             decoder: BinaryFieldValueDecoder,
             mutableValue: MutableMap<K, V>,
         ) {
@@ -417,12 +431,11 @@ internal sealed class FieldType<KotlinType> {
 
         override fun decodeFromBinary(
             metadata: FieldMetadata,
-            tag: Tag,
             decoder: BinaryFieldValueDecoder
         ): kotlin.collections.Map<K, V> {
             return newMutableValue().apply {
-                decodeFromBinary(metadata, tag, decoder, this)
-            }
+                decodeFromBinary(metadata, decoder, this)
+            }.toMapField()
         }
 
         override fun encodeToJson(
@@ -452,7 +465,8 @@ internal sealed class FieldType<KotlinType> {
 
             is JsonFieldValueDecoder.Object -> newMutableValue().apply {
                 decoder.decodeFields { fieldDecoder ->
-                    fieldDecoder.forEachField(keyType::decodeFromJson) { mapKey, fieldValueDecoder ->
+                    fieldDecoder.forEachField { fieldKeyDecoder, fieldValueDecoder ->
+                        val mapKey = keyType.decodeFromJson(fieldKeyDecoder)
                         val mapValue = if (fieldValueDecoder is JsonFieldValueDecoder.Null) {
                             fieldValueDecoder.consumeNull()
                             // According to https://protobuf.dev/programming-guides/proto3/#maps: "If you provide a key
@@ -468,7 +482,7 @@ internal sealed class FieldType<KotlinType> {
                         put(mapKey, mapValue)
                     }
                 }
-            }
+            }.toMapField()
 
             else -> TODO()
         }

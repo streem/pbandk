@@ -22,7 +22,10 @@ internal object UInt32 : PrimitiveValueType<Int>() {
     }
 
     override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): Int {
-        return decoder.decodeVarint().decodeUnsignedInt.toInt()
+        if (decoder !is BinaryFieldValueDecoder.Varint) {
+            throw InvalidProtocolBufferException("Unexpected wire type for uint32 value: ${decoder.wireType}")
+        }
+        return decoder.decodeValue().decodeUnsignedInt.toInt()
     }
 
     override fun encodeToJson(value: Int, encoder: JsonFieldValueEncoder) {

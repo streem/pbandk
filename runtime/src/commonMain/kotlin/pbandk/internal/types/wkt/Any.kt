@@ -92,8 +92,8 @@ private inline fun <T : Message> decodeFromJson(
         valueType as WktValueType<*, T>
 
         var message: T? = null
-        decoder.forEachField(::findValueField) { isValueField, fieldValueDecoder ->
-            if (isValueField) {
+        decoder.forEachField { fieldKeyDecoder, fieldValueDecoder ->
+            if (findValueField(fieldKeyDecoder)) {
                 message = valueType.decodeMessageFromJson(fieldValueDecoder)
             } else {
                 fieldValueDecoder.skipValue()
@@ -104,7 +104,8 @@ private inline fun <T : Message> decodeFromJson(
         )
     } ?: valueCompanion.descriptor.builder {
         val fieldDescriptors = valueCompanion.descriptor.fields
-        decoder.forEachField(fieldDescriptors::findByJsonName) { fd, valueDecoder ->
+        decoder.forEachField { keyDecoder, valueDecoder ->
+            val fd = fieldDescriptors.findByJsonName(keyDecoder)
             if (fd != null) {
                 fd.decodeFromJson(valueDecoder, this)
             } else {

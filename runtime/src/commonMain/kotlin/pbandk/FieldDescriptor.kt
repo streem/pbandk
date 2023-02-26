@@ -2,7 +2,6 @@ package pbandk
 
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.internal.binary.BinaryFieldEncoder
-import pbandk.internal.binary.Tag
 import pbandk.internal.json.JsonFieldEncoder
 import pbandk.internal.types.FieldType
 import pbandk.json.JsonFieldValueDecoder
@@ -173,10 +172,10 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
         fieldType.encodeToBinary(metadata, value, encoder)
     }
 
-    internal open fun decodeFromBinary(tag: Tag, decoder: BinaryFieldValueDecoder, message: MutableMessage<M>) {
+    internal open fun decodeFromBinary(decoder: BinaryFieldValueDecoder, message: MutableMessage<M>) {
         @Suppress("UNCHECKED_CAST")
         val currentValue = getValue(message as M)
-        val decodedValue = fieldType.decodeFromBinary(metadata, tag, decoder)
+        val decodedValue = fieldType.decodeFromBinary(metadata, decoder)
         val newValue = fieldType.mergeValues(metadata, currentValue, decodedValue)
         if (newValue !== currentValue) {
             setValue(message, newValue)
@@ -341,9 +340,9 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             }
         }
 
-        override fun decodeFromBinary(tag: Tag, decoder: BinaryFieldValueDecoder, message: MutableMessage<M>) {
+        override fun decodeFromBinary(decoder: BinaryFieldValueDecoder, message: MutableMessage<M>) {
             val mutableList = getMutableValue(message)
-            fieldType.decodeFromBinary(metadata, tag, decoder, mutableList)
+            fieldType.decodeFromBinary(metadata, decoder, mutableList)
         }
     }
 
@@ -388,10 +387,10 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             }
         }
 
-        override fun decodeFromBinary(tag: Tag, decoder: BinaryFieldValueDecoder, message: MutableMessage<M>) {
+        override fun decodeFromBinary(decoder: BinaryFieldValueDecoder, message: MutableMessage<M>) {
             val mutableMap = getMutableValue(message)
 
-            fieldType.decodeFromBinary(metadata, tag, decoder, mutableMap)
+            fieldType.decodeFromBinary(metadata, decoder, mutableMap)
 
             // val entryCompanion = MapField.Entry.Companion<K, V>(keyType, valueType)
             // val entry = entryCompanion.descriptor.valueType.decodeFromBinary(decoder)
@@ -465,9 +464,9 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             }
         }
 
-        override fun decodeFromBinary(tag: Tag, decoder: BinaryFieldValueDecoder, message: MutableMessage<M>) {
+        override fun decodeFromBinary(decoder: BinaryFieldValueDecoder, message: MutableMessage<M>) {
             val mutableList = getMutableValue(message)
-            fieldType.decodeFromBinary(metadata, tag, decoder, mutableList)
+            fieldType.decodeFromBinary(metadata, decoder, mutableList)
         }
     }
 

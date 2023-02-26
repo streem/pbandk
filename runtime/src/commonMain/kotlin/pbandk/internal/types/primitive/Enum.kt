@@ -29,7 +29,10 @@ internal class Enum<E : Message.Enum>(val enumCompanion: Message.Enum.Companion<
     }
 
     override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): E {
-        return enumCompanion.fromValue(decoder.decodeVarint().decodeSignedInt)
+        if (decoder !is BinaryFieldValueDecoder.Varint) {
+            throw InvalidProtocolBufferException("Unexpected wire type for enum value: ${decoder.wireType}")
+        }
+        return enumCompanion.fromValue(decoder.decodeValue().decodeSignedInt)
     }
 
     override fun encodeToJson(value: E, encoder: JsonFieldValueEncoder) {

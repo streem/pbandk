@@ -24,7 +24,8 @@ internal object Struct : MessageValueType<Struct>(Struct) {
 
         return Struct {
             decoder.decodeFields { fieldDecoder ->
-                fieldDecoder.forEachField({ it.decodeAsString() }) { fieldKey, fieldValueDecoder ->
+                fieldDecoder.forEachField { fieldKeyDecoder, fieldValueDecoder ->
+                    val fieldKey = fieldKeyDecoder.decodeAsString()
                     fields[fieldKey] = Value.decodeFromJson(fieldValueDecoder)
                 }
             }

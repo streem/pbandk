@@ -69,6 +69,7 @@
 - [ ] Rename `TypeRegistry.getTypeUrl()` to `TypeRegistry.getByTypeUrl()`
 - [ ] Add "generated from and by" comments to the top of the file, and to each field, similar to [protobuf-es](https://github.com/bufbuild/protobuf-es/blob/main/docs/generated_code.md#comments)
 - [ ] Store unknown JSON fields, just like we store unknown binary fields (possibly using `google.protobuf.Value` as the container)
+- [ ] Implement support for group fields in proto2
 
 ---
 
@@ -119,4 +120,3 @@ Operations:
 - encode/decode a field to binary protobuf
 - encode/decode a field to JSON protobuf
 - swap in different encode/decode implementations
-- 

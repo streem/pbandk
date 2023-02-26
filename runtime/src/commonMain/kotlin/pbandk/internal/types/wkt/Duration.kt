@@ -46,19 +46,20 @@ internal object DurationNew : WktValueType<kotlin.time.Duration, Duration> {
     }
 
     override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): kotlin.time.Duration {
-        return decoder.decodeLenFields { fieldDecoder ->
+        if (decoder !is BinaryFieldValueDecoder.Len) {
+            throw InvalidProtocolBufferException("Unexpected wire type for message value: ${decoder.wireType}")
+        }
+        return decoder.decodeFields { fieldDecoder ->
             var seconds = 0L
             var nanoseconds = 0
 
-            do {
-                val fieldFound = fieldDecoder.decodeField { tag, valueDecoder ->
-                    when {
-                        valueDecoder.tryDecodeField(secondsField, tag) { seconds = it } -> {}
-                        valueDecoder.tryDecodeField(nanosField, tag) { nanoseconds = it } -> {}
-                        else -> valueDecoder.skipField(tag)
-                    }
+            fieldDecoder.forEachField { fieldNumber, valueDecoder ->
+                when {
+                    valueDecoder.tryDecodeField(secondsField, fieldNumber) { seconds = it } -> {}
+                    valueDecoder.tryDecodeField(nanosField, fieldNumber) { nanoseconds = it } -> {}
+                    else -> valueDecoder.skipValue()
                 }
-            } while (fieldFound)
+            }
 
             kotlin.time.Duration.seconds(seconds)
                 .plus(kotlin.time.Duration.nanoseconds(nanoseconds))

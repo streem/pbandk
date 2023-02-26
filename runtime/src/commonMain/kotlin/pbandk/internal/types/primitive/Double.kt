@@ -23,7 +23,10 @@ internal object Double : PrimitiveValueType<Double>() {
     }
 
     override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): Double {
-        return decoder.decodeI64().decodeDouble
+        if (decoder !is BinaryFieldValueDecoder.I64) {
+            throw InvalidProtocolBufferException("Unexpected wire type for double value: ${decoder.wireType}")
+        }
+        return decoder.decodeValue().decodeDouble
     }
 
     override fun encodeToJson(value: Double, encoder: JsonFieldValueEncoder) {

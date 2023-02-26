@@ -3,58 +3,52 @@ package pbandk.internal.binary
 import pbandk.InvalidProtocolBufferException
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.WireType
+import pbandk.internal.binary.kotlin.LimitingWireReader
 import pbandk.internal.binary.kotlin.WireReader
 
 internal class BinaryFieldDecoder(wireReader: WireReader) {
-    private val valueDecoder = BinaryFieldValueDecoder(wireReader, this)
+    private val wireReader = LimitingWireReader(wireReader)
+
+    internal val varintValueDecoder: BinaryFieldValueDecoder.Varint =
+        BinaryFieldValueDecoder.VarintFromReader(this.wireReader)
+    internal val i32ValueDecoder: BinaryFieldValueDecoder.I32 = BinaryFieldValueDecoder.I32FromReader(this.wireReader)
+    internal val i64ValueDecoder: BinaryFieldValueDecoder.I64 = BinaryFieldValueDecoder.I64FromReader(this.wireReader)
+    internal val lenValueDecoder: BinaryFieldValueDecoder.Len = BinaryFieldValueDecoder.Len(this.wireReader, this)
 
     private var lastTag: Tag = Tag.Zero
 
-    /** Returns `true` if a field was found, `false` if there are no more fields to read. */
-    inline fun decodeField(valueBlock: (Tag, BinaryFieldValueDecoder) -> Unit): Boolean {
-        if (valueDecoder.isAtEnd()) {
-            lastTag = Tag.Zero
-            return false
+    internal fun valueDecoder(wireType: WireType): BinaryFieldValueDecoder {
+        return when (wireType) {
+            WireType.VARINT -> varintValueDecoder
+            WireType.FIXED32 -> i32ValueDecoder
+            WireType.FIXED64 -> i64ValueDecoder
+            WireType.LENGTH_DELIMITED -> lenValueDecoder
+            WireType.START_GROUP -> throw IllegalStateException("Group tags should have been processed outside of this function")
+            WireType.END_GROUP -> BinaryFieldValueDecoder.EndGroup
+            else -> throw InvalidProtocolBufferException.invalidWireType()
         }
-
-        lastTag = Tag(valueDecoder.decodeVarint().decodeUnsignedInt)
-        if (lastTag.fieldNumber == 0) {
-            // If we actually read zero (or any tag number corresponding to field
-            // number zero), that's not a valid tag.
-            throw InvalidProtocolBufferException.invalidTag()
-        }
-
-        valueBlock(lastTag, valueDecoder)
-        return true
     }
 
-    inline fun decodeGroup(fieldNumber: Int, valueBlock: (Tag, BinaryFieldValueDecoder) -> Unit) {
+    inline fun forEachField(action: (Int, BinaryFieldValueDecoder) -> Unit) {
         while (true) {
-            val fieldFound = decodeField { tag, valueDecoder ->
-                if (tag.wireType == WireType.END_GROUP) {
-                    if (tag.fieldNumber != fieldNumber) {
-                        throw InvalidProtocolBufferException.invalidEndTag()
-                    }
-                    return
-                }
-                valueBlock(tag, valueDecoder)
+            if (wireReader.isAtEnd()) {
+                lastTag = Tag.Zero
+                return
             }
 
-            if (!fieldFound) {
-                throw InvalidProtocolBufferException("Encountered a malformed START_GROUP tag with no matching END_GROUP tag")
+            lastTag = Tag(varintValueDecoder.decodeValue().decodeUnsignedInt)
+            if (lastTag.fieldNumber == 0) {
+                // If we actually read zero (or any tag number corresponding to field
+                // number zero), that's not a valid tag.
+                throw InvalidProtocolBufferException.invalidTag()
             }
+
+            val valueDecoder = when (lastTag.wireType) {
+                WireType.START_GROUP -> BinaryFieldValueDecoder.GroupFromReader(this, lastTag.fieldNumber)
+                else -> valueDecoder(lastTag.wireType)
+            }
+
+            action(lastTag.fieldNumber, valueDecoder)
         }
-    }
-
-    fun skipMessage(): Tag {
-        do {
-            val fieldFound = decodeField { tag, valueDecoder ->
-                if (!valueDecoder.skipField(tag)) {
-                    return lastTag
-                }
-            }
-        } while (fieldFound)
-
-        return lastTag
     }
 }

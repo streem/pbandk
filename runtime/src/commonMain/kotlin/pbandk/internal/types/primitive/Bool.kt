@@ -22,7 +22,10 @@ internal object Bool : PrimitiveValueType<Boolean>() {
     }
 
     override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): Boolean {
-        return decoder.decodeVarint().decodeBoolean
+        if (decoder !is BinaryFieldValueDecoder.Varint) {
+            throw InvalidProtocolBufferException("Unexpected wire type for bool value: ${decoder.wireType}")
+        }
+        return decoder.decodeValue().decodeBoolean
     }
 
     override fun encodeToJson(value: Boolean, encoder: JsonFieldValueEncoder) {

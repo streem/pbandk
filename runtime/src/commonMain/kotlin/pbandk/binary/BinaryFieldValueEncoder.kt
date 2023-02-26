@@ -23,19 +23,8 @@ public class BinaryFieldValueEncoder internal constructor(
     // Wire type: varint
 
     internal fun encodeVarint(value: WireValue.Varint) {
-        val buffer = byteArrayBuffer
-        var position = 0
-        var valueCur = value.value
-        while (position < MAX_VARINT_SIZE) {
-            if ((valueCur and 0x7FUL.inv()) == 0UL) {
-                buffer[position++] = valueCur.toByte()
-                break
-            } else {
-                buffer[position++] = ((valueCur and 0x7FU) or 0x80U).toByte()
-                valueCur = valueCur shr 7
-            }
-        }
-        wireWriter.write(buffer, 0, position)
+        val position = value.encodeToBuffer(byteArrayBuffer)
+        wireWriter.write(byteArrayBuffer, 0, position)
     }
 
     // Wire type: i32
@@ -85,7 +74,7 @@ public class BinaryFieldValueEncoder internal constructor(
                 }
             }
         }
-        encodeVarint(WireValue.Varint.encodeUnsignedInt(Tag(fieldNum, WireType.END_GROUP).value))
+        fieldEncoder.encodeField(Tag(fieldNum, WireType.END_GROUP)) {}
     }
 
     // Unknown fields
@@ -97,6 +86,24 @@ public class BinaryFieldValueEncoder internal constructor(
             is WireValue.I64 -> encodeI64(value)
             is WireValue.Len -> encodeLen(value)
             is WireValue.Group -> encodeGroup(fieldNum, value)
+            is WireValue.EndGroup -> {}
+        }
+    }
+
+    public companion object {
+        internal fun WireValue.Varint.encodeToBuffer(buffer: ByteArray): Int {
+            var position = 0
+            var valueCur = value
+            while (position < MAX_VARINT_SIZE) {
+                if ((valueCur and 0x7FUL.inv()) == 0UL) {
+                    buffer[position++] = valueCur.toByte()
+                    break
+                } else {
+                    buffer[position++] = ((valueCur and 0x7FU) or 0x80U).toByte()
+                    valueCur = valueCur shr 7
+                }
+            }
+            return position
         }
     }
 }

@@ -3,6 +3,7 @@ package pbandk
 import pbandk.gen.MutableListField
 import pbandk.testpb.Bar
 import pbandk.testpb.Foo
+import pbandk.testpb.TestAllTypesProto3
 import pbandk.types.int32
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
@@ -17,6 +18,15 @@ class RepeatedTest {
 
         assertContentEquals(expected.encodeToByteArray(), bytes)
         assertEquals(expected, Bar.decodeFromByteArray(bytes))
+    }
+
+    @Test
+    fun testRepeatedUnpackedList() {
+        val msg = TestAllTypesProto3 {
+            unpackedInt32 += listOf(1, 2, 3)
+        }
+        val roundTrippedMsg = TestAllTypesProto3.decodeFromByteArray(msg.encodeToByteArray())
+        assertEquals(msg, roundTrippedMsg)
     }
 
     @Test

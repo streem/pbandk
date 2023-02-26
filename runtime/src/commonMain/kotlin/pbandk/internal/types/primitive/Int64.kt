@@ -22,7 +22,10 @@ internal object Int64 : PrimitiveValueType<Long>() {
     }
 
     override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): Long {
-        return decoder.decodeVarint().decodeSignedLong
+        if (decoder !is BinaryFieldValueDecoder.Varint) {
+            throw InvalidProtocolBufferException("Unexpected wire type for int64 value: ${decoder.wireType}")
+        }
+        return decoder.decodeValue().decodeSignedLong
     }
 
     override fun encodeToJson(value: Long, encoder: JsonFieldValueEncoder) {

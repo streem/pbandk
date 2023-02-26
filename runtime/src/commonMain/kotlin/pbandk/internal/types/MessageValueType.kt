@@ -83,30 +83,28 @@ internal open class MessageValueType<M : Message>(override val companion: Messag
     internal fun decodeFromBinaryNoLength(fieldDecoder: BinaryFieldDecoder): M {
         return companion.descriptor.builder {
             val fieldDescriptors = companion.descriptor.fields
-            do {
-                val fieldFound = fieldDecoder.decodeField { tag, valueDecoder ->
-                    val fieldNum = tag.fieldNumber
-                    val wireType = tag.wireType
-                    val fd = fieldDescriptors[fieldNum]
-
-                    if (fd == null || !fd.fieldType.allowsBinaryWireType(wireType)) {
-                        val unknownFieldValue = valueDecoder.decodeUnknownField(tag) ?: return@decodeField
-                        unknownFields[fieldNum] = unknownFields[fieldNum]?.let { prevValue ->
-                            // TODO: make parsing of repeated unknown fields more efficient by not creating a copy of
-                            //  the list with each new element.
-                            prevValue.copy(values = prevValue.values + unknownFieldValue)
-                        } ?: UnknownField(fieldNum, listOf(unknownFieldValue))
-                        return@decodeField
-                    }
-
-                    fd.decodeFromBinary(tag, valueDecoder, this)
+            fieldDecoder.forEachField { fieldNum, valueDecoder ->
+                val fd = fieldDescriptors[fieldNum]
+                if (fd != null && fd.fieldType.allowsBinaryWireType(valueDecoder.wireType)) {
+                    fd.decodeFromBinary(valueDecoder, this)
+                } else {
+                    // TODO: support a `discardUnknownFields` option and call skipValue() in that case
+                    val unknownFieldValue = UnknownField.Value(valueDecoder.decodeValue())
+                    unknownFields[fieldNum] = unknownFields[fieldNum]?.let { prevValue ->
+                        // TODO: make parsing of repeated unknown fields more efficient by not creating a copy of
+                        //  the list with each new element.
+                        prevValue.copy(values = prevValue.values + unknownFieldValue)
+                    } ?: UnknownField(fieldNum, listOf(unknownFieldValue))
                 }
-            } while (fieldFound)
+            }
         }
     }
 
     override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): M {
-        return decoder.decodeLenFields { fieldDecoder ->
+        if (decoder !is BinaryFieldValueDecoder.Len) {
+            throw InvalidProtocolBufferException("Unexpected wire type for message value: ${decoder.wireType}")
+        }
+        return decoder.decodeFields { fieldDecoder ->
             decodeFromBinaryNoLength(fieldDecoder)
         }
     }
@@ -120,7 +118,8 @@ internal open class MessageValueType<M : Message>(override val companion: Messag
         return decoder.decodeFields { fieldDecoder ->
             companion.descriptor.builder {
                 val fieldDescriptors = companion.descriptor.fields
-                fieldDecoder.forEachField(fieldDescriptors::findByJsonName) { fd, valueDecoder ->
+                fieldDecoder.forEachField { keyDecoder, valueDecoder ->
+                    val fd = fieldDescriptors.findByJsonName(keyDecoder)
                     if (fd != null) {
                         fd.decodeFromJson(valueDecoder, this)
                     } else {

@@ -43,11 +43,7 @@ class WellKnownTypesTest {
                 unknownFields += mapOf(
                     35 to UnknownField(
                         35,
-                        listOf(
-                            UnknownField.Value(
-                                WireValue.Len.encodeByteArray(byteArrayOf(3) + "baz".encodeToByteArray())
-                            )
-                        )
+                        listOf(UnknownField.Value(WireValue.Len.encodeByteArray("baz".encodeToByteArray())))
                     )
                 )
             },

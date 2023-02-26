@@ -62,6 +62,7 @@ public sealed interface WireValue {
         public companion object {
             // Don't sign extend when converting to ULong
             internal fun encodeUnsignedInt(value: UInt) = Varint(value.toULong())
+
             // Sign extend when converting to ULong
             internal fun encodeSignedInt(value: Int) = Varint(value.toULong())
             internal fun encodeZigZagInt(value: Int) = Varint(value.zigZagEncoded.toUInt().toULong())
@@ -138,12 +139,10 @@ public sealed interface WireValue {
 
         override val size: Int get() = value.sumOf { it.size }
     }
-    /*
-    @JvmInline
-    public value class Group internal constructor(internal val value: ByteArray) : WireValue {
-        override val wireType: Int get() = WireType.START_GROUP.value
 
-        override val size: Int get() = Varint.encodeUnsignedInt(value.size.toUInt()).size + value.size
+    public object EndGroup : WireValue {
+        override val wireType: Int get() = WireType.END_GROUP.value
+
+        override val size: Int get() = 0
     }
-     */
 }

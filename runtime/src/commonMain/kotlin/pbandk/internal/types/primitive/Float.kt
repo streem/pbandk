@@ -23,7 +23,10 @@ internal object Float : PrimitiveValueType<Float>() {
     }
 
     override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): Float {
-        return decoder.decodeI32().decodeFloat
+        if (decoder !is BinaryFieldValueDecoder.I32) {
+            throw InvalidProtocolBufferException("Unexpected wire type for float value: ${decoder.wireType}")
+        }
+        return decoder.decodeValue().decodeFloat
     }
 
     override fun encodeToJson(value: Float, encoder: JsonFieldValueEncoder) {

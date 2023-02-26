@@ -24,7 +24,10 @@ internal object Bytes : PrimitiveValueType<ByteArr>() {
     }
 
     override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): ByteArr {
-        return ByteArr(decoder.decodeLen().decodeByteArray)
+        if (decoder !is BinaryFieldValueDecoder.Len) {
+            throw InvalidProtocolBufferException("Unexpected wire type for bytes value: ${decoder.wireType}")
+        }
+        return ByteArr(decoder.decodeValue().decodeByteArray)
     }
 
     override fun encodeToJson(value: ByteArr, encoder: JsonFieldValueEncoder) {
