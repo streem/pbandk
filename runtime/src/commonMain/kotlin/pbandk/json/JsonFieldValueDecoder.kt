@@ -10,6 +10,7 @@ import pbandk.PublicForGeneratedCode
 import pbandk.internal.Util
 import pbandk.internal.json.JsonFieldDecoder
 import pbandk.internal.json.JsonWireType
+import kotlin.js.JsExport
 
 private const val FLOAT_MIN_POSITIVE = 1.175494e-38f
 private const val FLOAT_MAX_POSITIVE = 3.4028235e+38f
@@ -141,6 +142,7 @@ private fun String.decodeAsFloat(acceptNonFiniteValues: Boolean): Float {
  * should be done in the appropriate [ValueType] class instead of here.
  */
 @PublicForGeneratedCode
+@JsExport
 public sealed class JsonFieldValueDecoder {
     internal abstract val jsonConfig: JsonConfig
     internal abstract val wireType: JsonWireType

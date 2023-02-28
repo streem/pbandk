@@ -4,6 +4,7 @@ import pbandk.internal.types.MessageValueType
 import pbandk.internal.types.wkt.customJsonMappings
 import pbandk.types.ValueType
 import pbandk.wkt.Syntax
+import kotlin.js.JsExport
 import kotlin.reflect.KClass
 
 public class MessageMetadata @PublicForGeneratedCode constructor(
@@ -30,6 +31,7 @@ public class MessageMetadata @PublicForGeneratedCode constructor(
     public val name: String = fullName.substringAfterLast('.')
 }
 
+@JsExport
 public class MessageDescriptor<M : Message> private constructor(
     internal val metadata: MessageMetadata,
     internal val messageClass: KClass<M>,

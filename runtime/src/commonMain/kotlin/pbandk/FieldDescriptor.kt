@@ -10,6 +10,7 @@ import pbandk.types.ValueType
 import pbandk.wkt.FieldOptions
 import pbandk.wkt.Syntax
 import pbandk.wkt.orDefault
+import kotlin.js.JsExport
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
@@ -114,6 +115,7 @@ private fun isFieldPacked(
     }
 }
 
+@JsExport
 public sealed class FieldDescriptor<M : Message, V> private constructor(
     getMessageDescriptor: () -> MessageDescriptor<M>,
     internal val metadata: FieldMetadata,

@@ -7,12 +7,14 @@ import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonArray
 import pbandk.PublicForGeneratedCode
 import pbandk.internal.json.JsonFieldEncoder
+import kotlin.js.JsExport
 
 /**
  * This class provides a method for encoding every JSON type. A specialized method is provided for every built-in
  * Kotlin type that can be used to hold one of the JSON type values.
  */
 @PublicForGeneratedCode
+@JsExport
 public class JsonFieldValueEncoder internal constructor(internal val jsonConfig: JsonConfig) {
     private var element: JsonElement = JsonNull
 

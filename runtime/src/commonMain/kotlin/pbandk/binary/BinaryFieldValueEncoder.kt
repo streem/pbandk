@@ -6,6 +6,7 @@ import pbandk.internal.binary.MAX_VARINT_SIZE
 import pbandk.internal.binary.Tag
 import pbandk.internal.binary.WireValue
 import pbandk.internal.binary.kotlin.WireWriter
+import kotlin.js.JsExport
 
 /**
  * This class provides a method for encoding
@@ -14,6 +15,7 @@ import pbandk.internal.binary.kotlin.WireWriter
  * be used to hold one of the wire type values.
  */
 @PublicForGeneratedCode
+@JsExport
 public class BinaryFieldValueEncoder internal constructor(
     private val wireWriter: WireWriter,
     private val fieldEncoder: BinaryFieldEncoder

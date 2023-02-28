@@ -6,8 +6,10 @@ import pbandk.json.JsonFieldValueEncoder
 import pbandk.binary.BinaryFieldValueEncoder
 import pbandk.binary.WireType
 import pbandk.json.JsonFieldValueDecoder
+import kotlin.js.JsExport
 
 @PublicForGeneratedCode
+@JsExport
 public interface ValueType<KotlinType : Any> {
     public val defaultValue: KotlinType
     public fun isDefaultValue(value: KotlinType): Boolean
