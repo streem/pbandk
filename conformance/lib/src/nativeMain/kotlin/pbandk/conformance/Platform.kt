@@ -52,7 +52,7 @@ actual object Platform {
         write(2, cstr, cstr.size.toULong())
     }
 
-    private suspend fun stdinReadIntLE() = withContext(Dispatchers.Main) {
+    private suspend fun stdinReadIntLE() = withContext(Dispatchers.Default) {
         ByteArray(4).let {
             if (readBytes(0, it) != 4) null else {
                 it.foldRight(0) { byte, acc ->
@@ -64,7 +64,9 @@ actual object Platform {
 
     private fun readBytes(fd: Int, arr: ByteArray): Int {
         arr.usePinned {
+            debug { "Reading ${arr.size} bytes from fd $fd" }
             val bytesRead = read(fd, it.addressOf(0), arr.size.toULong())
+            debug { "Read $bytesRead bytes from fd $fd" }
             if (bytesRead == -1L) {
                 throw PosixException(posix_errno())
             }
@@ -73,7 +75,7 @@ actual object Platform {
         }
     }
 
-    private suspend fun stdinReadFull(size: Int) = withContext(Dispatchers.Main) {
+    private suspend fun stdinReadFull(size: Int) = withContext(Dispatchers.Default) {
         ByteArray(size).also {
             require(readBytes(0, it) == it.size) { "Unable to read full byte array"}
         }

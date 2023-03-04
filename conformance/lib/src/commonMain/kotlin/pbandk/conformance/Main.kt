@@ -28,27 +28,35 @@ inline fun debug(fn: () -> String) {
 fun main() = runBlockingMain {
     debug { "Starting conformance test" }
     while (true) {
-        val res = doTestIo().also { debug { "Result: $it" } } ?: return@runBlockingMain
-        Platform.stdoutWriteLengthDelimitedMessage(
-            ConformanceResponse {
-                result = res
-            }
-        )
+        val res = doTestIo()
+        debug { "Result: $res" }
+        if (res == null) return@runBlockingMain
+        Platform.stdoutWriteLengthDelimitedMessage(res)
     }
 }
 
-@OptIn(ExperimentalProtoJson::class)
-suspend fun doTestIo(): ConformanceResponse.Result<*>? {
+suspend fun doTestIo(): ConformanceResponse? {
     // Read the request (starting with by size)
-    val req = Platform.doTry({ Platform.stdinReadLengthDelimitedMessage(ConformanceRequest.Companion) }) { err ->
-        return ConformanceResponse.Result.RuntimeError("Failed reading request: $err")
+    val req = Platform.doTry({
+        Platform.stdinReadLengthDelimitedMessage(ConformanceRequest.Companion)
+    }) { err ->
+        return ConformanceResponse {
+            runtimeError = "Failed reading request: $err"
+        }
     } ?: return null
     debug { "Request: $req" }
 
+    return handleConformanceRequest(req)
+}
+
+@OptIn(ExperimentalProtoJson::class)
+internal fun handleConformanceRequest(req: ConformanceRequest): ConformanceResponse {
     val typeComp = when (req.messageType) {
-        "protobuf_test_messages.proto2.TestAllTypesProto2" -> TestAllTypesProto2.Companion
-        "protobuf_test_messages.proto3.TestAllTypesProto3" -> TestAllTypesProto3.Companion
-        else -> return ConformanceResponse.Result.RuntimeError("Unrecognized message type ${req.messageType}")
+        "protobuf_test_messages.proto2.TestAllTypesProto2" -> TestAllTypesProto2
+        "protobuf_test_messages.proto3.TestAllTypesProto3" -> TestAllTypesProto3
+        else -> return ConformanceResponse {
+            runtimeError = "Unrecognized message type ${req.messageType}"
+        }
     }
     var jsonConfig = JsonConfig.DEFAULT.copy(
         typeRegistry = typeRegistry {
@@ -62,26 +70,34 @@ suspend fun doTestIo(): ConformanceResponse.Result<*>? {
     // Parse
     val parsed = Platform.doTry({
         when (val payload = req.payload) {
-            is ConformanceRequest.Payload.ProtobufPayload -> {
+            is ConformanceRequest.Payload.ProtobufPayload ->
                 typeComp.decodeFromByteArray(payload.value.array).also { debug { "Parsed: $it" } }
-            }
-            is ConformanceRequest.Payload.JsonPayload -> {
+
+            is ConformanceRequest.Payload.JsonPayload ->
                 typeComp.decodeFromJsonString(payload.value, jsonConfig).also { debug { "Parsed: $it" } }
-            }
-            else -> {
-                return ConformanceResponse.Result.Skipped("Only protobuf and json input supported")
+
+            else -> return ConformanceResponse {
+                skipped = "Only protobuf and json input supported"
             }
         }
-    }) { err -> return ConformanceResponse.Result.ParseError("Parse error: $err") }
+    }) { err ->
+        return ConformanceResponse {
+            parseError = "Parse error: $err"
+        }
+    }
 
     // Serialize
     return Platform.doTry({
-        when (req.requestedOutputFormat) {
-            is WireFormat.PROTOBUF -> ConformanceResponse.Result.ProtobufPayload(ByteArr(parsed.encodeToByteArray()))
-            is WireFormat.JSON -> ConformanceResponse.Result.JsonPayload(parsed.encodeToJsonString(jsonConfig))
-            else -> {
-                return ConformanceResponse.Result.Skipped("Only protobuf and json output supported")
+        ConformanceResponse {
+            when (req.requestedOutputFormat) {
+                is WireFormat.PROTOBUF -> protobufPayload = ByteArr(parsed.encodeToByteArray())
+                is WireFormat.JSON -> jsonPayload = parsed.encodeToJsonString(jsonConfig)
+                else -> skipped = "Only protobuf and json output supported"
             }
         }
-    }) { err -> ConformanceResponse.Result.SerializeError("Serialize error: $err") }
+    }) { err ->
+        return ConformanceResponse {
+            serializeError = "Serialize error: $err"
+        }
+    }
 }

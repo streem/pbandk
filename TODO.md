@@ -32,7 +32,7 @@
 ### Other
 
 - [X] Convert `FieldDescriptor.Type` constructor calls to factory functions
-- [ ] Make sure maps are deserialized properly: null keys and null values should be replaced with default values
+- [X] Make sure maps are deserialized properly: null keys and null values should be replaced with default values
     - include unknown field decoding
 - [X] Refactor `FieldDescriptor` to split out a separate `FieldAccessor`
 - [ ] Update to Kotlin 1.8
@@ -47,9 +47,9 @@
 - [ ] Get rid of `protobuf.js` dependency
 - [X] Redo the split of what gets done in `ValueType` vs `Json/BinaryFieldValueEncoder`
 - [X] Move `Sizer` functionality into `ValueType`
-- [ ] Update binary decoding to stop passing around the `tag` and to include the wire type in the value decoder type
+- [X] Update binary decoding to stop passing around the `tag` and to include the wire type in the value decoder type
 - [X] Ensure that decoding multiple message field values in the same message will merge all of the messages
-- [ ] Update unknown field decoding to work with new decoders
+- [X] Update unknown field decoding to work with new decoders
 - [ ] Write unit test for recursively-nested protobuf message
 
 ## Later
