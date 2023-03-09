@@ -6,11 +6,9 @@ plugins {
 }
 
 val pbandkVersion: String by rootProject.extra
-val protobufjsVersion = "^6.11.2"
 
 dependencies {
     implementation("pro.streem.pbandk:pbandk-runtime:$pbandkVersion")
-    implementation(npm("protobufjs", protobufjsVersion))
 }
 
 kotlin {

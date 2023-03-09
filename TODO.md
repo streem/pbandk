@@ -8,7 +8,7 @@
 - [x] add Dsl marker annotation to mutable classes
 - [ ] Clean up new `MessageDecoder.readMessage()` implementations and factor out common code
 - [ ] Clean up repeated code in `CodeGenerator`
-- [ ] Rebase on top of required fields PR: https://github.com/streem/pbandk/pull/216
+- [X] Rebase on top of required fields PR: https://github.com/streem/pbandk/pull/216
 
 ### Enhancements
 
@@ -44,7 +44,7 @@
 - [X] ~~Expose `ValueType` on `MessageDescriptor` and use that from `ValueTypes.Any`~~
 - [X] Implement `ValueType` for every primitive and WKT type
 - [X] Implement the body of `BinaryFieldEncoder`, `BinaryFieldValueEncoder`, `JsonFieldEncoder`, `JsonFieldValueEncoder`
-- [ ] Get rid of `protobuf.js` dependency
+- [X] Get rid of `protobuf.js` dependency
 - [X] Redo the split of what gets done in `ValueType` vs `Json/BinaryFieldValueEncoder`
 - [X] Move `Sizer` functionality into `ValueType`
 - [X] Update binary decoding to stop passing around the `tag` and to include the wire type in the value decoder type

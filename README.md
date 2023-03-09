@@ -17,7 +17,6 @@ It is built to work across multiple Kotlin platforms.
 * JSON serialization/deserialization following the [proto3 JSON spec](https://developers.google.com/protocol-buffers/docs/proto3#json) (see https://github.com/streem/pbandk/issues/72 for some corner cases and Well-Known Types that are not handled yet)
 * Oneof's are properly handled as sealed classes
 * Specialized support to handle wrappers from the well-known types (e.g. `StringValue`, `BoolValue`) as nullable primitives (`String?`, `Boolean?`, etc.)
-* JS platform leverages [protobuf.js](https://github.com/dcodeIO/ProtoBuf.js/) for best performance
 * Support for custom service/gRPC code generator
 * Support for [custom options](https://developers.google.com/protocol-buffers/docs/proto#customoptions)
 

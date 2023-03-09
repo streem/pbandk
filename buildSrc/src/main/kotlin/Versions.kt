@@ -10,6 +10,5 @@ object Versions {
     const val osDetectorGradlePlugin = "1.7.0"
     const val protoc = "3.19.1"
     const val protobufJava = protoc
-    const val protobufJs = "6.11.2"
     const val springBootGradlePlugin = "2.4.5"
 }

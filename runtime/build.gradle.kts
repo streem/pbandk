@@ -88,12 +88,6 @@ kotlin {
             }
         }
 
-        val jsMain by getting {
-            dependencies {
-                implementation(npm("protobufjs", "^${Versions.protobufJs}"))
-            }
-        }
-
         val nativeMain by creating {
             dependsOn(commonMain)
         }
