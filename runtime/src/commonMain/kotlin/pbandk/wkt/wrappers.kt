@@ -15,9 +15,7 @@ public sealed interface DoubleValue : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableDoubleValue.() -> Unit): pbandk.wkt.DoubleValue
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: Double = this.value,
@@ -79,9 +77,7 @@ public sealed interface FloatValue : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableFloatValue.() -> Unit): pbandk.wkt.FloatValue
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: Float = this.value,
@@ -143,9 +139,7 @@ public sealed interface Int64Value : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableInt64Value.() -> Unit): pbandk.wkt.Int64Value
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: Long = this.value,
@@ -207,9 +201,7 @@ public sealed interface UInt64Value : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableUInt64Value.() -> Unit): pbandk.wkt.UInt64Value
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: Long = this.value,
@@ -271,9 +263,7 @@ public sealed interface Int32Value : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableInt32Value.() -> Unit): pbandk.wkt.Int32Value
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: Int = this.value,
@@ -335,9 +325,7 @@ public sealed interface UInt32Value : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableUInt32Value.() -> Unit): pbandk.wkt.UInt32Value
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: Int = this.value,
@@ -399,9 +387,7 @@ public sealed interface BoolValue : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableBoolValue.() -> Unit): pbandk.wkt.BoolValue
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: Boolean = this.value,
@@ -463,9 +449,7 @@ public sealed interface StringValue : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableStringValue.() -> Unit): pbandk.wkt.StringValue
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: String = this.value,
@@ -527,9 +511,7 @@ public sealed interface BytesValue : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableBytesValue.() -> Unit): pbandk.wkt.BytesValue
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: pbandk.ByteArr = this.value,
@@ -622,7 +604,7 @@ private class DoubleValue_Impl(
     override fun copy(
         value: Double,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.DoubleValue {
+    ): pbandk.wkt.DoubleValue = pbandk.wkt.DoubleValue {
         this.value = value
         this.unknownFields += unknownFields
     }
@@ -640,7 +622,7 @@ private class MutableDoubleValue_Impl(
     override fun copy(
         value: Double,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.DoubleValue = throw UnsupportedOperationException()
 
     fun toDoubleValue() = DoubleValue_Impl(
         value = value,
@@ -691,7 +673,7 @@ private class FloatValue_Impl(
     override fun copy(
         value: Float,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.FloatValue {
+    ): pbandk.wkt.FloatValue = pbandk.wkt.FloatValue {
         this.value = value
         this.unknownFields += unknownFields
     }
@@ -709,7 +691,7 @@ private class MutableFloatValue_Impl(
     override fun copy(
         value: Float,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.FloatValue = throw UnsupportedOperationException()
 
     fun toFloatValue() = FloatValue_Impl(
         value = value,
@@ -760,7 +742,7 @@ private class Int64Value_Impl(
     override fun copy(
         value: Long,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Int64Value {
+    ): pbandk.wkt.Int64Value = pbandk.wkt.Int64Value {
         this.value = value
         this.unknownFields += unknownFields
     }
@@ -778,7 +760,7 @@ private class MutableInt64Value_Impl(
     override fun copy(
         value: Long,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Int64Value = throw UnsupportedOperationException()
 
     fun toInt64Value() = Int64Value_Impl(
         value = value,
@@ -829,7 +811,7 @@ private class UInt64Value_Impl(
     override fun copy(
         value: Long,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.UInt64Value {
+    ): pbandk.wkt.UInt64Value = pbandk.wkt.UInt64Value {
         this.value = value
         this.unknownFields += unknownFields
     }
@@ -847,7 +829,7 @@ private class MutableUInt64Value_Impl(
     override fun copy(
         value: Long,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.UInt64Value = throw UnsupportedOperationException()
 
     fun toUInt64Value() = UInt64Value_Impl(
         value = value,
@@ -898,7 +880,7 @@ private class Int32Value_Impl(
     override fun copy(
         value: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Int32Value {
+    ): pbandk.wkt.Int32Value = pbandk.wkt.Int32Value {
         this.value = value
         this.unknownFields += unknownFields
     }
@@ -916,7 +898,7 @@ private class MutableInt32Value_Impl(
     override fun copy(
         value: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Int32Value = throw UnsupportedOperationException()
 
     fun toInt32Value() = Int32Value_Impl(
         value = value,
@@ -967,7 +949,7 @@ private class UInt32Value_Impl(
     override fun copy(
         value: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.UInt32Value {
+    ): pbandk.wkt.UInt32Value = pbandk.wkt.UInt32Value {
         this.value = value
         this.unknownFields += unknownFields
     }
@@ -985,7 +967,7 @@ private class MutableUInt32Value_Impl(
     override fun copy(
         value: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.UInt32Value = throw UnsupportedOperationException()
 
     fun toUInt32Value() = UInt32Value_Impl(
         value = value,
@@ -1036,7 +1018,7 @@ private class BoolValue_Impl(
     override fun copy(
         value: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.BoolValue {
+    ): pbandk.wkt.BoolValue = pbandk.wkt.BoolValue {
         this.value = value
         this.unknownFields += unknownFields
     }
@@ -1054,7 +1036,7 @@ private class MutableBoolValue_Impl(
     override fun copy(
         value: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.BoolValue = throw UnsupportedOperationException()
 
     fun toBoolValue() = BoolValue_Impl(
         value = value,
@@ -1105,7 +1087,7 @@ private class StringValue_Impl(
     override fun copy(
         value: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.StringValue {
+    ): pbandk.wkt.StringValue = pbandk.wkt.StringValue {
         this.value = value
         this.unknownFields += unknownFields
     }
@@ -1123,7 +1105,7 @@ private class MutableStringValue_Impl(
     override fun copy(
         value: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.StringValue = throw UnsupportedOperationException()
 
     fun toStringValue() = StringValue_Impl(
         value = value,
@@ -1174,7 +1156,7 @@ private class BytesValue_Impl(
     override fun copy(
         value: pbandk.ByteArr,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.BytesValue {
+    ): pbandk.wkt.BytesValue = pbandk.wkt.BytesValue {
         this.value = value
         this.unknownFields += unknownFields
     }
@@ -1192,7 +1174,7 @@ private class MutableBytesValue_Impl(
     override fun copy(
         value: pbandk.ByteArr,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.BytesValue = throw UnsupportedOperationException()
 
     fun toBytesValue() = BytesValue_Impl(
         value = value,

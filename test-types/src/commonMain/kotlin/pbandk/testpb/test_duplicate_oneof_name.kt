@@ -15,9 +15,7 @@ public sealed interface Value : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit): pbandk.testpb.Value
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: pbandk.testpb.Value.Value<*>? = this.value,
@@ -169,7 +167,7 @@ private class Value_Impl(
     override fun copy(
         value: pbandk.testpb.Value.Value<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.Value {
+    ): pbandk.testpb.Value = pbandk.testpb.Value {
         this.value = value
         this.unknownFields += unknownFields
     }
@@ -197,7 +195,7 @@ private class MutableValue_Impl(
     override fun copy(
         value: pbandk.testpb.Value.Value<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.Value = throw UnsupportedOperationException()
 
     fun toValue() = Value_Impl(
         value = value,

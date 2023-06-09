@@ -193,9 +193,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableTestAllTypesProto3.() -> Unit): pbandk.testpb.TestAllTypesProto3
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         optionalInt32: Int = this.optionalInt32,
@@ -2428,9 +2426,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.testpb.TestAllTypesProto3.MutableNestedMessage.() -> Unit): pbandk.testpb.TestAllTypesProto3.NestedMessage
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             a: Int = this.a,
@@ -2661,9 +2657,7 @@ public sealed interface ForeignMessage : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableForeignMessage.() -> Unit): pbandk.testpb.ForeignMessage
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         c: Int = this.c,
@@ -3475,7 +3469,7 @@ private class TestAllTypesProto3_Impl(
         fieldName18_: Int,
         oneofField: pbandk.testpb.TestAllTypesProto3.OneofField<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.TestAllTypesProto3 {
+    ): pbandk.testpb.TestAllTypesProto3 = pbandk.testpb.TestAllTypesProto3 {
         this.optionalInt32 = optionalInt32
         this.optionalInt64 = optionalInt64
         this.optionalUint32 = optionalUint32
@@ -3941,7 +3935,7 @@ private class MutableTestAllTypesProto3_Impl(
         fieldName18_: Int,
         oneofField: pbandk.testpb.TestAllTypesProto3.OneofField<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.TestAllTypesProto3 = throw UnsupportedOperationException()
 
     fun toTestAllTypesProto3() = TestAllTypesProto3_Impl(
         optionalInt32 = optionalInt32,
@@ -4127,7 +4121,7 @@ private class TestAllTypesProto3_NestedMessage_Impl(
         a: Int,
         corecursive: pbandk.testpb.TestAllTypesProto3?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.TestAllTypesProto3.NestedMessage {
+    ): pbandk.testpb.TestAllTypesProto3.NestedMessage = pbandk.testpb.TestAllTypesProto3.NestedMessage {
         this.a = a
         this.corecursive = corecursive
         this.unknownFields += unknownFields
@@ -4148,7 +4142,7 @@ private class TestAllTypesProto3_MutableNestedMessage_Impl(
         a: Int,
         corecursive: pbandk.testpb.TestAllTypesProto3?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.TestAllTypesProto3.NestedMessage = throw UnsupportedOperationException()
 
     fun toNestedMessage() = TestAllTypesProto3_NestedMessage_Impl(
         a = a,
@@ -4200,7 +4194,7 @@ private class ForeignMessage_Impl(
     override fun copy(
         c: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.ForeignMessage {
+    ): pbandk.testpb.ForeignMessage = pbandk.testpb.ForeignMessage {
         this.c = c
         this.unknownFields += unknownFields
     }
@@ -4218,7 +4212,7 @@ private class MutableForeignMessage_Impl(
     override fun copy(
         c: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.ForeignMessage = throw UnsupportedOperationException()
 
     fun toForeignMessage() = ForeignMessage_Impl(
         c = c,

@@ -18,9 +18,7 @@ public sealed interface Version : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.gen.pb.MutableVersion.() -> Unit): pbandk.gen.pb.Version
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         major: Int? = this.major,
@@ -127,9 +125,7 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.gen.pb.MutableCodeGeneratorRequest.() -> Unit): pbandk.gen.pb.CodeGeneratorRequest
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         fileToGenerate: List<String> = this.fileToGenerate,
@@ -235,9 +231,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.gen.pb.MutableCodeGeneratorResponse.() -> Unit): pbandk.gen.pb.CodeGeneratorResponse
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         error: String? = this.error,
@@ -378,9 +372,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.gen.pb.CodeGeneratorResponse.MutableFile.() -> Unit): pbandk.gen.pb.CodeGeneratorResponse.File
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             name: String? = this.name,
@@ -537,7 +529,7 @@ private class Version_Impl(
         patch: Int?,
         suffix: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.gen.pb.Version {
+    ): pbandk.gen.pb.Version = pbandk.gen.pb.Version {
         this.major = major
         this.minor = minor
         this.patch = patch
@@ -564,7 +556,7 @@ private class MutableVersion_Impl(
         patch: Int?,
         suffix: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.gen.pb.Version = throw UnsupportedOperationException()
 
     fun toVersion() = Version_Impl(
         major = major,
@@ -633,7 +625,7 @@ private class CodeGeneratorRequest_Impl(
         protoFile: List<pbandk.wkt.FileDescriptorProto>,
         compilerVersion: pbandk.gen.pb.Version?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.gen.pb.CodeGeneratorRequest {
+    ): pbandk.gen.pb.CodeGeneratorRequest = pbandk.gen.pb.CodeGeneratorRequest {
         this.fileToGenerate += fileToGenerate
         this.parameter = parameter
         this.protoFile += protoFile
@@ -660,7 +652,7 @@ private class MutableCodeGeneratorRequest_Impl(
         protoFile: List<pbandk.wkt.FileDescriptorProto>,
         compilerVersion: pbandk.gen.pb.Version?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.gen.pb.CodeGeneratorRequest = throw UnsupportedOperationException()
 
     fun toCodeGeneratorRequest() = CodeGeneratorRequest_Impl(
         fileToGenerate = fileToGenerate.toListField(),
@@ -724,7 +716,7 @@ private class CodeGeneratorResponse_Impl(
         supportedFeatures: Long?,
         file: List<pbandk.gen.pb.CodeGeneratorResponse.File>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.gen.pb.CodeGeneratorResponse {
+    ): pbandk.gen.pb.CodeGeneratorResponse = pbandk.gen.pb.CodeGeneratorResponse {
         this.error = error
         this.supportedFeatures = supportedFeatures
         this.file += file
@@ -748,7 +740,7 @@ private class MutableCodeGeneratorResponse_Impl(
         supportedFeatures: Long?,
         file: List<pbandk.gen.pb.CodeGeneratorResponse.File>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.gen.pb.CodeGeneratorResponse = throw UnsupportedOperationException()
 
     fun toCodeGeneratorResponse() = CodeGeneratorResponse_Impl(
         error = error,
@@ -802,7 +794,7 @@ private class CodeGeneratorResponse_File_Impl(
         content: String?,
         generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.gen.pb.CodeGeneratorResponse.File {
+    ): pbandk.gen.pb.CodeGeneratorResponse.File = pbandk.gen.pb.CodeGeneratorResponse.File {
         this.name = name
         this.insertionPoint = insertionPoint
         this.content = content
@@ -829,7 +821,7 @@ private class CodeGeneratorResponse_MutableFile_Impl(
         content: String?,
         generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.gen.pb.CodeGeneratorResponse.File = throw UnsupportedOperationException()
 
     fun toFile() = CodeGeneratorResponse_File_Impl(
         name = name,

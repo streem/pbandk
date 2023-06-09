@@ -15,9 +15,7 @@ public sealed interface Foo : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableFoo.() -> Unit): pbandk.testpb.Foo
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         `val`: String = this.`val`,
@@ -80,9 +78,7 @@ public sealed interface Bar : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableBar.() -> Unit): pbandk.testpb.Bar
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         foos: List<pbandk.testpb.Foo> = this.foos,
@@ -158,9 +154,7 @@ public sealed interface MessageWithMap : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableMessageWithMap.() -> Unit): pbandk.testpb.MessageWithMap
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         map: Map<String, String> = this.map,
@@ -223,9 +217,7 @@ public sealed interface FooMap : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableFooMap.() -> Unit): pbandk.testpb.FooMap
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         map: Map<String, pbandk.testpb.Foo> = this.map,
@@ -288,9 +280,7 @@ public sealed interface FooMapEntries : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableFooMapEntries.() -> Unit): pbandk.testpb.FooMapEntries
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         map: List<pbandk.testpb.FooMapEntries.MapEntry> = this.map,
@@ -365,9 +355,7 @@ public sealed interface FooMapEntries : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.testpb.FooMapEntries.MutableMapEntry.() -> Unit): pbandk.testpb.FooMapEntries.MapEntry
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             key: String = this.key,
@@ -449,9 +437,7 @@ public sealed interface Wrappers : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableWrappers.() -> Unit): pbandk.testpb.Wrappers
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         stringValue: String? = this.stringValue,
@@ -558,7 +544,7 @@ private class Foo_Impl(
     override fun copy(
         `val`: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.Foo {
+    ): pbandk.testpb.Foo = pbandk.testpb.Foo {
         this.`val` = `val`
         this.unknownFields += unknownFields
     }
@@ -576,7 +562,7 @@ private class MutableFoo_Impl(
     override fun copy(
         `val`: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.Foo = throw UnsupportedOperationException()
 
     fun toFoo() = Foo_Impl(
         `val` = `val`,
@@ -632,7 +618,7 @@ private class Bar_Impl(
         foos: List<pbandk.testpb.Foo>,
         singleFoo: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.Bar {
+    ): pbandk.testpb.Bar = pbandk.testpb.Bar {
         this.foos += foos
         this.singleFoo = singleFoo
         this.unknownFields += unknownFields
@@ -653,7 +639,7 @@ private class MutableBar_Impl(
         foos: List<pbandk.testpb.Foo>,
         singleFoo: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.Bar = throw UnsupportedOperationException()
 
     fun toBar() = Bar_Impl(
         foos = foos.toListField(),
@@ -705,7 +691,7 @@ private class MessageWithMap_Impl(
     override fun copy(
         map: Map<String, String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.MessageWithMap {
+    ): pbandk.testpb.MessageWithMap = pbandk.testpb.MessageWithMap {
         this.map += map
         this.unknownFields += unknownFields
     }
@@ -723,7 +709,7 @@ private class MutableMessageWithMap_Impl(
     override fun copy(
         map: Map<String, String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.MessageWithMap = throw UnsupportedOperationException()
 
     fun toMessageWithMap() = MessageWithMap_Impl(
         map = map.toMapField(),
@@ -774,7 +760,7 @@ private class FooMap_Impl(
     override fun copy(
         map: Map<String, pbandk.testpb.Foo>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.FooMap {
+    ): pbandk.testpb.FooMap = pbandk.testpb.FooMap {
         this.map += map
         this.unknownFields += unknownFields
     }
@@ -792,7 +778,7 @@ private class MutableFooMap_Impl(
     override fun copy(
         map: Map<String, pbandk.testpb.Foo>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.FooMap = throw UnsupportedOperationException()
 
     fun toFooMap() = FooMap_Impl(
         map = map.toMapField(),
@@ -843,7 +829,7 @@ private class FooMapEntries_Impl(
     override fun copy(
         map: List<pbandk.testpb.FooMapEntries.MapEntry>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.FooMapEntries {
+    ): pbandk.testpb.FooMapEntries = pbandk.testpb.FooMapEntries {
         this.map += map
         this.unknownFields += unknownFields
     }
@@ -861,7 +847,7 @@ private class MutableFooMapEntries_Impl(
     override fun copy(
         map: List<pbandk.testpb.FooMapEntries.MapEntry>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.FooMapEntries = throw UnsupportedOperationException()
 
     fun toFooMapEntries() = FooMapEntries_Impl(
         map = map.toListField(),
@@ -907,7 +893,7 @@ private class FooMapEntries_MapEntry_Impl(
         key: String,
         value: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.FooMapEntries.MapEntry {
+    ): pbandk.testpb.FooMapEntries.MapEntry = pbandk.testpb.FooMapEntries.MapEntry {
         this.key = key
         this.value = value
         this.unknownFields += unknownFields
@@ -928,7 +914,7 @@ private class FooMapEntries_MutableMapEntry_Impl(
         key: String,
         value: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.FooMapEntries.MapEntry = throw UnsupportedOperationException()
 
     fun toMapEntry() = FooMapEntries_MapEntry_Impl(
         key = key,
@@ -985,7 +971,7 @@ private class Wrappers_Impl(
         stringValue: String?,
         uint64Values: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.Wrappers {
+    ): pbandk.testpb.Wrappers = pbandk.testpb.Wrappers {
         this.stringValue = stringValue
         this.uint64Values += uint64Values
         this.unknownFields += unknownFields
@@ -1006,7 +992,7 @@ private class MutableWrappers_Impl(
         stringValue: String?,
         uint64Values: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.Wrappers = throw UnsupportedOperationException()
 
     fun toWrappers() = Wrappers_Impl(
         stringValue = stringValue,

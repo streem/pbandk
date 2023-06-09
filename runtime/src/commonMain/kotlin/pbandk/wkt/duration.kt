@@ -16,9 +16,7 @@ public sealed interface Duration : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit): pbandk.wkt.Duration
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         seconds: Long = this.seconds,
@@ -130,7 +128,7 @@ private class Duration_Impl(
         seconds: Long,
         nanos: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Duration {
+    ): pbandk.wkt.Duration = pbandk.wkt.Duration {
         this.seconds = seconds
         this.nanos = nanos
         this.unknownFields += unknownFields
@@ -151,7 +149,7 @@ private class MutableDuration_Impl(
         seconds: Long,
         nanos: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Duration = throw UnsupportedOperationException()
 
     fun toDuration() = Duration_Impl(
         seconds = seconds,

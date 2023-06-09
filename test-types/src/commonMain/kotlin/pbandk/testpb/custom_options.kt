@@ -15,9 +15,7 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableSingleRequiredCustomOption.() -> Unit): pbandk.testpb.SingleRequiredCustomOption
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         single: String = this.single,
@@ -89,9 +87,7 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptions.() -> Unit): pbandk.testpb.MultipleCustomOptions
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         multiple: String = this.multiple,
@@ -165,9 +161,7 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit): pbandk.testpb.MultipleCustomOptionsPlusDeprecated
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         multipleDeprecated: String = @Suppress("DEPRECATION") this.multipleDeprecated,
@@ -274,7 +268,7 @@ private class SingleRequiredCustomOption_Impl(
     override fun copy(
         single: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.SingleRequiredCustomOption {
+    ): pbandk.testpb.SingleRequiredCustomOption = pbandk.testpb.SingleRequiredCustomOption {
         this.single = single
         this.unknownFields += unknownFields
     }
@@ -292,7 +286,7 @@ private class MutableSingleRequiredCustomOption_Impl(
     override fun copy(
         single: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.SingleRequiredCustomOption = throw UnsupportedOperationException()
 
     fun toSingleRequiredCustomOption() = SingleRequiredCustomOption_Impl(
         single = single,
@@ -343,7 +337,7 @@ private class MultipleCustomOptions_Impl(
     override fun copy(
         multiple: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.MultipleCustomOptions {
+    ): pbandk.testpb.MultipleCustomOptions = pbandk.testpb.MultipleCustomOptions {
         this.multiple = multiple
         this.unknownFields += unknownFields
     }
@@ -361,7 +355,7 @@ private class MutableMultipleCustomOptions_Impl(
     override fun copy(
         multiple: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.MultipleCustomOptions = throw UnsupportedOperationException()
 
     fun toMultipleCustomOptions() = MultipleCustomOptions_Impl(
         multiple = multiple,
@@ -414,7 +408,7 @@ private class MultipleCustomOptionsPlusDeprecated_Impl(
     override fun copy(
         multipleDeprecated: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.MultipleCustomOptionsPlusDeprecated {
+    ): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = pbandk.testpb.MultipleCustomOptionsPlusDeprecated {
         @Suppress("DEPRECATION")
         this.multipleDeprecated = multipleDeprecated
         this.unknownFields += unknownFields
@@ -434,7 +428,7 @@ private class MutableMultipleCustomOptionsPlusDeprecated_Impl(
     override fun copy(
         multipleDeprecated: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = throw UnsupportedOperationException()
 
     fun toMultipleCustomOptionsPlusDeprecated() = MultipleCustomOptionsPlusDeprecated_Impl(
         multipleDeprecated = @Suppress("DEPRECATION") multipleDeprecated,

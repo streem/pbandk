@@ -15,9 +15,7 @@ public sealed interface FileDescriptorSet : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableFileDescriptorSet.() -> Unit): pbandk.wkt.FileDescriptorSet
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         file: List<pbandk.wkt.FileDescriptorProto> = this.file,
@@ -90,9 +88,7 @@ public sealed interface FileDescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableFileDescriptorProto.() -> Unit): pbandk.wkt.FileDescriptorProto
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
@@ -317,9 +313,7 @@ public sealed interface DescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableDescriptorProto.() -> Unit): pbandk.wkt.DescriptorProto
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
@@ -531,9 +525,7 @@ public sealed interface DescriptorProto : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.wkt.DescriptorProto.MutableExtensionRange.() -> Unit): pbandk.wkt.DescriptorProto.ExtensionRange
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             start: Int? = this.start,
@@ -624,9 +616,7 @@ public sealed interface DescriptorProto : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.wkt.DescriptorProto.MutableReservedRange.() -> Unit): pbandk.wkt.DescriptorProto.ReservedRange
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             start: Int? = this.start,
@@ -716,9 +706,7 @@ public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage<pbandk.
      */
     public fun copy(builderAction: pbandk.wkt.MutableExtensionRangeOptions.() -> Unit): pbandk.wkt.ExtensionRangeOptions
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
@@ -790,9 +778,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableFieldDescriptorProto.() -> Unit): pbandk.wkt.FieldDescriptorProto
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
@@ -1136,9 +1122,7 @@ public sealed interface OneofDescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableOneofDescriptorProto.() -> Unit): pbandk.wkt.OneofDescriptorProto
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
@@ -1218,9 +1202,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableEnumDescriptorProto.() -> Unit): pbandk.wkt.EnumDescriptorProto
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
@@ -1347,9 +1329,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange.() -> Unit): pbandk.wkt.EnumDescriptorProto.EnumReservedRange
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             start: Int? = this.start,
@@ -1436,9 +1416,7 @@ public sealed interface EnumValueDescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableEnumValueDescriptorProto.() -> Unit): pbandk.wkt.EnumValueDescriptorProto
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
@@ -1530,9 +1508,7 @@ public sealed interface ServiceDescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableServiceDescriptorProto.() -> Unit): pbandk.wkt.ServiceDescriptorProto
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
@@ -1627,9 +1603,7 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableMethodDescriptorProto.() -> Unit): pbandk.wkt.MethodDescriptorProto
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
@@ -1782,9 +1756,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
      */
     public fun copy(builderAction: pbandk.wkt.MutableFileOptions.() -> Unit): pbandk.wkt.FileOptions
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         javaPackage: String? = this.javaPackage,
@@ -2173,9 +2145,7 @@ public sealed interface MessageOptions : pbandk.ExtendableMessage<pbandk.wkt.Mes
      */
     public fun copy(builderAction: pbandk.wkt.MutableMessageOptions.() -> Unit): pbandk.wkt.MessageOptions
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         messageSetWireFormat: Boolean? = this.messageSetWireFormat,
@@ -2299,9 +2269,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
      */
     public fun copy(builderAction: pbandk.wkt.MutableFieldOptions.() -> Unit): pbandk.wkt.FieldOptions
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         ctype: pbandk.wkt.FieldOptions.CType? = this.ctype,
@@ -2523,9 +2491,7 @@ public sealed interface OneofOptions : pbandk.ExtendableMessage<pbandk.wkt.Oneof
      */
     public fun copy(builderAction: pbandk.wkt.MutableOneofOptions.() -> Unit): pbandk.wkt.OneofOptions
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
@@ -2589,9 +2555,7 @@ public sealed interface EnumOptions : pbandk.ExtendableMessage<pbandk.wkt.EnumOp
      */
     public fun copy(builderAction: pbandk.wkt.MutableEnumOptions.() -> Unit): pbandk.wkt.EnumOptions
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         allowAlias: Boolean? = this.allowAlias,
@@ -2682,9 +2646,7 @@ public sealed interface EnumValueOptions : pbandk.ExtendableMessage<pbandk.wkt.E
      */
     public fun copy(builderAction: pbandk.wkt.MutableEnumValueOptions.() -> Unit): pbandk.wkt.EnumValueOptions
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         deprecated: Boolean? = this.deprecated,
@@ -2761,9 +2723,7 @@ public sealed interface ServiceOptions : pbandk.ExtendableMessage<pbandk.wkt.Ser
      */
     public fun copy(builderAction: pbandk.wkt.MutableServiceOptions.() -> Unit): pbandk.wkt.ServiceOptions
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         deprecated: Boolean? = this.deprecated,
@@ -2841,9 +2801,7 @@ public sealed interface MethodOptions : pbandk.ExtendableMessage<pbandk.wkt.Meth
      */
     public fun copy(builderAction: pbandk.wkt.MutableMethodOptions.() -> Unit): pbandk.wkt.MethodOptions
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         deprecated: Boolean? = this.deprecated,
@@ -2977,9 +2935,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableUninterpretedOption.() -> Unit): pbandk.wkt.UninterpretedOption
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: List<pbandk.wkt.UninterpretedOption.NamePart> = this.name,
@@ -3132,9 +3088,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.wkt.UninterpretedOption.MutableNamePart.() -> Unit): pbandk.wkt.UninterpretedOption.NamePart
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             namePart: String = this.namePart,
@@ -3220,9 +3174,7 @@ public sealed interface SourceCodeInfo : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableSourceCodeInfo.() -> Unit): pbandk.wkt.SourceCodeInfo
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         location: List<pbandk.wkt.SourceCodeInfo.Location> = this.location,
@@ -3306,9 +3258,7 @@ public sealed interface SourceCodeInfo : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.wkt.SourceCodeInfo.MutableLocation.() -> Unit): pbandk.wkt.SourceCodeInfo.Location
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             path: List<Int> = this.path,
@@ -3437,9 +3387,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableGeneratedCodeInfo.() -> Unit): pbandk.wkt.GeneratedCodeInfo
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation> = this.annotation,
@@ -3520,9 +3468,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.wkt.GeneratedCodeInfo.MutableAnnotation.() -> Unit): pbandk.wkt.GeneratedCodeInfo.Annotation
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             path: List<Int> = this.path,
@@ -3665,7 +3611,7 @@ private class FileDescriptorSet_Impl(
     override fun copy(
         file: List<pbandk.wkt.FileDescriptorProto>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.FileDescriptorSet {
+    ): pbandk.wkt.FileDescriptorSet = pbandk.wkt.FileDescriptorSet {
         this.file += file
         this.unknownFields += unknownFields
     }
@@ -3683,7 +3629,7 @@ private class MutableFileDescriptorSet_Impl(
     override fun copy(
         file: List<pbandk.wkt.FileDescriptorProto>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.FileDescriptorSet = throw UnsupportedOperationException()
 
     fun toFileDescriptorSet() = FileDescriptorSet_Impl(
         file = file.toListField(),
@@ -3789,7 +3735,7 @@ private class FileDescriptorProto_Impl(
         sourceCodeInfo: pbandk.wkt.SourceCodeInfo?,
         syntax: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.FileDescriptorProto {
+    ): pbandk.wkt.FileDescriptorProto = pbandk.wkt.FileDescriptorProto {
         this.name = name
         this.`package` = `package`
         this.dependency += dependency
@@ -3840,7 +3786,7 @@ private class MutableFileDescriptorProto_Impl(
         sourceCodeInfo: pbandk.wkt.SourceCodeInfo?,
         syntax: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.FileDescriptorProto = throw UnsupportedOperationException()
 
     fun toFileDescriptorProto() = FileDescriptorProto_Impl(
         name = name,
@@ -3947,7 +3893,7 @@ private class DescriptorProto_Impl(
         reservedRange: List<pbandk.wkt.DescriptorProto.ReservedRange>,
         reservedName: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.DescriptorProto {
+    ): pbandk.wkt.DescriptorProto = pbandk.wkt.DescriptorProto {
         this.name = name
         this.field += field
         this.extension += extension
@@ -3992,7 +3938,7 @@ private class MutableDescriptorProto_Impl(
         reservedRange: List<pbandk.wkt.DescriptorProto.ReservedRange>,
         reservedName: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.DescriptorProto = throw UnsupportedOperationException()
 
     fun toDescriptorProto() = DescriptorProto_Impl(
         name = name,
@@ -4050,7 +3996,7 @@ private class DescriptorProto_ExtensionRange_Impl(
         end: Int?,
         options: pbandk.wkt.ExtensionRangeOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.DescriptorProto.ExtensionRange {
+    ): pbandk.wkt.DescriptorProto.ExtensionRange = pbandk.wkt.DescriptorProto.ExtensionRange {
         this.start = start
         this.end = end
         this.options = options
@@ -4074,7 +4020,7 @@ private class DescriptorProto_MutableExtensionRange_Impl(
         end: Int?,
         options: pbandk.wkt.ExtensionRangeOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.DescriptorProto.ExtensionRange = throw UnsupportedOperationException()
 
     fun toExtensionRange() = DescriptorProto_ExtensionRange_Impl(
         start = start,
@@ -4122,7 +4068,7 @@ private class DescriptorProto_ReservedRange_Impl(
         start: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.DescriptorProto.ReservedRange {
+    ): pbandk.wkt.DescriptorProto.ReservedRange = pbandk.wkt.DescriptorProto.ReservedRange {
         this.start = start
         this.end = end
         this.unknownFields += unknownFields
@@ -4143,7 +4089,7 @@ private class DescriptorProto_MutableReservedRange_Impl(
         start: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.DescriptorProto.ReservedRange = throw UnsupportedOperationException()
 
     fun toReservedRange() = DescriptorProto_ReservedRange_Impl(
         start = start,
@@ -4196,7 +4142,7 @@ private class ExtensionRangeOptions_Impl(
     override fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.ExtensionRangeOptions {
+    ): pbandk.wkt.ExtensionRangeOptions = pbandk.wkt.ExtensionRangeOptions {
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
@@ -4214,7 +4160,7 @@ private class MutableExtensionRangeOptions_Impl(
     override fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.ExtensionRangeOptions = throw UnsupportedOperationException()
 
     fun toExtensionRangeOptions() = ExtensionRangeOptions_Impl(
         uninterpretedOption = uninterpretedOption.toListField(),
@@ -4316,7 +4262,7 @@ private class FieldDescriptorProto_Impl(
         options: pbandk.wkt.FieldOptions?,
         proto3Optional: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.FieldDescriptorProto {
+    ): pbandk.wkt.FieldDescriptorProto = pbandk.wkt.FieldDescriptorProto {
         this.name = name
         this.number = number
         this.label = label
@@ -4364,7 +4310,7 @@ private class MutableFieldDescriptorProto_Impl(
         options: pbandk.wkt.FieldOptions?,
         proto3Optional: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.FieldDescriptorProto = throw UnsupportedOperationException()
 
     fun toFieldDescriptorProto() = FieldDescriptorProto_Impl(
         name = name,
@@ -4430,7 +4376,7 @@ private class OneofDescriptorProto_Impl(
         name: String?,
         options: pbandk.wkt.OneofOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.OneofDescriptorProto {
+    ): pbandk.wkt.OneofDescriptorProto = pbandk.wkt.OneofDescriptorProto {
         this.name = name
         this.options = options
         this.unknownFields += unknownFields
@@ -4451,7 +4397,7 @@ private class MutableOneofDescriptorProto_Impl(
         name: String?,
         options: pbandk.wkt.OneofOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.OneofDescriptorProto = throw UnsupportedOperationException()
 
     fun toOneofDescriptorProto() = OneofDescriptorProto_Impl(
         name = name,
@@ -4523,7 +4469,7 @@ private class EnumDescriptorProto_Impl(
         reservedRange: List<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>,
         reservedName: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.EnumDescriptorProto {
+    ): pbandk.wkt.EnumDescriptorProto = pbandk.wkt.EnumDescriptorProto {
         this.name = name
         this.value += value
         this.options = options
@@ -4553,7 +4499,7 @@ private class MutableEnumDescriptorProto_Impl(
         reservedRange: List<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>,
         reservedName: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.EnumDescriptorProto = throw UnsupportedOperationException()
 
     fun toEnumDescriptorProto() = EnumDescriptorProto_Impl(
         name = name,
@@ -4603,7 +4549,7 @@ private class EnumDescriptorProto_EnumReservedRange_Impl(
         start: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.EnumDescriptorProto.EnumReservedRange {
+    ): pbandk.wkt.EnumDescriptorProto.EnumReservedRange = pbandk.wkt.EnumDescriptorProto.EnumReservedRange {
         this.start = start
         this.end = end
         this.unknownFields += unknownFields
@@ -4624,7 +4570,7 @@ private class EnumDescriptorProto_MutableEnumReservedRange_Impl(
         start: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.EnumDescriptorProto.EnumReservedRange = throw UnsupportedOperationException()
 
     fun toEnumReservedRange() = EnumDescriptorProto_EnumReservedRange_Impl(
         start = start,
@@ -4686,7 +4632,7 @@ private class EnumValueDescriptorProto_Impl(
         number: Int?,
         options: pbandk.wkt.EnumValueOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.EnumValueDescriptorProto {
+    ): pbandk.wkt.EnumValueDescriptorProto = pbandk.wkt.EnumValueDescriptorProto {
         this.name = name
         this.number = number
         this.options = options
@@ -4710,7 +4656,7 @@ private class MutableEnumValueDescriptorProto_Impl(
         number: Int?,
         options: pbandk.wkt.EnumValueOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.EnumValueDescriptorProto = throw UnsupportedOperationException()
 
     fun toEnumValueDescriptorProto() = EnumValueDescriptorProto_Impl(
         name = name,
@@ -4773,7 +4719,7 @@ private class ServiceDescriptorProto_Impl(
         method: List<pbandk.wkt.MethodDescriptorProto>,
         options: pbandk.wkt.ServiceOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.ServiceDescriptorProto {
+    ): pbandk.wkt.ServiceDescriptorProto = pbandk.wkt.ServiceDescriptorProto {
         this.name = name
         this.method += method
         this.options = options
@@ -4797,7 +4743,7 @@ private class MutableServiceDescriptorProto_Impl(
         method: List<pbandk.wkt.MethodDescriptorProto>,
         options: pbandk.wkt.ServiceOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.ServiceDescriptorProto = throw UnsupportedOperationException()
 
     fun toServiceDescriptorProto() = ServiceDescriptorProto_Impl(
         name = name,
@@ -4875,7 +4821,7 @@ private class MethodDescriptorProto_Impl(
         clientStreaming: Boolean?,
         serverStreaming: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.MethodDescriptorProto {
+    ): pbandk.wkt.MethodDescriptorProto = pbandk.wkt.MethodDescriptorProto {
         this.name = name
         this.inputType = inputType
         this.outputType = outputType
@@ -4908,7 +4854,7 @@ private class MutableMethodDescriptorProto_Impl(
         clientStreaming: Boolean?,
         serverStreaming: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.MethodDescriptorProto = throw UnsupportedOperationException()
 
     fun toMethodDescriptorProto() = MethodDescriptorProto_Impl(
         name = name,
@@ -5067,7 +5013,7 @@ private class FileOptions_Impl(
         rubyPackage: String?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.FileOptions {
+    ): pbandk.wkt.FileOptions = pbandk.wkt.FileOptions {
         this.javaPackage = javaPackage
         this.javaOuterClassname = javaOuterClassname
         this.javaMultipleFiles = javaMultipleFiles
@@ -5147,7 +5093,7 @@ private class MutableFileOptions_Impl(
         rubyPackage: String?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.FileOptions = throw UnsupportedOperationException()
 
     fun toFileOptions() = FileOptions_Impl(
         javaPackage = javaPackage,
@@ -5240,7 +5186,7 @@ private class MessageOptions_Impl(
         mapEntry: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.MessageOptions {
+    ): pbandk.wkt.MessageOptions = pbandk.wkt.MessageOptions {
         this.messageSetWireFormat = messageSetWireFormat
         this.noStandardDescriptorAccessor = noStandardDescriptorAccessor
         this.deprecated = deprecated
@@ -5270,7 +5216,7 @@ private class MutableMessageOptions_Impl(
         mapEntry: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.MessageOptions = throw UnsupportedOperationException()
 
     fun toMessageOptions() = MessageOptions_Impl(
         messageSetWireFormat = messageSetWireFormat,
@@ -5357,7 +5303,7 @@ private class FieldOptions_Impl(
         weak: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.FieldOptions {
+    ): pbandk.wkt.FieldOptions = pbandk.wkt.FieldOptions {
         this.ctype = ctype
         this.packed = packed
         this.jstype = jstype
@@ -5393,7 +5339,7 @@ private class MutableFieldOptions_Impl(
         weak: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.FieldOptions = throw UnsupportedOperationException()
 
     fun toFieldOptions() = FieldOptions_Impl(
         ctype = ctype,
@@ -5452,7 +5398,7 @@ private class OneofOptions_Impl(
     override fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.OneofOptions {
+    ): pbandk.wkt.OneofOptions = pbandk.wkt.OneofOptions {
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
@@ -5470,7 +5416,7 @@ private class MutableOneofOptions_Impl(
     override fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.OneofOptions = throw UnsupportedOperationException()
 
     fun toOneofOptions() = OneofOptions_Impl(
         uninterpretedOption = uninterpretedOption.toListField(),
@@ -5533,7 +5479,7 @@ private class EnumOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.EnumOptions {
+    ): pbandk.wkt.EnumOptions = pbandk.wkt.EnumOptions {
         this.allowAlias = allowAlias
         this.deprecated = deprecated
         this.uninterpretedOption += uninterpretedOption
@@ -5557,7 +5503,7 @@ private class MutableEnumOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.EnumOptions = throw UnsupportedOperationException()
 
     fun toEnumOptions() = EnumOptions_Impl(
         allowAlias = allowAlias,
@@ -5617,7 +5563,7 @@ private class EnumValueOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.EnumValueOptions {
+    ): pbandk.wkt.EnumValueOptions = pbandk.wkt.EnumValueOptions {
         this.deprecated = deprecated
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
@@ -5638,7 +5584,7 @@ private class MutableEnumValueOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.EnumValueOptions = throw UnsupportedOperationException()
 
     fun toEnumValueOptions() = EnumValueOptions_Impl(
         deprecated = deprecated,
@@ -5697,7 +5643,7 @@ private class ServiceOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.ServiceOptions {
+    ): pbandk.wkt.ServiceOptions = pbandk.wkt.ServiceOptions {
         this.deprecated = deprecated
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
@@ -5718,7 +5664,7 @@ private class MutableServiceOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.ServiceOptions = throw UnsupportedOperationException()
 
     fun toServiceOptions() = ServiceOptions_Impl(
         deprecated = deprecated,
@@ -5782,7 +5728,7 @@ private class MethodOptions_Impl(
         idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.MethodOptions {
+    ): pbandk.wkt.MethodOptions = pbandk.wkt.MethodOptions {
         this.deprecated = deprecated
         this.idempotencyLevel = idempotencyLevel
         this.uninterpretedOption += uninterpretedOption
@@ -5806,7 +5752,7 @@ private class MutableMethodOptions_Impl(
         idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.MethodOptions = throw UnsupportedOperationException()
 
     fun toMethodOptions() = MethodOptions_Impl(
         deprecated = deprecated,
@@ -5890,7 +5836,7 @@ private class UninterpretedOption_Impl(
         stringValue: pbandk.ByteArr?,
         aggregateValue: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.UninterpretedOption {
+    ): pbandk.wkt.UninterpretedOption = pbandk.wkt.UninterpretedOption {
         this.name += name
         this.identifierValue = identifierValue
         this.positiveIntValue = positiveIntValue
@@ -5926,7 +5872,7 @@ private class MutableUninterpretedOption_Impl(
         stringValue: pbandk.ByteArr?,
         aggregateValue: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.UninterpretedOption = throw UnsupportedOperationException()
 
     fun toUninterpretedOption() = UninterpretedOption_Impl(
         name = name.toListField(),
@@ -5972,7 +5918,7 @@ private class UninterpretedOption_NamePart_Impl(
         namePart: String,
         isExtension: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.UninterpretedOption.NamePart {
+    ): pbandk.wkt.UninterpretedOption.NamePart = pbandk.wkt.UninterpretedOption.NamePart {
         this.namePart = namePart
         this.isExtension = isExtension
         this.unknownFields += unknownFields
@@ -5998,7 +5944,7 @@ private class UninterpretedOption_MutableNamePart_Impl(
         namePart: String,
         isExtension: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.UninterpretedOption.NamePart = throw UnsupportedOperationException()
 
     fun toNamePart() = UninterpretedOption_NamePart_Impl(
         namePart = if (this::namePart.isInitialized) {
@@ -6058,7 +6004,7 @@ private class SourceCodeInfo_Impl(
     override fun copy(
         location: List<pbandk.wkt.SourceCodeInfo.Location>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.SourceCodeInfo {
+    ): pbandk.wkt.SourceCodeInfo = pbandk.wkt.SourceCodeInfo {
         this.location += location
         this.unknownFields += unknownFields
     }
@@ -6076,7 +6022,7 @@ private class MutableSourceCodeInfo_Impl(
     override fun copy(
         location: List<pbandk.wkt.SourceCodeInfo.Location>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.SourceCodeInfo = throw UnsupportedOperationException()
 
     fun toSourceCodeInfo() = SourceCodeInfo_Impl(
         location = location.toListField(),
@@ -6131,7 +6077,7 @@ private class SourceCodeInfo_Location_Impl(
         trailingComments: String?,
         leadingDetachedComments: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.SourceCodeInfo.Location {
+    ): pbandk.wkt.SourceCodeInfo.Location = pbandk.wkt.SourceCodeInfo.Location {
         this.path += path
         this.span += span
         this.leadingComments = leadingComments
@@ -6161,7 +6107,7 @@ private class SourceCodeInfo_MutableLocation_Impl(
         trailingComments: String?,
         leadingDetachedComments: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.SourceCodeInfo.Location = throw UnsupportedOperationException()
 
     fun toLocation() = SourceCodeInfo_Location_Impl(
         path = path.toListField(),
@@ -6216,7 +6162,7 @@ private class GeneratedCodeInfo_Impl(
     override fun copy(
         annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.GeneratedCodeInfo {
+    ): pbandk.wkt.GeneratedCodeInfo = pbandk.wkt.GeneratedCodeInfo {
         this.annotation += annotation
         this.unknownFields += unknownFields
     }
@@ -6234,7 +6180,7 @@ private class MutableGeneratedCodeInfo_Impl(
     override fun copy(
         annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.GeneratedCodeInfo = throw UnsupportedOperationException()
 
     fun toGeneratedCodeInfo() = GeneratedCodeInfo_Impl(
         annotation = annotation.toListField(),
@@ -6286,7 +6232,7 @@ private class GeneratedCodeInfo_Annotation_Impl(
         begin: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.GeneratedCodeInfo.Annotation {
+    ): pbandk.wkt.GeneratedCodeInfo.Annotation = pbandk.wkt.GeneratedCodeInfo.Annotation {
         this.path += path
         this.sourceFile = sourceFile
         this.begin = begin
@@ -6313,7 +6259,7 @@ private class GeneratedCodeInfo_MutableAnnotation_Impl(
         begin: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.GeneratedCodeInfo.Annotation = throw UnsupportedOperationException()
 
     fun toAnnotation() = GeneratedCodeInfo_Annotation_Impl(
         path = path.toListField(),

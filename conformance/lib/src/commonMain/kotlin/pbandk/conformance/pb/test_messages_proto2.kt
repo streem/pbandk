@@ -161,9 +161,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
      */
     public fun copy(builderAction: pbandk.conformance.pb.MutableTestAllTypesProto2.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         optionalInt32: Int? = this.optionalInt32,
@@ -1987,9 +1985,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
          */
         public fun copy(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableNestedMessage.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             a: Int? = this.a,
@@ -2066,9 +2062,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
          */
         public fun copy(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableData.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.Data
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             groupInt32: Int? = this.groupInt32,
@@ -2143,9 +2137,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
          */
         public fun copy(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrect.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -2191,9 +2183,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
          */
         public fun copy(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension1.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             str: String? = this.str,
@@ -2264,9 +2254,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
          */
         public fun copy(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension2.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             i: Int? = this.i,
@@ -2460,9 +2448,7 @@ public sealed interface ForeignMessageProto2 : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.conformance.pb.MutableForeignMessageProto2.() -> Unit): pbandk.conformance.pb.ForeignMessageProto2
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         c: Int? = this.c,
@@ -2528,9 +2514,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.conformance.pb.MutableUnknownToTestAllTypes.() -> Unit): pbandk.conformance.pb.UnknownToTestAllTypes
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         optionalInt32: Int? = this.optionalInt32,
@@ -2654,9 +2638,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.conformance.pb.UnknownToTestAllTypes.MutableOptionalGroup.() -> Unit): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup
 
-        @Deprecated(
-            message = "Use copy { } instead",
-        )
+        @Deprecated("Use copy { } instead")
         @pbandk.JsName("copyDeprecated")
         public fun copy(
             a: Int? = this.a,
@@ -3335,7 +3317,7 @@ private class TestAllTypesProto2_Impl(
         fieldName18_: Int?,
         oneofField: pbandk.conformance.pb.TestAllTypesProto2.OneofField<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.conformance.pb.TestAllTypesProto2 {
+    ): pbandk.conformance.pb.TestAllTypesProto2 = pbandk.conformance.pb.TestAllTypesProto2 {
         this.optionalInt32 = optionalInt32
         this.optionalInt64 = optionalInt64
         this.optionalUint32 = optionalUint32
@@ -3705,7 +3687,7 @@ private class MutableTestAllTypesProto2_Impl(
         fieldName18_: Int?,
         oneofField: pbandk.conformance.pb.TestAllTypesProto2.OneofField<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.conformance.pb.TestAllTypesProto2 = throw UnsupportedOperationException()
 
     fun toTestAllTypesProto2() = TestAllTypesProto2_Impl(
         optionalInt32 = optionalInt32,
@@ -3860,7 +3842,7 @@ private class TestAllTypesProto2_NestedMessage_Impl(
         a: Int?,
         corecursive: pbandk.conformance.pb.TestAllTypesProto2?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage {
+    ): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage {
         this.a = a
         this.corecursive = corecursive
         this.unknownFields += unknownFields
@@ -3881,7 +3863,7 @@ private class TestAllTypesProto2_MutableNestedMessage_Impl(
         a: Int?,
         corecursive: pbandk.conformance.pb.TestAllTypesProto2?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage = throw UnsupportedOperationException()
 
     fun toNestedMessage() = TestAllTypesProto2_NestedMessage_Impl(
         a = a,
@@ -3928,7 +3910,7 @@ private class TestAllTypesProto2_Data_Impl(
         groupInt32: Int?,
         groupUint32: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.conformance.pb.TestAllTypesProto2.Data {
+    ): pbandk.conformance.pb.TestAllTypesProto2.Data = pbandk.conformance.pb.TestAllTypesProto2.Data {
         this.groupInt32 = groupInt32
         this.groupUint32 = groupUint32
         this.unknownFields += unknownFields
@@ -3949,7 +3931,7 @@ private class TestAllTypesProto2_MutableData_Impl(
         groupInt32: Int?,
         groupUint32: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.conformance.pb.TestAllTypesProto2.Data = throw UnsupportedOperationException()
 
     fun toData() = TestAllTypesProto2_Data_Impl(
         groupInt32 = groupInt32,
@@ -3991,7 +3973,7 @@ private class TestAllTypesProto2_MessageSetCorrect_Impl(
     @Deprecated("Use copy { } instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect {
+    ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect {
         this.unknownFields += unknownFields
     }
 }
@@ -4006,7 +3988,7 @@ private class TestAllTypesProto2_MutableMessageSetCorrect_Impl(
     @Deprecated("Use copy { } instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = throw UnsupportedOperationException()
 
     fun toMessageSetCorrect() = TestAllTypesProto2_MessageSetCorrect_Impl(
         extensionFields = extensionFields.toFieldSet(),
@@ -4049,7 +4031,7 @@ private class TestAllTypesProto2_MessageSetCorrectExtension1_Impl(
     override fun copy(
         str: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 {
+    ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 {
         this.str = str
         this.unknownFields += unknownFields
     }
@@ -4067,7 +4049,7 @@ private class TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl(
     override fun copy(
         str: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 = throw UnsupportedOperationException()
 
     fun toMessageSetCorrectExtension1() = TestAllTypesProto2_MessageSetCorrectExtension1_Impl(
         str = str,
@@ -4110,7 +4092,7 @@ private class TestAllTypesProto2_MessageSetCorrectExtension2_Impl(
     override fun copy(
         i: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 {
+    ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 {
         this.i = i
         this.unknownFields += unknownFields
     }
@@ -4128,7 +4110,7 @@ private class TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl(
     override fun copy(
         i: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 = throw UnsupportedOperationException()
 
     fun toMessageSetCorrectExtension2() = TestAllTypesProto2_MessageSetCorrectExtension2_Impl(
         i = i,
@@ -4179,7 +4161,7 @@ private class ForeignMessageProto2_Impl(
     override fun copy(
         c: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.conformance.pb.ForeignMessageProto2 {
+    ): pbandk.conformance.pb.ForeignMessageProto2 = pbandk.conformance.pb.ForeignMessageProto2 {
         this.c = c
         this.unknownFields += unknownFields
     }
@@ -4197,7 +4179,7 @@ private class MutableForeignMessageProto2_Impl(
     override fun copy(
         c: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.conformance.pb.ForeignMessageProto2 = throw UnsupportedOperationException()
 
     fun toForeignMessageProto2() = ForeignMessageProto2_Impl(
         c = c,
@@ -4268,7 +4250,7 @@ private class UnknownToTestAllTypes_Impl(
         optionalBool: Boolean?,
         repeatedInt32: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.conformance.pb.UnknownToTestAllTypes {
+    ): pbandk.conformance.pb.UnknownToTestAllTypes = pbandk.conformance.pb.UnknownToTestAllTypes {
         this.optionalInt32 = optionalInt32
         this.optionalString = optionalString
         this.nestedMessage = nestedMessage
@@ -4298,7 +4280,7 @@ private class MutableUnknownToTestAllTypes_Impl(
         optionalBool: Boolean?,
         repeatedInt32: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.conformance.pb.UnknownToTestAllTypes = throw UnsupportedOperationException()
 
     fun toUnknownToTestAllTypes() = UnknownToTestAllTypes_Impl(
         optionalInt32 = optionalInt32,
@@ -4345,7 +4327,7 @@ private class UnknownToTestAllTypes_OptionalGroup_Impl(
     override fun copy(
         a: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup {
+    ): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup {
         this.a = a
         this.unknownFields += unknownFields
     }
@@ -4363,7 +4345,7 @@ private class UnknownToTestAllTypes_MutableOptionalGroup_Impl(
     override fun copy(
         a: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup = throw UnsupportedOperationException()
 
     fun toOptionalGroup() = UnknownToTestAllTypes_OptionalGroup_Impl(
         a = a,

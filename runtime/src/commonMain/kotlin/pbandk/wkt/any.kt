@@ -16,9 +16,7 @@ public sealed interface Any : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit): pbandk.wkt.Any
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         typeUrl: String = this.typeUrl,
@@ -130,7 +128,7 @@ private class Any_Impl(
         typeUrl: String,
         value: pbandk.ByteArr,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Any {
+    ): pbandk.wkt.Any = pbandk.wkt.Any {
         this.typeUrl = typeUrl
         this.value = value
         this.unknownFields += unknownFields
@@ -151,7 +149,7 @@ private class MutableAny_Impl(
         typeUrl: String,
         value: pbandk.ByteArr,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Any = throw UnsupportedOperationException()
 
     fun toAny() = Any_Impl(
         typeUrl = typeUrl,

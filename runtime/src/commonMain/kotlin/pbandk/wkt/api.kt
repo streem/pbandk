@@ -21,9 +21,7 @@ public sealed interface Api : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableApi.() -> Unit): pbandk.wkt.Api
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String = this.name,
@@ -175,9 +173,7 @@ public sealed interface Method : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableMethod.() -> Unit): pbandk.wkt.Method
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String = this.name,
@@ -324,9 +320,7 @@ public sealed interface Mixin : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableMixin.() -> Unit): pbandk.wkt.Mixin
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String = this.name,
@@ -463,7 +457,7 @@ private class Api_Impl(
         mixins: List<pbandk.wkt.Mixin>,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Api {
+    ): pbandk.wkt.Api = pbandk.wkt.Api {
         this.name = name
         this.methods += methods
         this.options += options
@@ -499,7 +493,7 @@ private class MutableApi_Impl(
         mixins: List<pbandk.wkt.Mixin>,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Api = throw UnsupportedOperationException()
 
     fun toApi() = Api_Impl(
         name = name,
@@ -586,7 +580,7 @@ private class Method_Impl(
         options: List<pbandk.wkt.Option>,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Method {
+    ): pbandk.wkt.Method = pbandk.wkt.Method {
         this.name = name
         this.requestTypeUrl = requestTypeUrl
         this.requestStreaming = requestStreaming
@@ -622,7 +616,7 @@ private class MutableMethod_Impl(
         options: List<pbandk.wkt.Option>,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Method = throw UnsupportedOperationException()
 
     fun toMethod() = Method_Impl(
         name = name,
@@ -684,7 +678,7 @@ private class Mixin_Impl(
         name: String,
         root: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Mixin {
+    ): pbandk.wkt.Mixin = pbandk.wkt.Mixin {
         this.name = name
         this.root = root
         this.unknownFields += unknownFields
@@ -705,7 +699,7 @@ private class MutableMixin_Impl(
         name: String,
         root: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Mixin = throw UnsupportedOperationException()
 
     fun toMixin() = Mixin_Impl(
         name = name,

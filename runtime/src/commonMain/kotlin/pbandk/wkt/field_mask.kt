@@ -15,9 +15,7 @@ public sealed interface FieldMask : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit): pbandk.wkt.FieldMask
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         paths: List<String> = this.paths,
@@ -110,7 +108,7 @@ private class FieldMask_Impl(
     override fun copy(
         paths: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.FieldMask {
+    ): pbandk.wkt.FieldMask = pbandk.wkt.FieldMask {
         this.paths += paths
         this.unknownFields += unknownFields
     }
@@ -128,7 +126,7 @@ private class MutableFieldMask_Impl(
     override fun copy(
         paths: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.FieldMask = throw UnsupportedOperationException()
 
     fun toFieldMask() = FieldMask_Impl(
         paths = paths.toListField(),

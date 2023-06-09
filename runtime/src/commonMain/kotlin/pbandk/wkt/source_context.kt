@@ -15,9 +15,7 @@ public sealed interface SourceContext : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableSourceContext.() -> Unit): pbandk.wkt.SourceContext
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         fileName: String = this.fileName,
@@ -110,7 +108,7 @@ private class SourceContext_Impl(
     override fun copy(
         fileName: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.SourceContext {
+    ): pbandk.wkt.SourceContext = pbandk.wkt.SourceContext {
         this.fileName = fileName
         this.unknownFields += unknownFields
     }
@@ -128,7 +126,7 @@ private class MutableSourceContext_Impl(
     override fun copy(
         fileName: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.SourceContext = throw UnsupportedOperationException()
 
     fun toSourceContext() = SourceContext_Impl(
         fileName = fileName,

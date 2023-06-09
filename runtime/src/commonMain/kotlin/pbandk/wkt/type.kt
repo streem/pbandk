@@ -54,9 +54,7 @@ public sealed interface Type : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableType.() -> Unit): pbandk.wkt.Type
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String = this.name,
@@ -197,9 +195,7 @@ public sealed interface Field : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableField.() -> Unit): pbandk.wkt.Field
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         kind: pbandk.wkt.Field.Kind = this.kind,
@@ -540,9 +536,7 @@ public sealed interface Enum : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableEnum.() -> Unit): pbandk.wkt.Enum
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String = this.name,
@@ -662,9 +656,7 @@ public sealed interface EnumValue : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableEnumValue.() -> Unit): pbandk.wkt.EnumValue
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String = this.name,
@@ -755,9 +747,7 @@ public sealed interface Option : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableOption.() -> Unit): pbandk.wkt.Option
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String = this.name,
@@ -889,7 +879,7 @@ private class Type_Impl(
         sourceContext: pbandk.wkt.SourceContext?,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Type {
+    ): pbandk.wkt.Type = pbandk.wkt.Type {
         this.name = name
         this.fields += fields
         this.oneofs += oneofs
@@ -922,7 +912,7 @@ private class MutableType_Impl(
         sourceContext: pbandk.wkt.SourceContext?,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Type = throw UnsupportedOperationException()
 
     fun toType() = Type_Impl(
         name = name,
@@ -1023,7 +1013,7 @@ private class Field_Impl(
         jsonName: String,
         defaultValue: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Field {
+    ): pbandk.wkt.Field = pbandk.wkt.Field {
         this.kind = kind
         this.cardinality = cardinality
         this.number = number
@@ -1068,7 +1058,7 @@ private class MutableField_Impl(
         jsonName: String,
         defaultValue: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Field = throw UnsupportedOperationException()
 
     fun toField() = Field_Impl(
         kind = kind,
@@ -1148,7 +1138,7 @@ private class Enum_Impl(
         sourceContext: pbandk.wkt.SourceContext?,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Enum {
+    ): pbandk.wkt.Enum = pbandk.wkt.Enum {
         this.name = name
         this.enumvalue += enumvalue
         this.options += options
@@ -1178,7 +1168,7 @@ private class MutableEnum_Impl(
         sourceContext: pbandk.wkt.SourceContext?,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Enum = throw UnsupportedOperationException()
 
     fun toEnum() = Enum_Impl(
         name = name,
@@ -1243,7 +1233,7 @@ private class EnumValue_Impl(
         number: Int,
         options: List<pbandk.wkt.Option>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.EnumValue {
+    ): pbandk.wkt.EnumValue = pbandk.wkt.EnumValue {
         this.name = name
         this.number = number
         this.options += options
@@ -1267,7 +1257,7 @@ private class MutableEnumValue_Impl(
         number: Int,
         options: List<pbandk.wkt.Option>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.EnumValue = throw UnsupportedOperationException()
 
     fun toEnumValue() = EnumValue_Impl(
         name = name,
@@ -1325,7 +1315,7 @@ private class Option_Impl(
         name: String,
         value: pbandk.wkt.Any?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Option {
+    ): pbandk.wkt.Option = pbandk.wkt.Option {
         this.name = name
         this.value = value
         this.unknownFields += unknownFields
@@ -1346,7 +1336,7 @@ private class MutableOption_Impl(
         name: String,
         value: pbandk.wkt.Any?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Option = throw UnsupportedOperationException()
 
     fun toOption() = Option_Impl(
         name = name,

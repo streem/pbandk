@@ -114,9 +114,7 @@ public sealed interface FailureSet : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.conformance.pb.MutableFailureSet.() -> Unit): pbandk.conformance.pb.FailureSet
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         failure: List<String> = this.failure,
@@ -183,9 +181,7 @@ public sealed interface ConformanceRequest : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.conformance.pb.MutableConformanceRequest.() -> Unit): pbandk.conformance.pb.ConformanceRequest
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         requestedOutputFormat: pbandk.conformance.pb.WireFormat = this.requestedOutputFormat,
@@ -387,9 +383,7 @@ public sealed interface ConformanceResponse : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.conformance.pb.MutableConformanceResponse.() -> Unit): pbandk.conformance.pb.ConformanceResponse
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         result: pbandk.conformance.pb.ConformanceResponse.Result<*>? = this.result,
@@ -583,9 +577,7 @@ public sealed interface JspbEncodingConfig : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.conformance.pb.MutableJspbEncodingConfig.() -> Unit): pbandk.conformance.pb.JspbEncodingConfig
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         useJspbArrayAnyFormat: Boolean = this.useJspbArrayAnyFormat,
@@ -678,7 +670,7 @@ private class FailureSet_Impl(
     override fun copy(
         failure: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.conformance.pb.FailureSet {
+    ): pbandk.conformance.pb.FailureSet = pbandk.conformance.pb.FailureSet {
         this.failure += failure
         this.unknownFields += unknownFields
     }
@@ -696,7 +688,7 @@ private class MutableFailureSet_Impl(
     override fun copy(
         failure: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.conformance.pb.FailureSet = throw UnsupportedOperationException()
 
     fun toFailureSet() = FailureSet_Impl(
         failure = failure.toListField(),
@@ -781,7 +773,7 @@ private class ConformanceRequest_Impl(
         printUnknownFields: Boolean,
         payload: pbandk.conformance.pb.ConformanceRequest.Payload<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.conformance.pb.ConformanceRequest {
+    ): pbandk.conformance.pb.ConformanceRequest = pbandk.conformance.pb.ConformanceRequest {
         this.requestedOutputFormat = requestedOutputFormat
         this.messageType = messageType
         this.testCategory = testCategory
@@ -827,7 +819,7 @@ private class MutableConformanceRequest_Impl(
         printUnknownFields: Boolean,
         payload: pbandk.conformance.pb.ConformanceRequest.Payload<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.conformance.pb.ConformanceRequest = throw UnsupportedOperationException()
 
     fun toConformanceRequest() = ConformanceRequest_Impl(
         requestedOutputFormat = requestedOutputFormat,
@@ -900,7 +892,7 @@ private class ConformanceResponse_Impl(
     override fun copy(
         result: pbandk.conformance.pb.ConformanceResponse.Result<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.conformance.pb.ConformanceResponse {
+    ): pbandk.conformance.pb.ConformanceResponse = pbandk.conformance.pb.ConformanceResponse {
         this.result = result
         this.unknownFields += unknownFields
     }
@@ -943,7 +935,7 @@ private class MutableConformanceResponse_Impl(
     override fun copy(
         result: pbandk.conformance.pb.ConformanceResponse.Result<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.conformance.pb.ConformanceResponse = throw UnsupportedOperationException()
 
     fun toConformanceResponse() = ConformanceResponse_Impl(
         result = result,
@@ -994,7 +986,7 @@ private class JspbEncodingConfig_Impl(
     override fun copy(
         useJspbArrayAnyFormat: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.conformance.pb.JspbEncodingConfig {
+    ): pbandk.conformance.pb.JspbEncodingConfig = pbandk.conformance.pb.JspbEncodingConfig {
         this.useJspbArrayAnyFormat = useJspbArrayAnyFormat
         this.unknownFields += unknownFields
     }
@@ -1012,7 +1004,7 @@ private class MutableJspbEncodingConfig_Impl(
     override fun copy(
         useJspbArrayAnyFormat: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.conformance.pb.JspbEncodingConfig = throw UnsupportedOperationException()
 
     fun toJspbEncodingConfig() = JspbEncodingConfig_Impl(
         useJspbArrayAnyFormat = useJspbArrayAnyFormat,

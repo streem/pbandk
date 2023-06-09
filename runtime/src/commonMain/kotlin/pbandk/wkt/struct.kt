@@ -45,9 +45,7 @@ public sealed interface Struct : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableStruct.() -> Unit): pbandk.wkt.Struct
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         fields: Map<String, pbandk.wkt.Value> = this.fields,
@@ -110,9 +108,7 @@ public sealed interface Value : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableValue.() -> Unit): pbandk.wkt.Value
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         kind: pbandk.wkt.Value.Kind<*>? = this.kind,
@@ -274,9 +270,7 @@ public sealed interface ListValue : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableListValue.() -> Unit): pbandk.wkt.ListValue
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         values: List<pbandk.wkt.Value> = this.values,
@@ -369,7 +363,7 @@ private class Struct_Impl(
     override fun copy(
         fields: Map<String, pbandk.wkt.Value>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Struct {
+    ): pbandk.wkt.Struct = pbandk.wkt.Struct {
         this.fields += fields
         this.unknownFields += unknownFields
     }
@@ -387,7 +381,7 @@ private class MutableStruct_Impl(
     override fun copy(
         fields: Map<String, pbandk.wkt.Value>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Struct = throw UnsupportedOperationException()
 
     fun toStruct() = Struct_Impl(
         fields = fields.toMapField(),
@@ -451,7 +445,7 @@ private class Value_Impl(
     override fun copy(
         kind: pbandk.wkt.Value.Kind<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Value {
+    ): pbandk.wkt.Value = pbandk.wkt.Value {
         this.kind = kind
         this.unknownFields += unknownFields
     }
@@ -488,7 +482,7 @@ private class MutableValue_Impl(
     override fun copy(
         kind: pbandk.wkt.Value.Kind<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Value = throw UnsupportedOperationException()
 
     fun toValue() = Value_Impl(
         kind = kind,
@@ -539,7 +533,7 @@ private class ListValue_Impl(
     override fun copy(
         values: List<pbandk.wkt.Value>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.ListValue {
+    ): pbandk.wkt.ListValue = pbandk.wkt.ListValue {
         this.values += values
         this.unknownFields += unknownFields
     }
@@ -557,7 +551,7 @@ private class MutableListValue_Impl(
     override fun copy(
         values: List<pbandk.wkt.Value>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.ListValue = throw UnsupportedOperationException()
 
     fun toListValue() = ListValue_Impl(
         values = values.toListField(),

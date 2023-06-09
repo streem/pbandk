@@ -15,9 +15,7 @@ public sealed interface MessageWithRequiredField : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableMessageWithRequiredField.() -> Unit): pbandk.testpb.MessageWithRequiredField
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         foo: Boolean = this.foo,
@@ -78,9 +76,7 @@ public sealed interface MessageWithEnum : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableMessageWithEnum.() -> Unit): pbandk.testpb.MessageWithEnum
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: pbandk.testpb.MessageWithEnum.EnumType? = this.value,
@@ -202,7 +198,7 @@ private class MessageWithRequiredField_Impl(
     override fun copy(
         foo: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.MessageWithRequiredField {
+    ): pbandk.testpb.MessageWithRequiredField = pbandk.testpb.MessageWithRequiredField {
         this.foo = foo
         this.unknownFields += unknownFields
     }
@@ -224,7 +220,7 @@ private class MutableMessageWithRequiredField_Impl(
     override fun copy(
         foo: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.MessageWithRequiredField = throw UnsupportedOperationException()
 
     fun toMessageWithRequiredField() = MessageWithRequiredField_Impl(
         foo = if (hasFoo) {
@@ -279,7 +275,7 @@ private class MessageWithEnum_Impl(
     override fun copy(
         value: pbandk.testpb.MessageWithEnum.EnumType?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.MessageWithEnum {
+    ): pbandk.testpb.MessageWithEnum = pbandk.testpb.MessageWithEnum {
         this.value = value
         this.unknownFields += unknownFields
     }
@@ -297,7 +293,7 @@ private class MutableMessageWithEnum_Impl(
     override fun copy(
         value: pbandk.testpb.MessageWithEnum.EnumType?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.MessageWithEnum = throw UnsupportedOperationException()
 
     fun toMessageWithEnum() = MessageWithEnum_Impl(
         value = value,

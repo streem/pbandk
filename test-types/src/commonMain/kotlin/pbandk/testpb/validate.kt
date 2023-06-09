@@ -54,9 +54,7 @@ public sealed interface FieldRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableFieldRules.() -> Unit): pbandk.testpb.FieldRules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         message: pbandk.testpb.MessageRules? = this.message,
@@ -480,9 +478,7 @@ public sealed interface FloatRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableFloatRules.() -> Unit): pbandk.testpb.FloatRules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Float? = this.const,
@@ -634,9 +630,7 @@ public sealed interface DoubleRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableDoubleRules.() -> Unit): pbandk.testpb.DoubleRules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Double? = this.const,
@@ -788,9 +782,7 @@ public sealed interface Int32Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableInt32Rules.() -> Unit): pbandk.testpb.Int32Rules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Int? = this.const,
@@ -942,9 +934,7 @@ public sealed interface Int64Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableInt64Rules.() -> Unit): pbandk.testpb.Int64Rules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Long? = this.const,
@@ -1096,9 +1086,7 @@ public sealed interface UInt32Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableUInt32Rules.() -> Unit): pbandk.testpb.UInt32Rules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Int? = this.const,
@@ -1250,9 +1238,7 @@ public sealed interface UInt64Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableUInt64Rules.() -> Unit): pbandk.testpb.UInt64Rules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Long? = this.const,
@@ -1404,9 +1390,7 @@ public sealed interface SInt32Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableSInt32Rules.() -> Unit): pbandk.testpb.SInt32Rules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Int? = this.const,
@@ -1558,9 +1542,7 @@ public sealed interface SInt64Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableSInt64Rules.() -> Unit): pbandk.testpb.SInt64Rules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Long? = this.const,
@@ -1712,9 +1694,7 @@ public sealed interface Fixed32Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableFixed32Rules.() -> Unit): pbandk.testpb.Fixed32Rules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Int? = this.const,
@@ -1866,9 +1846,7 @@ public sealed interface Fixed64Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableFixed64Rules.() -> Unit): pbandk.testpb.Fixed64Rules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Long? = this.const,
@@ -2020,9 +1998,7 @@ public sealed interface SFixed32Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableSFixed32Rules.() -> Unit): pbandk.testpb.SFixed32Rules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Int? = this.const,
@@ -2174,9 +2150,7 @@ public sealed interface SFixed64Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableSFixed64Rules.() -> Unit): pbandk.testpb.SFixed64Rules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Long? = this.const,
@@ -2322,9 +2296,7 @@ public sealed interface BoolRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableBoolRules.() -> Unit): pbandk.testpb.BoolRules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Boolean? = this.const,
@@ -2401,9 +2373,7 @@ public sealed interface StringRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableStringRules.() -> Unit): pbandk.testpb.StringRules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: String? = this.const,
@@ -2851,9 +2821,7 @@ public sealed interface BytesRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableBytesRules.() -> Unit): pbandk.testpb.BytesRules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: pbandk.ByteArr? = this.const,
@@ -3112,9 +3080,7 @@ public sealed interface EnumRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableEnumRules.() -> Unit): pbandk.testpb.EnumRules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Int? = this.const,
@@ -3219,9 +3185,7 @@ public sealed interface MessageRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableMessageRules.() -> Unit): pbandk.testpb.MessageRules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         skip: Boolean? = this.skip,
@@ -3300,9 +3264,7 @@ public sealed interface RepeatedRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableRepeatedRules.() -> Unit): pbandk.testpb.RepeatedRules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         minItems: Long? = this.minItems,
@@ -3410,9 +3372,7 @@ public sealed interface MapRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableMapRules.() -> Unit): pbandk.testpb.MapRules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         minPairs: Long? = this.minPairs,
@@ -3532,9 +3492,7 @@ public sealed interface AnyRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableAnyRules.() -> Unit): pbandk.testpb.AnyRules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         required: Boolean? = this.required,
@@ -3631,9 +3589,7 @@ public sealed interface DurationRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableDurationRules.() -> Unit): pbandk.testpb.DurationRules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         required: Boolean? = this.required,
@@ -3801,9 +3757,7 @@ public sealed interface TimestampRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableTimestampRules.() -> Unit): pbandk.testpb.TimestampRules
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         required: Boolean? = this.required,
@@ -4107,7 +4061,7 @@ private class FieldRules_Impl(
         message: pbandk.testpb.MessageRules?,
         type: pbandk.testpb.FieldRules.Type<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.FieldRules {
+    ): pbandk.testpb.FieldRules = pbandk.testpb.FieldRules {
         this.message = message
         this.type = type
         this.unknownFields += unknownFields
@@ -4192,7 +4146,7 @@ private class MutableFieldRules_Impl(
         message: pbandk.testpb.MessageRules?,
         type: pbandk.testpb.FieldRules.Type<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.FieldRules = throw UnsupportedOperationException()
 
     fun toFieldRules() = FieldRules_Impl(
         message = message,
@@ -4274,7 +4228,7 @@ private class FloatRules_Impl(
         `in`: List<Float>,
         notIn: List<Float>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.FloatRules {
+    ): pbandk.testpb.FloatRules = pbandk.testpb.FloatRules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4310,7 +4264,7 @@ private class MutableFloatRules_Impl(
         `in`: List<Float>,
         notIn: List<Float>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.FloatRules = throw UnsupportedOperationException()
 
     fun toFloatRules() = FloatRules_Impl(
         const = const,
@@ -4397,7 +4351,7 @@ private class DoubleRules_Impl(
         `in`: List<Double>,
         notIn: List<Double>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.DoubleRules {
+    ): pbandk.testpb.DoubleRules = pbandk.testpb.DoubleRules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4433,7 +4387,7 @@ private class MutableDoubleRules_Impl(
         `in`: List<Double>,
         notIn: List<Double>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.DoubleRules = throw UnsupportedOperationException()
 
     fun toDoubleRules() = DoubleRules_Impl(
         const = const,
@@ -4520,7 +4474,7 @@ private class Int32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.Int32Rules {
+    ): pbandk.testpb.Int32Rules = pbandk.testpb.Int32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4556,7 +4510,7 @@ private class MutableInt32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.Int32Rules = throw UnsupportedOperationException()
 
     fun toInt32Rules() = Int32Rules_Impl(
         const = const,
@@ -4643,7 +4597,7 @@ private class Int64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.Int64Rules {
+    ): pbandk.testpb.Int64Rules = pbandk.testpb.Int64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4679,7 +4633,7 @@ private class MutableInt64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.Int64Rules = throw UnsupportedOperationException()
 
     fun toInt64Rules() = Int64Rules_Impl(
         const = const,
@@ -4766,7 +4720,7 @@ private class UInt32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.UInt32Rules {
+    ): pbandk.testpb.UInt32Rules = pbandk.testpb.UInt32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4802,7 +4756,7 @@ private class MutableUInt32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.UInt32Rules = throw UnsupportedOperationException()
 
     fun toUInt32Rules() = UInt32Rules_Impl(
         const = const,
@@ -4889,7 +4843,7 @@ private class UInt64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.UInt64Rules {
+    ): pbandk.testpb.UInt64Rules = pbandk.testpb.UInt64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4925,7 +4879,7 @@ private class MutableUInt64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.UInt64Rules = throw UnsupportedOperationException()
 
     fun toUInt64Rules() = UInt64Rules_Impl(
         const = const,
@@ -5012,7 +4966,7 @@ private class SInt32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.SInt32Rules {
+    ): pbandk.testpb.SInt32Rules = pbandk.testpb.SInt32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5048,7 +5002,7 @@ private class MutableSInt32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.SInt32Rules = throw UnsupportedOperationException()
 
     fun toSInt32Rules() = SInt32Rules_Impl(
         const = const,
@@ -5135,7 +5089,7 @@ private class SInt64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.SInt64Rules {
+    ): pbandk.testpb.SInt64Rules = pbandk.testpb.SInt64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5171,7 +5125,7 @@ private class MutableSInt64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.SInt64Rules = throw UnsupportedOperationException()
 
     fun toSInt64Rules() = SInt64Rules_Impl(
         const = const,
@@ -5258,7 +5212,7 @@ private class Fixed32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.Fixed32Rules {
+    ): pbandk.testpb.Fixed32Rules = pbandk.testpb.Fixed32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5294,7 +5248,7 @@ private class MutableFixed32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.Fixed32Rules = throw UnsupportedOperationException()
 
     fun toFixed32Rules() = Fixed32Rules_Impl(
         const = const,
@@ -5381,7 +5335,7 @@ private class Fixed64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.Fixed64Rules {
+    ): pbandk.testpb.Fixed64Rules = pbandk.testpb.Fixed64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5417,7 +5371,7 @@ private class MutableFixed64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.Fixed64Rules = throw UnsupportedOperationException()
 
     fun toFixed64Rules() = Fixed64Rules_Impl(
         const = const,
@@ -5504,7 +5458,7 @@ private class SFixed32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.SFixed32Rules {
+    ): pbandk.testpb.SFixed32Rules = pbandk.testpb.SFixed32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5540,7 +5494,7 @@ private class MutableSFixed32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.SFixed32Rules = throw UnsupportedOperationException()
 
     fun toSFixed32Rules() = SFixed32Rules_Impl(
         const = const,
@@ -5627,7 +5581,7 @@ private class SFixed64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.SFixed64Rules {
+    ): pbandk.testpb.SFixed64Rules = pbandk.testpb.SFixed64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5663,7 +5617,7 @@ private class MutableSFixed64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.SFixed64Rules = throw UnsupportedOperationException()
 
     fun toSFixed64Rules() = SFixed64Rules_Impl(
         const = const,
@@ -5720,7 +5674,7 @@ private class BoolRules_Impl(
     override fun copy(
         const: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.BoolRules {
+    ): pbandk.testpb.BoolRules = pbandk.testpb.BoolRules {
         this.const = const
         this.unknownFields += unknownFields
     }
@@ -5738,7 +5692,7 @@ private class MutableBoolRules_Impl(
     override fun copy(
         const: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.BoolRules = throw UnsupportedOperationException()
 
     fun toBoolRules() = BoolRules_Impl(
         const = const,
@@ -5885,7 +5839,7 @@ private class StringRules_Impl(
         strict: Boolean?,
         wellKnown: pbandk.testpb.StringRules.WellKnown<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.StringRules {
+    ): pbandk.testpb.StringRules = pbandk.testpb.StringRules {
         this.const = const
         this.len = len
         this.minLen = minLen
@@ -5979,7 +5933,7 @@ private class MutableStringRules_Impl(
         strict: Boolean?,
         wellKnown: pbandk.testpb.StringRules.WellKnown<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.StringRules = throw UnsupportedOperationException()
 
     fun toStringRules() = StringRules_Impl(
         const = const,
@@ -6102,7 +6056,7 @@ private class BytesRules_Impl(
         notIn: List<pbandk.ByteArr>,
         wellKnown: pbandk.testpb.BytesRules.WellKnown<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.BytesRules {
+    ): pbandk.testpb.BytesRules = pbandk.testpb.BytesRules {
         this.const = const
         this.len = len
         this.minLen = minLen
@@ -6160,7 +6114,7 @@ private class MutableBytesRules_Impl(
         notIn: List<pbandk.ByteArr>,
         wellKnown: pbandk.testpb.BytesRules.WellKnown<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.BytesRules = throw UnsupportedOperationException()
 
     fun toBytesRules() = BytesRules_Impl(
         const = const,
@@ -6236,7 +6190,7 @@ private class EnumRules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.EnumRules {
+    ): pbandk.testpb.EnumRules = pbandk.testpb.EnumRules {
         this.const = const
         this.definedOnly = definedOnly
         this.`in` += `in`
@@ -6263,7 +6217,7 @@ private class MutableEnumRules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.EnumRules = throw UnsupportedOperationException()
 
     fun toEnumRules() = EnumRules_Impl(
         const = const,
@@ -6322,7 +6276,7 @@ private class MessageRules_Impl(
         skip: Boolean?,
         required: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.MessageRules {
+    ): pbandk.testpb.MessageRules = pbandk.testpb.MessageRules {
         this.skip = skip
         this.required = required
         this.unknownFields += unknownFields
@@ -6343,7 +6297,7 @@ private class MutableMessageRules_Impl(
         skip: Boolean?,
         required: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.MessageRules = throw UnsupportedOperationException()
 
     fun toMessageRules() = MessageRules_Impl(
         skip = skip,
@@ -6410,7 +6364,7 @@ private class RepeatedRules_Impl(
         unique: Boolean?,
         items: pbandk.testpb.FieldRules?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.RepeatedRules {
+    ): pbandk.testpb.RepeatedRules = pbandk.testpb.RepeatedRules {
         this.minItems = minItems
         this.maxItems = maxItems
         this.unique = unique
@@ -6437,7 +6391,7 @@ private class MutableRepeatedRules_Impl(
         unique: Boolean?,
         items: pbandk.testpb.FieldRules?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.RepeatedRules = throw UnsupportedOperationException()
 
     fun toRepeatedRules() = RepeatedRules_Impl(
         minItems = minItems,
@@ -6511,7 +6465,7 @@ private class MapRules_Impl(
         keys: pbandk.testpb.FieldRules?,
         values: pbandk.testpb.FieldRules?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.MapRules {
+    ): pbandk.testpb.MapRules = pbandk.testpb.MapRules {
         this.minPairs = minPairs
         this.maxPairs = maxPairs
         this.noSparse = noSparse
@@ -6541,7 +6495,7 @@ private class MutableMapRules_Impl(
         keys: pbandk.testpb.FieldRules?,
         values: pbandk.testpb.FieldRules?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.MapRules = throw UnsupportedOperationException()
 
     fun toMapRules() = MapRules_Impl(
         minPairs = minPairs,
@@ -6606,7 +6560,7 @@ private class AnyRules_Impl(
         `in`: List<String>,
         notIn: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.AnyRules {
+    ): pbandk.testpb.AnyRules = pbandk.testpb.AnyRules {
         this.required = required
         this.`in` += `in`
         this.notIn += notIn
@@ -6630,7 +6584,7 @@ private class MutableAnyRules_Impl(
         `in`: List<String>,
         notIn: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.AnyRules = throw UnsupportedOperationException()
 
     fun toAnyRules() = AnyRules_Impl(
         required = required,
@@ -6718,7 +6672,7 @@ private class DurationRules_Impl(
         `in`: List<pbandk.wkt.Duration>,
         notIn: List<pbandk.wkt.Duration>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.DurationRules {
+    ): pbandk.testpb.DurationRules = pbandk.testpb.DurationRules {
         this.required = required
         this.const = const
         this.lt = lt
@@ -6757,7 +6711,7 @@ private class MutableDurationRules_Impl(
         `in`: List<pbandk.wkt.Duration>,
         notIn: List<pbandk.wkt.Duration>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.DurationRules = throw UnsupportedOperationException()
 
     fun toDurationRules() = DurationRules_Impl(
         required = required,
@@ -6855,7 +6809,7 @@ private class TimestampRules_Impl(
         gtNow: Boolean?,
         within: pbandk.wkt.Duration?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.TimestampRules {
+    ): pbandk.testpb.TimestampRules = pbandk.testpb.TimestampRules {
         this.required = required
         this.const = const
         this.lt = lt
@@ -6897,7 +6851,7 @@ private class MutableTimestampRules_Impl(
         gtNow: Boolean?,
         within: pbandk.wkt.Duration?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.TimestampRules = throw UnsupportedOperationException()
 
     fun toTimestampRules() = TimestampRules_Impl(
         required = required,

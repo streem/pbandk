@@ -14,9 +14,7 @@ public sealed interface Empty : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.Empty
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -88,7 +86,7 @@ private class Empty_Impl(
     @Deprecated("Use copy { } instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Empty {
+    ): pbandk.wkt.Empty = pbandk.wkt.Empty {
         this.unknownFields += unknownFields
     }
 }
@@ -103,7 +101,7 @@ private class MutableEmpty_Impl(
     @Deprecated("Use copy { } instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Empty = throw UnsupportedOperationException()
 
     fun toEmpty() = Empty_Impl(
         unknownFields = unknownFields.toMap()

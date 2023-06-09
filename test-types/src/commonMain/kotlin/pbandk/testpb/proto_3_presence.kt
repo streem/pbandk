@@ -49,9 +49,7 @@ public sealed interface Proto3PresenceMessage : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableProto3PresenceMessage.() -> Unit): pbandk.testpb.Proto3PresenceMessage
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         int: Int = this.int,
@@ -121,9 +119,7 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableProto3PresenceMain.() -> Unit): pbandk.testpb.Proto3PresenceMain
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         message: pbandk.testpb.Proto3PresenceMessage? = this.message,
@@ -366,7 +362,7 @@ private class Proto3PresenceMessage_Impl(
     override fun copy(
         int: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.Proto3PresenceMessage {
+    ): pbandk.testpb.Proto3PresenceMessage = pbandk.testpb.Proto3PresenceMessage {
         this.int = int
         this.unknownFields += unknownFields
     }
@@ -384,7 +380,7 @@ private class MutableProto3PresenceMessage_Impl(
     override fun copy(
         int: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.Proto3PresenceMessage = throw UnsupportedOperationException()
 
     fun toProto3PresenceMessage() = Proto3PresenceMessage_Impl(
         int = int,
@@ -480,7 +476,7 @@ private class Proto3PresenceMain_Impl(
         optionalEnum: pbandk.testpb.Proto3PresenceEnum?,
         oneOf: pbandk.testpb.Proto3PresenceMain.OneOf<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.Proto3PresenceMain {
+    ): pbandk.testpb.Proto3PresenceMain = pbandk.testpb.Proto3PresenceMain {
         this.message = message
         this.string = string
         this.int = int
@@ -529,7 +525,7 @@ private class MutableProto3PresenceMain_Impl(
         optionalEnum: pbandk.testpb.Proto3PresenceEnum?,
         oneOf: pbandk.testpb.Proto3PresenceMain.OneOf<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.testpb.Proto3PresenceMain = throw UnsupportedOperationException()
 
     fun toProto3PresenceMain() = Proto3PresenceMain_Impl(
         message = message,

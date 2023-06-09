@@ -16,9 +16,7 @@ public sealed interface Timestamp : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit): pbandk.wkt.Timestamp
 
-    @Deprecated(
-        message = "Use copy { } instead",
-    )
+    @Deprecated("Use copy { } instead")
     @pbandk.JsName("copyDeprecated")
     public fun copy(
         seconds: Long = this.seconds,
@@ -130,7 +128,7 @@ private class Timestamp_Impl(
         seconds: Long,
         nanos: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Timestamp {
+    ): pbandk.wkt.Timestamp = pbandk.wkt.Timestamp {
         this.seconds = seconds
         this.nanos = nanos
         this.unknownFields += unknownFields
@@ -151,7 +149,7 @@ private class MutableTimestamp_Impl(
         seconds: Long,
         nanos: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = throw UnsupportedOperationException()
+    ): pbandk.wkt.Timestamp = throw UnsupportedOperationException()
 
     fun toTimestamp() = Timestamp_Impl(
         seconds = seconds,
