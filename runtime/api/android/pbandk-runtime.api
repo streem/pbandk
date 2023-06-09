@@ -994,7 +994,6 @@ public final class pbandk/wkt/DescriptorKt {
 	public static final fun orDefault (Lpbandk/wkt/ServiceOptions;)Lpbandk/wkt/ServiceOptions;
 	public static final fun orDefault (Lpbandk/wkt/SourceCodeInfo$Location;)Lpbandk/wkt/SourceCodeInfo$Location;
 	public static final fun orDefault (Lpbandk/wkt/SourceCodeInfo;)Lpbandk/wkt/SourceCodeInfo;
-	public static final fun orDefault (Lpbandk/wkt/UninterpretedOption$NamePart;)Lpbandk/wkt/UninterpretedOption$NamePart;
 	public static final fun orDefault (Lpbandk/wkt/UninterpretedOption;)Lpbandk/wkt/UninterpretedOption;
 }
 

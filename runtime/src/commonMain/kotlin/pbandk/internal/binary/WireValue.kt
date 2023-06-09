@@ -1,9 +1,11 @@
 package pbandk.internal.binary
 
+import pbandk.InvalidProtocolBufferException
 import pbandk.PbandkInternal
 import pbandk.PublicForGeneratedCode
 import pbandk.UnknownField
 import pbandk.binary.WireType
+import pbandk.internal.checkSurrogatePairs
 import kotlin.jvm.JvmInline
 
 internal const val MAX_VARINT_SIZE = 10
@@ -123,11 +125,19 @@ public sealed interface WireValue {
         override val size: Int get() = sizeWithLenPrefix(value.size)
 
         internal val decodeByteArray: ByteArray get() = value
-        internal val decodeString: String get() = value.decodeToString()
+        internal val decodeString: String get() = try {
+            value.decodeToString(throwOnInvalidSequence = true).checkSurrogatePairs()
+        } catch (e: Exception) {
+            throw InvalidProtocolBufferException("Message did not contain a valid UTF-8 string", e)
+        }
 
         public companion object {
             internal fun encodeByteArray(value: ByteArray) = Len(value)
-            internal fun encodeString(value: String) = Len(value.encodeToByteArray())
+            internal fun encodeString(value: String) = Len(try {
+                value.checkSurrogatePairs().encodeToByteArray(throwOnInvalidSequence = true)
+            } catch (e: Exception) {
+                throw InvalidProtocolBufferException("Attempted to encode an invalid string", e)
+            })
 
             internal fun sizeWithLenPrefix(rawSize: Int) = Varint.encodeUnsignedInt(rawSize.toUInt()).size + rawSize
         }

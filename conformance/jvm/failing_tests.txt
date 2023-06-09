@@ -7,9 +7,6 @@ Recommended.FieldMaskPathsDontRoundTrip.JsonOutput
 Recommended.FieldMaskTooManyUnderscore.JsonOutput
 Recommended.Proto3.JsonInput.BytesFieldBase64Url.JsonOutput
 Recommended.Proto3.JsonInput.BytesFieldBase64Url.ProtobufOutput
-Recommended.Proto3.JsonInput.StringFieldSurrogateInWrongOrder
-Recommended.Proto3.JsonInput.StringFieldUnpairedHighSurrogate
-Recommended.Proto3.JsonInput.StringFieldUnpairedLowSurrogate
 Required.Proto3.JsonInput.AnyWithFieldMask.JsonOutput
 Required.Proto3.JsonInput.AnyWithFieldMask.ProtobufOutput
 Required.Proto3.JsonInput.EmptyFieldMask.JsonOutput

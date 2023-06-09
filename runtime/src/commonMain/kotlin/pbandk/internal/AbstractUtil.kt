@@ -1,5 +1,6 @@
 package pbandk.internal
 
+import pbandk.InvalidProtocolBufferException
 import pbandk.wkt.Duration
 import pbandk.wkt.Timestamp
 
@@ -20,6 +21,24 @@ internal abstract class AbstractUtil {
 
     fun durationToString(dur: Duration): String = formatDuration(dur)
     fun stringToDuration(str: String): Duration = parseDuration(str)
+}
+
+internal fun String.checkSurrogatePairs(): String {
+    val endIndex = length
+    var i = -1
+    while (++i < endIndex) {
+        val c = this[i]
+        if (!c.isSurrogate()) {
+            continue
+        } else if (c.isHighSurrogate()) {
+            if (++i == endIndex || !this[i].isLowSurrogate()) {
+                throw IllegalArgumentException("String contained an unpaired high surrogate character at index ${i-1}")
+            }
+        } else if (c.isLowSurrogate()) {
+            throw IllegalArgumentException("String contained an unpaired low surrogate character at index $i")
+        }
+    }
+    return this
 }
 
 // region String UTF-8 length helper classes

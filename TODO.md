@@ -40,6 +40,7 @@
 - [ ] Update to Kotlin 1.8
 - [ ] Update JSON support to use unsigned int constructors for serialization library: https://github.com/Kotlin/kotlinx.serialization/pull/2160
 - [ ] Update to latest protobuf conformance tests
+- [ ] Figure out why `tvosX64()` tests fail to run
 
 ## FieldType / ValueType
 

@@ -8,6 +8,7 @@ import kotlinx.serialization.json.JsonPrimitive
 import pbandk.InvalidProtocolBufferException
 import pbandk.PublicForGeneratedCode
 import pbandk.internal.Util
+import pbandk.internal.checkSurrogatePairs
 import pbandk.internal.json.JsonFieldDecoder
 import pbandk.internal.json.JsonWireType
 import kotlin.js.JsExport
@@ -201,7 +202,11 @@ public sealed class JsonFieldValueDecoder {
             throw InvalidProtocolBufferException("JSON value did not contain a boolean string", e)
         }
 
-        internal fun decodeAsString(): kotlin.String = value
+        internal fun decodeAsString(): kotlin.String = try {
+            value.checkSurrogatePairs()
+        } catch (e: Exception) {
+            throw InvalidProtocolBufferException("JSON value did not contain a valid string", e)
+        }
 
         internal fun decodeAsByteArray(): ByteArray = try {
             Util.base64ToBytes(value)

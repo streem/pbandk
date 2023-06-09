@@ -5,7 +5,9 @@ import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonArray
+import pbandk.InvalidProtocolBufferException
 import pbandk.PublicForGeneratedCode
+import pbandk.internal.checkSurrogatePairs
 import pbandk.internal.json.JsonFieldEncoder
 import kotlin.js.JsExport
 
@@ -60,7 +62,11 @@ public class JsonFieldValueEncoder internal constructor(internal val jsonConfig:
     }
 
     internal fun encodeString(value: String) {
-        element = JsonPrimitive(value)
+        element = JsonPrimitive(try {
+            value.checkSurrogatePairs()
+        } catch (e: Exception) {
+            throw InvalidProtocolBufferException("Attempted to encode an invalid string", e)
+        })
     }
 
     internal fun encodeBoolean(value: Boolean) {
