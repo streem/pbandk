@@ -40,14 +40,14 @@ public open class CodeGenerator(
 
     protected fun writeExtension(field: File.Field.Numbered) {
         line()
-        addDeprecatedAnnotation(field)
+        writeDeprecatedAnnotation(field)
         lineBegin("$visibility val ${field.extendeeKotlinType!!.fullWithPackage}.${field.kotlinName.simple}: ")
         lineEnd(field.kotlinValueType(allowNulls = true)).indented {
             line("get() = ${field.descriptorName.fullWithPackage}.getValue(this)")
         }
 
         line()
-        addDeprecatedAnnotation(field)
+        writeDeprecatedAnnotation(field)
         lineBegin("$visibility ${field.mutablePropertyDeclaration}")
         lineMid(" ${field.extendeeKotlinType!!.mutableTypeName.fullWithPackage}.${field.kotlinName.simple}: ")
         lineEnd(field.kotlinValueType(allowNulls = true, mutable = true)).indented {
@@ -63,9 +63,9 @@ public open class CodeGenerator(
     }
 
     protected fun writeExtensionFieldDescriptor(field: File.Field.Numbered) {
-        addDeprecatedAnnotation(field)
+        writeDeprecatedAnnotation(field)
         line("$visibility val ${field.descriptorName.simple}: ${field.fieldDescriptorType(field.extendeeKotlinType!!)} = ").indented {
-            generateFieldDescriptorConstructor(field, field.extendeeKotlinType!!)
+            writeFieldDescriptorConstructor(field, field.extendeeKotlinType!!)
         }
     }
 
@@ -148,7 +148,7 @@ public open class CodeGenerator(
         //if (type.kotlinName.parent == null) line("@pbandk.Export")
         line("$visibility sealed interface ${type.kotlinName.simple} : $messageInterface {").indented {
             type.fields.forEach { field ->
-                addDeprecatedAnnotation(field)
+                writeDeprecatedAnnotation(field)
                 lineBegin("$visibility val ${field.kotlinName.simple}: ")
                 when (field) {
                     is File.Field.Numbered -> lineEnd(field.kotlinValueType(allowNulls = !field.required))
@@ -168,38 +168,7 @@ public open class CodeGenerator(
             line("$visibility fun copy(builderAction: ${mutableTypeName.fullWithPackage}.() -> Unit): ${type.kotlinName.fullWithPackage}")
 
             line()
-            line("@Deprecated(").indented {
-                line("message = \"Use copy { } instead\",")
-                /* This doesn't work that well in practice
-                line("replaceWith = ReplaceWith(").indented {
-                    lineBegin("expression = \"copy {\\n")
-                    type.fields.forEach { field ->
-                        if (field is File.Field.Numbered && field.repeated) {
-                            lineMid("this.${field.kotlinName}.clear()\\n")
-                        }
-                        lineMid("${field.builderSetter()}\\n")
-                    }
-                    lineMid("this.unknownFields.clear()\\n")
-                    lineEnd("this.unknownFields += unknownFields\\n}\",")
-                }.line(")")
-                 */
-            }.line(")")
-            line("@pbandk.JsName(\"copyDeprecated\")")
-            line("$visibility fun copy(").indented {
-                type.fields.forEach { field ->
-                    lineBegin("${field.kotlinName.simple}: ")
-                    when (field) {
-                        is File.Field.Numbered -> lineMid(field.kotlinValueType(allowNulls = !field.required))
-                        is File.Field.OneOf -> lineMid("${field.kotlinTypeName.fullWithPackage}<*>?")
-                    }
-                    lineMid(" = ")
-                    if (field is File.Field.Numbered && field.options.deprecated == true) {
-                        lineMid("@Suppress(\"DEPRECATION\") ")
-                    }
-                    lineEnd("this.${field.kotlinName.simple},")
-                }
-                line("unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields")
-            }.line("): ${type.kotlinName.fullWithPackage}")
+            writeDeprecatedCopyMethod(type, isMutable = false, interfaceOnly = true)
 
             // One-ofs as sealed class hierarchies
             line()
@@ -227,8 +196,8 @@ public open class CodeGenerator(
 
                 type.extensions.forEach {
                     // TODO: write extension field accessors
-                    // Though maybe accessors shouldn't be nested inside the scope of the enclosing method since then
-                    // they'd be hard to access?
+                    //  Though maybe accessors shouldn't be nested inside the scope of the enclosing method since then
+                    //  they'd be hard to access?
                     line()
                     writeExtensionFieldDescriptor(it)
                 }
@@ -254,7 +223,7 @@ public open class CodeGenerator(
         //line("@pbandk.Export")
         line("$visibility sealed interface ${mutableTypeName.simple} : ${type.kotlinName.fullWithPackage}, $mutableMessageInterface {").indented {
             type.fields.forEach { field ->
-                addDeprecatedAnnotation(field)
+                writeDeprecatedAnnotation(field)
                 lineBegin("$visibility override ${field.mutablePropertyDeclaration} ${field.kotlinName.simple}: ")
                 when (field) {
                     is File.Field.Numbered -> lineEnd(field.kotlinValueType(allowNulls = true, mutable = true))
@@ -265,7 +234,7 @@ public open class CodeGenerator(
             type.fields.filterIsInstance<File.Field.OneOf>().forEach { oneOf ->
                 line()
                 oneOf.fields.forEach { field ->
-                    addDeprecatedAnnotation(field)
+                    writeDeprecatedAnnotation(field)
                     lineBegin("$visibility override ${field.mutablePropertyDeclaration} ${field.kotlinName.simple}: ")
                     lineEnd("${field.kotlinValueType(allowNulls = false, mutable = true)}?")
                 }
@@ -275,14 +244,14 @@ public open class CodeGenerator(
 
     protected fun writeOneOfType(oneOf: File.Field.OneOf) {
         oneOf.fields.forEach { field ->
-            addDeprecatedAnnotation(field)
+            writeDeprecatedAnnotation(field)
             line("$visibility val ${field.kotlinName.simple}: ${field.kotlinValueType(false)}?")
         }
         line()
 
         line("$visibility sealed interface ${oneOf.kotlinTypeName.simple}<V : kotlin.Any> : pbandk.Message.OneOf<V> {").indented {
             oneOf.fields.forEach { field ->
-                addDeprecatedAnnotation(field)
+                writeDeprecatedAnnotation(field)
                 lineBegin("$visibility class ${oneOf.kotlinFieldNames[field.name.simple]!!.simple}(")
                 lineMid("${field.kotlinName.simple}: ${field.kotlinValueType(false)}")
                 if (field.type != File.Field.Type.MESSAGE) lineMid(" = ${field.defaultValue(allowNulls = false)}")
@@ -312,7 +281,7 @@ public open class CodeGenerator(
                     lineBegin("$visibility val ${field.descriptorName.simple}: ")
                     lineMid(field.fieldDescriptorType(type.kotlinName, isOneOfMember = oneof != null))
                     lineEnd(" =").indented {
-                        generateFieldDescriptorConstructor(field, type.kotlinName, oneof)
+                        writeFieldDescriptorConstructor(field, type.kotlinName, oneof)
                     }
                 }
             }
@@ -330,7 +299,7 @@ public open class CodeGenerator(
                     lineBegin("$visibility val ${field.descriptorName.simple}: ")
                     lineMid(field.oneofDescriptorType(type.kotlinName))
                     lineEnd(" =").indented {
-                        generateOneofDescriptorConstructor(
+                        writeOneofDescriptorConstructor(
                             field,
                             type.kotlinName,
                             "${type.kotlinName.fullWithPackage}::descriptor"
@@ -359,7 +328,7 @@ public open class CodeGenerator(
                         line("private fun addFields${index}() {").indented {
                             chunk.forEach { (field, oneof) ->
                                 line("${field.descriptorName.simple} =").indented {
-                                    generateFieldDescriptorConstructor(field, type.kotlinName, oneof)
+                                    writeFieldDescriptorConstructor(field, type.kotlinName, oneof)
                                 }
                             }
                         }.line("}")
@@ -372,7 +341,7 @@ public open class CodeGenerator(
                         line("private fun addOneofs${index}() {").indented {
                             chunk.forEach { field ->
                                 lineEnd("${field.descriptorName.simple} =").indented {
-                                    generateOneofDescriptorConstructor(
+                                    writeOneofDescriptorConstructor(
                                         field,
                                         type.kotlinName,
                                         "${type.kotlinName.fullWithPackage}::descriptor"
@@ -384,6 +353,57 @@ public open class CodeGenerator(
                 }
             }
         }.line("}")
+    }
+
+    protected fun writeFieldDescriptorConstructor(
+        field: File.Field.Numbered,
+        typeName: Name,
+        oneof: File.Field.OneOf? = null,
+    ) {
+        require(oneof == null || field.extendee == null) { "extension fields can't be in a oneof" }
+
+        if (field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
+        line("${field.descriptorFactoryMethod(oneof != null)}(").indented {
+            line("messageDescriptor = ${typeName.fullWithPackage}::descriptor,")
+            if (field.extendee != null) {
+                line("fullName = \"${field.name.fullWithPackage.removePrefix(".")}\",")
+            } else {
+                line("messageMetadata = ${typeName.fullWithPackage}.messageMetadata,")
+                line("name = \"${field.name.simple}\",")
+            }
+            line("number = ${field.number},")
+            if (field is File.Field.Numbered.Standard && field.map) {
+                val mapEntry = field.mapEntry()!!
+                line("keyType = ${mapEntry.mapEntryKeyField!!.valueType(typeName)},")
+                line("valueType = ${mapEntry.mapEntryValueField!!.valueType(typeName)},")
+            } else {
+                line("valueType = ${field.valueType(typeName)},")
+            }
+            line("jsonName = \"${field.jsonName}\",")
+            writeFieldOptions(field.options)
+            if (field.extendee == null) {
+                line("value = ${typeName.fullWithPackage}::${field.kotlinName.simple},")
+                line("mutableValue = ${typeName.mutableTypeName.fullWithPackage}::${field.kotlinName.simple},")
+            }
+        }.line(")")
+    }
+
+    protected fun writeOneofDescriptorConstructor(
+        field: File.Field.OneOf,
+        typeName: Name,
+        messageDescriptorCompanion: String
+    ) {
+        line("pbandk.OneofDescriptor.of(").indented {
+            line("messageDescriptor = ${messageDescriptorCompanion},")
+            line("name = \"${field.name.simple}\",")
+            line("value = ${typeName.fullWithPackage}::${field.kotlinName.simple},")
+            line("mutableValue = ${typeName.mutableTypeName.fullWithPackage}::${field.kotlinName.simple},")
+            line("fields = listOf(").indented {
+                field.fields.forEach {
+                    line("${it.descriptorName.simple},")
+                }
+            }.line(")")
+        }.line(")")
     }
 
     protected fun writeEnumDescriptor(type: File.Type.Enum) {
@@ -436,7 +456,7 @@ public open class CodeGenerator(
         }.line("}")
     }
 
-    private fun generateFieldOptions(fieldOptions: FieldOptions) {
+    private fun writeFieldOptions(fieldOptions: FieldOptions) {
         // We don't use/support other field option values currently. Once we support all of the options, this check
         // should change to `fieldOptions != FieldOptions.defaultInstance`
         if (fieldOptions.deprecated != null || fieldOptions.packed != null || fieldOptions.unknownFields.isNotEmpty()) {
@@ -448,13 +468,13 @@ public open class CodeGenerator(
                     line("packed = $it")
                 }
                 if (fieldOptions.unknownFields.isNotEmpty()) {
-                    generateUnknownFields(fieldOptions.unknownFields)
+                    writeUnknownFields(fieldOptions.unknownFields)
                 }
             }.line("},")
         }
     }
 
-    private fun generateUnknownFields(unknownFields: Map<Int, UnknownField>) {
+    private fun writeUnknownFields(unknownFields: Map<Int, UnknownField>) {
         // TODO: update this to work with new WireValue representation
         line("unknownFields += mapOf(").indented {
             unknownFields.values.forEach { field ->
@@ -501,39 +521,39 @@ public open class CodeGenerator(
         // heap exhaustion in the Kotlin compiler (at least as of Kotlin 1.5.32). So we only generate this method when
         // the number of fields is manageable. Since this method is deprecated anyways, the only impact of this is that
         // a small set of users will need to migrate to the new builder-style API sooner.
-        if (type.fields.size < 500) {
-            line()
-            line("@Deprecated(").indented {
-                line("message = \"Use ${type.kotlinName.full} { } instead\",")
-                line("replaceWith = ReplaceWith(").indented {
-                    line("imports = [\"${type.kotlinName.fullWithPackage}\"],")
-                    lineBegin("expression = \"${type.kotlinName.full} {\\n")
-                    type.fields.forEach { field -> lineMid("${field.builderSetter()}\\n") }
-                    lineEnd("this.unknownFields += unknownFields\\n}\",")
-                }.line(")")
+        if (type.fields.size > 500) return
+
+        line()
+        line("@Deprecated(").indented {
+            line("message = \"Use ${type.kotlinName.full} { } instead\",")
+            line("replaceWith = ReplaceWith(").indented {
+                line("imports = [\"${type.kotlinName.fullWithPackage}\"],")
+                lineBegin("expression = \"${type.kotlinName.full} {\\n")
+                type.fields.forEach { field -> lineMid("${field.builderSetter()}\\n") }
+                lineEnd("this.unknownFields += unknownFields\\n}\",")
             }.line(")")
-            line("$visibility fun ${type.kotlinName.simple}(").indented {
-                type.fields.forEach { field ->
-                    lineBegin("${field.kotlinName.simple}: ")
-                    when (field) {
-                        is File.Field.Numbered -> lineMid(field.kotlinValueType(allowNulls = true))
-                        is File.Field.OneOf -> lineMid("${field.kotlinTypeName.fullWithPackage}<*>?")
-                    }
-                    if (field is File.Field.Numbered && field.required) {
-                        lineEnd(",")
-                    } else {
-                        lineEnd(" = ${field.defaultValue()},")
-                    }
+        }.line(")")
+        line("$visibility fun ${type.kotlinName.simple}(").indented {
+            type.fields.forEach { field ->
+                lineBegin("${field.kotlinName.simple}: ")
+                when (field) {
+                    is File.Field.Numbered -> lineMid(field.kotlinValueType(allowNulls = true))
+                    is File.Field.OneOf -> lineMid("${field.kotlinTypeName.fullWithPackage}<*>?")
                 }
-                line("unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()")
-            }.line("): ${type.kotlinName.fullWithPackage} = ${type.kotlinName.fullWithPackage} {").indented {
-                type.fields.forEach { field ->
-                    if (field is File.Field.Numbered && field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
-                    line(field.builderSetter())
+                if (field is File.Field.Numbered && field.required) {
+                    lineEnd(",")
+                } else {
+                    lineEnd(" = ${field.defaultValue()},")
                 }
-                line("this.unknownFields += unknownFields")
-            }.line("}")
-        }
+            }
+            line("unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()")
+        }.line("): ${type.kotlinName.fullWithPackage} = ${type.kotlinName.fullWithPackage} {").indented {
+            type.fields.forEach { field ->
+                if (field is File.Field.Numbered && field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
+                line(field.builderSetter())
+            }
+            line("this.unknownFields += unknownFields")
+        }.line("}")
     }
 
     protected fun writeMessageBuilder(type: File.Type.Message) {
@@ -582,43 +602,66 @@ public open class CodeGenerator(
         // Kotlin/JS cannot handle unfortunately. We have to annotate each of them with a unique
         // name so that Kotlin/JS knows which name to choose.
         //
-        // Also, if current type is an inner class, `fullTypeName` will contains dots which we
+        // Also, if current type is an inner class, `fullTypeName` will contain dots which we
         // have to get rid of (i.e. `Person.AddressBook` becomes `PersonAddressBook`).
         line("@pbandk.Export")
         line("@pbandk.JsName(\"orDefaultFor${type.kotlinName.full.replace(".", "")}\")")
         line("$visibility fun ${type.kotlinName.full}?.orDefault(): ${type.kotlinName.fullWithPackage} = this ?: ${type.kotlinName.fullWithPackage}.defaultInstance")
     }
 
-    protected fun writeMessageImpl(type: File.Type.Message) {
-        fun writeDeprecatedCopyMethod(isMutable: Boolean) {
-            line("@Deprecated(\"Use copy { } instead\")")
-            line("override fun copy(").indented {
-                type.fields.forEach { field ->
-                    lineBegin("${field.kotlinName.simple}: ")
-                    when (field) {
-                        is File.Field.Numbered -> lineMid(field.kotlinValueType(allowNulls = true))
-                        is File.Field.OneOf -> lineMid("${field.kotlinTypeName.fullWithPackage}<*>?")
+    protected fun writeDeprecatedCopyMethod(type: File.Type.Message, isMutable: Boolean, interfaceOnly: Boolean) {
+        line("@Deprecated(\"Use copy { } instead\")")
+        if (interfaceOnly) {
+            line("@pbandk.JsName(\"copyDeprecated\")")
+        }
+        lineBegin(if (interfaceOnly) visibility else "override")
+        lineEnd(" fun copy(").indented {
+            type.fields.forEach { field ->
+                lineBegin("${field.kotlinName.simple}: ")
+                when (field) {
+                    is File.Field.Numbered -> lineMid(field.kotlinValueType(allowNulls = !field.required))
+                    is File.Field.OneOf -> lineMid("${field.kotlinTypeName.fullWithPackage}<*>?")
+                }
+                if (interfaceOnly) {
+                    lineMid(" = ")
+                    if (field is File.Field.Numbered && field.options.deprecated == true) {
+                        lineMid("@Suppress(\"DEPRECATION\") ")
                     }
-                    lineEnd(",")
+                    lineMid("this.${field.kotlinName.simple}")
                 }
-                line("unknownFields: Map<Int, pbandk.UnknownField>")
-            }.lineBegin(") = ")
-
-            if (isMutable) {
-                lineEnd("throw UnsupportedOperationException()")
-                return
+                lineEnd(",")
             }
-
-            lineEnd("${type.kotlinName.fullWithPackage} {").indented {
-                type.fields.forEach { field ->
-                    if (field is File.Field.Numbered && field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
-                    line(field.builderSetter())
-                }
-                line("this.unknownFields += unknownFields")
+            lineBegin("unknownFields: Map<Int, pbandk.UnknownField>")
+            if (interfaceOnly) {
+                lineEnd(" = this.unknownFields")
+            } else {
+                lineEnd()
             }
-            line("}")
+        }.lineBegin("): ${type.kotlinName.fullWithPackage}")
+
+        if (interfaceOnly) {
+            lineEnd()
+            return
         }
 
+        lineMid(" = ")
+
+        if (isMutable) {
+            lineEnd("throw UnsupportedOperationException()")
+            return
+        }
+
+        lineEnd("${type.kotlinName.fullWithPackage} {").indented {
+            type.fields.forEach { field ->
+                if (field is File.Field.Numbered && field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
+                line(field.builderSetter())
+            }
+            line("this.unknownFields += unknownFields")
+        }
+        line("}")
+    }
+
+    protected fun writeMessageImpl(type: File.Type.Message) {
         val implName = type.kotlinName.implName
         val mutableTypeName = type.kotlinName.mutableTypeName
 
@@ -630,7 +673,7 @@ public open class CodeGenerator(
 
         line().line("private class ${implName.simple}(").indented {
             type.fields.forEach { field ->
-                addDeprecatedAnnotation(field)
+                writeDeprecatedAnnotation(field)
                 lineBegin("override val ${field.kotlinName.simple}: ")
                 when (field) {
                     is File.Field.Numbered -> lineMid(
@@ -666,18 +709,18 @@ public open class CodeGenerator(
             line("override fun copy(builderAction: ${mutableTypeName.fullWithPackage}.() -> Unit) = super.copy(builderAction)")
 
             line()
-            writeDeprecatedCopyMethod(false)
+            writeDeprecatedCopyMethod(type, isMutable = false, interfaceOnly = false)
         }.line("}")
 
         val mutableGeneratedMessageClass = if (type.isExtendable) {
-            "pbandk.gen.MutableGeneratedExtendableMessage<${type.kotlinName.fullWithPackage}>"
+            "pbandk.gen.MutableGeneratedExtendableMessage<${type.kotlinName.fullWithPackage}>()"
         } else {
-            "pbandk.gen.MutableGeneratedMessage<${type.kotlinName.fullWithPackage}>"
+            "pbandk.gen.MutableGeneratedMessage<${type.kotlinName.fullWithPackage}>()"
         }
 
         line().line("private class ${type.kotlinName.mutableImplName.simple}(").indented {
             type.fields.filterNot { it is File.Field.Numbered && it.required }.forEach { field ->
-                addDeprecatedAnnotation(field)
+                writeDeprecatedAnnotation(field)
                 lineBegin("override ${field.mutablePropertyDeclaration} ${field.kotlinName.simple}: ")
                 when (field) {
                     is File.Field.Numbered -> lineMid(
@@ -688,16 +731,15 @@ public open class CodeGenerator(
                 }
                 lineEnd(",")
             }
-        }.line(") : ${mutableTypeName.fullWithPackage}, $mutableGeneratedMessageClass() {").indented {
+        }.line(") : ${mutableTypeName.fullWithPackage}, $mutableGeneratedMessageClass {").indented {
             type.fields.filterIsInstance<File.Field.Numbered>().filter { it.required }.forEach { field ->
                 if (field.type.isKotlinPrimitive) {
-                    val hazzerName = "has" + field.kotlinName.simple.replaceFirstChar { it.uppercaseChar() }
-                    line("private var $hazzerName = false")
+                    line("private var ${field.hazzerName} = false")
                     lineBegin("override var ${field.kotlinName.simple}: ")
                     lineMid(field.kotlinValueType(allowNulls = true, mutable = true, impl = true))
                     lineEnd(" = ${field.defaultValue(allowNulls = true, mutable = true)}").indented {
-                        line("get() = if ($hazzerName) field else throw IllegalStateException(\"Property '${field.kotlinName.simple}' should be initialized before get\")")
-                        line("set(value) { field = value; $hazzerName = true }")
+                        line("get() = if (${field.hazzerName}) field else throw IllegalStateException(\"Property '${field.kotlinName.simple}' should be initialized before get\")")
+                        line("set(value) { field = value; ${field.hazzerName} = true }")
                     }
                 } else {
                     lineBegin("override lateinit var ${field.kotlinName.simple}: ")
@@ -728,7 +770,7 @@ public open class CodeGenerator(
             line("override fun copy(builderAction: ${mutableTypeName.fullWithPackage}.() -> Unit) = super.copy(builderAction)")
 
             line()
-            writeDeprecatedCopyMethod(true)
+            writeDeprecatedCopyMethod(type, isMutable = true, interfaceOnly = false)
 
             line().line("fun to${type.kotlinName.simple}() = ${implName.full}(").indented {
                 type.fields.forEach { field ->
@@ -737,8 +779,11 @@ public open class CodeGenerator(
                         lineMid("@Suppress(\"DEPRECATION\") ")
                     }
                     if (field is File.Field.Numbered && field.required) {
-                        val hazzerName = "has" + field.kotlinName.simple.replaceFirstChar { it.uppercaseChar() }
-                        val initializedCheck = if (field.type.isKotlinPrimitive) hazzerName else "this::${field.kotlinName.simple}.isInitialized"
+                        val initializedCheck = if (field.type.isKotlinPrimitive) {
+                            field.hazzerName
+                        } else {
+                            "this::${field.kotlinName.simple}.isInitialized"
+                        }
                         lineEnd("if ($initializedCheck) {").indented {
                             line(field.kotlinName.simple)
                         }.line("} else {").indented {
@@ -760,6 +805,16 @@ public open class CodeGenerator(
                 line("unknownFields = unknownFields.toMap()")
             }.line(")")
         }.line("}")
+    }
+
+
+    protected fun writeDeprecatedAnnotation(field: File.Field) {
+        when (field) {
+            is File.Field.Numbered -> if (field.options.deprecated == true) line("@Deprecated(message = \"Field marked deprecated in ${file.name}\")")
+            is File.Field.OneOf -> {
+                // oneof fields do not support the `deprecated` protobuf option
+            }
+        }
     }
 
     protected fun findLocalType(protoName: String, parent: File.Type.Message? = null): File.Type? {
@@ -834,9 +889,10 @@ public open class CodeGenerator(
     }
 
     protected val File.Field.descriptorName: Name
-        get() =
-            kotlinName.parent?.let { Name(Name(it, "FieldDescriptors"), kotlinName.simple) } ?: kotlinName
+        get() = kotlinName.parent?.let { Name(Name(it, "FieldDescriptors"), kotlinName.simple) } ?: kotlinName
 
+    protected val File.Field.hazzerName: String
+        get() = "has" + kotlinName.simple.replaceFirstChar { it.uppercaseChar() }
 
     protected val File.Field.Numbered.kotlinQualifiedTypeName: String
         get() = when (this) {
@@ -1042,64 +1098,4 @@ public open class CodeGenerator(
             File.Field.Type.MESSAGE -> "null"
             File.Field.Type.STRING -> "\"\""
         }
-
-    private fun generateFieldDescriptorConstructor(
-        field: File.Field.Numbered,
-        typeName: Name,
-        oneof: File.Field.OneOf? = null,
-    ) {
-        require(oneof == null || field.extendee == null) { "extension fields can't be in a oneof" }
-
-        if (field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
-        line("${field.descriptorFactoryMethod(oneof != null)}(").indented {
-            line("messageDescriptor = ${typeName.fullWithPackage}::descriptor,")
-            if (field.extendee != null) {
-                line("fullName = \"${field.name.fullWithPackage.removePrefix(".")}\",")
-            } else {
-                line("messageMetadata = ${typeName.fullWithPackage}.messageMetadata,")
-                line("name = \"${field.name.simple}\",")
-            }
-            line("number = ${field.number},")
-            if (field is File.Field.Numbered.Standard && field.map) {
-                val mapEntry = field.mapEntry()!!
-                line("keyType = ${mapEntry.mapEntryKeyField!!.valueType(typeName)},")
-                line("valueType = ${mapEntry.mapEntryValueField!!.valueType(typeName)},")
-            } else {
-                line("valueType = ${field.valueType(typeName)},")
-            }
-            line("jsonName = \"${field.jsonName}\",")
-            generateFieldOptions(field.options)
-            if (field.extendee == null) {
-                line("value = ${typeName.fullWithPackage}::${field.kotlinName.simple},")
-                line("mutableValue = ${typeName.mutableTypeName.fullWithPackage}::${field.kotlinName.simple},")
-            }
-        }.line(")")
-    }
-
-    private fun generateOneofDescriptorConstructor(
-        field: File.Field.OneOf,
-        typeName: Name,
-        messageDescriptorCompanion: String
-    ) {
-        line("pbandk.OneofDescriptor.of(").indented {
-            line("messageDescriptor = ${messageDescriptorCompanion},")
-            line("name = \"${field.name.simple}\",")
-            line("value = ${typeName.fullWithPackage}::${field.kotlinName.simple},")
-            line("mutableValue = ${typeName.mutableTypeName.fullWithPackage}::${field.kotlinName.simple},")
-            line("fields = listOf(").indented {
-                field.fields.forEach {
-                    line("${it.descriptorName.simple},")
-                }
-            }.line(")")
-        }.line(")")
-    }
-
-    private fun addDeprecatedAnnotation(field: File.Field) {
-        when (field) {
-            is File.Field.Numbered -> if (field.options.deprecated == true) line("@Deprecated(message = \"Field marked deprecated in ${file.name}\")")
-            is File.Field.OneOf -> {
-                // oneof fields do not support the `deprecated` protobuf option
-            }
-        }
-    }
 }
