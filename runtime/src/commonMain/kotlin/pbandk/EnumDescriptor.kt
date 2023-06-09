@@ -1,7 +1,6 @@
 package pbandk
 
 import pbandk.internal.types.primitive.Enum
-import pbandk.types.ValueType
 import kotlin.reflect.KClass
 
 public class EnumDescriptor<E : Message.Enum> private constructor(
@@ -23,7 +22,7 @@ public class EnumDescriptor<E : Message.Enum> private constructor(
 
     internal val enumValueType: Enum<E>,
 ) {
-    /** The  type's unqualified name. */
+    /** The type's unqualified name. */
     public val name: String = fullName.substringAfterLast('.')
 
     @ExperimentalProtoReflection

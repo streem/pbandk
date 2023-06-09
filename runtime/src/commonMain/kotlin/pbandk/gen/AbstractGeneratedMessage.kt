@@ -85,7 +85,7 @@ protected constructor() : Message {
         return newMessage
     }
 
-    override fun plus(other: Message?): M {
+    override operator fun plus(other: Message?): M {
         if (descriptor != other?.descriptor) return this.asMessage()
         @Suppress("UNCHECKED_CAST")
         other as M
@@ -117,7 +117,6 @@ protected constructor() : Message {
     }
 }
 
-@Suppress("NOTHING_TO_INLINE")
 internal inline fun <M : Message, T : AbstractGeneratedMessage<M>> T.asMessage(): M {
     @Suppress("UNCHECKED_CAST")
     return this as M
@@ -131,7 +130,6 @@ internal inline val <M : Message, T : AbstractGeneratedMessage<M>> T.messageDesc
     @Suppress("UNCHECKED_CAST")
     get() = descriptor as MessageDescriptor<M>
 
-@Suppress("NOTHING_TO_INLINE")
 private inline fun <M : Message, MM : MutableMessage<M>, T> FieldDescriptor<M, T>.copyValue(
     fromMessage: M,
     toMessage: MM,

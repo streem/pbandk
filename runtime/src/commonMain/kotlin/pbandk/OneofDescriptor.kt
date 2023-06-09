@@ -30,7 +30,7 @@ public class OneofDescriptor<M : Message, O : Message.OneOf<*>> private construc
             setValue(destination, otherValue)
         } else {
             @Suppress("UNCHECKED_CAST")
-            val fd = (value as GeneratedOneOf<M, *>).currentFieldDescriptor
+            val fd = (value as GeneratedOneOf<M, *>).fieldDescriptor
             fd.mergeValues(message, otherMessage, destination)
         }
     }
