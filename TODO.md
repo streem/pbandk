@@ -9,6 +9,8 @@
 - [ ] Clean up new `MessageDecoder.readMessage()` implementations and factor out common code
 - [ ] Clean up repeated code in `CodeGenerator`
 - [X] Rebase on top of required fields PR: https://github.com/streem/pbandk/pull/216
+- [ ] Fix Kotlin/JS error messages caused by `@JsExport` on interfaces
+    - [ ] Replace interfaces with classes in generated code
 
 ### Enhancements
 
@@ -36,6 +38,7 @@
     - include unknown field decoding
 - [X] Refactor `FieldDescriptor` to split out a separate `FieldAccessor`
 - [ ] Update to Kotlin 1.8
+- [ ] Update JSON support to use unsigned int constructors for serialization library: https://github.com/Kotlin/kotlinx.serialization/pull/2160
 - [ ] Update to latest protobuf conformance tests
 
 ## FieldType / ValueType
@@ -50,6 +53,7 @@
 - [X] Update binary decoding to stop passing around the `tag` and to include the wire type in the value decoder type
 - [X] Ensure that decoding multiple message field values in the same message will merge all of the messages
 - [X] Update unknown field decoding to work with new decoders
+- [ ] Update unknown field code gen to work with new UnknownField type
 - [ ] Write unit test for recursively-nested protobuf message
 
 ## Later
