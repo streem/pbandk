@@ -56,7 +56,6 @@ public class BinaryFieldValueEncoder internal constructor(
         wireWriter.write(value.value, 0, value.value.size)
     }
 
-    @Suppress("NOTHING_TO_INLINE")
     internal inline fun encodeLenPrefix(length: UInt) {
         encodeVarint(WireValue.Varint.encodeUnsignedInt(length))
     }

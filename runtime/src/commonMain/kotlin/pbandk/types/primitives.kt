@@ -90,7 +90,31 @@ public fun <E : Message.Enum> enum(enumCompanion: Message.Enum.Companion<E>): Va
 @JsExport
 public fun <M : Message> message(
     messageCompanion: Message.Companion<M>,
-    // TODO: add docs
+    /**
+     * Set to `true` when a field contains a message type and that message is a parent or ancestor of the field. This
+     * will construct a new `ValueType<M>` instance for the message type instead of reusing the existing one, but is
+     * required to avoid dependency loops during class initialization.
+     *
+     * For example, in the following protobuf definition the generated code for `foo_field` should use `recursive=true`
+     * to construct the `ValueType` for `foo_field` since `Foo` is a parent of `foo_field`:
+     *
+     * ```proto
+     * message Foo {
+     *   Foo foo_field = 1;
+     * }
+     * ```
+     *
+     * Similarly below, `recursive=true` is required for `foo_field` (but not `bar_field`) because `Foo` is an ancestor
+     * of `foo_field`:
+     *
+     * ```proto
+     * message Foo {
+     *   Bar bar_field = 1;
+     *   message Bar {
+     *     Foo foo_field = 1;
+     *   }
+     * }
+     */
     recursive: Boolean = false,
 ): ValueType<M> = if (recursive) {
     MessageValueType(messageCompanion)

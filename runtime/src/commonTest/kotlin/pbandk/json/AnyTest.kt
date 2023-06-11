@@ -21,7 +21,6 @@ import kotlin.test.assertFailsWith
 class AnyTest {
     private lateinit var jsonConfig: JsonConfig
 
-    @Suppress("NOTHING_TO_INLINE")
     private inline fun <T : Message> assertJsonRoundTrip(message: T, expectedJson: JsonObject) {
         val actualJson = Json.parseToJsonElement(message.encodeToJsonString(jsonConfig))
         assertEquals(expectedJson, actualJson)

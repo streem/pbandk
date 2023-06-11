@@ -8,6 +8,7 @@ import pbandk.getTypePrefixFromTypeUrl
 import pbandk.getTypeUrl
 import pbandk.internal.json.JsonFieldDecoder
 import pbandk.internal.types.MessageValueType
+import pbandk.internal.types.decodeMessageFromJson
 import pbandk.internal.types.findByJsonName
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.json.JsonFieldValueEncoder
@@ -52,7 +53,6 @@ private fun findValueField(keyDecoder: JsonFieldValueDecoder.String): Boolean {
 }
 
 // helper function to make type checker happy
-@Suppress("NOTHING_TO_INLINE")
 private inline fun <T : Message> encodeToJson(
     valueCompanion: Message.Companion<T>,
     value: Any,
@@ -81,38 +81,27 @@ private inline fun <T : Message> encodeToJson(
 }
 
 // helper function to make type checker happy
-@Suppress("NOTHING_TO_INLINE")
 private inline fun <T : Message> decodeFromJson(
     valueCompanion: Message.Companion<T>,
     typeUrl: String,
-    decoder: JsonFieldDecoder,
+    fieldDecoder: JsonFieldDecoder,
 ): Any {
     val message = customJsonMappings[valueCompanion]?.let { valueType ->
         @Suppress("UNCHECKED_CAST")
         valueType as WktValueType<*, T>
 
         var message: T? = null
-        decoder.forEachField { fieldKeyDecoder, fieldValueDecoder ->
-            if (findValueField(fieldKeyDecoder)) {
-                message = valueType.decodeMessageFromJson(fieldValueDecoder)
+        fieldDecoder.forEachField { keyDecoder, valueDecoder ->
+            if (findValueField(keyDecoder)) {
+                message = valueType.decodeMessageFromJson(valueDecoder)
             } else {
-                fieldValueDecoder.skipValue()
+                valueDecoder.skipValue()
             }
         }
         message ?: throw InvalidProtocolBufferException(
             "'value' field not found in google.protobuf.Any message containing a '${getTypeNameFromTypeUrl(typeUrl)}' message"
         )
-    } ?: valueCompanion.descriptor.builder {
-        val fieldDescriptors = valueCompanion.descriptor.fields
-        decoder.forEachField { keyDecoder, valueDecoder ->
-            val fd = fieldDescriptors.findByJsonName(keyDecoder)
-            if (fd != null) {
-                fd.decodeFromJson(valueDecoder, this)
-            } else {
-                valueDecoder.skipValue()
-            }
-        }
-    }
+    } ?: valueCompanion.decodeMessageFromJson(fieldDecoder)
 
     return if ('/' in typeUrl) {
         Any.pack(message, getTypePrefixFromTypeUrl(typeUrl))

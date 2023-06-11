@@ -4,6 +4,7 @@ import pbandk.FieldDescriptor
 import pbandk.FieldDescriptorSet
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
+import pbandk.MutableMessage
 import pbandk.UnknownField
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.BinaryFieldValueEncoder
@@ -14,6 +15,7 @@ import pbandk.internal.binary.BinaryFieldDecoder
 import pbandk.internal.binary.BinaryFieldEncoder
 import pbandk.internal.binary.Tag
 import pbandk.internal.binary.WireValue
+import pbandk.internal.json.JsonFieldDecoder
 import pbandk.internal.types.wkt.WktValueType
 import pbandk.internal.types.wkt.customJsonMappings
 import pbandk.json.JsonFieldValueDecoder
@@ -29,8 +31,23 @@ internal fun <M : Message> FieldDescriptorSet<M>.findByJsonName(keyDecoder: Json
     return fd
 }
 
-internal open class MessageValueType<M : Message>(override val companion: Message.Companion<M>) : WktValueType<M, M>,
-    ValueType<M> {
+internal fun <M : Message> Message.Companion<M>.decodeMessageFromJson(fieldDecoder: JsonFieldDecoder): M {
+    val fieldDescriptors = descriptor.fields
+    return descriptor.builder {
+        fieldDecoder.forEachField { keyDecoder, valueDecoder ->
+            val fd = fieldDescriptors.findByJsonName(keyDecoder)
+            if (fd != null) {
+                fd.decodeFromJson(valueDecoder, this)
+            } else {
+                valueDecoder.skipValue()
+            }
+        }
+    }
+}
+
+internal open class MessageValueType<M : Message>(
+    override val companion: Message.Companion<M>
+) : WktValueType<M, M>, ValueType<M> {
     override val defaultValue get() = companion.defaultInstance
 
     override fun isDefaultValue(value: M) = false
@@ -83,6 +100,11 @@ internal open class MessageValueType<M : Message>(override val companion: Messag
     internal fun decodeFromBinaryNoLength(fieldDecoder: BinaryFieldDecoder): M {
         return companion.descriptor.builder {
             val fieldDescriptors = companion.descriptor.fields
+            // Keep a `MutableList` of each unknown field while decoding the message. `UnknownField.values` is an
+            // _immutable_ `List`, so modifying `unknownFields` directly would require extra object allocation to add a
+            // new value to the immutable list.
+            val unknownFieldValues = mutableMapOf<Int, MutableList<UnknownField.Value>>()
+
             fieldDecoder.forEachField { fieldNum, valueDecoder ->
                 val fd = fieldDescriptors[fieldNum]
                 if (fd != null && fd.fieldType.allowsBinaryWireType(valueDecoder.wireType)) {
@@ -90,13 +112,11 @@ internal open class MessageValueType<M : Message>(override val companion: Messag
                 } else {
                     // TODO: support a `discardUnknownFields` option and call skipValue() in that case
                     val unknownFieldValue = UnknownField.Value(valueDecoder.decodeValue())
-                    unknownFields[fieldNum] = unknownFields[fieldNum]?.let { prevValue ->
-                        // TODO: make parsing of repeated unknown fields more efficient by not creating a copy of
-                        //  the list with each new element.
-                        prevValue.copy(values = prevValue.values + unknownFieldValue)
-                    } ?: UnknownField(fieldNum, listOf(unknownFieldValue))
+                    unknownFieldValues.getOrPut(fieldNum) { mutableListOf() }.add(unknownFieldValue)
                 }
             }
+
+            unknownFieldValues.forEach { unknownFields[it.key] = UnknownField(it.key, it.value) }
         }
     }
 
@@ -109,34 +129,24 @@ internal open class MessageValueType<M : Message>(override val companion: Messag
         }
     }
 
+
     override fun decodeFromJson(decoder: JsonFieldValueDecoder): M {
-        // TODO: do we need to check for WKT types that get encoded to strings instead of objects here?
         if (decoder !is JsonFieldValueDecoder.Object) {
             throw InvalidProtocolBufferException("Unexpected JSON type for message value: ${decoder.wireType.name}")
         }
 
-        return decoder.decodeFields { fieldDecoder ->
-            companion.descriptor.builder {
-                val fieldDescriptors = companion.descriptor.fields
-                fieldDecoder.forEachField { keyDecoder, valueDecoder ->
-                    val fd = fieldDescriptors.findByJsonName(keyDecoder)
-                    if (fd != null) {
-                        fd.decodeFromJson(valueDecoder, this)
-                    } else {
-                        valueDecoder.skipValue()
-                    }
-                }
-            }
-        }
+        return decoder.decodeFields { companion.decodeMessageFromJson(it) }
     }
 
     override fun decodeMessageFromJson(decoder: JsonFieldValueDecoder) = decodeFromJson(decoder)
 
     override fun encodeToJson(value: M, encoder: JsonFieldValueEncoder) {
-        @Suppress("UNCHECKED_CAST")
-        val customValueType = customJsonMappings[value.messageDescriptor.messageCompanion] as? WktValueType<*, M>?
+        val customValueType = customJsonMappings[value.messageDescriptor.messageCompanion]
 
         if (customValueType != null) {
+            @Suppress("UNCHECKED_CAST")
+            customValueType as WktValueType<*, M>
+
             customValueType.encodeMessageToJson(value, encoder)
         } else {
             encoder.encodeObject { fieldEncoder ->

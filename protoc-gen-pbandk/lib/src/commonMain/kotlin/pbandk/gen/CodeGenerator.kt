@@ -483,9 +483,7 @@ public open class CodeGenerator(
                     line("values = listOf(").indented {
                         field.values.forEach { value ->
                             lineBegin("pbandk.UnknownField.Value(")
-//                            lineMid("wireType = ${value.wireType}, ")
                             lineMid("wireValue = ${value.wireValue.stringRepresentation()}")
-                            // lineMid("rawBytes = byteArrayOf(${value.rawBytes.array.joinToString()})")
                             lineEnd("),")
                         }
                     }.line(")")
@@ -810,7 +808,9 @@ public open class CodeGenerator(
 
     protected fun writeDeprecatedAnnotation(field: File.Field) {
         when (field) {
-            is File.Field.Numbered -> if (field.options.deprecated == true) line("@Deprecated(message = \"Field marked deprecated in ${file.name}\")")
+            is File.Field.Numbered -> if (field.options.deprecated == true) {
+                line("@Deprecated(message = \"Field marked deprecated in ${file.name}\")")
+            }
             is File.Field.OneOf -> {
                 // oneof fields do not support the `deprecated` protobuf option
             }

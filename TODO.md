@@ -1,23 +1,26 @@
 ## Builders / Interfaces
 
-- [x] convert copy() method to use a builder
-- [x] change collections from `var` to `val` with `MutableList`/`MutableMap`
-- [x] get rid of `nested` in `CodeGenerator`
-- [x] convert plus() method to use a builder
-- [x] remove the ability to use a `MutableFoo` outside of a `builderAction`, for now 
-- [x] add Dsl marker annotation to mutable classes
-- [ ] Clean up new `MessageDecoder.readMessage()` implementations and factor out common code
-- [ ] Clean up repeated code in `CodeGenerator`
+- [X] convert copy() method to use a builder
+- [X] change collections from `var` to `val` with `MutableList`/`MutableMap`
+- [X] get rid of `nested` in `CodeGenerator`
+- [X] convert plus() method to use a builder
+- [X] remove the ability to use a `MutableFoo` outside of a `builderAction`, for now 
+- [X] add Dsl marker annotation to mutable classes
+- [X] Clean up new `MessageDecoder.readMessage()` implementations and factor out common code
+- [X] Clean up repeated code in `CodeGenerator`
 - [X] Rebase on top of required fields PR: https://github.com/streem/pbandk/pull/216
 - [ ] Fix Kotlin/JS error messages caused by `@JsExport` on interfaces
     - [ ] Replace interfaces with classes in generated code
 
 ### Enhancements
 
-- [x] generate ReplaceWith for @Deprecated annotations
-- [x] rename `MessageMap` to `MapField`
-- [x] rename `ListWithSize` to `ListField`
-- [x] Replace `decodeWith` in the generated code with a runtime implementation
+- [X] generate ReplaceWith for @Deprecated annotations
+- [X] rename `MessageMap` to `MapField`
+- [X] rename `ListWithSize` to `ListField`
+- [X] Replace `decodeWith` in the generated code with a runtime implementation
+- [ ] (maybe) Add an `Enum.Companion` abstract base class that implements `fromValue()` and `fromName()` (also look at stashed enum refactor changes)
+- [ ] Combine mutable and non-mutable message implementations into a single class with a `frozen` attribute
+- [ ] Update map and list mutable->immutable conversion to use `FieldType.fromMutableValue()` instead of hard-coded map/list handling
 
 ### Extendable Messages
 

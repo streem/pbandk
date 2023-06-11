@@ -75,7 +75,6 @@ private fun <M : Message> Map.Entry<FieldDescriptor<M, out Any?>, Any>.isDefault
 }
 
 // This function exists to make the type checker happy
-@Suppress("NOTHING_TO_INLINE")
 private inline fun <V, MV : Any> FieldType.MutableValue<V, MV>.newMutableValueFrom(value: V): MV {
     return newMutableValue().also { setMutableValue(it, value) }
 }
@@ -108,23 +107,14 @@ internal class ExtensionFieldSet<M : Message>(
             return value
         }
 
-        // Try to find the extension field in the unknown fields and decode it
-        value = unknownFields[fieldDescriptor.number]?.decodeAs(fieldDescriptor)
-        if (value != null) {
-            // We found the field and were able to decode it. Cache a copy of the decoded value and return it.
-            extensionFieldCache[fieldDescriptor] = value
-            return value
-        }
-
-        return null
+        return tryDecodeUnknownField(fieldDescriptor)
     }
 
     override operator fun contains(fieldDescriptor: FieldDescriptor<M, *>): Boolean {
         require(fieldDescriptor.metadata.isExtension) { "Provided field descriptor does not describe an extension field" }
         return fieldDescriptor in fieldSet ||
                 fieldDescriptor in extensionFieldCache ||
-                // TODO: if the decoding is successful, we should save it in the cache
-                unknownFields[fieldDescriptor.number]?.decodeAs(fieldDescriptor) != null
+                tryDecodeUnknownField(fieldDescriptor) != null
     }
 
     /**
@@ -149,6 +139,17 @@ internal class ExtensionFieldSet<M : Message>(
             entries.sortedBy { it.first.metadata.number }.toMap(this)
         }
         return Iterator(map.entries.iterator())
+    }
+
+    private fun <V> tryDecodeUnknownField(fieldDescriptor: FieldDescriptor<M, V>): V? {
+        // Try to find the extension field in the unknown fields and decode it
+        val value = unknownFields[fieldDescriptor.number]?.decodeAs(fieldDescriptor)
+        if (value != null) {
+            // We found the field and were able to decode it. Cache a copy of the decoded value and return it.
+            extensionFieldCache[fieldDescriptor] = value
+            return value
+        }
+        return null
     }
 }
 

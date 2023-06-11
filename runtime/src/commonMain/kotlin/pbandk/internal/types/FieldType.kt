@@ -2,6 +2,7 @@ package pbandk.internal.types
 
 import pbandk.FieldMetadata
 import pbandk.InvalidProtocolBufferException
+import pbandk.Message
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.WireType
 import pbandk.gen.ListField
@@ -112,6 +113,8 @@ internal sealed class FieldType<KotlinType> {
 
         override fun encodeToBinary(metadata: FieldMetadata, value: T?, encoder: BinaryFieldEncoder) {
             if (value == null) return
+
+            if (value is Message.Enum && value.value == null) return
 
             encoder.encodeField(Tag(metadata.number, valueType.binaryWireType)) { valueEncoder ->
                 valueType.encodeToBinary(value, valueEncoder)

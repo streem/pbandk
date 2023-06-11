@@ -29,14 +29,5 @@ class Proto3ExtensionTest {
             repeatedInt32.add(2)
         }
         assertEquals(listOf(1, 2), fieldOptions2.repeatedInt32)
-
-        /* TODO
-        val error = assertFails {
-            fieldOptions.copy {
-                setExtension(pbandk.testpb.repeatedInt32, listOf(2))
-            }
-        }
-        assertContains(assertNotNull(error.message), "Use getRepeatedExtension")
-         */
     }
 }
