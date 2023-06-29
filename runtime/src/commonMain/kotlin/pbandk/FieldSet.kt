@@ -17,6 +17,8 @@ import pbandk.internal.types.FieldType
 public sealed class FieldSet<M : Message> {
     internal abstract val size: Int
 
+    internal fun isEmpty() = size == 0
+
     internal abstract operator fun <V> get(fieldDescriptor: FieldDescriptor<M, V>): V?
 
     public fun <V> getOrDefault(fieldDescriptor: FieldDescriptor<M, V>): V {
@@ -81,7 +83,7 @@ private inline fun <V, MV : Any> FieldType.MutableValue<V, MV>.newMutableValueFr
 
 internal class ExtensionFieldSet<M : Message>(
     /**
-     * Assumes that the values in [map] are already the correct type for each corresponding field descriptor. E.g.
+     * Assumes that the values in [fieldSet] are already the correct type for each corresponding field descriptor. E.g.
      * repeated field values are of type [ListField], map field values are of type [MapField].
      */
     private val fieldSet: FieldSet<M>,

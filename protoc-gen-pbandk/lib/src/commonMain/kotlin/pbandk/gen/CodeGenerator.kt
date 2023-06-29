@@ -78,13 +78,12 @@ public open class CodeGenerator(
 
     protected fun writeEnumType(type: File.Type.Enum) {
         line()
+        // Only mark top-level classes for export, internal classes will be exported transitively
         // TODO: temporarily disabled because interfaces can't be exported in Kotlin 1.5. This can be reenabled after
         //  upgrading to Kotlin 1.6.20
-        // Only mark top-level classes for export, internal classes will be exported transitively
 //        if (type.kotlinName.parent == null) line("@pbandk.Export")
         // Enums are sealed interfaces w/ a value and a name, and a companion object with all values
         line("$visibility sealed interface ${type.kotlinName.simple} : pbandk.Message.Enum {").indented {
-            // """ (override val value: Int, override val name: String? = null) """
             line("override val descriptor: pbandk.EnumDescriptor<${type.kotlinName.fullWithPackage}>").indented {
                 line("get() = ${type.kotlinName.fullWithPackage}.descriptor")
             }
@@ -98,8 +97,6 @@ public open class CodeGenerator(
             }
             line("$visibility class UNRECOGNIZED(value: Int? = null, name: String? = null)").indented {
                 line(": ${type.kotlinName.simple}, pbandk.gen.UnrecognizedEnumValue<${type.kotlinName.fullWithPackage}>(value, name)")
-                // TODO: maybe
-                // line("public companion object : pbandk.gen.UnrecognizedEnumValue.Companion<UNRECOGNIZED>(::UNRECOGNIZED)")
             }
             line()
             line("$visibility companion object : pbandk.Message.Enum.Companion<${type.kotlinName.fullWithPackage}> {").indented {
@@ -196,7 +193,7 @@ public open class CodeGenerator(
 
                 type.extensions.forEach {
                     // TODO: write extension field accessors
-                    //  Though maybe accessors shouldn't be nested inside the scope of the enclosing method since then
+                    //  Though maybe accessors shouldn't be nested inside the scope of the enclosing class since then
                     //  they'd be hard to access?
                     line()
                     writeExtensionFieldDescriptor(it)
@@ -1031,6 +1028,7 @@ public open class CodeGenerator(
             File.Field.Type.FIXED32 -> "fixed32"
             File.Field.Type.FIXED64 -> "fixed64"
             File.Field.Type.FLOAT -> "float"
+            File.Field.Type.GROUP -> "group"
             File.Field.Type.INT32 -> "int32"
             File.Field.Type.INT64 -> "int64"
             File.Field.Type.MESSAGE -> "message"
@@ -1051,6 +1049,7 @@ public open class CodeGenerator(
             File.Field.Type.FIXED32 -> Name("Int")
             File.Field.Type.FIXED64 -> Name("Long")
             File.Field.Type.FLOAT -> Name("Float")
+            File.Field.Type.GROUP -> error("No standard type name for groups")
             File.Field.Type.INT32 -> Name("Int")
             File.Field.Type.INT64 -> Name("Long")
             File.Field.Type.MESSAGE -> error("No standard type name for messages")
@@ -1071,6 +1070,7 @@ public open class CodeGenerator(
             File.Field.Type.FIXED32 -> true
             File.Field.Type.FIXED64 -> true
             File.Field.Type.FLOAT -> true
+            File.Field.Type.GROUP -> false
             File.Field.Type.INT32 -> true
             File.Field.Type.INT64 -> true
             File.Field.Type.MESSAGE -> false
@@ -1095,7 +1095,7 @@ public open class CodeGenerator(
             File.Field.Type.SINT64, File.Field.Type.UINT64 -> "0L"
 
             File.Field.Type.FLOAT -> "0.0F"
-            File.Field.Type.MESSAGE -> "null"
+            File.Field.Type.GROUP, File.Field.Type.MESSAGE -> "null"
             File.Field.Type.STRING -> "\"\""
         }
 }

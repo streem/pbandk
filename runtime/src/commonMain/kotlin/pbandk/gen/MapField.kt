@@ -8,72 +8,25 @@ import pbandk.MutableMessage
 import pbandk.PublicForGeneratedCode
 import pbandk.UnknownField
 import pbandk.internal.types.FieldType
-import pbandk.internal.types.primitive.Bool
+import pbandk.internal.types.primitive.Nothing
 import pbandk.types.ValueType
 import pbandk.wkt.Syntax
 import kotlin.reflect.KClass
 
 @PublicForGeneratedCode
 public interface MapField<K : Any, V : Any> : Map<K, V> {
-    public val entryCompanion: Entry.Companion<K, V>
+    public val entryCompanion: Message.Companion<Entry<K, V>>
     public fun asMessages(): Collection<Entry<K, V>>
 
     @PublicForGeneratedCode
     public interface Entry<K : Any, V : Any> : Map.Entry<K, V>, Message {
         override fun plus(other: Message?): Entry<K, V>
         override val descriptor: MessageDescriptor<Entry<K, V>>
-
-        @PublicForGeneratedCode
-        public class Companion<K : Any, V : Any>(
-            internal val keyType: ValueType<K>,
-            internal val valueType: ValueType<V>,
-        ) : Message.Companion<Entry<K, V>>() {
-            private fun entryBuilder(builderAction: MutableMapField.MutableEntry<K, V>.() -> Unit): Entry<K, V> =
-                MutableMapFieldEntry(keyType.defaultValue, valueType.defaultValue, this).also(builderAction)
-
-            override val defaultInstance: Entry<K, V> = entryBuilder {}
-
-            private val messageMetadata = MessageMetadata(
-                fullName = "MapFieldEntry",
-                syntax = Syntax.PROTO3,
-            )
-
-            @Suppress("UNCHECKED_CAST")
-            override val descriptor: MessageDescriptor<Entry<K, V>> = MessageDescriptor.of(
-                metadata = messageMetadata,
-                messageClass = Entry::class as KClass<Entry<K, V>>,
-                messageCompanion = this,
-                builder = ::entryBuilder,
-                fields = listOf(
-                    FieldDescriptor.ofSingular(
-                        messageDescriptor = this::descriptor,
-                        messageMetadata = messageMetadata,
-                        name = "key",
-                        jsonName = "key",
-                        number = 1,
-                        valueType = keyType,
-                        value = Entry<K, V>::key,
-                        mutableValue = MutableMapField.MutableEntry<K, V>::key,
-                    ),
-                    FieldDescriptor.ofSingular(
-                        messageDescriptor = this::descriptor,
-                        messageMetadata = messageMetadata,
-                        name = "value",
-                        jsonName = "value",
-                        number = 2,
-                        valueType = valueType,
-                        value = Entry<K, V>::value,
-                        mutableValue = MutableMapField.MutableEntry<K, V>::value,
-                    ),
-                )
-            )
-        }
     }
 
     @PublicForGeneratedCode
     public companion object {
-        // TODO
-        private val Empty = MapFieldImpl(Entry.Companion(Bool, Bool), emptySet())
+        private val Empty = MapFieldImpl(MapFieldEntryCompanion(Nothing, Nothing), emptySet())
 
         /**
          * Returns a singleton empty map regardless of the type variables.
@@ -86,17 +39,63 @@ public interface MapField<K : Any, V : Any> : Map<K, V> {
             valueType: ValueType<V>,
             vararg pairs: Pair<K, V>
         ): MapField<K, V> {
-            val companion = Entry.Companion(keyType, valueType)
+            val companion = MapFieldEntryCompanion(keyType, valueType)
             return MutableMapField(companion).apply {
                 putAll(pairs)
             }.toMapField()
         }
     }
+
+}
+
+internal class MapFieldEntryCompanion<K : Any, V : Any>(
+    internal val keyType: ValueType<K>,
+    internal val valueType: ValueType<V>,
+) : Message.Companion<MapField.Entry<K, V>>() {
+    private fun entryBuilder(builderAction: MutableMapField.MutableEntry<K, V>.() -> Unit): MapField.Entry<K, V> =
+        MutableMapFieldEntry(keyType.defaultValue, valueType.defaultValue, this).also(builderAction)
+
+    override val defaultInstance: MapField.Entry<K, V> = entryBuilder {}
+
+    private val messageMetadata = MessageMetadata(
+        fullName = "MapFieldEntry",
+        syntax = Syntax.PROTO3,
+    )
+
+    @Suppress("UNCHECKED_CAST")
+    override val descriptor: MessageDescriptor<MapField.Entry<K, V>> = MessageDescriptor.of(
+        metadata = messageMetadata,
+        messageClass = MapField.Entry::class as KClass<MapField.Entry<K, V>>,
+        messageCompanion = this,
+        builder = ::entryBuilder,
+        fields = listOf(
+            FieldDescriptor.ofSingular(
+                messageDescriptor = this::descriptor,
+                messageMetadata = messageMetadata,
+                name = "key",
+                jsonName = "key",
+                number = 1,
+                valueType = keyType,
+                value = MapField.Entry<K, V>::key,
+                mutableValue = MutableMapField.MutableEntry<K, V>::key,
+            ),
+            FieldDescriptor.ofSingular(
+                messageDescriptor = this::descriptor,
+                messageMetadata = messageMetadata,
+                name = "value",
+                jsonName = "value",
+                number = 2,
+                valueType = valueType,
+                value = MapField.Entry<K, V>::value,
+                mutableValue = MutableMapField.MutableEntry<K, V>::value,
+            ),
+        )
+    )
 }
 
 @PublicForGeneratedCode
 public interface MutableMapField<K : Any, V : Any> : MutableMap<K, V> {
-    public val entryCompanion: MapField.Entry.Companion<K, V>
+    public val entryCompanion: Message.Companion<MapField.Entry<K, V>>
 
     public fun put(entry: Map.Entry<K, V>)
     public fun putAll(entries: Sequence<Map.Entry<K, V>>)
@@ -111,12 +110,12 @@ public interface MutableMapField<K : Any, V : Any> : MutableMap<K, V> {
 }
 
 internal fun <K : Any, V : Any> MapField(
-    entryCompanion: MapField.Entry.Companion<K, V>,
+    entryCompanion: MapFieldEntryCompanion<K, V>,
     map: Map<out K, V>
 ): MapField<K, V> = MutableMapFieldImpl(entryCompanion).apply { putAll(map) }.toMapField()
 
 @PublicForGeneratedCode
-public fun <K : Any, V : Any> MutableMapField(entryCompanion: MapField.Entry.Companion<K, V>): MutableMapField<K, V> =
+public fun <K : Any, V : Any> MutableMapField(entryCompanion: Message.Companion<MapField.Entry<K, V>>): MutableMapField<K, V> =
     MutableMapFieldImpl(entryCompanion)
 
 // Convenience factory function to keep generated code more succinct
@@ -164,7 +163,7 @@ private abstract class AbstractMapField<K : Any, V : Any> : Map<K, V> {
 }
 
 private class MapFieldImpl<K : Any, V : Any>(
-    override val entryCompanion: MapField.Entry.Companion<K, V>,
+    override val entryCompanion: Message.Companion<MapField.Entry<K, V>>,
     entries: Collection<MapField.Entry<K, V>>
 ) : AbstractMapField<K, V>(), MapField<K, V> {
     override val delegate: Map<K, MapField.Entry<K, V>> = entries.associateBy(MapField.Entry<K, V>::key)
@@ -182,7 +181,7 @@ private class MapFieldImpl<K : Any, V : Any>(
 }
 
 private class MutableMapFieldImpl<K : Any, V : Any>(
-    override val entryCompanion: MapField.Entry.Companion<K, V>
+    override val entryCompanion: Message.Companion<MapField.Entry<K, V>>
 ) : AbstractMapField<K, V>(), MutableMapField<K, V> {
     override val delegate: MutableMap<K, MutableMapField.MutableEntry<K, V>> = mutableMapOf()
 
@@ -295,7 +294,7 @@ private class MutableMapFieldImpl<K : Any, V : Any>(
 internal class MutableMapFieldEntry<K : Any, V : Any>(
     override var key: K,
     override var value: V,
-    companion: MapField.Entry.Companion<K, V>,
+    companion: Message.Companion<MapField.Entry<K, V>>,
     override val unknownFields: MutableMap<Int, UnknownField> = mutableMapOf()
 ) : MutableMapField.MutableEntry<K, V>, MutableGeneratedMessage<MapField.Entry<K, V>>() {
     override fun setValue(newValue: V): V {

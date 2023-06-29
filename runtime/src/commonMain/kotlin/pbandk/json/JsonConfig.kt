@@ -1,7 +1,6 @@
 package pbandk.json
 
 import pbandk.ExperimentalProtoJson
-import pbandk.FieldDescriptor
 import pbandk.FieldMetadata
 import pbandk.TypeRegistry
 import kotlin.js.JsExport
@@ -15,6 +14,7 @@ public data class JsonConfig(
      * converted lowerCamelCase name will be accepted during JSON parsing, regardless of what this option is set to.
      */
     val outputProtoFieldNames: Boolean = false,
+
     /**
      * Fields with default values are omitted by default in proto3 JSON output. If this option is `true` then fields
      * will be output with their default values. See https://developers.google.com/protocol-buffers/docs/proto3#default
@@ -22,6 +22,7 @@ public data class JsonConfig(
      * strings, and unset message fields will be output as `null`.
      */
     val outputDefaultValues: Boolean = false,
+
     /**
      * WARNING: This option should not be used. It only exists for backwards-compatibility.
      *
@@ -31,16 +32,19 @@ public data class JsonConfig(
      */
     @Deprecated("This option only exists for backwards-compatibility reasons. It should not be used by new code and will eventually be removed.")
     val outputDefaultStringsAsNull: Boolean = false,
+
     /**
      * By default the JSON output is formatted for readability: entries are indented, each entry is on a new line, etc.
      * If this option is `true` then a more compact format will be used that omits extraneous spaces and newlines.
      */
     val compactOutput: Boolean = false,
+
     /**
      * The JSON parser rejects unknown fields by default. If this option is `true` then unknown fields will instead be
      * ignored.
      */
     val ignoreUnknownFieldsInInput: Boolean = false,
+
     /**
      * The provided [TypeRegistry] should contain all types that might be stored in an [pbandk.wkt.Any] field within a
      * JSON message. If a type is not found in [typeRegistry] during JSON encoding/decoding of an `Any` field, then
@@ -48,6 +52,22 @@ public data class JsonConfig(
      */
     val typeRegistry: TypeRegistry = TypeRegistry.EMPTY,
 ) {
+    internal enum class UnrecognizedEnumValueBehavior {
+        Keep,
+        KeepOnlyStringValues,
+        KeepOnlyNumericValues,
+        TreatAsUnknownField,
+    }
+
+    // In theory we should by default reject unknown enum values regardless of whether they're numeric- or string-based.
+    // But the official protobuf Java library only rejects string-based unknown enum values. Numeric-based unknown enum
+    // values are allowed even when `ignoreUnknownFieldsInInput=false`. For compatibility, the default here mimics the
+    // protobuf-java behavior. See https://github.com/protocolbuffers/protobuf/issues/7392 and
+    // https://github.com/protocolbuffers/protobuf/pull/4825/files for more context.
+    //
+    // TODO: expose this field publicly once the API feels right
+    internal val unrecognizedEnumValueBehavior = UnrecognizedEnumValueBehavior.KeepOnlyNumericValues
+
     internal fun getFieldJsonName(fieldMetadata: FieldMetadata): String =
         when {
             fieldMetadata.isExtension -> "[${fieldMetadata.fullName}]"

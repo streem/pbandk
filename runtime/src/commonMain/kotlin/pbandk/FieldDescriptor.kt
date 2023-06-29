@@ -5,14 +5,12 @@ import pbandk.binary.WireType
 import pbandk.internal.binary.BinaryFieldEncoder
 import pbandk.internal.json.JsonFieldEncoder
 import pbandk.internal.types.FieldType
-import pbandk.internal.types.MessageValueType
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.types.ValueType
 import pbandk.wkt.FieldOptions
 import pbandk.wkt.Syntax
 import pbandk.wkt.orDefault
 import kotlin.js.JsExport
-import kotlin.js.JsName
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1

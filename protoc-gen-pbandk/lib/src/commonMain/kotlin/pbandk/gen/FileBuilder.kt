@@ -37,7 +37,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             msgTypes.map { fromProto(ctx, it, parentName, parentKotlinName, usedTypeNames) }
 
     protected fun fromProto(
-        @Suppress("UNUSED_PARAMETER") ctx: Context,
+        ctx: Context,
         enumDesc: EnumDescriptorProto,
         parentName: Name?,
         parentKotlinName: Name?,
@@ -174,6 +174,9 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         oneofField: Boolean = false
     ): File.Field.Numbered {
         val type = fromProto(fieldDesc.type ?: error("Missing field type"))
+        if (type == File.Field.Type.GROUP) {
+            TODO("Group types not supported")
+        }
         val wrappedKotlinType = fieldDesc.typeName
             ?.takeIf { type == File.Field.Type.MESSAGE && it.startsWith(".google.protobuf") }
             ?.let {
@@ -186,7 +189,6 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         }
 
         return if (wrappedKotlinType != null) {
-            // TODO deal with wrapped messages inside of oneofs
             File.Field.Numbered.Wrapper(
                 number = fieldDesc.number!!,
                 name = msgName?.let { Name(it, fieldDesc.name!!) } ?: Name(ctx.packageName, fieldDesc.name!!),
@@ -247,7 +249,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         FieldDescriptorProto.Type.FIXED32 -> File.Field.Type.FIXED32
         FieldDescriptorProto.Type.FIXED64 -> File.Field.Type.FIXED64
         FieldDescriptorProto.Type.FLOAT -> File.Field.Type.FLOAT
-        FieldDescriptorProto.Type.GROUP -> TODO("Group types not supported")
+        FieldDescriptorProto.Type.GROUP -> File.Field.Type.GROUP
         FieldDescriptorProto.Type.INT32 -> File.Field.Type.INT32
         FieldDescriptorProto.Type.INT64 -> File.Field.Type.INT64
         FieldDescriptorProto.Type.MESSAGE -> File.Field.Type.MESSAGE

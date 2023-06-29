@@ -33,32 +33,27 @@ protected constructor(
     override fun plus(other: Message?): M = throw UnsupportedOperationException()
 }
 
-private class Foo<M : Message>(
+// TODO: can this class be simplified or the need for it removed completely?
+private class ExtendableMessageFieldDescriptors<M : Message>(
     private val ordered: Boolean,
     private val messageFieldDescriptors: FieldDescriptorSet<M>,
     private val extensionFields: FieldSet<M>,
 ) : Collection<FieldDescriptor<M, out Any?>> {
     override val size: Int get() = messageFieldDescriptors.size + extensionFields.size
 
-    override fun isEmpty(): Boolean {
-        return messageFieldDescriptors.isEmpty() && extensionFields.size == 0
+    override fun isEmpty(): Boolean = messageFieldDescriptors.isEmpty() && extensionFields.isEmpty()
+
+    override fun iterator(): Iterator<FieldDescriptor<M, out Any?>> = if (ordered) {
+        FdOrderedIterator(messageFieldDescriptors.iterator(), extensionFields.iterator())
+    } else {
+        ConcatIterator(messageFieldDescriptors.iterator(), extensionFields.iterator())
     }
 
-    override fun iterator(): Iterator<FieldDescriptor<M, out Any?>> {
-        if (ordered) {
-            return FdOrderedIterator(messageFieldDescriptors.iterator(), extensionFields.iterator())
-        } else {
-            return ConcatIterator(messageFieldDescriptors.iterator(), extensionFields.iterator())
-        }
-    }
+    override operator fun contains(element: FieldDescriptor<M, out Any?>): Boolean =
+        element in messageFieldDescriptors || element in extensionFields
 
-    override operator fun contains(element: FieldDescriptor<M, out Any?>): Boolean {
-        return element in messageFieldDescriptors || element in extensionFields
-    }
-
-    override fun containsAll(elements: Collection<FieldDescriptor<M, out Any?>>): Boolean {
-        return elements.all { it in this }
-    }
+    override fun containsAll(elements: Collection<FieldDescriptor<M, out Any?>>): Boolean =
+        elements.all { it in this }
 
     private class ConcatIterator<T>(
         firstIter: Iterator<T>,
@@ -166,7 +161,11 @@ protected constructor(
     override fun hashCode(): Int = _hashCode
 
     override fun fieldDescriptors(ordered: Boolean): Collection<FieldDescriptor<M, out Any?>> {
-        return Foo(ordered, messageDescriptor.fields, extensionFields)
+        return if (extensionFields.isEmpty()) {
+            messageDescriptor.fields
+        } else {
+            ExtendableMessageFieldDescriptors(ordered, messageDescriptor.fields, extensionFields)
+        }
     }
 }
 
@@ -181,69 +180,6 @@ protected constructor(
     override val extensionFields: MutableFieldSet<M> = MutableExtensionFieldSet()
 
     override fun fieldDescriptors(ordered: Boolean): Collection<FieldDescriptor<M, out Any?>> {
-        return Foo(ordered, messageDescriptor.fields, extensionFields)
-    }
-
-//    override val unknownFields: MutableMap<Int, UnknownField> = UnknownFieldsProxy(unknownFields, extensionFields)
-}
-
-// A giant rabbit hole just so we can properly detect when an unknown field is added to the message with the
-// same field number as an extension field that had been previously added. In that case, we need to remove the
-// extension field since the unknown field is more recent and should take precedence. A lot of work for a very
-// edge case :( Perhaps we'll find a simpler way to implement this in the future.
-/*
-private class UnknownFieldsProxy(
-    private val unknownFields: MutableMap<Int, UnknownField>,
-    private val extensionValues: MutableExtensionFieldSet<*>
-) : MutableMap<Int, UnknownField> by unknownFields {
-    override fun put(key: Int, value: UnknownField) = unknownFields.put(key, value).also {
-        extensionValues.remove(key)
-    }
-
-    override fun putAll(from: Map<out Int, UnknownField>) = unknownFields.putAll(from).also {
-        for (key in from.keys) {
-            extensionValues.remove(key)
-        }
-//        extensionValues -= from.keys
-    }
-
-    override val entries: MutableSet<MutableMap.MutableEntry<Int, UnknownField>>
-        get() = EntriesProxy(unknownFields.entries, extensionValues)
-
-    private class EntriesProxy(
-        private val entries: MutableSet<MutableMap.MutableEntry<Int, UnknownField>>,
-        private val extensionValues: MutableExtensionFieldSet<*>
-    ) : MutableSet<MutableMap.MutableEntry<Int, UnknownField>> by entries {
-        override fun add(element: MutableMap.MutableEntry<Int, UnknownField>) =
-            entries.add(element).also {
-                extensionValues.remove(element.key)
-            }
-
-        override fun addAll(elements: Collection<MutableMap.MutableEntry<Int, UnknownField>>) =
-            entries.addAll(elements).also {
-                for (element in elements) {
-                    extensionValues.remove(element.key)
-                }
-//                extensionValues -= elements.map { it.key }.toSet()
-            }
-
-        override fun iterator(): MutableIterator<MutableMap.MutableEntry<Int, UnknownField>> =
-            IteratorProxy(entries.iterator(), extensionValues)
-
-        private class IteratorProxy(
-            private val iterator: MutableIterator<MutableMap.MutableEntry<Int, UnknownField>>,
-            private val extensionValues: MutableExtensionFieldSet<*>
-        ): MutableIterator<MutableMap.MutableEntry<Int, UnknownField>> by iterator {
-            private var lastKey: Int? = null
-
-            override fun next() = iterator.next().also {
-                lastKey = it.key
-            }
-
-            override fun remove() = iterator.remove().also {
-                lastKey?.let { extensionValues.remove(it) }
-            }
-        }
+        return ExtendableMessageFieldDescriptors(ordered, messageDescriptor.fields, extensionFields)
     }
 }
- */

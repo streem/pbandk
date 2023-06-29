@@ -12,6 +12,13 @@ public class InvalidProtocolBufferException : RuntimeException {
         public fun missingRequiredField(fieldName: String): InvalidProtocolBufferException =
             InvalidProtocolBufferException("Required field '$fieldName' was not set.")
 
+        internal fun unrecognizedStringInRequiredEnumField() = InvalidProtocolBufferException(
+            "Attempted to encode a 'required' enum field with an unknown string value to binary."
+        )
+
+        internal fun unrecognizedEnumValue(fieldName: String) =
+            InvalidProtocolBufferException("Enum field '$fieldName' did not contain a known enum value.")
+
         internal fun truncatedMessage() = InvalidProtocolBufferException(
             "While parsing a protocol message, the input ended unexpectedly "
                     + "in the middle of a field. This could mean either that the "

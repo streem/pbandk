@@ -9,8 +9,6 @@ internal class JsonFieldDecoder(internal val jsonConfig: JsonConfig, private val
 
     inline fun forEachField(action: (JsonFieldValueDecoder.String, JsonFieldValueDecoder) -> Unit) {
         for ((key, jsonValue) in content) {
-            // TODO: in streaming mode we wouldn't be able to read the key contents prior to calling `keyBlock`. Does
-            //  the `forEachField()` API need to change in order for this to work in streaming mode?
             if (key in seenFields) continue
             action(
                 JsonFieldValueDecoder.String(jsonConfig, key),

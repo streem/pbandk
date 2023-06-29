@@ -14,11 +14,6 @@ public data class UnknownField @PublicForGeneratedCode constructor(val fieldNum:
     internal val size get() = (Tag.size(fieldNum) * values.size) + values.sumOf { it.size }
 
     public data class Value @PublicForGeneratedCode constructor(val wireValue: WireValue) {
-        // public data class Value @PublicForGeneratedCode constructor(val wireType: Int, val rawBytes: ByteArr) {
-        //     @PublicForGeneratedCode
-        //     @JsName("fromByteArray")
-        //     public constructor(wireType: Int, rawBytes: ByteArray) : this(wireType, ByteArr(rawBytes))
-
         internal val size get() = wireValue.size
 
         override fun equals(other: Any?): Boolean {
@@ -41,22 +36,8 @@ public data class UnknownField @PublicForGeneratedCode constructor(val fieldNum:
         override fun hashCode(): Int {
             return wireValue.hashCode()
         }
-
-        internal companion object
     }
-
-    internal companion object
 }
-
-/*
-internal fun <M : Message, T> UnknownField.Companion.encode(fieldDescriptor: FieldDescriptor<M, T>, value: T): UnknownField {
-    return UnknownField(fieldDescriptor.number, listOf(UnknownField.Value.encode(fieldDescriptor.type, value)))
-}
-
-private fun <T> UnknownField.Value.Companion.encode(type: FieldDescriptor.Type, value: T): UnknownField.Value {
-    val encoder = KotlinBinaryWireEncoder(ByteArrayWireWriter.allocate(100))
-}
- */
 
 @Suppress("UNCHECKED_CAST")
 internal fun <M : Message, T> UnknownField.decodeAs(fieldDescriptor: FieldDescriptor<M, T>): T {

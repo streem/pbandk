@@ -23,7 +23,7 @@ protected constructor() : Message {
     protected open fun computeHashCode(): Int {
         var hash = 1
 
-        fieldDescriptors().forEachWithValue(this.asMessage()) { _, value ->
+        fieldDescriptors(ordered = true).forEachWithValue(this.asMessage()) { _, value ->
             hash = (31 * hash) + value.hashCode()
         }
 
@@ -102,8 +102,6 @@ protected constructor() : Message {
 
             other.unknownFields.forEach { (fieldNum, unknownField) ->
                 unknownFields[fieldNum] = unknownFields[fieldNum]?.let { prevValue ->
-                    // TODO: make parsing of repeated unknown fields more efficient by not creating a copy of
-                    //  the list with each new element.
                     prevValue.copy(values = prevValue.values + unknownField.values)
                 } ?: unknownField
             }

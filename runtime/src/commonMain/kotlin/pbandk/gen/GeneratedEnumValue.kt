@@ -38,11 +38,4 @@ public abstract class UnrecognizedEnumValue<E : Message.Enum>(
     override fun toString(): String {
         return "${descriptor.name}.${name ?: "UNRECOGNIZED"}(value=${value ?: "UNRECOGNIZED"})"
     }
-
-    // public abstract class Companion<V : UnrecognizedEnumValue<*>>(
-    //     private val constructor: (value: Int?, name: String?) -> V
-    // ) {
-    //     public open fun value(value: Int): V = constructor(value, null)
-    //     public open fun name(name: String): V = constructor(null, name)
-    // }
 }

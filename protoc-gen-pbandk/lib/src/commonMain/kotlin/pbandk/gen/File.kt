@@ -149,10 +149,10 @@ public data class File(
         ) : Field()
 
         public enum class Type {
-            BOOL, BYTES, DOUBLE, ENUM, FIXED32, FIXED64, FLOAT, INT32, INT64, MESSAGE,
+            BOOL, BYTES, DOUBLE, ENUM, FIXED32, FIXED64, FLOAT, GROUP, INT32, INT64, MESSAGE,
             SFIXED32, SFIXED64, SINT32, SINT64, STRING, UINT32, UINT64;
 
-            public val neverPacked: Boolean get() = this in listOf(BYTES, MESSAGE, STRING)
+            public val neverPacked: Boolean get() = this in listOf(BYTES, GROUP, MESSAGE, STRING)
         }
     }
 }
