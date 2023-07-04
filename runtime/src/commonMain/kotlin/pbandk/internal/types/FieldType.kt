@@ -14,7 +14,7 @@ import pbandk.gen.MutableMapFieldEntry
 import pbandk.gen.UnrecognizedEnumValue
 import pbandk.internal.binary.BinaryFieldEncoder
 import pbandk.internal.binary.Tag
-import pbandk.internal.binary.WireValue
+import pbandk.binary.WireValue
 import pbandk.internal.json.JsonFieldEncoder
 import pbandk.internal.types.primitive.Enum
 import pbandk.json.JsonConfig

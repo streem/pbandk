@@ -2,9 +2,7 @@ package pbandk.binary
 
 import pbandk.PublicForGeneratedCode
 import pbandk.internal.binary.BinaryFieldEncoder
-import pbandk.internal.binary.MAX_VARINT_SIZE
 import pbandk.internal.binary.Tag
-import pbandk.internal.binary.WireValue
 import pbandk.internal.binary.kotlin.WireWriter
 import kotlin.js.JsExport
 

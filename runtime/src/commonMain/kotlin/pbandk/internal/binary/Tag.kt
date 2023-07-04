@@ -1,6 +1,7 @@
 package pbandk.internal.binary
 
 import pbandk.binary.WireType
+import pbandk.binary.WireValue
 import kotlin.jvm.JvmInline
 
 private const val TAG_TYPE_BITS = 3

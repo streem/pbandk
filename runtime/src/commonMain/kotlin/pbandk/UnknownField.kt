@@ -3,7 +3,7 @@ package pbandk
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.WireType
 import pbandk.internal.binary.Tag
-import pbandk.internal.binary.WireValue
+import pbandk.binary.WireValue
 import pbandk.internal.types.FieldType
 import pbandk.internal.types.MessageValueType
 import kotlin.js.JsExport
@@ -14,6 +14,17 @@ public data class UnknownField @PublicForGeneratedCode constructor(val fieldNum:
     internal val size get() = (Tag.size(fieldNum) * values.size) + values.sumOf { it.size }
 
     public data class Value @PublicForGeneratedCode constructor(val wireValue: WireValue) {
+        internal constructor(decoder: BinaryFieldValueDecoder) : this(
+            when (decoder) {
+                is BinaryFieldValueDecoder.Varint -> decoder.decodeValue()
+                is BinaryFieldValueDecoder.I32 -> decoder.decodeValue()
+                is BinaryFieldValueDecoder.I64 -> decoder.decodeValue()
+                is BinaryFieldValueDecoder.Len -> decoder.decodeValue()
+                is BinaryFieldValueDecoder.Group -> decoder.decodeValue()
+                is BinaryFieldValueDecoder.EndGroup -> decoder.decodeValue()
+            }
+        )
+
         internal val size get() = wireValue.size
 
         override fun equals(other: Any?): Boolean {

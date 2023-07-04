@@ -4,7 +4,7 @@ import pbandk.InvalidProtocolBufferException
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.BinaryFieldValueEncoder
 import pbandk.binary.WireType
-import pbandk.internal.binary.WireValue
+import pbandk.binary.WireValue
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.json.JsonFieldValueEncoder
 import kotlin.Double

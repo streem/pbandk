@@ -7,8 +7,6 @@ import pbandk.PublicForGeneratedCode
 import pbandk.UnknownField
 import pbandk.binary.BinaryFieldValueEncoder.Companion.encodeToBuffer
 import pbandk.internal.binary.BinaryFieldDecoder
-import pbandk.internal.binary.MAX_VARINT_SIZE
-import pbandk.internal.binary.WireValue
 import pbandk.internal.binary.kotlin.ByteArrayWireReader
 import pbandk.internal.binary.kotlin.LimitingWireReader
 import pbandk.internal.binary.kotlin.WireReader
@@ -19,19 +17,11 @@ import kotlin.js.JsExport
 public sealed class BinaryFieldValueDecoder {
     internal abstract val wireType: WireType
 
-    /**
-     * WARNING: Avoid calling this function on a generic [BinaryFieldValueDecoder] instance in performance-sensitive
-     * code, since it'll have to box the [WireValue] return value. It's ok to call this function on an instance of one
-     * of the [BinaryFieldValueDecoder] subclasses since those override this function's return value to return a
-     * specific [WireValue] sub-class that will avoid boxing the inline value class.
-     */
-    internal abstract fun decodeValue(): WireValue
-
     internal abstract fun skipValue()
 
     public sealed class Varint : BinaryFieldValueDecoder() {
         override val wireType: WireType get() = WireType.VARINT
-        abstract override fun decodeValue(): WireValue.Varint
+        public abstract fun decodeValue(): WireValue.Varint
     }
 
     internal class VarintFromReader(private val wireReader: WireReader) : Varint() {
@@ -63,7 +53,7 @@ public sealed class BinaryFieldValueDecoder {
 
     public sealed class I32 : BinaryFieldValueDecoder() {
         override val wireType: WireType get() = WireType.FIXED32
-        abstract override fun decodeValue(): WireValue.I32
+        public abstract fun decodeValue(): WireValue.I32
     }
 
     internal class I32FromReader(private val wireReader: WireReader) : I32() {
@@ -85,7 +75,7 @@ public sealed class BinaryFieldValueDecoder {
 
     public sealed class I64 : BinaryFieldValueDecoder() {
         override val wireType: WireType get() = WireType.FIXED64
-        abstract override fun decodeValue(): WireValue.I64
+        public abstract fun decodeValue(): WireValue.I64
     }
 
     internal class I64FromReader(private val wireReader: WireReader) : I64() {
@@ -120,7 +110,7 @@ public sealed class BinaryFieldValueDecoder {
             return length
         }
 
-        override fun decodeValue(): WireValue.Len {
+        public fun decodeValue(): WireValue.Len {
             val size = decodePrefix()
             return WireValue.Len(wireReader.read(size))
         }
@@ -154,7 +144,7 @@ public sealed class BinaryFieldValueDecoder {
 
     public sealed class Group : BinaryFieldValueDecoder() {
         override val wireType: WireType get() = WireType.START_GROUP
-        abstract override fun decodeValue(): WireValue.Group
+        public abstract fun decodeValue(): WireValue.Group
     }
 
     internal class GroupFromReader(
@@ -177,7 +167,7 @@ public sealed class BinaryFieldValueDecoder {
                     // An END_GROUP tag means we've reached the end of the group value
                     if (isValidEndGroupTag(fieldNumber, valueDecoder)) return@buildList
 
-                    add(UnknownField(fieldNumber, listOf(UnknownField.Value(valueDecoder.decodeValue()))))
+                    add(UnknownField(fieldNumber, listOf(UnknownField.Value(valueDecoder))))
                 }
                 // If we got here, that means there are no more fields to process but we still haven't seen an
                 // END_GROUP tag
@@ -205,7 +195,7 @@ public sealed class BinaryFieldValueDecoder {
 
     public object EndGroup : BinaryFieldValueDecoder() {
         override val wireType: WireType get() = WireType.END_GROUP
-        override fun decodeValue(): WireValue.EndGroup = WireValue.EndGroup
+        public fun decodeValue(): WireValue.EndGroup = WireValue.EndGroup
         override fun skipValue() {}
     }
 

@@ -33,12 +33,12 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
                 valueType = pbandk.types.string(),
                 jsonName = "single",
                 options = pbandk.wkt.FieldOptions {
-                    unknownFields += mapOf(
-                        1071 to pbandk.UnknownField(
-                            fieldNum = 1071,
-                            values = listOf(
-                                pbandk.UnknownField.Value(wireValue = pbandk.internal.binary.WireValue.Len(byteArrayOf(-118, 1, 2, 16, 1))),
-                            )
+                    unknownFields[1071] = pbandk.UnknownField(
+                        fieldNum = 1071,
+                        values = listOf(
+                            pbandk.UnknownField.Value(
+                                wireValue = pbandk.binary.WireValue.len(byteArrayOf(-118, 1, 2, 16, 1))
+                            ),
                         ),
                     )
                 },
@@ -105,13 +105,15 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
                 valueType = pbandk.types.string(),
                 jsonName = "multiple",
                 options = pbandk.wkt.FieldOptions {
-                    unknownFields += mapOf(
-                        1071 to pbandk.UnknownField(
-                            fieldNum = 1071,
-                            values = listOf(
-                                pbandk.UnknownField.Value(wireValue = pbandk.internal.binary.WireValue.Len(byteArrayOf(-118, 1, 2, 16, 1))),
-                                pbandk.UnknownField.Value(wireValue = pbandk.internal.binary.WireValue.Len(byteArrayOf(114, 2, 16, 10))),
-                            )
+                    unknownFields[1071] = pbandk.UnknownField(
+                        fieldNum = 1071,
+                        values = listOf(
+                            pbandk.UnknownField.Value(
+                                wireValue = pbandk.binary.WireValue.len(byteArrayOf(-118, 1, 2, 16, 1))
+                            ),
+                            pbandk.UnknownField.Value(
+                                wireValue = pbandk.binary.WireValue.len(byteArrayOf(114, 2, 16, 10))
+                            ),
                         ),
                     )
                 },
@@ -181,13 +183,15 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
                 jsonName = "multipleDeprecated",
                 options = pbandk.wkt.FieldOptions {
                     deprecated = true
-                    unknownFields += mapOf(
-                        1071 to pbandk.UnknownField(
-                            fieldNum = 1071,
-                            values = listOf(
-                                pbandk.UnknownField.Value(wireValue = pbandk.internal.binary.WireValue.Len(byteArrayOf(114, 2, 24, 32))),
-                                pbandk.UnknownField.Value(wireValue = pbandk.internal.binary.WireValue.Len(byteArrayOf(114, 2, 16, 10))),
-                            )
+                    unknownFields[1071] = pbandk.UnknownField(
+                        fieldNum = 1071,
+                        values = listOf(
+                            pbandk.UnknownField.Value(
+                                wireValue = pbandk.binary.WireValue.len(byteArrayOf(114, 2, 24, 32))
+                            ),
+                            pbandk.UnknownField.Value(
+                                wireValue = pbandk.binary.WireValue.len(byteArrayOf(114, 2, 16, 10))
+                            ),
                         ),
                     )
                 },

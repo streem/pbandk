@@ -1,10 +1,11 @@
-package pbandk.internal.binary
+package pbandk.binary
 
 import pbandk.InvalidProtocolBufferException
 import pbandk.PbandkInternal
 import pbandk.PublicForGeneratedCode
 import pbandk.UnknownField
-import pbandk.binary.WireType
+import pbandk.internal.binary.zigZagDecoded
+import pbandk.internal.binary.zigZagEncoded
 import pbandk.internal.checkSurrogatePairs
 import kotlin.jvm.JvmInline
 
@@ -16,21 +17,11 @@ public sealed interface WireValue {
     public val size: Int
 
     @JvmInline
-    public value class Varint @PublicForGeneratedCode constructor(
+    public value class Varint internal constructor(
         @property:PbandkInternal
         public val value: ULong
     ) : WireValue {
         override val wireType: Int get() = WireType.VARINT.value
-
-        /*
-        fun uInt32Size(value: Int) = when {
-            value and (0.inv() shl 7) == 0 -> 1
-            value and (0.inv() shl 14) == 0 -> 2
-            value and (0.inv() shl 21) == 0 -> 3
-            value and (0.inv() shl 28) == 0 -> 4
-            else -> 5
-        }
-        */
 
         override val size: Int
             get() {
@@ -76,7 +67,7 @@ public sealed interface WireValue {
     }
 
     @JvmInline
-    public value class I32 @PublicForGeneratedCode constructor(
+    public value class I32 internal constructor(
         @property:PbandkInternal
         public val value: UInt
     ) : WireValue {
@@ -96,7 +87,7 @@ public sealed interface WireValue {
     }
 
     @JvmInline
-    public value class I64 @PublicForGeneratedCode constructor(
+    public value class I64 internal constructor(
         @property:PbandkInternal
         public val value: ULong
     ) : WireValue {
@@ -116,7 +107,7 @@ public sealed interface WireValue {
     }
 
     @JvmInline
-    public value class Len @PublicForGeneratedCode constructor(
+    public value class Len internal constructor(
         @property:PbandkInternal
         public val value: ByteArray
     ) : WireValue {
@@ -125,26 +116,32 @@ public sealed interface WireValue {
         override val size: Int get() = sizeWithLenPrefix(value.size)
 
         internal val decodeByteArray: ByteArray get() = value
-        internal val decodeString: String get() = try {
-            value.decodeToString(throwOnInvalidSequence = true).checkSurrogatePairs()
-        } catch (e: Exception) {
-            throw InvalidProtocolBufferException("Message did not contain a valid UTF-8 string", e)
-        }
+        internal val decodeString: String
+            get() = try {
+                value.decodeToString(throwOnInvalidSequence = true).checkSurrogatePairs()
+            } catch (e: Exception) {
+                throw InvalidProtocolBufferException("Message did not contain a valid UTF-8 string", e)
+            }
 
         public companion object {
             internal fun encodeByteArray(value: ByteArray) = Len(value)
-            internal fun encodeString(value: String) = Len(try {
-                value.checkSurrogatePairs().encodeToByteArray(throwOnInvalidSequence = true)
-            } catch (e: Exception) {
-                throw InvalidProtocolBufferException("Attempted to encode an invalid string", e)
-            })
+            internal fun encodeString(value: String) = Len(
+                try {
+                    value.checkSurrogatePairs().encodeToByteArray(throwOnInvalidSequence = true)
+                } catch (e: Exception) {
+                    throw InvalidProtocolBufferException("Attempted to encode an invalid string", e)
+                }
+            )
 
             internal fun sizeWithLenPrefix(rawSize: Int) = Varint.encodeUnsignedInt(rawSize.toUInt()).size + rawSize
         }
     }
 
     @JvmInline
-    public value class Group internal constructor(internal val value: List<UnknownField>) : WireValue {
+    public value class Group internal constructor(
+        @property:PbandkInternal
+        public val value: List<UnknownField>
+    ) : WireValue {
         override val wireType: Int get() = WireType.START_GROUP.value
 
         override val size: Int get() = value.sumOf { it.size }
@@ -154,5 +151,25 @@ public sealed interface WireValue {
         override val wireType: Int get() = WireType.END_GROUP.value
 
         override val size: Int get() = 0
+    }
+
+    public companion object {
+        @PublicForGeneratedCode
+        public fun varint(value: ULong): Varint = Varint(value)
+
+        @PublicForGeneratedCode
+        public fun i32(value: UInt): I32 = I32(value)
+
+        @PublicForGeneratedCode
+        public fun i64(value: ULong): I64 = I64(value)
+
+        @PublicForGeneratedCode
+        public fun len(value: ByteArray): Len = Len(value)
+
+        @PublicForGeneratedCode
+        public fun group(value: List<UnknownField>): Group = Group(value)
+
+        @PublicForGeneratedCode
+        public fun endGroup(): EndGroup = EndGroup
     }
 }

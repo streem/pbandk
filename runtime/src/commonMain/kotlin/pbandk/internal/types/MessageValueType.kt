@@ -4,7 +4,6 @@ import pbandk.FieldDescriptor
 import pbandk.FieldDescriptorSet
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
-import pbandk.MutableMessage
 import pbandk.UnknownField
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.BinaryFieldValueEncoder
@@ -14,7 +13,7 @@ import pbandk.gen.messageDescriptor
 import pbandk.internal.binary.BinaryFieldDecoder
 import pbandk.internal.binary.BinaryFieldEncoder
 import pbandk.internal.binary.Tag
-import pbandk.internal.binary.WireValue
+import pbandk.binary.WireValue
 import pbandk.internal.json.JsonFieldDecoder
 import pbandk.internal.types.wkt.WktValueType
 import pbandk.internal.types.wkt.customJsonMappings
@@ -111,7 +110,7 @@ internal open class MessageValueType<M : Message>(
                     fd.decodeFromBinary(valueDecoder, this)
                 } else {
                     // TODO: support a `discardUnknownFields` option and call skipValue() in that case
-                    val unknownFieldValue = UnknownField.Value(valueDecoder.decodeValue())
+                    val unknownFieldValue = UnknownField.Value(valueDecoder)
                     unknownFieldValues.getOrPut(fieldNum) { mutableListOf() }.add(unknownFieldValue)
                 }
             }

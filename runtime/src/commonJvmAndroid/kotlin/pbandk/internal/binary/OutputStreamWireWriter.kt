@@ -30,6 +30,7 @@
 
 package pbandk.internal.binary
 
+import pbandk.binary.MAX_VARINT_SIZE
 import pbandk.internal.binary.kotlin.WireWriter
 import java.io.OutputStream
 

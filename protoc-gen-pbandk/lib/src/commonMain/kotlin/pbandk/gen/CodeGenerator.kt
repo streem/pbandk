@@ -1,10 +1,10 @@
-@file:OptIn(PbandkInternal::class, PbandkInternal::class)
+@file:OptIn(PbandkInternal::class)
 
 package pbandk.gen
 
 import pbandk.PbandkInternal
 import pbandk.UnknownField
-import pbandk.internal.binary.WireValue
+import pbandk.binary.WireValue
 import pbandk.wkt.FieldOptions
 
 public open class CodeGenerator(
@@ -472,30 +472,51 @@ public open class CodeGenerator(
     }
 
     private fun writeUnknownFields(unknownFields: Map<Int, UnknownField>) {
-        // TODO: update this to work with new WireValue representation
-        line("unknownFields += mapOf(").indented {
-            unknownFields.values.forEach { field ->
-                line("${field.fieldNum} to pbandk.UnknownField(").indented {
-                    line("fieldNum = ${field.fieldNum},")
-                    line("values = listOf(").indented {
-                        field.values.forEach { value ->
-                            lineBegin("pbandk.UnknownField.Value(")
-                            lineMid("wireValue = ${value.wireValue.stringRepresentation()}")
-                            lineEnd("),")
-                        }
-                    }.line(")")
-                }.line("),")
-            }
+        unknownFields.values.forEach { field ->
+            lineBegin("unknownFields[${field.fieldNum}] = ")
+            writeUnknownField(field)
+        }
+    }
+
+    /** This method expects to be called after a [lineBegin]/[lineMid] call. */
+    private fun writeUnknownField(field: UnknownField) {
+        lineEnd("pbandk.UnknownField(").indented {
+            line("fieldNum = ${field.fieldNum},")
+            line("values = listOf(").indented {
+                field.values.forEach { value ->
+                    line("pbandk.UnknownField.Value(").indented {
+                        lineBegin("wireValue = ")
+                        writeWireValue(value.wireValue)
+                    }.line("),")
+                }
+            }.line("),")
         }.line(")")
     }
 
-    private fun WireValue.stringRepresentation(): String = "pbandk.internal.binary.WireValue." + when (this) {
-        is WireValue.Varint -> "Varint(${this.value}UL)"
-        is WireValue.I32 -> "I32(${this.value}U)"
-        is WireValue.I64 -> "I64(${this.value}UL)"
-        is WireValue.Len -> "Len(byteArrayOf(${this.value.joinToString()}))"
-        is WireValue.Group -> TODO()
-        is WireValue.EndGroup -> "EndGroup"
+    /** This method expects to be called after a [lineBegin]/[lineMid] call. */
+    private fun writeWireValue(wireValue: WireValue) {
+        lineMid("pbandk.binary.WireValue.")
+        when (wireValue) {
+            is WireValue.Varint -> lineEnd("varint(${wireValue.value}UL)")
+            is WireValue.I32 -> lineEnd("i32(${wireValue.value}U)")
+            is WireValue.I64 -> lineEnd("i64(${wireValue.value}UL)")
+            is WireValue.Len -> lineEnd("len(byteArrayOf(${wireValue.value.joinToString()}))")
+            is WireValue.Group -> if (wireValue.value.isEmpty()) {
+                lineEnd("group(emptyList())")
+            } else {
+                // This generated code is going to look ugly, but unknown group fields are an edge case we don't expect
+                // to see often. So it's not worth the effort to make this prettier.
+                lineEnd("group(listOf(").indented {
+                    wireValue.value.forEach { field ->
+                        lineBegin()
+                        writeUnknownField(field)
+                        line(",")
+                    }
+                }.line("))")
+            }
+
+            WireValue.EndGroup -> lineEnd("endGroup()")
+        }
     }
 
     protected fun writeMessageExtensions(type: File.Type.Message) {

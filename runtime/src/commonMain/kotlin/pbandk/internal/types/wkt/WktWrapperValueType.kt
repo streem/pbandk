@@ -7,7 +7,7 @@ import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.BinaryFieldValueEncoder
 import pbandk.binary.WireType
 import pbandk.binary.tryDecodeField
-import pbandk.internal.binary.WireValue
+import pbandk.binary.WireValue
 import pbandk.internal.types.primitive.PrimitiveValueType
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.json.JsonFieldValueEncoder

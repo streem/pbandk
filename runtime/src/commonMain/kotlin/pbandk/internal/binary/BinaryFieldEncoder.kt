@@ -1,6 +1,7 @@
 package pbandk.internal.binary
 
 import pbandk.binary.BinaryFieldValueEncoder
+import pbandk.binary.WireValue
 import pbandk.internal.binary.kotlin.WireWriter
 
 internal class BinaryFieldEncoder(wireWriter: WireWriter) {
