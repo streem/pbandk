@@ -23,6 +23,10 @@ class IgnoreUnknownFieldsTest {
             TestAllTypesProto3.decodeFromJsonString(json)
         }
 
+        // With [ignoreUnknownFieldsInInput], a known enum field with an unknown enum string value should be ignored.
+        // The field will keep its default value.
+        val expected
+
         // With [ignoreUnknownFieldsInInput], the enum field should be parsed as an UNRECOGNIZED value during decoding
         // if it contains an unknown value.
         val expected = TestAllTypesProto3 {

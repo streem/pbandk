@@ -52,6 +52,7 @@ public data class JsonConfig(
      */
     val typeRegistry: TypeRegistry = TypeRegistry.EMPTY,
 ) {
+    // TODO: document the effect of each option
     internal enum class UnrecognizedEnumValueBehavior {
         Keep,
         KeepOnlyStringValues,

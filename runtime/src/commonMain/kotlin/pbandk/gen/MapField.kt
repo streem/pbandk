@@ -26,7 +26,44 @@ public interface MapField<K : Any, V : Any> : Map<K, V> {
 
     @PublicForGeneratedCode
     public companion object {
-        private val Empty = MapFieldImpl(MapFieldEntryCompanion(Nothing, Nothing), emptySet())
+        private val Empty = MapFieldImpl(object : Message.Companion<Entry<kotlin.Nothing, kotlin.Nothing>>() {
+            private val messageMetadata = MessageMetadata(
+                fullName = "MapFieldEntry",
+                syntax = Syntax.PROTO3,
+            )
+
+            override val descriptor: MessageDescriptor<Entry<kotlin.Nothing, kotlin.Nothing>>
+                get() = MessageDescriptor.of(
+                    metadata = messageMetadata,
+                    messageClass = Entry::class as KClass<MapField.Entry<kotlin.Nothing, kotlin.Nothing>>,
+                    messageCompanion = this,
+                    builder = ::entryBuilder,
+                    fields = listOf(
+                        FieldDescriptor.ofSingular(
+                            messageDescriptor = this::descriptor,
+                            messageMetadata = messageMetadata,
+                            name = "key",
+                            jsonName = "key",
+                            number = 1,
+                            valueType = Nothing,
+                            value = Entry<kotlin.Nothing, kotlin.Nothing>::key,
+                            mutableValue = MutableMapField.MutableEntry<kotlin.Nothing, kotlin.Nothing>::key,
+                        ),
+                        FieldDescriptor.ofSingular(
+                            messageDescriptor = this::descriptor,
+                            messageMetadata = messageMetadata,
+                            name = "value",
+                            jsonName = "value",
+                            number = 2,
+                            valueType = Nothing,
+                            value = Entry<kotlin.Nothing, kotlin.Nothing>::value,
+                            mutableValue = MutableMapField.MutableEntry<kotlin.Nothing, kotlin.Nothing>::value,
+                        ),
+                    )
+                )
+            override val defaultInstance: Entry<kotlin.Nothing, kotlin.Nothing>
+                get() = TODO("Not yet implemented")
+        }, emptySet())
 
         /**
          * Returns a singleton empty map regardless of the type variables.
