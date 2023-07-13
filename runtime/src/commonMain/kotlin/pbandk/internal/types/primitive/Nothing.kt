@@ -9,7 +9,7 @@ import pbandk.types.ValueType
 import kotlin.String
 
 /**
- * This object only exists to make it easier to define [pbandk.gen.MapField.empty] and [pbandk.gen.ListField.empty]. It
+ * This object only exists to make it easier to define [pbandk.gen.ListField.empty]. It
  * should not be used for other purposes.
  */
 internal object Nothing : ValueType<Nothing> {

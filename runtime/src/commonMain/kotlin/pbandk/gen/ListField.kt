@@ -8,7 +8,7 @@ import pbandk.types.ValueType
 
 @PublicForGeneratedCode
 public class ListField<T : Any> internal constructor(
-    internal val valueType: ValueType<T>,
+    private val valueType: ValueType<T>,
     private val list: ArrayList<T>,
 ) : List<T> by list {
     public constructor(valueType: ValueType<T>, list: Collection<T>) : this(valueType, ArrayList(list))
