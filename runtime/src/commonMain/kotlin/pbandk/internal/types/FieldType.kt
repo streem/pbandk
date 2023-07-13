@@ -463,28 +463,27 @@ internal sealed class FieldType<KotlinType> {
                 if (entryValue is Message.Enum && entryValue.value == null) return@forEach
 
                 encoder.encodeField(entryTag) { valueEncoder ->
-                    if (entry is MapField.Entry<K, V>) {
-                        entry.descriptor.messageValueType.encodeToBinary(entry, valueEncoder)
-                    } else {
-                        val mapFieldEntry = MutableMapFieldEntry(entry.key, entry.value, entryCompanion)
-                        mapFieldEntry.descriptor.messageValueType.encodeToBinary(mapFieldEntry, valueEncoder)
-//                        val keySize = entry.key
-//                            .takeIf { !keyType.isDefaultValue(it) }
-//                            ?.let { Tag.size(1) + keyType.binarySize(it) }
-//                            ?: 0
-//                        val valueSize = entry.value
-//                            .takeIf { !valueType.isDefaultValue(it) }
-//                            ?.let { Tag.size(2) + valueType.binarySize(it) }
-//                            ?: 0
-//                        valueEncoder.encodeLenFields(keySize + valueSize) { fieldEncoder ->
-//                            if (!keyType.isDefaultValue(entry.key)) {
-//                                fieldEncoder.encodeField(keyTag) { keyType.encodeToBinary(entry.key, it) }
-//                            }
-//                            if (!valueType.isDefaultValue(entry.value)) {
-//                                fieldEncoder.encodeField(valueTag) { valueType.encodeToBinary(entry.value, it) }
-//                            }
-//                        }
-                    }
+                    entryCompanion.descriptor.messageValueType.encodeToBinary(
+                        entry as? MapField.Entry<K, V>
+                            ?: MutableMapFieldEntry(entry.key, entry.value, entryCompanion.descriptor),
+                        valueEncoder
+                    )
+                    //                        val keySize = entry.key
+                    //                            .takeIf { !keyType.isDefaultValue(it) }
+                    //                            ?.let { Tag.size(1) + keyType.binarySize(it) }
+                    //                            ?: 0
+                    //                        val valueSize = entry.value
+                    //                            .takeIf { !valueType.isDefaultValue(it) }
+                    //                            ?.let { Tag.size(2) + valueType.binarySize(it) }
+                    //                            ?: 0
+                    //                        valueEncoder.encodeLenFields(keySize + valueSize) { fieldEncoder ->
+                    //                            if (!keyType.isDefaultValue(entry.key)) {
+                    //                                fieldEncoder.encodeField(keyTag) { keyType.encodeToBinary(entry.key, it) }
+                    //                            }
+                    //                            if (!valueType.isDefaultValue(entry.value)) {
+                    //                                fieldEncoder.encodeField(valueTag) { valueType.encodeToBinary(entry.value, it) }
+                    //                            }
+                    //                        }
                 }
             }
         }
