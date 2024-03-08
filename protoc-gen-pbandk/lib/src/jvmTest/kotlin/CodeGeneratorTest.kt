@@ -59,6 +59,20 @@ class CodeGeneratorTest {
     }
 
     @Test
+    fun testOneOf_Enum_SameNameField() {
+        val result = compileProto("oneof_enum_same_name.proto")
+
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+
+        // Ensure the oneof with the same name as its containing message was generated correctly
+        val actionClazz = result.classLoader.loadClass("foobar.Action")
+
+        // Ensure the message with a same named enum in the message was generated correctly
+        val enumClazz = actionClazz.classLoader.loadClass("foobar.Action\$ActionV1").kotlin
+        enumClazz.declaredMemberProperties.single { it.name == "type" }
+    }
+
+    @Test
     fun testKotlinBuiltinNames() {
         val result = compileProto("kotlin_builtin_names.proto")
         assertEquals(ExitCode.OK, result.exitCode, result.messages)

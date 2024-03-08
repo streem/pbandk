@@ -1,0 +1,15 @@
+syntax = "proto3";
+package foobar;
+
+
+message Action {
+  oneof action {
+    ActionV1 action_v1 = 1;
+  }
+  message ActionV1 {
+    Type type = 1;
+    enum Type {
+      TYPE_UNSPECIFIED = 0;
+    }
+  }
+}
