@@ -17,9 +17,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-18.04
+          - os: ubuntu-22.04
             os-type: linux
-          - os: macos-10.15
+          - os: macos-12
             os-type: macos
       fail-fast: false
     name: Build (${{ matrix.os-type }})
@@ -47,6 +47,12 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: ${{ env.JAVA_VERSION }}
+
+      - name: Install dependencies needed by native build
+        if: matrix.os-type == 'linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libtinfo5
 
       - name: Build project and run tests
         run: |
@@ -161,9 +167,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-18.04
+          - os: ubuntu-22.04
             os-type: linux
-          - os: macos-10.15
+          - os: macos-12
             os-type: macos
       fail-fast: false
     name: Build conformance test runner (${{ matrix.os-type }})
@@ -195,16 +201,16 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-18.04
+          - os: ubuntu-22.04
             os-type: linux
             platform: jvm
-          - os: ubuntu-18.04
+          - os: ubuntu-22.04
             os-type: linux
             platform: js
-          - os: ubuntu-18.04
+          - os: ubuntu-22.04
             os-type: linux
             platform: linux
-          - os: macos-10.15
+          - os: macos-12
             os-type: macos
             platform: macos
       fail-fast: false
@@ -223,6 +229,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ env.NODEJS_VERSION }}
+
+      - name: Install dependencies needed by native build
+        if: matrix.platform == 'linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libtinfo5
 
       - name: Cache protobuf conformance-test-runner ${{ env.PROTOBUF_CONFORMANCE_VERSION }}
         uses: actions/cache@v2
@@ -246,7 +258,7 @@ jobs:
   build-examples:
     needs: build
     name: Build examples
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout the repo
