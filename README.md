@@ -36,7 +36,9 @@ Read below for more information and see the [examples](examples).
 
 This project is currently in beta. It has the core set of protobuf features implemented and is being used in production. But it is still under active development and new versions might introduce backwards-incompatible changes to support new features or to improve the library's usability in Kotlin. Pull requests are welcome for any of the "Not Yet Implemented" features above.
 
-This project follows semantic versioning. After v1.0.0 is released (mid-2022 at the earliest), future versions will preserve backwards compatibility.
+This project follows semantic versioning. After v1.0.0 is released, future versions will preserve backwards compatibility.
+
+The project currently has a single maintainer (@garyp) working on it in his spare time. Contributors who would like to become additional maintainers are highly welcome. Your contributions don't have to be in the form of code and could also be documentation improvements, issue triage, community outreach, etc.
 
 ## Summary
 
