@@ -4,7 +4,7 @@ package pbandk.testpb
 
 @pbandk.Export
 public sealed class Proto3PresenceEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?): Boolean = other is Proto3PresenceEnum && other.value == value
+    override fun equals(other: kotlin.Any?): Boolean = other is pbandk.testpb.Proto3PresenceEnum && other.value == value
     override fun hashCode(): Int = value.hashCode()
     override fun toString(): String = "Proto3PresenceEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
 
@@ -12,10 +12,10 @@ public sealed class Proto3PresenceEnum(override val value: Int, override val nam
     public object PROTO3_PRESENCE_ENUM_SPECIFIED : Proto3PresenceEnum(1, "PROTO3_PRESENCE_ENUM_SPECIFIED")
     public class UNRECOGNIZED(value: Int) : Proto3PresenceEnum(value)
 
-    public companion object : pbandk.Message.Enum.Companion<Proto3PresenceEnum> {
-        public val values: List<Proto3PresenceEnum> by lazy { listOf(PROTO3_PRESENCE_ENUM_UNSPECIFIED, PROTO3_PRESENCE_ENUM_SPECIFIED) }
-        override fun fromValue(value: Int): Proto3PresenceEnum = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String): Proto3PresenceEnum = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Proto3PresenceEnum with name: $name")
+    public companion object : pbandk.Message.Enum.Companion<pbandk.testpb.Proto3PresenceEnum> {
+        public val values: List<pbandk.testpb.Proto3PresenceEnum> by lazy { listOf(PROTO3_PRESENCE_ENUM_UNSPECIFIED, PROTO3_PRESENCE_ENUM_SPECIFIED) }
+        override fun fromValue(value: Int): pbandk.testpb.Proto3PresenceEnum = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+        override fun fromName(name: String): pbandk.testpb.Proto3PresenceEnum = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Proto3PresenceEnum with name: $name")
     }
 }
 

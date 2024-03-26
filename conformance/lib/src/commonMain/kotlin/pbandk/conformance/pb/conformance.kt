@@ -4,7 +4,7 @@ package pbandk.conformance.pb
 
 @pbandk.Export
 public sealed class WireFormat(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?): Boolean = other is WireFormat && other.value == value
+    override fun equals(other: kotlin.Any?): Boolean = other is pbandk.conformance.pb.WireFormat && other.value == value
     override fun hashCode(): Int = value.hashCode()
     override fun toString(): String = "WireFormat.${name ?: "UNRECOGNIZED"}(value=$value)"
 
@@ -15,16 +15,16 @@ public sealed class WireFormat(override val value: Int, override val name: Strin
     public object TEXT_FORMAT : WireFormat(4, "TEXT_FORMAT")
     public class UNRECOGNIZED(value: Int) : WireFormat(value)
 
-    public companion object : pbandk.Message.Enum.Companion<WireFormat> {
-        public val values: List<WireFormat> by lazy { listOf(UNSPECIFIED, PROTOBUF, JSON, JSPB, TEXT_FORMAT) }
-        override fun fromValue(value: Int): WireFormat = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String): WireFormat = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No WireFormat with name: $name")
+    public companion object : pbandk.Message.Enum.Companion<pbandk.conformance.pb.WireFormat> {
+        public val values: List<pbandk.conformance.pb.WireFormat> by lazy { listOf(UNSPECIFIED, PROTOBUF, JSON, JSPB, TEXT_FORMAT) }
+        override fun fromValue(value: Int): pbandk.conformance.pb.WireFormat = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+        override fun fromName(name: String): pbandk.conformance.pb.WireFormat = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No WireFormat with name: $name")
     }
 }
 
 @pbandk.Export
 public sealed class TestCategory(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?): Boolean = other is TestCategory && other.value == value
+    override fun equals(other: kotlin.Any?): Boolean = other is pbandk.conformance.pb.TestCategory && other.value == value
     override fun hashCode(): Int = value.hashCode()
     override fun toString(): String = "TestCategory.${name ?: "UNRECOGNIZED"}(value=$value)"
 
@@ -36,10 +36,10 @@ public sealed class TestCategory(override val value: Int, override val name: Str
     public object TEXT_FORMAT_TEST : TestCategory(5, "TEXT_FORMAT_TEST")
     public class UNRECOGNIZED(value: Int) : TestCategory(value)
 
-    public companion object : pbandk.Message.Enum.Companion<TestCategory> {
-        public val values: List<TestCategory> by lazy { listOf(UNSPECIFIED_TEST, BINARY_TEST, JSON_TEST, JSON_IGNORE_UNKNOWN_PARSING_TEST, JSPB_TEST, TEXT_FORMAT_TEST) }
-        override fun fromValue(value: Int): TestCategory = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String): TestCategory = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No TestCategory with name: $name")
+    public companion object : pbandk.Message.Enum.Companion<pbandk.conformance.pb.TestCategory> {
+        public val values: List<pbandk.conformance.pb.TestCategory> by lazy { listOf(UNSPECIFIED_TEST, BINARY_TEST, JSON_TEST, JSON_IGNORE_UNKNOWN_PARSING_TEST, JSPB_TEST, TEXT_FORMAT_TEST) }
+        override fun fromValue(value: Int): pbandk.conformance.pb.TestCategory = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+        override fun fromName(name: String): pbandk.conformance.pb.TestCategory = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No TestCategory with name: $name")
     }
 }
 
