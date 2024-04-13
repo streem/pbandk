@@ -4,7 +4,7 @@ package pbandk.wkt
 
 @pbandk.Export
 public sealed class Syntax(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?): Boolean = other is Syntax && other.value == value
+    override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.Syntax && other.value == value
     override fun hashCode(): Int = value.hashCode()
     override fun toString(): String = "Syntax.${name ?: "UNRECOGNIZED"}(value=$value)"
 
@@ -12,10 +12,10 @@ public sealed class Syntax(override val value: Int, override val name: String? =
     public object PROTO3 : Syntax(1, "SYNTAX_PROTO3")
     public class UNRECOGNIZED(value: Int) : Syntax(value)
 
-    public companion object : pbandk.Message.Enum.Companion<Syntax> {
-        public val values: List<Syntax> by lazy { listOf(PROTO2, PROTO3) }
-        override fun fromValue(value: Int): Syntax = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String): Syntax = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Syntax with name: $name")
+    public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.Syntax> {
+        public val values: List<pbandk.wkt.Syntax> by lazy { listOf(PROTO2, PROTO3) }
+        override fun fromValue(value: Int): pbandk.wkt.Syntax = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+        override fun fromName(name: String): pbandk.wkt.Syntax = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Syntax with name: $name")
     }
 }
 
@@ -245,7 +245,7 @@ public data class Field(
     }
 
     public sealed class Kind(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?): Boolean = other is Field.Kind && other.value == value
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.Field.Kind && other.value == value
         override fun hashCode(): Int = value.hashCode()
         override fun toString(): String = "Field.Kind.${name ?: "UNRECOGNIZED"}(value=$value)"
 
@@ -270,15 +270,15 @@ public data class Field(
         public object TYPE_SINT64 : Kind(18, "TYPE_SINT64")
         public class UNRECOGNIZED(value: Int) : Kind(value)
 
-        public companion object : pbandk.Message.Enum.Companion<Field.Kind> {
-            public val values: List<Field.Kind> by lazy { listOf(TYPE_UNKNOWN, TYPE_DOUBLE, TYPE_FLOAT, TYPE_INT64, TYPE_UINT64, TYPE_INT32, TYPE_FIXED64, TYPE_FIXED32, TYPE_BOOL, TYPE_STRING, TYPE_GROUP, TYPE_MESSAGE, TYPE_BYTES, TYPE_UINT32, TYPE_ENUM, TYPE_SFIXED32, TYPE_SFIXED64, TYPE_SINT32, TYPE_SINT64) }
-            override fun fromValue(value: Int): Field.Kind = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-            override fun fromName(name: String): Field.Kind = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Kind with name: $name")
+        public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.Field.Kind> {
+            public val values: List<pbandk.wkt.Field.Kind> by lazy { listOf(TYPE_UNKNOWN, TYPE_DOUBLE, TYPE_FLOAT, TYPE_INT64, TYPE_UINT64, TYPE_INT32, TYPE_FIXED64, TYPE_FIXED32, TYPE_BOOL, TYPE_STRING, TYPE_GROUP, TYPE_MESSAGE, TYPE_BYTES, TYPE_UINT32, TYPE_ENUM, TYPE_SFIXED32, TYPE_SFIXED64, TYPE_SINT32, TYPE_SINT64) }
+            override fun fromValue(value: Int): pbandk.wkt.Field.Kind = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.wkt.Field.Kind = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Kind with name: $name")
         }
     }
 
     public sealed class Cardinality(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?): Boolean = other is Field.Cardinality && other.value == value
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.Field.Cardinality && other.value == value
         override fun hashCode(): Int = value.hashCode()
         override fun toString(): String = "Field.Cardinality.${name ?: "UNRECOGNIZED"}(value=$value)"
 
@@ -288,10 +288,10 @@ public data class Field(
         public object REPEATED : Cardinality(3, "CARDINALITY_REPEATED")
         public class UNRECOGNIZED(value: Int) : Cardinality(value)
 
-        public companion object : pbandk.Message.Enum.Companion<Field.Cardinality> {
-            public val values: List<Field.Cardinality> by lazy { listOf(UNKNOWN, OPTIONAL, REQUIRED, REPEATED) }
-            override fun fromValue(value: Int): Field.Cardinality = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-            override fun fromName(name: String): Field.Cardinality = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Cardinality with name: $name")
+        public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.Field.Cardinality> {
+            public val values: List<pbandk.wkt.Field.Cardinality> by lazy { listOf(UNKNOWN, OPTIONAL, REQUIRED, REPEATED) }
+            override fun fromValue(value: Int): pbandk.wkt.Field.Cardinality = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.wkt.Field.Cardinality = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Cardinality with name: $name")
         }
     }
 }

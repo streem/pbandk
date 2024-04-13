@@ -4,7 +4,7 @@ package pbandk.testpb
 
 @pbandk.Export
 public sealed class KnownRegex(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?): Boolean = other is KnownRegex && other.value == value
+    override fun equals(other: kotlin.Any?): Boolean = other is pbandk.testpb.KnownRegex && other.value == value
     override fun hashCode(): Int = value.hashCode()
     override fun toString(): String = "KnownRegex.${name ?: "UNRECOGNIZED"}(value=$value)"
 
@@ -13,10 +13,10 @@ public sealed class KnownRegex(override val value: Int, override val name: Strin
     public object HTTP_HEADER_VALUE : KnownRegex(2, "HTTP_HEADER_VALUE")
     public class UNRECOGNIZED(value: Int) : KnownRegex(value)
 
-    public companion object : pbandk.Message.Enum.Companion<KnownRegex> {
-        public val values: List<KnownRegex> by lazy { listOf(UNKNOWN, HTTP_HEADER_NAME, HTTP_HEADER_VALUE) }
-        override fun fromValue(value: Int): KnownRegex = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String): KnownRegex = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No KnownRegex with name: $name")
+    public companion object : pbandk.Message.Enum.Companion<pbandk.testpb.KnownRegex> {
+        public val values: List<pbandk.testpb.KnownRegex> by lazy { listOf(UNKNOWN, HTTP_HEADER_NAME, HTTP_HEADER_VALUE) }
+        override fun fromValue(value: Int): pbandk.testpb.KnownRegex = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+        override fun fromName(name: String): pbandk.testpb.KnownRegex = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No KnownRegex with name: $name")
     }
 }
 
