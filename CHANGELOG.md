@@ -21,11 +21,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 [0.14.3]: https://github.com/streem/pbandk/compare/v0.14.2...HEAD
 
-### Added
-
-### Changed
-
 ### Fixed
+
+* When an enum was defined inside a message that also contained a oneof with the same name as the message name, then the generated code for the enum declaration would fail to compile. This now works. (PR [#255]) (thanks @TheMerski)
+
+[#255]: https://github.com/streem/pbandk/pull/255
 
 
 ## [0.14.2] - 2022-11-18
