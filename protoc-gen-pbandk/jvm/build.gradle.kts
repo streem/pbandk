@@ -26,7 +26,9 @@ tasks.withType<KotlinCompile> {
 
 val bootJar by tasks.getting(BootJar::class) {
     archiveClassifier.set("jvm8")
-    launchScript()
+    launchScript {
+		script = file("launch.script")
+	}
 }
 
 publishing {
