@@ -30,8 +30,10 @@ class CodeGeneratorTest {
         // Ensure classes and fields were generated successfully
         val message1Clazz = result.classLoader.loadClass("foobar.Message1").kotlin
         val message2Clazz = result.classLoader.loadClass("foobar.Message2").kotlin
+        val message3Clazz = result.classLoader.loadClass("foobar.Variable").kotlin
         message1Clazz.declaredMemberProperties.single { it.name == "intVal" }
         message2Clazz.declaredMemberProperties.single { it.name == "strVal" }
+        message3Clazz.declaredMemberProperties.single { it.name == "name" }
     }
 
     @Test
@@ -137,6 +139,8 @@ class CodeGeneratorTest {
         // Ensure classes and fields were generated successfully
         result.classLoader.loadClass("newname.pkg.Message1").kotlin
         result.classLoader.loadClass("newname.pkg.Message2").kotlin
+        result.classLoader.loadClass("newname.pkg.Variable\$variable_1").kotlin
+        result.classLoader.loadClass("newname.pkg.Variable\$class_").kotlin
 
         assertFails { result.classLoader.loadClass("foobar.Message1").kotlin }
     }
@@ -152,6 +156,8 @@ class CodeGeneratorTest {
         // New package name should prefix the existing one.
         result.classLoader.loadClass("newname.pkg.foobar.Message1").kotlin
         result.classLoader.loadClass("newname.pkg.foobar.Message2").kotlin
+        result.classLoader.loadClass("newname.pkg.foobar.Variable\$variable_1").kotlin
+        result.classLoader.loadClass("newname.pkg.foobar.Variable\$class_").kotlin
 
         assertFails { result.classLoader.loadClass("foobar.Message1").kotlin }
     }
@@ -166,6 +172,8 @@ class CodeGeneratorTest {
         // New package name should overwrite the old one
         result.classLoader.loadClass("newname.pkg.Message1").kotlin
         result.classLoader.loadClass("newname.pkg.Message2").kotlin
+        result.classLoader.loadClass("newname.pkg.Variable\$variable_1").kotlin
+        result.classLoader.loadClass("newname.pkg.Variable\$class_").kotlin
 
         assertFails { result.classLoader.loadClass("foobar.Message1").kotlin }
     }
@@ -180,6 +188,8 @@ class CodeGeneratorTest {
         // New package name shouldn't change.
         result.classLoader.loadClass("foobar.Message1").kotlin
         result.classLoader.loadClass("foobar.Message2").kotlin
+        result.classLoader.loadClass("foobar.Variable\$variable_1").kotlin
+        result.classLoader.loadClass("foobar.Variable\$class_").kotlin
 
 
         assertFails { result.classLoader.loadClass("newname.pkg.Message1").kotlin }
