@@ -9,6 +9,7 @@ public open class CodeGenerator(
     public val params: Map<String, String>
 ) {
     protected val visibility: String = params["visibility"] ?: "public"
+    protected val requiredFieldNumber: Int? = params["required_field_extension_number"]?.toIntOrNull()
 
     protected val bld: StringBuilder = StringBuilder()
     protected var indent: String = ""
@@ -39,7 +40,7 @@ public open class CodeGenerator(
                 addDeprecatedAnnotation(field)
                 line(
                     "val ${field.extendeeKotlinType}.${field.kotlinFieldName}: ${
-                        field.kotlinValueType(true)
+                        field.kotlinValueType()
                     } "
                 ).indented {
                     line("get() = getExtension(${file.kotlinPackageName}.${field.kotlinFieldName})")
@@ -155,7 +156,7 @@ public open class CodeGenerator(
         if (field is File.Field.Numbered.Standard && field.required) {
             lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}")
         } else {
-            lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueType(true)}")
+            lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueType()}")
             lineMid(" = ${field.defaultValue}")
         }
         return this
@@ -507,7 +508,12 @@ public open class CodeGenerator(
     protected val File.Type.Message.mapEntryValueKotlinType: String?
         get() = if (!mapEntry) null else (fields[1] as File.Field.Numbered.Standard).kotlinValueType(true)
 
-    protected fun File.Field.Numbered.kotlinValueType(allowNulls: Boolean): String = when (this) {
+    protected val File.Field.Numbered.allowNulls: Boolean
+        get() =  requiredFieldNumber?.let {
+            // 1 means `required = true` so we can't allow nulls
+            this.options.unknownFields[it]?.values?.get(0)?.rawBytes?.array?.get(0)?.toInt() != 1
+        } ?: true
+    protected fun File.Field.Numbered.kotlinValueType(allowNulls: Boolean = this.allowNulls): String = when (this) {
         is File.Field.Numbered.Standard -> kotlinValueType(allowNulls)
         is File.Field.Numbered.Wrapper -> kotlinValueType(allowNulls)
     }
@@ -558,7 +564,7 @@ public open class CodeGenerator(
                 else "var $kotlinFieldName: pbandk.MessageMap.Builder<" +
                     "${mapEntry.mapEntryKeyKotlinType}, ${mapEntry.mapEntryValueKotlinType}>? = null"
             }
-            requiresExplicitTypeWithVal -> "var $kotlinFieldName: ${kotlinValueType(true)} = ${defaultValue()}"
+            requiresExplicitTypeWithVal -> "var $kotlinFieldName: ${kotlinValueType()} = ${defaultValue()}"
             else -> "var $kotlinFieldName = ${defaultValue()}"
         }
     protected val File.Field.Numbered.Standard.decodeWithVarDone: String
@@ -576,12 +582,12 @@ public open class CodeGenerator(
         else -> kotlinQualifiedTypeName
     }
 
-    protected fun File.Field.Numbered.Standard.defaultValue(allowNulls: Boolean = true): String = when {
+    protected fun File.Field.Numbered.Standard.defaultValue(allowNulls: Boolean = this.allowNulls): String = when {
         map -> "emptyMap()"
         repeated -> "emptyList()"
         allowNulls && hasPresence -> "null"
         type == File.Field.Type.ENUM -> "$kotlinQualifiedTypeName.fromValue(0)"
-        else -> type.defaultValue
+        else -> type.defaultValue(allowNulls, kotlinQualifiedTypeName)
     }
     protected val File.Field.Numbered.Standard.requiresExplicitTypeWithVal: Boolean
         get() = repeated || hasPresence || type.requiresExplicitTypeWithVal
@@ -648,8 +654,7 @@ public open class CodeGenerator(
             File.Field.Type.UINT32 -> "Int"
             File.Field.Type.UINT64 -> "Long"
         }
-    protected val File.Field.Type.defaultValue: String
-        get() = when (this) {
+    protected fun File.Field.Type.defaultValue(allowNulls: Boolean, kotlinQualifiedTypeName: String): String = when (this) {
             File.Field.Type.BOOL -> "false"
             File.Field.Type.BYTES -> "pbandk.ByteArr.empty"
             File.Field.Type.DOUBLE -> "0.0"
@@ -659,7 +664,7 @@ public open class CodeGenerator(
             File.Field.Type.FIXED64, File.Field.Type.INT64, File.Field.Type.SFIXED64,
             File.Field.Type.SINT64, File.Field.Type.UINT64 -> "0L"
             File.Field.Type.FLOAT -> "0.0F"
-            File.Field.Type.MESSAGE -> "null"
+            File.Field.Type.MESSAGE  -> if (allowNulls) "null" else  "$kotlinQualifiedTypeName()"
             File.Field.Type.STRING -> "\"\""
         }
     protected val File.Field.Type.requiresExplicitTypeWithVal: Boolean

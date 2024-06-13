@@ -1,0 +1,73 @@
+// Examples taken from https://developers.google.com/protocol-buffers/docs/proto#customoptions
+syntax = "proto3";
+package foobar;
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FileOptions {
+  optional string my_file_option = 50000;
+}
+extend google.protobuf.MessageOptions {
+  optional int32 my_message_option = 50001;
+}
+extend google.protobuf.FieldOptions {
+  optional float my_field_option = 50002;
+  optional bool is_required = 50008;
+}
+extend google.protobuf.OneofOptions {
+  optional int64 my_oneof_option = 50003;
+}
+extend google.protobuf.EnumOptions {
+  optional bool my_enum_option = 50004;
+}
+extend google.protobuf.EnumValueOptions {
+  optional uint32 my_enum_value_option = 50005;
+}
+extend google.protobuf.ServiceOptions {
+  optional MyEnum my_service_option = 50006;
+}
+extend google.protobuf.MethodOptions {
+  optional MyMessage my_method_option = 50007;
+}
+
+option (my_file_option) = "Hello world!";
+
+message MyMessage {
+  option (my_message_option) = 1234;
+
+  optional int32 foo = 1 [(my_field_option) = 4.5];
+  optional string bar = 2;
+  oneof qux {
+    option (my_oneof_option) = 42;
+
+    string quux = 3;
+  }
+}
+
+enum MyEnum {
+  option (my_enum_option) = true;
+
+  FOO = 0 [(my_enum_value_option) = 321];
+  BAR = 1;
+}
+
+message RequestType {
+  MyMessage my_not_required_field = 1 [(is_required) = false];
+  MyMessage my_required_field = 2 [(is_required) = true];
+  repeated MyMessage my_not_required_fields = 3 [(is_required) = false];
+  repeated MyMessage my_required_fields = 4 [(is_required) = true];
+  map<int32, MyMessage> my_not_required_map = 5 [(is_required) = false];
+  map<int32, MyMessage> my_required_map = 6 [(is_required) = true];
+}
+message ResponseType {}
+
+service MyService {
+  option (my_service_option) = FOO;
+
+  rpc MyMethod(RequestType) returns(ResponseType) {
+    // Note:  my_method_option has type MyMessage.  We can set each field
+    //   within it using a separate "option" line.
+    option (my_method_option).foo = 567;
+    option (my_method_option).bar = "Some string";
+  }
+}

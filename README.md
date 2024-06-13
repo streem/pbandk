@@ -320,6 +320,19 @@ comma-separated options can be added to `--pbandk_out` before the colon and out 
 
 *   To log debug logs during generation, `log=debug` can be set as well.
 
+*   **EXPERIMENTAL**: To generate code with not-null (required) message types, you can use a custom boolean option
+    by extending `google.protobuf.FieldOptions` to include a `bool` field such as `is_required` and then setting
+    `required_field_extension_number`. 
+ 
+    Note that this will invoke the default constructor for messages so if there is a circular dependency,
+    it is user's responsibility to omit it.
+
+    ```
+    protoc --pbandk_out=required_field_extension_number=50008:src/main/kotlin sample.proto
+    ```
+    
+    You can refer to `protoc-gen-pbandk/lib/src/jvmTest/resources/protos/custom_options.proto` as an example.
+
 Multiple options can be added to a single `--pbandk_out` argument by separating them with commas.
 
 In addition to running `protoc` manually, the
