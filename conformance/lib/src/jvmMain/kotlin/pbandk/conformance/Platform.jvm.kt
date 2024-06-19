@@ -12,8 +12,8 @@ import pbandk.encodeToStream
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
-actual object Platform {
-    actual fun stderrPrintln(str: String) = System.err.println(str)
+private object JvmPlatform : Platform {
+    override fun stderrPrintln(str: String) = System.err.println(str)
 
     private val stdinBuf = System.`in`.buffered()
 
@@ -29,7 +29,7 @@ actual object Platform {
         }
     }
 
-    actual suspend fun <T : Message> stdinReadLengthDelimitedMessage(companion: Message.Companion<T>): T? =
+    override suspend fun <T : Message> stdinReadLengthDelimitedMessage(companion: Message.Companion<T>): T? =
         withContext(Dispatchers.IO) {
             val size = stdinReadIntLE() ?: return@withContext null
             debug { "Reading $size bytes" }
@@ -50,7 +50,7 @@ actual object Platform {
 
     private fun stdoutWriteFull(arr: ByteArray) = System.out.write(arr)
 
-    actual fun <T : Message> stdoutWriteLengthDelimitedMessage(message: T) {
+    override fun <T : Message> stdoutWriteLengthDelimitedMessage(message: T) {
         when (val ioImplementation = System.getenv("PBANDK_CONFORMANCE_JVM_IO")) {
             // Default to the ByteArray implementation, which matches the default on the other platforms
             // Use `encodeToByteArray()` even for "BYTE_BUFFER" because we don't have an `encodeToByteBuffer()` method yet
@@ -74,16 +74,12 @@ actual object Platform {
         }
     }
 
-    actual inline fun <T> doTry(fn: () -> T, errFn: (Any) -> T) = try {
-        fn()
-    } catch (e: Exception) {
-        errFn(e)
-    }
-
-    actual fun runBlockingMain(block: suspend CoroutineScope.() -> Unit) {
+    override fun runBlockingMain(block: suspend CoroutineScope.() -> Unit) {
         System.getenv("PBANDK_CONFORMANCE_JVM_IO")?.let {
             stderrPrintln("Using PBANDK_CONFORMANCE_JVM_IO=$it")
         }
         kotlinx.coroutines.runBlocking(block = block)
     }
 }
+
+actual fun getPlatform(): Platform = JvmPlatform

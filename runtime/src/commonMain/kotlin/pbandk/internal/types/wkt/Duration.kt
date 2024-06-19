@@ -5,16 +5,14 @@ import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.BinaryFieldValueEncoder
 import pbandk.binary.WireType
 import pbandk.binary.tryDecodeField
-import pbandk.internal.Util
+import pbandk.internal.PlatformUtil
 import pbandk.internal.types.MessageValueType
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.json.JsonFieldValueEncoder
 import pbandk.wkt.Duration
 import kotlin.time.Duration.Companion.nanoseconds
 import kotlin.time.Duration.Companion.seconds
-import kotlin.time.ExperimentalTime
 
-@OptIn(ExperimentalTime::class)
 internal object DurationNew : WktValueType<kotlin.time.Duration, Duration> {
     override val companion = Duration
 
@@ -69,7 +67,7 @@ internal object DurationNew : WktValueType<kotlin.time.Duration, Duration> {
 
     override fun encodeToJson(value: kotlin.time.Duration, encoder: JsonFieldValueEncoder) {
         value.toComponents { seconds, nanoseconds ->
-            encoder.encodeString(Util.durationToString(Duration {
+            encoder.encodeString(PlatformUtil.durationToString(Duration {
                 this.seconds = seconds
                 this.nanos = nanoseconds
             }))
@@ -77,7 +75,7 @@ internal object DurationNew : WktValueType<kotlin.time.Duration, Duration> {
     }
 
     override fun encodeMessageToJson(message: Duration, encoder: JsonFieldValueEncoder) {
-        encoder.encodeString(Util.durationToString(message))
+        encoder.encodeString(PlatformUtil.durationToString(message))
     }
 
     override fun encodeToJsonMapKey(value: kotlin.time.Duration) =
@@ -87,7 +85,7 @@ internal object DurationNew : WktValueType<kotlin.time.Duration, Duration> {
         if (decoder !is JsonFieldValueDecoder.String) {
             throw InvalidProtocolBufferException("Unexpected JSON type for google.protobuf.Duration value: ${decoder.wireType.name}")
         }
-        val wktDuration = Util.stringToDuration(decoder.decodeAsString())
+        val wktDuration = PlatformUtil.stringToDuration(decoder.decodeAsString())
         return wktDuration.seconds.seconds
             .plus(wktDuration.nanos.nanoseconds)
     }
@@ -96,7 +94,7 @@ internal object DurationNew : WktValueType<kotlin.time.Duration, Duration> {
         if (decoder !is JsonFieldValueDecoder.String) {
             throw InvalidProtocolBufferException("Unexpected JSON type for google.protobuf.Duration value: ${decoder.wireType.name}")
         }
-        return Util.stringToDuration(decoder.decodeAsString())
+        return PlatformUtil.stringToDuration(decoder.decodeAsString())
     }
 
     override fun decodeFromJsonMapKey(decoder: JsonFieldValueDecoder.String) =
@@ -105,13 +103,13 @@ internal object DurationNew : WktValueType<kotlin.time.Duration, Duration> {
 
 internal object Duration : MessageValueType<Duration>(Duration) {
     override fun encodeToJson(value: Duration, encoder: JsonFieldValueEncoder) {
-        encoder.encodeString(Util.durationToString(value))
+        encoder.encodeString(PlatformUtil.durationToString(value))
     }
 
     override fun decodeFromJson(decoder: JsonFieldValueDecoder): Duration {
         if (decoder !is JsonFieldValueDecoder.String) {
             throw InvalidProtocolBufferException("Unexpected JSON type for google.protobuf.Duration value: ${decoder.wireType.name}")
         }
-        return Util.stringToDuration(decoder.decodeAsString())
+        return PlatformUtil.stringToDuration(decoder.decodeAsString())
     }
 }

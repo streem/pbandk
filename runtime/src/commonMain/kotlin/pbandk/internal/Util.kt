@@ -3,7 +3,7 @@ package pbandk.internal
 import pbandk.wkt.Duration
 import pbandk.wkt.Timestamp
 
-internal expect object Util {
+internal interface Util {
     fun utf8len(str: String): Int
 
     fun base64ToBytes(str: String): ByteArray
@@ -15,3 +15,5 @@ internal expect object Util {
     fun durationToString(dur: Duration): String
     fun stringToDuration(str: String): Duration
 }
+
+internal expect val PlatformUtil: Util
