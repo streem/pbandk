@@ -29,22 +29,29 @@
 
 package pbandk.conformance
 
-import platform.posix.*
+import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.cstr
 import kotlinx.cinterop.usePinned
 import kotlinx.cinterop.addressOf
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import pbandk.Message
 import pbandk.decodeFromByteArray
 import pbandk.encodeToByteArray
+import platform.posix.posix_errno
+import platform.posix.read
+import platform.posix.strerror
+import platform.posix.write
 
+@OptIn(ExperimentalForeignApi::class)
 internal class PosixException(val errno: Int) : RuntimeException(
     strerror(errno)?.toString() ?: "Error with unknown errno: $errno"
 )
 
+@OptIn(ExperimentalForeignApi::class)
 actual object Platform {
     actual fun stderrPrintln(str: String) {
         val strn = str + "\n"
@@ -52,7 +59,7 @@ actual object Platform {
         write(2, cstr, cstr.size.toULong())
     }
 
-    private suspend fun stdinReadIntLE() = withContext(Dispatchers.Default) {
+    private suspend fun stdinReadIntLE() = withContext(Dispatchers.IO) {
         ByteArray(4).let {
             if (readBytes(0, it) != 4) null else {
                 it.foldRight(0) { byte, acc ->
@@ -75,7 +82,7 @@ actual object Platform {
         }
     }
 
-    private suspend fun stdinReadFull(size: Int) = withContext(Dispatchers.Default) {
+    private suspend fun stdinReadFull(size: Int) = withContext(Dispatchers.IO) {
         ByteArray(size).also {
             require(readBytes(0, it) == it.size) { "Unable to read full byte array"}
         }

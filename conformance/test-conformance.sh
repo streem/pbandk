@@ -16,8 +16,15 @@ if [ -z "$1" ] || [ "$1" = "js" ]; then
     $CONF_TEST_PATH --enforce_recommended --failure_list $DIR/js/failing_tests.txt $DIR/js/run.sh
 fi
 if [ -z "$1" ] || [ "$1" = "linux" ]; then
-    $CONF_TEST_PATH --enforce_recommended --failure_list $DIR/native/failing_tests.txt $DIR/native/build/bin/linux/conformanceReleaseExecutable/conformance.kexe
+    $CONF_TEST_PATH --enforce_recommended --failure_list $DIR/native/failing_tests.txt $DIR/native/build/bin/linuxX64/conformanceReleaseExecutable/conformance.kexe
 fi
 if [ "$1" = "macos" ]; then
-    $CONF_TEST_PATH --enforce_recommended --failure_list $DIR/native/failing_tests.txt $DIR/native/build/bin/macos/conformanceReleaseExecutable/conformance.kexe
+    if [ -f "$DIR/native/build/bin/macosX64/conformanceReleaseExecutable/conformance.kexe" ]; then
+        $CONF_TEST_PATH --enforce_recommended --failure_list $DIR/native/failing_tests.txt $DIR/native/build/bin/macosX64/conformanceReleaseExecutable/conformance.kexe
+    elif [ -f "$DIR/native/build/bin/macosArm64/conformanceReleaseExecutable/conformance.kexe" ]; then
+        $CONF_TEST_PATH --enforce_recommended --failure_list $DIR/native/failing_tests.txt $DIR/native/build/bin/macosArm64/conformanceReleaseExecutable/conformance.kexe
+    else
+        echo "No binaries found for macosX64 or macosArm64"
+        exit 1
+    fi
 fi

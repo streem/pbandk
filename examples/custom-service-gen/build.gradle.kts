@@ -1,9 +1,9 @@
 plugins {
-    kotlin("jvm") version "1.8.10" apply false
-    id("com.google.protobuf") version "0.9.2" apply false
+    kotlin("jvm") version "1.9.24" apply false
+    id("com.google.protobuf") version "0.9.4" apply false
 }
 
-val pbandkVersion by extra("0.14.4-SNAPSHOT")
+val pbandkVersion by extra("0.15.0-SNAPSHOT")
 
 subprojects {
     repositories {

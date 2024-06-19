@@ -1,11 +1,11 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
     `maven-publish`
     signing
-    id("binary-compatibility-validator")
+    id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
 
 description = "Kotlin runtime library for Protocol Buffers. It is built to work across multiple Kotlin platforms."
@@ -21,13 +21,13 @@ apiValidation {
 kotlin {
     explicitApi()
 
-    android {
+    androidTarget {
         publishAllLibraryVariants()
     }
 
     jvm()
 
-    js(IR) {
+    js {
         browser {}
         nodejs {}
     }
@@ -47,70 +47,71 @@ kotlin {
 
     sourceSets {
         all {
-            languageSettings.optIn("pbandk.ExperimentalProtoJson")
-            languageSettings.optIn("pbandk.ExperimentalProtoReflection")
-            languageSettings.optIn("pbandk.PbandkInternal")
-            languageSettings.optIn("pbandk.PublicForGeneratedCode")
-            languageSettings.optIn("kotlin.RequiresOptIn")
-            languageSettings.optIn("kotlin.js.ExperimentalJsExport")
+            languageSettings {
+                optIn("pbandk.ExperimentalProtoJson")
+                optIn("pbandk.ExperimentalProtoReflection")
+                optIn("pbandk.PbandkInternal")
+                optIn("pbandk.PublicForGeneratedCode")
+                optIn("kotlin.RequiresOptIn")
+                optIn("kotlin.js.ExperimentalJsExport")
+            }
         }
 
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}")
             }
         }
 
-        val commonTest by getting {
+        commonTest {
             dependencies {
                 implementation(kotlin("test"))
                 implementation(project(":test-types"))
             }
         }
 
-        val androidMain by getting {
+        androidMain {
             kotlin.srcDir("src/commonJvmAndroid/kotlin")
             dependencies {
                 api(project(":pbandk-protos"))
             }
         }
 
-        val androidTest by getting {
+        val androidUnitTest by getting {
             dependencies {
                 runtimeOnly("org.robolectric:android-all:${Versions.robolectric}")
             }
         }
 
-        val jvmMain by getting {
+        jvmMain {
             kotlin.srcDir("src/commonJvmAndroid/kotlin")
             dependencies {
                 api(project(":pbandk-protos"))
-            }
-        }
-
-        val nativeMain by creating {
-            dependsOn(commonMain)
-        }
-    }
-
-    targets.withType<KotlinNativeTarget> {
-        val main by compilations.getting {
-            defaultSourceSet {
-                val nativeMain by sourceSets.getting
-                dependsOn(nativeMain)
             }
         }
     }
 }
 
 android {
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    namespace = "pro.streem.pbandk"
 
-    compileSdkVersion(Versions.androidTargetSdk)
+    compileSdk = Versions.androidTargetSdk
     defaultConfig {
-        minSdkVersion(Versions.androidMinSdk)
-        targetSdkVersion(Versions.androidTargetSdk)
+        minSdk = Versions.androidMinSdk
     }
+    testOptions {
+        targetSdk = Versions.androidTargetSdk
+    }
+    lint {
+        targetSdk = Versions.androidTargetSdk
+    }
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = Versions.jvmTarget
+}
+tasks.withType<JavaCompile> {
+    targetCompatibility = Versions.jvmTarget
 }
 
 val extractWellKnownTypeProtos = rootProject.tasks.named<Sync>("extractWellKnownTypeProtos")

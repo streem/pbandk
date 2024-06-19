@@ -7,7 +7,7 @@ plugins {
     kotlin("multiplatform") version Versions.kotlin apply false
     id("com.android.library") version Versions.androidGradlePlugin apply false
     id("org.springframework.boot") version Versions.springBootGradlePlugin apply false
-    id("binary-compatibility-validator") version Versions.binaryCompatibilityValidatorGradlePlugin apply false
+    id("org.jetbrains.kotlinx.binary-compatibility-validator") version Versions.binaryCompatibilityValidatorGradlePlugin apply false
 
     id("com.google.osdetector") version Versions.osDetectorGradlePlugin
 }

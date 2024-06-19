@@ -2,7 +2,7 @@ name: Build and Test
 
 env:
   GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dkotlin.incremental=false --Dkotlin.compiler.execution.strategy=in-process'
-  JAVA_VERSION: 11
+  JAVA_VERSION: 17
   NODEJS_VERSION: 14
   PROTOBUF_CONFORMANCE_VERSION: 3.10.1
 
@@ -135,12 +135,12 @@ jobs:
               build/js \
               conformance/js/failing_tests.txt \
               conformance/js/run.sh \
-              conformance/native/build/bin/linux/conformanceReleaseExecutable/conformance.kexe \
+              conformance/native/build/bin/linuxX64/conformanceReleaseExecutable/conformance.kexe \
               conformance/native/failing_tests.txt
           else
             tar -cvf conformance-test-files-${{ matrix.os-type }}.tar \
               conformance/test-conformance.sh \
-              conformance/native/build/bin/macos/conformanceReleaseExecutable/conformance.kexe \
+              conformance/native/build/bin/macosX64/conformanceReleaseExecutable/conformance.kexe \
               conformance/native/failing_tests.txt
           fi
 

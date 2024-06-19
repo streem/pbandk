@@ -292,12 +292,12 @@ public final class pbandk/UnknownField {
 }
 
 public final class pbandk/UnknownField$Value {
-	public fun <init> (Lpbandk/internal/binary/WireValue;)V
-	public final fun component1 ()Lpbandk/internal/binary/WireValue;
-	public final fun copy (Lpbandk/internal/binary/WireValue;)Lpbandk/UnknownField$Value;
-	public static synthetic fun copy$default (Lpbandk/UnknownField$Value;Lpbandk/internal/binary/WireValue;ILjava/lang/Object;)Lpbandk/UnknownField$Value;
+	public fun <init> (Lpbandk/binary/WireValue;)V
+	public final fun component1 ()Lpbandk/binary/WireValue;
+	public final fun copy (Lpbandk/binary/WireValue;)Lpbandk/UnknownField$Value;
+	public static synthetic fun copy$default (Lpbandk/UnknownField$Value;Lpbandk/binary/WireValue;ILjava/lang/Object;)Lpbandk/UnknownField$Value;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getWireValue ()Lpbandk/internal/binary/WireValue;
+	public final fun getWireValue ()Lpbandk/binary/WireValue;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -311,23 +311,27 @@ public final class pbandk/binary/BinaryFieldValueDecoder$Companion {
 
 public final class pbandk/binary/BinaryFieldValueDecoder$EndGroup : pbandk/binary/BinaryFieldValueDecoder {
 	public static final field INSTANCE Lpbandk/binary/BinaryFieldValueDecoder$EndGroup;
-	public synthetic fun decodeValue$pbandk_runtime ()Lpbandk/internal/binary/WireValue;
+	public final fun decodeValue ()Lpbandk/binary/WireValue$EndGroup;
 }
 
 public abstract class pbandk/binary/BinaryFieldValueDecoder$Group : pbandk/binary/BinaryFieldValueDecoder {
+	public abstract fun decodeValue-27zb7_A ()Ljava/util/List;
 }
 
 public abstract class pbandk/binary/BinaryFieldValueDecoder$I32 : pbandk/binary/BinaryFieldValueDecoder {
+	public abstract fun decodeValue-B5Oo0wU ()I
 }
 
 public abstract class pbandk/binary/BinaryFieldValueDecoder$I64 : pbandk/binary/BinaryFieldValueDecoder {
+	public abstract fun decodeValue-ULIXilM ()J
 }
 
 public final class pbandk/binary/BinaryFieldValueDecoder$Len : pbandk/binary/BinaryFieldValueDecoder {
-	public synthetic fun decodeValue$pbandk_runtime ()Lpbandk/internal/binary/WireValue;
+	public final fun decodeValue-ljb_AeY ()[B
 }
 
 public abstract class pbandk/binary/BinaryFieldValueDecoder$Varint : pbandk/binary/BinaryFieldValueDecoder {
+	public abstract fun decodeValue-BOlSK3s ()J
 }
 
 public final class pbandk/binary/BinaryFieldValueEncoder {
@@ -347,6 +351,123 @@ public final class pbandk/binary/WireType {
 	public fun toString ()Ljava/lang/String;
 	public static fun toString-impl (I)Ljava/lang/String;
 	public final synthetic fun unbox-impl ()I
+}
+
+public abstract interface class pbandk/binary/WireValue {
+	public static final field Companion Lpbandk/binary/WireValue$Companion;
+	public abstract fun getSize ()I
+	public abstract fun getWireType ()I
+}
+
+public final class pbandk/binary/WireValue$Companion {
+	public final fun endGroup ()Lpbandk/binary/WireValue$EndGroup;
+	public final fun group-Ca0IZuk (Ljava/util/List;)Ljava/util/List;
+	public final fun i32-ICaTa0I (I)I
+	public final fun i64-9ZeK-Ds (J)J
+	public final fun len-95ZjclQ ([B)[B
+	public final fun varint-UyPb4Cs (J)J
+}
+
+public final class pbandk/binary/WireValue$EndGroup : pbandk/binary/WireValue {
+	public static final field INSTANCE Lpbandk/binary/WireValue$EndGroup;
+	public fun getSize ()I
+	public fun getWireType ()I
+}
+
+public final class pbandk/binary/WireValue$Group : pbandk/binary/WireValue {
+	public static final synthetic fun box-impl (Ljava/util/List;)Lpbandk/binary/WireValue$Group;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/util/List;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/util/List;Ljava/util/List;)Z
+	public fun getSize ()I
+	public static fun getSize-impl (Ljava/util/List;)I
+	public fun getWireType ()I
+	public static fun getWireType-impl (Ljava/util/List;)I
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/util/List;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/util/List;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/util/List;
+}
+
+public final class pbandk/binary/WireValue$I32 : pbandk/binary/WireValue {
+	public static final field Companion Lpbandk/binary/WireValue$I32$Companion;
+	public static final synthetic fun box-impl (I)Lpbandk/binary/WireValue$I32;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (ILjava/lang/Object;)Z
+	public static final fun equals-impl0 (II)Z
+	public fun getSize ()I
+	public static fun getSize-impl (I)I
+	public fun getWireType ()I
+	public static fun getWireType-impl (I)I
+	public fun hashCode ()I
+	public static fun hashCode-impl (I)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (I)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()I
+}
+
+public final class pbandk/binary/WireValue$I32$Companion {
+}
+
+public final class pbandk/binary/WireValue$I64 : pbandk/binary/WireValue {
+	public static final field Companion Lpbandk/binary/WireValue$I64$Companion;
+	public static final synthetic fun box-impl (J)Lpbandk/binary/WireValue$I64;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (JLjava/lang/Object;)Z
+	public static final fun equals-impl0 (JJ)Z
+	public fun getSize ()I
+	public static fun getSize-impl (J)I
+	public fun getWireType ()I
+	public static fun getWireType-impl (J)I
+	public fun hashCode ()I
+	public static fun hashCode-impl (J)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (J)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()J
+}
+
+public final class pbandk/binary/WireValue$I64$Companion {
+}
+
+public final class pbandk/binary/WireValue$Len : pbandk/binary/WireValue {
+	public static final field Companion Lpbandk/binary/WireValue$Len$Companion;
+	public static final synthetic fun box-impl ([B)Lpbandk/binary/WireValue$Len;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl ([BLjava/lang/Object;)Z
+	public static final fun equals-impl0 ([B[B)Z
+	public fun getSize ()I
+	public static fun getSize-impl ([B)I
+	public fun getWireType ()I
+	public static fun getWireType-impl ([B)I
+	public fun hashCode ()I
+	public static fun hashCode-impl ([B)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl ([B)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()[B
+}
+
+public final class pbandk/binary/WireValue$Len$Companion {
+}
+
+public final class pbandk/binary/WireValue$Varint : pbandk/binary/WireValue {
+	public static final field Companion Lpbandk/binary/WireValue$Varint$Companion;
+	public static final synthetic fun box-impl (J)Lpbandk/binary/WireValue$Varint;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (JLjava/lang/Object;)Z
+	public static final fun equals-impl0 (JJ)Z
+	public fun getSize ()I
+	public static fun getSize-impl (J)I
+	public fun getWireType ()I
+	public static fun getWireType-impl (J)I
+	public fun hashCode ()I
+	public static fun hashCode-impl (J)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (J)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()J
+}
+
+public final class pbandk/binary/WireValue$Varint$Companion {
 }
 
 public abstract class pbandk/gen/AbstractGeneratedMessage : pbandk/Message {
@@ -434,7 +555,7 @@ public final class pbandk/gen/ListField : java/util/List, kotlin/jvm/internal/ma
 public abstract interface class pbandk/gen/MapField : java/util/Map, kotlin/jvm/internal/markers/KMappedMarker {
 	public static final field Companion Lpbandk/gen/MapField$Companion;
 	public abstract fun asMessages ()Ljava/util/Collection;
-	public abstract fun getEntryCompanion ()Lpbandk/gen/MapField$Entry$Companion;
+	public abstract fun getEntryCompanion ()Lpbandk/Message$Companion;
 }
 
 public final class pbandk/gen/MapField$Companion {
@@ -445,16 +566,9 @@ public abstract interface class pbandk/gen/MapField$Entry : java/util/Map$Entry,
 	public abstract fun plus (Lpbandk/Message;)Lpbandk/gen/MapField$Entry;
 }
 
-public final class pbandk/gen/MapField$Entry$Companion : pbandk/Message$Companion {
-	public fun <init> (Lpbandk/types/ValueType;Lpbandk/types/ValueType;)V
-	public synthetic fun getDefaultInstance ()Lpbandk/Message;
-	public fun getDefaultInstance ()Lpbandk/gen/MapField$Entry;
-	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-}
-
 public final class pbandk/gen/MapFieldKt {
 	public static final fun MutableMapField (Lpbandk/FieldDescriptor;)Lpbandk/gen/MutableMapField;
-	public static final fun MutableMapField (Lpbandk/gen/MapField$Entry$Companion;)Lpbandk/gen/MutableMapField;
+	public static final fun MutableMapField (Lpbandk/Message$Companion;)Lpbandk/gen/MutableMapField;
 }
 
 public abstract class pbandk/gen/MutableGeneratedExtendableMessage : pbandk/gen/AbstractGeneratedMessage, pbandk/MutableExtendableMessage {
@@ -512,7 +626,7 @@ public final class pbandk/gen/MutableListField : java/util/List, kotlin/jvm/inte
 }
 
 public abstract interface class pbandk/gen/MutableMapField : java/util/Map, kotlin/jvm/internal/markers/KMutableMap {
-	public abstract fun getEntryCompanion ()Lpbandk/gen/MapField$Entry$Companion;
+	public abstract fun getEntryCompanion ()Lpbandk/Message$Companion;
 	public abstract fun put (Ljava/util/Map$Entry;)V
 	public abstract fun putAll (Lkotlin/sequences/Sequence;)V
 	public abstract fun toMapField ()Lpbandk/gen/MapField;
@@ -532,117 +646,6 @@ public abstract class pbandk/gen/UnrecognizedEnumValue : pbandk/Message$Enum {
 	public fun getValue ()Ljava/lang/Integer;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-}
-
-public abstract interface class pbandk/internal/binary/WireValue {
-	public abstract fun getSize ()I
-	public abstract fun getWireType ()I
-}
-
-public final class pbandk/internal/binary/WireValue$EndGroup : pbandk/internal/binary/WireValue {
-	public static final field INSTANCE Lpbandk/internal/binary/WireValue$EndGroup;
-	public fun getSize ()I
-	public fun getWireType ()I
-}
-
-public final class pbandk/internal/binary/WireValue$Group : pbandk/internal/binary/WireValue {
-	public static final synthetic fun box-impl (Ljava/util/List;)Lpbandk/internal/binary/WireValue$Group;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Ljava/util/List;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Ljava/util/List;Ljava/util/List;)Z
-	public fun getSize ()I
-	public static fun getSize-impl (Ljava/util/List;)I
-	public fun getWireType ()I
-	public static fun getWireType-impl (Ljava/util/List;)I
-	public fun hashCode ()I
-	public static fun hashCode-impl (Ljava/util/List;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Ljava/util/List;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Ljava/util/List;
-}
-
-public final class pbandk/internal/binary/WireValue$I32 : pbandk/internal/binary/WireValue {
-	public static final field Companion Lpbandk/internal/binary/WireValue$I32$Companion;
-	public static final synthetic fun box-impl (I)Lpbandk/internal/binary/WireValue$I32;
-	public static fun constructor-impl (I)I
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (ILjava/lang/Object;)Z
-	public static final fun equals-impl0 (II)Z
-	public fun getSize ()I
-	public static fun getSize-impl (I)I
-	public fun getWireType ()I
-	public static fun getWireType-impl (I)I
-	public fun hashCode ()I
-	public static fun hashCode-impl (I)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (I)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()I
-}
-
-public final class pbandk/internal/binary/WireValue$I32$Companion {
-}
-
-public final class pbandk/internal/binary/WireValue$I64 : pbandk/internal/binary/WireValue {
-	public static final field Companion Lpbandk/internal/binary/WireValue$I64$Companion;
-	public static final synthetic fun box-impl (J)Lpbandk/internal/binary/WireValue$I64;
-	public static fun constructor-impl (J)J
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (JLjava/lang/Object;)Z
-	public static final fun equals-impl0 (JJ)Z
-	public fun getSize ()I
-	public static fun getSize-impl (J)I
-	public fun getWireType ()I
-	public static fun getWireType-impl (J)I
-	public fun hashCode ()I
-	public static fun hashCode-impl (J)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (J)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()J
-}
-
-public final class pbandk/internal/binary/WireValue$I64$Companion {
-}
-
-public final class pbandk/internal/binary/WireValue$Len : pbandk/internal/binary/WireValue {
-	public static final field Companion Lpbandk/internal/binary/WireValue$Len$Companion;
-	public static final synthetic fun box-impl ([B)Lpbandk/internal/binary/WireValue$Len;
-	public static fun constructor-impl ([B)[B
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl ([BLjava/lang/Object;)Z
-	public static final fun equals-impl0 ([B[B)Z
-	public fun getSize ()I
-	public static fun getSize-impl ([B)I
-	public fun getWireType ()I
-	public static fun getWireType-impl ([B)I
-	public fun hashCode ()I
-	public static fun hashCode-impl ([B)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl ([B)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()[B
-}
-
-public final class pbandk/internal/binary/WireValue$Len$Companion {
-}
-
-public final class pbandk/internal/binary/WireValue$Varint : pbandk/internal/binary/WireValue {
-	public static final field Companion Lpbandk/internal/binary/WireValue$Varint$Companion;
-	public static final synthetic fun box-impl (J)Lpbandk/internal/binary/WireValue$Varint;
-	public static fun constructor-impl (J)J
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (JLjava/lang/Object;)Z
-	public static final fun equals-impl0 (JJ)Z
-	public fun getSize ()I
-	public static fun getSize-impl (J)I
-	public fun getWireType ()I
-	public static fun getWireType-impl (J)I
-	public fun hashCode ()I
-	public static fun hashCode-impl (J)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (J)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()J
-}
-
-public final class pbandk/internal/binary/WireValue$Varint$Companion {
 }
 
 public final class pbandk/json/JsonConfig {
