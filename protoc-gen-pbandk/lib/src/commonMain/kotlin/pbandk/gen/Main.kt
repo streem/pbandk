@@ -5,12 +5,15 @@ import pbandk.gen.pb.CodeGeneratorResponse
 import pbandk.gen.pb.File
 
 private var logDebug = false
+
+private val platform = getPlatform()
+
 private inline fun debug(fn: () -> String) {
-    if (logDebug) Platform.stderrPrintln(fn())
+    if (logDebug) platform.stderrPrintln(fn())
 }
 
 public fun main() {
-    Platform.stdoutWriteResponse(runGenerator(Platform.stdinReadRequest()))
+    platform.stdoutWriteResponse(runGenerator(platform.stdinReadRequest()))
 }
 
 internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
@@ -23,7 +26,7 @@ internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse 
     debug { "Running generator with params: $params" }
 
     // Load service generator if it exists
-    val serviceGen = Platform.serviceGenerator(params)
+    val serviceGen = platform.serviceGenerator(params)
 
     val kotlinTypeMappings = mutableMapOf<String, Name>()
 

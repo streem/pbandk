@@ -3,7 +3,6 @@ package pbandk.conformance
 import pbandk.ByteArr
 import pbandk.ExperimentalProtoJson
 import pbandk.add
-import pbandk.conformance.Platform.runBlockingMain
 import pbandk.conformance.pb.ConformanceRequest
 import pbandk.conformance.pb.ConformanceResponse
 import pbandk.conformance.pb.TestAllTypesProto2
@@ -20,30 +19,32 @@ import kotlin.js.JsExport
 
 var logDebug = false
 
+val platform = getPlatform()
+
 inline fun debug(fn: () -> String) {
-    if (logDebug) Platform.stderrPrintln(fn())
+    if (logDebug) platform.stderrPrintln(fn())
 }
 
 @JsExport
-fun main() = runBlockingMain {
+fun main() = platform.runBlockingMain {
     debug { "Starting conformance test" }
     while (true) {
         val res = doTestIo()
         debug { "Result: $res" }
         if (res == null) return@runBlockingMain
-        Platform.stdoutWriteLengthDelimitedMessage(res)
+        platform.stdoutWriteLengthDelimitedMessage(res)
     }
 }
 
 suspend fun doTestIo(): ConformanceResponse? {
     // Read the request (starting with by size)
-    val req = Platform.doTry({
-        Platform.stdinReadLengthDelimitedMessage(ConformanceRequest.Companion)
-    }) { err ->
+    val req = try {
+        platform.stdinReadLengthDelimitedMessage(ConformanceRequest.Companion) ?: return null
+    } catch (e: Throwable) {
         return ConformanceResponse {
-            runtimeError = "Failed reading request: $err"
+            runtimeError = "Failed reading request: $e"
         }
-    } ?: return null
+    }
     debug { "Request: $req" }
 
     return handleConformanceRequest(req)
@@ -68,7 +69,7 @@ internal fun handleConformanceRequest(req: ConformanceRequest): ConformanceRespo
     }
 
     // Parse
-    val parsed = Platform.doTry({
+    val parsed = try {
         when (val payload = req.payload) {
             is ConformanceRequest.Payload.ProtobufPayload ->
                 typeComp.decodeFromByteArray(payload.value.array).also { debug { "Parsed: $it" } }
@@ -80,14 +81,14 @@ internal fun handleConformanceRequest(req: ConformanceRequest): ConformanceRespo
                 skipped = "Only protobuf and json input supported"
             }
         }
-    }) { err ->
+    } catch (e: Throwable) {
         return ConformanceResponse {
-            parseError = "Parse error: $err"
+            parseError = "Parse error: $e"
         }
     }
 
     // Serialize
-    return Platform.doTry({
+    return try {
         ConformanceResponse {
             when (req.requestedOutputFormat) {
                 is WireFormat.PROTOBUF -> protobufPayload = ByteArr(parsed.encodeToByteArray())
@@ -95,9 +96,9 @@ internal fun handleConformanceRequest(req: ConformanceRequest): ConformanceRespo
                 else -> skipped = "Only protobuf and json output supported"
             }
         }
-    }) { err ->
+    } catch (e: Throwable) {
         return ConformanceResponse {
-            serializeError = "Serialize error: $err"
+            serializeError = "Serialize error: $e"
         }
     }
 }

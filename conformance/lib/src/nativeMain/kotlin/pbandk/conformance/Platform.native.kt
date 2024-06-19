@@ -30,9 +30,9 @@
 package pbandk.conformance
 
 import kotlinx.cinterop.ExperimentalForeignApi
+import kotlinx.cinterop.addressOf
 import kotlinx.cinterop.cstr
 import kotlinx.cinterop.usePinned
-import kotlinx.cinterop.addressOf
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -52,8 +52,8 @@ internal class PosixException(val errno: Int) : RuntimeException(
 )
 
 @OptIn(ExperimentalForeignApi::class)
-actual object Platform {
-    actual fun stderrPrintln(str: String) {
+private object NativePlatform : Platform {
+    override fun stderrPrintln(str: String) {
         val strn = str + "\n"
         val cstr = strn.cstr
         write(2, cstr, cstr.size.toULong())
@@ -88,7 +88,7 @@ actual object Platform {
         }
     }
 
-    actual suspend fun <T : Message> stdinReadLengthDelimitedMessage(companion: Message.Companion<T>): T? {
+    override suspend fun <T : Message> stdinReadLengthDelimitedMessage(companion: Message.Companion<T>): T? {
         val size = stdinReadIntLE() ?: return null
         debug { "Reading $size bytes" }
         return companion.decodeFromByteArray(stdinReadFull(size))
@@ -110,20 +110,16 @@ actual object Platform {
         }
     }
 
-    actual fun <T : Message> stdoutWriteLengthDelimitedMessage(message: T) {
+    override fun <T : Message> stdoutWriteLengthDelimitedMessage(message: T) {
         message.encodeToByteArray().also { bytes ->
             stdoutWriteIntLE(bytes.size)
             stdoutWriteFull(bytes)
         }
     }
 
-    actual inline fun <T> doTry(fn: () -> T, errFn: (Any) -> T) = try {
-        fn()
-    } catch (e: Exception) {
-        errFn(e)
-    }
-
-    actual fun runBlockingMain(block: suspend CoroutineScope.() -> Unit) {
+    override fun runBlockingMain(block: suspend CoroutineScope.() -> Unit) {
         runBlocking(block = block)
     }
 }
+
+actual fun getPlatform(): Platform = NativePlatform

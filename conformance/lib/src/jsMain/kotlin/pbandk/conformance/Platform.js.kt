@@ -1,16 +1,19 @@
 package pbandk.conformance
 
-import org.khronos.webgl.ArrayBufferView
-import org.khronos.webgl.Uint8Array
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import org.khronos.webgl.ArrayBufferView
 import org.khronos.webgl.Int8Array
+import org.khronos.webgl.Uint8Array
 import pbandk.Message
 import pbandk.decodeFromByteArray
 import pbandk.encodeToByteArray
 
-internal external interface StdStream {
+private external interface StdStream {
     val fd: Int
 
     fun once(event: String, callback: () -> Unit)
@@ -25,7 +28,7 @@ internal external interface StdStream {
 
 @JsModule("process")
 @JsNonModule
-internal external class Process {
+private external class Process {
     companion object {
         val stdin: StdStream
         val stdout: StdStream
@@ -35,7 +38,7 @@ internal external class Process {
 
 @JsModule("fs")
 @JsNonModule
-external class Fs {
+private external class Fs {
     companion object {
         fun writeSync(
             fd: Int,
@@ -47,7 +50,7 @@ external class Fs {
     }
 }
 
-external class Buffer : Uint8Array {
+private external class Buffer : Uint8Array {
     fun readInt32LE(offset: Int): Int
     fun writeInt32LE(value: Int, offset: Int): Int
 
@@ -62,8 +65,8 @@ private inline fun ByteArray.asUint8Array(): Uint8Array =
 
 private inline fun Uint8Array.asByteArray(): ByteArray = Int8Array(buffer, byteOffset, length).unsafeCast<ByteArray>()
 
-actual object Platform {
-    actual fun stderrPrintln(str: String) {
+private object JsPlatform : Platform {
+    override fun stderrPrintln(str: String) {
         Process.stderr.write("$str\n")
     }
 
@@ -97,10 +100,16 @@ actual object Platform {
     private suspend fun stdinReadFull(size: Int) =
         stdinReadBuffer(size)?.asByteArray() ?: error("Failed to read $size bytes from stdin")
 
-    actual suspend fun <T : Message> stdinReadLengthDelimitedMessage(companion: Message.Companion<T>): T? {
-        val size = stdinReadIntLE() ?: return null
-        debug { "Reading $size bytes" }
-        return companion.decodeFromByteArray(stdinReadFull(size))
+    override suspend fun <T : Message> stdinReadLengthDelimitedMessage(companion: Message.Companion<T>): T? {
+        try {
+            val size = stdinReadIntLE() ?: return null
+            debug { "Reading $size bytes" }
+            return companion.decodeFromByteArray(stdinReadFull(size))
+        } catch (e: Throwable) {
+            throw e
+        } catch (e: dynamic) {
+            throw RuntimeException("Unexpected error: $e")
+        }
     }
 
     private fun stdoutWriteBuffer(buf: Uint8Array) {
@@ -113,24 +122,17 @@ actual object Platform {
     private fun stdoutWriteIntLE(v: Int) = stdoutWriteBuffer(Buffer.alloc(4).also { it.writeInt32LE(v, 0) })
     private fun stdoutWriteFull(arr: ByteArray) = stdoutWriteBuffer(arr.asUint8Array())
 
-    actual fun <T : Message> stdoutWriteLengthDelimitedMessage(message: T) {
+    override fun <T : Message> stdoutWriteLengthDelimitedMessage(message: T) {
         message.encodeToByteArray().also { bytes ->
             stdoutWriteIntLE(bytes.size)
             stdoutWriteFull(bytes)
         }
     }
 
-    actual inline fun <T> doTry(fn: () -> T, errFn: (Any) -> T) =
-        try {
-            fn()
-        } catch (e: Throwable) {
-            errFn(e)
-        } catch (e: dynamic) {
-            errFn(e as Any)
-        }
-
     @OptIn(DelicateCoroutinesApi::class)
-    actual fun runBlockingMain(block: suspend CoroutineScope.() -> Unit) {
+    override fun runBlockingMain(block: suspend CoroutineScope.() -> Unit) {
         GlobalScope.launch(block = block)
     }
 }
+
+actual fun getPlatform(): Platform = JsPlatform

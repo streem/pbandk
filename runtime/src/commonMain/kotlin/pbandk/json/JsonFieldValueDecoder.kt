@@ -7,7 +7,7 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import pbandk.InvalidProtocolBufferException
 import pbandk.PublicForGeneratedCode
-import pbandk.internal.Util
+import pbandk.internal.PlatformUtil
 import pbandk.internal.checkSurrogatePairs
 import pbandk.internal.json.JsonFieldDecoder
 import pbandk.internal.json.JsonWireType
@@ -209,7 +209,7 @@ public sealed class JsonFieldValueDecoder {
         }
 
         internal fun decodeAsByteArray(): ByteArray = try {
-            Util.base64ToBytes(value)
+            PlatformUtil.base64ToBytes(value)
         } catch (e: Exception) {
             throw InvalidProtocolBufferException("JSON value did not contain a base64-encoded string", e)
         }

@@ -4,8 +4,8 @@ import pbandk.InvalidProtocolBufferException
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.BinaryFieldValueEncoder
 import pbandk.binary.WireType
-import pbandk.internal.Util
 import pbandk.binary.WireValue
+import pbandk.internal.PlatformUtil
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.json.JsonFieldValueEncoder
 import kotlin.String
@@ -17,7 +17,7 @@ internal object String : PrimitiveValueType<String>() {
 
     override val binaryWireType = WireType.LENGTH_DELIMITED
 
-    override fun binarySize(value: String) = WireValue.Len.sizeWithLenPrefix(Util.utf8len(value))
+    override fun binarySize(value: String) = WireValue.Len.sizeWithLenPrefix(PlatformUtil.utf8len(value))
 
     override fun encodeToBinary(value: String, encoder: BinaryFieldValueEncoder) {
         encoder.encodeLen(WireValue.Len.encodeString(value))

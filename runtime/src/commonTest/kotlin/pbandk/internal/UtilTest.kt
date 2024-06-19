@@ -13,7 +13,7 @@ class UtilTest {
         }
         val correctDateString = "0001-01-01T00:00:00Z"
 
-        val result = Util.timestampToString(timestamp)
+        val result = PlatformUtil.timestampToString(timestamp)
 
         assertEquals(correctDateString, result)
     }
@@ -26,7 +26,7 @@ class UtilTest {
         }
         val correctDateString = "2017-09-13T10:07:00.000203090Z"
 
-        val result = Util.timestampToString(timestamp)
+        val result = PlatformUtil.timestampToString(timestamp)
 
         assertEquals(correctDateString, result)
     }
@@ -39,7 +39,7 @@ class UtilTest {
         }
         val correctDateString = "2017-09-13T10:07:00Z"
 
-        val result = Util.timestampToString(timestamp)
+        val result = PlatformUtil.timestampToString(timestamp)
 
         assertEquals(correctDateString, result)
     }
@@ -52,7 +52,7 @@ class UtilTest {
             nanos = 9900000
         }
 
-        val result = Util.stringToTimestamp(dateString)
+        val result = PlatformUtil.stringToTimestamp(dateString)
 
         assertEquals(correctTimestamp.seconds, result.seconds)
         assertEquals(correctTimestamp.nanos, result.nanos)
@@ -66,7 +66,7 @@ class UtilTest {
             nanos = 3920000
         }
 
-        val result = Util.stringToTimestamp(dateString)
+        val result = PlatformUtil.stringToTimestamp(dateString)
 
         assertEquals(correctTimestamp.seconds, result.seconds)
         assertEquals(correctTimestamp.nanos, result.nanos)
@@ -80,7 +80,7 @@ class UtilTest {
             nanos = 0
         }
 
-        val result = Util.stringToTimestamp(dateString)
+        val result = PlatformUtil.stringToTimestamp(dateString)
 
         assertEquals(correctTimestamp.seconds, result.seconds)
         assertEquals(correctTimestamp.nanos, result.nanos)
@@ -91,8 +91,8 @@ class UtilTest {
         val dateString = "1970-01-01T00:00:00.010000000Z"
         val correctDateString = "1970-01-01T00:00:00.010Z"
 
-        val timestamp = Util.stringToTimestamp(dateString)
-        val result = Util.timestampToString(timestamp)
+        val timestamp = PlatformUtil.stringToTimestamp(dateString)
+        val result = PlatformUtil.timestampToString(timestamp)
 
         assertEquals(correctDateString, result)
     }
@@ -102,8 +102,8 @@ class UtilTest {
         val dateString = "1970-01-01T00:00:00.000010000Z"
         val correctDateString = "1970-01-01T00:00:00.000010Z"
 
-        val timestamp = Util.stringToTimestamp(dateString)
-        val result = Util.timestampToString(timestamp)
+        val timestamp = PlatformUtil.stringToTimestamp(dateString)
+        val result = PlatformUtil.timestampToString(timestamp)
 
         assertEquals(correctDateString, result)
     }

@@ -5,8 +5,8 @@ import pbandk.InvalidProtocolBufferException
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.BinaryFieldValueEncoder
 import pbandk.binary.WireType
-import pbandk.internal.Util
 import pbandk.binary.WireValue
+import pbandk.internal.PlatformUtil
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.json.JsonFieldValueEncoder
 
@@ -31,7 +31,7 @@ internal object Bytes : PrimitiveValueType<ByteArr>() {
     }
 
     override fun encodeToJson(value: ByteArr, encoder: JsonFieldValueEncoder) {
-        encoder.encodeString(Util.bytesToBase64(value.array))
+        encoder.encodeString(PlatformUtil.bytesToBase64(value.array))
     }
 
     override fun encodeToJsonMapKey(value: ByteArr) =
