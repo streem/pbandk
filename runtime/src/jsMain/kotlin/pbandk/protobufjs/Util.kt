@@ -23,7 +23,7 @@ internal fun Long.Companion.fromProtobufjsLong(l: dynamic): Long {
     }
 }
 
-internal object Util : AbstractUtil() {
+internal object ProtobufJsUtil : AbstractUtil() {
     override fun base64ToBytes(str: String): ByteArray = ByteArray(util.base64.length(str)).also {
         util.base64.decode(str, it.asUint8Array(), 0)
     }

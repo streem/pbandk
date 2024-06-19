@@ -1,7 +1,7 @@
 package pbandk
 
 import pbandk.internal.binary.BinaryMessageDecoder
-import pbandk.internal.binary.Sizer
+import pbandk.internal.binary.PlatformSizer
 import pbandk.internal.binary.WireType
 import pbandk.internal.binary.allowedWireType
 import pbandk.internal.binary.binaryReadFn
@@ -13,7 +13,7 @@ import kotlin.js.JsName
 @JsExport
 public data class UnknownField @PublicForGeneratedCode constructor(val fieldNum: Int, val values: List<Value>) {
 
-    internal val size get() = (Sizer.tagSize(fieldNum) * values.size) + values.sumOf { it.size }
+    internal val size get() = (PlatformSizer.tagSize(fieldNum) * values.size) + values.sumOf { it.size }
 
     public data class Value @PublicForGeneratedCode constructor(val wireType: Int, val rawBytes: ByteArr) {
         @PublicForGeneratedCode

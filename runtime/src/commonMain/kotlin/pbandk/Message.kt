@@ -1,6 +1,6 @@
 package pbandk
 
-import pbandk.internal.binary.Sizer
+import pbandk.internal.binary.PlatformSizer
 import pbandk.internal.binary.BinaryMessageEncoder
 import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.allocate
@@ -13,7 +13,7 @@ public interface Message {
 
     public val descriptor: MessageDescriptor<out Message>
 
-    public val protoSize: Int get() = Sizer.rawMessageSize(this)
+    public val protoSize: Int get() = PlatformSizer.rawMessageSize(this)
 
     public operator fun plus(other: Message?): Message
 

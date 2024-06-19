@@ -7,7 +7,7 @@ import pbandk.MessageMap
 
 internal const val MAX_VARINT_SIZE = 10
 
-internal expect object Sizer {
+internal interface Sizer {
     fun tagSize(fieldNum: Int): Int
     fun doubleSize(value: Double): Int
     fun floatSize(value: Float): Int
@@ -31,3 +31,5 @@ internal expect object Sizer {
     fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int): Int
     fun mapSize(map: Map<*, *>, entryCompanion: MessageMap.Entry.Companion<*, *>): Int
 }
+
+internal expect val PlatformSizer: Sizer
