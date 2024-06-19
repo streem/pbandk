@@ -116,11 +116,6 @@ public open class CodeGenerator(
 
             if (messageInterface.startsWith("pbandk.ExtendableMessage")) {
                 lineEnd(",")
-                // XXX: The binary-compatibility-validator plugin doesn't correctly exclude the getter (& setter for
-                // mutable properties) of a property with a non-public annotation from the API dump. And Kotlin 1.6+
-                // doesn't allow opt-in annotations to be applied to property getters/setters directly.
-                // Nothing to do here for us. The issue will go away once
-                // https://github.com/Kotlin/binary-compatibility-validator/issues/36 is fixed.
                 line("@property:pbandk.PbandkInternal")
                 line("override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()")
             } else {

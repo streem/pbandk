@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("multiplatform")
 }
@@ -7,13 +9,17 @@ kotlin {
         withJava()
     }
 
-    jvmToolchain {
-        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(8))
-    }
-
-    js(BOTH) {
+    js {
         browser {}
         nodejs {}
+
+        compilations.all {
+            compileTaskProvider.configure {
+                // Skip compiler limits test on Kotlin/JS for now, since the Kotlin/JS compiler can't deal with large
+                // protobuf messages (as of Kotlin 1.9). See https://github.com/streem/pbandk/issues/267 for details.
+                exclude("pbandk/testpb/test_compiler_limits.kt")
+            }
+        }
     }
 
     iosArm64()
@@ -34,18 +40,26 @@ kotlin {
             languageSettings.optIn("kotlin.RequiresOptIn")
         }
 
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 implementation(project(":pbandk-runtime"))
             }
         }
 
-        val jvmMain by getting {
+        jvmMain {
             dependencies {
                 api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
             }
         }
     }
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = Versions.jvmTarget
+}
+tasks.withType<JavaCompile> {
+    sourceCompatibility = Versions.jvmTarget
+    targetCompatibility = Versions.jvmTarget
 }
 
 tasks {

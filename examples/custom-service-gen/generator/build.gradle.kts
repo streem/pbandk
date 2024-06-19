@@ -5,9 +5,7 @@ plugins {
 val pbandkVersion: String by rootProject.extra
 
 kotlin {
-    jvmToolchain {
-        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(8))
-    }
+    jvmToolchain(11)
 }
 
 dependencies {
