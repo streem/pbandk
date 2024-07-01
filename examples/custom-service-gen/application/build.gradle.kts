@@ -56,10 +56,6 @@ tasks {
     compileJava {
         enabled = false
     }
-
-    withType<KotlinCompile>().all {
-        kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
-    }
 }
 
 // Workaround the Gradle bug resolving multi-platform dependencies.

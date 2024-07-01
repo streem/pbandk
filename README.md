@@ -371,15 +371,6 @@ Pbandk has a dependency on the preferred Protobuf library on each platform:
 - JS: protobuf.js.
 - JVM and Native: Pbandk uses its own pure-Kotlin protobuf implementation that is heavily based on the Google Protobuf Java library.
 
-In addition, support for [Kotlin's `@OptIn` annotation](https://kotlinlang.org/docs/reference/opt-in-requirements.html)
-should be enabled in order to avoid compiler warnings in the generated code:
-
-```
-tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
-}
-```
-
 ### Service Code Generation
 
 Pbandk does not generate gRPC code itself, but offers a `pbandk.gen.ServiceGenerator` interface in

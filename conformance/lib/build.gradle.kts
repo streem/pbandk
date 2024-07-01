@@ -25,7 +25,6 @@ kotlin {
     sourceSets {
         all {
             languageSettings {
-                optIn("kotlin.RequiresOptIn")
                 optIn("kotlin.js.ExperimentalJsExport")
             }
         }
