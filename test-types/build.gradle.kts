@@ -36,10 +36,6 @@ kotlin {
     macosX64()
 
     sourceSets {
-        all {
-            languageSettings.optIn("kotlin.RequiresOptIn")
-        }
-
         commonMain {
             dependencies {
                 implementation(project(":pbandk-runtime"))
