@@ -1,7 +1,7 @@
 name: Build and Test
 
 env:
-  GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dkotlin.incremental=false --Dkotlin.compiler.execution.strategy=in-process'
+  GRADLE_OPTS: '-Dkotlin.incremental=false'
   JAVA_VERSION: 17
   NODEJS_VERSION: 14
   PROTOBUF_CONFORMANCE_VERSION: 3.10.1

@@ -1,7 +1,7 @@
 name: Publish Release
 
 env:
-  GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dkotlin.incremental=false -Dkotlin.compiler.execution.strategy=in-process'
+  GRADLE_OPTS: '-Dkotlin.incremental=false'
   JAVA_VERSION: 17
   SONATYPE_BASE_URL: 'https://s01.oss.sonatype.org/service/local/'
   SONATYPE_STAGING_PROFILE_ID: 'ad18f49c95e39'
