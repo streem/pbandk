@@ -59,6 +59,7 @@ public interface Message {
             public fun fromValue(value: Int): E
 
             /** Throws [IllegalArgumentException] if [name] is not a valid value of this enum. */
+            @Throws(IllegalArgumentException::class)
             public fun fromName(name: String): E
         }
     }
@@ -74,6 +75,7 @@ public fun <M : Message> M.encodeWith(m: MessageEncoder): Unit = m.writeMessage(
 
 @JsExport
 @JsName("decodeMessage")
+@Throws(InvalidProtocolBufferException::class)
 public fun <M : Message> Message.Companion<M>.decodeWith(m: MessageDecoder): M = m.readMessage(this)
 
 /**
@@ -87,6 +89,7 @@ public fun <M : Message> M.encodeToByteArray(): ByteArray =
  * Decode a binary protocol buffer message from [arr].
  */
 @JsExport
+@Throws(InvalidProtocolBufferException::class)
 public fun <M : Message> Message.Companion<M>.decodeFromByteArray(arr: ByteArray): M =
     decodeWith(BinaryMessageDecoder.fromByteArray(arr))
 
