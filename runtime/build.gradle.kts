@@ -52,7 +52,6 @@ kotlin {
                 optIn("pbandk.ExperimentalProtoReflection")
                 optIn("pbandk.PbandkInternal")
                 optIn("pbandk.PublicForGeneratedCode")
-                optIn("kotlin.RequiresOptIn")
                 optIn("kotlin.js.ExperimentalJsExport")
             }
         }

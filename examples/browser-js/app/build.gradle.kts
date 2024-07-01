@@ -28,7 +28,6 @@ tasks {
     val compileKotlinJs by getting(KotlinJsCompile::class) {
         kotlinOptions {
             moduleKind = "umd"
-            freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
         }
     }
 
