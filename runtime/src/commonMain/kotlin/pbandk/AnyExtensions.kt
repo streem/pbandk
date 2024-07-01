@@ -25,6 +25,7 @@ public fun <T : Message> Any.isA(companion: Message.Companion<T>): Boolean {
  * Unpacks the data in [Any.value] using [companion]. Throws [InvalidProtocolBufferException] if [Any.typeUrl] does not
  * match the fully-qualified type name of [companion], or if [Any.value] does not contain a valid message.
  */
+@Throws(InvalidProtocolBufferException::class)
 public fun <T : Message> Any.unpack(companion: Message.Companion<T>): T {
     if (!isA(companion)) {
         throw InvalidProtocolBufferException("Type of the Any message does not match the given class.")
