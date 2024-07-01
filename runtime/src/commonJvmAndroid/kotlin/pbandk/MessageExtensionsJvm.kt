@@ -28,6 +28,7 @@ public fun <T : Message> T.encodeToStream(stream: OutputStream): Int {
 /**
  * Decode a binary protocol buffer message from [stream].
  */
+@Throws(InvalidProtocolBufferException::class)
 public fun <T : Message> Message.Companion<T>.decodeFromStream(stream: InputStream, expectedSize: Int = -1): T =
     decodeWith(BinaryMessageDecoder.fromInputStream(stream, expectedSize))
 
@@ -35,6 +36,7 @@ public fun <T : Message> Message.Companion<T>.decodeFromStream(stream: InputStre
  * Decode a binary protocol buffer message from [buffer]. The data starting from the ByteBuffer's current position to
  * its limit will be read. Note that the ByteBuffer's position won't be changed by this function.
  */
+@Throws(InvalidProtocolBufferException::class)
 public fun <T : Message> Message.Companion<T>.decodeFromByteBuffer(buffer: ByteBuffer): T =
     decodeWith(BinaryMessageDecoder.fromByteBuffer(buffer))
 
@@ -47,6 +49,7 @@ public fun <T : Message> Message.Companion<T>.decodeFromByteBuffer(buffer: ByteB
  *
  * @see [encodeDelimitedToStream]
  */
+@Throws(InvalidProtocolBufferException::class)
 public fun <T : Message> Message.Companion<T>.decodeDelimitedFromStream(stream: InputStream): T? {
     val firstByte = stream.read()
     if (firstByte == -1) {  // eof
