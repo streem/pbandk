@@ -6,11 +6,11 @@ plugins {
 }
 
 kotlin {
-    linuxX64("linux")
+    linuxX64()
     if (DefaultNativePlatform.getCurrentOperatingSystem().isMacOsX && DefaultNativePlatform.getCurrentArchitecture().name == "aarch64") {
-        macosArm64("macos")
+        macosArm64()
     } else {
-        macosX64("macos")
+        macosX64()
     }
 
     targets.withType<KotlinNativeTarget> {
@@ -24,7 +24,7 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 api(project(":conformance:conformance-lib"))
             }

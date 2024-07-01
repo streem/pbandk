@@ -12,14 +12,12 @@ val kotlinxCoroutinesVersion by extra("1.4.3")
 val protobufVersion by extra("3.11.1")
 
 application {
-    mainClassName = "pbandk.examples.greeter.MainKt"
+    mainClass = "pbandk.examples.greeter.MainKt"
     applicationName = "greeter"
 }
 
 kotlin {
-    jvmToolchain {
-        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(8))
-    }
+    jvmToolchain(11)
 }
 
 dependencies {

@@ -6,7 +6,7 @@ plugins {
 }
 
 application {
-    mainClassName = "pbandk.conformance.MainKt"
+    mainClass = "pbandk.conformance.MainKt"
     applicationName = "conformance"
 }
 
@@ -15,5 +15,8 @@ dependencies {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = Versions.jvmTarget
+}
+tasks.withType<JavaCompile> {
+    targetCompatibility = Versions.jvmTarget
 }

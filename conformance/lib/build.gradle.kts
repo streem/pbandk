@@ -1,65 +1,55 @@
 import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("multiplatform")
 }
 
 kotlin {
-    jvm {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
-        }
-    }
+    jvm()
 
-    js(IR) {
+    js {
         binaries.executable()
         nodejs {}
     }
 
-    linuxX64("linux")
+    linuxX64()
     if (DefaultNativePlatform.getCurrentOperatingSystem().isMacOsX && DefaultNativePlatform.getCurrentArchitecture().name == "aarch64") {
-        macosArm64("macos")
+        macosArm64()
     } else {
-        macosX64("macos")
+        macosX64()
     }
     // Uncomment to enable Windows
     // mingwX64("windows")
 
     sourceSets {
         all {
-            languageSettings.optIn("kotlin.RequiresOptIn")
-            languageSettings.optIn("kotlin.js.ExperimentalJsExport")
+            languageSettings {
+                optIn("kotlin.RequiresOptIn")
+                optIn("kotlin.js.ExperimentalJsExport")
+            }
         }
 
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 implementation(project(":pbandk-runtime"))
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}")
             }
         }
 
-        val commonTest by getting {
+        commonTest {
             dependencies {
                 implementation(kotlin("test"))
             }
         }
-
-        val nativeMain by creating {
-            dependsOn(commonMain)
-        }
     }
+}
 
-    targets.withType<KotlinNativeTarget> {
-        val main by compilations.getting {
-            defaultSourceSet {
-                val nativeMain by sourceSets.getting
-                dependsOn(nativeMain)
-            }
-        }
-    }
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = Versions.jvmTarget
+}
+tasks.withType<JavaCompile> {
+    targetCompatibility = Versions.jvmTarget
 }
 
 tasks {

@@ -12,7 +12,7 @@ plugins {
 description = "Kotlin code generator for Protocol Buffers. This executable runs as a protoc plugin."
 
 application {
-    mainClassName = "pbandk.gen.MainKt"
+    mainClass = "pbandk.gen.MainKt"
     applicationName = "protoc-gen-pbandk"
 }
 
@@ -21,7 +21,10 @@ dependencies {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = Versions.jvmTarget
+}
+tasks.withType<JavaCompile> {
+    targetCompatibility = Versions.jvmTarget
 }
 
 val bootJar by tasks.getting(BootJar::class) {

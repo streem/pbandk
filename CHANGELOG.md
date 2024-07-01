@@ -5,15 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [0.14.4] - Unreleased
+## [0.15.0] - Unreleased
 
-[0.14.4]: https://github.com/streem/pbandk/compare/v0.14.3...HEAD
+[0.15.0]: https://github.com/streem/pbandk/compare/v0.14.3...HEAD
 
 ### Added
 
 ### Changed
 
+* Updated dependencies to Kotlin 1.9.24 and kotlinx-serialization 1.6.3. (PR [#259])
+    * Updated Kotlin/JS dependencies to protobuf.js 7.3.2.
+    * **[BREAKING CHANGE]** Dropped support for the legacy Kotlin/JS compiler.
+
 ### Fixed
+
+* More robust conversion between Kotlin `Long` and JS `Long` that no longer depends on Kotlin internals. (PR [#259])
+
+[#259]: https://github.com/streem/pbandk/pull/259
 
 
 ## [0.14.3] - 2024-04-23

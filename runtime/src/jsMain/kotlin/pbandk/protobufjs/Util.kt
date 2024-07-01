@@ -6,15 +6,10 @@ import pbandk.internal.asUint8Array
 internal val Long.protobufjsLong: dynamic
     get() {
         val ret = js("{}")
-        // Legacy compiler exposes Long bits via functions, while IR compiler exposes Long bits
-        // via `_high` and `_low` fields
-        if (this.asDynamic().getHighBits !== undefined) {
-            ret.high = this.asDynamic().getHighBits()
-            ret.low = this.asDynamic().getLowBits()
-        } else {
-            ret.high = this.asDynamic()._high
-            ret.low = this.asDynamic()._low
-        }
+        // Kotlin doesn't provide access to the low/high bits that it uses as its internal representation in Kotlin/JS.
+        // So we have to manually extract them using bit fiddling.
+        ret.high = (this ushr 32).toInt()
+        ret.low = (this and 0xffffffffL).toInt()
         return ret
     }
 
@@ -22,13 +17,9 @@ internal fun Long.Companion.fromProtobufjsLong(l: dynamic): Long {
     return if (l.low == null || l.high == null) {
         (l as Int).toLong()
     } else {
-        // Legacy compiler exposes Long-related function in `Kotlin` namespace, while IR compiler
-        // exposes a direct Long constructor
-        if (js("typeof Kotlin") !== "undefined") {
-            js("Kotlin").Long.fromBits(l.low, l.high) as Long
-        } else {
-            js("new Long(l.low, l.high)") as Long
-        }
+        // Kotlin doesn't provide a Long constructor that takes low/high bits separately, so we have to manually
+        // construct the Long with bit fiddling.
+        ((l.high as Int).toLong() shl 32) or ((l.low as Int).toLong() and 0xffffffffL)
     }
 }
 

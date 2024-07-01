@@ -361,7 +361,7 @@ repositories {
 dependencies {
     // Can be used from the `common` sourceset in a Kotlin Multiplatform project,
     // or from platform-specific JVM, Android, JS, or Native sourcesets/projects.
-    implementation("pro.streem.pbandk:pbandk-runtime:0.14.4-SNAPSHOT")
+    implementation("pro.streem.pbandk:pbandk-runtime:0.15.0-SNAPSHOT")
 }
 ```
 
@@ -391,7 +391,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly("pro.streem.pbandk:protoc-gen-pbandk-lib:0.14.4-SNAPSHOT")
+    compileOnly("pro.streem.pbandk:protoc-gen-pbandk-lib:0.15.0-SNAPSHOT")
 }
 ```
 

@@ -2,13 +2,13 @@ import com.google.protobuf.gradle.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.32"
+    kotlin("jvm") version "1.9.24"
     application
-    id("com.google.protobuf") version "0.8.18"
+    id("com.google.protobuf") version "0.9.4"
 }
 
-val protobufVersion by extra("3.11.1")
-val pbandkVersion by extra("0.14.4-SNAPSHOT")
+val protobufVersion by extra("4.26.1")
+val pbandkVersion by extra("0.15.0-SNAPSHOT")
 
 repositories {
     if (System.getenv("CI") == "true") {
@@ -18,14 +18,12 @@ repositories {
 }
 
 application {
-    mainClassName = "pbandk.examples.addressbook.MainKt"
+    mainClass = "pbandk.examples.addressbook.MainKt"
     applicationName = "addressbook"
 }
 
 kotlin {
-    jvmToolchain {
-        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(8))
-    }
+    jvmToolchain(11)
 }
 
 dependencies {
