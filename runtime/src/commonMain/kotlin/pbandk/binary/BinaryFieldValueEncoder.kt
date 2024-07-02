@@ -31,7 +31,7 @@ public class BinaryFieldValueEncoder internal constructor(
 
     internal fun encodeI32(value: WireValue.I32) {
         val buffer = byteArrayBuffer
-        for (i in 0 until 4) {
+        for (i in 0..<4) {
             buffer[i] = (value.value shr (8 * i)).toByte()
         }
         wireWriter.write(buffer, 0, 4)
@@ -41,7 +41,7 @@ public class BinaryFieldValueEncoder internal constructor(
 
     internal fun encodeI64(value: WireValue.I64) {
         val buffer = byteArrayBuffer
-        for (i in 0 until 8) {
+        for (i in 0..<8) {
             buffer[i] = (value.value shr (8 * i)).toByte()
         }
         wireWriter.write(buffer, 0, 8)

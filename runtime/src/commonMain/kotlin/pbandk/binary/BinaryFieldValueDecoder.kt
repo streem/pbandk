@@ -27,7 +27,7 @@ public sealed class BinaryFieldValueDecoder {
     internal class VarintFromReader(private val wireReader: WireReader) : Varint() {
         override fun decodeValue(): WireValue.Varint {
             var result: ULong = 0UL
-            for (shift in 0 until 64 step 7) {
+            for (shift in 0..<64 step 7) {
                 val b = wireReader.readByte()
                 result = result or ((b.toInt() and 0x7F).toULong() shl shift)
                 if (b.toInt() and 0x80 == 0) {
