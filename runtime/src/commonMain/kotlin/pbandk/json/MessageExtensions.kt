@@ -1,6 +1,7 @@
 package pbandk.json
 
 import pbandk.ExperimentalProtoJson
+import pbandk.InvalidProtocolBufferException
 import pbandk.Message
 import pbandk.internal.json.JsonMessageEncoder
 import pbandk.internal.json.JsonMessageDecoder
@@ -19,6 +20,7 @@ public fun <T : Message> T.encodeToJsonString(jsonConfig: JsonConfig = JsonConfi
  */
 @ExperimentalProtoJson
 @JsExport
+@Throws(InvalidProtocolBufferException::class)
 public fun <T : Message> Message.Companion<T>.decodeFromJsonString(
     data: String,
     jsonConfig: JsonConfig = JsonConfig.DEFAULT

@@ -40,7 +40,7 @@ internal class ByteArrayWireWriter private constructor(private val byteArray: By
         totalBytesWritten += length
     }
 
-    fun toByteArray() = byteArray.sliceArray(0 until totalBytesWritten)
+    fun toByteArray() = byteArray.sliceArray(0..<totalBytesWritten)
 
     companion object {
         fun allocate(size: Int) = ByteArrayWireWriter(ByteArray(size))

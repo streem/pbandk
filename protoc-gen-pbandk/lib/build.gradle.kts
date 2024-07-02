@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -14,10 +15,6 @@ kotlin {
     jvm()
 
     sourceSets {
-        all {
-            languageSettings.optIn("kotlin.RequiresOptIn")
-        }
-
         commonMain {
             dependencies {
                 implementation(project(":pbandk-runtime"))
@@ -46,7 +43,7 @@ kotlin {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = Versions.jvmTarget
+    compilerOptions.jvmTarget.set(JvmTarget.fromTarget(Versions.jvmTarget))
 }
 tasks.withType<JavaCompile> {
     targetCompatibility = Versions.jvmTarget
