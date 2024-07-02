@@ -1,8 +1,19 @@
 package pbandk.internal.binary
 
-import kotlin.Any
-import pbandk.*
-import pbandk.wkt.*
+import pbandk.FieldDescriptor
+import pbandk.InvalidProtocolBufferException
+import pbandk.Message
+import pbandk.MessageDecoder
+import pbandk.UnknownField
+import pbandk.wkt.BoolValue
+import pbandk.wkt.BytesValue
+import pbandk.wkt.DoubleValue
+import pbandk.wkt.FloatValue
+import pbandk.wkt.Int32Value
+import pbandk.wkt.Int64Value
+import pbandk.wkt.StringValue
+import pbandk.wkt.UInt32Value
+import pbandk.wkt.UInt64Value
 
 internal fun FieldDescriptor.Type.allowedWireType(wireType: WireType) =
     this.wireType == wireType ||
@@ -58,7 +69,6 @@ internal val FieldDescriptor.Type.binaryReadFn: BinaryWireDecoder.() -> Any
 
 internal class BinaryMessageDecoder(private val wireDecoder: BinaryWireDecoder) : MessageDecoder {
 
-    @Suppress("UNCHECKED_CAST")
     override fun <T : Message> readMessage(
         messageCompanion: Message.Companion<T>,
         fieldFn: (Int, Any) -> Unit

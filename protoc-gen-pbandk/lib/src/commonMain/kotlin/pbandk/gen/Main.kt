@@ -4,25 +4,28 @@ import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.pb.CodeGeneratorResponse
 
 private var logDebug = false
+
+private val platform = getPlatform()
+
 private inline fun debug(fn: () -> String) {
-    if (logDebug) Platform.stderrPrintln(fn())
+    if (logDebug) platform.stderrPrintln(fn())
 }
 
 public fun main() {
-    Platform.stdoutWriteResponse(runGenerator(Platform.stdinReadRequest()))
+    platform.stdoutWriteResponse(runGenerator(platform.stdinReadRequest()))
 }
 
 internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
     // Parse the parameters
     val params =
-        if (request.parameter == null || request.parameter.isEmpty()) emptyMap()
-        else request.parameter.split(',').map { it.substringBefore('=') to it.substringAfter('=', "") }.toMap()
+        if (request.parameter.isNullOrEmpty()) emptyMap()
+        else request.parameter.split(',').associate { it.substringBefore('=') to it.substringAfter('=', "") }
 
     logDebug = params["log"] == "debug"
     debug { "Running generator with params: $params" }
 
     // Load service generator if it exists
-    val serviceGen = Platform.serviceGenerator(params)
+    val serviceGen = platform.serviceGenerator(params)
 
     // Convert to file model and generate the code only for ones requested
     val kotlinTypeMappings = mutableMapOf<String, String>()

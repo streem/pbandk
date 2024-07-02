@@ -1,8 +1,20 @@
 package pbandk.internal.binary
 
-import pbandk.*
-import pbandk.wkt.*
-import kotlin.Any
+import pbandk.ByteArr
+import pbandk.FieldDescriptor
+import pbandk.Message
+import pbandk.MessageEncoder
+import pbandk.MessageMap
+import pbandk.UnknownField
+import pbandk.wkt.BoolValue
+import pbandk.wkt.BytesValue
+import pbandk.wkt.DoubleValue
+import pbandk.wkt.FloatValue
+import pbandk.wkt.Int32Value
+import pbandk.wkt.Int64Value
+import pbandk.wkt.StringValue
+import pbandk.wkt.UInt32Value
+import pbandk.wkt.UInt64Value
 import kotlin.reflect.KProperty1
 
 internal fun FieldDescriptor.Type.shouldOutputValue(value: Any?): Boolean {
@@ -30,15 +42,15 @@ internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEnco
             is FieldDescriptor.Type.Primitive<*> -> wireEncoder.writePrimitiveValue(fieldNum, type, value)
 
             is FieldDescriptor.Type.Message<*> -> when (type.messageCompanion) {
-                DoubleValue.Companion -> writeWrapperValue(fieldNum, type, value as Double, Sizer::doubleSize)
-                FloatValue.Companion -> writeWrapperValue(fieldNum, type, value as Float, Sizer::floatSize)
-                Int64Value.Companion -> writeWrapperValue(fieldNum, type, value as Long, Sizer::int64Size)
-                UInt64Value.Companion -> writeWrapperValue(fieldNum, type, value as Long, Sizer::uInt64Size)
-                Int32Value.Companion -> writeWrapperValue(fieldNum, type, value as Int, Sizer::int32Size)
-                UInt32Value.Companion -> writeWrapperValue(fieldNum, type, value as Int, Sizer::uInt32Size)
-                BoolValue.Companion -> writeWrapperValue(fieldNum, type, value as Boolean, Sizer::boolSize)
-                StringValue.Companion -> writeWrapperValue(fieldNum, type, value as String, Sizer::stringSize)
-                BytesValue.Companion -> writeWrapperValue(fieldNum, type, value as ByteArr, Sizer::bytesSize)
+                DoubleValue.Companion -> writeWrapperValue(fieldNum, type, value as Double, PlatformSizer::doubleSize)
+                FloatValue.Companion -> writeWrapperValue(fieldNum, type, value as Float, PlatformSizer::floatSize)
+                Int64Value.Companion -> writeWrapperValue(fieldNum, type, value as Long, PlatformSizer::int64Size)
+                UInt64Value.Companion -> writeWrapperValue(fieldNum, type, value as Long, PlatformSizer::uInt64Size)
+                Int32Value.Companion -> writeWrapperValue(fieldNum, type, value as Int, PlatformSizer::int32Size)
+                UInt32Value.Companion -> writeWrapperValue(fieldNum, type, value as Int, PlatformSizer::uInt32Size)
+                BoolValue.Companion -> writeWrapperValue(fieldNum, type, value as Boolean, PlatformSizer::boolSize)
+                StringValue.Companion -> writeWrapperValue(fieldNum, type, value as String, PlatformSizer::stringSize)
+                BytesValue.Companion -> writeWrapperValue(fieldNum, type, value as ByteArr, PlatformSizer::bytesSize)
                 else -> writeMessageValue(fieldNum, value as Message)
             }
             is FieldDescriptor.Type.Enum<*> -> wireEncoder.writeEnum(fieldNum, value as Message.Enum)
@@ -64,7 +76,7 @@ internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEnco
         if (valueType.isDefaultValue(value)) {
             wireEncoder.writeLengthDelimitedHeader(fieldNum, 0)
         } else {
-            wireEncoder.writeLengthDelimitedHeader(fieldNum, Sizer.tagSize(1) + sizeFn(value))
+            wireEncoder.writeLengthDelimitedHeader(fieldNum, PlatformSizer.tagSize(1) + sizeFn(value))
             writeFieldValue(1, valueType, value)
         }
     }

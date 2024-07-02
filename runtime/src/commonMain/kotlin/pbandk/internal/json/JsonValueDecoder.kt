@@ -13,7 +13,7 @@ import pbandk.FieldDescriptor
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
 import pbandk.MessageMap
-import pbandk.internal.Util
+import pbandk.internal.PlatformUtil
 import pbandk.json.JsonConfig
 import pbandk.wkt.BoolValue
 import pbandk.wkt.BytesValue
@@ -216,7 +216,7 @@ internal class JsonValueDecoder(val jsonConfig: JsonConfig) {
     }
 
     fun readBytes(value: JsonElement): ByteArr = try {
-        ByteArr(Util.base64ToBytes(value.jsonPrimitive.content))
+        ByteArr(PlatformUtil.base64ToBytes(value.jsonPrimitive.content))
     } catch (e: Exception) {
         throw InvalidProtocolBufferException("bytes field did not contain a base64-encoded string value in JSON", e)
     }
