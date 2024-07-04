@@ -15,9 +15,11 @@ public data class Duration(
         public val defaultInstance: pbandk.wkt.Duration by lazy { pbandk.wkt.Duration() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Duration = pbandk.wkt.Duration.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Duration, *>>(2)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.Duration",
+            messageClass = pbandk.wkt.Duration::class,
+            messageCompanion = this,
+            fields = buildList(2) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -39,13 +41,7 @@ public data class Duration(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.Duration",
-                messageClass = pbandk.wkt.Duration::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 

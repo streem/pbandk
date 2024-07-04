@@ -14,9 +14,11 @@ public data class Foo(
         public val defaultInstance: pbandk.testpb.Foo by lazy { pbandk.testpb.Foo() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Foo = pbandk.testpb.Foo.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Foo> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Foo, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Foo> = pbandk.MessageDescriptor(
+            fullName = "testpb.Foo",
+            messageClass = pbandk.testpb.Foo::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -28,13 +30,7 @@ public data class Foo(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "testpb.Foo",
-                messageClass = pbandk.testpb.Foo::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -51,9 +47,11 @@ public data class Bar(
         public val defaultInstance: pbandk.testpb.Bar by lazy { pbandk.testpb.Bar() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Bar = pbandk.testpb.Bar.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Bar> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Bar, *>>(2)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Bar> = pbandk.MessageDescriptor(
+            fullName = "testpb.Bar",
+            messageClass = pbandk.testpb.Bar::class,
+            messageCompanion = this,
+            fields = buildList(2) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -75,13 +73,7 @@ public data class Bar(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "testpb.Bar",
-                messageClass = pbandk.testpb.Bar::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -97,9 +89,11 @@ public data class MessageWithMap(
         public val defaultInstance: pbandk.testpb.MessageWithMap by lazy { pbandk.testpb.MessageWithMap() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithMap = pbandk.testpb.MessageWithMap.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithMap, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap> = pbandk.MessageDescriptor(
+            fullName = "testpb.MessageWithMap",
+            messageClass = pbandk.testpb.MessageWithMap::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -111,13 +105,7 @@ public data class MessageWithMap(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "testpb.MessageWithMap",
-                messageClass = pbandk.testpb.MessageWithMap::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public data class MapEntry(
@@ -132,9 +120,11 @@ public data class MessageWithMap(
             public val defaultInstance: pbandk.testpb.MessageWithMap.MapEntry by lazy { pbandk.testpb.MessageWithMap.MapEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithMap.MapEntry = pbandk.testpb.MessageWithMap.MapEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap.MapEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithMap.MapEntry, *>>(2)
-                fieldsList.apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap.MapEntry> = pbandk.MessageDescriptor(
+                fullName = "testpb.MessageWithMap.MapEntry",
+                messageClass = pbandk.testpb.MessageWithMap.MapEntry::class,
+                messageCompanion = this,
+                fields = buildList(2) {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -156,13 +146,7 @@ public data class MessageWithMap(
                         )
                     )
                 }
-                pbandk.MessageDescriptor(
-                    fullName = "testpb.MessageWithMap.MapEntry",
-                    messageClass = pbandk.testpb.MessageWithMap.MapEntry::class,
-                    messageCompanion = this,
-                    fields = fieldsList
-                )
-            }
+            )
         }
     }
 }
@@ -179,9 +163,11 @@ public data class FooMap(
         public val defaultInstance: pbandk.testpb.FooMap by lazy { pbandk.testpb.FooMap() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMap = pbandk.testpb.FooMap.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMap, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap> = pbandk.MessageDescriptor(
+            fullName = "testpb.FooMap",
+            messageClass = pbandk.testpb.FooMap::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -193,13 +179,7 @@ public data class FooMap(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "testpb.FooMap",
-                messageClass = pbandk.testpb.FooMap::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public data class MapEntry(
@@ -214,9 +194,11 @@ public data class FooMap(
             public val defaultInstance: pbandk.testpb.FooMap.MapEntry by lazy { pbandk.testpb.FooMap.MapEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMap.MapEntry = pbandk.testpb.FooMap.MapEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap.MapEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMap.MapEntry, *>>(2)
-                fieldsList.apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap.MapEntry> = pbandk.MessageDescriptor(
+                fullName = "testpb.FooMap.MapEntry",
+                messageClass = pbandk.testpb.FooMap.MapEntry::class,
+                messageCompanion = this,
+                fields = buildList(2) {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -238,13 +220,7 @@ public data class FooMap(
                         )
                     )
                 }
-                pbandk.MessageDescriptor(
-                    fullName = "testpb.FooMap.MapEntry",
-                    messageClass = pbandk.testpb.FooMap.MapEntry::class,
-                    messageCompanion = this,
-                    fields = fieldsList
-                )
-            }
+            )
         }
     }
 }
@@ -261,9 +237,11 @@ public data class FooMapEntries(
         public val defaultInstance: pbandk.testpb.FooMapEntries by lazy { pbandk.testpb.FooMapEntries() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries = pbandk.testpb.FooMapEntries.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries> = pbandk.MessageDescriptor(
+            fullName = "testpb.FooMapEntries",
+            messageClass = pbandk.testpb.FooMapEntries::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -275,13 +253,7 @@ public data class FooMapEntries(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "testpb.FooMapEntries",
-                messageClass = pbandk.testpb.FooMapEntries::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public data class MapEntry(
@@ -296,9 +268,11 @@ public data class FooMapEntries(
             public val defaultInstance: pbandk.testpb.FooMapEntries.MapEntry by lazy { pbandk.testpb.FooMapEntries.MapEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries.MapEntry = pbandk.testpb.FooMapEntries.MapEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries.MapEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries.MapEntry, *>>(2)
-                fieldsList.apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries.MapEntry> = pbandk.MessageDescriptor(
+                fullName = "testpb.FooMapEntries.MapEntry",
+                messageClass = pbandk.testpb.FooMapEntries.MapEntry::class,
+                messageCompanion = this,
+                fields = buildList(2) {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -320,13 +294,7 @@ public data class FooMapEntries(
                         )
                     )
                 }
-                pbandk.MessageDescriptor(
-                    fullName = "testpb.FooMapEntries.MapEntry",
-                    messageClass = pbandk.testpb.FooMapEntries.MapEntry::class,
-                    messageCompanion = this,
-                    fields = fieldsList
-                )
-            }
+            )
         }
     }
 }
@@ -344,9 +312,11 @@ public data class Wrappers(
         public val defaultInstance: pbandk.testpb.Wrappers by lazy { pbandk.testpb.Wrappers() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Wrappers = pbandk.testpb.Wrappers.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Wrappers> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Wrappers, *>>(2)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Wrappers> = pbandk.MessageDescriptor(
+            fullName = "testpb.Wrappers",
+            messageClass = pbandk.testpb.Wrappers::class,
+            messageCompanion = this,
+            fields = buildList(2) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -368,13 +338,7 @@ public data class Wrappers(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "testpb.Wrappers",
-                messageClass = pbandk.testpb.Wrappers::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 

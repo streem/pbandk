@@ -31,9 +31,11 @@ public data class Proto3PresenceMessage(
         public val defaultInstance: pbandk.testpb.Proto3PresenceMessage by lazy { pbandk.testpb.Proto3PresenceMessage() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Proto3PresenceMessage = pbandk.testpb.Proto3PresenceMessage.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Proto3PresenceMessage> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMessage, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Proto3PresenceMessage> = pbandk.MessageDescriptor(
+            fullName = "pbandk.testpb.Proto3PresenceMessage",
+            messageClass = pbandk.testpb.Proto3PresenceMessage::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -45,13 +47,7 @@ public data class Proto3PresenceMessage(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "pbandk.testpb.Proto3PresenceMessage",
-                messageClass = pbandk.testpb.Proto3PresenceMessage::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -85,9 +81,11 @@ public data class Proto3PresenceMain(
         public val defaultInstance: pbandk.testpb.Proto3PresenceMain by lazy { pbandk.testpb.Proto3PresenceMain() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Proto3PresenceMain = pbandk.testpb.Proto3PresenceMain.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Proto3PresenceMain> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Proto3PresenceMain, *>>(10)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Proto3PresenceMain> = pbandk.MessageDescriptor(
+            fullName = "pbandk.testpb.Proto3PresenceMain",
+            messageClass = pbandk.testpb.Proto3PresenceMain::class,
+            messageCompanion = this,
+            fields = buildList(10) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -191,13 +189,7 @@ public data class Proto3PresenceMain(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "pbandk.testpb.Proto3PresenceMain",
-                messageClass = pbandk.testpb.Proto3PresenceMain::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 

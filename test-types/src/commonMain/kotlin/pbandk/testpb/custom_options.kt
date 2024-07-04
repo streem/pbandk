@@ -14,9 +14,11 @@ public data class SingleRequiredCustomOption(
         public val defaultInstance: pbandk.testpb.SingleRequiredCustomOption by lazy { pbandk.testpb.SingleRequiredCustomOption() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SingleRequiredCustomOption = pbandk.testpb.SingleRequiredCustomOption.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SingleRequiredCustomOption> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.SingleRequiredCustomOption, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SingleRequiredCustomOption> = pbandk.MessageDescriptor(
+            fullName = "pbandk.testpb.SingleRequiredCustomOption",
+            messageClass = pbandk.testpb.SingleRequiredCustomOption::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -38,13 +40,7 @@ public data class SingleRequiredCustomOption(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "pbandk.testpb.SingleRequiredCustomOption",
-                messageClass = pbandk.testpb.SingleRequiredCustomOption::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -60,9 +56,11 @@ public data class MultipleCustomOptions(
         public val defaultInstance: pbandk.testpb.MultipleCustomOptions by lazy { pbandk.testpb.MultipleCustomOptions() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptions = pbandk.testpb.MultipleCustomOptions.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptions, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptions> = pbandk.MessageDescriptor(
+            fullName = "pbandk.testpb.MultipleCustomOptions",
+            messageClass = pbandk.testpb.MultipleCustomOptions::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -85,13 +83,7 @@ public data class MultipleCustomOptions(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "pbandk.testpb.MultipleCustomOptions",
-                messageClass = pbandk.testpb.MultipleCustomOptions::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -108,9 +100,11 @@ public data class MultipleCustomOptionsPlusDeprecated(
         public val defaultInstance: pbandk.testpb.MultipleCustomOptionsPlusDeprecated by lazy { pbandk.testpb.MultipleCustomOptionsPlusDeprecated() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> = pbandk.MessageDescriptor(
+            fullName = "pbandk.testpb.MultipleCustomOptionsPlusDeprecated",
+            messageClass = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 @Suppress("DEPRECATION")
                 add(
                     pbandk.FieldDescriptor(
@@ -135,13 +129,7 @@ public data class MultipleCustomOptionsPlusDeprecated(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "pbandk.testpb.MultipleCustomOptionsPlusDeprecated",
-                messageClass = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 

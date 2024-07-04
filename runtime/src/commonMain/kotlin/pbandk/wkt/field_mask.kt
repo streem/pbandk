@@ -14,9 +14,11 @@ public data class FieldMask(
         public val defaultInstance: pbandk.wkt.FieldMask by lazy { pbandk.wkt.FieldMask() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldMask = pbandk.wkt.FieldMask.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldMask> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FieldMask, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldMask> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.FieldMask",
+            messageClass = pbandk.wkt.FieldMask::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -28,13 +30,7 @@ public data class FieldMask(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.FieldMask",
-                messageClass = pbandk.wkt.FieldMask::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 

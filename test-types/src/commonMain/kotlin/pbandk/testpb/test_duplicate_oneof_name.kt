@@ -27,9 +27,11 @@ public data class Value(
         public val defaultInstance: pbandk.testpb.Value by lazy { pbandk.testpb.Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Value = pbandk.testpb.Value.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Value, *>>(3)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> = pbandk.MessageDescriptor(
+            fullName = "testpb.Value",
+            messageClass = pbandk.testpb.Value::class,
+            messageCompanion = this,
+            fields = buildList(3) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -64,13 +66,7 @@ public data class Value(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "testpb.Value",
-                messageClass = pbandk.testpb.Value::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 

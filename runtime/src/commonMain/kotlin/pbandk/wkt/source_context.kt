@@ -14,9 +14,11 @@ public data class SourceContext(
         public val defaultInstance: pbandk.wkt.SourceContext by lazy { pbandk.wkt.SourceContext() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceContext = pbandk.wkt.SourceContext.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.SourceContext, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.SourceContext",
+            messageClass = pbandk.wkt.SourceContext::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -28,13 +30,7 @@ public data class SourceContext(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.SourceContext",
-                messageClass = pbandk.wkt.SourceContext::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 

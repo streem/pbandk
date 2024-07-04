@@ -17,9 +17,11 @@ public data class Version(
         public val defaultInstance: pbandk.gen.pb.Version by lazy { pbandk.gen.pb.Version() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.Version = pbandk.gen.pb.Version.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.Version> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.gen.pb.Version, *>>(4)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.Version> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.compiler.Version",
+            messageClass = pbandk.gen.pb.Version::class,
+            messageCompanion = this,
+            fields = buildList(4) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -61,13 +63,7 @@ public data class Version(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.compiler.Version",
-                messageClass = pbandk.gen.pb.Version::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -86,9 +82,11 @@ public data class CodeGeneratorRequest(
         public val defaultInstance: pbandk.gen.pb.CodeGeneratorRequest by lazy { pbandk.gen.pb.CodeGeneratorRequest() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorRequest = pbandk.gen.pb.CodeGeneratorRequest.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorRequest> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorRequest, *>>(4)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorRequest> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.compiler.CodeGeneratorRequest",
+            messageClass = pbandk.gen.pb.CodeGeneratorRequest::class,
+            messageCompanion = this,
+            fields = buildList(4) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -130,13 +128,7 @@ public data class CodeGeneratorRequest(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.compiler.CodeGeneratorRequest",
-                messageClass = pbandk.gen.pb.CodeGeneratorRequest::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -154,9 +146,11 @@ public data class CodeGeneratorResponse(
         public val defaultInstance: pbandk.gen.pb.CodeGeneratorResponse by lazy { pbandk.gen.pb.CodeGeneratorResponse() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorResponse = pbandk.gen.pb.CodeGeneratorResponse.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, *>>(3)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.compiler.CodeGeneratorResponse",
+            messageClass = pbandk.gen.pb.CodeGeneratorResponse::class,
+            messageCompanion = this,
+            fields = buildList(3) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -188,13 +182,7 @@ public data class CodeGeneratorResponse(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.compiler.CodeGeneratorResponse",
-                messageClass = pbandk.gen.pb.CodeGeneratorResponse::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public sealed class Feature(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
@@ -227,9 +215,11 @@ public data class CodeGeneratorResponse(
             public val defaultInstance: pbandk.gen.pb.CodeGeneratorResponse.File by lazy { pbandk.gen.pb.CodeGeneratorResponse.File() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorResponse.File = pbandk.gen.pb.CodeGeneratorResponse.File.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, *>>(4)
-                fieldsList.apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File> = pbandk.MessageDescriptor(
+                fullName = "google.protobuf.compiler.CodeGeneratorResponse.File",
+                messageClass = pbandk.gen.pb.CodeGeneratorResponse.File::class,
+                messageCompanion = this,
+                fields = buildList(4) {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -271,13 +261,7 @@ public data class CodeGeneratorResponse(
                         )
                     )
                 }
-                pbandk.MessageDescriptor(
-                    fullName = "google.protobuf.compiler.CodeGeneratorResponse.File",
-                    messageClass = pbandk.gen.pb.CodeGeneratorResponse.File::class,
-                    messageCompanion = this,
-                    fields = fieldsList
-                )
-            }
+            )
         }
     }
 }

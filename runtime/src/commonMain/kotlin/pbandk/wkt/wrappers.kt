@@ -14,9 +14,11 @@ public data class DoubleValue(
         public val defaultInstance: pbandk.wkt.DoubleValue by lazy { pbandk.wkt.DoubleValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DoubleValue = pbandk.wkt.DoubleValue.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DoubleValue> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.DoubleValue, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DoubleValue> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.DoubleValue",
+            messageClass = pbandk.wkt.DoubleValue::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -28,13 +30,7 @@ public data class DoubleValue(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.DoubleValue",
-                messageClass = pbandk.wkt.DoubleValue::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -50,9 +46,11 @@ public data class FloatValue(
         public val defaultInstance: pbandk.wkt.FloatValue by lazy { pbandk.wkt.FloatValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FloatValue = pbandk.wkt.FloatValue.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FloatValue> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FloatValue, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FloatValue> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.FloatValue",
+            messageClass = pbandk.wkt.FloatValue::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -64,13 +62,7 @@ public data class FloatValue(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.FloatValue",
-                messageClass = pbandk.wkt.FloatValue::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -86,9 +78,11 @@ public data class Int64Value(
         public val defaultInstance: pbandk.wkt.Int64Value by lazy { pbandk.wkt.Int64Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int64Value = pbandk.wkt.Int64Value.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int64Value> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Int64Value, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int64Value> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.Int64Value",
+            messageClass = pbandk.wkt.Int64Value::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -100,13 +94,7 @@ public data class Int64Value(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.Int64Value",
-                messageClass = pbandk.wkt.Int64Value::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -122,9 +110,11 @@ public data class UInt64Value(
         public val defaultInstance: pbandk.wkt.UInt64Value by lazy { pbandk.wkt.UInt64Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt64Value = pbandk.wkt.UInt64Value.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt64Value> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.UInt64Value, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt64Value> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.UInt64Value",
+            messageClass = pbandk.wkt.UInt64Value::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -136,13 +126,7 @@ public data class UInt64Value(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.UInt64Value",
-                messageClass = pbandk.wkt.UInt64Value::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -158,9 +142,11 @@ public data class Int32Value(
         public val defaultInstance: pbandk.wkt.Int32Value by lazy { pbandk.wkt.Int32Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int32Value = pbandk.wkt.Int32Value.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int32Value> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Int32Value, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int32Value> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.Int32Value",
+            messageClass = pbandk.wkt.Int32Value::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -172,13 +158,7 @@ public data class Int32Value(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.Int32Value",
-                messageClass = pbandk.wkt.Int32Value::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -194,9 +174,11 @@ public data class UInt32Value(
         public val defaultInstance: pbandk.wkt.UInt32Value by lazy { pbandk.wkt.UInt32Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt32Value = pbandk.wkt.UInt32Value.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt32Value> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.UInt32Value, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt32Value> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.UInt32Value",
+            messageClass = pbandk.wkt.UInt32Value::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -208,13 +190,7 @@ public data class UInt32Value(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.UInt32Value",
-                messageClass = pbandk.wkt.UInt32Value::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -230,9 +206,11 @@ public data class BoolValue(
         public val defaultInstance: pbandk.wkt.BoolValue by lazy { pbandk.wkt.BoolValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BoolValue = pbandk.wkt.BoolValue.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BoolValue> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.BoolValue, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BoolValue> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.BoolValue",
+            messageClass = pbandk.wkt.BoolValue::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -244,13 +222,7 @@ public data class BoolValue(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.BoolValue",
-                messageClass = pbandk.wkt.BoolValue::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -266,9 +238,11 @@ public data class StringValue(
         public val defaultInstance: pbandk.wkt.StringValue by lazy { pbandk.wkt.StringValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.StringValue = pbandk.wkt.StringValue.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.StringValue> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.StringValue, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.StringValue> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.StringValue",
+            messageClass = pbandk.wkt.StringValue::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -280,13 +254,7 @@ public data class StringValue(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.StringValue",
-                messageClass = pbandk.wkt.StringValue::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -302,9 +270,11 @@ public data class BytesValue(
         public val defaultInstance: pbandk.wkt.BytesValue by lazy { pbandk.wkt.BytesValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BytesValue = pbandk.wkt.BytesValue.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BytesValue> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.BytesValue, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BytesValue> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.BytesValue",
+            messageClass = pbandk.wkt.BytesValue::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -316,13 +286,7 @@ public data class BytesValue(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.BytesValue",
-                messageClass = pbandk.wkt.BytesValue::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 

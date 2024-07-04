@@ -36,9 +36,11 @@ public data class Type(
         public val defaultInstance: pbandk.wkt.Type by lazy { pbandk.wkt.Type() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Type = pbandk.wkt.Type.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Type> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Type, *>>(6)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Type> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.Type",
+            messageClass = pbandk.wkt.Type::class,
+            messageCompanion = this,
+            fields = buildList(6) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -100,13 +102,7 @@ public data class Type(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.Type",
-                messageClass = pbandk.wkt.Type::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -131,9 +127,11 @@ public data class Field(
         public val defaultInstance: pbandk.wkt.Field by lazy { pbandk.wkt.Field() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Field = pbandk.wkt.Field.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Field> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Field, *>>(10)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Field> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.Field",
+            messageClass = pbandk.wkt.Field::class,
+            messageCompanion = this,
+            fields = buildList(10) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -235,13 +233,7 @@ public data class Field(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.Field",
-                messageClass = pbandk.wkt.Field::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public sealed class Kind(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
@@ -312,9 +304,11 @@ public data class Enum(
         public val defaultInstance: pbandk.wkt.Enum by lazy { pbandk.wkt.Enum() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Enum = pbandk.wkt.Enum.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Enum> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Enum, *>>(5)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Enum> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.Enum",
+            messageClass = pbandk.wkt.Enum::class,
+            messageCompanion = this,
+            fields = buildList(5) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -366,13 +360,7 @@ public data class Enum(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.Enum",
-                messageClass = pbandk.wkt.Enum::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -390,9 +378,11 @@ public data class EnumValue(
         public val defaultInstance: pbandk.wkt.EnumValue by lazy { pbandk.wkt.EnumValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValue = pbandk.wkt.EnumValue.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValue> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.EnumValue, *>>(3)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValue> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.EnumValue",
+            messageClass = pbandk.wkt.EnumValue::class,
+            messageCompanion = this,
+            fields = buildList(3) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -424,13 +414,7 @@ public data class EnumValue(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.EnumValue",
-                messageClass = pbandk.wkt.EnumValue::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -447,9 +431,11 @@ public data class Option(
         public val defaultInstance: pbandk.wkt.Option by lazy { pbandk.wkt.Option() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Option = pbandk.wkt.Option.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Option> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Option, *>>(2)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Option> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.Option",
+            messageClass = pbandk.wkt.Option::class,
+            messageCompanion = this,
+            fields = buildList(2) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -471,13 +457,7 @@ public data class Option(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.Option",
-                messageClass = pbandk.wkt.Option::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 

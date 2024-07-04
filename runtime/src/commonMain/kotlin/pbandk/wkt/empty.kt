@@ -13,17 +13,13 @@ public data class Empty(
         public val defaultInstance: pbandk.wkt.Empty by lazy { pbandk.wkt.Empty() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Empty = pbandk.wkt.Empty.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Empty> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Empty, *>>(0)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Empty> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.Empty",
+            messageClass = pbandk.wkt.Empty::class,
+            messageCompanion = this,
+            fields = buildList(0) {
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.Empty",
-                messageClass = pbandk.wkt.Empty::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 

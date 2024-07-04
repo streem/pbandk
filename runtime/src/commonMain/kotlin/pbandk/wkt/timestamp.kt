@@ -15,9 +15,11 @@ public data class Timestamp(
         public val defaultInstance: pbandk.wkt.Timestamp by lazy { pbandk.wkt.Timestamp() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Timestamp = pbandk.wkt.Timestamp.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Timestamp, *>>(2)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.Timestamp",
+            messageClass = pbandk.wkt.Timestamp::class,
+            messageCompanion = this,
+            fields = buildList(2) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -39,13 +41,7 @@ public data class Timestamp(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.Timestamp",
-                messageClass = pbandk.wkt.Timestamp::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
