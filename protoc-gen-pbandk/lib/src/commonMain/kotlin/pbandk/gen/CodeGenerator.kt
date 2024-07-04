@@ -184,38 +184,30 @@ public open class CodeGenerator(
         val chunkSize = 200
         val needToChunk = allFields.size > chunkSize
 
-        // Messages can have circular references to each other (e.g. `pbandk.wkt.Struct` includes a `pbandk.wkt.Value`
-        // field, but `pbandk.wkt.Value` includes a `pbandk.wkt.Struct` field). On Kotlin/Native the companion object
-        // (e.g. `pbandk.wkt.Value.Companion`) is automatically frozen because it's a singleton. But Kotlin/Native
-        // doesn't allow cyclic frozen structures:
-        // https://kotlinlang.org/docs/reference/native/concurrency.html#global-variables-and-singletons. In order to
-        // break the circular references, `descriptor` needs to be a `lazy` field.
-        line("override val descriptor: pbandk.MessageDescriptor<${type.kotlinTypeNameWithPackage}> by lazy {").indented {
-            // XXX: When a message has lots of fields (e.g. `TestAllTypesProto3`), declaring the list of field
-            // descriptors directly in the [MessageDescriptor] constructor can cause a
-            // `java.lang.OutOfMemoryError: Java heap space` error in the Kotlin compiler (as of Kotlin 1.4.20).
-            // As a workaround, we generate methods to generate each fieldDescriptor in chunks, as many as needed, with
-            // a max size of $chunkSize to limit the size of the methods.
-            line("val fieldsList = ArrayList<pbandk.FieldDescriptor<${type.kotlinTypeNameWithPackage}, *>>(${allFields.size})")
-            if (needToChunk) {
-                allFields.chunked(chunkSize).forEachIndexed { index, _ ->
-                    line("addFields${index}(fieldsList)")
+        line("override val descriptor: pbandk.MessageDescriptor<${type.kotlinTypeNameWithPackage}> = pbandk.MessageDescriptor(").indented {
+            line("fullName = \"${type.fullName}\",")
+            line("messageClass = ${type.kotlinTypeNameWithPackage}::class,")
+            line("messageCompanion = this,")
+            line("fields = buildList(${allFields.size}) {").indented {
+                // XXX: When a message has lots of fields (e.g. `TestAllTypesProto3`), declaring the list of field
+                // descriptors directly in the [MessageDescriptor] constructor can cause a
+                // `java.lang.OutOfMemoryError: Java heap space` error in the Kotlin compiler (as of Kotlin 1.4.20).
+                // As a workaround, we generate methods to generate each fieldDescriptor in chunks, as many as needed, with
+                // a max size of $chunkSize to limit the size of the methods.
+                if (needToChunk) {
+                    allFields.chunked(chunkSize).forEachIndexed { index, _ ->
+                        line("addFields${index}()")
+                    }
+                } else {
+                    addFields(allFields, type.kotlinTypeNameWithPackage)
                 }
-            } else {
-                addFields(allFields, type.kotlinTypeNameWithPackage)
-            }
-
-            line("pbandk.MessageDescriptor(").indented {
-                line("fullName = \"${type.fullName}\",")
-                line("messageClass = ${type.kotlinTypeNameWithPackage}::class,")
-                line("messageCompanion = this,")
-                line("fields = fieldsList")
-            }.line(")")
-        }.line("}")
+            }.line("}")
+        }.line(")")
 
         if (needToChunk) {
             allFields.chunked(chunkSize).forEachIndexed { index, chunk ->
-                line("fun addFields${index}(fieldsList: ArrayList<pbandk.FieldDescriptor<${type.kotlinTypeNameWithPackage}, *>>) {").indented {
+                line()
+                line("private fun MutableList<pbandk.FieldDescriptor<${type.kotlinTypeNameWithPackage}, *>>.addFields${index}() {").indented {
                     addFields(chunk, type.kotlinTypeNameWithPackage)
                 }.line("}")
             }
@@ -226,21 +218,19 @@ public open class CodeGenerator(
         chunk: List<Pair<File.Field.Numbered, File.Field.OneOf?>>,
         fullTypeName: String
     ) {
-        line("fieldsList.apply {").indented {
-            chunk.forEach { (field, oneof) ->
-                if (field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
-                line("add(").indented {
-                    line("pbandk.FieldDescriptor(").indented {
-                        generateFieldDescriptorConstructorValues(
-                            field,
-                            fullTypeName,
-                            oneof,
-                            "this@Companion::descriptor"
-                        )
-                    }.line(")")
+        chunk.forEach { (field, oneof) ->
+            if (field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
+            line("add(").indented {
+                line("pbandk.FieldDescriptor(").indented {
+                    generateFieldDescriptorConstructorValues(
+                        field,
+                        fullTypeName,
+                        oneof,
+                        "this@Companion::descriptor"
+                    )
                 }.line(")")
-            }
-        }.line("}")
+            }.line(")")
+        }
     }
 
     private fun generateFieldOptions(fieldOptions: FieldOptions) {
