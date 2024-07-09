@@ -36,7 +36,7 @@ kotlin {
         jvmTest {
             dependencies {
                 implementation(kotlin("reflect"))
-                implementation("com.github.tschuchortdev:kotlin-compile-testing:1.5.0")
+                implementation("com.github.tschuchortdev:kotlin-compile-testing:1.6.0")
             }
         }
     }

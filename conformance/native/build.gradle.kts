@@ -16,10 +16,6 @@ kotlin {
     targets.withType<KotlinNativeTarget> {
         binaries {
             executable("conformance")
-            configureEach {
-                // See https://youtrack.jetbrains.com/issue/KT-44148
-                freeCompilerArgs += "-Xdisable-phases=EscapeAnalysis"
-            }
         }
     }
 
