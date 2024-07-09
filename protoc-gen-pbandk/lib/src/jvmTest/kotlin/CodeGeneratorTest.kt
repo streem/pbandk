@@ -3,6 +3,7 @@ package pbandk.gen
 import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.KotlinCompilation.ExitCode
 import com.tschuchort.compiletesting.SourceFile
+import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import pbandk.decodeFromStream
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.wkt.FileDescriptorSet
@@ -13,6 +14,7 @@ import kotlin.reflect.full.hasAnnotation
 import kotlin.reflect.full.memberProperties
 import kotlin.test.*
 
+@OptIn(ExperimentalCompilerApi::class)
 class CodeGeneratorTest {
     private val descriptorSetOutput = File("build/generateTestProtoDescriptor/fileDescriptor.protoset")
     private val fileDescriptorSet by lazy {
