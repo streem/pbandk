@@ -59,11 +59,3 @@ tasks {
         enabled = false
     }
 }
-
-// Workaround the Gradle bug resolving multi-platform dependencies.
-// Fix courtesy of https://github.com/square/okio/issues/647
-configurations.forEach {
-    if (it.name.toLowerCase().contains("kapt") || it.name.toLowerCase().contains("proto")) {
-        it.attributes.attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage::class.java, Usage.JAVA_RUNTIME))
-    }
-}
