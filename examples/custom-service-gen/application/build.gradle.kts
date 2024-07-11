@@ -45,7 +45,7 @@ protobuf {
                 id("pbandk") {
                     option("log=debug")
                     option("kotlin_package=pbandk.examples.greeter.pb")
-                    option("kotlin_service_gen=${project(":generator").buildDir}/libs/generator.jar|pbandk.examples.greeter.Generator")
+                    option("kotlin_service_gen=${project(":generator").layout.buildDirectory.get()}/libs/generator.jar|pbandk.examples.greeter.Generator")
                 }
             }
         }
@@ -55,13 +55,5 @@ protobuf {
 tasks {
     compileJava {
         enabled = false
-    }
-}
-
-// Workaround the Gradle bug resolving multi-platform dependencies.
-// Fix courtesy of https://github.com/square/okio/issues/647
-configurations.forEach {
-    if (it.name.toLowerCase().contains("kapt") || it.name.toLowerCase().contains("proto")) {
-        it.attributes.attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage::class.java, Usage.JAVA_RUNTIME))
     }
 }
