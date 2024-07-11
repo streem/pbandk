@@ -6,10 +6,8 @@ import pbandk.binary.BinaryFieldValueEncoder
 import pbandk.binary.WireType
 import pbandk.json.JsonFieldValueDecoder
 import pbandk.json.JsonFieldValueEncoder
-import kotlin.js.JsExport
 
 @PublicForGeneratedCode
-@JsExport
 public interface ValueType<KotlinType : Any> {
     /**
      * Returns the default value for this type. Can throw an exception if [KotlinType] is a [pbandk.Message] with

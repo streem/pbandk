@@ -10,10 +10,8 @@ import pbandk.internal.binary.BinaryFieldDecoder
 import pbandk.internal.binary.kotlin.ByteArrayWireReader
 import pbandk.internal.binary.kotlin.LimitingWireReader
 import pbandk.internal.binary.kotlin.WireReader
-import kotlin.js.JsExport
 
 @PublicForGeneratedCode
-@JsExport
 public sealed class BinaryFieldValueDecoder {
     internal abstract val wireType: WireType
 
