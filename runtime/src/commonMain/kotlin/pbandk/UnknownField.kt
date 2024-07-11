@@ -9,11 +9,17 @@ import pbandk.internal.types.MessageValueType
 import kotlin.js.JsExport
 
 @JsExport
-public data class UnknownField @PublicForGeneratedCode constructor(val fieldNum: Int, val values: List<Value>) {
+public data class UnknownField
+@JsExport.Ignore
+@PublicForGeneratedCode
+constructor(val fieldNum: Int, val values: List<Value>) {
 
     internal val size get() = (Tag.size(fieldNum) * values.size) + values.sumOf { it.size }
 
-    public data class Value @PublicForGeneratedCode constructor(val wireValue: WireValue) {
+    public data class Value
+    @JsExport.Ignore
+    @PublicForGeneratedCode
+    constructor(val wireValue: WireValue) {
         internal constructor(decoder: BinaryFieldValueDecoder) : this(
             when (decoder) {
                 is BinaryFieldValueDecoder.Varint -> decoder.decodeValue()

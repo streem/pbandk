@@ -174,9 +174,11 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
         return number - other.number
     }
 
+    @JsExport.Ignore
     @PublicForGeneratedCode
     public abstract fun getValue(message: M): V
 
+    @JsExport.Ignore
     @PublicForGeneratedCode
     public abstract fun setValue(message: MutableMessage<M>, value: V)
 
@@ -227,6 +229,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
     ) {
         abstract override val fieldType: FieldType.MutableValue<V, MV>
 
+        @JsExport.Ignore
         @PublicForGeneratedCode
         public abstract fun getMutableValue(message: MutableMessage<M>): MV
     }
@@ -611,6 +614,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
     // }
 
     public companion object {
+        @JsExport.Ignore
         @PublicForGeneratedCode
         public fun <M : Message, MM : MutableMessage<M>, V : Any> ofRequired(
             messageMetadata: MessageMetadata,
@@ -634,6 +638,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             mutableProperty = mutableValue,
         )
 
+        @JsExport.Ignore
         @PublicForGeneratedCode
         public fun <M : Message, MM : MutableMessage<M>, V : Any> ofOptional(
             messageMetadata: MessageMetadata,
@@ -657,6 +662,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             mutableProperty = mutableValue,
         )
 
+        @JsExport.Ignore
         @PublicForGeneratedCode
         public fun <M : Message, MM : MutableMessage<M>, V : Any> ofSingular(
             messageMetadata: MessageMetadata,
@@ -680,6 +686,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             mutableProperty = mutableValue,
         )
 
+        @JsExport.Ignore
         @PublicForGeneratedCode
         public fun <M : Message, MM : MutableMessage<M>, V : Any> ofOneof(
             messageMetadata: MessageMetadata,
@@ -704,6 +711,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             isOneofMember = true,
         )
 
+        @JsExport.Ignore
         @PublicForGeneratedCode
         public fun <M : Message, MM : MutableMessage<M>, T : Any> ofRepeated(
             messageMetadata: MessageMetadata,
@@ -727,6 +735,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             mutableProperty = mutableValue,
         )
 
+        @JsExport.Ignore
         @PublicForGeneratedCode
         public fun <M : Message, MM : MutableMessage<M>, K : Any, V : Any> ofMap(
             messageMetadata: MessageMetadata,
@@ -752,6 +761,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             mutableProperty = mutableValue,
         )
 
+        @JsExport.Ignore
         @PublicForGeneratedCode
         public fun <M : ExtendableMessage<M>, V : Any> ofExtension(
             messageDescriptor: KProperty0<MessageDescriptor<M>>,
@@ -769,6 +779,7 @@ public sealed class FieldDescriptor<M : Message, V> private constructor(
             valueType = valueType,
         )
 
+        @JsExport.Ignore
         @PublicForGeneratedCode
         public fun <M : ExtendableMessage<M>, T : Any> ofRepeatedExtension(
             messageDescriptor: KProperty0<MessageDescriptor<M>>,

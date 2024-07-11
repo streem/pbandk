@@ -62,6 +62,7 @@ public class MessageDescriptor<M : Message> private constructor(
     internal val messageValueType: MessageValueType<M> get() = messageCompanion.messageValueType as MessageValueType<M>
 
     public companion object {
+        @JsExport.Ignore
         @PublicForGeneratedCode
         public fun <M : Message, MM : MutableMessage<M>> of(
             metadata: MessageMetadata,
