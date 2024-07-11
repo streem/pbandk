@@ -7,7 +7,10 @@ import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
 @JsExport
-public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor(
+public class FieldDescriptor<M : Message, T>
+@JsExport.Ignore
+@PublicForGeneratedCode
+constructor(
     messageDescriptor: KProperty0<MessageDescriptor<M>>,
     @ExperimentalProtoReflection
     public val name: String,
@@ -24,6 +27,7 @@ public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor
     // [MessageDescriptor] constructor. To avoid the circular dependency, this property is declared lazy.
     internal val messageDescriptor: MessageDescriptor<M> by lazy { messageDescriptor.get() }
 
+    @JsExport.Ignore
     @PublicForGeneratedCode
     public sealed class Type {
         internal abstract val hasPresence: Boolean
@@ -134,7 +138,7 @@ public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor
         ) : Type() {
             override val isPackable: Boolean get() = true
             override val wireType: WireType get() = WireType.VARINT
-            override val defaultValue: Any? = enumCompanion.fromValue(0)
+            override val defaultValue: Any = enumCompanion.fromValue(0)
             override fun isDefaultValue(value: Any?) = (value as? pbandk.Message.Enum)?.value == 0
         }
 
@@ -144,7 +148,7 @@ public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor
             override val hasPresence get() = false
             override val isPackable: Boolean get() = false
             override val wireType: WireType get() = valueType.wireType
-            override val defaultValue: Any? = emptyList<T>()
+            override val defaultValue: Any = emptyList<T>()
             override fun isDefaultValue(value: Any?) = (value as? List<*>)?.isEmpty() == true
         }
 
@@ -155,10 +159,8 @@ public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor
             override val hasPresence get() = false
             override val isPackable: Boolean get() = false
             override val wireType: WireType get() = WireType.LENGTH_DELIMITED
-            override val defaultValue: Any? = emptyMap<K, V>()
+            override val defaultValue: Any = emptyMap<K, V>()
             override fun isDefaultValue(value: Any?) = (value as? kotlin.collections.Map<*, *>)?.isEmpty() == true
         }
     }
-
-
 }

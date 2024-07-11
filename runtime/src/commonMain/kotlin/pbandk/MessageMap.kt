@@ -1,10 +1,8 @@
 package pbandk
 
-import kotlin.js.JsExport
 import kotlin.reflect.KClass
 
 @PublicForGeneratedCode
-@JsExport
 public class MessageMap<K, V> internal constructor(override val entries: Set<Entry<K, V>>) : AbstractMap<K, V>() {
     @PublicForGeneratedCode
     public class Builder<K, V> {
