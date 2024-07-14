@@ -73,7 +73,7 @@ public data class MessageWithEnum(
     }
 
     public sealed class EnumType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?): Boolean = other is MessageWithEnum.EnumType && other.value == value
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.testpb.MessageWithEnum.EnumType && other.value == value
         override fun hashCode(): Int = value.hashCode()
         override fun toString(): String = "MessageWithEnum.EnumType.${name ?: "UNRECOGNIZED"}(value=$value)"
 
@@ -81,10 +81,10 @@ public data class MessageWithEnum(
         public object BAR : EnumType(1, "BAR")
         public class UNRECOGNIZED(value: Int) : EnumType(value)
 
-        public companion object : pbandk.Message.Enum.Companion<MessageWithEnum.EnumType> {
-            public val values: List<MessageWithEnum.EnumType> by lazy { listOf(FOO, BAR) }
-            override fun fromValue(value: Int): MessageWithEnum.EnumType = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-            override fun fromName(name: String): MessageWithEnum.EnumType = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No EnumType with name: $name")
+        public companion object : pbandk.Message.Enum.Companion<pbandk.testpb.MessageWithEnum.EnumType> {
+            public val values: List<pbandk.testpb.MessageWithEnum.EnumType> by lazy { listOf(FOO, BAR) }
+            override fun fromValue(value: Int): pbandk.testpb.MessageWithEnum.EnumType = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.testpb.MessageWithEnum.EnumType = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No EnumType with name: $name")
         }
     }
 }

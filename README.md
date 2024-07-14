@@ -7,7 +7,7 @@
 Pbandk is a Kotlin code generator and runtime for [Protocol Buffers](https://developers.google.com/protocol-buffers/).
 It is built to work across multiple Kotlin platforms.
 
-**NOTE**: This is the documentation for the version of pbandk currently in development. **Documentation for the latest stable version** is available at https://github.com/streem/pbandk/blob/v0.14.2/README.md.
+**NOTE**: This is the documentation for the version of pbandk currently in development. **Documentation for the latest stable version** is available at https://github.com/streem/pbandk/blob/v0.14.3/README.md.
 
 **Features**
 
@@ -38,7 +38,9 @@ Read below for more information and see the [examples](examples).
 
 This project is currently in beta. It has the core set of protobuf features implemented and is being used in production. But it is still under active development and new versions might introduce backwards-incompatible changes to support new features or to improve the library's usability in Kotlin. Pull requests are welcome for any of the "Not Yet Implemented" features above.
 
-This project follows semantic versioning. After v1.0.0 is released (mid-2022 at the earliest), future versions will preserve backwards compatibility.
+This project follows semantic versioning. After v1.0.0 is released, future versions will preserve backwards compatibility.
+
+The project currently has a single maintainer (@garyp) working on it in his spare time. Contributors who would like to become additional maintainers are highly welcome. Your contributions don't have to be in the form of code and could also be documentation improvements, issue triage, community outreach, etc.
 
 ## Summary
 
@@ -359,7 +361,7 @@ repositories {
 dependencies {
     // Can be used from the `common` sourceset in a Kotlin Multiplatform project,
     // or from platform-specific JVM, Android, JS, or Native sourcesets/projects.
-    implementation("pro.streem.pbandk:pbandk-runtime:0.14.3-SNAPSHOT")
+    implementation("pro.streem.pbandk:pbandk-runtime:0.14.4-SNAPSHOT")
 }
 ```
 
@@ -389,7 +391,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly("pro.streem.pbandk:protoc-gen-pbandk-lib:0.14.3-SNAPSHOT")
+    compileOnly("pro.streem.pbandk:protoc-gen-pbandk-lib:0.14.4-SNAPSHOT")
 }
 ```
 

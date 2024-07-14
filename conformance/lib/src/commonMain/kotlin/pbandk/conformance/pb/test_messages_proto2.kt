@@ -4,7 +4,7 @@ package pbandk.conformance.pb
 
 @pbandk.Export
 public sealed class ForeignEnumProto2(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?): Boolean = other is ForeignEnumProto2 && other.value == value
+    override fun equals(other: kotlin.Any?): Boolean = other is pbandk.conformance.pb.ForeignEnumProto2 && other.value == value
     override fun hashCode(): Int = value.hashCode()
     override fun toString(): String = "ForeignEnumProto2.${name ?: "UNRECOGNIZED"}(value=$value)"
 
@@ -13,10 +13,10 @@ public sealed class ForeignEnumProto2(override val value: Int, override val name
     public object FOREIGN_BAZ : ForeignEnumProto2(2, "FOREIGN_BAZ")
     public class UNRECOGNIZED(value: Int) : ForeignEnumProto2(value)
 
-    public companion object : pbandk.Message.Enum.Companion<ForeignEnumProto2> {
-        public val values: List<ForeignEnumProto2> by lazy { listOf(FOREIGN_FOO, FOREIGN_BAR, FOREIGN_BAZ) }
-        override fun fromValue(value: Int): ForeignEnumProto2 = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String): ForeignEnumProto2 = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No ForeignEnumProto2 with name: $name")
+    public companion object : pbandk.Message.Enum.Companion<pbandk.conformance.pb.ForeignEnumProto2> {
+        public val values: List<pbandk.conformance.pb.ForeignEnumProto2> by lazy { listOf(FOREIGN_FOO, FOREIGN_BAR, FOREIGN_BAZ) }
+        override fun fromValue(value: Int): pbandk.conformance.pb.ForeignEnumProto2 = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+        override fun fromName(name: String): pbandk.conformance.pb.ForeignEnumProto2 = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No ForeignEnumProto2 with name: $name")
     }
 }
 
@@ -1366,7 +1366,7 @@ public data class TestAllTypesProto2(
     }
 
     public sealed class NestedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?): Boolean = other is TestAllTypesProto2.NestedEnum && other.value == value
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.conformance.pb.TestAllTypesProto2.NestedEnum && other.value == value
         override fun hashCode(): Int = value.hashCode()
         override fun toString(): String = "TestAllTypesProto2.NestedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
 
@@ -1376,10 +1376,10 @@ public data class TestAllTypesProto2(
         public object NEG : NestedEnum(-1, "NEG")
         public class UNRECOGNIZED(value: Int) : NestedEnum(value)
 
-        public companion object : pbandk.Message.Enum.Companion<TestAllTypesProto2.NestedEnum> {
-            public val values: List<TestAllTypesProto2.NestedEnum> by lazy { listOf(FOO, BAR, BAZ, NEG) }
-            override fun fromValue(value: Int): TestAllTypesProto2.NestedEnum = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-            override fun fromName(name: String): TestAllTypesProto2.NestedEnum = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NestedEnum with name: $name")
+        public companion object : pbandk.Message.Enum.Companion<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum> {
+            public val values: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum> by lazy { listOf(FOO, BAR, BAZ, NEG) }
+            override fun fromValue(value: Int): pbandk.conformance.pb.TestAllTypesProto2.NestedEnum = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.conformance.pb.TestAllTypesProto2.NestedEnum = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NestedEnum with name: $name")
         }
     }
 

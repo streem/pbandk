@@ -4,17 +4,17 @@ package pbandk.wkt
 
 @pbandk.Export
 public sealed class NullValue(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?): Boolean = other is NullValue && other.value == value
+    override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.NullValue && other.value == value
     override fun hashCode(): Int = value.hashCode()
     override fun toString(): String = "NullValue.${name ?: "UNRECOGNIZED"}(value=$value)"
 
     public object NULL_VALUE : NullValue(0, "NULL_VALUE")
     public class UNRECOGNIZED(value: Int) : NullValue(value)
 
-    public companion object : pbandk.Message.Enum.Companion<NullValue> {
-        public val values: List<NullValue> by lazy { listOf(NULL_VALUE) }
-        override fun fromValue(value: Int): NullValue = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String): NullValue = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NullValue with name: $name")
+    public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.NullValue> {
+        public val values: List<pbandk.wkt.NullValue> by lazy { listOf(NULL_VALUE) }
+        override fun fromValue(value: Int): pbandk.wkt.NullValue = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+        override fun fromName(name: String): pbandk.wkt.NullValue = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NullValue with name: $name")
     }
 }
 
