@@ -52,11 +52,12 @@ public data class JsonConfig(
      */
     val typeRegistry: TypeRegistry = TypeRegistry.EMPTY,
 ) {
+    // TODO: document the effect of each option
     internal enum class UnrecognizedEnumValueBehavior {
         Keep,
         KeepOnlyStringValues,
         KeepOnlyNumericValues,
-        TreatAsUnknownField,
+        TreatAsUnknownField, // AKA "closed enums"
     }
 
     // In theory we should by default reject unknown enum values regardless of whether they're numeric- or string-based.
