@@ -14,7 +14,7 @@ import pbandk.MessageMap
 import pbandk.getTypeNameFromTypeUrl
 import pbandk.getTypePrefixFromTypeUrl
 import pbandk.getTypeUrl
-import pbandk.internal.Util
+import pbandk.internal.PlatformUtil
 import pbandk.pack
 import pbandk.unpack
 import pbandk.wkt.Any
@@ -179,10 +179,10 @@ internal object JsonMessageAdapters {
 
         Duration.descriptor to object : JsonMessageAdapter<Duration> {
             override fun encode(message: Duration, jsonValueEncoder: JsonValueEncoder) =
-                jsonValueEncoder.writeString(Util.durationToString(message))
+                jsonValueEncoder.writeString(PlatformUtil.durationToString(message))
 
             override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) =
-                Util.stringToDuration(jsonValueDecoder.readString(json))
+                PlatformUtil.stringToDuration(jsonValueDecoder.readString(json))
         },
 
         ListValue.descriptor to object : JsonMessageAdapter<ListValue> {
@@ -226,10 +226,10 @@ internal object JsonMessageAdapters {
 
         Timestamp.descriptor to object : JsonMessageAdapter<Timestamp> {
             override fun encode(message: Timestamp, jsonValueEncoder: JsonValueEncoder) =
-                jsonValueEncoder.writeString(Util.timestampToString(message))
+                jsonValueEncoder.writeString(PlatformUtil.timestampToString(message))
 
             override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) =
-                Util.stringToTimestamp(jsonValueDecoder.readString(json))
+                PlatformUtil.stringToTimestamp(jsonValueDecoder.readString(json))
         },
 
         Value.descriptor to object : JsonMessageAdapter<Value> {

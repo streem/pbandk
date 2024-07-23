@@ -12,18 +12,18 @@ import java.util.*
 // Set this to false to use the JVM encode/decode for code gen proto
 private const val useJvmProto = false
 
-internal actual object Platform {
-    actual fun stderrPrintln(str: String) = System.err.println(str)
-    actual fun stdinReadRequest() = System.`in`.readBytes().let { bytes ->
+private object JvmPlatform : Platform {
+    override fun stderrPrintln(str: String) = System.err.println(str)
+    override fun stdinReadRequest() = System.`in`.readBytes().let { bytes ->
         if (useJvmProto) BootstrapConverter.fromReq(PluginProtos.CodeGeneratorRequest.parseFrom(bytes))
         else CodeGeneratorRequest.decodeFromByteArray(bytes)
     }
 
-    actual fun stdoutWriteResponse(resp: CodeGeneratorResponse) =
+    override fun stdoutWriteResponse(resp: CodeGeneratorResponse) =
         if (useJvmProto) BootstrapConverter.toResp(resp).writeTo(System.out)
         else System.out.write(resp.encodeToByteArray())
 
-    actual fun serviceGenerator(cliParams: Map<String, String>): ServiceGenerator? {
+    override fun serviceGenerator(cliParams: Map<String, String>): ServiceGenerator? {
         // CLI param kotlin_service_gen is a collection of JARs. At the very end can have a pipe with the
         // FQCN of a service generator. Otherwise it is loaded via ServiceLoader. It can have an empty
         // string for the JAR list and it can have no pipe which means the param can be null
@@ -52,3 +52,5 @@ internal actual object Platform {
         }
     }
 }
+
+internal actual fun getPlatform(): Platform = JvmPlatform

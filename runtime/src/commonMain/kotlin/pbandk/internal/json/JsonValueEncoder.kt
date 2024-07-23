@@ -9,7 +9,7 @@ import kotlinx.serialization.json.jsonPrimitive
 import pbandk.ByteArr
 import pbandk.FieldDescriptor
 import pbandk.Message
-import pbandk.internal.Util
+import pbandk.internal.PlatformUtil
 import pbandk.json.JsonConfig
 import pbandk.wkt.BoolValue
 import pbandk.wkt.BytesValue
@@ -104,7 +104,7 @@ internal class JsonValueEncoder(val jsonConfig: JsonConfig) {
         JsonPrimitive(value)
 
     fun writeBytes(value: ByteArr): JsonElement =
-        JsonPrimitive(Util.bytesToBase64(value.array))
+        JsonPrimitive(PlatformUtil.bytesToBase64(value.array))
 
     fun writeMessage(value: Message): JsonElement =
         JsonMessageEncoder(jsonConfig).also { it.writeMessage(value) }.toJsonElement()
