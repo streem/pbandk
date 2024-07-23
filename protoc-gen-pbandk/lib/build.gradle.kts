@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("multiplatform")
     `maven-publish`
@@ -9,44 +11,45 @@ description = "Kotlin code generator for Protocol Buffers and library for writin
 kotlin {
     explicitApi()
 
-    jvm {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
-        }
-    }
+    jvm()
 
     sourceSets {
         all {
             languageSettings.optIn("kotlin.RequiresOptIn")
         }
 
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 implementation(project(":pbandk-runtime"))
             }
         }
 
-        val commonTest by getting {
+        commonTest {
             dependencies {
                 implementation(kotlin("test"))
             }
         }
 
-        val jvmMain by getting {
+        jvmMain {
             dependencies {
                 implementation("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
             }
         }
 
-        val jvmTest by getting {
+        jvmTest {
             dependencies {
                 implementation(kotlin("reflect"))
-                implementation("com.github.tschuchortdev:kotlin-compile-testing:1.4.5")
+                implementation("com.github.tschuchortdev:kotlin-compile-testing:1.5.0")
             }
         }
     }
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = Versions.jvmTarget
+}
+tasks.withType<JavaCompile> {
+    targetCompatibility = Versions.jvmTarget
 }
 
 val extractWellKnownTypeProtos = rootProject.tasks.named<Sync>("extractWellKnownTypeProtos")
@@ -65,10 +68,8 @@ tasks {
     }
 
     val generateTestProtoDescriptor by registering(DescriptorProtocTask::class) {
-        val out = File(project.buildDir, name).also { it.mkdirs() }
-
         includeDir.set(project.file("src/jvmTest/resources/protos"))
-        outputDir.set(out)
+        outputDir.set(layout.buildDirectory.dir(name))
     }
 
     getByName("jvmTest").dependsOn(generateTestProtoDescriptor)

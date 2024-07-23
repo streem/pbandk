@@ -7,11 +7,9 @@ repositories {
 }
 
 dependencies {
-    implementation("com.google.guava:guava:28.0-jre")
+    implementation("com.google.guava:guava:33.0.0-jre")
 }
 
 kotlin {
-    jvmToolchain {
-        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(11))
-    }
+    jvmToolchain(17)
 }
