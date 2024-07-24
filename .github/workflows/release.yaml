@@ -96,14 +96,14 @@ jobs:
             ./gradlew clean publishAllPublicationsToSonatypeRepository
           else
             ./gradlew clean \
-                    publishIosArm64PublicationToSonatype \
-                    publishIosSimulatorArm64PublicationToSonatype \
-                    publishIosX64PublicationToSonatype \
-                    publishTvosArm64PublicationToSonatype \
-                    publishTvosSimulatorArm64PublicationToSonatype \
-                    publishTvosX64PublicationToSonatype \
-                    publishMacosArm64PublicationToSonatype \
-                    publishMacosX64PublicationToSonatype
+                    publishIosArm64PublicationToSonatypeRepository \
+                    publishIosSimulatorArm64PublicationToSonatypeRepository \
+                    publishIosX64PublicationToSonatypeRepository \
+                    publishTvosArm64PublicationToSonatypeRepository \
+                    publishTvosSimulatorArm64PublicationToSonatypeRepository \
+                    publishTvosX64PublicationToSonatypeRepository \
+                    publishMacosArm64PublicationToSonatypeRepository \
+                    publishMacosX64PublicationToSonatypeRepository
           fi
 
   finalize-staging-repository:
