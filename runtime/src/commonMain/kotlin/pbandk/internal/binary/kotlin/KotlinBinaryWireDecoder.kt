@@ -44,7 +44,7 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
     private fun isAtEnd(): Boolean = (consumed == curLimit) || (curLimit == null && wireReader.isAtEnd())
 
     private fun readRawBytes(length: Int): ByteArray {
-        if (length >= 0 && consumed + length <= curLimit ?: Int.MAX_VALUE) {
+        if (length >= 0 && consumed + length <= (curLimit ?: Int.MAX_VALUE)) {
             consumed += length
             return wireReader.read(length)
         }
@@ -74,7 +74,7 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
 
     private fun readRawVarint64(): Long {
         var result: Long = 0
-        for (shift in 0 until 64 step 7) {
+        for (shift in 0..<64 step 7) {
             val b = readRawByte()
             result = result or ((b.toInt() and 0x7F).toLong() shl shift)
             if (b.toInt() and 0x80 == 0) {
@@ -170,7 +170,7 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
 
     private fun readVarintRawBytes(): ByteArray {
         val result = ByteArray(MAX_VARINT_SIZE)
-        for (i in 0 until MAX_VARINT_SIZE) {
+        for (i in 0..<MAX_VARINT_SIZE) {
             val b = readRawByte()
             result[i] = b
             if (b >= 0) return result.copyOf(i + 1)

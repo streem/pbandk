@@ -20,9 +20,11 @@ public data class Api(
         public val defaultInstance: pbandk.wkt.Api by lazy { pbandk.wkt.Api() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Api = pbandk.wkt.Api.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Api, *>>(7)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.Api",
+            messageClass = pbandk.wkt.Api::class,
+            messageCompanion = this,
+            fields = buildList(7) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -94,13 +96,7 @@ public data class Api(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.Api",
-                messageClass = pbandk.wkt.Api::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -122,9 +118,11 @@ public data class Method(
         public val defaultInstance: pbandk.wkt.Method by lazy { pbandk.wkt.Method() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Method = pbandk.wkt.Method.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Method, *>>(7)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.Method",
+            messageClass = pbandk.wkt.Method::class,
+            messageCompanion = this,
+            fields = buildList(7) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -196,13 +194,7 @@ public data class Method(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.Method",
-                messageClass = pbandk.wkt.Method::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -219,9 +211,11 @@ public data class Mixin(
         public val defaultInstance: pbandk.wkt.Mixin by lazy { pbandk.wkt.Mixin() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Mixin = pbandk.wkt.Mixin.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Mixin, *>>(2)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.Mixin",
+            messageClass = pbandk.wkt.Mixin::class,
+            messageCompanion = this,
+            fields = buildList(2) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -243,13 +237,7 @@ public data class Mixin(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.Mixin",
-                messageClass = pbandk.wkt.Mixin::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 

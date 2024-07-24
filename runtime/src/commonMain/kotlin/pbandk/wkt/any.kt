@@ -15,9 +15,11 @@ public data class Any(
         public val defaultInstance: pbandk.wkt.Any by lazy { pbandk.wkt.Any() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Any = pbandk.wkt.Any.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Any, *>>(2)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.Any",
+            messageClass = pbandk.wkt.Any::class,
+            messageCompanion = this,
+            fields = buildList(2) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -39,13 +41,7 @@ public data class Any(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.Any",
-                messageClass = pbandk.wkt.Any::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 

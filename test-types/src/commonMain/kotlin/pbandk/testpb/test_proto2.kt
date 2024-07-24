@@ -13,9 +13,11 @@ public data class MessageWithRequiredField(
     public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithRequiredField> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithRequiredField = pbandk.testpb.MessageWithRequiredField.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithRequiredField> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithRequiredField, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithRequiredField> = pbandk.MessageDescriptor(
+            fullName = "testpb.MessageWithRequiredField",
+            messageClass = pbandk.testpb.MessageWithRequiredField::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -27,13 +29,7 @@ public data class MessageWithRequiredField(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "testpb.MessageWithRequiredField",
-                messageClass = pbandk.testpb.MessageWithRequiredField::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -49,9 +45,11 @@ public data class MessageWithEnum(
         public val defaultInstance: pbandk.testpb.MessageWithEnum by lazy { pbandk.testpb.MessageWithEnum() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithEnum = pbandk.testpb.MessageWithEnum.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithEnum> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithEnum, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithEnum> = pbandk.MessageDescriptor(
+            fullName = "testpb.MessageWithEnum",
+            messageClass = pbandk.testpb.MessageWithEnum::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -63,13 +61,7 @@ public data class MessageWithEnum(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "testpb.MessageWithEnum",
-                messageClass = pbandk.testpb.MessageWithEnum::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public sealed class EnumType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {

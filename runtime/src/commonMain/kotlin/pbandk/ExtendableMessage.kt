@@ -6,6 +6,7 @@ public interface ExtendableMessage : Message {
 
     @PublicForGeneratedCode
     @Suppress("UNCHECKED_CAST")
+    @Throws(InvalidProtocolBufferException::class)
     public fun <M : Message, T> getExtension(fd: FieldDescriptor<M, T>): T {
         var value = extensionFields[fd.number] as? T
         if (value != null) {

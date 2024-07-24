@@ -1,7 +1,6 @@
 name: Publish Release
 
 env:
-  GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dkotlin.compiler.execution.strategy=in-process'
   JAVA_VERSION: 17
   SONATYPE_BASE_URL: 'https://s01.oss.sonatype.org/service/local/'
   SONATYPE_STAGING_PROFILE_ID: 'ad18f49c95e39'
@@ -97,14 +96,14 @@ jobs:
             ./gradlew clean publishAllPublicationsToSonatypeRepository
           else
             ./gradlew clean \
-                    publishIosArm64PublicationToSonatype \
-                    publishIosSimulatorArm64PublicationToSonatype \
-                    publishIosX64PublicationToSonatype \
-                    publishTvosArm64PublicationToSonatype \
-                    publishTvosSimulatorArm64PublicationToSonatype \
-                    publishTvosX64PublicationToSonatype \
-                    publishMacosArm64PublicationToSonatype \
-                    publishMacosX64PublicationToSonatype
+                    publishIosArm64PublicationToSonatypeRepository \
+                    publishIosSimulatorArm64PublicationToSonatypeRepository \
+                    publishIosX64PublicationToSonatypeRepository \
+                    publishTvosArm64PublicationToSonatypeRepository \
+                    publishTvosSimulatorArm64PublicationToSonatypeRepository \
+                    publishTvosX64PublicationToSonatypeRepository \
+                    publishMacosArm64PublicationToSonatypeRepository \
+                    publishMacosX64PublicationToSonatypeRepository
           fi
 
   finalize-staging-repository:

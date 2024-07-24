@@ -55,9 +55,11 @@ public data class FailureSet(
         public val defaultInstance: pbandk.conformance.pb.FailureSet by lazy { pbandk.conformance.pb.FailureSet() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.FailureSet = pbandk.conformance.pb.FailureSet.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.FailureSet> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.FailureSet, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.FailureSet> = pbandk.MessageDescriptor(
+            fullName = "conformance.FailureSet",
+            messageClass = pbandk.conformance.pb.FailureSet::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -69,13 +71,7 @@ public data class FailureSet(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "conformance.FailureSet",
-                messageClass = pbandk.conformance.pb.FailureSet::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -112,9 +108,11 @@ public data class ConformanceRequest(
         public val defaultInstance: pbandk.conformance.pb.ConformanceRequest by lazy { pbandk.conformance.pb.ConformanceRequest() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ConformanceRequest = pbandk.conformance.pb.ConformanceRequest.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceRequest> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.ConformanceRequest, *>>(9)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceRequest> = pbandk.MessageDescriptor(
+            fullName = "conformance.ConformanceRequest",
+            messageClass = pbandk.conformance.pb.ConformanceRequest::class,
+            messageCompanion = this,
+            fields = buildList(9) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -210,13 +208,7 @@ public data class ConformanceRequest(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "conformance.ConformanceRequest",
-                messageClass = pbandk.conformance.pb.ConformanceRequest::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -260,9 +252,11 @@ public data class ConformanceResponse(
         public val defaultInstance: pbandk.conformance.pb.ConformanceResponse by lazy { pbandk.conformance.pb.ConformanceResponse() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ConformanceResponse = pbandk.conformance.pb.ConformanceResponse.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceResponse> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.ConformanceResponse, *>>(8)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceResponse> = pbandk.MessageDescriptor(
+            fullName = "conformance.ConformanceResponse",
+            messageClass = pbandk.conformance.pb.ConformanceResponse::class,
+            messageCompanion = this,
+            fields = buildList(8) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -352,13 +346,7 @@ public data class ConformanceResponse(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "conformance.ConformanceResponse",
-                messageClass = pbandk.conformance.pb.ConformanceResponse::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -374,9 +362,11 @@ public data class JspbEncodingConfig(
         public val defaultInstance: pbandk.conformance.pb.JspbEncodingConfig by lazy { pbandk.conformance.pb.JspbEncodingConfig() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.JspbEncodingConfig = pbandk.conformance.pb.JspbEncodingConfig.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.JspbEncodingConfig> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.JspbEncodingConfig, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.JspbEncodingConfig> = pbandk.MessageDescriptor(
+            fullName = "conformance.JspbEncodingConfig",
+            messageClass = pbandk.conformance.pb.JspbEncodingConfig::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -388,13 +378,7 @@ public data class JspbEncodingConfig(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "conformance.JspbEncodingConfig",
-                messageClass = pbandk.conformance.pb.JspbEncodingConfig::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 

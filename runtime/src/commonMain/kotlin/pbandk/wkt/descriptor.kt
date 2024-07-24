@@ -14,9 +14,11 @@ public data class FileDescriptorSet(
         public val defaultInstance: pbandk.wkt.FileDescriptorSet by lazy { pbandk.wkt.FileDescriptorSet() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FileDescriptorSet = pbandk.wkt.FileDescriptorSet.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileDescriptorSet> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorSet, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileDescriptorSet> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.FileDescriptorSet",
+            messageClass = pbandk.wkt.FileDescriptorSet::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -28,13 +30,7 @@ public data class FileDescriptorSet(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.FileDescriptorSet",
-                messageClass = pbandk.wkt.FileDescriptorSet::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -61,9 +57,11 @@ public data class FileDescriptorProto(
         public val defaultInstance: pbandk.wkt.FileDescriptorProto by lazy { pbandk.wkt.FileDescriptorProto() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FileDescriptorProto = pbandk.wkt.FileDescriptorProto.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FileDescriptorProto, *>>(12)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileDescriptorProto> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.FileDescriptorProto",
+            messageClass = pbandk.wkt.FileDescriptorProto::class,
+            messageCompanion = this,
+            fields = buildList(12) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -185,13 +183,7 @@ public data class FileDescriptorProto(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.FileDescriptorProto",
-                messageClass = pbandk.wkt.FileDescriptorProto::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -216,9 +208,11 @@ public data class DescriptorProto(
         public val defaultInstance: pbandk.wkt.DescriptorProto by lazy { pbandk.wkt.DescriptorProto() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DescriptorProto = pbandk.wkt.DescriptorProto.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto, *>>(10)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.DescriptorProto",
+            messageClass = pbandk.wkt.DescriptorProto::class,
+            messageCompanion = this,
+            fields = buildList(10) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -320,13 +314,7 @@ public data class DescriptorProto(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.DescriptorProto",
-                messageClass = pbandk.wkt.DescriptorProto::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public data class ExtensionRange(
@@ -342,9 +330,11 @@ public data class DescriptorProto(
             public val defaultInstance: pbandk.wkt.DescriptorProto.ExtensionRange by lazy { pbandk.wkt.DescriptorProto.ExtensionRange() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DescriptorProto.ExtensionRange = pbandk.wkt.DescriptorProto.ExtensionRange.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange, *>>(3)
-                fieldsList.apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange> = pbandk.MessageDescriptor(
+                fullName = "google.protobuf.DescriptorProto.ExtensionRange",
+                messageClass = pbandk.wkt.DescriptorProto.ExtensionRange::class,
+                messageCompanion = this,
+                fields = buildList(3) {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -376,13 +366,7 @@ public data class DescriptorProto(
                         )
                     )
                 }
-                pbandk.MessageDescriptor(
-                    fullName = "google.protobuf.DescriptorProto.ExtensionRange",
-                    messageClass = pbandk.wkt.DescriptorProto.ExtensionRange::class,
-                    messageCompanion = this,
-                    fields = fieldsList
-                )
-            }
+            )
         }
     }
 
@@ -398,9 +382,11 @@ public data class DescriptorProto(
             public val defaultInstance: pbandk.wkt.DescriptorProto.ReservedRange by lazy { pbandk.wkt.DescriptorProto.ReservedRange() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DescriptorProto.ReservedRange = pbandk.wkt.DescriptorProto.ReservedRange.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto.ReservedRange> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.DescriptorProto.ReservedRange, *>>(2)
-                fieldsList.apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto.ReservedRange> = pbandk.MessageDescriptor(
+                fullName = "google.protobuf.DescriptorProto.ReservedRange",
+                messageClass = pbandk.wkt.DescriptorProto.ReservedRange::class,
+                messageCompanion = this,
+                fields = buildList(2) {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -422,13 +408,7 @@ public data class DescriptorProto(
                         )
                     )
                 }
-                pbandk.MessageDescriptor(
-                    fullName = "google.protobuf.DescriptorProto.ReservedRange",
-                    messageClass = pbandk.wkt.DescriptorProto.ReservedRange::class,
-                    messageCompanion = this,
-                    fields = fieldsList
-                )
-            }
+            )
         }
     }
 }
@@ -447,9 +427,11 @@ public data class ExtensionRangeOptions(
         public val defaultInstance: pbandk.wkt.ExtensionRangeOptions by lazy { pbandk.wkt.ExtensionRangeOptions() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ExtensionRangeOptions = pbandk.wkt.ExtensionRangeOptions.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ExtensionRangeOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.ExtensionRangeOptions, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ExtensionRangeOptions> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.ExtensionRangeOptions",
+            messageClass = pbandk.wkt.ExtensionRangeOptions::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -461,13 +443,7 @@ public data class ExtensionRangeOptions(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.ExtensionRangeOptions",
-                messageClass = pbandk.wkt.ExtensionRangeOptions::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -493,9 +469,11 @@ public data class FieldDescriptorProto(
         public val defaultInstance: pbandk.wkt.FieldDescriptorProto by lazy { pbandk.wkt.FieldDescriptorProto() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldDescriptorProto = pbandk.wkt.FieldDescriptorProto.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FieldDescriptorProto, *>>(11)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldDescriptorProto> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.FieldDescriptorProto",
+            messageClass = pbandk.wkt.FieldDescriptorProto::class,
+            messageCompanion = this,
+            fields = buildList(11) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -607,13 +585,7 @@ public data class FieldDescriptorProto(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.FieldDescriptorProto",
-                messageClass = pbandk.wkt.FieldDescriptorProto::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public sealed class Type(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
@@ -679,9 +651,11 @@ public data class OneofDescriptorProto(
         public val defaultInstance: pbandk.wkt.OneofDescriptorProto by lazy { pbandk.wkt.OneofDescriptorProto() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.OneofDescriptorProto = pbandk.wkt.OneofDescriptorProto.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.OneofDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.OneofDescriptorProto, *>>(2)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.OneofDescriptorProto> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.OneofDescriptorProto",
+            messageClass = pbandk.wkt.OneofDescriptorProto::class,
+            messageCompanion = this,
+            fields = buildList(2) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -703,13 +677,7 @@ public data class OneofDescriptorProto(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.OneofDescriptorProto",
-                messageClass = pbandk.wkt.OneofDescriptorProto::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -729,9 +697,11 @@ public data class EnumDescriptorProto(
         public val defaultInstance: pbandk.wkt.EnumDescriptorProto by lazy { pbandk.wkt.EnumDescriptorProto() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumDescriptorProto = pbandk.wkt.EnumDescriptorProto.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto, *>>(5)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumDescriptorProto> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.EnumDescriptorProto",
+            messageClass = pbandk.wkt.EnumDescriptorProto::class,
+            messageCompanion = this,
+            fields = buildList(5) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -783,13 +753,7 @@ public data class EnumDescriptorProto(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.EnumDescriptorProto",
-                messageClass = pbandk.wkt.EnumDescriptorProto::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public data class EnumReservedRange(
@@ -804,9 +768,11 @@ public data class EnumDescriptorProto(
             public val defaultInstance: pbandk.wkt.EnumDescriptorProto.EnumReservedRange by lazy { pbandk.wkt.EnumDescriptorProto.EnumReservedRange() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumDescriptorProto.EnumReservedRange = pbandk.wkt.EnumDescriptorProto.EnumReservedRange.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.EnumDescriptorProto.EnumReservedRange, *>>(2)
-                fieldsList.apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> = pbandk.MessageDescriptor(
+                fullName = "google.protobuf.EnumDescriptorProto.EnumReservedRange",
+                messageClass = pbandk.wkt.EnumDescriptorProto.EnumReservedRange::class,
+                messageCompanion = this,
+                fields = buildList(2) {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -828,13 +794,7 @@ public data class EnumDescriptorProto(
                         )
                     )
                 }
-                pbandk.MessageDescriptor(
-                    fullName = "google.protobuf.EnumDescriptorProto.EnumReservedRange",
-                    messageClass = pbandk.wkt.EnumDescriptorProto.EnumReservedRange::class,
-                    messageCompanion = this,
-                    fields = fieldsList
-                )
-            }
+            )
         }
     }
 }
@@ -853,9 +813,11 @@ public data class EnumValueDescriptorProto(
         public val defaultInstance: pbandk.wkt.EnumValueDescriptorProto by lazy { pbandk.wkt.EnumValueDescriptorProto() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValueDescriptorProto = pbandk.wkt.EnumValueDescriptorProto.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValueDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.EnumValueDescriptorProto, *>>(3)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValueDescriptorProto> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.EnumValueDescriptorProto",
+            messageClass = pbandk.wkt.EnumValueDescriptorProto::class,
+            messageCompanion = this,
+            fields = buildList(3) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -887,13 +849,7 @@ public data class EnumValueDescriptorProto(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.EnumValueDescriptorProto",
-                messageClass = pbandk.wkt.EnumValueDescriptorProto::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -911,9 +867,11 @@ public data class ServiceDescriptorProto(
         public val defaultInstance: pbandk.wkt.ServiceDescriptorProto by lazy { pbandk.wkt.ServiceDescriptorProto() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ServiceDescriptorProto = pbandk.wkt.ServiceDescriptorProto.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ServiceDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.ServiceDescriptorProto, *>>(3)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ServiceDescriptorProto> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.ServiceDescriptorProto",
+            messageClass = pbandk.wkt.ServiceDescriptorProto::class,
+            messageCompanion = this,
+            fields = buildList(3) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -945,13 +903,7 @@ public data class ServiceDescriptorProto(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.ServiceDescriptorProto",
-                messageClass = pbandk.wkt.ServiceDescriptorProto::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -972,9 +924,11 @@ public data class MethodDescriptorProto(
         public val defaultInstance: pbandk.wkt.MethodDescriptorProto by lazy { pbandk.wkt.MethodDescriptorProto() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.MethodDescriptorProto = pbandk.wkt.MethodDescriptorProto.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MethodDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.MethodDescriptorProto, *>>(6)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MethodDescriptorProto> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.MethodDescriptorProto",
+            messageClass = pbandk.wkt.MethodDescriptorProto::class,
+            messageCompanion = this,
+            fields = buildList(6) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1036,13 +990,7 @@ public data class MethodDescriptorProto(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.MethodDescriptorProto",
-                messageClass = pbandk.wkt.MethodDescriptorProto::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -1081,9 +1029,11 @@ public data class FileOptions(
         public val defaultInstance: pbandk.wkt.FileOptions by lazy { pbandk.wkt.FileOptions() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FileOptions = pbandk.wkt.FileOptions.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FileOptions, *>>(21)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileOptions> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.FileOptions",
+            messageClass = pbandk.wkt.FileOptions::class,
+            messageCompanion = this,
+            fields = buildList(21) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1299,13 +1249,7 @@ public data class FileOptions(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.FileOptions",
-                messageClass = pbandk.wkt.FileOptions::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public sealed class OptimizeMode(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
@@ -1344,9 +1288,11 @@ public data class MessageOptions(
         public val defaultInstance: pbandk.wkt.MessageOptions by lazy { pbandk.wkt.MessageOptions() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.MessageOptions = pbandk.wkt.MessageOptions.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MessageOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, *>>(5)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MessageOptions> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.MessageOptions",
+            messageClass = pbandk.wkt.MessageOptions::class,
+            messageCompanion = this,
+            fields = buildList(5) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1398,13 +1344,7 @@ public data class MessageOptions(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.MessageOptions",
-                messageClass = pbandk.wkt.MessageOptions::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -1428,9 +1368,11 @@ public data class FieldOptions(
         public val defaultInstance: pbandk.wkt.FieldOptions by lazy { pbandk.wkt.FieldOptions() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldOptions = pbandk.wkt.FieldOptions.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, *>>(7)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldOptions> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.FieldOptions",
+            messageClass = pbandk.wkt.FieldOptions::class,
+            messageCompanion = this,
+            fields = buildList(7) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1502,13 +1444,7 @@ public data class FieldOptions(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.FieldOptions",
-                messageClass = pbandk.wkt.FieldOptions::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public sealed class CType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
@@ -1560,9 +1496,11 @@ public data class OneofOptions(
         public val defaultInstance: pbandk.wkt.OneofOptions by lazy { pbandk.wkt.OneofOptions() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.OneofOptions = pbandk.wkt.OneofOptions.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.OneofOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.OneofOptions, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.OneofOptions> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.OneofOptions",
+            messageClass = pbandk.wkt.OneofOptions::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1574,13 +1512,7 @@ public data class OneofOptions(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.OneofOptions",
-                messageClass = pbandk.wkt.OneofOptions::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -1600,9 +1532,11 @@ public data class EnumOptions(
         public val defaultInstance: pbandk.wkt.EnumOptions by lazy { pbandk.wkt.EnumOptions() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumOptions = pbandk.wkt.EnumOptions.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.EnumOptions, *>>(3)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumOptions> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.EnumOptions",
+            messageClass = pbandk.wkt.EnumOptions::class,
+            messageCompanion = this,
+            fields = buildList(3) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1634,13 +1568,7 @@ public data class EnumOptions(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.EnumOptions",
-                messageClass = pbandk.wkt.EnumOptions::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -1659,9 +1587,11 @@ public data class EnumValueOptions(
         public val defaultInstance: pbandk.wkt.EnumValueOptions by lazy { pbandk.wkt.EnumValueOptions() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValueOptions = pbandk.wkt.EnumValueOptions.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValueOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.EnumValueOptions, *>>(2)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValueOptions> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.EnumValueOptions",
+            messageClass = pbandk.wkt.EnumValueOptions::class,
+            messageCompanion = this,
+            fields = buildList(2) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1683,13 +1613,7 @@ public data class EnumValueOptions(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.EnumValueOptions",
-                messageClass = pbandk.wkt.EnumValueOptions::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -1708,9 +1632,11 @@ public data class ServiceOptions(
         public val defaultInstance: pbandk.wkt.ServiceOptions by lazy { pbandk.wkt.ServiceOptions() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ServiceOptions = pbandk.wkt.ServiceOptions.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ServiceOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.ServiceOptions, *>>(2)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ServiceOptions> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.ServiceOptions",
+            messageClass = pbandk.wkt.ServiceOptions::class,
+            messageCompanion = this,
+            fields = buildList(2) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1732,13 +1658,7 @@ public data class ServiceOptions(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.ServiceOptions",
-                messageClass = pbandk.wkt.ServiceOptions::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 }
 
@@ -1758,9 +1678,11 @@ public data class MethodOptions(
         public val defaultInstance: pbandk.wkt.MethodOptions by lazy { pbandk.wkt.MethodOptions() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.MethodOptions = pbandk.wkt.MethodOptions.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MethodOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.MethodOptions, *>>(3)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MethodOptions> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.MethodOptions",
+            messageClass = pbandk.wkt.MethodOptions::class,
+            messageCompanion = this,
+            fields = buildList(3) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1792,13 +1714,7 @@ public data class MethodOptions(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.MethodOptions",
-                messageClass = pbandk.wkt.MethodOptions::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public sealed class IdempotencyLevel(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
@@ -1837,9 +1753,11 @@ public data class UninterpretedOption(
         public val defaultInstance: pbandk.wkt.UninterpretedOption by lazy { pbandk.wkt.UninterpretedOption() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UninterpretedOption = pbandk.wkt.UninterpretedOption.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UninterpretedOption> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption, *>>(7)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UninterpretedOption> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.UninterpretedOption",
+            messageClass = pbandk.wkt.UninterpretedOption::class,
+            messageCompanion = this,
+            fields = buildList(7) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1911,13 +1829,7 @@ public data class UninterpretedOption(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.UninterpretedOption",
-                messageClass = pbandk.wkt.UninterpretedOption::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public data class NamePart(
@@ -1931,9 +1843,11 @@ public data class UninterpretedOption(
         public companion object : pbandk.Message.Companion<pbandk.wkt.UninterpretedOption.NamePart> {
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UninterpretedOption.NamePart = pbandk.wkt.UninterpretedOption.NamePart.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UninterpretedOption.NamePart> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.UninterpretedOption.NamePart, *>>(2)
-                fieldsList.apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UninterpretedOption.NamePart> = pbandk.MessageDescriptor(
+                fullName = "google.protobuf.UninterpretedOption.NamePart",
+                messageClass = pbandk.wkt.UninterpretedOption.NamePart::class,
+                messageCompanion = this,
+                fields = buildList(2) {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1955,13 +1869,7 @@ public data class UninterpretedOption(
                         )
                     )
                 }
-                pbandk.MessageDescriptor(
-                    fullName = "google.protobuf.UninterpretedOption.NamePart",
-                    messageClass = pbandk.wkt.UninterpretedOption.NamePart::class,
-                    messageCompanion = this,
-                    fields = fieldsList
-                )
-            }
+            )
         }
     }
 }
@@ -1978,9 +1886,11 @@ public data class SourceCodeInfo(
         public val defaultInstance: pbandk.wkt.SourceCodeInfo by lazy { pbandk.wkt.SourceCodeInfo() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceCodeInfo = pbandk.wkt.SourceCodeInfo.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceCodeInfo> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.SourceCodeInfo, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceCodeInfo> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.SourceCodeInfo",
+            messageClass = pbandk.wkt.SourceCodeInfo::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1992,13 +1902,7 @@ public data class SourceCodeInfo(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.SourceCodeInfo",
-                messageClass = pbandk.wkt.SourceCodeInfo::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public data class Location(
@@ -2016,9 +1920,11 @@ public data class SourceCodeInfo(
             public val defaultInstance: pbandk.wkt.SourceCodeInfo.Location by lazy { pbandk.wkt.SourceCodeInfo.Location() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceCodeInfo.Location = pbandk.wkt.SourceCodeInfo.Location.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceCodeInfo.Location> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.SourceCodeInfo.Location, *>>(5)
-                fieldsList.apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceCodeInfo.Location> = pbandk.MessageDescriptor(
+                fullName = "google.protobuf.SourceCodeInfo.Location",
+                messageClass = pbandk.wkt.SourceCodeInfo.Location::class,
+                messageCompanion = this,
+                fields = buildList(5) {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2070,13 +1976,7 @@ public data class SourceCodeInfo(
                         )
                     )
                 }
-                pbandk.MessageDescriptor(
-                    fullName = "google.protobuf.SourceCodeInfo.Location",
-                    messageClass = pbandk.wkt.SourceCodeInfo.Location::class,
-                    messageCompanion = this,
-                    fields = fieldsList
-                )
-            }
+            )
         }
     }
 }
@@ -2093,9 +1993,11 @@ public data class GeneratedCodeInfo(
         public val defaultInstance: pbandk.wkt.GeneratedCodeInfo by lazy { pbandk.wkt.GeneratedCodeInfo() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.GeneratedCodeInfo = pbandk.wkt.GeneratedCodeInfo.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.GeneratedCodeInfo> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo, *>>(1)
-            fieldsList.apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.GeneratedCodeInfo> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.GeneratedCodeInfo",
+            messageClass = pbandk.wkt.GeneratedCodeInfo::class,
+            messageCompanion = this,
+            fields = buildList(1) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -2107,13 +2009,7 @@ public data class GeneratedCodeInfo(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                fullName = "google.protobuf.GeneratedCodeInfo",
-                messageClass = pbandk.wkt.GeneratedCodeInfo::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
-        }
+        )
     }
 
     public data class Annotation(
@@ -2130,9 +2026,11 @@ public data class GeneratedCodeInfo(
             public val defaultInstance: pbandk.wkt.GeneratedCodeInfo.Annotation by lazy { pbandk.wkt.GeneratedCodeInfo.Annotation() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.GeneratedCodeInfo.Annotation = pbandk.wkt.GeneratedCodeInfo.Annotation.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation, *>>(4)
-                fieldsList.apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation> = pbandk.MessageDescriptor(
+                fullName = "google.protobuf.GeneratedCodeInfo.Annotation",
+                messageClass = pbandk.wkt.GeneratedCodeInfo.Annotation::class,
+                messageCompanion = this,
+                fields = buildList(4) {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2174,13 +2072,7 @@ public data class GeneratedCodeInfo(
                         )
                     )
                 }
-                pbandk.MessageDescriptor(
-                    fullName = "google.protobuf.GeneratedCodeInfo.Annotation",
-                    messageClass = pbandk.wkt.GeneratedCodeInfo.Annotation::class,
-                    messageCompanion = this,
-                    fields = fieldsList
-                )
-            }
+            )
         }
     }
 }
