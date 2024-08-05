@@ -28,12 +28,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * Updated dependencies to Kotlin 1.9.24 and kotlinx-serialization 1.6.3. (PR [#259])
     * Updated Kotlin/JS dependencies to protobuf.js 7.3.2.
     * **[BREAKING CHANGE]** Dropped support for the legacy Kotlin/JS compiler.
+* Projects using pbandk no longer need to explicitly opt-in to the `kotlin.RequiresOptIn` annotation. (PR [#269])
+* Functions now explicitly declare the exceptions they might throw using the `@Throws` annotation. This change mainly impacts interop when calling pbandk from Java, Objective-C, or Swift code. The Java or native code will now fail to compile unless it explicitly handles the declared exceptions. (PR [#269])
 
 ### Fixed
 
 * More robust conversion between Kotlin `Long` and JS `Long` that no longer depends on Kotlin internals. (PR [#259])
 
 [#259]: https://github.com/streem/pbandk/pull/259
+[#269]: https://github.com/streem/pbandk/pull/269
 
 
 ## [0.14.3] - 2024-04-23
