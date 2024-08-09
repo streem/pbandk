@@ -2,7 +2,7 @@ import com.google.protobuf.gradle.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.9.24"
+    kotlin("jvm") version "2.0.10"
     application
     id("com.google.protobuf") version "0.9.4"
 }
@@ -57,13 +57,5 @@ protobuf {
 tasks {
     compileJava {
         enabled = false
-    }
-}
-
-// Workaround the Gradle bug resolving multi-platform dependencies.
-// Fix courtesy of https://github.com/square/okio/issues/647
-configurations.forEach {
-    if (it.name.toLowerCase().contains("kapt") || it.name.toLowerCase().contains("proto")) {
-        it.attributes.attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage::class.java, Usage.JAVA_RUNTIME))
     }
 }
