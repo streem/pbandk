@@ -6,7 +6,7 @@ import kotlin.js.JsExport
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
-@JsExport
+@Export
 public class FieldDescriptor<M : Message, T>
 @JsExport.Ignore
 @PublicForGeneratedCode

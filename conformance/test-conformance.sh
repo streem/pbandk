@@ -15,6 +15,9 @@ fi
 if [ -z "$1" ] || [ "$1" = "js" ]; then
     $CONF_TEST_PATH --enforce_recommended --failure_list $DIR/js/failing_tests.txt $DIR/js/run.sh
 fi
+if [ -z "$1" ] || [ "$1" = "wasmJs" ]; then
+    $CONF_TEST_PATH --enforce_recommended --failure_list $DIR/wasmJs/failing_tests.txt $DIR/wasmJs/run.sh
+fi
 if [ -z "$1" ] || [ "$1" = "linux" ]; then
     $CONF_TEST_PATH --enforce_recommended --failure_list $DIR/native/failing_tests.txt $DIR/native/build/bin/linuxX64/conformanceReleaseExecutable/conformance.kexe
 fi

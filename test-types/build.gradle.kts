@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -21,6 +22,12 @@ kotlin {
                 exclude("pbandk/testpb/test_compiler_limits.kt")
             }
         }
+    }
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser {}
+        nodejs {}
     }
 
     // Native targets, according to https://kotlinlang.org/docs/native-target-support.html
