@@ -1,4 +1,5 @@
 import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
@@ -11,6 +12,7 @@ kotlin {
     jvm()
 
     js {
+        useCommonJs()
         binaries.executable()
         nodejs {}
     }
@@ -30,6 +32,17 @@ kotlin {
     // Uncomment to enable Windows
     // mingwX64("windows")
 
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    applyDefaultHierarchyTemplate {
+        common {
+            group("native")
+            group("nodeJs") {
+                withJs()
+                withWasmJs()
+            }
+        }
+    }
+
     sourceSets {
         all {
             languageSettings {
@@ -41,6 +54,7 @@ kotlin {
             dependencies {
                 implementation(project(":pbandk-runtime"))
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}")
+                implementation("org.jetbrains.kotlinx:kotlinx-io-core:${Versions.kotlinIo}")
             }
         }
 

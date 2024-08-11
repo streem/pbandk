@@ -22,7 +22,7 @@ var logDebug = false
 val platform = getPlatform()
 
 inline fun debug(fn: () -> String) {
-    if (logDebug) platform.stderrPrintln(fn())
+    if (logDebug) platform.stderr.println(fn())
 }
 
 @JsExport
@@ -32,7 +32,15 @@ fun main() = platform.runBlockingMain {
         val res = doTestIo()
         debug { "Result: $res" }
         if (res == null) return@runBlockingMain
-        platform.stdoutWriteLengthDelimitedMessage(res)
+        try {
+            platform.stdoutWriteLengthDelimitedMessage(res)
+        } catch (e: Throwable) {
+            platform.stdoutWriteLengthDelimitedMessage(
+                ConformanceResponse {
+                    runtimeError = "Failed to write response: $e"
+                }
+            )
+        }
     }
 }
 

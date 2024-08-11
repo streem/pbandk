@@ -1,132 +1,16 @@
 package pbandk.conformance
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import org.khronos.webgl.ArrayBuffer
-import org.khronos.webgl.ArrayBufferView
-import org.khronos.webgl.DataView
-import org.khronos.webgl.Uint8Array
-import org.khronos.webgl.get
-import pbandk.Message
-import pbandk.decodeFromByteArray
-import pbandk.encodeToByteArray
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
+@Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
+actual typealias JsModule = kotlin.js.JsModule
 
-private external interface StdStream {
-    val fd: Int
+private object WasmJsPlatform : NodeJsPlatform() {
+    override fun byteArrayToUint8Array(array: ByteArray): Uint8Array =
+        Uint8Array(array.size).also { array.forEachIndexed { index, byte -> it[index] = byte } }
 
-    fun once(event: String, callback: () -> Unit)
+    override fun uint8ArrayToByteArray(array: Uint8Array) =
+        ByteArray(array.byteLength) { i -> array[i] }
 
-    // Readable streams only
-    fun read(size: Int = definedExternally): Buffer?
-
-    // Writeable streams only
-    fun write(chunk: String, encoding: String = definedExternally): Boolean
-    fun write(chunk: Uint8Array): Boolean
-}
-
-@JsModule("process")
-private external class Process {
-    companion object {
-        val stdin: StdStream
-        val stdout: StdStream
-        val stderr: StdStream
-    }
-}
-
-@JsModule("fs")
-private external class Fs {
-    companion object {
-        fun writeSync(
-            fd: Int,
-            buffer: ArrayBufferView,
-            offset: Int,
-            length: Int,
-            position: Int? = definedExternally
-        ): Int
-    }
-}
-
-private external class Buffer : Uint8Array {
-    fun readInt32LE(offset: Int): Int
-    fun writeInt32LE(value: Int, offset: Int): Int
-
-    companion object {
-        fun alloc(size: Int): Buffer
-    }
-}
-
-private object WasmJsPlatform : Platform {
-    override fun stderrPrintln(str: String) {
-        Process.stderr.write("$str\n")
-    }
-
-    private fun stdinReadNow(size: Int): Buffer? {
-        val buffer = Buffer.alloc(size)
-        var total = 0
-        while (total < size) {
-            val chunk = Process.stdin.read(size - total) ?: return null
-            buffer.set(chunk, total)
-            total += chunk.length
-        }
-        return buffer
-    }
-
-    private suspend fun stdinReadBuffer(size: Int): Buffer? = suspendCoroutine { continuation ->
-        val buffer = Buffer.alloc(size)
-        stdinReadNow(size)?.also {
-            buffer.set(it, 0)
-            if (it.length == size) {
-                continuation.resume(buffer)
-                return@suspendCoroutine
-            }
-        }
-        Process.stdin.once("readable") {
-            continuation.resume(stdinReadNow(size))
-        }
-    }
-
-    private suspend fun stdinReadIntLE() = stdinReadBuffer(4)?.readInt32LE(0)
-
-    private suspend fun stdinReadFull(size: Int): ByteArray =
-        stdinReadBuffer(size)?.let {
-            ByteArray(it.byteLength) { i -> it[i] }
-        } ?: error("Failed to read $size bytes from stdin")
-
-    override suspend fun <T : Message> stdinReadLengthDelimitedMessage(companion: Message.Companion<T>): T? {
-        val size = stdinReadIntLE() ?: return null
-        debug { "Reading $size bytes" }
-        return companion.decodeFromByteArray(stdinReadFull(size))
-    }
-
-    private fun stdoutWriteBuffer(buf: ArrayBufferView) {
-        var total = 0
-        while (total < buf.byteLength) {
-            total += Fs.writeSync(Process.stdout.fd, buf, total, buf.byteLength - total)
-        }
-    }
-
-    private fun stdoutWriteIntLE(v: Int) = stdoutWriteBuffer(Buffer.alloc(4).also { it.writeInt32LE(v, 0) })
-    private fun stdoutWriteFull(arr: ByteArray) {
-        val data = DataView(ArrayBuffer(arr.size))
-        arr.forEachIndexed { index, byte -> data.setInt8(index, byte) }
-        stdoutWriteBuffer(data)
-    }
-
-    override fun <T : Message> stdoutWriteLengthDelimitedMessage(message: T) {
-        message.encodeToByteArray().also { bytes ->
-            stdoutWriteIntLE(bytes.size)
-            stdoutWriteFull(bytes)
-        }
-    }
-
-    @OptIn(DelicateCoroutinesApi::class)
-    override fun runBlockingMain(block: suspend CoroutineScope.() -> Unit) {
-        GlobalScope.launch(block = block)
-    }
+    override suspend fun <R> runHandlingJsExceptions(block: suspend () -> R) = block()
 }
 
 actual fun getPlatform(): Platform = WasmJsPlatform
