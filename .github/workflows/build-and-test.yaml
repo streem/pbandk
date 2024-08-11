@@ -3,7 +3,7 @@ name: Build and Test
 env:
   GRADLE_OPTS: '-Dkotlin.incremental=false'
   JAVA_VERSION: 17
-  NODEJS_VERSION: 14
+  NODEJS_VERSION: 22.6.0
   PROTOBUF_CONFORMANCE_VERSION: 3.10.1
 
 on:
@@ -44,13 +44,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: ${{ env.JAVA_VERSION }}
-
-      # TODO: remove this after updating to the latest version of Kotlin
-      - name: Install dependencies needed by native build
-        if: matrix.os-type == 'linux'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libtinfo5
 
       - name: Build project and run tests
         run: |
@@ -135,6 +128,8 @@ jobs:
               build/js \
               conformance/js/failing_tests.txt \
               conformance/js/run.sh \
+              conformance/wasmJs/failing_tests.txt \
+              conformance/wasmJs/run.sh \
               conformance/native/build/bin/linuxX64/conformanceReleaseExecutable/conformance.kexe \
               conformance/native/failing_tests.txt
           else
@@ -207,6 +202,9 @@ jobs:
             platform: js
           - os: ubuntu-22.04
             os-type: linux
+            platform: wasmJs
+          - os: ubuntu-22.04
+            os-type: linux
             platform: linux
           - os: macos-12
             os-type: macos
@@ -223,17 +221,10 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
 
       - name: Install Node.js ${{ env.NODEJS_VERSION }}
-        if: matrix.platform == 'js'
+        if: matrix.platform == 'js' || matrix.platform == 'wasmJs'
         uses: actions/setup-node@v1
         with:
           node-version: ${{ env.NODEJS_VERSION }}
-
-      # TODO: remove this after updating to the latest version of Kotlin
-      - name: Install dependencies needed by native build
-        if: matrix.platform == 'linux'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libtinfo5
 
       - name: Cache protobuf conformance-test-runner ${{ env.PROTOBUF_CONFORMANCE_VERSION }}
         uses: actions/cache@v2

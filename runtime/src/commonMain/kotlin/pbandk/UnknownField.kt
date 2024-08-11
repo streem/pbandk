@@ -6,9 +6,8 @@ import pbandk.internal.binary.Tag
 import pbandk.binary.WireValue
 import pbandk.internal.types.FieldType
 import pbandk.internal.types.MessageValueType
-import kotlin.js.JsExport
 
-@JsExport
+@Export
 public data class UnknownField
 @JsExport.Ignore
 @PublicForGeneratedCode

@@ -7,7 +7,6 @@ import pbandk.internal.binary.fromByteArray
 import pbandk.internal.types.MessageValueType
 import pbandk.internal.types.wkt.customJsonMappings
 import pbandk.types.ValueType
-import kotlin.js.JsExport
 
 public interface Message {
     public val unknownFields: Map<Int, UnknownField>
@@ -69,11 +68,11 @@ public interface Message {
     }
 }
 
-@JsExport
+@Export
 @JsName("encodeMessage")
 public fun <M : Message> M.encodeWith(m: MessageEncoder): Unit = m.writeMessage(this)
 
-@JsExport
+@Export
 @JsName("decodeMessage")
 @Throws(InvalidProtocolBufferException::class)
 public fun <M : Message> Message.Companion<M>.decodeWith(m: MessageDecoder): M = m.readMessage(this)
@@ -81,20 +80,20 @@ public fun <M : Message> Message.Companion<M>.decodeWith(m: MessageDecoder): M =
 /**
  * Encode this message to a ByteArray using the protocol buffer binary encoding.
  */
-@JsExport
+@Export
 public fun <M : Message> M.encodeToByteArray(): ByteArray =
     BinaryMessageEncoder.allocate(protoSize).also { encodeWith(it) }.toByteArray()
 
 /**
  * Decode a binary protocol buffer message from [arr].
  */
-@JsExport
+@Export
 @Throws(InvalidProtocolBufferException::class)
 public fun <M : Message> Message.Companion<M>.decodeFromByteArray(arr: ByteArray): M =
     decodeWith(BinaryMessageDecoder.fromByteArray(arr))
 
 @Suppress("UNCHECKED_CAST")
-@JsExport
+@Export
 public operator fun <M : Message> M?.plus(other: M?): M? = this?.plus(other) as M? ?: other
 
 /**

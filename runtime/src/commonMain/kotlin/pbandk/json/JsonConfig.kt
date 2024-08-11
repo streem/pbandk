@@ -2,11 +2,11 @@ package pbandk.json
 
 import pbandk.ExperimentalProtoJson
 import pbandk.FieldMetadata
+import pbandk.Export
 import pbandk.TypeRegistry
-import kotlin.js.JsExport
 
 @ExperimentalProtoJson
-@JsExport
+@Export
 public data class JsonConfig(
     /**
      * By default the JSON name of a field is the field's proto name converted to lowerCamelCase. If this option is

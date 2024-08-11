@@ -1,5 +1,5 @@
 // Klib ABI Dump
-// Targets: [iosArm64, iosSimulatorArm64, iosX64, js, linuxArm64, linuxX64, macosArm64, macosX64, tvosArm64, tvosSimulatorArm64, tvosX64]
+// Targets: [iosArm64, iosSimulatorArm64, iosX64, js, linuxArm64, linuxX64, macosArm64, macosX64, tvosArm64, tvosSimulatorArm64, tvosX64, wasmJs]
 // Alias: native => [iosArm64, iosSimulatorArm64, iosX64, linuxArm64, linuxX64, macosArm64, macosX64, tvosArm64, tvosSimulatorArm64, tvosX64]
 // Rendering settings:
 // - Signature version: 2
@@ -2921,7 +2921,7 @@ final fun <#A: pbandk/Message> (pbandk/Message.Companion<#A>).pbandk.json/decode
 final fun <#A: pbandk/Message> (pbandk/Message.Companion<#A>).pbandk/decodeFromByteArray(kotlin/ByteArray): #A // pbandk/decodeFromByteArray|decodeFromByteArray@pbandk.Message.Companion<0:0>(kotlin.ByteArray){0§<pbandk.Message>}[0]
 final fun pbandk/typeRegistry(kotlin/Function1<pbandk/TypeRegistry.Builder, kotlin/Unit>): pbandk/TypeRegistry // pbandk/typeRegistry|typeRegistry(kotlin.Function1<pbandk.TypeRegistry.Builder,kotlin.Unit>){}[0]
 
-// Targets: [native]
+// Targets: [native, wasmJs]
 open annotation class pbandk/Export : kotlin/Annotation { // pbandk/Export|null[0]
     constructor <init>() // pbandk/Export.<init>|<init>(){}[0]
 }

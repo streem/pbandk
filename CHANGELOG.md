@@ -23,6 +23,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
+* Added support for the `wasmJs` platform. (PR [#273])
+
 ### Changed
 
 * Updated dependencies to Kotlin 2.0.10 and kotlinx-serialization 1.7.1. (PR [#270])
@@ -30,6 +32,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 
 [#270]: https://github.com/streem/pbandk/pull/270
+[#273]: https://github.com/streem/pbandk/pull/273
 
 
 ## [0.15.0] - 2024-08-05

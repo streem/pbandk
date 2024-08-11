@@ -3,7 +3,7 @@
 package pbandk
 
 @Target(AnnotationTarget.CLASS, AnnotationTarget.PROPERTY, AnnotationTarget.FUNCTION, AnnotationTarget.FILE)
-public actual annotation class Export()
+public actual annotation class Export
 
 @Target(
     AnnotationTarget.CLASS,
