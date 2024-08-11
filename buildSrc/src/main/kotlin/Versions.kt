@@ -6,6 +6,7 @@ object Versions {
     const val jvmTarget = "1.8"
     const val kotlin = "2.0.10"
     const val kotlinCoroutines = "1.9.0-RC"
+    const val kotlinIo = "0.5.3"
     const val kotlinSerialization = "1.7.1"
     const val robolectric = "11-robolectric-6757853"
     const val osDetectorGradlePlugin = "1.7.3"

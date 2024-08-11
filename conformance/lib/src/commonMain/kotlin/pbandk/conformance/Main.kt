@@ -22,7 +22,7 @@ var logDebug = false
 val platform = getPlatform()
 
 inline fun debug(fn: () -> String) {
-    if (logDebug) platform.stderrPrintln(fn())
+    if (logDebug) platform.stderr.println(fn())
 }
 
 @JsExport
@@ -30,7 +30,13 @@ fun main() = platform.runBlockingMain {
     debug { "Starting conformance test" }
     while (true) {
         val res = doTestIo().also { debug { "Result: $it" } } ?: return@runBlockingMain
-        platform.stdoutWriteLengthDelimitedMessage(ConformanceResponse(res))
+        try {
+            platform.stdoutWriteLengthDelimitedMessage(ConformanceResponse(res))
+        } catch (e: Throwable) {
+            platform.stdoutWriteLengthDelimitedMessage(
+                ConformanceResponse(ConformanceResponse.Result.RuntimeError("Failed to write response: $e"))
+            )
+        }
     }
 }
 
@@ -80,9 +86,7 @@ suspend fun doTestIo(): ConformanceResponse.Result<*>? {
         when (req.requestedOutputFormat) {
             is WireFormat.PROTOBUF -> ConformanceResponse.Result.ProtobufPayload(ByteArr(parsed.encodeToByteArray()))
             is WireFormat.JSON -> ConformanceResponse.Result.JsonPayload(parsed.encodeToJsonString(jsonConfig))
-            else -> {
-                return ConformanceResponse.Result.Skipped("Only protobuf and json output supported")
-            }
+            else -> ConformanceResponse.Result.Skipped("Only protobuf and json output supported")
         }
     } catch (e: Throwable) {
         ConformanceResponse.Result.SerializeError("Serialize error: $e")
