@@ -23,6 +23,12 @@ kotlin {
         nodejs {}
     }
 
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmWasi {
+        binaries.executable()
+        nodejs {}
+    }
+
     linuxX64()
     if (DefaultNativePlatform.getCurrentOperatingSystem().isMacOsX && DefaultNativePlatform.getCurrentArchitecture().name == "aarch64") {
         macosArm64()

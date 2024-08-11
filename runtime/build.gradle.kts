@@ -45,6 +45,11 @@ kotlin {
         nodejs {}
     }
 
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmWasi {
+        nodejs {}
+    }
+
     // Native targets, according to https://kotlinlang.org/docs/native-target-support.html
     // Tier 1
     macosX64()
