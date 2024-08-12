@@ -181,8 +181,13 @@ internal object JsonMessageAdapters {
             override fun encode(message: Duration, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeString(PlatformUtil.durationToString(message))
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) =
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = try {
                 PlatformUtil.stringToDuration(jsonValueDecoder.readString(json))
+            } catch (e: InvalidProtocolBufferException) {
+                throw e
+            } catch (e: Exception) {
+                throw InvalidProtocolBufferException("duration field did not contain a valid value", e)
+            }
         },
 
         ListValue.descriptor to object : JsonMessageAdapter<ListValue> {
@@ -228,8 +233,13 @@ internal object JsonMessageAdapters {
             override fun encode(message: Timestamp, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeString(PlatformUtil.timestampToString(message))
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) =
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = try {
                 PlatformUtil.stringToTimestamp(jsonValueDecoder.readString(json))
+            } catch (e: InvalidProtocolBufferException) {
+                throw e
+            } catch (e: Exception) {
+                throw InvalidProtocolBufferException("timestamp field did not contain a valid value", e)
+            }
         },
 
         Value.descriptor to object : JsonMessageAdapter<Value> {
