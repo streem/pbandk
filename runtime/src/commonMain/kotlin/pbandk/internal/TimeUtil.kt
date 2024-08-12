@@ -177,10 +177,12 @@ private data class ParsePosition(var position: Int = 0)
  */
 private fun parseInt(str: String, parsePosition: ParsePosition, width: Int, minValue: Int, maxValue: Int): Int {
     val position = parsePosition.position
+    require(position < str.length) { "String ended unexpectedly: $str" }
     require(str[position] in '0'..'9') { "Failed to parse integer at: ${str.substring(position)}" }
     var value = 0
     var i = 0
     while (i < width) {
+        require(position + i < str.length) { "String ended unexpectedly: $str" }
         if (str[position + i] in '0'..'9') {
             value = value * 10 + (str[position + i] - '0')
         } else {
@@ -198,6 +200,7 @@ private fun parseInt(str: String, parsePosition: ParsePosition, width: Int, minV
  */
 private fun parseNanos(str: String, parsePosition: ParsePosition): Int {
     val position = parsePosition.position
+    require(position < str.length) { "String ended unexpectedly: $str" }
     require(str[position] in '0'..'9') { "Failed to parse nanos at: ${str.substring(position)}" }
     var value = 0
     var len = 0
@@ -207,6 +210,7 @@ private fun parseNanos(str: String, parsePosition: ParsePosition): Int {
             value = value * 10 + (str[position + len] - '0')
         }
         ++len
+        require(position + len < str.length) { "String ended unexpectedly: $str" }
     }
     parsePosition.position += len
     while (len < 9) {
@@ -217,6 +221,7 @@ private fun parseNanos(str: String, parsePosition: ParsePosition): Int {
 }
 
 private fun requireChar(str: String, parsePosition: ParsePosition, char: Char) {
+    require(parsePosition.position < str.length) { "String ended unexpectedly: $str" }
     require(str[parsePosition.position] == char) {
         "Expected '$char' at: ${str.substring(parsePosition.position)}"
     }
@@ -338,6 +343,7 @@ internal fun parseTime(str: String): Timestamp {
     val seconds = DateTime(year, month, day, hour, minute, second).toSeconds()
 
     // Parse nanoseconds.
+    require(parsePosition.position < str.length) { "String ended unexpectedly: $str" }
     val nanos = if (str[parsePosition.position] == '.') {
         ++parsePosition.position
         // Parse nanoseconds.
@@ -347,6 +353,7 @@ internal fun parseTime(str: String): Timestamp {
     }
 
     // Parse UTC offsets.
+    require(parsePosition.position < str.length) { "String ended unexpectedly: $str" }
     val secondsOffset = when (str[parsePosition.position++]) {
         'Z' -> 0
         '+' -> -parseTimezoneOffset(str, parsePosition)

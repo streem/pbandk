@@ -13,10 +13,22 @@ internal abstract class AbstractUtil : Util {
     override fun bytesToBase64(bytes: ByteArray): String = bytes.encodeBase64().decodeToString()
 
     override fun timestampToString(ts: Timestamp): String = formatTime(ts.seconds, ts.nanos)
-    override fun stringToTimestamp(str: String): Timestamp = parseTime(str)
+    override fun stringToTimestamp(str: String): Timestamp = try {
+        parseTime(str)
+    } catch (e: InvalidProtocolBufferException) {
+        throw e
+    } catch (e: Exception) {
+        throw InvalidProtocolBufferException("timestamp field did not contain a valid value", e)
+    }
 
     override fun durationToString(dur: Duration): String = formatDuration(dur)
-    override fun stringToDuration(str: String): Duration = parseDuration(str)
+    override fun stringToDuration(str: String): Duration = try {
+        parseDuration(str)
+    } catch (e: InvalidProtocolBufferException) {
+        throw e
+    } catch (e: Exception) {
+        throw InvalidProtocolBufferException("duration field did not contain a valid value", e)
+    }
 }
 
 internal fun String.checkSurrogatePairs(): String {
