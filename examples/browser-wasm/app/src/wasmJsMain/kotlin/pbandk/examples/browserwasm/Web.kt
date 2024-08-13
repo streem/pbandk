@@ -1,26 +1,23 @@
 @file:OptIn(ExperimentalProtoJson::class)
 
-package pbandk.examples.browserjs
+package pbandk.examples.browserwasm
 
 import kotlinx.browser.document
 import kotlinx.browser.localStorage
 import kotlinx.browser.window
 import org.w3c.dom.*
 import pbandk.ExperimentalProtoJson
-import pbandk.examples.browserjs.pb.AddressBook
-import pbandk.examples.browserjs.pb.Person
+import pbandk.examples.browserwasm.pb.AddressBook
+import pbandk.examples.browserwasm.pb.Person
 import pbandk.json.JsonConfig
 import pbandk.json.decodeFromJsonString
 import pbandk.json.encodeToJsonString
 
 fun main(args: Array<String>) {
-    // When ready, create the DOM
-    document.addEventListener("DOMContentLoaded", {
-        document.getElementById("personBody")?.apply {
-            insertAdjacentHTML("beforeend", "Address Book:<br />")
-            insertAdjacentElement("beforeend", createTable())
-        }
-    })
+    document.getElementById("personBody")?.apply {
+        insertAdjacentHTML("beforeend", "Address Book:<br />")
+        insertAdjacentElement("beforeend", createTable())
+    }
 }
 
 val JSON_CONFIG = JsonConfig.DEFAULT.copy(
