@@ -1,13 +1,17 @@
+@file:OptIn(ExperimentalProtoJson::class)
+
 package pbandk.examples.browserjs
 
-import org.w3c.dom.*
-import pbandk.decodeFromByteArray
-import pbandk.encodeToByteArray
-import pbandk.examples.browserjs.pb.AddressBook
-import pbandk.examples.browserjs.pb.Person
 import kotlinx.browser.document
 import kotlinx.browser.localStorage
 import kotlinx.browser.window
+import org.w3c.dom.*
+import pbandk.ExperimentalProtoJson
+import pbandk.examples.browserjs.pb.AddressBook
+import pbandk.examples.browserjs.pb.Person
+import pbandk.json.JsonConfig
+import pbandk.json.decodeFromJsonString
+import pbandk.json.encodeToJsonString
 
 fun main(args: Array<String>) {
     // When ready, create the DOM
@@ -19,12 +23,17 @@ fun main(args: Array<String>) {
     })
 }
 
+val JSON_CONFIG = JsonConfig.DEFAULT.copy(
+    compactOutput = true,
+    ignoreUnknownFieldsInInput = true,
+)
+
 // I'm just being lazy/inefficient because I don't want to mess with IndexedDB
 fun loadBook() = localStorage["addressBook"]?.let { str ->
-    AddressBook.decodeFromByteArray(JSON.parse<Array<Byte>>(str).toByteArray())
+    AddressBook.decodeFromJsonString(str, JSON_CONFIG)
 } ?: AddressBook()
 fun saveBook(book: AddressBook) {
-    localStorage["addressBook"] = JSON.stringify(book.encodeToByteArray().toTypedArray())
+    localStorage["addressBook"] = book.encodeToJsonString(JSON_CONFIG)
 }
 
 fun createTable() = createElem("table").apply {

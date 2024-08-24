@@ -3,7 +3,7 @@ package pbandk
 import kotlin.js.JsExport
 import kotlin.reflect.KClass
 
-@JsExport
+@Export
 public class MessageDescriptor<T : Message>
 @JsExport.Ignore
 @PublicForGeneratedCode

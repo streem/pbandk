@@ -1,9 +1,8 @@
 package pbandk
 
 import pbandk.internal.AtomicReference
-import kotlin.js.JsExport
 
-@JsExport
+@Export
 public class ExtensionFieldSet {
     private val map = AtomicReference<Map<Int, Any>>(emptyMap())
 

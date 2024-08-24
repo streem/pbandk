@@ -1,13 +1,13 @@
 package pbandk.json
 
 import pbandk.ExperimentalProtoJson
+import pbandk.Export
 import pbandk.FieldDescriptor
 import pbandk.TypeRegistry
 import pbandk.internal.underscoreToCamelCase
-import kotlin.js.JsExport
 
 @ExperimentalProtoJson
-@JsExport
+@Export
 public data class JsonConfig(
     /**
      * By default the JSON name of a field is the field's proto name converted to lowerCamelCase. If this option is

@@ -5,7 +5,6 @@ import pbandk.internal.binary.BinaryMessageEncoder
 import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.allocate
 import pbandk.internal.binary.fromByteArray
-import kotlin.js.JsExport
 import kotlin.reflect.KProperty1
 
 public interface Message {
@@ -46,26 +45,26 @@ public interface Message {
 
 }
 
-@JsExport
+@Export
 public fun <T : Message> T.encodeWith(m: MessageEncoder): Unit = m.writeMessage(this)
 
 /**
  * Encode this message to a ByteArray using the protocol buffer binary encoding.
  */
-@JsExport
+@Export
 public fun <T : Message> T.encodeToByteArray(): ByteArray =
     BinaryMessageEncoder.allocate(protoSize).also { encodeWith(it) }.toByteArray()
 
 /**
  * Decode a binary protocol buffer message from [arr].
  */
-@JsExport
+@Export
 @Throws(InvalidProtocolBufferException::class)
 public fun <T : Message> Message.Companion<T>.decodeFromByteArray(arr: ByteArray): T =
     decodeWith(BinaryMessageDecoder.fromByteArray(arr))
 
 @Suppress("UNCHECKED_CAST")
-@JsExport
+@Export
 public operator fun <T : Message> T?.plus(other: T?): T? = this?.plus(other) as T? ?: other
 
 /**

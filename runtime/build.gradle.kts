@@ -1,5 +1,6 @@
 import kotlinx.validation.ExperimentalBCVApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -34,6 +35,12 @@ kotlin {
     jvm()
 
     js {
+        browser {}
+        nodejs {}
+    }
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
         browser {}
         nodejs {}
     }

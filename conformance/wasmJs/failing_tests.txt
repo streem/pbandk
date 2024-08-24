@@ -1,0 +1,24 @@
+##
+## We don't fully support JSON yet
+## See https://github.com/streem/pbandk/issues/72
+##
+Recommended.FieldMaskNumbersDontRoundTrip.JsonOutput
+Recommended.FieldMaskPathsDontRoundTrip.JsonOutput
+Recommended.FieldMaskTooManyUnderscore.JsonOutput
+Recommended.Proto3.JsonInput.StringFieldSurrogateInWrongOrder
+Recommended.Proto3.JsonInput.StringFieldUnpairedHighSurrogate
+Recommended.Proto3.JsonInput.StringFieldUnpairedLowSurrogate
+Required.Proto3.JsonInput.AnyWithFieldMask.JsonOutput
+Required.Proto3.JsonInput.AnyWithFieldMask.ProtobufOutput
+Required.Proto3.JsonInput.EmptyFieldMask.JsonOutput
+Required.Proto3.JsonInput.EmptyFieldMask.ProtobufOutput
+Required.Proto3.JsonInput.FieldMask.JsonOutput
+Required.Proto3.JsonInput.FieldMask.ProtobufOutput
+Required.Proto3.JsonInput.OneofFieldDuplicate
+##
+## These failures need to be investigated
+## See https://github.com/streem/pbandk/issues/22
+##
+Required.Proto2.ProtobufInput.RepeatedScalarMessageMerge.ProtobufOutput
+Required.Proto3.ProtobufInput.RepeatedScalarMessageMerge.JsonOutput
+Required.Proto3.ProtobufInput.RepeatedScalarMessageMerge.ProtobufOutput

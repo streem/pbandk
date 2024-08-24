@@ -7,10 +7,9 @@ import pbandk.internal.binary.allowedWireType
 import pbandk.internal.binary.binaryReadFn
 import pbandk.internal.binary.kotlin.ByteArrayWireReader
 import pbandk.internal.binary.kotlin.KotlinBinaryWireDecoder
-import kotlin.js.JsExport
 import kotlin.js.JsName
 
-@JsExport
+@Export
 public data class UnknownField @PublicForGeneratedCode constructor(val fieldNum: Int, val values: List<Value>) {
 
     internal val size get() = (PlatformSizer.tagSize(fieldNum) * values.size) + values.sumOf { it.size }
