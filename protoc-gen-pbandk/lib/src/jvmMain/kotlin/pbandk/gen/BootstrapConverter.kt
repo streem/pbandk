@@ -71,7 +71,6 @@ internal object BootstrapConverter {
                 ccGenericServices = it.ccGenericServices.orNull(it.hasCcGenericServices())
                 javaGenericServices = it.javaGenericServices.orNull(it.hasJavaGenericServices())
                 pyGenericServices = it.pyGenericServices.orNull(it.hasPyGenericServices())
-                phpGenericServices = it.phpGenericServices.orNull(it.hasPhpGenericServices())
                 deprecated = it.deprecated.orNull(it.hasDeprecated())
                 ccEnableArenas = it.ccEnableArenas.orNull(it.hasCcEnableArenas())
                 objcClassPrefix = it.objcClassPrefix.orNull(it.hasObjcClassPrefix())

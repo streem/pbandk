@@ -2,9 +2,9 @@ name: Build and Test
 
 env:
   GRADLE_OPTS: '-Dkotlin.incremental=false'
-  JAVA_VERSION: 17
-  NODEJS_VERSION: 22.6.0
-  PROTOBUF_CONFORMANCE_VERSION: 3.10.1
+  JAVA_VERSION: "17"
+  NODEJS_VERSION: "22.6.0"
+  PROTOBUF_CONFORMANCE_VERSION: "28.0"
 
 on:
   workflow_call:
@@ -173,21 +173,28 @@ jobs:
         uses: actions/cache@v2
         id: cache-protobuf
         with:
-          path: ~/protobuf
+          path: |
+            conformance-test-runner/conformance_test_runner
+            conformance-test-runner/lib
           key: ${{ runner.os }}-protobuf-${{ env.PROTOBUF_CONFORMANCE_VERSION }}
+
+      - name: Download protobuf source code
+        uses: actions/checkout@v4
+        if: steps.cache-protobuf.outputs.cache-hit != 'true'
+        with:
+          repository: protocolbuffers/protobuf
+          ref: v${{ env.PROTOBUF_CONFORMANCE_VERSION }}
+          submodules: recursive
 
       - name: Build protobuf conformance-test-runner
         if: steps.cache-protobuf.outputs.cache-hit != 'true'
         run: |
-          cd ~
-          curl -sSLO https://github.com/protocolbuffers/protobuf/releases/download/v${{ env.PROTOBUF_CONFORMANCE_VERSION }}/protobuf-all-${{ env.PROTOBUF_CONFORMANCE_VERSION }}.tar.gz
-          tar xzvf protobuf-all-${{ env.PROTOBUF_CONFORMANCE_VERSION }}.tar.gz
-          mv protobuf-${{ env.PROTOBUF_CONFORMANCE_VERSION }} protobuf
-          cd protobuf
-          ./configure
-          make
-          cd conformance
-          make
+          cmake -S . -B conformance-test-runner \
+                  -DCMAKE_CXX_STANDARD=14 \
+                  -Dprotobuf_BUILD_CONFORMANCE=ON \
+                  -Dprotobuf_BUILD_TESTS=OFF \
+                  -Dprotobuf_BUILD_LIBUPB=OFF
+          cmake --build conformance-test-runner --parallel 10
 
   conformance:
     needs: [ build, build-conformance-test-runner ]
@@ -195,19 +202,19 @@ jobs:
       matrix:
         include:
           - os: ubuntu-22.04
-            os-type: linux
+            build-os-type: linux
             platform: jvm
           - os: ubuntu-22.04
-            os-type: linux
+            build-os-type: linux
             platform: js
           - os: ubuntu-22.04
-            os-type: linux
+            build-os-type: linux
             platform: wasmJs
           - os: ubuntu-22.04
-            os-type: linux
+            build-os-type: linux
             platform: linux
           - os: macos-12
-            os-type: macos
+            build-os-type: macos
             platform: macos
       fail-fast: false
     name: Conformance tests (${{ matrix.platform }})
@@ -229,20 +236,22 @@ jobs:
       - name: Cache protobuf conformance-test-runner ${{ env.PROTOBUF_CONFORMANCE_VERSION }}
         uses: actions/cache@v2
         with:
-          path: ~/protobuf
+          path: |
+            conformance-test-runner/conformance_test_runner
+            conformance-test-runner/lib
           key: ${{ runner.os }}-protobuf-${{ env.PROTOBUF_CONFORMANCE_VERSION }}
 
       - name: Download conformance test files
         uses: actions/download-artifact@v2
         with:
-          name: conformance-test-files-${{ matrix.os-type }}
+          name: conformance-test-files-${{ matrix.build-os-type }}
 
       - name: Extract conformance test files
-        run: tar -xvf conformance-test-files-${{ matrix.os-type }}.tar
+        run: tar -xvf conformance-test-files-${{ matrix.build-os-type }}.tar
 
       - name: Run ${{ matrix.platform }} conformance tests
         run: |
-          export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
+          export CONF_TEST_PATH=$PWD/conformance-test-runner/conformance_test_runner
           ./conformance/test-conformance.sh ${{ matrix.platform }}
 
   build-examples:
