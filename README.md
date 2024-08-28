@@ -559,25 +559,22 @@ the `:protoc-gen-pbandk:protoc-gen-pbandk-lib` changes, and then unstash the `:p
 
 ### Conformance Tests
 
-To run conformance tests, the [conformance-test-runner](https://github.com/google/protobuf/tree/master/conformance) must
+To run conformance tests, the [conformance-test-runner](https://github.com/protocolbuffers/protobuf/tree/main/conformance) must
 be built (does not work on Windows).
 
 ```
-curl -sSLO https://github.com/protocolbuffers/protobuf/releases/download/v3.10.1/protobuf-all-3.10.1.tar.gz
-tar xzvf protobuf-all-3.10.1.tar.gz
-cd protobuf-3.10.1
-./configure
-make
-cd conformance
-make
+git clone -b v28.0 --depth 1 --recurse-submodules --shallow-submodules https://github.com/protocolbuffers/protobuf.git
+cd protobuf
+cmake -S . -B build -DCMAKE_CXX_STANDARD=14 -Dprotobuf_BUILD_CONFORMANCE=ON -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_BUILD_LIBUPB=OFF
+cmake --build build --parallel=10
 ```
 
-You should now have a `conformance-test-runner` available in this directory.  Test it by running `./conformance-test-runner --help`
+You should now have a `conformance_test_runner` available in `protobuf/build` directory.  Test it by running `./conformance_test_runner --help`
 
 Set the `CONF_TEST_PATH` environment variable (used to run the tests below) with:
 
 ```
-export CONF_TEST_PATH="$(pwd)/conformance-test-runner"
+export CONF_TEST_PATH="$(pwd)/conformance_test_runner"
 ```
 
 Now, back in `pbandk`, build all conformance sub-projects via:
@@ -588,7 +585,7 @@ Now, back in `pbandk`, build all conformance sub-projects via:
     :conformance:conformance-native:build
 ```
 
-You are now ready to run the conformance tests.  Make sure `CONF_TEST_PATH` environment variable is set to `path/to/protobuf/conformance/conformance-test-runner` (see above).
+You are now ready to run the conformance tests.  Make sure `CONF_TEST_PATH` environment variable is set to `path/to/protobuf/build/conformance_test_runner` (see above).
 
 Then, from the root directory:
 

@@ -49,15 +49,12 @@ tasks.withType<JavaCompile> {
     targetCompatibility = Versions.jvmTarget
 }
 
-val extractWellKnownTypeProtos = rootProject.tasks.named<Sync>("extractWellKnownTypeProtos")
-
 tasks {
     val generateProtocProtos by registering(KotlinProtocTask::class) {
-        includeDir.set(layout.dir(extractWellKnownTypeProtos.map { it.destinationDir }))
+        includeDir.set(project.file("src/commonMain/proto"))
         outputDir.set(project.file("src/commonMain/kotlin"))
         kotlinPackage.set("pbandk.gen.pb")
         logLevel.set("debug")
-        protoFileSubdir("google/protobuf/compiler")
     }
 
     val generateProtos by registering {

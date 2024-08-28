@@ -2,12 +2,21 @@
 ## We don't fully support JSON yet
 ## See https://github.com/streem/pbandk/issues/72
 ##
-Recommended.FieldMaskNumbersDontRoundTrip.JsonOutput
-Recommended.FieldMaskPathsDontRoundTrip.JsonOutput
-Recommended.FieldMaskTooManyUnderscore.JsonOutput
+Recommended.Proto2.JsonInput.FieldNameExtension.Validator
+Recommended.Proto2.JsonInput.StringFieldSurrogateInWrongOrder
+Recommended.Proto2.JsonInput.StringFieldUnpairedHighSurrogate
+Recommended.Proto2.JsonInput.StringFieldUnpairedLowSurrogate
 Recommended.Proto3.JsonInput.StringFieldSurrogateInWrongOrder
 Recommended.Proto3.JsonInput.StringFieldUnpairedHighSurrogate
 Recommended.Proto3.JsonInput.StringFieldUnpairedLowSurrogate
+Recommended.Proto3.FieldMaskNumbersDontRoundTrip.JsonOutput
+Recommended.Proto3.FieldMaskPathsDontRoundTrip.JsonOutput
+Recommended.Proto3.FieldMaskTooManyUnderscore.JsonOutput
+Recommended.Proto3.JsonInput.NullValueInOtherOneofNewFormat.Validator
+Recommended.Proto3.JsonInput.NullValueInOtherOneofOldFormat.Validator
+Recommended.Proto3.ValueRejectInfNumberValue.JsonOutput
+Recommended.Proto3.ValueRejectNanNumberValue.JsonOutput
+Required.Proto2.JsonInput.OneofFieldDuplicate
 Required.Proto3.JsonInput.AnyWithFieldMask.JsonOutput
 Required.Proto3.JsonInput.AnyWithFieldMask.ProtobufOutput
 Required.Proto3.JsonInput.EmptyFieldMask.JsonOutput
@@ -19,6 +28,19 @@ Required.Proto3.JsonInput.OneofFieldDuplicate
 ## These failures need to be investigated
 ## See https://github.com/streem/pbandk/issues/22
 ##
+Required.Proto2.ProtobufInput.RepeatedScalarMessageMerge.JsonOutput
 Required.Proto2.ProtobufInput.RepeatedScalarMessageMerge.ProtobufOutput
 Required.Proto3.ProtobufInput.RepeatedScalarMessageMerge.JsonOutput
 Required.Proto3.ProtobufInput.RepeatedScalarMessageMerge.ProtobufOutput
+##
+## These failures need to be investigated
+## See https://github.com/streem/pbandk/issues/278
+##
+Recommended.Proto2.ProtobufInput.ValidDataOneofBinary.MESSAGE.Merge.ProtobufOutput
+Recommended.Proto3.ProtobufInput.ValidDataOneofBinary.MESSAGE.Merge.ProtobufOutput
+Required.Proto2.ProtobufInput.ValidDataMap.STRING.MESSAGE.MissingDefault.JsonOutput
+Required.Proto2.ProtobufInput.ValidDataOneof.MESSAGE.Merge.JsonOutput
+Required.Proto2.ProtobufInput.ValidDataOneof.MESSAGE.Merge.ProtobufOutput
+Required.Proto3.ProtobufInput.ValidDataMap.STRING.MESSAGE.MissingDefault.JsonOutput
+Required.Proto3.ProtobufInput.ValidDataOneof.MESSAGE.Merge.JsonOutput
+Required.Proto3.ProtobufInput.ValidDataOneof.MESSAGE.Merge.ProtobufOutput
