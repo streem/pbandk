@@ -38,15 +38,19 @@ public open class CodeGenerator(
                 line()
                 addDeprecatedAnnotation(field)
                 line(
-                    "val ${field.extendeeKotlinType}.${field.kotlinFieldName}: ${
+                    "$visibility val ${field.extendeeKotlinType}.${field.kotlinFieldName}: ${
                         field.kotlinValueType(true)
-                    } "
+                    }"
                 ).indented {
                     line("get() = getExtension(${file.kotlinPackageName}.${field.kotlinFieldName})")
                 }.line()
                 line("@pbandk.Export")
                 addDeprecatedAnnotation(field)
-                line("val ${field.kotlinFieldName} = pbandk.FieldDescriptor(").indented {
+                line(
+                    "$visibility val ${field.kotlinFieldName}: pbandk.FieldDescriptor<${field.extendeeKotlinType}, ${
+                        field.kotlinValueType(true)
+                    }> = pbandk.FieldDescriptor("
+                ).indented {
                     generateFieldDescriptorConstructorValues(
                         field,
                         field.extendeeKotlinType!!,
