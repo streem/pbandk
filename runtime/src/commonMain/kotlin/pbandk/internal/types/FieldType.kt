@@ -3,6 +3,7 @@ package pbandk.internal.types
 import pbandk.FieldMetadata
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
+import pbandk.MessageEncoding
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.WireType
 import pbandk.gen.ListField
@@ -71,14 +72,14 @@ internal sealed class FieldType<KotlinType> {
             if (value is Message.Enum && value.value == null) {
                 throw InvalidProtocolBufferException.unrecognizedStringInRequiredEnumField()
             }
-            return Tag.size(metadata.number) + valueType.binarySize(value)
+            return valueType.binarySizeWithTags(value, metadata.number)
         }
 
         override fun encodeToBinary(metadata: FieldMetadata, value: T, encoder: BinaryFieldEncoder) {
             if (value is Message.Enum && value.value == null) {
                 throw InvalidProtocolBufferException.unrecognizedStringInRequiredEnumField()
             }
-            encoder.encodeField(Tag(metadata.number, valueType.binaryWireType)) { valueEncoder ->
+            encoder.encodeField(metadata.number, valueType.binaryWireType) { valueEncoder ->
                 valueType.encodeToBinary(value, valueEncoder)
             }
         }
@@ -127,14 +128,14 @@ internal sealed class FieldType<KotlinType> {
         override fun binarySize(metadata: FieldMetadata, value: T?) = when {
             value == null -> 0
             value is Message.Enum && value.value == null -> 0
-            else -> Tag.size(metadata.number) + valueType.binarySize(value)
+            else -> valueType.binarySizeWithTags(value, metadata.number)
         }
 
         override fun encodeToBinary(metadata: FieldMetadata, value: T?, encoder: BinaryFieldEncoder) {
             when {
                 value == null -> return
                 value is Message.Enum && value.value == null -> return
-                else -> encoder.encodeField(Tag(metadata.number, valueType.binaryWireType)) { valueEncoder ->
+                else -> encoder.encodeField(metadata.number, valueType.binaryWireType) { valueEncoder ->
                     valueType.encodeToBinary(value, valueEncoder)
                 }
             }
@@ -188,14 +189,14 @@ internal sealed class FieldType<KotlinType> {
         override fun binarySize(metadata: FieldMetadata, value: T) = when {
             valueType.isDefaultValue(value) -> 0
             value is Message.Enum && value.value == null -> 0
-            else -> Tag.size(metadata.number) + valueType.binarySize(value)
+            else -> valueType.binarySizeWithTags(value, metadata.number)
         }
 
         override fun encodeToBinary(metadata: FieldMetadata, value: T, encoder: BinaryFieldEncoder) {
             when {
                 valueType.isDefaultValue(value) -> return
                 value is Message.Enum && value.value == null -> return
-                else -> encoder.encodeField(Tag(metadata.number, valueType.binaryWireType)) { valueEncoder ->
+                else -> encoder.encodeField(metadata.number, valueType.binaryWireType) { valueEncoder ->
                     valueType.encodeToBinary(value, valueEncoder)
                 }
             }
@@ -281,7 +282,11 @@ internal sealed class FieldType<KotlinType> {
         override fun binarySize(metadata: FieldMetadata, value: List<T>) = when {
             value.isEmpty() -> 0
             packed -> Tag.size(metadata.number) + WireValue.Len.sizeWithLenPrefix(value.protoSize)
-            else -> (Tag.size(metadata.number) * value.count { !(it is Message.Enum && it.value == null) }) + value.protoSize
+            else -> value.protoSize + (
+                    Tag.size(metadata.number)
+                            * if (valueType.hasEndTag) 2 else 1
+                            * value.count { !(it is Message.Enum && it.value == null) }
+                    )
         }
 
         override fun encodeToBinary(
@@ -293,16 +298,15 @@ internal sealed class FieldType<KotlinType> {
 
             if (packed) {
                 // TODO: check if skipping enums in the list with unrecognized string values is the correct behavior
-                encoder.encodeField(Tag(metadata.number, WireType.LENGTH_DELIMITED)) { valueEncoder ->
+                encoder.encodeField(metadata.number, WireType.LENGTH_DELIMITED) { valueEncoder ->
                     valueEncoder.encodeLenPrefix(value.protoSize.toUInt())
                     value.forEach { valueType.encodeToBinary(it, valueEncoder) }
                 }
             } else {
-                val tag = Tag(metadata.number, valueType.binaryWireType)
                 value.forEach {
                     // TODO: check if skipping enums in the list with unrecognized string values is the correct behavior
                     if (it is Message.Enum && it.value == null) return@forEach
-                    encoder.encodeField(tag) { valueEncoder ->
+                    encoder.encodeField(metadata.number, valueType.binaryWireType) { valueEncoder ->
                         valueType.encodeToBinary(it, valueEncoder)
                     }
                 }
@@ -428,11 +432,11 @@ internal sealed class FieldType<KotlinType> {
                 } else {
                     val keySize = entry.key
                         .takeIf { !keyType.isDefaultValue(it) }
-                        ?.let { Tag.size(1) + keyType.binarySize(it) }
+                        ?.let { keyType.binarySizeWithTags(it, 1) }
                         ?: 0
                     val valueSize = entry.value
                         .takeIf { !valueType.isDefaultValue(it) }
-                        ?.let { Tag.size(2) + valueType.binarySize(it) }
+                        ?.let { valueType.binarySizeWithTags(it, 2) }
                         ?: 0
                     keySize + valueSize
                 }.let { size -> WireValue.Len.sizeWithLenPrefix(size) + tagSize }
@@ -455,14 +459,13 @@ internal sealed class FieldType<KotlinType> {
 //                }
 //            }
             // or
-            val entryTag = Tag(metadata.number, WireType.LENGTH_DELIMITED)
             // val keyTag = Tag(1, keyType.binaryWireType)
             // val valueTag = Tag(2, valueType.binaryWireType)
             value.forEach { entry ->
                 val entryValue = entry.value
                 if (entryValue is Message.Enum && entryValue.value == null) return@forEach
 
-                encoder.encodeField(entryTag) { valueEncoder ->
+                encoder.encodeField(metadata.number, WireType.LENGTH_DELIMITED) { valueEncoder ->
                     entryCompanion.descriptor.messageValueType.encodeToBinary(
                         entry as? MapField.Entry<K, V>
                             ?: MutableMapFieldEntry(entry.key, entry.value, entryCompanion.descriptor),
@@ -567,3 +570,10 @@ private fun UnrecognizedEnumValue<*>.shouldTreatAsUnknownField(jsonConfig: JsonC
         KeepOnlyStringValues -> this.name == null
         Keep -> false
     }
+
+private val ValueType<*>.hasEndTag: Boolean
+    get() = this is MessageValueType<*> && this.encoding == MessageEncoding.DELIMITED
+
+private fun <KotlinType : Any> ValueType<KotlinType>.binarySizeWithTags(value: KotlinType, fieldNumber: Int): Int {
+    return (Tag.size(fieldNumber) * if (hasEndTag) 2 else 1) + binarySize(value)
+}

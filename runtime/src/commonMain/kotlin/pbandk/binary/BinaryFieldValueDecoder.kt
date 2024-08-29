@@ -5,7 +5,7 @@ import pbandk.InvalidProtocolBufferException
 import pbandk.Message
 import pbandk.PublicForGeneratedCode
 import pbandk.UnknownField
-import pbandk.binary.BinaryFieldValueEncoder.Companion.encodeToBuffer
+import pbandk.internal.binary.BinaryDecoderContext
 import pbandk.internal.binary.BinaryFieldDecoder
 import pbandk.internal.binary.kotlin.ByteArrayWireReader
 import pbandk.internal.binary.kotlin.LimitingWireReader
@@ -93,102 +93,107 @@ public sealed class BinaryFieldValueDecoder {
         override fun skipValue() {}
     }
 
-    public class Len internal constructor(
-        private val wireReader: LimitingWireReader,
-        private val fieldDecoder: BinaryFieldDecoder,
-    ) : BinaryFieldValueDecoder() {
+    public sealed class Len : BinaryFieldValueDecoder() {
         override val wireType: WireType get() = WireType.LENGTH_DELIMITED
 
-        @Suppress("NOTHING_TO_INLINE")
+        public abstract fun decodeValue(): WireValue.Len
+
+        internal abstract val context: BinaryDecoderContext
+        protected abstract fun preDecode(): Int?
+        protected abstract fun postDecode(oldLimit: Int?)
+
+        internal inline fun <T : Any> decodeFields(fieldsBlock: (BinaryFieldDecoder) -> T): T {
+            val oldLimit = preDecode()
+            val message = fieldsBlock(context.fieldDecoder)
+            if (!context.wireReader.isAtEnd()) {
+                throw InvalidProtocolBufferException("Not at the end of the current message limit as expected")
+            }
+            postDecode(oldLimit)
+            return message
+        }
+
+        internal inline fun decodePackedValues(wireType: WireType, valueBlock: (BinaryFieldValueDecoder) -> Unit) {
+            val oldLimit = preDecode()
+            val valueDecoder = context.valueDecoder(wireType)
+            while (!context.wireReader.isAtEnd()) {
+                valueBlock(valueDecoder)
+            }
+            postDecode(oldLimit)
+        }
+    }
+
+    internal class LenFromReader(override val context: BinaryDecoderContext) : Len() {
         private inline fun decodePrefix(): Int {
-            val length = fieldDecoder.varintValueDecoder.decodeValue().decodeSignedInt
+            val length = context.varintValueDecoder.decodeValue().decodeSignedInt
             if (length < 0) {
                 throw InvalidProtocolBufferException.negativeSize()
             }
             return length
         }
 
-        public fun decodeValue(): WireValue.Len {
+        override fun decodeValue(): WireValue.Len {
             val size = decodePrefix()
-            return WireValue.Len(wireReader.read(size))
-        }
-
-        internal inline fun <T : Any> decodeFields(fieldsBlock: (BinaryFieldDecoder) -> T): T {
-            val messageBytesSize = decodePrefix()
-            val oldLimit = wireReader.pushLimit(messageBytesSize)
-            val message = fieldsBlock(fieldDecoder)
-            if (!wireReader.isAtEnd()) {
-                throw InvalidProtocolBufferException("Not at the end of the current message limit as expected")
-            }
-            wireReader.popLimit(oldLimit)
-            return message
-        }
-
-        internal inline fun decodePackedValues(wireType: WireType, valueBlock: (BinaryFieldValueDecoder) -> Unit) {
-            val listBytesSize = decodePrefix()
-            val oldLimit = wireReader.pushLimit(listBytesSize)
-            val valueDecoder = fieldDecoder.valueDecoder(wireType)
-            while (!wireReader.isAtEnd()) {
-                valueBlock(valueDecoder)
-            }
-            wireReader.popLimit(oldLimit)
+            return WireValue.Len(context.wireReader.read(size))
         }
 
         override fun skipValue() {
             val size = decodePrefix()
-            wireReader.skipRawBytes(size)
+            context.wireReader.skipRawBytes(size)
         }
+
+        override fun preDecode(): Int? {
+            val messageBytesSize = decodePrefix()
+            val oldLimit = context.wireReader.pushLimit(messageBytesSize)
+            return oldLimit
+        }
+
+        override fun postDecode(oldLimit: Int?) {
+            context.wireReader.popLimit(oldLimit)
+        }
+    }
+
+    internal class LenFromValue(private val value: WireValue.Len) : Len() {
+        override val context = BinaryDecoderContext(ByteArrayWireReader(value.value))
+        override fun decodeValue() = value
+        override fun skipValue() {}
+        override fun preDecode() = null
+        override fun postDecode(oldLimit: Int?) {}
     }
 
     public sealed class Group : BinaryFieldValueDecoder() {
         override val wireType: WireType get() = WireType.START_GROUP
+
         public abstract fun decodeValue(): WireValue.Group
+
+        internal abstract val fieldDecoder: BinaryFieldDecoder
+
+        internal inline fun <T : Any> decodeFields(fieldsBlock: (BinaryFieldDecoder) -> T): T {
+            val message = fieldsBlock(fieldDecoder)
+            return message
+        }
     }
 
-    internal class GroupFromReader(
-        private val fieldDecoder: BinaryFieldDecoder,
-        private val fieldNumber: Int,
-    ) : Group() {
-
-        private fun isValidEndGroupTag(fieldNumber: Int, valueDecoder: BinaryFieldValueDecoder): Boolean {
-            return if (valueDecoder.wireType == WireType.END_GROUP) {
-                if (fieldNumber != this.fieldNumber) throw InvalidProtocolBufferException.invalidEndTag()
-                true
-            } else {
-                false
-            }
-        }
-
+    internal class GroupFromReader(override val fieldDecoder: BinaryFieldDecoder) : Group() {
         override fun decodeValue(): WireValue.Group {
             val fields = buildList {
                 fieldDecoder.forEachField { fieldNumber, valueDecoder ->
-                    // An END_GROUP tag means we've reached the end of the group value
-                    if (isValidEndGroupTag(fieldNumber, valueDecoder)) return@buildList
-
                     add(UnknownField(fieldNumber, listOf(UnknownField.Value(valueDecoder))))
                 }
-                // If we got here, that means there are no more fields to process but we still haven't seen an
-                // END_GROUP tag
-                throw InvalidProtocolBufferException("Encountered a START_GROUP tag with no matching END_GROUP tag")
             }
             return WireValue.Group(fields)
         }
 
         override fun skipValue() {
-            fieldDecoder.forEachField { fieldNumber, valueDecoder ->
+            fieldDecoder.forEachField { _, valueDecoder ->
                 valueDecoder.skipValue()
-                // An END_GROUP tag means we've reached the end of this group value
-                if (isValidEndGroupTag(fieldNumber, valueDecoder)) return
             }
-            // If we got here, that means there are no more fields to process but we still haven't seen an
-            // END_GROUP tag
-            throw InvalidProtocolBufferException("Encountered a START_GROUP tag with no matching END_GROUP tag")
         }
     }
 
     internal class GroupFromValue(private val value: WireValue.Group) : Group() {
         override fun decodeValue(): WireValue.Group = value
         override fun skipValue() {}
+        override val fieldDecoder = BinaryFieldDecoder.fromGroupWireValue(value)
     }
 
     public object EndGroup : BinaryFieldValueDecoder() {
@@ -205,18 +210,14 @@ public sealed class BinaryFieldValueDecoder {
 
             is WireValue.I64 -> I64FromValue(wireValue)
 
-            is WireValue.Len -> {
-                // This is a bit roundabout, but it gets the job done
-                val buffer = ByteArray(MAX_VARINT_SIZE)
-                val position = WireValue.Varint.encodeSignedInt(wireValue.value.size).encodeToBuffer(buffer)
-                BinaryFieldDecoder(ByteArrayWireReader(buffer.copyOf(position) + wireValue.value)).lenValueDecoder
-            }
+            is WireValue.Len -> LenFromValue(wireValue)
 
             is WireValue.Group -> GroupFromValue(wireValue)
 
             is WireValue.EndGroup -> EndGroup
         }
     }
+
 }
 
 /** Returns `true` if field value was consumed, either by calling [valueBlock] or by skipping the field. */

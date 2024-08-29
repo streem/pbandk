@@ -6,7 +6,7 @@ import pbandk.gen.messageDescriptor
 
 internal open class BinaryMessageEncoder(private val fieldEncoder: BinaryFieldEncoder) : MessageEncoder {
     override fun <M : Message> writeMessage(message: M) {
-        message.messageDescriptor.messageValueType.encodeToBinaryNoLength(message, fieldEncoder)
+        message.messageDescriptor.messageValueType.encodeFieldsToBinary(message, fieldEncoder)
     }
 
     companion object

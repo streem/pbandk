@@ -113,8 +113,6 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         usedTypeNames: MutableSet<String>
     ): List<File.Field> {
         return msgDesc.field
-            // Exclude any group fields
-            .filterNot { it.type == FieldDescriptorProto.Type.GROUP }
             // Handle fields that are part of a oneof specially
             .partition { it.oneofIndex == null }
             .let { (standardFields, oneofFields) ->
@@ -174,9 +172,6 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         oneofField: Boolean = false
     ): File.Field.Numbered {
         val type = fromProto(fieldDesc.type ?: error("Missing field type"))
-        if (type == File.Field.Type.GROUP) {
-            TODO("Group types not supported")
-        }
         val wrappedKotlinType = fieldDesc.typeName
             ?.takeIf { type == File.Field.Type.MESSAGE && it.startsWith(".google.protobuf") }
             ?.let {
@@ -224,7 +219,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                                 // (just like other proto2 fields) even if they're in a proto3 file.
                                 (fieldDesc.extendee != null) ||
                                 (fieldDesc.proto3Optional ?: false) ||
-                                (type == File.Field.Type.MESSAGE)),
+                                (type == File.Field.Type.MESSAGE || type == File.Field.Type.GROUP)),
                 required = fieldDesc.label == FieldDescriptorProto.Label.REQUIRED,
                 options = fieldDesc.options ?: FieldOptions.defaultInstance,
                 extendee = fieldDesc.extendee,

@@ -66,12 +66,16 @@ public class BinaryFieldValueEncoder internal constructor(
     internal fun encodeGroup(fieldNum: Int, value: WireValue.Group) {
         value.value.forEach { field ->
             field.values.forEach {
-                fieldEncoder.encodeField(Tag(field.fieldNum, WireType(it.wireValue.wireType))) { valueEncoder ->
+                fieldEncoder.encodeField(field.fieldNum, it.wireValue.wireType) { valueEncoder ->
                     valueEncoder.encodeUnknownField(field.fieldNum, it.wireValue)
                 }
             }
         }
-        fieldEncoder.encodeField(Tag(fieldNum, WireType.END_GROUP)) {}
+        fieldEncoder.encodeField(fieldNum, WireType.END_GROUP) {}
+    }
+
+    internal inline fun encodeGroupFields(fieldBlock: (BinaryFieldEncoder) -> Unit) {
+        fieldBlock(fieldEncoder)
     }
 
     // Unknown fields

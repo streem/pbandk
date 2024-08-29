@@ -100,8 +100,8 @@ private fun isFieldPacked(
     valueType: ValueType<*>
 ): Boolean = when (fieldOptions?.packed) {
     true -> {
-        require(valueType.binaryWireType != WireType.LENGTH_DELIMITED) {
-            "Values with LEN wire type cannot use the packed encoding"
+        require(valueType.binaryWireType != WireType.LENGTH_DELIMITED && valueType.binaryWireType != WireType.START_GROUP) {
+            "Values with LEN and GROUP wire type cannot use the packed encoding"
         }
         true
     }
@@ -111,7 +111,7 @@ private fun isFieldPacked(
     null -> if (messageMetadata.syntax == Syntax.PROTO2) {
         false
     } else {
-        valueType.binaryWireType != WireType.LENGTH_DELIMITED
+        valueType.binaryWireType != WireType.LENGTH_DELIMITED && valueType.binaryWireType != WireType.START_GROUP
     }
 }
 

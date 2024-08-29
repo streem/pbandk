@@ -251,7 +251,9 @@ public open class CodeGenerator(
                 writeDeprecatedAnnotation(field)
                 lineBegin("$visibility class ${oneOf.kotlinFieldNames[field.name.simple]!!.simple}(")
                 lineMid("${field.kotlinName.simple}: ${field.kotlinValueType(false)}")
-                if (field.type != File.Field.Type.MESSAGE) lineMid(" = ${field.defaultValue(allowNulls = false)}")
+                if (field.type != File.Field.Type.MESSAGE && field.type != File.Field.Type.GROUP) {
+                    lineMid(" = ${field.defaultValue(allowNulls = false)}")
+                }
                 lineEnd(") :").indented {
                     lineBegin("${oneOf.kotlinTypeName.simple}<${field.kotlinValueType(false)}>, ")
                     lineMid("pbandk.gen.GeneratedOneOf<${oneOf.kotlinTypeName.parent!!.fullWithPackage}, ${field.kotlinValueType(false)}>(${field.kotlinName.simple}, ")
@@ -985,7 +987,7 @@ public open class CodeGenerator(
                 append('(')
 
                 when (this@valueType.type) {
-                    File.Field.Type.MESSAGE, File.Field.Type.ENUM -> {
+                    File.Field.Type.GROUP, File.Field.Type.MESSAGE, File.Field.Type.ENUM -> {
                         append(kotlinQualifiedTypeName)
                         generateSequence(parentType) { it.parent }
                             .firstOrNull { kotlinQualifiedTypeName == it.fullWithPackage }

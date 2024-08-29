@@ -4,6 +4,7 @@ import pbandk.FieldDescriptor
 import pbandk.FieldDescriptorSet
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
+import pbandk.MessageEncoding
 import pbandk.UnknownField
 import pbandk.binary.BinaryFieldValueDecoder
 import pbandk.binary.BinaryFieldValueEncoder
@@ -45,7 +46,8 @@ internal fun <M : Message> Message.Companion<M>.decodeMessageFromJson(fieldDecod
 }
 
 internal open class MessageValueType<M : Message>(
-    override val companion: Message.Companion<M>
+    override val companion: Message.Companion<M>,
+    internal val encoding: MessageEncoding = MessageEncoding.LENGTH_PREFIXED,
 ) : WktValueType<M, M>, ValueType<M> {
     override val defaultValue get() = companion.defaultInstance
 
@@ -56,9 +58,15 @@ internal open class MessageValueType<M : Message>(
         return currentValue.plus(newValue) as M
     }
 
-    override val binaryWireType = WireType.LENGTH_DELIMITED
+    override val binaryWireType = when (encoding) {
+        MessageEncoding.LENGTH_PREFIXED -> WireType.LENGTH_DELIMITED
+        MessageEncoding.DELIMITED -> WireType.START_GROUP
+    }
 
-    override fun binarySize(value: M) = WireValue.Len.sizeWithLenPrefix(value.protoSize)
+    override fun binarySize(value: M) = when (encoding) {
+        MessageEncoding.LENGTH_PREFIXED -> WireValue.Len.sizeWithLenPrefix(value.protoSize)
+        MessageEncoding.DELIMITED -> value.protoSize
+    }
 
     internal fun rawBinarySize(message: M): Int {
         @Suppress("UNCHECKED_CAST")
@@ -74,7 +82,7 @@ internal open class MessageValueType<M : Message>(
         return protoSize
     }
 
-    internal fun encodeToBinaryNoLength(value: M, fieldEncoder: BinaryFieldEncoder) {
+    internal fun encodeFieldsToBinary(value: M, fieldEncoder: BinaryFieldEncoder) {
         @Suppress("UNCHECKED_CAST")
         value as AbstractGeneratedMessage<M>
 
@@ -83,7 +91,7 @@ internal open class MessageValueType<M : Message>(
         }
         for (field in value.unknownFields.values) {
             field.values.forEach {
-                fieldEncoder.encodeField(Tag(field.fieldNum, WireType(it.wireValue.wireType))) { valueEncoder ->
+                fieldEncoder.encodeField(field.fieldNum, it.wireValue.wireType) { valueEncoder ->
                     valueEncoder.encodeUnknownField(field.fieldNum, it.wireValue)
                 }
             }
@@ -91,12 +99,18 @@ internal open class MessageValueType<M : Message>(
     }
 
     override fun encodeToBinary(value: M, encoder: BinaryFieldValueEncoder) {
-        encoder.encodeLenFields(value.protoSize) { fieldEncoder ->
-            encodeToBinaryNoLength(value, fieldEncoder)
+        when (encoding) {
+            MessageEncoding.LENGTH_PREFIXED -> encoder.encodeLenFields(value.protoSize) { fieldEncoder ->
+                encodeFieldsToBinary(value, fieldEncoder)
+            }
+
+            MessageEncoding.DELIMITED -> encoder.encodeGroupFields { fieldEncoder ->
+                encodeFieldsToBinary(value, fieldEncoder)
+            }
         }
     }
 
-    internal fun decodeFromBinaryNoLength(fieldDecoder: BinaryFieldDecoder): M {
+    internal fun decodeFieldsFromBinary(fieldDecoder: BinaryFieldDecoder): M {
         return companion.descriptor.builder {
             val fieldDescriptors = companion.descriptor.fields
             // Keep a `MutableList` of each unknown field while decoding the message. `UnknownField.values` is an
@@ -120,14 +134,18 @@ internal open class MessageValueType<M : Message>(
     }
 
     override fun decodeFromBinary(decoder: BinaryFieldValueDecoder): M {
-        if (decoder !is BinaryFieldValueDecoder.Len) {
-            throw InvalidProtocolBufferException("Unexpected wire type for message value: ${decoder.wireType}")
-        }
-        return decoder.decodeFields { fieldDecoder ->
-            decodeFromBinaryNoLength(fieldDecoder)
+        return when (decoder) {
+            is BinaryFieldValueDecoder.Len -> decoder.decodeFields { fieldDecoder ->
+                decodeFieldsFromBinary(fieldDecoder)
+            }
+
+            is BinaryFieldValueDecoder.Group -> decoder.decodeFields { fieldDecoder ->
+                decodeFieldsFromBinary(fieldDecoder)
+            }
+
+            else -> throw InvalidProtocolBufferException("Unexpected wire type for message value: ${decoder.wireType}")
         }
     }
-
 
     override fun decodeFromJson(decoder: JsonFieldValueDecoder): M {
         if (decoder !is JsonFieldValueDecoder.Object) {

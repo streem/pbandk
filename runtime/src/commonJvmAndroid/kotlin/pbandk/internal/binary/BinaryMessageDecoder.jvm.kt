@@ -6,7 +6,7 @@ import java.io.InputStream
 import java.nio.ByteBuffer
 
 private fun fromByteArray(arr: ByteArray, offset: Int, length: Int) =
-    BinaryMessageDecoder(BinaryFieldDecoder(ByteArrayWireReader(arr, offset, length)))
+    BinaryMessageDecoder(BinaryDecoderContext(ByteArrayWireReader(arr, offset, length)).fieldDecoder)
 
 // TODO: Maybe allow the caller to pass in optional offset and length for reading from the array
 internal actual fun BinaryMessageDecoder.Companion.fromByteArray(arr: ByteArray): MessageDecoder =
@@ -19,7 +19,7 @@ internal fun BinaryMessageDecoder.Companion.fromInputStream(stream: InputStream,
     } else {
         InputStreamWireReader(stream)
     }
-    return BinaryMessageDecoder(BinaryFieldDecoder(wireReader))
+    return BinaryMessageDecoder(BinaryDecoderContext(wireReader).fieldDecoder)
 }
 
 internal fun BinaryMessageDecoder.Companion.fromByteBuffer(buffer: ByteBuffer): MessageDecoder {

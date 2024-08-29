@@ -1,11 +1,11 @@
 package pbandk
 
 import pbandk.binary.BinaryFieldValueDecoder
-import pbandk.binary.WireType
 import pbandk.internal.binary.Tag
 import pbandk.binary.WireValue
 import pbandk.internal.types.FieldType
 import pbandk.internal.types.MessageValueType
+import kotlin.js.JsExport
 
 @Export
 public data class UnknownField
@@ -85,7 +85,7 @@ internal fun <M : Message, T> UnknownField.decodeAs(fieldDescriptor: FieldDescri
 }
 
 private fun <T> UnknownField.Value.decodeAs(fieldMetadata: FieldMetadata, fieldType: FieldType<T>): T {
-    if (!fieldType.allowsBinaryWireType(WireType(wireValue.wireType))) {
+    if (!fieldType.allowsBinaryWireType(wireValue.wireType)) {
         throw InvalidProtocolBufferException("Unknown field with wire type ${wireValue.wireType} can't be decoded as a '$fieldType' field")
     }
     return fieldType.decodeFromBinary(fieldMetadata, BinaryFieldValueDecoder.forWireValue(wireValue))
@@ -110,9 +110,8 @@ private fun <T, MT : Any> UnknownField.decodeAsMutableValue(
 ): T {
     val mutableValue = fieldType.newMutableValue()
     values.forEach { value ->
-        val wireType = WireType(value.wireValue.wireType)
-        if (!fieldType.allowsBinaryWireType(wireType)) {
-            throw InvalidProtocolBufferException("Unknown field with wire type $wireType can't be decoded as a '$fieldType' field")
+        if (!fieldType.allowsBinaryWireType(value.wireValue.wireType)) {
+            throw InvalidProtocolBufferException("Unknown field with wire type ${value.wireValue.wireType} can't be decoded as a '$fieldType' field")
         }
         fieldType.decodeFromBinary(fieldMetadata, BinaryFieldValueDecoder.forWireValue(value.wireValue), mutableValue)
     }

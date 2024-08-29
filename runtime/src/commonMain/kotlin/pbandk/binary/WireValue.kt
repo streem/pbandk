@@ -12,7 +12,7 @@ import kotlin.jvm.JvmInline
 internal const val MAX_VARINT_SIZE = 10
 
 public sealed interface WireValue {
-    public val wireType: Int
+    public val wireType: WireType
 
     public val size: Int
 
@@ -21,7 +21,7 @@ public sealed interface WireValue {
         @property:PbandkInternal
         public val value: ULong
     ) : WireValue {
-        override val wireType: Int get() = WireType.VARINT.value
+        override val wireType: WireType get() = WireType.VARINT
 
         override val size: Int
             get() {
@@ -71,7 +71,7 @@ public sealed interface WireValue {
         @property:PbandkInternal
         public val value: UInt
     ) : WireValue {
-        override val wireType: Int get() = WireType.FIXED32.value
+        override val wireType: WireType get() = WireType.FIXED32
 
         override val size: Int get() = 4
 
@@ -91,7 +91,7 @@ public sealed interface WireValue {
         @property:PbandkInternal
         public val value: ULong
     ) : WireValue {
-        override val wireType: Int get() = WireType.FIXED64.value
+        override val wireType: WireType get() = WireType.FIXED64
 
         override val size: Int get() = 8
 
@@ -111,7 +111,7 @@ public sealed interface WireValue {
         @property:PbandkInternal
         public val value: ByteArray
     ) : WireValue {
-        override val wireType: Int get() = WireType.LENGTH_DELIMITED.value
+        override val wireType: WireType get() = WireType.LENGTH_DELIMITED
 
         override val size: Int get() = sizeWithLenPrefix(value.size)
 
@@ -142,13 +142,13 @@ public sealed interface WireValue {
         @property:PbandkInternal
         public val value: List<UnknownField>
     ) : WireValue {
-        override val wireType: Int get() = WireType.START_GROUP.value
+        override val wireType: WireType get() = WireType.START_GROUP
 
         override val size: Int get() = value.sumOf { it.size }
     }
 
     public object EndGroup : WireValue {
-        override val wireType: Int get() = WireType.END_GROUP.value
+        override val wireType: WireType get() = WireType.END_GROUP
 
         override val size: Int get() = 0
     }

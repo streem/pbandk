@@ -1,7 +1,7 @@
 package pbandk
 
 import pbandk.gen.messageDescriptor
-import pbandk.internal.binary.BinaryFieldDecoder
+import pbandk.internal.binary.BinaryDecoderContext
 import pbandk.internal.binary.BinaryFieldEncoder
 import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.BinaryMessageEncoder
@@ -56,9 +56,9 @@ public fun <T : Message> Message.Companion<T>.decodeDelimitedFromStream(stream: 
         return null
     }
 
-    val fieldDecoder = BinaryFieldDecoder(InputStreamWireReader(firstByte.toByte(), stream))
+    val decoderContext = BinaryDecoderContext(InputStreamWireReader(firstByte.toByte(), stream))
     return try {
-        descriptor.messageValueType.decodeFromBinary(fieldDecoder.lenValueDecoder)
+        descriptor.messageValueType.decodeFromBinary(decoderContext.lenValueDecoder)
     } catch (e: InvalidProtocolBufferException) {
         throw e
     } catch (e: Exception) {

@@ -70,6 +70,11 @@ public fun <E : Message.Enum> enum(enumCompanion: Message.Enum.Companion<E>): Va
     enumCompanion.descriptor.enumValueType
 
 @PublicForGeneratedCode
+public fun <M : Message> group(
+    messageCompanion: Message.Companion<M>,
+): ValueType<M> = MessageValueType(messageCompanion, encoding = pbandk.MessageEncoding.DELIMITED)
+
+@PublicForGeneratedCode
 public fun <M : Message> message(
     messageCompanion: Message.Companion<M>,
     /**
