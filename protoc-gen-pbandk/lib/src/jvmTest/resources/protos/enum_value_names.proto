@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package foobar;
+
+enum Variable {
+  NONE = 0;
+  // The `VARIABLE_` prefix should not be stripped from this value's name in Kotlin, since that would be an
+  // invalid identifier
+  VARIABLE_1 = 1;
+  // This value's name, on the other hand, should be stripped of its `VARIABLE_` prefix
+  VARIABLE_CLASS = 2;
+}

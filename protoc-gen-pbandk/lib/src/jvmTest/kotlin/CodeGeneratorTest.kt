@@ -74,6 +74,22 @@ class CodeGeneratorTest {
     }
 
     @Test
+    fun testEnumValue_PrefixStripping() {
+        val result = compileProto("enum_value_names.proto")
+
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+
+        // Ensure the enum values were generated correctly
+        val variableClazz = result.classLoader.loadClass("foobar.Variable").kotlin
+        // The NONE value should be left as-is since it isn't prefixed by the enum's name
+        variableClazz.sealedSubclasses.single { it.simpleName == "NONE" }
+        // The VARIABLE_1 value should be left as-is since removing the VARIABLE_ prefix would create an invalid name
+        variableClazz.sealedSubclasses.single { it.simpleName == "VARIABLE_1" }
+        // The VARIABLE_CLASS value should have the VARIABLE_ prefix stripped off
+        variableClazz.sealedSubclasses.single { it.simpleName == "CLASS" }
+    }
+
+    @Test
     fun testKotlinBuiltinNames() {
         val result = compileProto("kotlin_builtin_names.proto")
         assertEquals(ExitCode.OK, result.exitCode, result.messages)
