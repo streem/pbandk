@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 
 * Added support for the `wasmJs` platform. (PR [#273])
+* Added support for the 'mingwX64` platform. (PR [#276], fixes [#233]) (thanks @deepthought-64 for the initial PR)
 
 ### Changed
 
@@ -19,8 +20,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 
+[#233]: https://github.com/streem/pbandk/issues/233
 [#270]: https://github.com/streem/pbandk/pull/270
 [#273]: https://github.com/streem/pbandk/pull/273
+[#276]: https://github.com/streem/pbandk/pull/276
 
 
 ## [0.15.0] - 2024-08-05
