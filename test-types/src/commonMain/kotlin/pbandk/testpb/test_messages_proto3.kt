@@ -208,1507 +208,1515 @@ public data class TestAllTypesProto3(
             messageClass = pbandk.testpb.TestAllTypesProto3::class,
             messageCompanion = this,
             fields = buildList(149) {
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_int32",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "optionalInt32",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalInt32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_int64",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
-                        jsonName = "optionalInt64",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalInt64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_uint32",
-                        number = 3,
-                        type = pbandk.FieldDescriptor.Type.Primitive.UInt32(),
-                        jsonName = "optionalUint32",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalUint32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_uint64",
-                        number = 4,
-                        type = pbandk.FieldDescriptor.Type.Primitive.UInt64(),
-                        jsonName = "optionalUint64",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalUint64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_sint32",
-                        number = 5,
-                        type = pbandk.FieldDescriptor.Type.Primitive.SInt32(),
-                        jsonName = "optionalSint32",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalSint32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_sint64",
-                        number = 6,
-                        type = pbandk.FieldDescriptor.Type.Primitive.SInt64(),
-                        jsonName = "optionalSint64",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalSint64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_fixed32",
-                        number = 7,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(),
-                        jsonName = "optionalFixed32",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalFixed32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_fixed64",
-                        number = 8,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(),
-                        jsonName = "optionalFixed64",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalFixed64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_sfixed32",
-                        number = 9,
-                        type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(),
-                        jsonName = "optionalSfixed32",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalSfixed32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_sfixed64",
-                        number = 10,
-                        type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(),
-                        jsonName = "optionalSfixed64",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalSfixed64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_float",
-                        number = 11,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Float(),
-                        jsonName = "optionalFloat",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalFloat
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_double",
-                        number = 12,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Double(),
-                        jsonName = "optionalDouble",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalDouble
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_bool",
-                        number = 13,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
-                        jsonName = "optionalBool",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalBool
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_string",
-                        number = 14,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "optionalString",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalString
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_bytes",
-                        number = 15,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
-                        jsonName = "optionalBytes",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalBytes
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_nested_message",
-                        number = 18,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.TestAllTypesProto3.NestedMessage.Companion),
-                        jsonName = "optionalNestedMessage",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalNestedMessage
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_foreign_message",
-                        number = 19,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.ForeignMessage.Companion),
-                        jsonName = "optionalForeignMessage",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalForeignMessage
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_nested_enum",
-                        number = 21,
-                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.NestedEnum.Companion),
-                        jsonName = "optionalNestedEnum",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalNestedEnum
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_foreign_enum",
-                        number = 22,
-                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.ForeignEnum.Companion),
-                        jsonName = "optionalForeignEnum",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalForeignEnum
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_aliased_enum",
-                        number = 23,
-                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.AliasedEnum.Companion),
-                        jsonName = "optionalAliasedEnum",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalAliasedEnum
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_string_piece",
-                        number = 24,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "optionalStringPiece",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalStringPiece
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_cord",
-                        number = 25,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "optionalCord",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalCord
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "recursive_message",
-                        number = 27,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.TestAllTypesProto3.Companion),
-                        jsonName = "recursiveMessage",
-                        value = pbandk.testpb.TestAllTypesProto3::recursiveMessage
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_int32",
-                        number = 31,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
-                        jsonName = "repeatedInt32",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedInt32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_int64",
-                        number = 32,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64(), packed = true),
-                        jsonName = "repeatedInt64",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedInt64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_uint32",
-                        number = 33,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), packed = true),
-                        jsonName = "repeatedUint32",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedUint32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_uint64",
-                        number = 34,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), packed = true),
-                        jsonName = "repeatedUint64",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedUint64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_sint32",
-                        number = 35,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), packed = true),
-                        jsonName = "repeatedSint32",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedSint32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_sint64",
-                        number = 36,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), packed = true),
-                        jsonName = "repeatedSint64",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedSint64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_fixed32",
-                        number = 37,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), packed = true),
-                        jsonName = "repeatedFixed32",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedFixed32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_fixed64",
-                        number = 38,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), packed = true),
-                        jsonName = "repeatedFixed64",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedFixed64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_sfixed32",
-                        number = 39,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), packed = true),
-                        jsonName = "repeatedSfixed32",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedSfixed32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_sfixed64",
-                        number = 40,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), packed = true),
-                        jsonName = "repeatedSfixed64",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedSfixed64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_float",
-                        number = 41,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float(), packed = true),
-                        jsonName = "repeatedFloat",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedFloat
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_double",
-                        number = 42,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double(), packed = true),
-                        jsonName = "repeatedDouble",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedDouble
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_bool",
-                        number = 43,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool(), packed = true),
-                        jsonName = "repeatedBool",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedBool
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_string",
-                        number = 44,
-                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                        jsonName = "repeatedString",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedString
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_bytes",
-                        number = 45,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.ByteArr>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bytes()),
-                        jsonName = "repeatedBytes",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedBytes
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_nested_message",
-                        number = 48,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.TestAllTypesProto3.NestedMessage>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.TestAllTypesProto3.NestedMessage.Companion)),
-                        jsonName = "repeatedNestedMessage",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedNestedMessage
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_foreign_message",
-                        number = 49,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.ForeignMessage>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.ForeignMessage.Companion)),
-                        jsonName = "repeatedForeignMessage",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedForeignMessage
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_nested_enum",
-                        number = 51,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.TestAllTypesProto3.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.NestedEnum.Companion), packed = true),
-                        jsonName = "repeatedNestedEnum",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedNestedEnum
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_foreign_enum",
-                        number = 52,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.ForeignEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.ForeignEnum.Companion), packed = true),
-                        jsonName = "repeatedForeignEnum",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedForeignEnum
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_string_piece",
-                        number = 54,
-                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                        jsonName = "repeatedStringPiece",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedStringPiece
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_cord",
-                        number = 55,
-                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                        jsonName = "repeatedCord",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedCord
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_int32_int32",
-                        number = 56,
-                        type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
-                        jsonName = "mapInt32Int32",
-                        value = pbandk.testpb.TestAllTypesProto3::mapInt32Int32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_int64_int64",
-                        number = 57,
-                        type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int64(), valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
-                        jsonName = "mapInt64Int64",
-                        value = pbandk.testpb.TestAllTypesProto3::mapInt64Int64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_uint32_uint32",
-                        number = 58,
-                        type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
-                        jsonName = "mapUint32Uint32",
-                        value = pbandk.testpb.TestAllTypesProto3::mapUint32Uint32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_uint64_uint64",
-                        number = 59,
-                        type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
-                        jsonName = "mapUint64Uint64",
-                        value = pbandk.testpb.TestAllTypesProto3::mapUint64Uint64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_sint32_sint32",
-                        number = 60,
-                        type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
-                        jsonName = "mapSint32Sint32",
-                        value = pbandk.testpb.TestAllTypesProto3::mapSint32Sint32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_sint64_sint64",
-                        number = 61,
-                        type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
-                        jsonName = "mapSint64Sint64",
-                        value = pbandk.testpb.TestAllTypesProto3::mapSint64Sint64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_fixed32_fixed32",
-                        number = 62,
-                        type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
-                        jsonName = "mapFixed32Fixed32",
-                        value = pbandk.testpb.TestAllTypesProto3::mapFixed32Fixed32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_fixed64_fixed64",
-                        number = 63,
-                        type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
-                        jsonName = "mapFixed64Fixed64",
-                        value = pbandk.testpb.TestAllTypesProto3::mapFixed64Fixed64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_sfixed32_sfixed32",
-                        number = 64,
-                        type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
-                        jsonName = "mapSfixed32Sfixed32",
-                        value = pbandk.testpb.TestAllTypesProto3::mapSfixed32Sfixed32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_sfixed64_sfixed64",
-                        number = 65,
-                        type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
-                        jsonName = "mapSfixed64Sfixed64",
-                        value = pbandk.testpb.TestAllTypesProto3::mapSfixed64Sfixed64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_int32_float",
-                        number = 66,
-                        type = pbandk.FieldDescriptor.Type.Map<Int, Float>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
-                        jsonName = "mapInt32Float",
-                        value = pbandk.testpb.TestAllTypesProto3::mapInt32Float
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_int32_double",
-                        number = 67,
-                        type = pbandk.FieldDescriptor.Type.Map<Int, Double>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
-                        jsonName = "mapInt32Double",
-                        value = pbandk.testpb.TestAllTypesProto3::mapInt32Double
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_bool_bool",
-                        number = 68,
-                        type = pbandk.FieldDescriptor.Type.Map<Boolean, Boolean>(keyType = pbandk.FieldDescriptor.Type.Primitive.Bool(), valueType = pbandk.FieldDescriptor.Type.Primitive.Bool()),
-                        jsonName = "mapBoolBool",
-                        value = pbandk.testpb.TestAllTypesProto3::mapBoolBool
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_string_string",
-                        number = 69,
-                        type = pbandk.FieldDescriptor.Type.Map<String, String>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                        jsonName = "mapStringString",
-                        value = pbandk.testpb.TestAllTypesProto3::mapStringString
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_string_bytes",
-                        number = 70,
-                        type = pbandk.FieldDescriptor.Type.Map<String, pbandk.ByteArr>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Primitive.Bytes()),
-                        jsonName = "mapStringBytes",
-                        value = pbandk.testpb.TestAllTypesProto3::mapStringBytes
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_string_nested_message",
-                        number = 71,
-                        type = pbandk.FieldDescriptor.Type.Map<String, pbandk.testpb.TestAllTypesProto3.NestedMessage?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.TestAllTypesProto3.NestedMessage.Companion)),
-                        jsonName = "mapStringNestedMessage",
-                        value = pbandk.testpb.TestAllTypesProto3::mapStringNestedMessage
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_string_foreign_message",
-                        number = 72,
-                        type = pbandk.FieldDescriptor.Type.Map<String, pbandk.testpb.ForeignMessage?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.ForeignMessage.Companion)),
-                        jsonName = "mapStringForeignMessage",
-                        value = pbandk.testpb.TestAllTypesProto3::mapStringForeignMessage
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_string_nested_enum",
-                        number = 73,
-                        type = pbandk.FieldDescriptor.Type.Map<String, pbandk.testpb.TestAllTypesProto3.NestedEnum>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.NestedEnum.Companion)),
-                        jsonName = "mapStringNestedEnum",
-                        value = pbandk.testpb.TestAllTypesProto3::mapStringNestedEnum
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "map_string_foreign_enum",
-                        number = 74,
-                        type = pbandk.FieldDescriptor.Type.Map<String, pbandk.testpb.ForeignEnum>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.ForeignEnum.Companion)),
-                        jsonName = "mapStringForeignEnum",
-                        value = pbandk.testpb.TestAllTypesProto3::mapStringForeignEnum
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed_int32",
-                        number = 75,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
-                        jsonName = "packedInt32",
-                        value = pbandk.testpb.TestAllTypesProto3::packedInt32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed_int64",
-                        number = 76,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64(), packed = true),
-                        jsonName = "packedInt64",
-                        value = pbandk.testpb.TestAllTypesProto3::packedInt64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed_uint32",
-                        number = 77,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), packed = true),
-                        jsonName = "packedUint32",
-                        value = pbandk.testpb.TestAllTypesProto3::packedUint32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed_uint64",
-                        number = 78,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), packed = true),
-                        jsonName = "packedUint64",
-                        value = pbandk.testpb.TestAllTypesProto3::packedUint64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed_sint32",
-                        number = 79,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), packed = true),
-                        jsonName = "packedSint32",
-                        value = pbandk.testpb.TestAllTypesProto3::packedSint32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed_sint64",
-                        number = 80,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), packed = true),
-                        jsonName = "packedSint64",
-                        value = pbandk.testpb.TestAllTypesProto3::packedSint64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed_fixed32",
-                        number = 81,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), packed = true),
-                        jsonName = "packedFixed32",
-                        value = pbandk.testpb.TestAllTypesProto3::packedFixed32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed_fixed64",
-                        number = 82,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), packed = true),
-                        jsonName = "packedFixed64",
-                        value = pbandk.testpb.TestAllTypesProto3::packedFixed64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed_sfixed32",
-                        number = 83,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), packed = true),
-                        jsonName = "packedSfixed32",
-                        value = pbandk.testpb.TestAllTypesProto3::packedSfixed32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed_sfixed64",
-                        number = 84,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), packed = true),
-                        jsonName = "packedSfixed64",
-                        value = pbandk.testpb.TestAllTypesProto3::packedSfixed64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed_float",
-                        number = 85,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float(), packed = true),
-                        jsonName = "packedFloat",
-                        value = pbandk.testpb.TestAllTypesProto3::packedFloat
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed_double",
-                        number = 86,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double(), packed = true),
-                        jsonName = "packedDouble",
-                        value = pbandk.testpb.TestAllTypesProto3::packedDouble
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed_bool",
-                        number = 87,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool(), packed = true),
-                        jsonName = "packedBool",
-                        value = pbandk.testpb.TestAllTypesProto3::packedBool
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "packed_nested_enum",
-                        number = 88,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.TestAllTypesProto3.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.NestedEnum.Companion), packed = true),
-                        jsonName = "packedNestedEnum",
-                        value = pbandk.testpb.TestAllTypesProto3::packedNestedEnum
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "unpacked_int32",
-                        number = 89,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
-                        jsonName = "unpackedInt32",
-                        value = pbandk.testpb.TestAllTypesProto3::unpackedInt32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "unpacked_int64",
-                        number = 90,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
-                        jsonName = "unpackedInt64",
-                        value = pbandk.testpb.TestAllTypesProto3::unpackedInt64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "unpacked_uint32",
-                        number = 91,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
-                        jsonName = "unpackedUint32",
-                        value = pbandk.testpb.TestAllTypesProto3::unpackedUint32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "unpacked_uint64",
-                        number = 92,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
-                        jsonName = "unpackedUint64",
-                        value = pbandk.testpb.TestAllTypesProto3::unpackedUint64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "unpacked_sint32",
-                        number = 93,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
-                        jsonName = "unpackedSint32",
-                        value = pbandk.testpb.TestAllTypesProto3::unpackedSint32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "unpacked_sint64",
-                        number = 94,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
-                        jsonName = "unpackedSint64",
-                        value = pbandk.testpb.TestAllTypesProto3::unpackedSint64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "unpacked_fixed32",
-                        number = 95,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
-                        jsonName = "unpackedFixed32",
-                        value = pbandk.testpb.TestAllTypesProto3::unpackedFixed32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "unpacked_fixed64",
-                        number = 96,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
-                        jsonName = "unpackedFixed64",
-                        value = pbandk.testpb.TestAllTypesProto3::unpackedFixed64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "unpacked_sfixed32",
-                        number = 97,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
-                        jsonName = "unpackedSfixed32",
-                        value = pbandk.testpb.TestAllTypesProto3::unpackedSfixed32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "unpacked_sfixed64",
-                        number = 98,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
-                        jsonName = "unpackedSfixed64",
-                        value = pbandk.testpb.TestAllTypesProto3::unpackedSfixed64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "unpacked_float",
-                        number = 99,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
-                        jsonName = "unpackedFloat",
-                        value = pbandk.testpb.TestAllTypesProto3::unpackedFloat
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "unpacked_double",
-                        number = 100,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
-                        jsonName = "unpackedDouble",
-                        value = pbandk.testpb.TestAllTypesProto3::unpackedDouble
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "unpacked_bool",
-                        number = 101,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool()),
-                        jsonName = "unpackedBool",
-                        value = pbandk.testpb.TestAllTypesProto3::unpackedBool
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "unpacked_nested_enum",
-                        number = 102,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.TestAllTypesProto3.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.NestedEnum.Companion)),
-                        jsonName = "unpackedNestedEnum",
-                        value = pbandk.testpb.TestAllTypesProto3::unpackedNestedEnum
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "oneof_uint32",
-                        number = 111,
-                        type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
-                        oneofMember = true,
-                        jsonName = "oneofUint32",
-                        value = pbandk.testpb.TestAllTypesProto3::oneofUint32
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "oneof_nested_message",
-                        number = 112,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.TestAllTypesProto3.NestedMessage.Companion),
-                        oneofMember = true,
-                        jsonName = "oneofNestedMessage",
-                        value = pbandk.testpb.TestAllTypesProto3::oneofNestedMessage
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "oneof_string",
-                        number = 113,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        oneofMember = true,
-                        jsonName = "oneofString",
-                        value = pbandk.testpb.TestAllTypesProto3::oneofString
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "oneof_bytes",
-                        number = 114,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
-                        oneofMember = true,
-                        jsonName = "oneofBytes",
-                        value = pbandk.testpb.TestAllTypesProto3::oneofBytes
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "oneof_bool",
-                        number = 115,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        oneofMember = true,
-                        jsonName = "oneofBool",
-                        value = pbandk.testpb.TestAllTypesProto3::oneofBool
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "oneof_uint64",
-                        number = 116,
-                        type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
-                        oneofMember = true,
-                        jsonName = "oneofUint64",
-                        value = pbandk.testpb.TestAllTypesProto3::oneofUint64
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "oneof_float",
-                        number = 117,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
-                        oneofMember = true,
-                        jsonName = "oneofFloat",
-                        value = pbandk.testpb.TestAllTypesProto3::oneofFloat
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "oneof_double",
-                        number = 118,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
-                        oneofMember = true,
-                        jsonName = "oneofDouble",
-                        value = pbandk.testpb.TestAllTypesProto3::oneofDouble
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "oneof_enum",
-                        number = 119,
-                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.NestedEnum.Companion, hasPresence = true),
-                        oneofMember = true,
-                        jsonName = "oneofEnum",
-                        value = pbandk.testpb.TestAllTypesProto3::oneofEnum
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_bool_wrapper",
-                        number = 201,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BoolValue.Companion),
-                        jsonName = "optionalBoolWrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalBoolWrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_int32_wrapper",
-                        number = 202,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int32Value.Companion),
-                        jsonName = "optionalInt32Wrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalInt32Wrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_int64_wrapper",
-                        number = 203,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int64Value.Companion),
-                        jsonName = "optionalInt64Wrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalInt64Wrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_uint32_wrapper",
-                        number = 204,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt32Value.Companion),
-                        jsonName = "optionalUint32Wrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalUint32Wrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_uint64_wrapper",
-                        number = 205,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt64Value.Companion),
-                        jsonName = "optionalUint64Wrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalUint64Wrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_float_wrapper",
-                        number = 206,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FloatValue.Companion),
-                        jsonName = "optionalFloatWrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalFloatWrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_double_wrapper",
-                        number = 207,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DoubleValue.Companion),
-                        jsonName = "optionalDoubleWrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalDoubleWrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_string_wrapper",
-                        number = 208,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.StringValue.Companion),
-                        jsonName = "optionalStringWrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalStringWrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_bytes_wrapper",
-                        number = 209,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BytesValue.Companion),
-                        jsonName = "optionalBytesWrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalBytesWrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_bool_wrapper",
-                        number = 211,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BoolValue.Companion)),
-                        jsonName = "repeatedBoolWrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedBoolWrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_int32_wrapper",
-                        number = 212,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int32Value.Companion)),
-                        jsonName = "repeatedInt32Wrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedInt32Wrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_int64_wrapper",
-                        number = 213,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int64Value.Companion)),
-                        jsonName = "repeatedInt64Wrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedInt64Wrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_uint32_wrapper",
-                        number = 214,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt32Value.Companion)),
-                        jsonName = "repeatedUint32Wrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedUint32Wrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_uint64_wrapper",
-                        number = 215,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt64Value.Companion)),
-                        jsonName = "repeatedUint64Wrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedUint64Wrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_float_wrapper",
-                        number = 216,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FloatValue.Companion)),
-                        jsonName = "repeatedFloatWrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedFloatWrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_double_wrapper",
-                        number = 217,
-                        type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DoubleValue.Companion)),
-                        jsonName = "repeatedDoubleWrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedDoubleWrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_string_wrapper",
-                        number = 218,
-                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.StringValue.Companion)),
-                        jsonName = "repeatedStringWrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedStringWrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_bytes_wrapper",
-                        number = 219,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.ByteArr>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BytesValue.Companion)),
-                        jsonName = "repeatedBytesWrapper",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedBytesWrapper
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_duration",
-                        number = 301,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion),
-                        jsonName = "optionalDuration",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalDuration
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_timestamp",
-                        number = 302,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
-                        jsonName = "optionalTimestamp",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalTimestamp
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_field_mask",
-                        number = 303,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldMask.Companion),
-                        jsonName = "optionalFieldMask",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalFieldMask
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_struct",
-                        number = 304,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Struct.Companion),
-                        jsonName = "optionalStruct",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalStruct
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_any",
-                        number = 305,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Any.Companion),
-                        jsonName = "optionalAny",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalAny
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "optional_value",
-                        number = 306,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion),
-                        jsonName = "optionalValue",
-                        value = pbandk.testpb.TestAllTypesProto3::optionalValue
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_duration",
-                        number = 311,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Duration>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion)),
-                        jsonName = "repeatedDuration",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedDuration
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_timestamp",
-                        number = 312,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Timestamp>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion)),
-                        jsonName = "repeatedTimestamp",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedTimestamp
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_fieldmask",
-                        number = 313,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FieldMask>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldMask.Companion)),
-                        jsonName = "repeatedFieldmask",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedFieldmask
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_any",
-                        number = 315,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Any>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Any.Companion)),
-                        jsonName = "repeatedAny",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedAny
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_value",
-                        number = 316,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Value>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion)),
-                        jsonName = "repeatedValue",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedValue
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_list_value",
-                        number = 317,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.ListValue>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ListValue.Companion)),
-                        jsonName = "repeatedListValue",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedListValue
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "repeated_struct",
-                        number = 324,
-                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Struct>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Struct.Companion)),
-                        jsonName = "repeatedStruct",
-                        value = pbandk.testpb.TestAllTypesProto3::repeatedStruct
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "fieldname1",
-                        number = 401,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "fieldname1",
-                        value = pbandk.testpb.TestAllTypesProto3::fieldname1
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "field_name2",
-                        number = 402,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "fieldName2",
-                        value = pbandk.testpb.TestAllTypesProto3::fieldName2
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "_field_name3",
-                        number = 403,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "FieldName3",
-                        value = pbandk.testpb.TestAllTypesProto3::fieldName3
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "field__name4_",
-                        number = 404,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "fieldName4",
-                        value = pbandk.testpb.TestAllTypesProto3::field_name4
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "field0name5",
-                        number = 405,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "field0name5",
-                        value = pbandk.testpb.TestAllTypesProto3::field0name5
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "field_0_name6",
-                        number = 406,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "field0Name6",
-                        value = pbandk.testpb.TestAllTypesProto3::field0Name6
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "fieldName7",
-                        number = 407,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "fieldName7",
-                        value = pbandk.testpb.TestAllTypesProto3::fieldName7
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "FieldName8",
-                        number = 408,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "FieldName8",
-                        value = pbandk.testpb.TestAllTypesProto3::fieldName8
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "field_Name9",
-                        number = 409,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "fieldName9",
-                        value = pbandk.testpb.TestAllTypesProto3::fieldName9
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "Field_Name10",
-                        number = 410,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "FieldName10",
-                        value = pbandk.testpb.TestAllTypesProto3::fieldName10
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "FIELD_NAME11",
-                        number = 411,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "FIELDNAME11",
-                        value = pbandk.testpb.TestAllTypesProto3::fIELDNAME11
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "FIELD_name12",
-                        number = 412,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "FIELDName12",
-                        value = pbandk.testpb.TestAllTypesProto3::fIELDName12
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "__field_name13",
-                        number = 413,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "FieldName13",
-                        value = pbandk.testpb.TestAllTypesProto3::_fieldName13
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "__Field_name14",
-                        number = 414,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "FieldName14",
-                        value = pbandk.testpb.TestAllTypesProto3::_FieldName14
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "field__name15",
-                        number = 415,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "fieldName15",
-                        value = pbandk.testpb.TestAllTypesProto3::field_name15
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "field__Name16",
-                        number = 416,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "fieldName16",
-                        value = pbandk.testpb.TestAllTypesProto3::field_Name16
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "field_name17__",
-                        number = 417,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "fieldName17",
-                        value = pbandk.testpb.TestAllTypesProto3::fieldName17_
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
-                        name = "Field_name18__",
-                        number = 418,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "FieldName18",
-                        value = pbandk.testpb.TestAllTypesProto3::fieldName18_
-                    )
-                )
+                addFields0()
+                addFields1()
             }
         )
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, *>>.addFields0() {
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_int32",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "optionalInt32",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalInt32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_int64",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
+                    jsonName = "optionalInt64",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalInt64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_uint32",
+                    number = 3,
+                    type = pbandk.FieldDescriptor.Type.Primitive.UInt32(),
+                    jsonName = "optionalUint32",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalUint32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_uint64",
+                    number = 4,
+                    type = pbandk.FieldDescriptor.Type.Primitive.UInt64(),
+                    jsonName = "optionalUint64",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalUint64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_sint32",
+                    number = 5,
+                    type = pbandk.FieldDescriptor.Type.Primitive.SInt32(),
+                    jsonName = "optionalSint32",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalSint32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_sint64",
+                    number = 6,
+                    type = pbandk.FieldDescriptor.Type.Primitive.SInt64(),
+                    jsonName = "optionalSint64",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalSint64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_fixed32",
+                    number = 7,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(),
+                    jsonName = "optionalFixed32",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalFixed32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_fixed64",
+                    number = 8,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(),
+                    jsonName = "optionalFixed64",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalFixed64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_sfixed32",
+                    number = 9,
+                    type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(),
+                    jsonName = "optionalSfixed32",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalSfixed32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_sfixed64",
+                    number = 10,
+                    type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(),
+                    jsonName = "optionalSfixed64",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalSfixed64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_float",
+                    number = 11,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Float(),
+                    jsonName = "optionalFloat",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalFloat
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_double",
+                    number = 12,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Double(),
+                    jsonName = "optionalDouble",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalDouble
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_bool",
+                    number = 13,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
+                    jsonName = "optionalBool",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalBool
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_string",
+                    number = 14,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                    jsonName = "optionalString",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalString
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_bytes",
+                    number = 15,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
+                    jsonName = "optionalBytes",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalBytes
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_nested_message",
+                    number = 18,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.TestAllTypesProto3.NestedMessage.Companion),
+                    jsonName = "optionalNestedMessage",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalNestedMessage
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_foreign_message",
+                    number = 19,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.ForeignMessage.Companion),
+                    jsonName = "optionalForeignMessage",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalForeignMessage
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_nested_enum",
+                    number = 21,
+                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.NestedEnum.Companion),
+                    jsonName = "optionalNestedEnum",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalNestedEnum
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_foreign_enum",
+                    number = 22,
+                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.ForeignEnum.Companion),
+                    jsonName = "optionalForeignEnum",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalForeignEnum
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_aliased_enum",
+                    number = 23,
+                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.AliasedEnum.Companion),
+                    jsonName = "optionalAliasedEnum",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalAliasedEnum
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_string_piece",
+                    number = 24,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                    jsonName = "optionalStringPiece",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalStringPiece
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_cord",
+                    number = 25,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                    jsonName = "optionalCord",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalCord
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "recursive_message",
+                    number = 27,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.TestAllTypesProto3.Companion),
+                    jsonName = "recursiveMessage",
+                    value = pbandk.testpb.TestAllTypesProto3::recursiveMessage
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_int32",
+                    number = 31,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
+                    jsonName = "repeatedInt32",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedInt32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_int64",
+                    number = 32,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64(), packed = true),
+                    jsonName = "repeatedInt64",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedInt64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_uint32",
+                    number = 33,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), packed = true),
+                    jsonName = "repeatedUint32",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedUint32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_uint64",
+                    number = 34,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), packed = true),
+                    jsonName = "repeatedUint64",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedUint64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_sint32",
+                    number = 35,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), packed = true),
+                    jsonName = "repeatedSint32",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedSint32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_sint64",
+                    number = 36,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), packed = true),
+                    jsonName = "repeatedSint64",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedSint64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_fixed32",
+                    number = 37,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), packed = true),
+                    jsonName = "repeatedFixed32",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedFixed32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_fixed64",
+                    number = 38,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), packed = true),
+                    jsonName = "repeatedFixed64",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedFixed64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_sfixed32",
+                    number = 39,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), packed = true),
+                    jsonName = "repeatedSfixed32",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedSfixed32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_sfixed64",
+                    number = 40,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), packed = true),
+                    jsonName = "repeatedSfixed64",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedSfixed64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_float",
+                    number = 41,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float(), packed = true),
+                    jsonName = "repeatedFloat",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedFloat
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_double",
+                    number = 42,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double(), packed = true),
+                    jsonName = "repeatedDouble",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedDouble
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_bool",
+                    number = 43,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool(), packed = true),
+                    jsonName = "repeatedBool",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedBool
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_string",
+                    number = 44,
+                    type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                    jsonName = "repeatedString",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedString
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_bytes",
+                    number = 45,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.ByteArr>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bytes()),
+                    jsonName = "repeatedBytes",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedBytes
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_nested_message",
+                    number = 48,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.TestAllTypesProto3.NestedMessage>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.TestAllTypesProto3.NestedMessage.Companion)),
+                    jsonName = "repeatedNestedMessage",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedNestedMessage
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_foreign_message",
+                    number = 49,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.ForeignMessage>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.ForeignMessage.Companion)),
+                    jsonName = "repeatedForeignMessage",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedForeignMessage
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_nested_enum",
+                    number = 51,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.TestAllTypesProto3.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.NestedEnum.Companion), packed = true),
+                    jsonName = "repeatedNestedEnum",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedNestedEnum
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_foreign_enum",
+                    number = 52,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.ForeignEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.ForeignEnum.Companion), packed = true),
+                    jsonName = "repeatedForeignEnum",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedForeignEnum
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_string_piece",
+                    number = 54,
+                    type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                    jsonName = "repeatedStringPiece",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedStringPiece
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_cord",
+                    number = 55,
+                    type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                    jsonName = "repeatedCord",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedCord
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_int32_int32",
+                    number = 56,
+                    type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
+                    jsonName = "mapInt32Int32",
+                    value = pbandk.testpb.TestAllTypesProto3::mapInt32Int32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_int64_int64",
+                    number = 57,
+                    type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int64(), valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
+                    jsonName = "mapInt64Int64",
+                    value = pbandk.testpb.TestAllTypesProto3::mapInt64Int64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_uint32_uint32",
+                    number = 58,
+                    type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
+                    jsonName = "mapUint32Uint32",
+                    value = pbandk.testpb.TestAllTypesProto3::mapUint32Uint32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_uint64_uint64",
+                    number = 59,
+                    type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
+                    jsonName = "mapUint64Uint64",
+                    value = pbandk.testpb.TestAllTypesProto3::mapUint64Uint64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_sint32_sint32",
+                    number = 60,
+                    type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
+                    jsonName = "mapSint32Sint32",
+                    value = pbandk.testpb.TestAllTypesProto3::mapSint32Sint32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_sint64_sint64",
+                    number = 61,
+                    type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
+                    jsonName = "mapSint64Sint64",
+                    value = pbandk.testpb.TestAllTypesProto3::mapSint64Sint64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_fixed32_fixed32",
+                    number = 62,
+                    type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
+                    jsonName = "mapFixed32Fixed32",
+                    value = pbandk.testpb.TestAllTypesProto3::mapFixed32Fixed32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_fixed64_fixed64",
+                    number = 63,
+                    type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
+                    jsonName = "mapFixed64Fixed64",
+                    value = pbandk.testpb.TestAllTypesProto3::mapFixed64Fixed64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_sfixed32_sfixed32",
+                    number = 64,
+                    type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
+                    jsonName = "mapSfixed32Sfixed32",
+                    value = pbandk.testpb.TestAllTypesProto3::mapSfixed32Sfixed32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_sfixed64_sfixed64",
+                    number = 65,
+                    type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
+                    jsonName = "mapSfixed64Sfixed64",
+                    value = pbandk.testpb.TestAllTypesProto3::mapSfixed64Sfixed64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_int32_float",
+                    number = 66,
+                    type = pbandk.FieldDescriptor.Type.Map<Int, Float>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
+                    jsonName = "mapInt32Float",
+                    value = pbandk.testpb.TestAllTypesProto3::mapInt32Float
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_int32_double",
+                    number = 67,
+                    type = pbandk.FieldDescriptor.Type.Map<Int, Double>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
+                    jsonName = "mapInt32Double",
+                    value = pbandk.testpb.TestAllTypesProto3::mapInt32Double
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_bool_bool",
+                    number = 68,
+                    type = pbandk.FieldDescriptor.Type.Map<Boolean, Boolean>(keyType = pbandk.FieldDescriptor.Type.Primitive.Bool(), valueType = pbandk.FieldDescriptor.Type.Primitive.Bool()),
+                    jsonName = "mapBoolBool",
+                    value = pbandk.testpb.TestAllTypesProto3::mapBoolBool
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_string_string",
+                    number = 69,
+                    type = pbandk.FieldDescriptor.Type.Map<String, String>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                    jsonName = "mapStringString",
+                    value = pbandk.testpb.TestAllTypesProto3::mapStringString
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_string_bytes",
+                    number = 70,
+                    type = pbandk.FieldDescriptor.Type.Map<String, pbandk.ByteArr>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Primitive.Bytes()),
+                    jsonName = "mapStringBytes",
+                    value = pbandk.testpb.TestAllTypesProto3::mapStringBytes
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_string_nested_message",
+                    number = 71,
+                    type = pbandk.FieldDescriptor.Type.Map<String, pbandk.testpb.TestAllTypesProto3.NestedMessage?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.TestAllTypesProto3.NestedMessage.Companion)),
+                    jsonName = "mapStringNestedMessage",
+                    value = pbandk.testpb.TestAllTypesProto3::mapStringNestedMessage
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_string_foreign_message",
+                    number = 72,
+                    type = pbandk.FieldDescriptor.Type.Map<String, pbandk.testpb.ForeignMessage?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.ForeignMessage.Companion)),
+                    jsonName = "mapStringForeignMessage",
+                    value = pbandk.testpb.TestAllTypesProto3::mapStringForeignMessage
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_string_nested_enum",
+                    number = 73,
+                    type = pbandk.FieldDescriptor.Type.Map<String, pbandk.testpb.TestAllTypesProto3.NestedEnum>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.NestedEnum.Companion)),
+                    jsonName = "mapStringNestedEnum",
+                    value = pbandk.testpb.TestAllTypesProto3::mapStringNestedEnum
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "map_string_foreign_enum",
+                    number = 74,
+                    type = pbandk.FieldDescriptor.Type.Map<String, pbandk.testpb.ForeignEnum>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.ForeignEnum.Companion)),
+                    jsonName = "mapStringForeignEnum",
+                    value = pbandk.testpb.TestAllTypesProto3::mapStringForeignEnum
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "packed_int32",
+                    number = 75,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
+                    jsonName = "packedInt32",
+                    value = pbandk.testpb.TestAllTypesProto3::packedInt32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "packed_int64",
+                    number = 76,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64(), packed = true),
+                    jsonName = "packedInt64",
+                    value = pbandk.testpb.TestAllTypesProto3::packedInt64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "packed_uint32",
+                    number = 77,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), packed = true),
+                    jsonName = "packedUint32",
+                    value = pbandk.testpb.TestAllTypesProto3::packedUint32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "packed_uint64",
+                    number = 78,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), packed = true),
+                    jsonName = "packedUint64",
+                    value = pbandk.testpb.TestAllTypesProto3::packedUint64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "packed_sint32",
+                    number = 79,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), packed = true),
+                    jsonName = "packedSint32",
+                    value = pbandk.testpb.TestAllTypesProto3::packedSint32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "packed_sint64",
+                    number = 80,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), packed = true),
+                    jsonName = "packedSint64",
+                    value = pbandk.testpb.TestAllTypesProto3::packedSint64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "packed_fixed32",
+                    number = 81,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), packed = true),
+                    jsonName = "packedFixed32",
+                    value = pbandk.testpb.TestAllTypesProto3::packedFixed32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "packed_fixed64",
+                    number = 82,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), packed = true),
+                    jsonName = "packedFixed64",
+                    value = pbandk.testpb.TestAllTypesProto3::packedFixed64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "packed_sfixed32",
+                    number = 83,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), packed = true),
+                    jsonName = "packedSfixed32",
+                    value = pbandk.testpb.TestAllTypesProto3::packedSfixed32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "packed_sfixed64",
+                    number = 84,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), packed = true),
+                    jsonName = "packedSfixed64",
+                    value = pbandk.testpb.TestAllTypesProto3::packedSfixed64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "packed_float",
+                    number = 85,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float(), packed = true),
+                    jsonName = "packedFloat",
+                    value = pbandk.testpb.TestAllTypesProto3::packedFloat
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "packed_double",
+                    number = 86,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double(), packed = true),
+                    jsonName = "packedDouble",
+                    value = pbandk.testpb.TestAllTypesProto3::packedDouble
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "packed_bool",
+                    number = 87,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool(), packed = true),
+                    jsonName = "packedBool",
+                    value = pbandk.testpb.TestAllTypesProto3::packedBool
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "packed_nested_enum",
+                    number = 88,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.TestAllTypesProto3.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.NestedEnum.Companion), packed = true),
+                    jsonName = "packedNestedEnum",
+                    value = pbandk.testpb.TestAllTypesProto3::packedNestedEnum
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "unpacked_int32",
+                    number = 89,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
+                    jsonName = "unpackedInt32",
+                    value = pbandk.testpb.TestAllTypesProto3::unpackedInt32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "unpacked_int64",
+                    number = 90,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
+                    jsonName = "unpackedInt64",
+                    value = pbandk.testpb.TestAllTypesProto3::unpackedInt64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "unpacked_uint32",
+                    number = 91,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
+                    jsonName = "unpackedUint32",
+                    value = pbandk.testpb.TestAllTypesProto3::unpackedUint32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "unpacked_uint64",
+                    number = 92,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
+                    jsonName = "unpackedUint64",
+                    value = pbandk.testpb.TestAllTypesProto3::unpackedUint64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "unpacked_sint32",
+                    number = 93,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
+                    jsonName = "unpackedSint32",
+                    value = pbandk.testpb.TestAllTypesProto3::unpackedSint32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "unpacked_sint64",
+                    number = 94,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
+                    jsonName = "unpackedSint64",
+                    value = pbandk.testpb.TestAllTypesProto3::unpackedSint64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "unpacked_fixed32",
+                    number = 95,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
+                    jsonName = "unpackedFixed32",
+                    value = pbandk.testpb.TestAllTypesProto3::unpackedFixed32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "unpacked_fixed64",
+                    number = 96,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
+                    jsonName = "unpackedFixed64",
+                    value = pbandk.testpb.TestAllTypesProto3::unpackedFixed64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "unpacked_sfixed32",
+                    number = 97,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
+                    jsonName = "unpackedSfixed32",
+                    value = pbandk.testpb.TestAllTypesProto3::unpackedSfixed32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "unpacked_sfixed64",
+                    number = 98,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
+                    jsonName = "unpackedSfixed64",
+                    value = pbandk.testpb.TestAllTypesProto3::unpackedSfixed64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "unpacked_float",
+                    number = 99,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
+                    jsonName = "unpackedFloat",
+                    value = pbandk.testpb.TestAllTypesProto3::unpackedFloat
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "unpacked_double",
+                    number = 100,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
+                    jsonName = "unpackedDouble",
+                    value = pbandk.testpb.TestAllTypesProto3::unpackedDouble
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "unpacked_bool",
+                    number = 101,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool()),
+                    jsonName = "unpackedBool",
+                    value = pbandk.testpb.TestAllTypesProto3::unpackedBool
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "unpacked_nested_enum",
+                    number = 102,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.TestAllTypesProto3.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.NestedEnum.Companion)),
+                    jsonName = "unpackedNestedEnum",
+                    value = pbandk.testpb.TestAllTypesProto3::unpackedNestedEnum
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "oneof_uint32",
+                    number = 111,
+                    type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "oneofUint32",
+                    value = pbandk.testpb.TestAllTypesProto3::oneofUint32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "oneof_nested_message",
+                    number = 112,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.TestAllTypesProto3.NestedMessage.Companion),
+                    oneofMember = true,
+                    jsonName = "oneofNestedMessage",
+                    value = pbandk.testpb.TestAllTypesProto3::oneofNestedMessage
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "oneof_string",
+                    number = 113,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "oneofString",
+                    value = pbandk.testpb.TestAllTypesProto3::oneofString
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "oneof_bytes",
+                    number = 114,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "oneofBytes",
+                    value = pbandk.testpb.TestAllTypesProto3::oneofBytes
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "oneof_bool",
+                    number = 115,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "oneofBool",
+                    value = pbandk.testpb.TestAllTypesProto3::oneofBool
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "oneof_uint64",
+                    number = 116,
+                    type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "oneofUint64",
+                    value = pbandk.testpb.TestAllTypesProto3::oneofUint64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "oneof_float",
+                    number = 117,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "oneofFloat",
+                    value = pbandk.testpb.TestAllTypesProto3::oneofFloat
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "oneof_double",
+                    number = 118,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "oneofDouble",
+                    value = pbandk.testpb.TestAllTypesProto3::oneofDouble
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "oneof_enum",
+                    number = 119,
+                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.NestedEnum.Companion, hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "oneofEnum",
+                    value = pbandk.testpb.TestAllTypesProto3::oneofEnum
+                )
+            )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, *>>.addFields1() {
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_bool_wrapper",
+                    number = 201,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BoolValue.Companion),
+                    jsonName = "optionalBoolWrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalBoolWrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_int32_wrapper",
+                    number = 202,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int32Value.Companion),
+                    jsonName = "optionalInt32Wrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalInt32Wrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_int64_wrapper",
+                    number = 203,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int64Value.Companion),
+                    jsonName = "optionalInt64Wrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalInt64Wrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_uint32_wrapper",
+                    number = 204,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt32Value.Companion),
+                    jsonName = "optionalUint32Wrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalUint32Wrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_uint64_wrapper",
+                    number = 205,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt64Value.Companion),
+                    jsonName = "optionalUint64Wrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalUint64Wrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_float_wrapper",
+                    number = 206,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FloatValue.Companion),
+                    jsonName = "optionalFloatWrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalFloatWrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_double_wrapper",
+                    number = 207,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DoubleValue.Companion),
+                    jsonName = "optionalDoubleWrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalDoubleWrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_string_wrapper",
+                    number = 208,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.StringValue.Companion),
+                    jsonName = "optionalStringWrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalStringWrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_bytes_wrapper",
+                    number = 209,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BytesValue.Companion),
+                    jsonName = "optionalBytesWrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalBytesWrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_bool_wrapper",
+                    number = 211,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BoolValue.Companion)),
+                    jsonName = "repeatedBoolWrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedBoolWrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_int32_wrapper",
+                    number = 212,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int32Value.Companion)),
+                    jsonName = "repeatedInt32Wrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedInt32Wrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_int64_wrapper",
+                    number = 213,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int64Value.Companion)),
+                    jsonName = "repeatedInt64Wrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedInt64Wrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_uint32_wrapper",
+                    number = 214,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt32Value.Companion)),
+                    jsonName = "repeatedUint32Wrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedUint32Wrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_uint64_wrapper",
+                    number = 215,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt64Value.Companion)),
+                    jsonName = "repeatedUint64Wrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedUint64Wrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_float_wrapper",
+                    number = 216,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FloatValue.Companion)),
+                    jsonName = "repeatedFloatWrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedFloatWrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_double_wrapper",
+                    number = 217,
+                    type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DoubleValue.Companion)),
+                    jsonName = "repeatedDoubleWrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedDoubleWrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_string_wrapper",
+                    number = 218,
+                    type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.StringValue.Companion)),
+                    jsonName = "repeatedStringWrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedStringWrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_bytes_wrapper",
+                    number = 219,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.ByteArr>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BytesValue.Companion)),
+                    jsonName = "repeatedBytesWrapper",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedBytesWrapper
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_duration",
+                    number = 301,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion),
+                    jsonName = "optionalDuration",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalDuration
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_timestamp",
+                    number = 302,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
+                    jsonName = "optionalTimestamp",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalTimestamp
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_field_mask",
+                    number = 303,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldMask.Companion),
+                    jsonName = "optionalFieldMask",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalFieldMask
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_struct",
+                    number = 304,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Struct.Companion),
+                    jsonName = "optionalStruct",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalStruct
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_any",
+                    number = 305,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Any.Companion),
+                    jsonName = "optionalAny",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalAny
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_value",
+                    number = 306,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion),
+                    jsonName = "optionalValue",
+                    value = pbandk.testpb.TestAllTypesProto3::optionalValue
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_duration",
+                    number = 311,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Duration>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion)),
+                    jsonName = "repeatedDuration",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedDuration
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_timestamp",
+                    number = 312,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Timestamp>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion)),
+                    jsonName = "repeatedTimestamp",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedTimestamp
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_fieldmask",
+                    number = 313,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FieldMask>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldMask.Companion)),
+                    jsonName = "repeatedFieldmask",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedFieldmask
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_any",
+                    number = 315,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Any>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Any.Companion)),
+                    jsonName = "repeatedAny",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedAny
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_value",
+                    number = 316,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Value>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion)),
+                    jsonName = "repeatedValue",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedValue
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_list_value",
+                    number = 317,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.ListValue>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ListValue.Companion)),
+                    jsonName = "repeatedListValue",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedListValue
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "repeated_struct",
+                    number = 324,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Struct>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Struct.Companion)),
+                    jsonName = "repeatedStruct",
+                    value = pbandk.testpb.TestAllTypesProto3::repeatedStruct
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "fieldname1",
+                    number = 401,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "fieldname1",
+                    value = pbandk.testpb.TestAllTypesProto3::fieldname1
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "field_name2",
+                    number = 402,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "fieldName2",
+                    value = pbandk.testpb.TestAllTypesProto3::fieldName2
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "_field_name3",
+                    number = 403,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "FieldName3",
+                    value = pbandk.testpb.TestAllTypesProto3::fieldName3
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "field__name4_",
+                    number = 404,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "fieldName4",
+                    value = pbandk.testpb.TestAllTypesProto3::field_name4
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "field0name5",
+                    number = 405,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "field0name5",
+                    value = pbandk.testpb.TestAllTypesProto3::field0name5
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "field_0_name6",
+                    number = 406,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "field0Name6",
+                    value = pbandk.testpb.TestAllTypesProto3::field0Name6
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "fieldName7",
+                    number = 407,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "fieldName7",
+                    value = pbandk.testpb.TestAllTypesProto3::fieldName7
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "FieldName8",
+                    number = 408,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "FieldName8",
+                    value = pbandk.testpb.TestAllTypesProto3::fieldName8
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "field_Name9",
+                    number = 409,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "fieldName9",
+                    value = pbandk.testpb.TestAllTypesProto3::fieldName9
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "Field_Name10",
+                    number = 410,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "FieldName10",
+                    value = pbandk.testpb.TestAllTypesProto3::fieldName10
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "FIELD_NAME11",
+                    number = 411,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "FIELDNAME11",
+                    value = pbandk.testpb.TestAllTypesProto3::fIELDNAME11
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "FIELD_name12",
+                    number = 412,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "FIELDName12",
+                    value = pbandk.testpb.TestAllTypesProto3::fIELDName12
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "__field_name13",
+                    number = 413,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "FieldName13",
+                    value = pbandk.testpb.TestAllTypesProto3::_fieldName13
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "__Field_name14",
+                    number = 414,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "FieldName14",
+                    value = pbandk.testpb.TestAllTypesProto3::_FieldName14
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "field__name15",
+                    number = 415,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "fieldName15",
+                    value = pbandk.testpb.TestAllTypesProto3::field_name15
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "field__Name16",
+                    number = 416,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "fieldName16",
+                    value = pbandk.testpb.TestAllTypesProto3::field_Name16
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "field_name17__",
+                    number = 417,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "fieldName17",
+                    value = pbandk.testpb.TestAllTypesProto3::fieldName17_
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "Field_name18__",
+                    number = 418,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "FieldName18",
+                    value = pbandk.testpb.TestAllTypesProto3::fieldName18_
+                )
+            )
+        }
     }
 
     public sealed class NestedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
