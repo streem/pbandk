@@ -119,7 +119,7 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
         }
     }
 
-    private fun checkLastTagWas(value: Tag) {
+    override fun checkLastTagWas(value: Tag) {
         if (lastTag != value) {
             throw InvalidProtocolBufferException.invalidEndTag()
         }
@@ -236,13 +236,21 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
     override fun <T : Message.Enum> readEnum(enumCompanion: Message.Enum.Companion<T>): T =
         enumCompanion.fromValue(readRawVarint32())
 
-    override fun <T : Message> readMessage(messageCompanion: Message.Companion<T>): T {
+    override fun <T : Message> readLengthPrefixedMessage(messageCompanion: Message.Companion<T>): T {
         val oldLimit = pushLimit(readRawVarint32())
         val message = messageCompanion.decodeWith(BinaryMessageDecoder(this))
         if (!isAtEnd()) {
             throw InvalidProtocolBufferException("Not at the end of the current message limit as expected")
         }
         popLimit(oldLimit)
+        return message
+    }
+
+    override fun <T : Message> readDelimitedMessage(messageCompanion: Message.Companion<T>): T {
+        val message = messageCompanion.decodeWith(BinaryMessageDecoder(this))
+        if (lastTag.wireType != WireType.END_GROUP) {
+            throw InvalidProtocolBufferException.invalidEndTag()
+        }
         return message
     }
 

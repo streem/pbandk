@@ -4,6 +4,7 @@ import pbandk.FieldDescriptor
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
 import pbandk.MessageDecoder
+import pbandk.MessageEncoding
 import pbandk.UnknownField
 import pbandk.wkt.BoolValue
 import pbandk.wkt.BytesValue
@@ -39,31 +40,38 @@ internal val FieldDescriptor.Type.binaryReadFn: BinaryWireDecoder.() -> Any
             is FieldDescriptor.Type.Primitive.SInt64 -> BinaryWireDecoder::readSInt64
             is FieldDescriptor.Type.Message<*> -> when (messageCompanion) {
                 DoubleValue.Companion -> fun BinaryWireDecoder.(): Any =
-                    (readMessage(this@binaryReadFn.messageCompanion) as DoubleValue).value
+                    (readLengthPrefixedMessage(this@binaryReadFn.messageCompanion) as DoubleValue).value
                 FloatValue.Companion -> fun BinaryWireDecoder.(): Any =
-                    (readMessage(this@binaryReadFn.messageCompanion) as FloatValue).value
+                    (readLengthPrefixedMessage(this@binaryReadFn.messageCompanion) as FloatValue).value
                 Int64Value.Companion -> fun BinaryWireDecoder.(): Any =
-                    (readMessage(this@binaryReadFn.messageCompanion) as Int64Value).value
+                    (readLengthPrefixedMessage(this@binaryReadFn.messageCompanion) as Int64Value).value
                 UInt64Value.Companion -> fun BinaryWireDecoder.(): Any =
-                    (readMessage(this@binaryReadFn.messageCompanion) as UInt64Value).value
+                    (readLengthPrefixedMessage(this@binaryReadFn.messageCompanion) as UInt64Value).value
                 Int32Value.Companion -> fun BinaryWireDecoder.(): Any =
-                    (readMessage(this@binaryReadFn.messageCompanion) as Int32Value).value
+                    (readLengthPrefixedMessage(this@binaryReadFn.messageCompanion) as Int32Value).value
                 UInt32Value.Companion -> fun BinaryWireDecoder.(): Any =
-                    (readMessage(this@binaryReadFn.messageCompanion) as UInt32Value).value
+                    (readLengthPrefixedMessage(this@binaryReadFn.messageCompanion) as UInt32Value).value
                 BoolValue.Companion -> fun BinaryWireDecoder.(): Any =
-                    (readMessage(this@binaryReadFn.messageCompanion) as BoolValue).value
+                    (readLengthPrefixedMessage(this@binaryReadFn.messageCompanion) as BoolValue).value
                 StringValue.Companion -> fun BinaryWireDecoder.(): Any =
-                    (readMessage(this@binaryReadFn.messageCompanion) as StringValue).value
+                    (readLengthPrefixedMessage(this@binaryReadFn.messageCompanion) as StringValue).value
                 BytesValue.Companion -> fun BinaryWireDecoder.(): Any =
-                    (readMessage(this@binaryReadFn.messageCompanion) as BytesValue).value
-                else -> fun BinaryWireDecoder.(): Any = readMessage(this@binaryReadFn.messageCompanion)
+                    (readLengthPrefixedMessage(this@binaryReadFn.messageCompanion) as BytesValue).value
+
+                else -> when (encoding) {
+                    MessageEncoding.LENGTH_PREFIXED -> fun BinaryWireDecoder.(): Any =
+                        readLengthPrefixedMessage(this@binaryReadFn.messageCompanion)
+
+                    MessageEncoding.DELIMITED -> fun BinaryWireDecoder.(): Any =
+                        readDelimitedMessage(this@binaryReadFn.messageCompanion)
+                }
             }
             is FieldDescriptor.Type.Enum<*> -> fun BinaryWireDecoder.(): Any =
                 readEnum(this@binaryReadFn.enumCompanion)
             is FieldDescriptor.Type.Repeated<*> ->
                 error("Repeated values should've been handled by the caller of this method")
             is FieldDescriptor.Type.Map<*, *> -> fun BinaryWireDecoder.(): Any =
-                sequenceOf(readMessage(this@binaryReadFn.entryCompanion))
+                sequenceOf(readLengthPrefixedMessage(this@binaryReadFn.entryCompanion))
         }
     }
 
@@ -80,6 +88,7 @@ internal class BinaryMessageDecoder(private val wireDecoder: BinaryWireDecoder) 
             if (tag == Tag(0)) break
             val fieldNum = tag.fieldNumber
             val wireType = tag.wireType
+            if (wireType == WireType.END_GROUP) break
             val fd = fieldDescriptors[fieldNum]
             if (fd == null || !fd.type.allowedWireType(wireType)) {
                 addUnknownField(fieldNum, wireType, unknownFields)
@@ -90,6 +99,9 @@ internal class BinaryMessageDecoder(private val wireDecoder: BinaryWireDecoder) 
                     fd.type.binaryReadFn(wireDecoder)
                 }
                 fieldFn(fieldNum, value)
+                if (wireType == WireType.START_GROUP) {
+                    wireDecoder.checkLastTagWas(Tag(fieldNum, WireType.END_GROUP))
+                }
             }
         }
         unknownFields

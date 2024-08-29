@@ -61,12 +61,16 @@ private fun <T> UnknownField.decodeAsPrimitive(type: FieldDescriptor.Type.Primit
 }
 
 private fun <T : Message> UnknownField.decodeAsMessage(type: FieldDescriptor.Type.Message<T>): T {
-    return values.asSequence()
-        .map { it.decodeAs<T>(type) }
-        .reduce { acc, t ->
-            @Suppress("UNCHECKED_CAST")
-            acc.plus(t) as T
-        }
+    return when (type.encoding) {
+        MessageEncoding.LENGTH_PREFIXED -> values.asSequence()
+            .map { it.decodeAs<T>(type) }
+            .reduce { acc, t ->
+                @Suppress("UNCHECKED_CAST")
+                acc.plus(t) as T
+            }
+
+        MessageEncoding.DELIMITED -> TODO("Group-encoded unknown fields are not supported yet")
+    }
 }
 
 private fun <T : Message.Enum> UnknownField.decodeAsEnum(type: FieldDescriptor.Type.Enum<T>): T {

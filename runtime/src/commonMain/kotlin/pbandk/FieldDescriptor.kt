@@ -40,7 +40,8 @@ constructor(
         @PublicForGeneratedCode
         public sealed class Primitive<KotlinT : Any>(override val defaultValue: KotlinT) : Type() {
 
-            override val isPackable: Boolean get() = wireType != WireType.LENGTH_DELIMITED
+            override val isPackable: Boolean
+                get() = wireType != WireType.LENGTH_DELIMITED && wireType != WireType.START_GROUP
 
             @Suppress("UNCHECKED_CAST")
             override fun isDefaultValue(value: Any?) =
@@ -123,10 +124,17 @@ constructor(
         }
 
         @PublicForGeneratedCode
-        public class Message<T : pbandk.Message>(internal val messageCompanion: pbandk.Message.Companion<T>) : Type() {
+        public class Message<T : pbandk.Message>(
+            internal val messageCompanion: pbandk.Message.Companion<T>,
+            internal val encoding: MessageEncoding = MessageEncoding.LENGTH_PREFIXED,
+        ) : Type() {
             override val hasPresence get() = true
             override val isPackable: Boolean get() = false
-            override val wireType: WireType get() = WireType.LENGTH_DELIMITED
+            override val wireType: WireType
+                get() = when (encoding) {
+                    MessageEncoding.LENGTH_PREFIXED -> WireType.LENGTH_DELIMITED
+                    MessageEncoding.DELIMITED -> WireType.START_GROUP
+                }
             override val defaultValue: Any? get() = null
             override fun isDefaultValue(value: Any?) = value == null
         }

@@ -107,8 +107,17 @@ internal class KotlinBinaryWireEncoder(private val wireWriter: WireWriter) : Bin
         writeUInt32NoTag(protoSize)
     }
 
+    override fun writeGroupStart(fieldNum: Int) {
+        writeTag(fieldNum, WireType.START_GROUP)
+    }
+
+    override fun writeGroupEnd(fieldNum: Int) {
+        writeTag(fieldNum, WireType.END_GROUP)
+    }
+
     override fun writePackedRepeated(fieldNum: Int, list: List<*>, valueType: FieldDescriptor.Type) {
-        val listSize = (list as? ListWithSize)?.protoSize ?: list.sumOf { valueType.protoSize(checkNotNull(it)) }
+        val listSize = (list as? ListWithSize)?.protoSize
+            ?: list.sumOf { valueType.protoSize(fieldNum, checkNotNull(it)) }
         writeLengthDelimitedHeader(fieldNum, listSize)
         list.forEach { writeValueNoTag(valueType, checkNotNull(it)) }
     }

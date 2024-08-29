@@ -105,8 +105,6 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
     ): List<File.Field> {
         val usedFieldNames = mutableSetOf<String>()
         return msgDesc.field
-            // Exclude any group fields
-            .filterNot { it.type == FieldDescriptorProto.Type.GROUP }
             // Handle fields that are part of a oneof specially
             .partition { it.oneofIndex == null }
             .let { (standardFields, oneofFields) ->
@@ -191,7 +189,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                         (ctx.fileDesc.usesProto2Syntax ||
                                 oneofField ||
                                 (fieldDesc.proto3Optional ?: false) ||
-                                (type == File.Field.Type.MESSAGE)),
+                                (type == File.Field.Type.MESSAGE || type == File.Field.Type.GROUP)),
                 required = fieldDesc.label == FieldDescriptorProto.Label.REQUIRED,
                 packed = !type.neverPacked && (fieldDesc.options?.packed ?: (ctx.fileDesc.syntax == "proto3")),
                 map = supportMaps &&
@@ -218,7 +216,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         FieldDescriptorProto.Type.FIXED32 -> File.Field.Type.FIXED32
         FieldDescriptorProto.Type.FIXED64 -> File.Field.Type.FIXED64
         FieldDescriptorProto.Type.FLOAT -> File.Field.Type.FLOAT
-        FieldDescriptorProto.Type.GROUP -> TODO("Group types not supported")
+        FieldDescriptorProto.Type.GROUP -> File.Field.Type.GROUP
         FieldDescriptorProto.Type.INT32 -> File.Field.Type.INT32
         FieldDescriptorProto.Type.INT64 -> File.Field.Type.INT64
         FieldDescriptorProto.Type.MESSAGE -> File.Field.Type.MESSAGE
