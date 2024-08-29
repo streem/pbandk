@@ -67,7 +67,7 @@ kotlin {
     //androidNativeArm64()
     //androidNativeX86()
     //androidNativeX64()
-    //mingwX64()
+    mingwX64()
     //watchosDeviceArm64()
 
     sourceSets {
