@@ -181,7 +181,7 @@ public open class CodeGenerator(
 
     protected fun writeMessageDescriptor(type: File.Type.Message) {
         val allFields = type.sortedStandardFieldsWithOneOfs()
-        val chunkSize = 200
+        val chunkSize = 100
         val needToChunk = allFields.size > chunkSize
 
         line("override val descriptor: pbandk.MessageDescriptor<${type.kotlinTypeNameWithPackage}> = pbandk.MessageDescriptor(").indented {

@@ -2039,6 +2039,11 @@ public data class MessageWithLotsOfFields(
                 addFields2()
                 addFields3()
                 addFields4()
+                addFields5()
+                addFields6()
+                addFields7()
+                addFields8()
+                addFields9()
             }
         )
 
@@ -3043,6 +3048,9 @@ public data class MessageWithLotsOfFields(
                     value = pbandk.testpb.MessageWithLotsOfFields::field1099
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithLotsOfFields, *>>.addFields1() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -4045,7 +4053,7 @@ public data class MessageWithLotsOfFields(
             )
         }
 
-        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithLotsOfFields, *>>.addFields1() {
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithLotsOfFields, *>>.addFields2() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -5046,6 +5054,9 @@ public data class MessageWithLotsOfFields(
                     value = pbandk.testpb.MessageWithLotsOfFields::field1299
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithLotsOfFields, *>>.addFields3() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -6048,7 +6059,7 @@ public data class MessageWithLotsOfFields(
             )
         }
 
-        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithLotsOfFields, *>>.addFields2() {
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithLotsOfFields, *>>.addFields4() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -7049,6 +7060,9 @@ public data class MessageWithLotsOfFields(
                     value = pbandk.testpb.MessageWithLotsOfFields::field1499
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithLotsOfFields, *>>.addFields5() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -8051,7 +8065,7 @@ public data class MessageWithLotsOfFields(
             )
         }
 
-        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithLotsOfFields, *>>.addFields3() {
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithLotsOfFields, *>>.addFields6() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -9052,6 +9066,9 @@ public data class MessageWithLotsOfFields(
                     value = pbandk.testpb.MessageWithLotsOfFields::field1699
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithLotsOfFields, *>>.addFields7() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -10054,7 +10071,7 @@ public data class MessageWithLotsOfFields(
             )
         }
 
-        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithLotsOfFields, *>>.addFields4() {
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithLotsOfFields, *>>.addFields8() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -11055,6 +11072,9 @@ public data class MessageWithLotsOfFields(
                     value = pbandk.testpb.MessageWithLotsOfFields::field1899
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithLotsOfFields, *>>.addFields9() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -18090,6 +18110,16 @@ public data class MessageWithHugeOneof(
                 addFields7()
                 addFields8()
                 addFields9()
+                addFields10()
+                addFields11()
+                addFields12()
+                addFields13()
+                addFields14()
+                addFields15()
+                addFields16()
+                addFields17()
+                addFields18()
+                addFields19()
             }
         )
 
@@ -19194,6 +19224,9 @@ public data class MessageWithHugeOneof(
                     value = pbandk.testpb.MessageWithHugeOneof::oneof1099
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields1() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -20296,7 +20329,7 @@ public data class MessageWithHugeOneof(
             )
         }
 
-        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields1() {
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields2() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -21397,6 +21430,9 @@ public data class MessageWithHugeOneof(
                     value = pbandk.testpb.MessageWithHugeOneof::oneof1299
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields3() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -22499,7 +22535,7 @@ public data class MessageWithHugeOneof(
             )
         }
 
-        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields2() {
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields4() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -23600,6 +23636,9 @@ public data class MessageWithHugeOneof(
                     value = pbandk.testpb.MessageWithHugeOneof::oneof1499
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields5() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -24702,7 +24741,7 @@ public data class MessageWithHugeOneof(
             )
         }
 
-        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields3() {
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields6() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -25803,6 +25842,9 @@ public data class MessageWithHugeOneof(
                     value = pbandk.testpb.MessageWithHugeOneof::oneof1699
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields7() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -26905,7 +26947,7 @@ public data class MessageWithHugeOneof(
             )
         }
 
-        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields4() {
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields8() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -28006,6 +28048,9 @@ public data class MessageWithHugeOneof(
                     value = pbandk.testpb.MessageWithHugeOneof::oneof1899
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields9() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -29108,7 +29153,7 @@ public data class MessageWithHugeOneof(
             )
         }
 
-        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields5() {
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields10() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -30209,6 +30254,9 @@ public data class MessageWithHugeOneof(
                     value = pbandk.testpb.MessageWithHugeOneof::oneof2099
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields11() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -31311,7 +31359,7 @@ public data class MessageWithHugeOneof(
             )
         }
 
-        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields6() {
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields12() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -32412,6 +32460,9 @@ public data class MessageWithHugeOneof(
                     value = pbandk.testpb.MessageWithHugeOneof::oneof2299
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields13() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -33514,7 +33565,7 @@ public data class MessageWithHugeOneof(
             )
         }
 
-        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields7() {
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields14() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -34615,6 +34666,9 @@ public data class MessageWithHugeOneof(
                     value = pbandk.testpb.MessageWithHugeOneof::oneof2499
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields15() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -35717,7 +35771,7 @@ public data class MessageWithHugeOneof(
             )
         }
 
-        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields8() {
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields16() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -36818,6 +36872,9 @@ public data class MessageWithHugeOneof(
                     value = pbandk.testpb.MessageWithHugeOneof::oneof2699
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields17() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -37920,7 +37977,7 @@ public data class MessageWithHugeOneof(
             )
         }
 
-        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields9() {
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields18() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -39021,6 +39078,9 @@ public data class MessageWithHugeOneof(
                     value = pbandk.testpb.MessageWithHugeOneof::oneof2899
                 )
             )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>.addFields19() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
