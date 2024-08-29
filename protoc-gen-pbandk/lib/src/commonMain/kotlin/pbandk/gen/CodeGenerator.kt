@@ -264,7 +264,7 @@ public open class CodeGenerator(
     protected fun writeFieldDescriptors(type: File.Type.Message) {
         line("@pbandk.PublicForGeneratedCode")
         line("$visibility object FieldDescriptors {").indented {
-            val chunkSize = 200
+            val chunkSize = 100
 
             val allFields = type.sortedStandardFieldsWithOneOfs()
             val needToChunkFields = allFields.size > chunkSize
