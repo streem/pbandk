@@ -495,8 +495,6 @@ dependencies {
 }
 ```
 
-Pbandk has a dependency on the protobuf.js library on the Kotlin/JS platform. On other platforms pbandk uses its own pure-Kotlin protobuf implementation that is heavily based on the Google Protobuf Java library.
-
 ### Service Code Generation
 
 Pbandk does not generate gRPC code itself, but offers a `pbandk.gen.ServiceGenerator` interface in
@@ -752,3 +750,5 @@ GitHub will build and publish the new release once it sees the new tag:
 ## Credits
 
 This repository was originally forked from https://github.com/cretz/pb-and-k. Many thanks to https://github.com/cretz for creating this library and building the initial feature set.
+
+pbandk uses its own pure-Kotlin protobuf implementation that is heavily based on the Google Protobuf Java library.
