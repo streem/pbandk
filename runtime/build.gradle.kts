@@ -113,12 +113,6 @@ kotlin {
                 api(project(":pbandk-protos"))
             }
         }
-
-        jsMain {
-            dependencies {
-                implementation(npm("protobufjs", "^${Versions.protobufJs}"))
-            }
-        }
     }
 }
 

@@ -1,63 +1,55 @@
-// Copyright 2019 Google Inc.  All rights reserved.
-// https://developers.google.com/protocol-buffers/
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//     * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//     * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//     * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+/*
+ * Copyright (C) 2017 Square, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package pbandk.internal.binary
 
-private class CodePointIterator(private val s: String) : Iterator<Int> {
-    var pos = 0
+// Courtesy of https://github.com/square/okio/blob/37e2f284cf62a1253633ae40e5f84b976c57ea0d/okio/src/commonMain/kotlin/okio/Utf8.kt#L77
+internal fun utf8Len(value: String): Int {
+    val endIndex = value.length
 
-    override fun hasNext(): Boolean = pos < s.length
+    var result = 0
+    var i = 0
+    while (i < endIndex) {
+        val c = value[i].code
 
-    override fun next(): Int {
-        if (pos >= s.length) throw NoSuchElementException()
-
-        val v = s[pos++]
-        if (v.isHighSurrogate() && pos < s.length) {
-            val l = s[pos]
-            if (l.isLowSurrogate()) {
-                pos++
-                return 0x10000 + (v - 0xD800).code * 0x400 + (l - 0xDC00).code
+        if (c < 0x80) {
+            // A 7-bit character with 1 byte.
+            result++
+            i++
+        } else if (c < 0x800) {
+            // An 11-bit character with 2 bytes.
+            result += 2
+            i++
+        } else if (c < 0xd800 || c > 0xdfff) {
+            // A 16-bit character with 3 bytes.
+            result += 3
+            i++
+        } else {
+            val low = if (i + 1 < endIndex) value[i + 1].code else 0
+            if (c > 0xdbff || low < 0xdc00 || low > 0xdfff) {
+                // A malformed surrogate, which yields '?'.
+                result++
+                i++
+            } else {
+                // A 21-bit character with 4 bytes.
+                result += 4
+                i += 2
             }
         }
-        return v.code and 0xffff
     }
-}
 
-private class CodePointIterable(private val s: String) : Iterable<Int> {
-    override fun iterator(): Iterator<Int> = CodePointIterator(s)
-}
-
-internal fun utf8Len(value: String) = CodePointIterable(value).sumOf {
-    when (it) {
-        in 0..0x7f -> 1
-        in 0x80..0x7ff -> 2
-        in 0x800..0xffff -> 3
-        else -> 4
-    }.toInt()
+    return result
 }
