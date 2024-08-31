@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 
 * Reduced the likelihood of getting a `MethodTooLargeException` when generating code for protobuf messages that contain many fields with custom options. (PR [#277], fixes [#252])
+* Removed protobuf.js dependency on Kotlin/JS. This also fixed a bunch of protobuf conformance-related bugs on Kotlin/JS. (PR [#279])
 
 [#233]: https://github.com/streem/pbandk/issues/233
 [#252]: https://github.com/streem/pbandk/issues/252
@@ -28,6 +29,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 [#273]: https://github.com/streem/pbandk/pull/273
 [#276]: https://github.com/streem/pbandk/pull/276
 [#277]: https://github.com/streem/pbandk/pull/277
+[#279]: https://github.com/streem/pbandk/pull/279
 
 
 ## [0.15.0] - 2024-08-05
