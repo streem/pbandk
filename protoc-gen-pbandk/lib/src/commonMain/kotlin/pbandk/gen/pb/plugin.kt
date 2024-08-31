@@ -72,6 +72,7 @@ public data class CodeGeneratorRequest(
     val fileToGenerate: List<String> = emptyList(),
     val parameter: String? = null,
     val protoFile: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
+    val sourceFileDescriptors: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
     val compilerVersion: pbandk.gen.pb.Version? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
@@ -86,7 +87,7 @@ public data class CodeGeneratorRequest(
             fullName = "google.protobuf.compiler.CodeGeneratorRequest",
             messageClass = pbandk.gen.pb.CodeGeneratorRequest::class,
             messageCompanion = this,
-            fields = buildList(4) {
+            fields = buildList(5) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -127,6 +128,16 @@ public data class CodeGeneratorRequest(
                         value = pbandk.gen.pb.CodeGeneratorRequest::protoFile
                     )
                 )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "source_file_descriptors",
+                        number = 17,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FileDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FileDescriptorProto.Companion)),
+                        jsonName = "sourceFileDescriptors",
+                        value = pbandk.gen.pb.CodeGeneratorRequest::sourceFileDescriptors
+                    )
+                )
             }
         )
     }
@@ -136,6 +147,8 @@ public data class CodeGeneratorRequest(
 public data class CodeGeneratorResponse(
     val error: String? = null,
     val supportedFeatures: Long? = null,
+    val minimumEdition: Int? = null,
+    val maximumEdition: Int? = null,
     val file: List<pbandk.gen.pb.CodeGeneratorResponse.File> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
@@ -150,7 +163,7 @@ public data class CodeGeneratorResponse(
             fullName = "google.protobuf.compiler.CodeGeneratorResponse",
             messageClass = pbandk.gen.pb.CodeGeneratorResponse::class,
             messageCompanion = this,
-            fields = buildList(3) {
+            fields = buildList(5) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -174,6 +187,26 @@ public data class CodeGeneratorResponse(
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
+                        name = "minimum_edition",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "minimumEdition",
+                        value = pbandk.gen.pb.CodeGeneratorResponse::minimumEdition
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "maximum_edition",
+                        number = 4,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "maximumEdition",
+                        value = pbandk.gen.pb.CodeGeneratorResponse::maximumEdition
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
                         name = "file",
                         number = 15,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.gen.pb.CodeGeneratorResponse.File>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.gen.pb.CodeGeneratorResponse.File.Companion)),
@@ -192,10 +225,11 @@ public data class CodeGeneratorResponse(
 
         public object NONE : Feature(0, "FEATURE_NONE")
         public object PROTO3_OPTIONAL : Feature(1, "FEATURE_PROTO3_OPTIONAL")
+        public object SUPPORTS_EDITIONS : Feature(2, "FEATURE_SUPPORTS_EDITIONS")
         public class UNRECOGNIZED(value: Int) : Feature(value)
 
         public companion object : pbandk.Message.Enum.Companion<pbandk.gen.pb.CodeGeneratorResponse.Feature> {
-            public val values: List<pbandk.gen.pb.CodeGeneratorResponse.Feature> by lazy { listOf(NONE, PROTO3_OPTIONAL) }
+            public val values: List<pbandk.gen.pb.CodeGeneratorResponse.Feature> by lazy { listOf(NONE, PROTO3_OPTIONAL, SUPPORTS_EDITIONS) }
             override fun fromValue(value: Int): pbandk.gen.pb.CodeGeneratorResponse.Feature = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String): pbandk.gen.pb.CodeGeneratorResponse.Feature = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Feature with name: $name")
         }
@@ -308,6 +342,7 @@ private fun CodeGeneratorRequest.protoMergeImpl(plus: pbandk.Message?): CodeGene
         fileToGenerate = fileToGenerate + plus.fileToGenerate,
         parameter = plus.parameter ?: parameter,
         protoFile = protoFile + plus.protoFile,
+        sourceFileDescriptors = sourceFileDescriptors + plus.sourceFileDescriptors,
         compilerVersion = compilerVersion?.plus(plus.compilerVersion) ?: plus.compilerVersion,
         unknownFields = unknownFields + plus.unknownFields
     )
@@ -318,6 +353,7 @@ private fun CodeGeneratorRequest.Companion.decodeWithImpl(u: pbandk.MessageDecod
     var fileToGenerate: pbandk.ListWithSize.Builder<String>? = null
     var parameter: String? = null
     var protoFile: pbandk.ListWithSize.Builder<pbandk.wkt.FileDescriptorProto>? = null
+    var sourceFileDescriptors: pbandk.ListWithSize.Builder<pbandk.wkt.FileDescriptorProto>? = null
     var compilerVersion: pbandk.gen.pb.Version? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -326,10 +362,12 @@ private fun CodeGeneratorRequest.Companion.decodeWithImpl(u: pbandk.MessageDecod
             2 -> parameter = _fieldValue as String
             3 -> compilerVersion = _fieldValue as pbandk.gen.pb.Version
             15 -> protoFile = (protoFile ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.FileDescriptorProto> }
+            17 -> sourceFileDescriptors = (sourceFileDescriptors ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.FileDescriptorProto> }
         }
     }
 
-    return CodeGeneratorRequest(pbandk.ListWithSize.Builder.fixed(fileToGenerate), parameter, pbandk.ListWithSize.Builder.fixed(protoFile), compilerVersion, unknownFields)
+    return CodeGeneratorRequest(pbandk.ListWithSize.Builder.fixed(fileToGenerate), parameter, pbandk.ListWithSize.Builder.fixed(protoFile), pbandk.ListWithSize.Builder.fixed(sourceFileDescriptors),
+        compilerVersion, unknownFields)
 }
 
 @pbandk.Export
@@ -340,6 +378,8 @@ private fun CodeGeneratorResponse.protoMergeImpl(plus: pbandk.Message?): CodeGen
     it.copy(
         error = plus.error ?: error,
         supportedFeatures = plus.supportedFeatures ?: supportedFeatures,
+        minimumEdition = plus.minimumEdition ?: minimumEdition,
+        maximumEdition = plus.maximumEdition ?: maximumEdition,
         file = file + plus.file,
         unknownFields = unknownFields + plus.unknownFields
     )
@@ -349,17 +389,22 @@ private fun CodeGeneratorResponse.protoMergeImpl(plus: pbandk.Message?): CodeGen
 private fun CodeGeneratorResponse.Companion.decodeWithImpl(u: pbandk.MessageDecoder): CodeGeneratorResponse {
     var error: String? = null
     var supportedFeatures: Long? = null
+    var minimumEdition: Int? = null
+    var maximumEdition: Int? = null
     var file: pbandk.ListWithSize.Builder<pbandk.gen.pb.CodeGeneratorResponse.File>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             1 -> error = _fieldValue as String
             2 -> supportedFeatures = _fieldValue as Long
+            3 -> minimumEdition = _fieldValue as Int
+            4 -> maximumEdition = _fieldValue as Int
             15 -> file = (file ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.gen.pb.CodeGeneratorResponse.File> }
         }
     }
 
-    return CodeGeneratorResponse(error, supportedFeatures, pbandk.ListWithSize.Builder.fixed(file), unknownFields)
+    return CodeGeneratorResponse(error, supportedFeatures, minimumEdition, maximumEdition,
+        pbandk.ListWithSize.Builder.fixed(file), unknownFields)
 }
 
 @pbandk.Export

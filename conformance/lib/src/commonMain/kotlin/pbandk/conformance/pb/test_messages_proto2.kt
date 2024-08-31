@@ -112,6 +112,23 @@ public data class TestAllTypesProto2(
     val mapStringForeignMessage: Map<String?, pbandk.conformance.pb.ForeignMessageProto2?> = emptyMap(),
     val mapStringNestedEnum: Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?> = emptyMap(),
     val mapStringForeignEnum: Map<String?, pbandk.conformance.pb.ForeignEnumProto2?> = emptyMap(),
+    val data: pbandk.conformance.pb.TestAllTypesProto2.Data? = null,
+    val multiwordgroupfield: pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField? = null,
+    val defaultInt32: Int? = null,
+    val defaultInt64: Long? = null,
+    val defaultUint32: Int? = null,
+    val defaultUint64: Long? = null,
+    val defaultSint32: Int? = null,
+    val defaultSint64: Long? = null,
+    val defaultFixed32: Int? = null,
+    val defaultFixed64: Long? = null,
+    val defaultSfixed32: Int? = null,
+    val defaultSfixed64: Long? = null,
+    val defaultFloat: Float? = null,
+    val defaultDouble: Double? = null,
+    val defaultBool: Boolean? = null,
+    val defaultString: String? = null,
+    val defaultBytes: pbandk.ByteArr? = null,
     val fieldname1: Int? = null,
     val fieldName2: Int? = null,
     val fieldName3: Int? = null,
@@ -177,7 +194,7 @@ public data class TestAllTypesProto2(
             fullName = "protobuf_test_messages.proto2.TestAllTypesProto2",
             messageClass = pbandk.conformance.pb.TestAllTypesProto2::class,
             messageCompanion = this,
-            fields = buildList(117) {
+            fields = buildList(134) {
                 addFields0()
                 addFields1()
             }
@@ -1186,6 +1203,179 @@ public data class TestAllTypesProto2(
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
+                    name = "data",
+                    number = 201,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.Data.Companion, encoding = pbandk.MessageEncoding.DELIMITED),
+                    jsonName = "data",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::data
+                )
+            )
+        }
+
+        private fun MutableList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, *>>.addFields1() {
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "multiwordgroupfield",
+                    number = 204,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField.Companion, encoding = pbandk.MessageEncoding.DELIMITED),
+                    jsonName = "multiwordgroupfield",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::multiwordgroupfield
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_int32",
+                    number = 241,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                    jsonName = "defaultInt32",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultInt32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_int64",
+                    number = 242,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
+                    jsonName = "defaultInt64",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultInt64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_uint32",
+                    number = 243,
+                    type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
+                    jsonName = "defaultUint32",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultUint32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_uint64",
+                    number = 244,
+                    type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
+                    jsonName = "defaultUint64",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultUint64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_sint32",
+                    number = 245,
+                    type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
+                    jsonName = "defaultSint32",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultSint32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_sint64",
+                    number = 246,
+                    type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
+                    jsonName = "defaultSint64",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultSint64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_fixed32",
+                    number = 247,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
+                    jsonName = "defaultFixed32",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultFixed32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_fixed64",
+                    number = 248,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
+                    jsonName = "defaultFixed64",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultFixed64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_sfixed32",
+                    number = 249,
+                    type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
+                    jsonName = "defaultSfixed32",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultSfixed32
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_sfixed64",
+                    number = 250,
+                    type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
+                    jsonName = "defaultSfixed64",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultSfixed64
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_float",
+                    number = 251,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
+                    jsonName = "defaultFloat",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultFloat
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_double",
+                    number = 252,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
+                    jsonName = "defaultDouble",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultDouble
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_bool",
+                    number = 253,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                    jsonName = "defaultBool",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultBool
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_string",
+                    number = 254,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    jsonName = "defaultString",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultString
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "default_bytes",
+                    number = 255,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
+                    jsonName = "defaultBytes",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::defaultBytes
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
                     name = "fieldname1",
                     number = 401,
                     type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
@@ -1193,9 +1383,6 @@ public data class TestAllTypesProto2(
                     value = pbandk.conformance.pb.TestAllTypesProto2::fieldname1
                 )
             )
-        }
-
-        private fun MutableList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, *>>.addFields1() {
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
@@ -2269,6 +2456,48 @@ public data class TestAllTypesProto2(
         }
     }
 
+    public data class MultiWordGroupField(
+        val groupInt32: Int? = null,
+        val groupUint32: Int? = null,
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message {
+        override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField> {
+            public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField by lazy { pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField = pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField> = pbandk.MessageDescriptor(
+                fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MultiWordGroupField",
+                messageClass = pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField::class,
+                messageCompanion = this,
+                fields = buildList(2) {
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "group_int32",
+                            number = 205,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                            jsonName = "groupInt32",
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField::groupInt32
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "group_uint32",
+                            number = 206,
+                            type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
+                            jsonName = "groupUint32",
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField::groupUint32
+                        )
+                    )
+                }
+            )
+        }
+    }
+
     public data class MessageSetCorrect(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
         @property:pbandk.PbandkInternal
@@ -2387,10 +2616,54 @@ public data class ForeignMessageProto2(
 }
 
 @pbandk.Export
+public data class GroupField(
+    val groupInt32: Int? = null,
+    val groupUint32: Int? = null,
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.GroupField = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.GroupField> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.GroupField> {
+        public val defaultInstance: pbandk.conformance.pb.GroupField by lazy { pbandk.conformance.pb.GroupField() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.GroupField = pbandk.conformance.pb.GroupField.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.GroupField> = pbandk.MessageDescriptor(
+            fullName = "protobuf_test_messages.proto2.GroupField",
+            messageClass = pbandk.conformance.pb.GroupField::class,
+            messageCompanion = this,
+            fields = buildList(2) {
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "group_int32",
+                        number = 122,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "groupInt32",
+                        value = pbandk.conformance.pb.GroupField::groupInt32
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "group_uint32",
+                        number = 123,
+                        type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
+                        jsonName = "groupUint32",
+                        value = pbandk.conformance.pb.GroupField::groupUint32
+                    )
+                )
+            }
+        )
+    }
+}
+
+@pbandk.Export
 public data class UnknownToTestAllTypes(
     val optionalInt32: Int? = null,
     val optionalString: String? = null,
     val nestedMessage: pbandk.conformance.pb.ForeignMessageProto2? = null,
+    val optionalgroup: pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup? = null,
     val optionalBool: Boolean? = null,
     val repeatedInt32: List<Int> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -2406,7 +2679,7 @@ public data class UnknownToTestAllTypes(
             fullName = "protobuf_test_messages.proto2.UnknownToTestAllTypes",
             messageClass = pbandk.conformance.pb.UnknownToTestAllTypes::class,
             messageCompanion = this,
-            fields = buildList(5) {
+            fields = buildList(6) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -2435,6 +2708,16 @@ public data class UnknownToTestAllTypes(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessageProto2.Companion),
                         jsonName = "nestedMessage",
                         value = pbandk.conformance.pb.UnknownToTestAllTypes::nestedMessage
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "optionalgroup",
+                        number = 1004,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup.Companion, encoding = pbandk.MessageEncoding.DELIMITED),
+                        jsonName = "optionalgroup",
+                        value = pbandk.conformance.pb.UnknownToTestAllTypes::optionalgroup
                     )
                 )
                 add(
@@ -2493,17 +2776,818 @@ public data class UnknownToTestAllTypes(
     }
 }
 
-val pbandk.conformance.pb.TestAllTypesProto2.extensionInt32: Int? 
+@pbandk.Export
+public data class NullHypothesisProto2(
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.NullHypothesisProto2 = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.NullHypothesisProto2> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.NullHypothesisProto2> {
+        public val defaultInstance: pbandk.conformance.pb.NullHypothesisProto2 by lazy { pbandk.conformance.pb.NullHypothesisProto2() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.NullHypothesisProto2 = pbandk.conformance.pb.NullHypothesisProto2.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.NullHypothesisProto2> = pbandk.MessageDescriptor(
+            fullName = "protobuf_test_messages.proto2.NullHypothesisProto2",
+            messageClass = pbandk.conformance.pb.NullHypothesisProto2::class,
+            messageCompanion = this,
+            fields = buildList(0) {
+            }
+        )
+    }
+}
+
+@pbandk.Export
+public data class EnumOnlyProto2(
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.EnumOnlyProto2 = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.EnumOnlyProto2> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.EnumOnlyProto2> {
+        public val defaultInstance: pbandk.conformance.pb.EnumOnlyProto2 by lazy { pbandk.conformance.pb.EnumOnlyProto2() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.EnumOnlyProto2 = pbandk.conformance.pb.EnumOnlyProto2.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.EnumOnlyProto2> = pbandk.MessageDescriptor(
+            fullName = "protobuf_test_messages.proto2.EnumOnlyProto2",
+            messageClass = pbandk.conformance.pb.EnumOnlyProto2::class,
+            messageCompanion = this,
+            fields = buildList(0) {
+            }
+        )
+    }
+
+    public sealed class Bool(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.conformance.pb.EnumOnlyProto2.Bool && other.value == value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "EnumOnlyProto2.Bool.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        public object K_FALSE : Bool(0, "kFalse")
+        public object K_TRUE : Bool(1, "kTrue")
+        public class UNRECOGNIZED(value: Int) : Bool(value)
+
+        public companion object : pbandk.Message.Enum.Companion<pbandk.conformance.pb.EnumOnlyProto2.Bool> {
+            public val values: List<pbandk.conformance.pb.EnumOnlyProto2.Bool> by lazy { listOf(K_FALSE, K_TRUE) }
+            override fun fromValue(value: Int): pbandk.conformance.pb.EnumOnlyProto2.Bool = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.conformance.pb.EnumOnlyProto2.Bool = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Bool with name: $name")
+        }
+    }
+}
+
+@pbandk.Export
+public data class OneStringProto2(
+    val data: String? = null,
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.OneStringProto2 = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.OneStringProto2> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.OneStringProto2> {
+        public val defaultInstance: pbandk.conformance.pb.OneStringProto2 by lazy { pbandk.conformance.pb.OneStringProto2() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.OneStringProto2 = pbandk.conformance.pb.OneStringProto2.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.OneStringProto2> = pbandk.MessageDescriptor(
+            fullName = "protobuf_test_messages.proto2.OneStringProto2",
+            messageClass = pbandk.conformance.pb.OneStringProto2::class,
+            messageCompanion = this,
+            fields = buildList(1) {
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "data",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        jsonName = "data",
+                        value = pbandk.conformance.pb.OneStringProto2::data
+                    )
+                )
+            }
+        )
+    }
+}
+
+@pbandk.Export
+public data class ProtoWithKeywords(
+    val inline: Int? = null,
+    val concept: String? = null,
+    val requires: List<String> = emptyList(),
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.ProtoWithKeywords = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ProtoWithKeywords> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ProtoWithKeywords> {
+        public val defaultInstance: pbandk.conformance.pb.ProtoWithKeywords by lazy { pbandk.conformance.pb.ProtoWithKeywords() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ProtoWithKeywords = pbandk.conformance.pb.ProtoWithKeywords.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ProtoWithKeywords> = pbandk.MessageDescriptor(
+            fullName = "protobuf_test_messages.proto2.ProtoWithKeywords",
+            messageClass = pbandk.conformance.pb.ProtoWithKeywords::class,
+            messageCompanion = this,
+            fields = buildList(3) {
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "inline",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "inline",
+                        value = pbandk.conformance.pb.ProtoWithKeywords::inline
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "concept",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        jsonName = "concept",
+                        value = pbandk.conformance.pb.ProtoWithKeywords::concept
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "requires",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                        jsonName = "requires",
+                        value = pbandk.conformance.pb.ProtoWithKeywords::requires
+                    )
+                )
+            }
+        )
+    }
+}
+
+@pbandk.Export
+public data class TestAllRequiredTypesProto2(
+    val requiredInt32: Int,
+    val requiredInt64: Long,
+    val requiredUint32: Int,
+    val requiredUint64: Long,
+    val requiredSint32: Int,
+    val requiredSint64: Long,
+    val requiredFixed32: Int,
+    val requiredFixed64: Long,
+    val requiredSfixed32: Int,
+    val requiredSfixed64: Long,
+    val requiredFloat: Float,
+    val requiredDouble: Double,
+    val requiredBool: Boolean,
+    val requiredString: String,
+    val requiredBytes: pbandk.ByteArr,
+    val requiredNestedMessage: pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage,
+    val requiredForeignMessage: pbandk.conformance.pb.ForeignMessageProto2,
+    val requiredNestedEnum: pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedEnum,
+    val requiredForeignEnum: pbandk.conformance.pb.ForeignEnumProto2,
+    val requiredStringPiece: String,
+    val requiredCord: String,
+    val recursiveMessage: pbandk.conformance.pb.TestAllRequiredTypesProto2,
+    val optionalRecursiveMessage: pbandk.conformance.pb.TestAllRequiredTypesProto2? = null,
+    val data: pbandk.conformance.pb.TestAllRequiredTypesProto2.Data,
+    val defaultInt32: Int,
+    val defaultInt64: Long,
+    val defaultUint32: Int,
+    val defaultUint64: Long,
+    val defaultSint32: Int,
+    val defaultSint64: Long,
+    val defaultFixed32: Int,
+    val defaultFixed64: Long,
+    val defaultSfixed32: Int,
+    val defaultSfixed64: Long,
+    val defaultFloat: Float,
+    val defaultDouble: Double,
+    val defaultBool: Boolean,
+    val defaultString: String,
+    val defaultBytes: pbandk.ByteArr,
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
+    @property:pbandk.PbandkInternal
+    override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
+) : pbandk.ExtendableMessage {
+    override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllRequiredTypesProto2 = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllRequiredTypesProto2> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllRequiredTypesProto2> {
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllRequiredTypesProto2 = pbandk.conformance.pb.TestAllRequiredTypesProto2.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllRequiredTypesProto2> = pbandk.MessageDescriptor(
+            fullName = "protobuf_test_messages.proto2.TestAllRequiredTypesProto2",
+            messageClass = pbandk.conformance.pb.TestAllRequiredTypesProto2::class,
+            messageCompanion = this,
+            fields = buildList(39) {
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_int32",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "requiredInt32",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredInt32
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_int64",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
+                        jsonName = "requiredInt64",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredInt64
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_uint32",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
+                        jsonName = "requiredUint32",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredUint32
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_uint64",
+                        number = 4,
+                        type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
+                        jsonName = "requiredUint64",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredUint64
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_sint32",
+                        number = 5,
+                        type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
+                        jsonName = "requiredSint32",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredSint32
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_sint64",
+                        number = 6,
+                        type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
+                        jsonName = "requiredSint64",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredSint64
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_fixed32",
+                        number = 7,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
+                        jsonName = "requiredFixed32",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredFixed32
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_fixed64",
+                        number = 8,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
+                        jsonName = "requiredFixed64",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredFixed64
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_sfixed32",
+                        number = 9,
+                        type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
+                        jsonName = "requiredSfixed32",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredSfixed32
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_sfixed64",
+                        number = 10,
+                        type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
+                        jsonName = "requiredSfixed64",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredSfixed64
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_float",
+                        number = 11,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
+                        jsonName = "requiredFloat",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredFloat
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_double",
+                        number = 12,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
+                        jsonName = "requiredDouble",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredDouble
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_bool",
+                        number = 13,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                        jsonName = "requiredBool",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredBool
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_string",
+                        number = 14,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        jsonName = "requiredString",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredString
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_bytes",
+                        number = 15,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
+                        jsonName = "requiredBytes",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredBytes
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_nested_message",
+                        number = 18,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage.Companion),
+                        jsonName = "requiredNestedMessage",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredNestedMessage
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_foreign_message",
+                        number = 19,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessageProto2.Companion),
+                        jsonName = "requiredForeignMessage",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredForeignMessage
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_nested_enum",
+                        number = 21,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedEnum.Companion, hasPresence = true),
+                        jsonName = "requiredNestedEnum",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredNestedEnum
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_foreign_enum",
+                        number = 22,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnumProto2.Companion, hasPresence = true),
+                        jsonName = "requiredForeignEnum",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredForeignEnum
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_string_piece",
+                        number = 24,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        jsonName = "requiredStringPiece",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredStringPiece
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "required_cord",
+                        number = 25,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        jsonName = "requiredCord",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::requiredCord
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "recursive_message",
+                        number = 27,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllRequiredTypesProto2.Companion),
+                        jsonName = "recursiveMessage",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::recursiveMessage
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "optional_recursive_message",
+                        number = 28,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllRequiredTypesProto2.Companion),
+                        jsonName = "optionalRecursiveMessage",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::optionalRecursiveMessage
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "data",
+                        number = 201,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllRequiredTypesProto2.Data.Companion, encoding = pbandk.MessageEncoding.DELIMITED),
+                        jsonName = "data",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::data
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_int32",
+                        number = 241,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "defaultInt32",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultInt32
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_int64",
+                        number = 242,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
+                        jsonName = "defaultInt64",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultInt64
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_uint32",
+                        number = 243,
+                        type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
+                        jsonName = "defaultUint32",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultUint32
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_uint64",
+                        number = 244,
+                        type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
+                        jsonName = "defaultUint64",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultUint64
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_sint32",
+                        number = 245,
+                        type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
+                        jsonName = "defaultSint32",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultSint32
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_sint64",
+                        number = 246,
+                        type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
+                        jsonName = "defaultSint64",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultSint64
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_fixed32",
+                        number = 247,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
+                        jsonName = "defaultFixed32",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultFixed32
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_fixed64",
+                        number = 248,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
+                        jsonName = "defaultFixed64",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultFixed64
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_sfixed32",
+                        number = 249,
+                        type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
+                        jsonName = "defaultSfixed32",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultSfixed32
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_sfixed64",
+                        number = 250,
+                        type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
+                        jsonName = "defaultSfixed64",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultSfixed64
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_float",
+                        number = 251,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
+                        jsonName = "defaultFloat",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultFloat
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_double",
+                        number = 252,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
+                        jsonName = "defaultDouble",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultDouble
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_bool",
+                        number = 253,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                        jsonName = "defaultBool",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultBool
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_string",
+                        number = 254,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        jsonName = "defaultString",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultString
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "default_bytes",
+                        number = 255,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
+                        jsonName = "defaultBytes",
+                        value = pbandk.conformance.pb.TestAllRequiredTypesProto2::defaultBytes
+                    )
+                )
+            }
+        )
+    }
+
+    public sealed class NestedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedEnum && other.value == value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "TestAllRequiredTypesProto2.NestedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        public object FOO : NestedEnum(0, "FOO")
+        public object BAR : NestedEnum(1, "BAR")
+        public object BAZ : NestedEnum(2, "BAZ")
+        public object NEG : NestedEnum(-1, "NEG")
+        public class UNRECOGNIZED(value: Int) : NestedEnum(value)
+
+        public companion object : pbandk.Message.Enum.Companion<pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedEnum> {
+            public val values: List<pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedEnum> by lazy { listOf(FOO, BAR, BAZ, NEG) }
+            override fun fromValue(value: Int): pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedEnum = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedEnum = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NestedEnum with name: $name")
+        }
+    }
+
+    public data class NestedMessage(
+        val a: Int,
+        val corecursive: pbandk.conformance.pb.TestAllRequiredTypesProto2,
+        val optionalCorecursive: pbandk.conformance.pb.TestAllRequiredTypesProto2? = null,
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message {
+        override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage> {
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage = pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage> = pbandk.MessageDescriptor(
+                fullName = "protobuf_test_messages.proto2.TestAllRequiredTypesProto2.NestedMessage",
+                messageClass = pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage::class,
+                messageCompanion = this,
+                fields = buildList(3) {
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "a",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                            jsonName = "a",
+                            value = pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage::a
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "corecursive",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllRequiredTypesProto2.Companion),
+                            jsonName = "corecursive",
+                            value = pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage::corecursive
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "optional_corecursive",
+                            number = 3,
+                            type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllRequiredTypesProto2.Companion),
+                            jsonName = "optionalCorecursive",
+                            value = pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage::optionalCorecursive
+                        )
+                    )
+                }
+            )
+        }
+    }
+
+    public data class Data(
+        val groupInt32: Int,
+        val groupUint32: Int,
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message {
+        override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllRequiredTypesProto2.Data = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllRequiredTypesProto2.Data> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllRequiredTypesProto2.Data> {
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllRequiredTypesProto2.Data = pbandk.conformance.pb.TestAllRequiredTypesProto2.Data.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllRequiredTypesProto2.Data> = pbandk.MessageDescriptor(
+                fullName = "protobuf_test_messages.proto2.TestAllRequiredTypesProto2.Data",
+                messageClass = pbandk.conformance.pb.TestAllRequiredTypesProto2.Data::class,
+                messageCompanion = this,
+                fields = buildList(2) {
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "group_int32",
+                            number = 202,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                            jsonName = "groupInt32",
+                            value = pbandk.conformance.pb.TestAllRequiredTypesProto2.Data::groupInt32
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "group_uint32",
+                            number = 203,
+                            type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
+                            jsonName = "groupUint32",
+                            value = pbandk.conformance.pb.TestAllRequiredTypesProto2.Data::groupUint32
+                        )
+                    )
+                }
+            )
+        }
+    }
+
+    public data class MessageSetCorrect(
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
+        @property:pbandk.PbandkInternal
+        override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
+    ) : pbandk.ExtendableMessage {
+        override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrect = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrect> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrect> {
+            public val defaultInstance: pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrect by lazy { pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrect() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrect = pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrect.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrect> = pbandk.MessageDescriptor(
+                fullName = "protobuf_test_messages.proto2.TestAllRequiredTypesProto2.MessageSetCorrect",
+                messageClass = pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrect::class,
+                messageCompanion = this,
+                fields = buildList(0) {
+                }
+            )
+        }
+    }
+
+    public data class MessageSetCorrectExtension1(
+        val str: String,
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message {
+        override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension1 = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension1> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension1> {
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension1 = pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension1.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension1> = pbandk.MessageDescriptor(
+                fullName = "protobuf_test_messages.proto2.TestAllRequiredTypesProto2.MessageSetCorrectExtension1",
+                messageClass = pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension1::class,
+                messageCompanion = this,
+                fields = buildList(1) {
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "str",
+                            number = 25,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "str",
+                            value = pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension1::str
+                        )
+                    )
+                }
+            )
+        }
+    }
+
+    public data class MessageSetCorrectExtension2(
+        val i: Int,
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message {
+        override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension2 = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension2> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension2> {
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension2 = pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension2.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension2> = pbandk.MessageDescriptor(
+                fullName = "protobuf_test_messages.proto2.TestAllRequiredTypesProto2.MessageSetCorrectExtension2",
+                messageClass = pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension2::class,
+                messageCompanion = this,
+                fields = buildList(1) {
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "i",
+                            number = 9,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                            jsonName = "i",
+                            value = pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension2::i
+                        )
+                    )
+                }
+            )
+        }
+    }
+}
+
+public val pbandk.conformance.pb.TestAllTypesProto2.extensionInt32: Int?
     get() = getExtension(pbandk.conformance.pb.extensionInt32)
 
 @pbandk.Export
-val extensionInt32 = pbandk.FieldDescriptor(
+public val extensionInt32: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?> = pbandk.FieldDescriptor(
     messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2.Companion::descriptor,
     name = "extension_int32",
     number = 120,
     type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
     jsonName = "extensionInt32",
     value = pbandk.conformance.pb.TestAllTypesProto2::extensionInt32
+)
+
+public val pbandk.conformance.pb.TestAllTypesProto2.groupfield: pbandk.conformance.pb.GroupField?
+    get() = getExtension(pbandk.conformance.pb.groupfield)
+
+@pbandk.Export
+public val groupfield: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.GroupField?> = pbandk.FieldDescriptor(
+    messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2.Companion::descriptor,
+    name = "groupfield",
+    number = 121,
+    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.GroupField.Companion, encoding = pbandk.MessageEncoding.DELIMITED),
+    jsonName = "groupfield",
+    value = pbandk.conformance.pb.TestAllTypesProto2::groupfield
 )
 
 @pbandk.Export
@@ -2602,6 +3686,23 @@ private fun TestAllTypesProto2.protoMergeImpl(plus: pbandk.Message?): TestAllTyp
         mapStringForeignMessage = mapStringForeignMessage + plus.mapStringForeignMessage,
         mapStringNestedEnum = mapStringNestedEnum + plus.mapStringNestedEnum,
         mapStringForeignEnum = mapStringForeignEnum + plus.mapStringForeignEnum,
+        data = data?.plus(plus.data) ?: plus.data,
+        multiwordgroupfield = multiwordgroupfield?.plus(plus.multiwordgroupfield) ?: plus.multiwordgroupfield,
+        defaultInt32 = plus.defaultInt32 ?: defaultInt32,
+        defaultInt64 = plus.defaultInt64 ?: defaultInt64,
+        defaultUint32 = plus.defaultUint32 ?: defaultUint32,
+        defaultUint64 = plus.defaultUint64 ?: defaultUint64,
+        defaultSint32 = plus.defaultSint32 ?: defaultSint32,
+        defaultSint64 = plus.defaultSint64 ?: defaultSint64,
+        defaultFixed32 = plus.defaultFixed32 ?: defaultFixed32,
+        defaultFixed64 = plus.defaultFixed64 ?: defaultFixed64,
+        defaultSfixed32 = plus.defaultSfixed32 ?: defaultSfixed32,
+        defaultSfixed64 = plus.defaultSfixed64 ?: defaultSfixed64,
+        defaultFloat = plus.defaultFloat ?: defaultFloat,
+        defaultDouble = plus.defaultDouble ?: defaultDouble,
+        defaultBool = plus.defaultBool ?: defaultBool,
+        defaultString = plus.defaultString ?: defaultString,
+        defaultBytes = plus.defaultBytes ?: defaultBytes,
         fieldname1 = plus.fieldname1 ?: fieldname1,
         fieldName2 = plus.fieldName2 ?: fieldName2,
         fieldName3 = plus.fieldName3 ?: fieldName3,
@@ -2722,6 +3823,23 @@ private fun TestAllTypesProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder
     var mapStringForeignMessage: pbandk.MessageMap.Builder<String?, pbandk.conformance.pb.ForeignMessageProto2?>? = null
     var mapStringNestedEnum: pbandk.MessageMap.Builder<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?>? = null
     var mapStringForeignEnum: pbandk.MessageMap.Builder<String?, pbandk.conformance.pb.ForeignEnumProto2?>? = null
+    var data: pbandk.conformance.pb.TestAllTypesProto2.Data? = null
+    var multiwordgroupfield: pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField? = null
+    var defaultInt32: Int? = null
+    var defaultInt64: Long? = null
+    var defaultUint32: Int? = null
+    var defaultUint64: Long? = null
+    var defaultSint32: Int? = null
+    var defaultSint64: Long? = null
+    var defaultFixed32: Int? = null
+    var defaultFixed64: Long? = null
+    var defaultSfixed32: Int? = null
+    var defaultSfixed64: Long? = null
+    var defaultFloat: Float? = null
+    var defaultDouble: Double? = null
+    var defaultBool: Boolean? = null
+    var defaultString: String? = null
+    var defaultBytes: pbandk.ByteArr? = null
     var fieldname1: Int? = null
     var fieldName2: Int? = null
     var fieldName3: Int? = null
@@ -2843,6 +3961,23 @@ private fun TestAllTypesProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder
             117 -> oneofField = TestAllTypesProto2.OneofField.OneofFloat(_fieldValue as Float)
             118 -> oneofField = TestAllTypesProto2.OneofField.OneofDouble(_fieldValue as Double)
             119 -> oneofField = TestAllTypesProto2.OneofField.OneofEnum(_fieldValue as pbandk.conformance.pb.TestAllTypesProto2.NestedEnum)
+            201 -> data = _fieldValue as pbandk.conformance.pb.TestAllTypesProto2.Data
+            204 -> multiwordgroupfield = _fieldValue as pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField
+            241 -> defaultInt32 = _fieldValue as Int
+            242 -> defaultInt64 = _fieldValue as Long
+            243 -> defaultUint32 = _fieldValue as Int
+            244 -> defaultUint64 = _fieldValue as Long
+            245 -> defaultSint32 = _fieldValue as Int
+            246 -> defaultSint64 = _fieldValue as Long
+            247 -> defaultFixed32 = _fieldValue as Int
+            248 -> defaultFixed64 = _fieldValue as Long
+            249 -> defaultSfixed32 = _fieldValue as Int
+            250 -> defaultSfixed64 = _fieldValue as Long
+            251 -> defaultFloat = _fieldValue as Float
+            252 -> defaultDouble = _fieldValue as Double
+            253 -> defaultBool = _fieldValue as Boolean
+            254 -> defaultString = _fieldValue as String
+            255 -> defaultBytes = _fieldValue as pbandk.ByteArr
             401 -> fieldname1 = _fieldValue as Int
             402 -> fieldName2 = _fieldValue as Int
             403 -> fieldName3 = _fieldValue as Int
@@ -2886,12 +4021,16 @@ private fun TestAllTypesProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder
         pbandk.MessageMap.Builder.fixed(mapSint64Sint64), pbandk.MessageMap.Builder.fixed(mapFixed32Fixed32), pbandk.MessageMap.Builder.fixed(mapFixed64Fixed64), pbandk.MessageMap.Builder.fixed(mapSfixed32Sfixed32),
         pbandk.MessageMap.Builder.fixed(mapSfixed64Sfixed64), pbandk.MessageMap.Builder.fixed(mapInt32Float), pbandk.MessageMap.Builder.fixed(mapInt32Double), pbandk.MessageMap.Builder.fixed(mapBoolBool),
         pbandk.MessageMap.Builder.fixed(mapStringString), pbandk.MessageMap.Builder.fixed(mapStringBytes), pbandk.MessageMap.Builder.fixed(mapStringNestedMessage), pbandk.MessageMap.Builder.fixed(mapStringForeignMessage),
-        pbandk.MessageMap.Builder.fixed(mapStringNestedEnum), pbandk.MessageMap.Builder.fixed(mapStringForeignEnum), fieldname1, fieldName2,
-        fieldName3, field_name4, field0name5, field0Name6,
-        fieldName7, fieldName8, fieldName9, fieldName10,
-        fIELDNAME11, fIELDName12, _fieldName13, _FieldName14,
-        field_name15, field_Name16, fieldName17_, fieldName18_,
-        oneofField, unknownFields)
+        pbandk.MessageMap.Builder.fixed(mapStringNestedEnum), pbandk.MessageMap.Builder.fixed(mapStringForeignEnum), data, multiwordgroupfield,
+        defaultInt32, defaultInt64, defaultUint32, defaultUint64,
+        defaultSint32, defaultSint64, defaultFixed32, defaultFixed64,
+        defaultSfixed32, defaultSfixed64, defaultFloat, defaultDouble,
+        defaultBool, defaultString, defaultBytes, fieldname1,
+        fieldName2, fieldName3, field_name4, field0name5,
+        field0Name6, fieldName7, fieldName8, fieldName9,
+        fieldName10, fIELDNAME11, fIELDName12, _fieldName13,
+        _FieldName14, field_name15, field_Name16, fieldName17_,
+        fieldName18_, oneofField, unknownFields)
 }
 
 @pbandk.Export
@@ -3462,6 +4601,33 @@ private fun TestAllTypesProto2.Data.Companion.decodeWithImpl(u: pbandk.MessageDe
 }
 
 @pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MultiWordGroupField")
+public fun TestAllTypesProto2.MultiWordGroupField?.orDefault(): pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField = this ?: TestAllTypesProto2.MultiWordGroupField.defaultInstance
+
+private fun TestAllTypesProto2.MultiWordGroupField.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MultiWordGroupField = (plus as? TestAllTypesProto2.MultiWordGroupField)?.let {
+    it.copy(
+        groupInt32 = plus.groupInt32 ?: groupInt32,
+        groupUint32 = plus.groupUint32 ?: groupUint32,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun TestAllTypesProto2.MultiWordGroupField.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MultiWordGroupField {
+    var groupInt32: Int? = null
+    var groupUint32: Int? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            205 -> groupInt32 = _fieldValue as Int
+            206 -> groupUint32 = _fieldValue as Int
+        }
+    }
+
+    return TestAllTypesProto2.MultiWordGroupField(groupInt32, groupUint32, unknownFields)
+}
+
+@pbandk.Export
 @pbandk.JsName("orDefaultForTestAllTypesProto2MessageSetCorrect")
 public fun TestAllTypesProto2.MessageSetCorrect?.orDefault(): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = this ?: TestAllTypesProto2.MessageSetCorrect.defaultInstance
 
@@ -3552,6 +4718,33 @@ private fun ForeignMessageProto2.Companion.decodeWithImpl(u: pbandk.MessageDecod
 }
 
 @pbandk.Export
+@pbandk.JsName("orDefaultForGroupField")
+public fun GroupField?.orDefault(): pbandk.conformance.pb.GroupField = this ?: GroupField.defaultInstance
+
+private fun GroupField.protoMergeImpl(plus: pbandk.Message?): GroupField = (plus as? GroupField)?.let {
+    it.copy(
+        groupInt32 = plus.groupInt32 ?: groupInt32,
+        groupUint32 = plus.groupUint32 ?: groupUint32,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun GroupField.Companion.decodeWithImpl(u: pbandk.MessageDecoder): GroupField {
+    var groupInt32: Int? = null
+    var groupUint32: Int? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            122 -> groupInt32 = _fieldValue as Int
+            123 -> groupUint32 = _fieldValue as Int
+        }
+    }
+
+    return GroupField(groupInt32, groupUint32, unknownFields)
+}
+
+@pbandk.Export
 @pbandk.JsName("orDefaultForUnknownToTestAllTypes")
 public fun UnknownToTestAllTypes?.orDefault(): pbandk.conformance.pb.UnknownToTestAllTypes = this ?: UnknownToTestAllTypes.defaultInstance
 
@@ -3560,6 +4753,7 @@ private fun UnknownToTestAllTypes.protoMergeImpl(plus: pbandk.Message?): Unknown
         optionalInt32 = plus.optionalInt32 ?: optionalInt32,
         optionalString = plus.optionalString ?: optionalString,
         nestedMessage = nestedMessage?.plus(plus.nestedMessage) ?: plus.nestedMessage,
+        optionalgroup = optionalgroup?.plus(plus.optionalgroup) ?: plus.optionalgroup,
         optionalBool = plus.optionalBool ?: optionalBool,
         repeatedInt32 = repeatedInt32 + plus.repeatedInt32,
         unknownFields = unknownFields + plus.unknownFields
@@ -3571,6 +4765,7 @@ private fun UnknownToTestAllTypes.Companion.decodeWithImpl(u: pbandk.MessageDeco
     var optionalInt32: Int? = null
     var optionalString: String? = null
     var nestedMessage: pbandk.conformance.pb.ForeignMessageProto2? = null
+    var optionalgroup: pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup? = null
     var optionalBool: Boolean? = null
     var repeatedInt32: pbandk.ListWithSize.Builder<Int>? = null
 
@@ -3579,13 +4774,14 @@ private fun UnknownToTestAllTypes.Companion.decodeWithImpl(u: pbandk.MessageDeco
             1001 -> optionalInt32 = _fieldValue as Int
             1002 -> optionalString = _fieldValue as String
             1003 -> nestedMessage = _fieldValue as pbandk.conformance.pb.ForeignMessageProto2
+            1004 -> optionalgroup = _fieldValue as pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup
             1006 -> optionalBool = _fieldValue as Boolean
             1011 -> repeatedInt32 = (repeatedInt32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
         }
     }
 
-    return UnknownToTestAllTypes(optionalInt32, optionalString, nestedMessage, optionalBool,
-        pbandk.ListWithSize.Builder.fixed(repeatedInt32), unknownFields)
+    return UnknownToTestAllTypes(optionalInt32, optionalString, nestedMessage, optionalgroup,
+        optionalBool, pbandk.ListWithSize.Builder.fixed(repeatedInt32), unknownFields)
 }
 
 @pbandk.Export
@@ -3610,4 +4806,437 @@ private fun UnknownToTestAllTypes.OptionalGroup.Companion.decodeWithImpl(u: pban
     }
 
     return UnknownToTestAllTypes.OptionalGroup(a, unknownFields)
+}
+
+@pbandk.Export
+@pbandk.JsName("orDefaultForNullHypothesisProto2")
+public fun NullHypothesisProto2?.orDefault(): pbandk.conformance.pb.NullHypothesisProto2 = this ?: NullHypothesisProto2.defaultInstance
+
+private fun NullHypothesisProto2.protoMergeImpl(plus: pbandk.Message?): NullHypothesisProto2 = (plus as? NullHypothesisProto2)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun NullHypothesisProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder): NullHypothesisProto2 {
+
+    val unknownFields = u.readMessage(this) { _, _ -> }
+
+    return NullHypothesisProto2(unknownFields)
+}
+
+@pbandk.Export
+@pbandk.JsName("orDefaultForEnumOnlyProto2")
+public fun EnumOnlyProto2?.orDefault(): pbandk.conformance.pb.EnumOnlyProto2 = this ?: EnumOnlyProto2.defaultInstance
+
+private fun EnumOnlyProto2.protoMergeImpl(plus: pbandk.Message?): EnumOnlyProto2 = (plus as? EnumOnlyProto2)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun EnumOnlyProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumOnlyProto2 {
+
+    val unknownFields = u.readMessage(this) { _, _ -> }
+
+    return EnumOnlyProto2(unknownFields)
+}
+
+@pbandk.Export
+@pbandk.JsName("orDefaultForOneStringProto2")
+public fun OneStringProto2?.orDefault(): pbandk.conformance.pb.OneStringProto2 = this ?: OneStringProto2.defaultInstance
+
+private fun OneStringProto2.protoMergeImpl(plus: pbandk.Message?): OneStringProto2 = (plus as? OneStringProto2)?.let {
+    it.copy(
+        data = plus.data ?: data,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun OneStringProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder): OneStringProto2 {
+    var data: String? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> data = _fieldValue as String
+        }
+    }
+
+    return OneStringProto2(data, unknownFields)
+}
+
+@pbandk.Export
+@pbandk.JsName("orDefaultForProtoWithKeywords")
+public fun ProtoWithKeywords?.orDefault(): pbandk.conformance.pb.ProtoWithKeywords = this ?: ProtoWithKeywords.defaultInstance
+
+private fun ProtoWithKeywords.protoMergeImpl(plus: pbandk.Message?): ProtoWithKeywords = (plus as? ProtoWithKeywords)?.let {
+    it.copy(
+        inline = plus.inline ?: inline,
+        concept = plus.concept ?: concept,
+        requires = requires + plus.requires,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun ProtoWithKeywords.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ProtoWithKeywords {
+    var inline: Int? = null
+    var concept: String? = null
+    var requires: pbandk.ListWithSize.Builder<String>? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> inline = _fieldValue as Int
+            2 -> concept = _fieldValue as String
+            3 -> requires = (requires ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<String> }
+        }
+    }
+
+    return ProtoWithKeywords(inline, concept, pbandk.ListWithSize.Builder.fixed(requires), unknownFields)
+}
+
+private fun TestAllRequiredTypesProto2.protoMergeImpl(plus: pbandk.Message?): TestAllRequiredTypesProto2 = (plus as? TestAllRequiredTypesProto2)?.let {
+    it.copy(
+        requiredNestedMessage = requiredNestedMessage.plus(plus.requiredNestedMessage),
+        requiredForeignMessage = requiredForeignMessage.plus(plus.requiredForeignMessage),
+        recursiveMessage = recursiveMessage.plus(plus.recursiveMessage),
+        optionalRecursiveMessage = optionalRecursiveMessage?.plus(plus.optionalRecursiveMessage) ?: plus.optionalRecursiveMessage,
+        data = data.plus(plus.data),
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun TestAllRequiredTypesProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllRequiredTypesProto2 {
+    var requiredInt32: Int? = null
+    var requiredInt64: Long? = null
+    var requiredUint32: Int? = null
+    var requiredUint64: Long? = null
+    var requiredSint32: Int? = null
+    var requiredSint64: Long? = null
+    var requiredFixed32: Int? = null
+    var requiredFixed64: Long? = null
+    var requiredSfixed32: Int? = null
+    var requiredSfixed64: Long? = null
+    var requiredFloat: Float? = null
+    var requiredDouble: Double? = null
+    var requiredBool: Boolean? = null
+    var requiredString: String? = null
+    var requiredBytes: pbandk.ByteArr? = null
+    var requiredNestedMessage: pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage? = null
+    var requiredForeignMessage: pbandk.conformance.pb.ForeignMessageProto2? = null
+    var requiredNestedEnum: pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedEnum? = null
+    var requiredForeignEnum: pbandk.conformance.pb.ForeignEnumProto2? = null
+    var requiredStringPiece: String? = null
+    var requiredCord: String? = null
+    var recursiveMessage: pbandk.conformance.pb.TestAllRequiredTypesProto2? = null
+    var optionalRecursiveMessage: pbandk.conformance.pb.TestAllRequiredTypesProto2? = null
+    var data: pbandk.conformance.pb.TestAllRequiredTypesProto2.Data? = null
+    var defaultInt32: Int? = null
+    var defaultInt64: Long? = null
+    var defaultUint32: Int? = null
+    var defaultUint64: Long? = null
+    var defaultSint32: Int? = null
+    var defaultSint64: Long? = null
+    var defaultFixed32: Int? = null
+    var defaultFixed64: Long? = null
+    var defaultSfixed32: Int? = null
+    var defaultSfixed64: Long? = null
+    var defaultFloat: Float? = null
+    var defaultDouble: Double? = null
+    var defaultBool: Boolean? = null
+    var defaultString: String? = null
+    var defaultBytes: pbandk.ByteArr? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> requiredInt32 = _fieldValue as Int
+            2 -> requiredInt64 = _fieldValue as Long
+            3 -> requiredUint32 = _fieldValue as Int
+            4 -> requiredUint64 = _fieldValue as Long
+            5 -> requiredSint32 = _fieldValue as Int
+            6 -> requiredSint64 = _fieldValue as Long
+            7 -> requiredFixed32 = _fieldValue as Int
+            8 -> requiredFixed64 = _fieldValue as Long
+            9 -> requiredSfixed32 = _fieldValue as Int
+            10 -> requiredSfixed64 = _fieldValue as Long
+            11 -> requiredFloat = _fieldValue as Float
+            12 -> requiredDouble = _fieldValue as Double
+            13 -> requiredBool = _fieldValue as Boolean
+            14 -> requiredString = _fieldValue as String
+            15 -> requiredBytes = _fieldValue as pbandk.ByteArr
+            18 -> requiredNestedMessage = _fieldValue as pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage
+            19 -> requiredForeignMessage = _fieldValue as pbandk.conformance.pb.ForeignMessageProto2
+            21 -> requiredNestedEnum = _fieldValue as pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedEnum
+            22 -> requiredForeignEnum = _fieldValue as pbandk.conformance.pb.ForeignEnumProto2
+            24 -> requiredStringPiece = _fieldValue as String
+            25 -> requiredCord = _fieldValue as String
+            27 -> recursiveMessage = _fieldValue as pbandk.conformance.pb.TestAllRequiredTypesProto2
+            28 -> optionalRecursiveMessage = _fieldValue as pbandk.conformance.pb.TestAllRequiredTypesProto2
+            201 -> data = _fieldValue as pbandk.conformance.pb.TestAllRequiredTypesProto2.Data
+            241 -> defaultInt32 = _fieldValue as Int
+            242 -> defaultInt64 = _fieldValue as Long
+            243 -> defaultUint32 = _fieldValue as Int
+            244 -> defaultUint64 = _fieldValue as Long
+            245 -> defaultSint32 = _fieldValue as Int
+            246 -> defaultSint64 = _fieldValue as Long
+            247 -> defaultFixed32 = _fieldValue as Int
+            248 -> defaultFixed64 = _fieldValue as Long
+            249 -> defaultSfixed32 = _fieldValue as Int
+            250 -> defaultSfixed64 = _fieldValue as Long
+            251 -> defaultFloat = _fieldValue as Float
+            252 -> defaultDouble = _fieldValue as Double
+            253 -> defaultBool = _fieldValue as Boolean
+            254 -> defaultString = _fieldValue as String
+            255 -> defaultBytes = _fieldValue as pbandk.ByteArr
+        }
+    }
+
+    if (requiredInt32 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_int32")
+    }
+    if (requiredInt64 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_int64")
+    }
+    if (requiredUint32 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_uint32")
+    }
+    if (requiredUint64 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_uint64")
+    }
+    if (requiredSint32 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_sint32")
+    }
+    if (requiredSint64 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_sint64")
+    }
+    if (requiredFixed32 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_fixed32")
+    }
+    if (requiredFixed64 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_fixed64")
+    }
+    if (requiredSfixed32 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_sfixed32")
+    }
+    if (requiredSfixed64 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_sfixed64")
+    }
+    if (requiredFloat == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_float")
+    }
+    if (requiredDouble == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_double")
+    }
+    if (requiredBool == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_bool")
+    }
+    if (requiredString == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_string")
+    }
+    if (requiredBytes == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_bytes")
+    }
+    if (requiredNestedMessage == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_nested_message")
+    }
+    if (requiredForeignMessage == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_foreign_message")
+    }
+    if (requiredNestedEnum == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_nested_enum")
+    }
+    if (requiredForeignEnum == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_foreign_enum")
+    }
+    if (requiredStringPiece == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_string_piece")
+    }
+    if (requiredCord == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("required_cord")
+    }
+    if (recursiveMessage == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("recursive_message")
+    }
+    if (data == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("data")
+    }
+    if (defaultInt32 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_int32")
+    }
+    if (defaultInt64 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_int64")
+    }
+    if (defaultUint32 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_uint32")
+    }
+    if (defaultUint64 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_uint64")
+    }
+    if (defaultSint32 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_sint32")
+    }
+    if (defaultSint64 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_sint64")
+    }
+    if (defaultFixed32 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_fixed32")
+    }
+    if (defaultFixed64 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_fixed64")
+    }
+    if (defaultSfixed32 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_sfixed32")
+    }
+    if (defaultSfixed64 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_sfixed64")
+    }
+    if (defaultFloat == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_float")
+    }
+    if (defaultDouble == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_double")
+    }
+    if (defaultBool == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_bool")
+    }
+    if (defaultString == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_string")
+    }
+    if (defaultBytes == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("default_bytes")
+    }
+    return TestAllRequiredTypesProto2(requiredInt32!!, requiredInt64!!, requiredUint32!!, requiredUint64!!,
+        requiredSint32!!, requiredSint64!!, requiredFixed32!!, requiredFixed64!!,
+        requiredSfixed32!!, requiredSfixed64!!, requiredFloat!!, requiredDouble!!,
+        requiredBool!!, requiredString!!, requiredBytes!!, requiredNestedMessage!!,
+        requiredForeignMessage!!, requiredNestedEnum!!, requiredForeignEnum!!, requiredStringPiece!!,
+        requiredCord!!, recursiveMessage!!, optionalRecursiveMessage, data!!,
+        defaultInt32!!, defaultInt64!!, defaultUint32!!, defaultUint64!!,
+        defaultSint32!!, defaultSint64!!, defaultFixed32!!, defaultFixed64!!,
+        defaultSfixed32!!, defaultSfixed64!!, defaultFloat!!, defaultDouble!!,
+        defaultBool!!, defaultString!!, defaultBytes!!, unknownFields)
+}
+
+private fun TestAllRequiredTypesProto2.NestedMessage.protoMergeImpl(plus: pbandk.Message?): TestAllRequiredTypesProto2.NestedMessage = (plus as? TestAllRequiredTypesProto2.NestedMessage)?.let {
+    it.copy(
+        corecursive = corecursive.plus(plus.corecursive),
+        optionalCorecursive = optionalCorecursive?.plus(plus.optionalCorecursive) ?: plus.optionalCorecursive,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun TestAllRequiredTypesProto2.NestedMessage.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllRequiredTypesProto2.NestedMessage {
+    var a: Int? = null
+    var corecursive: pbandk.conformance.pb.TestAllRequiredTypesProto2? = null
+    var optionalCorecursive: pbandk.conformance.pb.TestAllRequiredTypesProto2? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> a = _fieldValue as Int
+            2 -> corecursive = _fieldValue as pbandk.conformance.pb.TestAllRequiredTypesProto2
+            3 -> optionalCorecursive = _fieldValue as pbandk.conformance.pb.TestAllRequiredTypesProto2
+        }
+    }
+
+    if (a == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("a")
+    }
+    if (corecursive == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("corecursive")
+    }
+    return TestAllRequiredTypesProto2.NestedMessage(a!!, corecursive!!, optionalCorecursive, unknownFields)
+}
+
+private fun TestAllRequiredTypesProto2.Data.protoMergeImpl(plus: pbandk.Message?): TestAllRequiredTypesProto2.Data = (plus as? TestAllRequiredTypesProto2.Data)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun TestAllRequiredTypesProto2.Data.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllRequiredTypesProto2.Data {
+    var groupInt32: Int? = null
+    var groupUint32: Int? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            202 -> groupInt32 = _fieldValue as Int
+            203 -> groupUint32 = _fieldValue as Int
+        }
+    }
+
+    if (groupInt32 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("group_int32")
+    }
+    if (groupUint32 == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("group_uint32")
+    }
+    return TestAllRequiredTypesProto2.Data(groupInt32!!, groupUint32!!, unknownFields)
+}
+
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllRequiredTypesProto2MessageSetCorrect")
+public fun TestAllRequiredTypesProto2.MessageSetCorrect?.orDefault(): pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrect = this ?: TestAllRequiredTypesProto2.MessageSetCorrect.defaultInstance
+
+private fun TestAllRequiredTypesProto2.MessageSetCorrect.protoMergeImpl(plus: pbandk.Message?): TestAllRequiredTypesProto2.MessageSetCorrect = (plus as? TestAllRequiredTypesProto2.MessageSetCorrect)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun TestAllRequiredTypesProto2.MessageSetCorrect.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllRequiredTypesProto2.MessageSetCorrect {
+
+    val unknownFields = u.readMessage(this) { _, _ -> }
+
+    return TestAllRequiredTypesProto2.MessageSetCorrect(unknownFields)
+}
+
+private fun TestAllRequiredTypesProto2.MessageSetCorrectExtension1.protoMergeImpl(plus: pbandk.Message?): TestAllRequiredTypesProto2.MessageSetCorrectExtension1 = (plus as? TestAllRequiredTypesProto2.MessageSetCorrectExtension1)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun TestAllRequiredTypesProto2.MessageSetCorrectExtension1.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllRequiredTypesProto2.MessageSetCorrectExtension1 {
+    var str: String? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            25 -> str = _fieldValue as String
+        }
+    }
+
+    if (str == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("str")
+    }
+    return TestAllRequiredTypesProto2.MessageSetCorrectExtension1(str!!, unknownFields)
+}
+
+private fun TestAllRequiredTypesProto2.MessageSetCorrectExtension2.protoMergeImpl(plus: pbandk.Message?): TestAllRequiredTypesProto2.MessageSetCorrectExtension2 = (plus as? TestAllRequiredTypesProto2.MessageSetCorrectExtension2)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun TestAllRequiredTypesProto2.MessageSetCorrectExtension2.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllRequiredTypesProto2.MessageSetCorrectExtension2 {
+    var i: Int? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            9 -> i = _fieldValue as Int
+        }
+    }
+
+    if (i == null) {
+        throw pbandk.InvalidProtocolBufferException.missingRequiredField("i")
+    }
+    return TestAllRequiredTypesProto2.MessageSetCorrectExtension2(i!!, unknownFields)
 }

@@ -2600,11 +2600,11 @@ public data class TimestampRules(
     }
 }
 
-val pbandk.wkt.MessageOptions.disabled: Boolean? 
+public val pbandk.wkt.MessageOptions.disabled: Boolean?
     get() = getExtension(pbandk.testpb.disabled)
 
 @pbandk.Export
-val disabled = pbandk.FieldDescriptor(
+public val disabled: pbandk.FieldDescriptor<pbandk.wkt.MessageOptions, Boolean?> = pbandk.FieldDescriptor(
     messageDescriptor = pbandk.wkt.MessageOptions.Companion::descriptor,
     name = "disabled",
     number = 1071,
@@ -2613,11 +2613,11 @@ val disabled = pbandk.FieldDescriptor(
     value = pbandk.wkt.MessageOptions::disabled
 )
 
-val pbandk.wkt.OneofOptions.required: Boolean? 
+public val pbandk.wkt.OneofOptions.required: Boolean?
     get() = getExtension(pbandk.testpb.required)
 
 @pbandk.Export
-val required = pbandk.FieldDescriptor(
+public val required: pbandk.FieldDescriptor<pbandk.wkt.OneofOptions, Boolean?> = pbandk.FieldDescriptor(
     messageDescriptor = pbandk.wkt.OneofOptions.Companion::descriptor,
     name = "required",
     number = 1071,
@@ -2626,11 +2626,11 @@ val required = pbandk.FieldDescriptor(
     value = pbandk.wkt.OneofOptions::required
 )
 
-val pbandk.wkt.FieldOptions.rules: pbandk.testpb.FieldRules? 
+public val pbandk.wkt.FieldOptions.rules: pbandk.testpb.FieldRules?
     get() = getExtension(pbandk.testpb.rules)
 
 @pbandk.Export
-val rules = pbandk.FieldDescriptor(
+public val rules: pbandk.FieldDescriptor<pbandk.wkt.FieldOptions, pbandk.testpb.FieldRules?> = pbandk.FieldDescriptor(
     messageDescriptor = pbandk.wkt.FieldOptions.Companion::descriptor,
     name = "rules",
     number = 1071,
