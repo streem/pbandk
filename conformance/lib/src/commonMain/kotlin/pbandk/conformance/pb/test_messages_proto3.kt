@@ -137,6 +137,7 @@ public data class TestAllTypesProto3(
     val optionalStruct: pbandk.wkt.Struct? = null,
     val optionalAny: pbandk.wkt.Any? = null,
     val optionalValue: pbandk.wkt.Value? = null,
+    val optionalNullValue: pbandk.wkt.NullValue = pbandk.wkt.NullValue.fromValue(0),
     val repeatedDuration: List<pbandk.wkt.Duration> = emptyList(),
     val repeatedTimestamp: List<pbandk.wkt.Timestamp> = emptyList(),
     val repeatedFieldmask: List<pbandk.wkt.FieldMask> = emptyList(),
@@ -175,6 +176,7 @@ public data class TestAllTypesProto3(
         public class OneofFloat(oneofFloat: Float = 0.0F) : OneofField<Float>(oneofFloat)
         public class OneofDouble(oneofDouble: Double = 0.0) : OneofField<Double>(oneofDouble)
         public class OneofEnum(oneofEnum: pbandk.conformance.pb.TestAllTypesProto3.NestedEnum = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromValue(0)) : OneofField<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>(oneofEnum)
+        public class OneofNullValue(oneofNullValue: pbandk.wkt.NullValue = pbandk.wkt.NullValue.fromValue(0)) : OneofField<pbandk.wkt.NullValue>(oneofNullValue)
     }
 
     val oneofUint32: Int?
@@ -195,6 +197,8 @@ public data class TestAllTypesProto3(
         get() = (oneofField as? OneofField.OneofDouble)?.value
     val oneofEnum: pbandk.conformance.pb.TestAllTypesProto3.NestedEnum?
         get() = (oneofField as? OneofField.OneofEnum)?.value
+    val oneofNullValue: pbandk.wkt.NullValue?
+        get() = (oneofField as? OneofField.OneofNullValue)?.value
 
     override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto3 = protoMergeImpl(other)
     override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto3> get() = Companion.descriptor
@@ -207,7 +211,7 @@ public data class TestAllTypesProto3(
             fullName = "protobuf_test_messages.proto3.TestAllTypesProto3",
             messageClass = pbandk.conformance.pb.TestAllTypesProto3::class,
             messageCompanion = this,
-            fields = buildList(149) {
+            fields = buildList(151) {
                 addFields0()
                 addFields1()
             }
@@ -1229,6 +1233,17 @@ public data class TestAllTypesProto3(
             add(
                 pbandk.FieldDescriptor(
                     messageDescriptor = this@Companion::descriptor,
+                    name = "oneof_null_value",
+                    number = 120,
+                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.NullValue.Companion, hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "oneofNullValue",
+                    value = pbandk.conformance.pb.TestAllTypesProto3::oneofNullValue
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
                     name = "optional_bool_wrapper",
                     number = 201,
                     type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BoolValue.Companion),
@@ -1464,6 +1479,16 @@ public data class TestAllTypesProto3(
                     type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion),
                     jsonName = "optionalValue",
                     value = pbandk.conformance.pb.TestAllTypesProto3::optionalValue
+                )
+            )
+            add(
+                pbandk.FieldDescriptor(
+                    messageDescriptor = this@Companion::descriptor,
+                    name = "optional_null_value",
+                    number = 307,
+                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.NullValue.Companion),
+                    jsonName = "optionalNullValue",
+                    value = pbandk.conformance.pb.TestAllTypesProto3::optionalNullValue
                 )
             )
             add(
@@ -1745,13 +1770,13 @@ public data class TestAllTypesProto3(
         public object ALIAS_FOO : AliasedEnum(0, "ALIAS_FOO")
         public object ALIAS_BAR : AliasedEnum(1, "ALIAS_BAR")
         public object ALIAS_BAZ : AliasedEnum(2, "ALIAS_BAZ")
-        public object QUX : AliasedEnum(2, "QUX")
-        public object QUX_ : AliasedEnum(2, "qux")
+        public object MOO : AliasedEnum(2, "MOO")
+        public object MOO_ : AliasedEnum(2, "moo")
         public object B_AZ : AliasedEnum(2, "bAz")
         public class UNRECOGNIZED(value: Int) : AliasedEnum(value)
 
         public companion object : pbandk.Message.Enum.Companion<pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum> {
-            public val values: List<pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum> by lazy { listOf(ALIAS_FOO, ALIAS_BAR, ALIAS_BAZ, QUX, QUX_, B_AZ) }
+            public val values: List<pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum> by lazy { listOf(ALIAS_FOO, ALIAS_BAR, ALIAS_BAZ, MOO, MOO_, B_AZ) }
             override fun fromValue(value: Int): pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String): pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No AliasedEnum with name: $name")
         }
@@ -2631,6 +2656,64 @@ public data class ForeignMessage(
 }
 
 @pbandk.Export
+public data class NullHypothesisProto3(
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.NullHypothesisProto3 = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.NullHypothesisProto3> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.NullHypothesisProto3> {
+        public val defaultInstance: pbandk.conformance.pb.NullHypothesisProto3 by lazy { pbandk.conformance.pb.NullHypothesisProto3() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.NullHypothesisProto3 = pbandk.conformance.pb.NullHypothesisProto3.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.NullHypothesisProto3> = pbandk.MessageDescriptor(
+            fullName = "protobuf_test_messages.proto3.NullHypothesisProto3",
+            messageClass = pbandk.conformance.pb.NullHypothesisProto3::class,
+            messageCompanion = this,
+            fields = buildList(0) {
+            }
+        )
+    }
+}
+
+@pbandk.Export
+public data class EnumOnlyProto3(
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.EnumOnlyProto3 = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.EnumOnlyProto3> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.EnumOnlyProto3> {
+        public val defaultInstance: pbandk.conformance.pb.EnumOnlyProto3 by lazy { pbandk.conformance.pb.EnumOnlyProto3() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.EnumOnlyProto3 = pbandk.conformance.pb.EnumOnlyProto3.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.EnumOnlyProto3> = pbandk.MessageDescriptor(
+            fullName = "protobuf_test_messages.proto3.EnumOnlyProto3",
+            messageClass = pbandk.conformance.pb.EnumOnlyProto3::class,
+            messageCompanion = this,
+            fields = buildList(0) {
+            }
+        )
+    }
+
+    public sealed class Bool(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.conformance.pb.EnumOnlyProto3.Bool && other.value == value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "EnumOnlyProto3.Bool.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        public object K_FALSE : Bool(0, "kFalse")
+        public object K_TRUE : Bool(1, "kTrue")
+        public class UNRECOGNIZED(value: Int) : Bool(value)
+
+        public companion object : pbandk.Message.Enum.Companion<pbandk.conformance.pb.EnumOnlyProto3.Bool> {
+            public val values: List<pbandk.conformance.pb.EnumOnlyProto3.Bool> by lazy { listOf(K_FALSE, K_TRUE) }
+            override fun fromValue(value: Int): pbandk.conformance.pb.EnumOnlyProto3.Bool = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.conformance.pb.EnumOnlyProto3.Bool = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Bool with name: $name")
+        }
+    }
+}
+
+@pbandk.Export
 @pbandk.JsName("orDefaultForTestAllTypesProto3")
 public fun TestAllTypesProto3?.orDefault(): pbandk.conformance.pb.TestAllTypesProto3 = this ?: TestAllTypesProto3.defaultInstance
 
@@ -2865,6 +2948,7 @@ private fun TestAllTypesProto3.Companion.decodeWithImpl(u: pbandk.MessageDecoder
     var optionalStruct: pbandk.wkt.Struct? = null
     var optionalAny: pbandk.wkt.Any? = null
     var optionalValue: pbandk.wkt.Value? = null
+    var optionalNullValue: pbandk.wkt.NullValue = pbandk.wkt.NullValue.fromValue(0)
     var repeatedDuration: pbandk.ListWithSize.Builder<pbandk.wkt.Duration>? = null
     var repeatedTimestamp: pbandk.ListWithSize.Builder<pbandk.wkt.Timestamp>? = null
     var repeatedFieldmask: pbandk.ListWithSize.Builder<pbandk.wkt.FieldMask>? = null
@@ -2994,6 +3078,7 @@ private fun TestAllTypesProto3.Companion.decodeWithImpl(u: pbandk.MessageDecoder
             117 -> oneofField = TestAllTypesProto3.OneofField.OneofFloat(_fieldValue as Float)
             118 -> oneofField = TestAllTypesProto3.OneofField.OneofDouble(_fieldValue as Double)
             119 -> oneofField = TestAllTypesProto3.OneofField.OneofEnum(_fieldValue as pbandk.conformance.pb.TestAllTypesProto3.NestedEnum)
+            120 -> oneofField = TestAllTypesProto3.OneofField.OneofNullValue(_fieldValue as pbandk.wkt.NullValue)
             201 -> optionalBoolWrapper = _fieldValue as Boolean
             202 -> optionalInt32Wrapper = _fieldValue as Int
             203 -> optionalInt64Wrapper = _fieldValue as Long
@@ -3018,6 +3103,7 @@ private fun TestAllTypesProto3.Companion.decodeWithImpl(u: pbandk.MessageDecoder
             304 -> optionalStruct = _fieldValue as pbandk.wkt.Struct
             305 -> optionalAny = _fieldValue as pbandk.wkt.Any
             306 -> optionalValue = _fieldValue as pbandk.wkt.Value
+            307 -> optionalNullValue = _fieldValue as pbandk.wkt.NullValue
             311 -> repeatedDuration = (repeatedDuration ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Duration> }
             312 -> repeatedTimestamp = (repeatedTimestamp ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Timestamp> }
             313 -> repeatedFieldmask = (repeatedFieldmask ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.FieldMask> }
@@ -3074,14 +3160,14 @@ private fun TestAllTypesProto3.Companion.decodeWithImpl(u: pbandk.MessageDecoder
         pbandk.ListWithSize.Builder.fixed(repeatedBoolWrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt32Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedUint32Wrapper),
         pbandk.ListWithSize.Builder.fixed(repeatedUint64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedFloatWrapper), pbandk.ListWithSize.Builder.fixed(repeatedDoubleWrapper), pbandk.ListWithSize.Builder.fixed(repeatedStringWrapper),
         pbandk.ListWithSize.Builder.fixed(repeatedBytesWrapper), optionalDuration, optionalTimestamp, optionalFieldMask,
-        optionalStruct, optionalAny, optionalValue, pbandk.ListWithSize.Builder.fixed(repeatedDuration),
-        pbandk.ListWithSize.Builder.fixed(repeatedTimestamp), pbandk.ListWithSize.Builder.fixed(repeatedFieldmask), pbandk.ListWithSize.Builder.fixed(repeatedStruct), pbandk.ListWithSize.Builder.fixed(repeatedAny),
-        pbandk.ListWithSize.Builder.fixed(repeatedValue), pbandk.ListWithSize.Builder.fixed(repeatedListValue), fieldname1, fieldName2,
-        fieldName3, field_name4, field0name5, field0Name6,
-        fieldName7, fieldName8, fieldName9, fieldName10,
-        fIELDNAME11, fIELDName12, _fieldName13, _FieldName14,
-        field_name15, field_Name16, fieldName17_, fieldName18_,
-        oneofField, unknownFields)
+        optionalStruct, optionalAny, optionalValue, optionalNullValue,
+        pbandk.ListWithSize.Builder.fixed(repeatedDuration), pbandk.ListWithSize.Builder.fixed(repeatedTimestamp), pbandk.ListWithSize.Builder.fixed(repeatedFieldmask), pbandk.ListWithSize.Builder.fixed(repeatedStruct),
+        pbandk.ListWithSize.Builder.fixed(repeatedAny), pbandk.ListWithSize.Builder.fixed(repeatedValue), pbandk.ListWithSize.Builder.fixed(repeatedListValue), fieldname1,
+        fieldName2, fieldName3, field_name4, field0name5,
+        field0Name6, fieldName7, fieldName8, fieldName9,
+        fieldName10, fIELDNAME11, fIELDName12, _fieldName13,
+        _FieldName14, field_name15, field_Name16, fieldName17_,
+        fieldName18_, oneofField, unknownFields)
 }
 
 @pbandk.Export
@@ -3608,4 +3694,40 @@ private fun ForeignMessage.Companion.decodeWithImpl(u: pbandk.MessageDecoder): F
     }
 
     return ForeignMessage(c, unknownFields)
+}
+
+@pbandk.Export
+@pbandk.JsName("orDefaultForNullHypothesisProto3")
+public fun NullHypothesisProto3?.orDefault(): pbandk.conformance.pb.NullHypothesisProto3 = this ?: NullHypothesisProto3.defaultInstance
+
+private fun NullHypothesisProto3.protoMergeImpl(plus: pbandk.Message?): NullHypothesisProto3 = (plus as? NullHypothesisProto3)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun NullHypothesisProto3.Companion.decodeWithImpl(u: pbandk.MessageDecoder): NullHypothesisProto3 {
+
+    val unknownFields = u.readMessage(this) { _, _ -> }
+
+    return NullHypothesisProto3(unknownFields)
+}
+
+@pbandk.Export
+@pbandk.JsName("orDefaultForEnumOnlyProto3")
+public fun EnumOnlyProto3?.orDefault(): pbandk.conformance.pb.EnumOnlyProto3 = this ?: EnumOnlyProto3.defaultInstance
+
+private fun EnumOnlyProto3.protoMergeImpl(plus: pbandk.Message?): EnumOnlyProto3 = (plus as? EnumOnlyProto3)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun EnumOnlyProto3.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumOnlyProto3 {
+
+    val unknownFields = u.readMessage(this) { _, _ -> }
+
+    return EnumOnlyProto3(unknownFields)
 }

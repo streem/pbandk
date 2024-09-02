@@ -4,6 +4,7 @@ import pbandk.ByteArr
 import pbandk.FieldDescriptor
 import pbandk.ListWithSize
 import pbandk.Message
+import pbandk.MessageEncoding
 import pbandk.MessageMap
 import pbandk.wkt.BoolValue
 import pbandk.wkt.BytesValue
@@ -18,11 +19,11 @@ import kotlin.reflect.KProperty1
 
 private fun <T : Any> wrapperProtoSize(value: T, type: FieldDescriptor.Type.Message<*>): Int {
     val valueType = type.messageCompanion.descriptor.fields.first().type
-    val size = if (valueType.isDefaultValue(value)) 0 else PlatformSizer.tagSize(1) + valueType.protoSize(value)
+    val size = if (valueType.isDefaultValue(value)) 0 else PlatformSizer.tagSize(1) + valueType.protoSize(1, value)
     return PlatformSizer.uInt32Size(size) + size
 }
 
-internal fun FieldDescriptor.Type.protoSize(value: Any) = when (this) {
+internal fun FieldDescriptor.Type.protoSize(fieldNum: Int, value: Any) = when (this) {
     is FieldDescriptor.Type.Primitive.Double -> PlatformSizer.doubleSize(value as Double)
     is FieldDescriptor.Type.Primitive.Float -> PlatformSizer.floatSize(value as Float)
     is FieldDescriptor.Type.Primitive.Int64 -> PlatformSizer.int64Size(value as Long)
@@ -48,11 +49,14 @@ internal fun FieldDescriptor.Type.protoSize(value: Any) = when (this) {
         BoolValue.Companion -> wrapperProtoSize(value as Boolean, this)
         StringValue.Companion -> wrapperProtoSize(value as String, this)
         BytesValue.Companion -> wrapperProtoSize(value as ByteArr, this)
-        else -> PlatformSizer.messageSize(value as Message)
+        else -> when (encoding) {
+            MessageEncoding.LENGTH_PREFIXED -> PlatformSizer.lengthPrefixedMessageSize(value as Message)
+            MessageEncoding.DELIMITED -> PlatformSizer.delimitedMessageSize(fieldNum, value as Message)
+        }
     }
 
     is FieldDescriptor.Type.Enum<*> -> PlatformSizer.enumSize(value as Message.Enum)
-    is FieldDescriptor.Type.Repeated<*> -> PlatformSizer.repeatedSize(value as List<*>, valueType, packed)
+    is FieldDescriptor.Type.Repeated<*> -> PlatformSizer.repeatedSize(fieldNum, value as List<*>, valueType, packed)
     is FieldDescriptor.Type.Map<*, *> -> PlatformSizer.mapSize(value as Map<*, *>, entryCompanion)
 }
 
@@ -64,7 +68,12 @@ internal abstract class AbstractSizer : Sizer {
 
     override fun <T : Message.Enum> enumSize(value: T) = int32Size(value.value)
 
-    override fun <T : Message> messageSize(value: T) = uInt32Size(value.protoSize) + value.protoSize
+    override fun <T : Message> lengthPrefixedMessageSize(value: T) = uInt32Size(value.protoSize) + value.protoSize
+
+    // NOTE: All of the methods in [Sizer] return the size of the field _exclusive_ of the field's tag. This means that
+    // a delimited message field's size, as returned by this function, should only include the size of the END_GROUP tag
+    // and not the START_GROUP tag.
+    override fun <T : Message> delimitedMessageSize(fieldNum: Int, value: T) = tagSize(fieldNum) + value.protoSize
 
     override fun <T : Message> rawMessageSize(message: T): Int {
         var protoSize = 0
@@ -81,7 +90,7 @@ internal abstract class AbstractSizer : Sizer {
                     is FieldDescriptor.Type.Map<*, *> -> tagSize(fd.number) * (value as Map<*, *>).size
                     else -> tagSize(fd.number)
                 }
-                protoSize += fd.type.protoSize(value)
+                protoSize += fd.type.protoSize(fd.number, value)
             }
         }
 
@@ -89,8 +98,8 @@ internal abstract class AbstractSizer : Sizer {
         return protoSize
     }
 
-    override fun <T> repeatedSize(list: List<T>, valueType: FieldDescriptor.Type, packed: Boolean): Int {
-        val sizeFn: (T) -> Int = { if (it != null) valueType.protoSize(it) else 0 }
+    override fun <T> repeatedSize(fieldNum: Int, list: List<T>, valueType: FieldDescriptor.Type, packed: Boolean): Int {
+        val sizeFn: (T) -> Int = { if (it != null) valueType.protoSize(fieldNum, it) else 0 }
         return if (packed) {
             packedRepeatedSize(list, sizeFn)
         } else {
@@ -109,11 +118,11 @@ internal abstract class AbstractSizer : Sizer {
             } else {
                 val keySize = entry.key
                     .takeIf { entryCompanion.keyType.shouldOutputValue(it) }
-                    ?.let { tagSize(1) + entryCompanion.keyType.protoSize(it) }
+                    ?.let { tagSize(1) + entryCompanion.keyType.protoSize(1, it) }
                     ?: 0
                 val valueSize = entry.value
                     .takeIf { entryCompanion.valueType.shouldOutputValue(it) }
-                    ?.let { tagSize(2) + entryCompanion.valueType.protoSize(it) }
+                    ?.let { tagSize(2) + entryCompanion.valueType.protoSize(2, it) }
                     ?: 0
                 keySize + valueSize
             }.let { size ->

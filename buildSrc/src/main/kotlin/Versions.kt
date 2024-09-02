@@ -10,7 +10,7 @@ object Versions {
     const val kotlinSerialization = "1.7.1"
     const val robolectric = "11-robolectric-6757853"
     const val osDetectorGradlePlugin = "1.7.3"
-    const val protoc = "3.19.1"
+    const val protoc = "4.28.0"
     const val protobufJava = protoc
     const val springBootGradlePlugin = "2.4.5"
 }

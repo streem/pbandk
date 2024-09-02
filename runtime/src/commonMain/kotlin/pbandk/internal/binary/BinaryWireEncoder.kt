@@ -9,6 +9,10 @@ internal interface BinaryWireEncoder {
 
     fun writeLengthDelimitedHeader(fieldNum: Int, protoSize: Int)
 
+    fun writeGroupStart(fieldNum: Int)
+
+    fun writeGroupEnd(fieldNum: Int)
+
     fun writePackedRepeated(fieldNum: Int, list: List<*>, valueType: FieldDescriptor.Type)
 
     fun writeInt32(fieldNum: Int, value: Int)

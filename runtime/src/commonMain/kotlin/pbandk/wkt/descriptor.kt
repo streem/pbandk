@@ -3,6 +3,33 @@
 package pbandk.wkt
 
 @pbandk.Export
+public sealed class Edition(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+    override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.Edition && other.value == value
+    override fun hashCode(): Int = value.hashCode()
+    override fun toString(): String = "Edition.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+    public object UNKNOWN : Edition(0, "EDITION_UNKNOWN")
+    public object LEGACY : Edition(900, "EDITION_LEGACY")
+    public object PROTO2 : Edition(998, "EDITION_PROTO2")
+    public object PROTO3 : Edition(999, "EDITION_PROTO3")
+    public object EDITION_2023 : Edition(1000, "EDITION_2023")
+    public object EDITION_2024 : Edition(1001, "EDITION_2024")
+    public object EDITION_1_TEST_ONLY : Edition(1, "EDITION_1_TEST_ONLY")
+    public object EDITION_2_TEST_ONLY : Edition(2, "EDITION_2_TEST_ONLY")
+    public object EDITION_99997_TEST_ONLY : Edition(99997, "EDITION_99997_TEST_ONLY")
+    public object EDITION_99998_TEST_ONLY : Edition(99998, "EDITION_99998_TEST_ONLY")
+    public object EDITION_99999_TEST_ONLY : Edition(99999, "EDITION_99999_TEST_ONLY")
+    public object MAX : Edition(2147483647, "EDITION_MAX")
+    public class UNRECOGNIZED(value: Int) : Edition(value)
+
+    public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.Edition> {
+        public val values: List<pbandk.wkt.Edition> by lazy { listOf(UNKNOWN, LEGACY, PROTO2, PROTO3, EDITION_2023, EDITION_2024, EDITION_1_TEST_ONLY, EDITION_2_TEST_ONLY, EDITION_99997_TEST_ONLY, EDITION_99998_TEST_ONLY, EDITION_99999_TEST_ONLY, MAX) }
+        override fun fromValue(value: Int): pbandk.wkt.Edition = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+        override fun fromName(name: String): pbandk.wkt.Edition = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Edition with name: $name")
+    }
+}
+
+@pbandk.Export
 public data class FileDescriptorSet(
     val file: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -48,6 +75,7 @@ public data class FileDescriptorProto(
     val options: pbandk.wkt.FileOptions? = null,
     val sourceCodeInfo: pbandk.wkt.SourceCodeInfo? = null,
     val syntax: String? = null,
+    val edition: pbandk.wkt.Edition? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.FileDescriptorProto = protoMergeImpl(other)
@@ -61,7 +89,7 @@ public data class FileDescriptorProto(
             fullName = "google.protobuf.FileDescriptorProto",
             messageClass = pbandk.wkt.FileDescriptorProto::class,
             messageCompanion = this,
-            fields = buildList(12) {
+            fields = buildList(13) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -180,6 +208,16 @@ public data class FileDescriptorProto(
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         jsonName = "syntax",
                         value = pbandk.wkt.FileDescriptorProto::syntax
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "edition",
+                        number = 14,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Edition.Companion, hasPresence = true),
+                        jsonName = "edition",
+                        value = pbandk.wkt.FileDescriptorProto::edition
                     )
                 )
             }
@@ -416,6 +454,9 @@ public data class DescriptorProto(
 @pbandk.Export
 public data class ExtensionRangeOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
+    val declaration: List<pbandk.wkt.ExtensionRangeOptions.Declaration> = emptyList(),
+    val features: pbandk.wkt.FeatureSet? = null,
+    val verification: pbandk.wkt.ExtensionRangeOptions.VerificationState? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @property:pbandk.PbandkInternal
     override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
@@ -431,7 +472,37 @@ public data class ExtensionRangeOptions(
             fullName = "google.protobuf.ExtensionRangeOptions",
             messageClass = pbandk.wkt.ExtensionRangeOptions::class,
             messageCompanion = this,
-            fields = buildList(1) {
+            fields = buildList(4) {
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "declaration",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.ExtensionRangeOptions.Declaration>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ExtensionRangeOptions.Declaration.Companion)),
+                        jsonName = "declaration",
+                        value = pbandk.wkt.ExtensionRangeOptions::declaration
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "verification",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.ExtensionRangeOptions.VerificationState.Companion, hasPresence = true),
+                        jsonName = "verification",
+                        value = pbandk.wkt.ExtensionRangeOptions::verification
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "features",
+                        number = 50,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FeatureSet.Companion),
+                        jsonName = "features",
+                        value = pbandk.wkt.ExtensionRangeOptions::features
+                    )
+                )
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -444,6 +515,97 @@ public data class ExtensionRangeOptions(
                 )
             }
         )
+    }
+
+    public sealed class VerificationState(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.ExtensionRangeOptions.VerificationState && other.value == value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "ExtensionRangeOptions.VerificationState.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        public object DECLARATION : VerificationState(0, "DECLARATION")
+        public object UNVERIFIED : VerificationState(1, "UNVERIFIED")
+        public class UNRECOGNIZED(value: Int) : VerificationState(value)
+
+        public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.ExtensionRangeOptions.VerificationState> {
+            public val values: List<pbandk.wkt.ExtensionRangeOptions.VerificationState> by lazy { listOf(DECLARATION, UNVERIFIED) }
+            override fun fromValue(value: Int): pbandk.wkt.ExtensionRangeOptions.VerificationState = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.wkt.ExtensionRangeOptions.VerificationState = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No VerificationState with name: $name")
+        }
+    }
+
+    public data class Declaration(
+        val number: Int? = null,
+        val fullName: String? = null,
+        val type: String? = null,
+        val reserved: Boolean? = null,
+        val repeated: Boolean? = null,
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message {
+        override operator fun plus(other: pbandk.Message?): pbandk.wkt.ExtensionRangeOptions.Declaration = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ExtensionRangeOptions.Declaration> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.wkt.ExtensionRangeOptions.Declaration> {
+            public val defaultInstance: pbandk.wkt.ExtensionRangeOptions.Declaration by lazy { pbandk.wkt.ExtensionRangeOptions.Declaration() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ExtensionRangeOptions.Declaration = pbandk.wkt.ExtensionRangeOptions.Declaration.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ExtensionRangeOptions.Declaration> = pbandk.MessageDescriptor(
+                fullName = "google.protobuf.ExtensionRangeOptions.Declaration",
+                messageClass = pbandk.wkt.ExtensionRangeOptions.Declaration::class,
+                messageCompanion = this,
+                fields = buildList(5) {
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "number",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                            jsonName = "number",
+                            value = pbandk.wkt.ExtensionRangeOptions.Declaration::number
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "full_name",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "fullName",
+                            value = pbandk.wkt.ExtensionRangeOptions.Declaration::fullName
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "type",
+                            number = 3,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "type",
+                            value = pbandk.wkt.ExtensionRangeOptions.Declaration::type
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "reserved",
+                            number = 5,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                            jsonName = "reserved",
+                            value = pbandk.wkt.ExtensionRangeOptions.Declaration::reserved
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "repeated",
+                            number = 6,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                            jsonName = "repeated",
+                            value = pbandk.wkt.ExtensionRangeOptions.Declaration::repeated
+                        )
+                    )
+                }
+            )
+        }
     }
 }
 
@@ -626,12 +788,12 @@ public data class FieldDescriptorProto(
         override fun toString(): String = "FieldDescriptorProto.Label.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         public object OPTIONAL : Label(1, "LABEL_OPTIONAL")
-        public object REQUIRED : Label(2, "LABEL_REQUIRED")
         public object REPEATED : Label(3, "LABEL_REPEATED")
+        public object REQUIRED : Label(2, "LABEL_REQUIRED")
         public class UNRECOGNIZED(value: Int) : Label(value)
 
         public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.FieldDescriptorProto.Label> {
-            public val values: List<pbandk.wkt.FieldDescriptorProto.Label> by lazy { listOf(OPTIONAL, REQUIRED, REPEATED) }
+            public val values: List<pbandk.wkt.FieldDescriptorProto.Label> by lazy { listOf(OPTIONAL, REPEATED, REQUIRED) }
             override fun fromValue(value: Int): pbandk.wkt.FieldDescriptorProto.Label = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String): pbandk.wkt.FieldDescriptorProto.Label = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Label with name: $name")
         }
@@ -1007,7 +1169,6 @@ public data class FileOptions(
     val ccGenericServices: Boolean? = null,
     val javaGenericServices: Boolean? = null,
     val pyGenericServices: Boolean? = null,
-    val phpGenericServices: Boolean? = null,
     val deprecated: Boolean? = null,
     val ccEnableArenas: Boolean? = null,
     val objcClassPrefix: String? = null,
@@ -1017,6 +1178,7 @@ public data class FileOptions(
     val phpNamespace: String? = null,
     val phpMetadataNamespace: String? = null,
     val rubyPackage: String? = null,
+    val features: pbandk.wkt.FeatureSet? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @property:pbandk.PbandkInternal
@@ -1211,16 +1373,6 @@ public data class FileOptions(
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
-                        name = "php_generic_services",
-                        number = 42,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "phpGenericServices",
-                        value = pbandk.wkt.FileOptions::phpGenericServices
-                    )
-                )
-                add(
-                    pbandk.FieldDescriptor(
-                        messageDescriptor = this@Companion::descriptor,
                         name = "php_metadata_namespace",
                         number = 44,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
@@ -1236,6 +1388,16 @@ public data class FileOptions(
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         jsonName = "rubyPackage",
                         value = pbandk.wkt.FileOptions::rubyPackage
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "features",
+                        number = 50,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FeatureSet.Companion),
+                        jsonName = "features",
+                        value = pbandk.wkt.FileOptions::features
                     )
                 )
                 add(
@@ -1276,6 +1438,9 @@ public data class MessageOptions(
     val noStandardDescriptorAccessor: Boolean? = null,
     val deprecated: Boolean? = null,
     val mapEntry: Boolean? = null,
+    @Deprecated(message = "Field marked deprecated in google/protobuf/descriptor.proto")
+    val deprecatedLegacyJsonFieldConflicts: Boolean? = null,
+    val features: pbandk.wkt.FeatureSet? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @property:pbandk.PbandkInternal
@@ -1292,7 +1457,7 @@ public data class MessageOptions(
             fullName = "google.protobuf.MessageOptions",
             messageClass = pbandk.wkt.MessageOptions::class,
             messageCompanion = this,
-            fields = buildList(5) {
+            fields = buildList(7) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1333,6 +1498,30 @@ public data class MessageOptions(
                         value = pbandk.wkt.MessageOptions::mapEntry
                     )
                 )
+                @Suppress("DEPRECATION")
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "deprecated_legacy_json_field_conflicts",
+                        number = 11,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                        jsonName = "deprecatedLegacyJsonFieldConflicts",
+                        options = pbandk.wkt.FieldOptions(
+                            deprecated = true
+                        ),
+                        value = pbandk.wkt.MessageOptions::deprecatedLegacyJsonFieldConflicts
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "features",
+                        number = 12,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FeatureSet.Companion),
+                        jsonName = "features",
+                        value = pbandk.wkt.MessageOptions::features
+                    )
+                )
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1354,8 +1543,15 @@ public data class FieldOptions(
     val packed: Boolean? = null,
     val jstype: pbandk.wkt.FieldOptions.JSType? = null,
     val lazy: Boolean? = null,
+    val unverifiedLazy: Boolean? = null,
     val deprecated: Boolean? = null,
     val weak: Boolean? = null,
+    val debugRedact: Boolean? = null,
+    val retention: pbandk.wkt.FieldOptions.OptionRetention? = null,
+    val targets: List<pbandk.wkt.FieldOptions.OptionTargetType> = emptyList(),
+    val editionDefaults: List<pbandk.wkt.FieldOptions.EditionDefault> = emptyList(),
+    val features: pbandk.wkt.FeatureSet? = null,
+    val featureSupport: pbandk.wkt.FieldOptions.FeatureSupport? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @property:pbandk.PbandkInternal
@@ -1372,7 +1568,7 @@ public data class FieldOptions(
             fullName = "google.protobuf.FieldOptions",
             messageClass = pbandk.wkt.FieldOptions::class,
             messageCompanion = this,
-            fields = buildList(7) {
+            fields = buildList(14) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1436,6 +1632,76 @@ public data class FieldOptions(
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
+                        name = "unverified_lazy",
+                        number = 15,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                        jsonName = "unverifiedLazy",
+                        value = pbandk.wkt.FieldOptions::unverifiedLazy
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "debug_redact",
+                        number = 16,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                        jsonName = "debugRedact",
+                        value = pbandk.wkt.FieldOptions::debugRedact
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "retention",
+                        number = 17,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FieldOptions.OptionRetention.Companion, hasPresence = true),
+                        jsonName = "retention",
+                        value = pbandk.wkt.FieldOptions::retention
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "targets",
+                        number = 19,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FieldOptions.OptionTargetType>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FieldOptions.OptionTargetType.Companion)),
+                        jsonName = "targets",
+                        value = pbandk.wkt.FieldOptions::targets
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "edition_defaults",
+                        number = 20,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FieldOptions.EditionDefault>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldOptions.EditionDefault.Companion)),
+                        jsonName = "editionDefaults",
+                        value = pbandk.wkt.FieldOptions::editionDefaults
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "features",
+                        number = 21,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FeatureSet.Companion),
+                        jsonName = "features",
+                        value = pbandk.wkt.FieldOptions::features
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "feature_support",
+                        number = 22,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldOptions.FeatureSupport.Companion),
+                        jsonName = "featureSupport",
+                        value = pbandk.wkt.FieldOptions::featureSupport
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
                         name = "uninterpreted_option",
                         number = 999,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.UninterpretedOption>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UninterpretedOption.Companion)),
@@ -1480,10 +1746,158 @@ public data class FieldOptions(
             override fun fromName(name: String): pbandk.wkt.FieldOptions.JSType = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No JSType with name: $name")
         }
     }
+
+    public sealed class OptionRetention(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.FieldOptions.OptionRetention && other.value == value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "FieldOptions.OptionRetention.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        public object RETENTION_UNKNOWN : OptionRetention(0, "RETENTION_UNKNOWN")
+        public object RETENTION_RUNTIME : OptionRetention(1, "RETENTION_RUNTIME")
+        public object RETENTION_SOURCE : OptionRetention(2, "RETENTION_SOURCE")
+        public class UNRECOGNIZED(value: Int) : OptionRetention(value)
+
+        public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.FieldOptions.OptionRetention> {
+            public val values: List<pbandk.wkt.FieldOptions.OptionRetention> by lazy { listOf(RETENTION_UNKNOWN, RETENTION_RUNTIME, RETENTION_SOURCE) }
+            override fun fromValue(value: Int): pbandk.wkt.FieldOptions.OptionRetention = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.wkt.FieldOptions.OptionRetention = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No OptionRetention with name: $name")
+        }
+    }
+
+    public sealed class OptionTargetType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.FieldOptions.OptionTargetType && other.value == value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "FieldOptions.OptionTargetType.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        public object TARGET_TYPE_UNKNOWN : OptionTargetType(0, "TARGET_TYPE_UNKNOWN")
+        public object TARGET_TYPE_FILE : OptionTargetType(1, "TARGET_TYPE_FILE")
+        public object TARGET_TYPE_EXTENSION_RANGE : OptionTargetType(2, "TARGET_TYPE_EXTENSION_RANGE")
+        public object TARGET_TYPE_MESSAGE : OptionTargetType(3, "TARGET_TYPE_MESSAGE")
+        public object TARGET_TYPE_FIELD : OptionTargetType(4, "TARGET_TYPE_FIELD")
+        public object TARGET_TYPE_ONEOF : OptionTargetType(5, "TARGET_TYPE_ONEOF")
+        public object TARGET_TYPE_ENUM : OptionTargetType(6, "TARGET_TYPE_ENUM")
+        public object TARGET_TYPE_ENUM_ENTRY : OptionTargetType(7, "TARGET_TYPE_ENUM_ENTRY")
+        public object TARGET_TYPE_SERVICE : OptionTargetType(8, "TARGET_TYPE_SERVICE")
+        public object TARGET_TYPE_METHOD : OptionTargetType(9, "TARGET_TYPE_METHOD")
+        public class UNRECOGNIZED(value: Int) : OptionTargetType(value)
+
+        public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.FieldOptions.OptionTargetType> {
+            public val values: List<pbandk.wkt.FieldOptions.OptionTargetType> by lazy { listOf(TARGET_TYPE_UNKNOWN, TARGET_TYPE_FILE, TARGET_TYPE_EXTENSION_RANGE, TARGET_TYPE_MESSAGE, TARGET_TYPE_FIELD, TARGET_TYPE_ONEOF, TARGET_TYPE_ENUM, TARGET_TYPE_ENUM_ENTRY, TARGET_TYPE_SERVICE, TARGET_TYPE_METHOD) }
+            override fun fromValue(value: Int): pbandk.wkt.FieldOptions.OptionTargetType = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.wkt.FieldOptions.OptionTargetType = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No OptionTargetType with name: $name")
+        }
+    }
+
+    public data class EditionDefault(
+        val edition: pbandk.wkt.Edition? = null,
+        val value: String? = null,
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message {
+        override operator fun plus(other: pbandk.Message?): pbandk.wkt.FieldOptions.EditionDefault = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldOptions.EditionDefault> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.wkt.FieldOptions.EditionDefault> {
+            public val defaultInstance: pbandk.wkt.FieldOptions.EditionDefault by lazy { pbandk.wkt.FieldOptions.EditionDefault() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldOptions.EditionDefault = pbandk.wkt.FieldOptions.EditionDefault.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldOptions.EditionDefault> = pbandk.MessageDescriptor(
+                fullName = "google.protobuf.FieldOptions.EditionDefault",
+                messageClass = pbandk.wkt.FieldOptions.EditionDefault::class,
+                messageCompanion = this,
+                fields = buildList(2) {
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "value",
+                            value = pbandk.wkt.FieldOptions.EditionDefault::value
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "edition",
+                            number = 3,
+                            type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Edition.Companion, hasPresence = true),
+                            jsonName = "edition",
+                            value = pbandk.wkt.FieldOptions.EditionDefault::edition
+                        )
+                    )
+                }
+            )
+        }
+    }
+
+    public data class FeatureSupport(
+        val editionIntroduced: pbandk.wkt.Edition? = null,
+        val editionDeprecated: pbandk.wkt.Edition? = null,
+        val deprecationWarning: String? = null,
+        val editionRemoved: pbandk.wkt.Edition? = null,
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message {
+        override operator fun plus(other: pbandk.Message?): pbandk.wkt.FieldOptions.FeatureSupport = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldOptions.FeatureSupport> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.wkt.FieldOptions.FeatureSupport> {
+            public val defaultInstance: pbandk.wkt.FieldOptions.FeatureSupport by lazy { pbandk.wkt.FieldOptions.FeatureSupport() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldOptions.FeatureSupport = pbandk.wkt.FieldOptions.FeatureSupport.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldOptions.FeatureSupport> = pbandk.MessageDescriptor(
+                fullName = "google.protobuf.FieldOptions.FeatureSupport",
+                messageClass = pbandk.wkt.FieldOptions.FeatureSupport::class,
+                messageCompanion = this,
+                fields = buildList(4) {
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "edition_introduced",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Edition.Companion, hasPresence = true),
+                            jsonName = "editionIntroduced",
+                            value = pbandk.wkt.FieldOptions.FeatureSupport::editionIntroduced
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "edition_deprecated",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Edition.Companion, hasPresence = true),
+                            jsonName = "editionDeprecated",
+                            value = pbandk.wkt.FieldOptions.FeatureSupport::editionDeprecated
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "deprecation_warning",
+                            number = 3,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "deprecationWarning",
+                            value = pbandk.wkt.FieldOptions.FeatureSupport::deprecationWarning
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "edition_removed",
+                            number = 4,
+                            type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Edition.Companion, hasPresence = true),
+                            jsonName = "editionRemoved",
+                            value = pbandk.wkt.FieldOptions.FeatureSupport::editionRemoved
+                        )
+                    )
+                }
+            )
+        }
+    }
 }
 
 @pbandk.Export
 public data class OneofOptions(
+    val features: pbandk.wkt.FeatureSet? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @property:pbandk.PbandkInternal
@@ -1500,7 +1914,17 @@ public data class OneofOptions(
             fullName = "google.protobuf.OneofOptions",
             messageClass = pbandk.wkt.OneofOptions::class,
             messageCompanion = this,
-            fields = buildList(1) {
+            fields = buildList(2) {
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "features",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FeatureSet.Companion),
+                        jsonName = "features",
+                        value = pbandk.wkt.OneofOptions::features
+                    )
+                )
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1520,6 +1944,9 @@ public data class OneofOptions(
 public data class EnumOptions(
     val allowAlias: Boolean? = null,
     val deprecated: Boolean? = null,
+    @Deprecated(message = "Field marked deprecated in google/protobuf/descriptor.proto")
+    val deprecatedLegacyJsonFieldConflicts: Boolean? = null,
+    val features: pbandk.wkt.FeatureSet? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @property:pbandk.PbandkInternal
@@ -1536,7 +1963,7 @@ public data class EnumOptions(
             fullName = "google.protobuf.EnumOptions",
             messageClass = pbandk.wkt.EnumOptions::class,
             messageCompanion = this,
-            fields = buildList(3) {
+            fields = buildList(5) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1557,6 +1984,30 @@ public data class EnumOptions(
                         value = pbandk.wkt.EnumOptions::deprecated
                     )
                 )
+                @Suppress("DEPRECATION")
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "deprecated_legacy_json_field_conflicts",
+                        number = 6,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                        jsonName = "deprecatedLegacyJsonFieldConflicts",
+                        options = pbandk.wkt.FieldOptions(
+                            deprecated = true
+                        ),
+                        value = pbandk.wkt.EnumOptions::deprecatedLegacyJsonFieldConflicts
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "features",
+                        number = 7,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FeatureSet.Companion),
+                        jsonName = "features",
+                        value = pbandk.wkt.EnumOptions::features
+                    )
+                )
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1575,6 +2026,9 @@ public data class EnumOptions(
 @pbandk.Export
 public data class EnumValueOptions(
     val deprecated: Boolean? = null,
+    val features: pbandk.wkt.FeatureSet? = null,
+    val debugRedact: Boolean? = null,
+    val featureSupport: pbandk.wkt.FieldOptions.FeatureSupport? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @property:pbandk.PbandkInternal
@@ -1591,7 +2045,7 @@ public data class EnumValueOptions(
             fullName = "google.protobuf.EnumValueOptions",
             messageClass = pbandk.wkt.EnumValueOptions::class,
             messageCompanion = this,
-            fields = buildList(2) {
+            fields = buildList(5) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1600,6 +2054,36 @@ public data class EnumValueOptions(
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "deprecated",
                         value = pbandk.wkt.EnumValueOptions::deprecated
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "features",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FeatureSet.Companion),
+                        jsonName = "features",
+                        value = pbandk.wkt.EnumValueOptions::features
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "debug_redact",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                        jsonName = "debugRedact",
+                        value = pbandk.wkt.EnumValueOptions::debugRedact
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "feature_support",
+                        number = 4,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldOptions.FeatureSupport.Companion),
+                        jsonName = "featureSupport",
+                        value = pbandk.wkt.EnumValueOptions::featureSupport
                     )
                 )
                 add(
@@ -1619,6 +2103,7 @@ public data class EnumValueOptions(
 
 @pbandk.Export
 public data class ServiceOptions(
+    val features: pbandk.wkt.FeatureSet? = null,
     val deprecated: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
@@ -1636,7 +2121,7 @@ public data class ServiceOptions(
             fullName = "google.protobuf.ServiceOptions",
             messageClass = pbandk.wkt.ServiceOptions::class,
             messageCompanion = this,
-            fields = buildList(2) {
+            fields = buildList(3) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1645,6 +2130,16 @@ public data class ServiceOptions(
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "deprecated",
                         value = pbandk.wkt.ServiceOptions::deprecated
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "features",
+                        number = 34,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FeatureSet.Companion),
+                        jsonName = "features",
+                        value = pbandk.wkt.ServiceOptions::features
                     )
                 )
                 add(
@@ -1666,6 +2161,7 @@ public data class ServiceOptions(
 public data class MethodOptions(
     val deprecated: Boolean? = null,
     val idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel? = null,
+    val features: pbandk.wkt.FeatureSet? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @property:pbandk.PbandkInternal
@@ -1682,7 +2178,7 @@ public data class MethodOptions(
             fullName = "google.protobuf.MethodOptions",
             messageClass = pbandk.wkt.MethodOptions::class,
             messageCompanion = this,
-            fields = buildList(3) {
+            fields = buildList(4) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1701,6 +2197,16 @@ public data class MethodOptions(
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.MethodOptions.IdempotencyLevel.Companion, hasPresence = true),
                         jsonName = "idempotencyLevel",
                         value = pbandk.wkt.MethodOptions::idempotencyLevel
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "features",
+                        number = 35,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FeatureSet.Companion),
+                        jsonName = "features",
+                        value = pbandk.wkt.MethodOptions::features
                     )
                 )
                 add(
@@ -1875,6 +2381,305 @@ public data class UninterpretedOption(
 }
 
 @pbandk.Export
+public data class FeatureSet(
+    val fieldPresence: pbandk.wkt.FeatureSet.FieldPresence? = null,
+    val enumType: pbandk.wkt.FeatureSet.EnumType? = null,
+    val repeatedFieldEncoding: pbandk.wkt.FeatureSet.RepeatedFieldEncoding? = null,
+    val utf8Validation: pbandk.wkt.FeatureSet.Utf8Validation? = null,
+    val messageEncoding: pbandk.wkt.FeatureSet.MessageEncoding? = null,
+    val jsonFormat: pbandk.wkt.FeatureSet.JsonFormat? = null,
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
+    @property:pbandk.PbandkInternal
+    override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
+) : pbandk.ExtendableMessage {
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.FeatureSet = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FeatureSet> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.wkt.FeatureSet> {
+        public val defaultInstance: pbandk.wkt.FeatureSet by lazy { pbandk.wkt.FeatureSet() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FeatureSet = pbandk.wkt.FeatureSet.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FeatureSet> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.FeatureSet",
+            messageClass = pbandk.wkt.FeatureSet::class,
+            messageCompanion = this,
+            fields = buildList(6) {
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "field_presence",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FeatureSet.FieldPresence.Companion, hasPresence = true),
+                        jsonName = "fieldPresence",
+                        value = pbandk.wkt.FeatureSet::fieldPresence
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "enum_type",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FeatureSet.EnumType.Companion, hasPresence = true),
+                        jsonName = "enumType",
+                        value = pbandk.wkt.FeatureSet::enumType
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "repeated_field_encoding",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FeatureSet.RepeatedFieldEncoding.Companion, hasPresence = true),
+                        jsonName = "repeatedFieldEncoding",
+                        value = pbandk.wkt.FeatureSet::repeatedFieldEncoding
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "utf8_validation",
+                        number = 4,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FeatureSet.Utf8Validation.Companion, hasPresence = true),
+                        jsonName = "utf8Validation",
+                        value = pbandk.wkt.FeatureSet::utf8Validation
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "message_encoding",
+                        number = 5,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FeatureSet.MessageEncoding.Companion, hasPresence = true),
+                        jsonName = "messageEncoding",
+                        value = pbandk.wkt.FeatureSet::messageEncoding
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "json_format",
+                        number = 6,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.FeatureSet.JsonFormat.Companion, hasPresence = true),
+                        jsonName = "jsonFormat",
+                        value = pbandk.wkt.FeatureSet::jsonFormat
+                    )
+                )
+            }
+        )
+    }
+
+    public sealed class FieldPresence(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.FeatureSet.FieldPresence && other.value == value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "FeatureSet.FieldPresence.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        public object UNKNOWN : FieldPresence(0, "FIELD_PRESENCE_UNKNOWN")
+        public object EXPLICIT : FieldPresence(1, "EXPLICIT")
+        public object IMPLICIT : FieldPresence(2, "IMPLICIT")
+        public object LEGACY_REQUIRED : FieldPresence(3, "LEGACY_REQUIRED")
+        public class UNRECOGNIZED(value: Int) : FieldPresence(value)
+
+        public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.FeatureSet.FieldPresence> {
+            public val values: List<pbandk.wkt.FeatureSet.FieldPresence> by lazy { listOf(UNKNOWN, EXPLICIT, IMPLICIT, LEGACY_REQUIRED) }
+            override fun fromValue(value: Int): pbandk.wkt.FeatureSet.FieldPresence = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.wkt.FeatureSet.FieldPresence = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No FieldPresence with name: $name")
+        }
+    }
+
+    public sealed class EnumType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.FeatureSet.EnumType && other.value == value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "FeatureSet.EnumType.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        public object UNKNOWN : EnumType(0, "ENUM_TYPE_UNKNOWN")
+        public object OPEN : EnumType(1, "OPEN")
+        public object CLOSED : EnumType(2, "CLOSED")
+        public class UNRECOGNIZED(value: Int) : EnumType(value)
+
+        public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.FeatureSet.EnumType> {
+            public val values: List<pbandk.wkt.FeatureSet.EnumType> by lazy { listOf(UNKNOWN, OPEN, CLOSED) }
+            override fun fromValue(value: Int): pbandk.wkt.FeatureSet.EnumType = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.wkt.FeatureSet.EnumType = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No EnumType with name: $name")
+        }
+    }
+
+    public sealed class RepeatedFieldEncoding(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.FeatureSet.RepeatedFieldEncoding && other.value == value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "FeatureSet.RepeatedFieldEncoding.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        public object UNKNOWN : RepeatedFieldEncoding(0, "REPEATED_FIELD_ENCODING_UNKNOWN")
+        public object PACKED : RepeatedFieldEncoding(1, "PACKED")
+        public object EXPANDED : RepeatedFieldEncoding(2, "EXPANDED")
+        public class UNRECOGNIZED(value: Int) : RepeatedFieldEncoding(value)
+
+        public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.FeatureSet.RepeatedFieldEncoding> {
+            public val values: List<pbandk.wkt.FeatureSet.RepeatedFieldEncoding> by lazy { listOf(UNKNOWN, PACKED, EXPANDED) }
+            override fun fromValue(value: Int): pbandk.wkt.FeatureSet.RepeatedFieldEncoding = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.wkt.FeatureSet.RepeatedFieldEncoding = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No RepeatedFieldEncoding with name: $name")
+        }
+    }
+
+    public sealed class Utf8Validation(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.FeatureSet.Utf8Validation && other.value == value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "FeatureSet.Utf8Validation.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        public object UTF8_VALIDATION_UNKNOWN : Utf8Validation(0, "UTF8_VALIDATION_UNKNOWN")
+        public object VERIFY : Utf8Validation(2, "VERIFY")
+        public object NONE : Utf8Validation(3, "NONE")
+        public class UNRECOGNIZED(value: Int) : Utf8Validation(value)
+
+        public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.FeatureSet.Utf8Validation> {
+            public val values: List<pbandk.wkt.FeatureSet.Utf8Validation> by lazy { listOf(UTF8_VALIDATION_UNKNOWN, VERIFY, NONE) }
+            override fun fromValue(value: Int): pbandk.wkt.FeatureSet.Utf8Validation = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.wkt.FeatureSet.Utf8Validation = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Utf8Validation with name: $name")
+        }
+    }
+
+    public sealed class MessageEncoding(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.FeatureSet.MessageEncoding && other.value == value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "FeatureSet.MessageEncoding.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        public object UNKNOWN : MessageEncoding(0, "MESSAGE_ENCODING_UNKNOWN")
+        public object LENGTH_PREFIXED : MessageEncoding(1, "LENGTH_PREFIXED")
+        public object DELIMITED : MessageEncoding(2, "DELIMITED")
+        public class UNRECOGNIZED(value: Int) : MessageEncoding(value)
+
+        public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.FeatureSet.MessageEncoding> {
+            public val values: List<pbandk.wkt.FeatureSet.MessageEncoding> by lazy { listOf(UNKNOWN, LENGTH_PREFIXED, DELIMITED) }
+            override fun fromValue(value: Int): pbandk.wkt.FeatureSet.MessageEncoding = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.wkt.FeatureSet.MessageEncoding = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No MessageEncoding with name: $name")
+        }
+    }
+
+    public sealed class JsonFormat(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.FeatureSet.JsonFormat && other.value == value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "FeatureSet.JsonFormat.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        public object UNKNOWN : JsonFormat(0, "JSON_FORMAT_UNKNOWN")
+        public object ALLOW : JsonFormat(1, "ALLOW")
+        public object LEGACY_BEST_EFFORT : JsonFormat(2, "LEGACY_BEST_EFFORT")
+        public class UNRECOGNIZED(value: Int) : JsonFormat(value)
+
+        public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.FeatureSet.JsonFormat> {
+            public val values: List<pbandk.wkt.FeatureSet.JsonFormat> by lazy { listOf(UNKNOWN, ALLOW, LEGACY_BEST_EFFORT) }
+            override fun fromValue(value: Int): pbandk.wkt.FeatureSet.JsonFormat = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): pbandk.wkt.FeatureSet.JsonFormat = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No JsonFormat with name: $name")
+        }
+    }
+}
+
+@pbandk.Export
+public data class FeatureSetDefaults(
+    val defaults: List<pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault> = emptyList(),
+    val minimumEdition: pbandk.wkt.Edition? = null,
+    val maximumEdition: pbandk.wkt.Edition? = null,
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.FeatureSetDefaults = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FeatureSetDefaults> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.wkt.FeatureSetDefaults> {
+        public val defaultInstance: pbandk.wkt.FeatureSetDefaults by lazy { pbandk.wkt.FeatureSetDefaults() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FeatureSetDefaults = pbandk.wkt.FeatureSetDefaults.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FeatureSetDefaults> = pbandk.MessageDescriptor(
+            fullName = "google.protobuf.FeatureSetDefaults",
+            messageClass = pbandk.wkt.FeatureSetDefaults::class,
+            messageCompanion = this,
+            fields = buildList(3) {
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "defaults",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault.Companion)),
+                        jsonName = "defaults",
+                        value = pbandk.wkt.FeatureSetDefaults::defaults
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "minimum_edition",
+                        number = 4,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Edition.Companion, hasPresence = true),
+                        jsonName = "minimumEdition",
+                        value = pbandk.wkt.FeatureSetDefaults::minimumEdition
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "maximum_edition",
+                        number = 5,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Edition.Companion, hasPresence = true),
+                        jsonName = "maximumEdition",
+                        value = pbandk.wkt.FeatureSetDefaults::maximumEdition
+                    )
+                )
+            }
+        )
+    }
+
+    public data class FeatureSetEditionDefault(
+        val edition: pbandk.wkt.Edition? = null,
+        val overridableFeatures: pbandk.wkt.FeatureSet? = null,
+        val fixedFeatures: pbandk.wkt.FeatureSet? = null,
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message {
+        override operator fun plus(other: pbandk.Message?): pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault> {
+            public val defaultInstance: pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault by lazy { pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault = pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault> = pbandk.MessageDescriptor(
+                fullName = "google.protobuf.FeatureSetDefaults.FeatureSetEditionDefault",
+                messageClass = pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault::class,
+                messageCompanion = this,
+                fields = buildList(3) {
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "edition",
+                            number = 3,
+                            type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Edition.Companion, hasPresence = true),
+                            jsonName = "edition",
+                            value = pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault::edition
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "overridable_features",
+                            number = 4,
+                            type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FeatureSet.Companion),
+                            jsonName = "overridableFeatures",
+                            value = pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault::overridableFeatures
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "fixed_features",
+                            number = 5,
+                            type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FeatureSet.Companion),
+                            jsonName = "fixedFeatures",
+                            value = pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault::fixedFeatures
+                        )
+                    )
+                }
+            )
+        }
+    }
+}
+
+@pbandk.Export
 public data class SourceCodeInfo(
     val location: List<pbandk.wkt.SourceCodeInfo.Location> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -2017,6 +2822,7 @@ public data class GeneratedCodeInfo(
         val sourceFile: String? = null,
         val begin: Int? = null,
         val end: Int? = null,
+        val semantic: pbandk.wkt.GeneratedCodeInfo.Annotation.Semantic? = null,
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message {
         override operator fun plus(other: pbandk.Message?): pbandk.wkt.GeneratedCodeInfo.Annotation = protoMergeImpl(other)
@@ -2030,7 +2836,7 @@ public data class GeneratedCodeInfo(
                 fullName = "google.protobuf.GeneratedCodeInfo.Annotation",
                 messageClass = pbandk.wkt.GeneratedCodeInfo.Annotation::class,
                 messageCompanion = this,
-                fields = buildList(4) {
+                fields = buildList(5) {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2071,8 +2877,35 @@ public data class GeneratedCodeInfo(
                             value = pbandk.wkt.GeneratedCodeInfo.Annotation::end
                         )
                     )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "semantic",
+                            number = 5,
+                            type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.GeneratedCodeInfo.Annotation.Semantic.Companion, hasPresence = true),
+                            jsonName = "semantic",
+                            value = pbandk.wkt.GeneratedCodeInfo.Annotation::semantic
+                        )
+                    )
                 }
             )
+        }
+
+        public sealed class Semantic(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+            override fun equals(other: kotlin.Any?): Boolean = other is pbandk.wkt.GeneratedCodeInfo.Annotation.Semantic && other.value == value
+            override fun hashCode(): Int = value.hashCode()
+            override fun toString(): String = "GeneratedCodeInfo.Annotation.Semantic.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+            public object NONE : Semantic(0, "NONE")
+            public object SET : Semantic(1, "SET")
+            public object ALIAS : Semantic(2, "ALIAS")
+            public class UNRECOGNIZED(value: Int) : Semantic(value)
+
+            public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.GeneratedCodeInfo.Annotation.Semantic> {
+                public val values: List<pbandk.wkt.GeneratedCodeInfo.Annotation.Semantic> by lazy { listOf(NONE, SET, ALIAS) }
+                override fun fromValue(value: Int): pbandk.wkt.GeneratedCodeInfo.Annotation.Semantic = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+                override fun fromName(name: String): pbandk.wkt.GeneratedCodeInfo.Annotation.Semantic = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Semantic with name: $name")
+            }
         }
     }
 }
@@ -2119,6 +2952,7 @@ private fun FileDescriptorProto.protoMergeImpl(plus: pbandk.Message?): FileDescr
         options = options?.plus(plus.options) ?: plus.options,
         sourceCodeInfo = sourceCodeInfo?.plus(plus.sourceCodeInfo) ?: plus.sourceCodeInfo,
         syntax = plus.syntax ?: syntax,
+        edition = plus.edition ?: edition,
         unknownFields = unknownFields + plus.unknownFields
     )
 } ?: this
@@ -2137,6 +2971,7 @@ private fun FileDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
     var options: pbandk.wkt.FileOptions? = null
     var sourceCodeInfo: pbandk.wkt.SourceCodeInfo? = null
     var syntax: String? = null
+    var edition: pbandk.wkt.Edition? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
@@ -2152,12 +2987,14 @@ private fun FileDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
             10 -> publicDependency = (publicDependency ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
             11 -> weakDependency = (weakDependency ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<Int> }
             12 -> syntax = _fieldValue as String
+            14 -> edition = _fieldValue as pbandk.wkt.Edition
         }
     }
 
     return FileDescriptorProto(name, `package`, pbandk.ListWithSize.Builder.fixed(dependency), pbandk.ListWithSize.Builder.fixed(publicDependency),
         pbandk.ListWithSize.Builder.fixed(weakDependency), pbandk.ListWithSize.Builder.fixed(messageType), pbandk.ListWithSize.Builder.fixed(enumType), pbandk.ListWithSize.Builder.fixed(service),
-        pbandk.ListWithSize.Builder.fixed(extension), options, sourceCodeInfo, syntax, unknownFields)
+        pbandk.ListWithSize.Builder.fixed(extension), options, sourceCodeInfo, syntax,
+        edition, unknownFields)
 }
 
 @pbandk.Export
@@ -2277,6 +3114,9 @@ public fun ExtensionRangeOptions?.orDefault(): pbandk.wkt.ExtensionRangeOptions 
 private fun ExtensionRangeOptions.protoMergeImpl(plus: pbandk.Message?): ExtensionRangeOptions = (plus as? ExtensionRangeOptions)?.let {
     it.copy(
         uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
+        declaration = declaration + plus.declaration,
+        features = features?.plus(plus.features) ?: plus.features,
+        verification = plus.verification ?: verification,
         unknownFields = unknownFields + plus.unknownFields
     )
 } ?: this
@@ -2284,14 +3124,57 @@ private fun ExtensionRangeOptions.protoMergeImpl(plus: pbandk.Message?): Extensi
 @Suppress("UNCHECKED_CAST")
 private fun ExtensionRangeOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ExtensionRangeOptions {
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
+    var declaration: pbandk.ListWithSize.Builder<pbandk.wkt.ExtensionRangeOptions.Declaration>? = null
+    var features: pbandk.wkt.FeatureSet? = null
+    var verification: pbandk.wkt.ExtensionRangeOptions.VerificationState? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
+            2 -> declaration = (declaration ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.ExtensionRangeOptions.Declaration> }
+            3 -> verification = _fieldValue as pbandk.wkt.ExtensionRangeOptions.VerificationState
+            50 -> features = _fieldValue as pbandk.wkt.FeatureSet
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
-    return ExtensionRangeOptions(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+    return ExtensionRangeOptions(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), pbandk.ListWithSize.Builder.fixed(declaration), features, verification, unknownFields)
+}
+
+@pbandk.Export
+@pbandk.JsName("orDefaultForExtensionRangeOptionsDeclaration")
+public fun ExtensionRangeOptions.Declaration?.orDefault(): pbandk.wkt.ExtensionRangeOptions.Declaration = this ?: ExtensionRangeOptions.Declaration.defaultInstance
+
+private fun ExtensionRangeOptions.Declaration.protoMergeImpl(plus: pbandk.Message?): ExtensionRangeOptions.Declaration = (plus as? ExtensionRangeOptions.Declaration)?.let {
+    it.copy(
+        number = plus.number ?: number,
+        fullName = plus.fullName ?: fullName,
+        type = plus.type ?: type,
+        reserved = plus.reserved ?: reserved,
+        repeated = plus.repeated ?: repeated,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun ExtensionRangeOptions.Declaration.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ExtensionRangeOptions.Declaration {
+    var number: Int? = null
+    var fullName: String? = null
+    var type: String? = null
+    var reserved: Boolean? = null
+    var repeated: Boolean? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> number = _fieldValue as Int
+            2 -> fullName = _fieldValue as String
+            3 -> type = _fieldValue as String
+            5 -> reserved = _fieldValue as Boolean
+            6 -> repeated = _fieldValue as Boolean
+        }
+    }
+
+    return ExtensionRangeOptions.Declaration(number, fullName, type, reserved,
+        repeated, unknownFields)
 }
 
 @pbandk.Export
@@ -2558,7 +3441,6 @@ private fun FileOptions.protoMergeImpl(plus: pbandk.Message?): FileOptions = (pl
         ccGenericServices = plus.ccGenericServices ?: ccGenericServices,
         javaGenericServices = plus.javaGenericServices ?: javaGenericServices,
         pyGenericServices = plus.pyGenericServices ?: pyGenericServices,
-        phpGenericServices = plus.phpGenericServices ?: phpGenericServices,
         deprecated = plus.deprecated ?: deprecated,
         ccEnableArenas = plus.ccEnableArenas ?: ccEnableArenas,
         objcClassPrefix = plus.objcClassPrefix ?: objcClassPrefix,
@@ -2568,6 +3450,7 @@ private fun FileOptions.protoMergeImpl(plus: pbandk.Message?): FileOptions = (pl
         phpNamespace = plus.phpNamespace ?: phpNamespace,
         phpMetadataNamespace = plus.phpMetadataNamespace ?: phpMetadataNamespace,
         rubyPackage = plus.rubyPackage ?: rubyPackage,
+        features = features?.plus(plus.features) ?: plus.features,
         uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
         unknownFields = unknownFields + plus.unknownFields
     )
@@ -2585,7 +3468,6 @@ private fun FileOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): File
     var ccGenericServices: Boolean? = null
     var javaGenericServices: Boolean? = null
     var pyGenericServices: Boolean? = null
-    var phpGenericServices: Boolean? = null
     var deprecated: Boolean? = null
     var ccEnableArenas: Boolean? = null
     var objcClassPrefix: String? = null
@@ -2595,6 +3477,7 @@ private fun FileOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): File
     var phpNamespace: String? = null
     var phpMetadataNamespace: String? = null
     var rubyPackage: String? = null
+    var features: pbandk.wkt.FeatureSet? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -2616,18 +3499,18 @@ private fun FileOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): File
             39 -> swiftPrefix = _fieldValue as String
             40 -> phpClassPrefix = _fieldValue as String
             41 -> phpNamespace = _fieldValue as String
-            42 -> phpGenericServices = _fieldValue as Boolean
             44 -> phpMetadataNamespace = _fieldValue as String
             45 -> rubyPackage = _fieldValue as String
+            50 -> features = _fieldValue as pbandk.wkt.FeatureSet
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
     return FileOptions(javaPackage, javaOuterClassname, javaMultipleFiles, javaGenerateEqualsAndHash,
         javaStringCheckUtf8, optimizeFor, goPackage, ccGenericServices,
-        javaGenericServices, pyGenericServices, phpGenericServices, deprecated,
-        ccEnableArenas, objcClassPrefix, csharpNamespace, swiftPrefix,
-        phpClassPrefix, phpNamespace, phpMetadataNamespace, rubyPackage,
+        javaGenericServices, pyGenericServices, deprecated, ccEnableArenas,
+        objcClassPrefix, csharpNamespace, swiftPrefix, phpClassPrefix,
+        phpNamespace, phpMetadataNamespace, rubyPackage, features,
         pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
@@ -2636,11 +3519,14 @@ private fun FileOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): File
 public fun MessageOptions?.orDefault(): pbandk.wkt.MessageOptions = this ?: MessageOptions.defaultInstance
 
 private fun MessageOptions.protoMergeImpl(plus: pbandk.Message?): MessageOptions = (plus as? MessageOptions)?.let {
+    @Suppress("DEPRECATION")
     it.copy(
         messageSetWireFormat = plus.messageSetWireFormat ?: messageSetWireFormat,
         noStandardDescriptorAccessor = plus.noStandardDescriptorAccessor ?: noStandardDescriptorAccessor,
         deprecated = plus.deprecated ?: deprecated,
         mapEntry = plus.mapEntry ?: mapEntry,
+        deprecatedLegacyJsonFieldConflicts = plus.deprecatedLegacyJsonFieldConflicts ?: deprecatedLegacyJsonFieldConflicts,
+        features = features?.plus(plus.features) ?: plus.features,
         uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
         unknownFields = unknownFields + plus.unknownFields
     )
@@ -2652,6 +3538,8 @@ private fun MessageOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
     var noStandardDescriptorAccessor: Boolean? = null
     var deprecated: Boolean? = null
     var mapEntry: Boolean? = null
+    var deprecatedLegacyJsonFieldConflicts: Boolean? = null
+    var features: pbandk.wkt.FeatureSet? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -2660,12 +3548,14 @@ private fun MessageOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
             2 -> noStandardDescriptorAccessor = _fieldValue as Boolean
             3 -> deprecated = _fieldValue as Boolean
             7 -> mapEntry = _fieldValue as Boolean
+            11 -> deprecatedLegacyJsonFieldConflicts = _fieldValue as Boolean
+            12 -> features = _fieldValue as pbandk.wkt.FeatureSet
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
     return MessageOptions(messageSetWireFormat, noStandardDescriptorAccessor, deprecated, mapEntry,
-        pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+        deprecatedLegacyJsonFieldConflicts, features, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
 @pbandk.Export
@@ -2678,8 +3568,15 @@ private fun FieldOptions.protoMergeImpl(plus: pbandk.Message?): FieldOptions = (
         packed = plus.packed ?: packed,
         jstype = plus.jstype ?: jstype,
         lazy = plus.lazy ?: lazy,
+        unverifiedLazy = plus.unverifiedLazy ?: unverifiedLazy,
         deprecated = plus.deprecated ?: deprecated,
         weak = plus.weak ?: weak,
+        debugRedact = plus.debugRedact ?: debugRedact,
+        retention = plus.retention ?: retention,
+        targets = targets + plus.targets,
+        editionDefaults = editionDefaults + plus.editionDefaults,
+        features = features?.plus(plus.features) ?: plus.features,
+        featureSupport = featureSupport?.plus(plus.featureSupport) ?: plus.featureSupport,
         uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
         unknownFields = unknownFields + plus.unknownFields
     )
@@ -2691,8 +3588,15 @@ private fun FieldOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fie
     var packed: Boolean? = null
     var jstype: pbandk.wkt.FieldOptions.JSType? = null
     var lazy: Boolean? = null
+    var unverifiedLazy: Boolean? = null
     var deprecated: Boolean? = null
     var weak: Boolean? = null
+    var debugRedact: Boolean? = null
+    var retention: pbandk.wkt.FieldOptions.OptionRetention? = null
+    var targets: pbandk.ListWithSize.Builder<pbandk.wkt.FieldOptions.OptionTargetType>? = null
+    var editionDefaults: pbandk.ListWithSize.Builder<pbandk.wkt.FieldOptions.EditionDefault>? = null
+    var features: pbandk.wkt.FeatureSet? = null
+    var featureSupport: pbandk.wkt.FieldOptions.FeatureSupport? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -2703,12 +3607,81 @@ private fun FieldOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fie
             5 -> lazy = _fieldValue as Boolean
             6 -> jstype = _fieldValue as pbandk.wkt.FieldOptions.JSType
             10 -> weak = _fieldValue as Boolean
+            15 -> unverifiedLazy = _fieldValue as Boolean
+            16 -> debugRedact = _fieldValue as Boolean
+            17 -> retention = _fieldValue as pbandk.wkt.FieldOptions.OptionRetention
+            19 -> targets = (targets ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.FieldOptions.OptionTargetType> }
+            20 -> editionDefaults = (editionDefaults ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.FieldOptions.EditionDefault> }
+            21 -> features = _fieldValue as pbandk.wkt.FeatureSet
+            22 -> featureSupport = _fieldValue as pbandk.wkt.FieldOptions.FeatureSupport
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
     return FieldOptions(ctype, packed, jstype, lazy,
-        deprecated, weak, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+        unverifiedLazy, deprecated, weak, debugRedact,
+        retention, pbandk.ListWithSize.Builder.fixed(targets), pbandk.ListWithSize.Builder.fixed(editionDefaults), features,
+        featureSupport, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+}
+
+@pbandk.Export
+@pbandk.JsName("orDefaultForFieldOptionsEditionDefault")
+public fun FieldOptions.EditionDefault?.orDefault(): pbandk.wkt.FieldOptions.EditionDefault = this ?: FieldOptions.EditionDefault.defaultInstance
+
+private fun FieldOptions.EditionDefault.protoMergeImpl(plus: pbandk.Message?): FieldOptions.EditionDefault = (plus as? FieldOptions.EditionDefault)?.let {
+    it.copy(
+        edition = plus.edition ?: edition,
+        value = plus.value ?: value,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun FieldOptions.EditionDefault.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FieldOptions.EditionDefault {
+    var edition: pbandk.wkt.Edition? = null
+    var value: String? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            2 -> value = _fieldValue as String
+            3 -> edition = _fieldValue as pbandk.wkt.Edition
+        }
+    }
+
+    return FieldOptions.EditionDefault(edition, value, unknownFields)
+}
+
+@pbandk.Export
+@pbandk.JsName("orDefaultForFieldOptionsFeatureSupport")
+public fun FieldOptions.FeatureSupport?.orDefault(): pbandk.wkt.FieldOptions.FeatureSupport = this ?: FieldOptions.FeatureSupport.defaultInstance
+
+private fun FieldOptions.FeatureSupport.protoMergeImpl(plus: pbandk.Message?): FieldOptions.FeatureSupport = (plus as? FieldOptions.FeatureSupport)?.let {
+    it.copy(
+        editionIntroduced = plus.editionIntroduced ?: editionIntroduced,
+        editionDeprecated = plus.editionDeprecated ?: editionDeprecated,
+        deprecationWarning = plus.deprecationWarning ?: deprecationWarning,
+        editionRemoved = plus.editionRemoved ?: editionRemoved,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun FieldOptions.FeatureSupport.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FieldOptions.FeatureSupport {
+    var editionIntroduced: pbandk.wkt.Edition? = null
+    var editionDeprecated: pbandk.wkt.Edition? = null
+    var deprecationWarning: String? = null
+    var editionRemoved: pbandk.wkt.Edition? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> editionIntroduced = _fieldValue as pbandk.wkt.Edition
+            2 -> editionDeprecated = _fieldValue as pbandk.wkt.Edition
+            3 -> deprecationWarning = _fieldValue as String
+            4 -> editionRemoved = _fieldValue as pbandk.wkt.Edition
+        }
+    }
+
+    return FieldOptions.FeatureSupport(editionIntroduced, editionDeprecated, deprecationWarning, editionRemoved, unknownFields)
 }
 
 @pbandk.Export
@@ -2717,6 +3690,7 @@ public fun OneofOptions?.orDefault(): pbandk.wkt.OneofOptions = this ?: OneofOpt
 
 private fun OneofOptions.protoMergeImpl(plus: pbandk.Message?): OneofOptions = (plus as? OneofOptions)?.let {
     it.copy(
+        features = features?.plus(plus.features) ?: plus.features,
         uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
         unknownFields = unknownFields + plus.unknownFields
     )
@@ -2724,15 +3698,17 @@ private fun OneofOptions.protoMergeImpl(plus: pbandk.Message?): OneofOptions = (
 
 @Suppress("UNCHECKED_CAST")
 private fun OneofOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): OneofOptions {
+    var features: pbandk.wkt.FeatureSet? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
+            1 -> features = _fieldValue as pbandk.wkt.FeatureSet
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
-    return OneofOptions(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+    return OneofOptions(features, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
 @pbandk.Export
@@ -2740,9 +3716,12 @@ private fun OneofOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): One
 public fun EnumOptions?.orDefault(): pbandk.wkt.EnumOptions = this ?: EnumOptions.defaultInstance
 
 private fun EnumOptions.protoMergeImpl(plus: pbandk.Message?): EnumOptions = (plus as? EnumOptions)?.let {
+    @Suppress("DEPRECATION")
     it.copy(
         allowAlias = plus.allowAlias ?: allowAlias,
         deprecated = plus.deprecated ?: deprecated,
+        deprecatedLegacyJsonFieldConflicts = plus.deprecatedLegacyJsonFieldConflicts ?: deprecatedLegacyJsonFieldConflicts,
+        features = features?.plus(plus.features) ?: plus.features,
         uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
         unknownFields = unknownFields + plus.unknownFields
     )
@@ -2752,17 +3731,22 @@ private fun EnumOptions.protoMergeImpl(plus: pbandk.Message?): EnumOptions = (pl
 private fun EnumOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumOptions {
     var allowAlias: Boolean? = null
     var deprecated: Boolean? = null
+    var deprecatedLegacyJsonFieldConflicts: Boolean? = null
+    var features: pbandk.wkt.FeatureSet? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             2 -> allowAlias = _fieldValue as Boolean
             3 -> deprecated = _fieldValue as Boolean
+            6 -> deprecatedLegacyJsonFieldConflicts = _fieldValue as Boolean
+            7 -> features = _fieldValue as pbandk.wkt.FeatureSet
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
-    return EnumOptions(allowAlias, deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+    return EnumOptions(allowAlias, deprecated, deprecatedLegacyJsonFieldConflicts, features,
+        pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
 @pbandk.Export
@@ -2772,6 +3756,9 @@ public fun EnumValueOptions?.orDefault(): pbandk.wkt.EnumValueOptions = this ?: 
 private fun EnumValueOptions.protoMergeImpl(plus: pbandk.Message?): EnumValueOptions = (plus as? EnumValueOptions)?.let {
     it.copy(
         deprecated = plus.deprecated ?: deprecated,
+        features = features?.plus(plus.features) ?: plus.features,
+        debugRedact = plus.debugRedact ?: debugRedact,
+        featureSupport = featureSupport?.plus(plus.featureSupport) ?: plus.featureSupport,
         uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
         unknownFields = unknownFields + plus.unknownFields
     )
@@ -2780,16 +3767,23 @@ private fun EnumValueOptions.protoMergeImpl(plus: pbandk.Message?): EnumValueOpt
 @Suppress("UNCHECKED_CAST")
 private fun EnumValueOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumValueOptions {
     var deprecated: Boolean? = null
+    var features: pbandk.wkt.FeatureSet? = null
+    var debugRedact: Boolean? = null
+    var featureSupport: pbandk.wkt.FieldOptions.FeatureSupport? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             1 -> deprecated = _fieldValue as Boolean
+            2 -> features = _fieldValue as pbandk.wkt.FeatureSet
+            3 -> debugRedact = _fieldValue as Boolean
+            4 -> featureSupport = _fieldValue as pbandk.wkt.FieldOptions.FeatureSupport
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
-    return EnumValueOptions(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+    return EnumValueOptions(deprecated, features, debugRedact, featureSupport,
+        pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
 @pbandk.Export
@@ -2798,6 +3792,7 @@ public fun ServiceOptions?.orDefault(): pbandk.wkt.ServiceOptions = this ?: Serv
 
 private fun ServiceOptions.protoMergeImpl(plus: pbandk.Message?): ServiceOptions = (plus as? ServiceOptions)?.let {
     it.copy(
+        features = features?.plus(plus.features) ?: plus.features,
         deprecated = plus.deprecated ?: deprecated,
         uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
         unknownFields = unknownFields + plus.unknownFields
@@ -2806,17 +3801,19 @@ private fun ServiceOptions.protoMergeImpl(plus: pbandk.Message?): ServiceOptions
 
 @Suppress("UNCHECKED_CAST")
 private fun ServiceOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ServiceOptions {
+    var features: pbandk.wkt.FeatureSet? = null
     var deprecated: Boolean? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             33 -> deprecated = _fieldValue as Boolean
+            34 -> features = _fieldValue as pbandk.wkt.FeatureSet
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
-    return ServiceOptions(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+    return ServiceOptions(features, deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
 @pbandk.Export
@@ -2827,6 +3824,7 @@ private fun MethodOptions.protoMergeImpl(plus: pbandk.Message?): MethodOptions =
     it.copy(
         deprecated = plus.deprecated ?: deprecated,
         idempotencyLevel = plus.idempotencyLevel ?: idempotencyLevel,
+        features = features?.plus(plus.features) ?: plus.features,
         uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
         unknownFields = unknownFields + plus.unknownFields
     )
@@ -2836,17 +3834,19 @@ private fun MethodOptions.protoMergeImpl(plus: pbandk.Message?): MethodOptions =
 private fun MethodOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MethodOptions {
     var deprecated: Boolean? = null
     var idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel? = null
+    var features: pbandk.wkt.FeatureSet? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             33 -> deprecated = _fieldValue as Boolean
             34 -> idempotencyLevel = _fieldValue as pbandk.wkt.MethodOptions.IdempotencyLevel
+            35 -> features = _fieldValue as pbandk.wkt.FeatureSet
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
 
-    return MethodOptions(deprecated, idempotencyLevel, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+    return MethodOptions(deprecated, idempotencyLevel, features, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
 @pbandk.Export
@@ -2917,6 +3917,106 @@ private fun UninterpretedOption.NamePart.Companion.decodeWithImpl(u: pbandk.Mess
         throw pbandk.InvalidProtocolBufferException.missingRequiredField("is_extension")
     }
     return UninterpretedOption.NamePart(namePart!!, isExtension!!, unknownFields)
+}
+
+@pbandk.Export
+@pbandk.JsName("orDefaultForFeatureSet")
+public fun FeatureSet?.orDefault(): pbandk.wkt.FeatureSet = this ?: FeatureSet.defaultInstance
+
+private fun FeatureSet.protoMergeImpl(plus: pbandk.Message?): FeatureSet = (plus as? FeatureSet)?.let {
+    it.copy(
+        fieldPresence = plus.fieldPresence ?: fieldPresence,
+        enumType = plus.enumType ?: enumType,
+        repeatedFieldEncoding = plus.repeatedFieldEncoding ?: repeatedFieldEncoding,
+        utf8Validation = plus.utf8Validation ?: utf8Validation,
+        messageEncoding = plus.messageEncoding ?: messageEncoding,
+        jsonFormat = plus.jsonFormat ?: jsonFormat,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun FeatureSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FeatureSet {
+    var fieldPresence: pbandk.wkt.FeatureSet.FieldPresence? = null
+    var enumType: pbandk.wkt.FeatureSet.EnumType? = null
+    var repeatedFieldEncoding: pbandk.wkt.FeatureSet.RepeatedFieldEncoding? = null
+    var utf8Validation: pbandk.wkt.FeatureSet.Utf8Validation? = null
+    var messageEncoding: pbandk.wkt.FeatureSet.MessageEncoding? = null
+    var jsonFormat: pbandk.wkt.FeatureSet.JsonFormat? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> fieldPresence = _fieldValue as pbandk.wkt.FeatureSet.FieldPresence
+            2 -> enumType = _fieldValue as pbandk.wkt.FeatureSet.EnumType
+            3 -> repeatedFieldEncoding = _fieldValue as pbandk.wkt.FeatureSet.RepeatedFieldEncoding
+            4 -> utf8Validation = _fieldValue as pbandk.wkt.FeatureSet.Utf8Validation
+            5 -> messageEncoding = _fieldValue as pbandk.wkt.FeatureSet.MessageEncoding
+            6 -> jsonFormat = _fieldValue as pbandk.wkt.FeatureSet.JsonFormat
+        }
+    }
+
+    return FeatureSet(fieldPresence, enumType, repeatedFieldEncoding, utf8Validation,
+        messageEncoding, jsonFormat, unknownFields)
+}
+
+@pbandk.Export
+@pbandk.JsName("orDefaultForFeatureSetDefaults")
+public fun FeatureSetDefaults?.orDefault(): pbandk.wkt.FeatureSetDefaults = this ?: FeatureSetDefaults.defaultInstance
+
+private fun FeatureSetDefaults.protoMergeImpl(plus: pbandk.Message?): FeatureSetDefaults = (plus as? FeatureSetDefaults)?.let {
+    it.copy(
+        defaults = defaults + plus.defaults,
+        minimumEdition = plus.minimumEdition ?: minimumEdition,
+        maximumEdition = plus.maximumEdition ?: maximumEdition,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun FeatureSetDefaults.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FeatureSetDefaults {
+    var defaults: pbandk.ListWithSize.Builder<pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault>? = null
+    var minimumEdition: pbandk.wkt.Edition? = null
+    var maximumEdition: pbandk.wkt.Edition? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> defaults = (defaults ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault> }
+            4 -> minimumEdition = _fieldValue as pbandk.wkt.Edition
+            5 -> maximumEdition = _fieldValue as pbandk.wkt.Edition
+        }
+    }
+
+    return FeatureSetDefaults(pbandk.ListWithSize.Builder.fixed(defaults), minimumEdition, maximumEdition, unknownFields)
+}
+
+@pbandk.Export
+@pbandk.JsName("orDefaultForFeatureSetDefaultsFeatureSetEditionDefault")
+public fun FeatureSetDefaults.FeatureSetEditionDefault?.orDefault(): pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault = this ?: FeatureSetDefaults.FeatureSetEditionDefault.defaultInstance
+
+private fun FeatureSetDefaults.FeatureSetEditionDefault.protoMergeImpl(plus: pbandk.Message?): FeatureSetDefaults.FeatureSetEditionDefault = (plus as? FeatureSetDefaults.FeatureSetEditionDefault)?.let {
+    it.copy(
+        edition = plus.edition ?: edition,
+        overridableFeatures = overridableFeatures?.plus(plus.overridableFeatures) ?: plus.overridableFeatures,
+        fixedFeatures = fixedFeatures?.plus(plus.fixedFeatures) ?: plus.fixedFeatures,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun FeatureSetDefaults.FeatureSetEditionDefault.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FeatureSetDefaults.FeatureSetEditionDefault {
+    var edition: pbandk.wkt.Edition? = null
+    var overridableFeatures: pbandk.wkt.FeatureSet? = null
+    var fixedFeatures: pbandk.wkt.FeatureSet? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            3 -> edition = _fieldValue as pbandk.wkt.Edition
+            4 -> overridableFeatures = _fieldValue as pbandk.wkt.FeatureSet
+            5 -> fixedFeatures = _fieldValue as pbandk.wkt.FeatureSet
+        }
+    }
+
+    return FeatureSetDefaults.FeatureSetEditionDefault(edition, overridableFeatures, fixedFeatures, unknownFields)
 }
 
 @pbandk.Export
@@ -3014,6 +4114,7 @@ private fun GeneratedCodeInfo.Annotation.protoMergeImpl(plus: pbandk.Message?): 
         sourceFile = plus.sourceFile ?: sourceFile,
         begin = plus.begin ?: begin,
         end = plus.end ?: end,
+        semantic = plus.semantic ?: semantic,
         unknownFields = unknownFields + plus.unknownFields
     )
 } ?: this
@@ -3024,6 +4125,7 @@ private fun GeneratedCodeInfo.Annotation.Companion.decodeWithImpl(u: pbandk.Mess
     var sourceFile: String? = null
     var begin: Int? = null
     var end: Int? = null
+    var semantic: pbandk.wkt.GeneratedCodeInfo.Annotation.Semantic? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
@@ -3031,8 +4133,10 @@ private fun GeneratedCodeInfo.Annotation.Companion.decodeWithImpl(u: pbandk.Mess
             2 -> sourceFile = _fieldValue as String
             3 -> begin = _fieldValue as Int
             4 -> end = _fieldValue as Int
+            5 -> semantic = _fieldValue as pbandk.wkt.GeneratedCodeInfo.Annotation.Semantic
         }
     }
 
-    return GeneratedCodeInfo.Annotation(pbandk.ListWithSize.Builder.fixed(path), sourceFile, begin, end, unknownFields)
+    return GeneratedCodeInfo.Annotation(pbandk.ListWithSize.Builder.fixed(path), sourceFile, begin, end,
+        semantic, unknownFields)
 }

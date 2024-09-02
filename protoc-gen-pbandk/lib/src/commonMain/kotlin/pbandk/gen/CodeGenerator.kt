@@ -38,15 +38,19 @@ public open class CodeGenerator(
                 line()
                 addDeprecatedAnnotation(field)
                 line(
-                    "val ${field.extendeeKotlinType}.${field.kotlinFieldName}: ${
+                    "$visibility val ${field.extendeeKotlinType}.${field.kotlinFieldName}: ${
                         field.kotlinValueType(true)
-                    } "
+                    }"
                 ).indented {
                     line("get() = getExtension(${file.kotlinPackageName}.${field.kotlinFieldName})")
                 }.line()
                 line("@pbandk.Export")
                 addDeprecatedAnnotation(field)
-                line("val ${field.kotlinFieldName} = pbandk.FieldDescriptor(").indented {
+                line(
+                    "$visibility val ${field.kotlinFieldName}: pbandk.FieldDescriptor<${field.extendeeKotlinType}, ${
+                        field.kotlinValueType(true)
+                    }> = pbandk.FieldDescriptor("
+                ).indented {
                     generateFieldDescriptorConstructorValues(
                         field,
                         field.extendeeKotlinType!!,
@@ -162,7 +166,9 @@ public open class CodeGenerator(
                 addDeprecatedAnnotation(field)
                 lineBegin("$visibility class ${oneOf.kotlinFieldTypeNames[field.name]}(")
                 lineMid("${field.kotlinFieldName}: ${field.kotlinValueType(false)}")
-                if (field.type != File.Field.Type.MESSAGE) lineMid(" = ${field.defaultValue(allowNulls = false)}")
+                if (field.type != File.Field.Type.MESSAGE && field.type != File.Field.Type.GROUP) {
+                    lineMid(" = ${field.defaultValue(allowNulls = false)}")
+                }
                 lineEnd(") : ${oneOf.kotlinTypeName}<${field.kotlinValueType(false)}>(${field.kotlinFieldName})")
             }
         }.line("}").line()
@@ -301,7 +307,7 @@ public open class CodeGenerator(
             when {
                 field.repeated ->
                     line("$paramEquals ${field.kotlinFieldName} + plus.${field.kotlinFieldName},")
-                field.type == File.Field.Type.MESSAGE ->
+                field.type == File.Field.Type.MESSAGE || field.type == File.Field.Type.GROUP ->
                     if (field.required) {
                         line("$paramEquals ${field.kotlinFieldName}.plus(plus.${field.kotlinFieldName}),")
                     } else {
@@ -321,7 +327,9 @@ public open class CodeGenerator(
         }
 
         fun mergeOneOf(oneOf: File.Field.OneOf) {
-            val fieldsToMerge = oneOf.fields.filter { it.repeated || it.type == File.Field.Type.MESSAGE }
+            val fieldsToMerge = oneOf.fields.filter {
+                it.repeated || it.type == File.Field.Type.MESSAGE || it.type == File.Field.Type.GROUP
+            }
             if (fieldsToMerge.isEmpty()) {
                 line("${oneOf.kotlinFieldName} = plus.${oneOf.kotlinFieldName} ?: ${oneOf.kotlinFieldName},")
             } else {
@@ -518,6 +526,7 @@ public open class CodeGenerator(
                 }
                 repeated -> "Repeated<$kotlinQualifiedTypeName>(valueType = ${copy(repeated = false).fieldDescriptorType()}${if (packed) ", packed = true" else ""})"
                 type == File.Field.Type.MESSAGE -> "Message(messageCompanion = $kotlinQualifiedTypeName.Companion)"
+                type == File.Field.Type.GROUP -> "Message(messageCompanion = $kotlinQualifiedTypeName.Companion, encoding = pbandk.MessageEncoding.DELIMITED)"
                 type == File.Field.Type.ENUM -> "Enum(enumCompanion = $kotlinQualifiedTypeName.Companion" + (if (hasPresence) ", hasPresence = true" else "") + ")"
                 else -> "Primitive.${type.string.replaceFirstChar { it.titlecase() }}(" + (if (hasPresence) "hasPresence = true" else "") + ")"
             }
@@ -602,6 +611,7 @@ public open class CodeGenerator(
             File.Field.Type.FIXED32 -> "fixed32"
             File.Field.Type.FIXED64 -> "fixed64"
             File.Field.Type.FLOAT -> "float"
+            File.Field.Type.GROUP -> "group"
             File.Field.Type.INT32 -> "int32"
             File.Field.Type.INT64 -> "int64"
             File.Field.Type.MESSAGE -> "message"
@@ -622,6 +632,7 @@ public open class CodeGenerator(
             File.Field.Type.FIXED32 -> "Int"
             File.Field.Type.FIXED64 -> "Long"
             File.Field.Type.FLOAT -> "Float"
+            File.Field.Type.GROUP -> error("No standard type name for groups")
             File.Field.Type.INT32 -> "Int"
             File.Field.Type.INT64 -> "Long"
             File.Field.Type.MESSAGE -> error("No standard type name for messages")
@@ -644,11 +655,11 @@ public open class CodeGenerator(
             File.Field.Type.FIXED64, File.Field.Type.INT64, File.Field.Type.SFIXED64,
             File.Field.Type.SINT64, File.Field.Type.UINT64 -> "0L"
             File.Field.Type.FLOAT -> "0.0F"
-            File.Field.Type.MESSAGE -> "null"
+            File.Field.Type.MESSAGE, File.Field.Type.GROUP -> "null"
             File.Field.Type.STRING -> "\"\""
         }
     protected val File.Field.Type.requiresExplicitTypeWithVal: Boolean
-        get() = this == File.Field.Type.BYTES || this == File.Field.Type.ENUM || this == File.Field.Type.MESSAGE
+        get() = this == File.Field.Type.BYTES || this == File.Field.Type.ENUM || this == File.Field.Type.MESSAGE || this == File.Field.Type.GROUP
     protected val File.Field.Type.wrapperKotlinTypeName: String
         get() = kotlinTypeMappings[wrapperTypeName] ?: error("No Kotlin type found for wrapper")
 

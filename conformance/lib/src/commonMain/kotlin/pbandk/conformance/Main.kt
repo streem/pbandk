@@ -60,8 +60,14 @@ suspend fun doTestIo(): ConformanceResponse.Result<*>? {
             add(typeComp)
         }
     )
-    if (req.testCategory == TestCategory.JSON_IGNORE_UNKNOWN_PARSING_TEST) {
-        jsonConfig = jsonConfig.copy(ignoreUnknownFieldsInInput = true)
+    when (req.testCategory) {
+        TestCategory.BINARY_TEST, TestCategory.JSON_TEST -> {}
+
+        TestCategory.JSON_IGNORE_UNKNOWN_PARSING_TEST -> {
+            jsonConfig = jsonConfig.copy(ignoreUnknownFieldsInInput = true)
+        }
+
+        else -> return ConformanceResponse.Result.Skipped("Test category ${req.testCategory.name} is not supported")
     }
 
     // Parse

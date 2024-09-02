@@ -73,8 +73,7 @@ public data class MultipleCustomOptions(
                                 1071 to pbandk.UnknownField(
                                     fieldNum = 1071,
                                     values = listOf(
-                                        pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(5, -118, 1, 2, 16, 1)),
-                                        pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(4, 114, 2, 16, 10))
+                                        pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(9, 114, 2, 16, 10, -118, 1, 2, 16, 1))
                                     )
                                 )
                             )
@@ -119,8 +118,7 @@ public data class MultipleCustomOptionsPlusDeprecated(
                                 1071 to pbandk.UnknownField(
                                     fieldNum = 1071,
                                     values = listOf(
-                                        pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(4, 114, 2, 24, 32)),
-                                        pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(4, 114, 2, 16, 10))
+                                        pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(6, 114, 4, 16, 10, 24, 32))
                                     )
                                 )
                             )

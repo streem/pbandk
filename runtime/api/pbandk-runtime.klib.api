@@ -27,6 +27,17 @@ open annotation class pbandk/TypeRegistryDsl : kotlin/Annotation { // pbandk/Typ
     constructor <init>() // pbandk/TypeRegistryDsl.<init>|<init>(){}[0]
 }
 
+final enum class pbandk/MessageEncoding : kotlin/Enum<pbandk/MessageEncoding> { // pbandk/MessageEncoding|null[0]
+    enum entry DELIMITED // pbandk/MessageEncoding.DELIMITED|null[0]
+    enum entry LENGTH_PREFIXED // pbandk/MessageEncoding.LENGTH_PREFIXED|null[0]
+
+    final val entries // pbandk/MessageEncoding.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<pbandk/MessageEncoding> // pbandk/MessageEncoding.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): pbandk/MessageEncoding // pbandk/MessageEncoding.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<pbandk/MessageEncoding> // pbandk/MessageEncoding.values|values#static(){}[0]
+}
+
 abstract interface pbandk/ExtendableMessage : pbandk/Message { // pbandk/ExtendableMessage|null[0]
     abstract val extensionFields // pbandk/ExtendableMessage.extensionFields|{}extensionFields[0]
         abstract fun <get-extensionFields>(): pbandk/ExtensionFieldSet // pbandk/ExtendableMessage.extensionFields.<get-extensionFields>|<get-extensionFields>(){}[0]
@@ -237,7 +248,7 @@ final class <#A: pbandk/Message, #B: kotlin/Any?> pbandk/FieldDescriptor { // pb
         }
 
         final class <#A2: pbandk/Message> Message : pbandk/FieldDescriptor.Type { // pbandk/FieldDescriptor.Type.Message|null[0]
-            constructor <init>(pbandk/Message.Companion<#A2>) // pbandk/FieldDescriptor.Type.Message.<init>|<init>(pbandk.Message.Companion<1:0>){}[0]
+            constructor <init>(pbandk/Message.Companion<#A2>, pbandk/MessageEncoding = ...) // pbandk/FieldDescriptor.Type.Message.<init>|<init>(pbandk.Message.Companion<1:0>;pbandk.MessageEncoding){}[0]
         }
 
         sealed class <#A2: kotlin/Any> Primitive : pbandk/FieldDescriptor.Type { // pbandk/FieldDescriptor.Type.Primitive|null[0]
@@ -710,10 +721,12 @@ final class pbandk.wkt/Empty : pbandk/Message { // pbandk.wkt/Empty|null[0]
 }
 
 final class pbandk.wkt/Enum : pbandk/Message { // pbandk.wkt/Enum|null[0]
-    constructor <init>(kotlin/String = ..., kotlin.collections/List<pbandk.wkt/EnumValue> = ..., kotlin.collections/List<pbandk.wkt/Option> = ..., pbandk.wkt/SourceContext? = ..., pbandk.wkt/Syntax = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/Enum.<init>|<init>(kotlin.String;kotlin.collections.List<pbandk.wkt.EnumValue>;kotlin.collections.List<pbandk.wkt.Option>;pbandk.wkt.SourceContext?;pbandk.wkt.Syntax;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+    constructor <init>(kotlin/String = ..., kotlin.collections/List<pbandk.wkt/EnumValue> = ..., kotlin.collections/List<pbandk.wkt/Option> = ..., pbandk.wkt/SourceContext? = ..., pbandk.wkt/Syntax = ..., kotlin/String = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/Enum.<init>|<init>(kotlin.String;kotlin.collections.List<pbandk.wkt.EnumValue>;kotlin.collections.List<pbandk.wkt.Option>;pbandk.wkt.SourceContext?;pbandk.wkt.Syntax;kotlin.String;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
 
     final val descriptor // pbandk.wkt/Enum.descriptor|{}descriptor[0]
         final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/Enum> // pbandk.wkt/Enum.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val edition // pbandk.wkt/Enum.edition|{}edition[0]
+        final fun <get-edition>(): kotlin/String // pbandk.wkt/Enum.edition.<get-edition>|<get-edition>(){}[0]
     final val enumvalue // pbandk.wkt/Enum.enumvalue|{}enumvalue[0]
         final fun <get-enumvalue>(): kotlin.collections/List<pbandk.wkt/EnumValue> // pbandk.wkt/Enum.enumvalue.<get-enumvalue>|<get-enumvalue>(){}[0]
     final val name // pbandk.wkt/Enum.name|{}name[0]
@@ -734,8 +747,9 @@ final class pbandk.wkt/Enum : pbandk/Message { // pbandk.wkt/Enum|null[0]
     final fun component3(): kotlin.collections/List<pbandk.wkt/Option> // pbandk.wkt/Enum.component3|component3(){}[0]
     final fun component4(): pbandk.wkt/SourceContext? // pbandk.wkt/Enum.component4|component4(){}[0]
     final fun component5(): pbandk.wkt/Syntax // pbandk.wkt/Enum.component5|component5(){}[0]
-    final fun component6(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/Enum.component6|component6(){}[0]
-    final fun copy(kotlin/String = ..., kotlin.collections/List<pbandk.wkt/EnumValue> = ..., kotlin.collections/List<pbandk.wkt/Option> = ..., pbandk.wkt/SourceContext? = ..., pbandk.wkt/Syntax = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...): pbandk.wkt/Enum // pbandk.wkt/Enum.copy|copy(kotlin.String;kotlin.collections.List<pbandk.wkt.EnumValue>;kotlin.collections.List<pbandk.wkt.Option>;pbandk.wkt.SourceContext?;pbandk.wkt.Syntax;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+    final fun component6(): kotlin/String // pbandk.wkt/Enum.component6|component6(){}[0]
+    final fun component7(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/Enum.component7|component7(){}[0]
+    final fun copy(kotlin/String = ..., kotlin.collections/List<pbandk.wkt/EnumValue> = ..., kotlin.collections/List<pbandk.wkt/Option> = ..., pbandk.wkt/SourceContext? = ..., pbandk.wkt/Syntax = ..., kotlin/String = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...): pbandk.wkt/Enum // pbandk.wkt/Enum.copy|copy(kotlin.String;kotlin.collections.List<pbandk.wkt.EnumValue>;kotlin.collections.List<pbandk.wkt.Option>;pbandk.wkt.SourceContext?;pbandk.wkt.Syntax;kotlin.String;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/Enum.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // pbandk.wkt/Enum.hashCode|hashCode(){}[0]
     final fun plus(pbandk/Message?): pbandk.wkt/Enum // pbandk.wkt/Enum.plus|plus(pbandk.Message?){}[0]
@@ -827,14 +841,18 @@ final class pbandk.wkt/EnumDescriptorProto : pbandk/Message { // pbandk.wkt/Enum
 }
 
 final class pbandk.wkt/EnumOptions : pbandk/ExtendableMessage { // pbandk.wkt/EnumOptions|null[0]
-    constructor <init>(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/EnumOptions.<init>|<init>(kotlin.Boolean?;kotlin.Boolean?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    constructor <init>(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., pbandk.wkt/FeatureSet? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/EnumOptions.<init>|<init>(kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;pbandk.wkt.FeatureSet?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
 
     final val allowAlias // pbandk.wkt/EnumOptions.allowAlias|{}allowAlias[0]
         final fun <get-allowAlias>(): kotlin/Boolean? // pbandk.wkt/EnumOptions.allowAlias.<get-allowAlias>|<get-allowAlias>(){}[0]
     final val deprecated // pbandk.wkt/EnumOptions.deprecated|{}deprecated[0]
         final fun <get-deprecated>(): kotlin/Boolean? // pbandk.wkt/EnumOptions.deprecated.<get-deprecated>|<get-deprecated>(){}[0]
+    final val deprecatedLegacyJsonFieldConflicts // pbandk.wkt/EnumOptions.deprecatedLegacyJsonFieldConflicts|{}deprecatedLegacyJsonFieldConflicts[0]
+        final fun <get-deprecatedLegacyJsonFieldConflicts>(): kotlin/Boolean? // pbandk.wkt/EnumOptions.deprecatedLegacyJsonFieldConflicts.<get-deprecatedLegacyJsonFieldConflicts>|<get-deprecatedLegacyJsonFieldConflicts>(){}[0]
     final val descriptor // pbandk.wkt/EnumOptions.descriptor|{}descriptor[0]
         final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/EnumOptions> // pbandk.wkt/EnumOptions.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val features // pbandk.wkt/EnumOptions.features|{}features[0]
+        final fun <get-features>(): pbandk.wkt/FeatureSet? // pbandk.wkt/EnumOptions.features.<get-features>|<get-features>(){}[0]
     final val protoSize // pbandk.wkt/EnumOptions.protoSize|{}protoSize[0]
         final fun <get-protoSize>(): kotlin/Int // pbandk.wkt/EnumOptions.protoSize.<get-protoSize>|<get-protoSize>(){}[0]
     final val uninterpretedOption // pbandk.wkt/EnumOptions.uninterpretedOption|{}uninterpretedOption[0]
@@ -844,10 +862,12 @@ final class pbandk.wkt/EnumOptions : pbandk/ExtendableMessage { // pbandk.wkt/En
 
     final fun component1(): kotlin/Boolean? // pbandk.wkt/EnumOptions.component1|component1(){}[0]
     final fun component2(): kotlin/Boolean? // pbandk.wkt/EnumOptions.component2|component2(){}[0]
-    final fun component3(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/EnumOptions.component3|component3(){}[0]
-    final fun component4(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/EnumOptions.component4|component4(){}[0]
-    final fun component5(): pbandk/ExtensionFieldSet // pbandk.wkt/EnumOptions.component5|component5(){}[0]
-    final fun copy(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/EnumOptions // pbandk.wkt/EnumOptions.copy|copy(kotlin.Boolean?;kotlin.Boolean?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    final fun component3(): kotlin/Boolean? // pbandk.wkt/EnumOptions.component3|component3(){}[0]
+    final fun component4(): pbandk.wkt/FeatureSet? // pbandk.wkt/EnumOptions.component4|component4(){}[0]
+    final fun component5(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/EnumOptions.component5|component5(){}[0]
+    final fun component6(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/EnumOptions.component6|component6(){}[0]
+    final fun component7(): pbandk/ExtensionFieldSet // pbandk.wkt/EnumOptions.component7|component7(){}[0]
+    final fun copy(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., pbandk.wkt/FeatureSet? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/EnumOptions // pbandk.wkt/EnumOptions.copy|copy(kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;pbandk.wkt.FeatureSet?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/EnumOptions.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // pbandk.wkt/EnumOptions.hashCode|hashCode(){}[0]
     final fun plus(pbandk/Message?): pbandk.wkt/EnumOptions // pbandk.wkt/EnumOptions.plus|plus(pbandk.Message?){}[0]
@@ -936,12 +956,18 @@ final class pbandk.wkt/EnumValueDescriptorProto : pbandk/Message { // pbandk.wkt
 }
 
 final class pbandk.wkt/EnumValueOptions : pbandk/ExtendableMessage { // pbandk.wkt/EnumValueOptions|null[0]
-    constructor <init>(kotlin/Boolean? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/EnumValueOptions.<init>|<init>(kotlin.Boolean?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    constructor <init>(kotlin/Boolean? = ..., pbandk.wkt/FeatureSet? = ..., kotlin/Boolean? = ..., pbandk.wkt/FieldOptions.FeatureSupport? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/EnumValueOptions.<init>|<init>(kotlin.Boolean?;pbandk.wkt.FeatureSet?;kotlin.Boolean?;pbandk.wkt.FieldOptions.FeatureSupport?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
 
+    final val debugRedact // pbandk.wkt/EnumValueOptions.debugRedact|{}debugRedact[0]
+        final fun <get-debugRedact>(): kotlin/Boolean? // pbandk.wkt/EnumValueOptions.debugRedact.<get-debugRedact>|<get-debugRedact>(){}[0]
     final val deprecated // pbandk.wkt/EnumValueOptions.deprecated|{}deprecated[0]
         final fun <get-deprecated>(): kotlin/Boolean? // pbandk.wkt/EnumValueOptions.deprecated.<get-deprecated>|<get-deprecated>(){}[0]
     final val descriptor // pbandk.wkt/EnumValueOptions.descriptor|{}descriptor[0]
         final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/EnumValueOptions> // pbandk.wkt/EnumValueOptions.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val featureSupport // pbandk.wkt/EnumValueOptions.featureSupport|{}featureSupport[0]
+        final fun <get-featureSupport>(): pbandk.wkt/FieldOptions.FeatureSupport? // pbandk.wkt/EnumValueOptions.featureSupport.<get-featureSupport>|<get-featureSupport>(){}[0]
+    final val features // pbandk.wkt/EnumValueOptions.features|{}features[0]
+        final fun <get-features>(): pbandk.wkt/FeatureSet? // pbandk.wkt/EnumValueOptions.features.<get-features>|<get-features>(){}[0]
     final val protoSize // pbandk.wkt/EnumValueOptions.protoSize|{}protoSize[0]
         final fun <get-protoSize>(): kotlin/Int // pbandk.wkt/EnumValueOptions.protoSize.<get-protoSize>|<get-protoSize>(){}[0]
     final val uninterpretedOption // pbandk.wkt/EnumValueOptions.uninterpretedOption|{}uninterpretedOption[0]
@@ -950,10 +976,13 @@ final class pbandk.wkt/EnumValueOptions : pbandk/ExtendableMessage { // pbandk.w
         final fun <get-unknownFields>(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/EnumValueOptions.unknownFields.<get-unknownFields>|<get-unknownFields>(){}[0]
 
     final fun component1(): kotlin/Boolean? // pbandk.wkt/EnumValueOptions.component1|component1(){}[0]
-    final fun component2(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/EnumValueOptions.component2|component2(){}[0]
-    final fun component3(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/EnumValueOptions.component3|component3(){}[0]
-    final fun component4(): pbandk/ExtensionFieldSet // pbandk.wkt/EnumValueOptions.component4|component4(){}[0]
-    final fun copy(kotlin/Boolean? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/EnumValueOptions // pbandk.wkt/EnumValueOptions.copy|copy(kotlin.Boolean?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    final fun component2(): pbandk.wkt/FeatureSet? // pbandk.wkt/EnumValueOptions.component2|component2(){}[0]
+    final fun component3(): kotlin/Boolean? // pbandk.wkt/EnumValueOptions.component3|component3(){}[0]
+    final fun component4(): pbandk.wkt/FieldOptions.FeatureSupport? // pbandk.wkt/EnumValueOptions.component4|component4(){}[0]
+    final fun component5(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/EnumValueOptions.component5|component5(){}[0]
+    final fun component6(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/EnumValueOptions.component6|component6(){}[0]
+    final fun component7(): pbandk/ExtensionFieldSet // pbandk.wkt/EnumValueOptions.component7|component7(){}[0]
+    final fun copy(kotlin/Boolean? = ..., pbandk.wkt/FeatureSet? = ..., kotlin/Boolean? = ..., pbandk.wkt/FieldOptions.FeatureSupport? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/EnumValueOptions // pbandk.wkt/EnumValueOptions.copy|copy(kotlin.Boolean?;pbandk.wkt.FeatureSet?;kotlin.Boolean?;pbandk.wkt.FieldOptions.FeatureSupport?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/EnumValueOptions.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // pbandk.wkt/EnumValueOptions.hashCode|hashCode(){}[0]
     final fun plus(pbandk/Message?): pbandk.wkt/EnumValueOptions // pbandk.wkt/EnumValueOptions.plus|plus(pbandk.Message?){}[0]
@@ -970,25 +999,105 @@ final class pbandk.wkt/EnumValueOptions : pbandk/ExtendableMessage { // pbandk.w
 }
 
 final class pbandk.wkt/ExtensionRangeOptions : pbandk/ExtendableMessage { // pbandk.wkt/ExtensionRangeOptions|null[0]
-    constructor <init>(kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/ExtensionRangeOptions.<init>|<init>(kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    constructor <init>(kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/List<pbandk.wkt/ExtensionRangeOptions.Declaration> = ..., pbandk.wkt/FeatureSet? = ..., pbandk.wkt/ExtensionRangeOptions.VerificationState? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/ExtensionRangeOptions.<init>|<init>(kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.List<pbandk.wkt.ExtensionRangeOptions.Declaration>;pbandk.wkt.FeatureSet?;pbandk.wkt.ExtensionRangeOptions.VerificationState?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
 
+    final val declaration // pbandk.wkt/ExtensionRangeOptions.declaration|{}declaration[0]
+        final fun <get-declaration>(): kotlin.collections/List<pbandk.wkt/ExtensionRangeOptions.Declaration> // pbandk.wkt/ExtensionRangeOptions.declaration.<get-declaration>|<get-declaration>(){}[0]
     final val descriptor // pbandk.wkt/ExtensionRangeOptions.descriptor|{}descriptor[0]
         final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/ExtensionRangeOptions> // pbandk.wkt/ExtensionRangeOptions.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val features // pbandk.wkt/ExtensionRangeOptions.features|{}features[0]
+        final fun <get-features>(): pbandk.wkt/FeatureSet? // pbandk.wkt/ExtensionRangeOptions.features.<get-features>|<get-features>(){}[0]
     final val protoSize // pbandk.wkt/ExtensionRangeOptions.protoSize|{}protoSize[0]
         final fun <get-protoSize>(): kotlin/Int // pbandk.wkt/ExtensionRangeOptions.protoSize.<get-protoSize>|<get-protoSize>(){}[0]
     final val uninterpretedOption // pbandk.wkt/ExtensionRangeOptions.uninterpretedOption|{}uninterpretedOption[0]
         final fun <get-uninterpretedOption>(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/ExtensionRangeOptions.uninterpretedOption.<get-uninterpretedOption>|<get-uninterpretedOption>(){}[0]
     final val unknownFields // pbandk.wkt/ExtensionRangeOptions.unknownFields|{}unknownFields[0]
         final fun <get-unknownFields>(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/ExtensionRangeOptions.unknownFields.<get-unknownFields>|<get-unknownFields>(){}[0]
+    final val verification // pbandk.wkt/ExtensionRangeOptions.verification|{}verification[0]
+        final fun <get-verification>(): pbandk.wkt/ExtensionRangeOptions.VerificationState? // pbandk.wkt/ExtensionRangeOptions.verification.<get-verification>|<get-verification>(){}[0]
 
     final fun component1(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/ExtensionRangeOptions.component1|component1(){}[0]
-    final fun component2(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/ExtensionRangeOptions.component2|component2(){}[0]
-    final fun component3(): pbandk/ExtensionFieldSet // pbandk.wkt/ExtensionRangeOptions.component3|component3(){}[0]
-    final fun copy(kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/ExtensionRangeOptions // pbandk.wkt/ExtensionRangeOptions.copy|copy(kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    final fun component2(): kotlin.collections/List<pbandk.wkt/ExtensionRangeOptions.Declaration> // pbandk.wkt/ExtensionRangeOptions.component2|component2(){}[0]
+    final fun component3(): pbandk.wkt/FeatureSet? // pbandk.wkt/ExtensionRangeOptions.component3|component3(){}[0]
+    final fun component4(): pbandk.wkt/ExtensionRangeOptions.VerificationState? // pbandk.wkt/ExtensionRangeOptions.component4|component4(){}[0]
+    final fun component5(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/ExtensionRangeOptions.component5|component5(){}[0]
+    final fun component6(): pbandk/ExtensionFieldSet // pbandk.wkt/ExtensionRangeOptions.component6|component6(){}[0]
+    final fun copy(kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/List<pbandk.wkt/ExtensionRangeOptions.Declaration> = ..., pbandk.wkt/FeatureSet? = ..., pbandk.wkt/ExtensionRangeOptions.VerificationState? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/ExtensionRangeOptions // pbandk.wkt/ExtensionRangeOptions.copy|copy(kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.List<pbandk.wkt.ExtensionRangeOptions.Declaration>;pbandk.wkt.FeatureSet?;pbandk.wkt.ExtensionRangeOptions.VerificationState?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/ExtensionRangeOptions.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // pbandk.wkt/ExtensionRangeOptions.hashCode|hashCode(){}[0]
     final fun plus(pbandk/Message?): pbandk.wkt/ExtensionRangeOptions // pbandk.wkt/ExtensionRangeOptions.plus|plus(pbandk.Message?){}[0]
     final fun toString(): kotlin/String // pbandk.wkt/ExtensionRangeOptions.toString|toString(){}[0]
+
+    final class Declaration : pbandk/Message { // pbandk.wkt/ExtensionRangeOptions.Declaration|null[0]
+        constructor <init>(kotlin/Int? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/ExtensionRangeOptions.Declaration.<init>|<init>(kotlin.Int?;kotlin.String?;kotlin.String?;kotlin.Boolean?;kotlin.Boolean?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+
+        final val descriptor // pbandk.wkt/ExtensionRangeOptions.Declaration.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/ExtensionRangeOptions.Declaration> // pbandk.wkt/ExtensionRangeOptions.Declaration.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+        final val fullName // pbandk.wkt/ExtensionRangeOptions.Declaration.fullName|{}fullName[0]
+            final fun <get-fullName>(): kotlin/String? // pbandk.wkt/ExtensionRangeOptions.Declaration.fullName.<get-fullName>|<get-fullName>(){}[0]
+        final val number // pbandk.wkt/ExtensionRangeOptions.Declaration.number|{}number[0]
+            final fun <get-number>(): kotlin/Int? // pbandk.wkt/ExtensionRangeOptions.Declaration.number.<get-number>|<get-number>(){}[0]
+        final val protoSize // pbandk.wkt/ExtensionRangeOptions.Declaration.protoSize|{}protoSize[0]
+            final fun <get-protoSize>(): kotlin/Int // pbandk.wkt/ExtensionRangeOptions.Declaration.protoSize.<get-protoSize>|<get-protoSize>(){}[0]
+        final val repeated // pbandk.wkt/ExtensionRangeOptions.Declaration.repeated|{}repeated[0]
+            final fun <get-repeated>(): kotlin/Boolean? // pbandk.wkt/ExtensionRangeOptions.Declaration.repeated.<get-repeated>|<get-repeated>(){}[0]
+        final val reserved // pbandk.wkt/ExtensionRangeOptions.Declaration.reserved|{}reserved[0]
+            final fun <get-reserved>(): kotlin/Boolean? // pbandk.wkt/ExtensionRangeOptions.Declaration.reserved.<get-reserved>|<get-reserved>(){}[0]
+        final val type // pbandk.wkt/ExtensionRangeOptions.Declaration.type|{}type[0]
+            final fun <get-type>(): kotlin/String? // pbandk.wkt/ExtensionRangeOptions.Declaration.type.<get-type>|<get-type>(){}[0]
+        final val unknownFields // pbandk.wkt/ExtensionRangeOptions.Declaration.unknownFields|{}unknownFields[0]
+            final fun <get-unknownFields>(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/ExtensionRangeOptions.Declaration.unknownFields.<get-unknownFields>|<get-unknownFields>(){}[0]
+
+        final fun component1(): kotlin/Int? // pbandk.wkt/ExtensionRangeOptions.Declaration.component1|component1(){}[0]
+        final fun component2(): kotlin/String? // pbandk.wkt/ExtensionRangeOptions.Declaration.component2|component2(){}[0]
+        final fun component3(): kotlin/String? // pbandk.wkt/ExtensionRangeOptions.Declaration.component3|component3(){}[0]
+        final fun component4(): kotlin/Boolean? // pbandk.wkt/ExtensionRangeOptions.Declaration.component4|component4(){}[0]
+        final fun component5(): kotlin/Boolean? // pbandk.wkt/ExtensionRangeOptions.Declaration.component5|component5(){}[0]
+        final fun component6(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/ExtensionRangeOptions.Declaration.component6|component6(){}[0]
+        final fun copy(kotlin/Int? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...): pbandk.wkt/ExtensionRangeOptions.Declaration // pbandk.wkt/ExtensionRangeOptions.Declaration.copy|copy(kotlin.Int?;kotlin.String?;kotlin.String?;kotlin.Boolean?;kotlin.Boolean?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/ExtensionRangeOptions.Declaration.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // pbandk.wkt/ExtensionRangeOptions.Declaration.hashCode|hashCode(){}[0]
+        final fun plus(pbandk/Message?): pbandk.wkt/ExtensionRangeOptions.Declaration // pbandk.wkt/ExtensionRangeOptions.Declaration.plus|plus(pbandk.Message?){}[0]
+        final fun toString(): kotlin/String // pbandk.wkt/ExtensionRangeOptions.Declaration.toString|toString(){}[0]
+
+        final object Companion : pbandk/Message.Companion<pbandk.wkt/ExtensionRangeOptions.Declaration> { // pbandk.wkt/ExtensionRangeOptions.Declaration.Companion|null[0]
+            final val defaultInstance // pbandk.wkt/ExtensionRangeOptions.Declaration.Companion.defaultInstance|{}defaultInstance[0]
+                final fun <get-defaultInstance>(): pbandk.wkt/ExtensionRangeOptions.Declaration // pbandk.wkt/ExtensionRangeOptions.Declaration.Companion.defaultInstance.<get-defaultInstance>|<get-defaultInstance>(){}[0]
+            final val descriptor // pbandk.wkt/ExtensionRangeOptions.Declaration.Companion.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/ExtensionRangeOptions.Declaration> // pbandk.wkt/ExtensionRangeOptions.Declaration.Companion.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun decodeWith(pbandk/MessageDecoder): pbandk.wkt/ExtensionRangeOptions.Declaration // pbandk.wkt/ExtensionRangeOptions.Declaration.Companion.decodeWith|decodeWith(pbandk.MessageDecoder){}[0]
+        }
+    }
+
+    sealed class VerificationState : pbandk/Message.Enum { // pbandk.wkt/ExtensionRangeOptions.VerificationState|null[0]
+        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/ExtensionRangeOptions.VerificationState.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
+
+        open val name // pbandk.wkt/ExtensionRangeOptions.VerificationState.name|{}name[0]
+            open fun <get-name>(): kotlin/String? // pbandk.wkt/ExtensionRangeOptions.VerificationState.name.<get-name>|<get-name>(){}[0]
+        open val value // pbandk.wkt/ExtensionRangeOptions.VerificationState.value|{}value[0]
+            open fun <get-value>(): kotlin/Int // pbandk.wkt/ExtensionRangeOptions.VerificationState.value.<get-value>|<get-value>(){}[0]
+
+        open fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/ExtensionRangeOptions.VerificationState.equals|equals(kotlin.Any?){}[0]
+        open fun hashCode(): kotlin/Int // pbandk.wkt/ExtensionRangeOptions.VerificationState.hashCode|hashCode(){}[0]
+        open fun toString(): kotlin/String // pbandk.wkt/ExtensionRangeOptions.VerificationState.toString|toString(){}[0]
+
+        final class UNRECOGNIZED : pbandk.wkt/ExtensionRangeOptions.VerificationState { // pbandk.wkt/ExtensionRangeOptions.VerificationState.UNRECOGNIZED|null[0]
+            constructor <init>(kotlin/Int) // pbandk.wkt/ExtensionRangeOptions.VerificationState.UNRECOGNIZED.<init>|<init>(kotlin.Int){}[0]
+        }
+
+        final object Companion : pbandk/Message.Enum.Companion<pbandk.wkt/ExtensionRangeOptions.VerificationState> { // pbandk.wkt/ExtensionRangeOptions.VerificationState.Companion|null[0]
+            final val values // pbandk.wkt/ExtensionRangeOptions.VerificationState.Companion.values|{}values[0]
+                final fun <get-values>(): kotlin.collections/List<pbandk.wkt/ExtensionRangeOptions.VerificationState> // pbandk.wkt/ExtensionRangeOptions.VerificationState.Companion.values.<get-values>|<get-values>(){}[0]
+
+            final fun fromName(kotlin/String): pbandk.wkt/ExtensionRangeOptions.VerificationState // pbandk.wkt/ExtensionRangeOptions.VerificationState.Companion.fromName|fromName(kotlin.String){}[0]
+            final fun fromValue(kotlin/Int): pbandk.wkt/ExtensionRangeOptions.VerificationState // pbandk.wkt/ExtensionRangeOptions.VerificationState.Companion.fromValue|fromValue(kotlin.Int){}[0]
+        }
+
+        final object DECLARATION : pbandk.wkt/ExtensionRangeOptions.VerificationState // pbandk.wkt/ExtensionRangeOptions.VerificationState.DECLARATION|null[0]
+
+        final object UNVERIFIED : pbandk.wkt/ExtensionRangeOptions.VerificationState // pbandk.wkt/ExtensionRangeOptions.VerificationState.UNVERIFIED|null[0]
+    }
 
     final object Companion : pbandk/Message.Companion<pbandk.wkt/ExtensionRangeOptions> { // pbandk.wkt/ExtensionRangeOptions.Companion|null[0]
         final val defaultInstance // pbandk.wkt/ExtensionRangeOptions.Companion.defaultInstance|{}defaultInstance[0]
@@ -997,6 +1106,312 @@ final class pbandk.wkt/ExtensionRangeOptions : pbandk/ExtendableMessage { // pba
             final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/ExtensionRangeOptions> // pbandk.wkt/ExtensionRangeOptions.Companion.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
 
         final fun decodeWith(pbandk/MessageDecoder): pbandk.wkt/ExtensionRangeOptions // pbandk.wkt/ExtensionRangeOptions.Companion.decodeWith|decodeWith(pbandk.MessageDecoder){}[0]
+    }
+}
+
+final class pbandk.wkt/FeatureSet : pbandk/ExtendableMessage { // pbandk.wkt/FeatureSet|null[0]
+    constructor <init>(pbandk.wkt/FeatureSet.FieldPresence? = ..., pbandk.wkt/FeatureSet.EnumType? = ..., pbandk.wkt/FeatureSet.RepeatedFieldEncoding? = ..., pbandk.wkt/FeatureSet.Utf8Validation? = ..., pbandk.wkt/FeatureSet.MessageEncoding? = ..., pbandk.wkt/FeatureSet.JsonFormat? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/FeatureSet.<init>|<init>(pbandk.wkt.FeatureSet.FieldPresence?;pbandk.wkt.FeatureSet.EnumType?;pbandk.wkt.FeatureSet.RepeatedFieldEncoding?;pbandk.wkt.FeatureSet.Utf8Validation?;pbandk.wkt.FeatureSet.MessageEncoding?;pbandk.wkt.FeatureSet.JsonFormat?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+
+    final val descriptor // pbandk.wkt/FeatureSet.descriptor|{}descriptor[0]
+        final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/FeatureSet> // pbandk.wkt/FeatureSet.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val enumType // pbandk.wkt/FeatureSet.enumType|{}enumType[0]
+        final fun <get-enumType>(): pbandk.wkt/FeatureSet.EnumType? // pbandk.wkt/FeatureSet.enumType.<get-enumType>|<get-enumType>(){}[0]
+    final val fieldPresence // pbandk.wkt/FeatureSet.fieldPresence|{}fieldPresence[0]
+        final fun <get-fieldPresence>(): pbandk.wkt/FeatureSet.FieldPresence? // pbandk.wkt/FeatureSet.fieldPresence.<get-fieldPresence>|<get-fieldPresence>(){}[0]
+    final val jsonFormat // pbandk.wkt/FeatureSet.jsonFormat|{}jsonFormat[0]
+        final fun <get-jsonFormat>(): pbandk.wkt/FeatureSet.JsonFormat? // pbandk.wkt/FeatureSet.jsonFormat.<get-jsonFormat>|<get-jsonFormat>(){}[0]
+    final val messageEncoding // pbandk.wkt/FeatureSet.messageEncoding|{}messageEncoding[0]
+        final fun <get-messageEncoding>(): pbandk.wkt/FeatureSet.MessageEncoding? // pbandk.wkt/FeatureSet.messageEncoding.<get-messageEncoding>|<get-messageEncoding>(){}[0]
+    final val protoSize // pbandk.wkt/FeatureSet.protoSize|{}protoSize[0]
+        final fun <get-protoSize>(): kotlin/Int // pbandk.wkt/FeatureSet.protoSize.<get-protoSize>|<get-protoSize>(){}[0]
+    final val repeatedFieldEncoding // pbandk.wkt/FeatureSet.repeatedFieldEncoding|{}repeatedFieldEncoding[0]
+        final fun <get-repeatedFieldEncoding>(): pbandk.wkt/FeatureSet.RepeatedFieldEncoding? // pbandk.wkt/FeatureSet.repeatedFieldEncoding.<get-repeatedFieldEncoding>|<get-repeatedFieldEncoding>(){}[0]
+    final val unknownFields // pbandk.wkt/FeatureSet.unknownFields|{}unknownFields[0]
+        final fun <get-unknownFields>(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FeatureSet.unknownFields.<get-unknownFields>|<get-unknownFields>(){}[0]
+    final val utf8Validation // pbandk.wkt/FeatureSet.utf8Validation|{}utf8Validation[0]
+        final fun <get-utf8Validation>(): pbandk.wkt/FeatureSet.Utf8Validation? // pbandk.wkt/FeatureSet.utf8Validation.<get-utf8Validation>|<get-utf8Validation>(){}[0]
+
+    final fun component1(): pbandk.wkt/FeatureSet.FieldPresence? // pbandk.wkt/FeatureSet.component1|component1(){}[0]
+    final fun component2(): pbandk.wkt/FeatureSet.EnumType? // pbandk.wkt/FeatureSet.component2|component2(){}[0]
+    final fun component3(): pbandk.wkt/FeatureSet.RepeatedFieldEncoding? // pbandk.wkt/FeatureSet.component3|component3(){}[0]
+    final fun component4(): pbandk.wkt/FeatureSet.Utf8Validation? // pbandk.wkt/FeatureSet.component4|component4(){}[0]
+    final fun component5(): pbandk.wkt/FeatureSet.MessageEncoding? // pbandk.wkt/FeatureSet.component5|component5(){}[0]
+    final fun component6(): pbandk.wkt/FeatureSet.JsonFormat? // pbandk.wkt/FeatureSet.component6|component6(){}[0]
+    final fun component7(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FeatureSet.component7|component7(){}[0]
+    final fun component8(): pbandk/ExtensionFieldSet // pbandk.wkt/FeatureSet.component8|component8(){}[0]
+    final fun copy(pbandk.wkt/FeatureSet.FieldPresence? = ..., pbandk.wkt/FeatureSet.EnumType? = ..., pbandk.wkt/FeatureSet.RepeatedFieldEncoding? = ..., pbandk.wkt/FeatureSet.Utf8Validation? = ..., pbandk.wkt/FeatureSet.MessageEncoding? = ..., pbandk.wkt/FeatureSet.JsonFormat? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/FeatureSet // pbandk.wkt/FeatureSet.copy|copy(pbandk.wkt.FeatureSet.FieldPresence?;pbandk.wkt.FeatureSet.EnumType?;pbandk.wkt.FeatureSet.RepeatedFieldEncoding?;pbandk.wkt.FeatureSet.Utf8Validation?;pbandk.wkt.FeatureSet.MessageEncoding?;pbandk.wkt.FeatureSet.JsonFormat?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FeatureSet.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // pbandk.wkt/FeatureSet.hashCode|hashCode(){}[0]
+    final fun plus(pbandk/Message?): pbandk.wkt/FeatureSet // pbandk.wkt/FeatureSet.plus|plus(pbandk.Message?){}[0]
+    final fun toString(): kotlin/String // pbandk.wkt/FeatureSet.toString|toString(){}[0]
+
+    sealed class EnumType : pbandk/Message.Enum { // pbandk.wkt/FeatureSet.EnumType|null[0]
+        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FeatureSet.EnumType.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
+
+        open val name // pbandk.wkt/FeatureSet.EnumType.name|{}name[0]
+            open fun <get-name>(): kotlin/String? // pbandk.wkt/FeatureSet.EnumType.name.<get-name>|<get-name>(){}[0]
+        open val value // pbandk.wkt/FeatureSet.EnumType.value|{}value[0]
+            open fun <get-value>(): kotlin/Int // pbandk.wkt/FeatureSet.EnumType.value.<get-value>|<get-value>(){}[0]
+
+        open fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FeatureSet.EnumType.equals|equals(kotlin.Any?){}[0]
+        open fun hashCode(): kotlin/Int // pbandk.wkt/FeatureSet.EnumType.hashCode|hashCode(){}[0]
+        open fun toString(): kotlin/String // pbandk.wkt/FeatureSet.EnumType.toString|toString(){}[0]
+
+        final class UNRECOGNIZED : pbandk.wkt/FeatureSet.EnumType { // pbandk.wkt/FeatureSet.EnumType.UNRECOGNIZED|null[0]
+            constructor <init>(kotlin/Int) // pbandk.wkt/FeatureSet.EnumType.UNRECOGNIZED.<init>|<init>(kotlin.Int){}[0]
+        }
+
+        final object CLOSED : pbandk.wkt/FeatureSet.EnumType // pbandk.wkt/FeatureSet.EnumType.CLOSED|null[0]
+
+        final object Companion : pbandk/Message.Enum.Companion<pbandk.wkt/FeatureSet.EnumType> { // pbandk.wkt/FeatureSet.EnumType.Companion|null[0]
+            final val values // pbandk.wkt/FeatureSet.EnumType.Companion.values|{}values[0]
+                final fun <get-values>(): kotlin.collections/List<pbandk.wkt/FeatureSet.EnumType> // pbandk.wkt/FeatureSet.EnumType.Companion.values.<get-values>|<get-values>(){}[0]
+
+            final fun fromName(kotlin/String): pbandk.wkt/FeatureSet.EnumType // pbandk.wkt/FeatureSet.EnumType.Companion.fromName|fromName(kotlin.String){}[0]
+            final fun fromValue(kotlin/Int): pbandk.wkt/FeatureSet.EnumType // pbandk.wkt/FeatureSet.EnumType.Companion.fromValue|fromValue(kotlin.Int){}[0]
+        }
+
+        final object OPEN : pbandk.wkt/FeatureSet.EnumType // pbandk.wkt/FeatureSet.EnumType.OPEN|null[0]
+
+        final object UNKNOWN : pbandk.wkt/FeatureSet.EnumType // pbandk.wkt/FeatureSet.EnumType.UNKNOWN|null[0]
+    }
+
+    sealed class FieldPresence : pbandk/Message.Enum { // pbandk.wkt/FeatureSet.FieldPresence|null[0]
+        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FeatureSet.FieldPresence.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
+
+        open val name // pbandk.wkt/FeatureSet.FieldPresence.name|{}name[0]
+            open fun <get-name>(): kotlin/String? // pbandk.wkt/FeatureSet.FieldPresence.name.<get-name>|<get-name>(){}[0]
+        open val value // pbandk.wkt/FeatureSet.FieldPresence.value|{}value[0]
+            open fun <get-value>(): kotlin/Int // pbandk.wkt/FeatureSet.FieldPresence.value.<get-value>|<get-value>(){}[0]
+
+        open fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FeatureSet.FieldPresence.equals|equals(kotlin.Any?){}[0]
+        open fun hashCode(): kotlin/Int // pbandk.wkt/FeatureSet.FieldPresence.hashCode|hashCode(){}[0]
+        open fun toString(): kotlin/String // pbandk.wkt/FeatureSet.FieldPresence.toString|toString(){}[0]
+
+        final class UNRECOGNIZED : pbandk.wkt/FeatureSet.FieldPresence { // pbandk.wkt/FeatureSet.FieldPresence.UNRECOGNIZED|null[0]
+            constructor <init>(kotlin/Int) // pbandk.wkt/FeatureSet.FieldPresence.UNRECOGNIZED.<init>|<init>(kotlin.Int){}[0]
+        }
+
+        final object Companion : pbandk/Message.Enum.Companion<pbandk.wkt/FeatureSet.FieldPresence> { // pbandk.wkt/FeatureSet.FieldPresence.Companion|null[0]
+            final val values // pbandk.wkt/FeatureSet.FieldPresence.Companion.values|{}values[0]
+                final fun <get-values>(): kotlin.collections/List<pbandk.wkt/FeatureSet.FieldPresence> // pbandk.wkt/FeatureSet.FieldPresence.Companion.values.<get-values>|<get-values>(){}[0]
+
+            final fun fromName(kotlin/String): pbandk.wkt/FeatureSet.FieldPresence // pbandk.wkt/FeatureSet.FieldPresence.Companion.fromName|fromName(kotlin.String){}[0]
+            final fun fromValue(kotlin/Int): pbandk.wkt/FeatureSet.FieldPresence // pbandk.wkt/FeatureSet.FieldPresence.Companion.fromValue|fromValue(kotlin.Int){}[0]
+        }
+
+        final object EXPLICIT : pbandk.wkt/FeatureSet.FieldPresence // pbandk.wkt/FeatureSet.FieldPresence.EXPLICIT|null[0]
+
+        final object IMPLICIT : pbandk.wkt/FeatureSet.FieldPresence // pbandk.wkt/FeatureSet.FieldPresence.IMPLICIT|null[0]
+
+        final object LEGACY_REQUIRED : pbandk.wkt/FeatureSet.FieldPresence // pbandk.wkt/FeatureSet.FieldPresence.LEGACY_REQUIRED|null[0]
+
+        final object UNKNOWN : pbandk.wkt/FeatureSet.FieldPresence // pbandk.wkt/FeatureSet.FieldPresence.UNKNOWN|null[0]
+    }
+
+    sealed class JsonFormat : pbandk/Message.Enum { // pbandk.wkt/FeatureSet.JsonFormat|null[0]
+        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FeatureSet.JsonFormat.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
+
+        open val name // pbandk.wkt/FeatureSet.JsonFormat.name|{}name[0]
+            open fun <get-name>(): kotlin/String? // pbandk.wkt/FeatureSet.JsonFormat.name.<get-name>|<get-name>(){}[0]
+        open val value // pbandk.wkt/FeatureSet.JsonFormat.value|{}value[0]
+            open fun <get-value>(): kotlin/Int // pbandk.wkt/FeatureSet.JsonFormat.value.<get-value>|<get-value>(){}[0]
+
+        open fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FeatureSet.JsonFormat.equals|equals(kotlin.Any?){}[0]
+        open fun hashCode(): kotlin/Int // pbandk.wkt/FeatureSet.JsonFormat.hashCode|hashCode(){}[0]
+        open fun toString(): kotlin/String // pbandk.wkt/FeatureSet.JsonFormat.toString|toString(){}[0]
+
+        final class UNRECOGNIZED : pbandk.wkt/FeatureSet.JsonFormat { // pbandk.wkt/FeatureSet.JsonFormat.UNRECOGNIZED|null[0]
+            constructor <init>(kotlin/Int) // pbandk.wkt/FeatureSet.JsonFormat.UNRECOGNIZED.<init>|<init>(kotlin.Int){}[0]
+        }
+
+        final object ALLOW : pbandk.wkt/FeatureSet.JsonFormat // pbandk.wkt/FeatureSet.JsonFormat.ALLOW|null[0]
+
+        final object Companion : pbandk/Message.Enum.Companion<pbandk.wkt/FeatureSet.JsonFormat> { // pbandk.wkt/FeatureSet.JsonFormat.Companion|null[0]
+            final val values // pbandk.wkt/FeatureSet.JsonFormat.Companion.values|{}values[0]
+                final fun <get-values>(): kotlin.collections/List<pbandk.wkt/FeatureSet.JsonFormat> // pbandk.wkt/FeatureSet.JsonFormat.Companion.values.<get-values>|<get-values>(){}[0]
+
+            final fun fromName(kotlin/String): pbandk.wkt/FeatureSet.JsonFormat // pbandk.wkt/FeatureSet.JsonFormat.Companion.fromName|fromName(kotlin.String){}[0]
+            final fun fromValue(kotlin/Int): pbandk.wkt/FeatureSet.JsonFormat // pbandk.wkt/FeatureSet.JsonFormat.Companion.fromValue|fromValue(kotlin.Int){}[0]
+        }
+
+        final object LEGACY_BEST_EFFORT : pbandk.wkt/FeatureSet.JsonFormat // pbandk.wkt/FeatureSet.JsonFormat.LEGACY_BEST_EFFORT|null[0]
+
+        final object UNKNOWN : pbandk.wkt/FeatureSet.JsonFormat // pbandk.wkt/FeatureSet.JsonFormat.UNKNOWN|null[0]
+    }
+
+    sealed class MessageEncoding : pbandk/Message.Enum { // pbandk.wkt/FeatureSet.MessageEncoding|null[0]
+        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FeatureSet.MessageEncoding.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
+
+        open val name // pbandk.wkt/FeatureSet.MessageEncoding.name|{}name[0]
+            open fun <get-name>(): kotlin/String? // pbandk.wkt/FeatureSet.MessageEncoding.name.<get-name>|<get-name>(){}[0]
+        open val value // pbandk.wkt/FeatureSet.MessageEncoding.value|{}value[0]
+            open fun <get-value>(): kotlin/Int // pbandk.wkt/FeatureSet.MessageEncoding.value.<get-value>|<get-value>(){}[0]
+
+        open fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FeatureSet.MessageEncoding.equals|equals(kotlin.Any?){}[0]
+        open fun hashCode(): kotlin/Int // pbandk.wkt/FeatureSet.MessageEncoding.hashCode|hashCode(){}[0]
+        open fun toString(): kotlin/String // pbandk.wkt/FeatureSet.MessageEncoding.toString|toString(){}[0]
+
+        final class UNRECOGNIZED : pbandk.wkt/FeatureSet.MessageEncoding { // pbandk.wkt/FeatureSet.MessageEncoding.UNRECOGNIZED|null[0]
+            constructor <init>(kotlin/Int) // pbandk.wkt/FeatureSet.MessageEncoding.UNRECOGNIZED.<init>|<init>(kotlin.Int){}[0]
+        }
+
+        final object Companion : pbandk/Message.Enum.Companion<pbandk.wkt/FeatureSet.MessageEncoding> { // pbandk.wkt/FeatureSet.MessageEncoding.Companion|null[0]
+            final val values // pbandk.wkt/FeatureSet.MessageEncoding.Companion.values|{}values[0]
+                final fun <get-values>(): kotlin.collections/List<pbandk.wkt/FeatureSet.MessageEncoding> // pbandk.wkt/FeatureSet.MessageEncoding.Companion.values.<get-values>|<get-values>(){}[0]
+
+            final fun fromName(kotlin/String): pbandk.wkt/FeatureSet.MessageEncoding // pbandk.wkt/FeatureSet.MessageEncoding.Companion.fromName|fromName(kotlin.String){}[0]
+            final fun fromValue(kotlin/Int): pbandk.wkt/FeatureSet.MessageEncoding // pbandk.wkt/FeatureSet.MessageEncoding.Companion.fromValue|fromValue(kotlin.Int){}[0]
+        }
+
+        final object DELIMITED : pbandk.wkt/FeatureSet.MessageEncoding // pbandk.wkt/FeatureSet.MessageEncoding.DELIMITED|null[0]
+
+        final object LENGTH_PREFIXED : pbandk.wkt/FeatureSet.MessageEncoding // pbandk.wkt/FeatureSet.MessageEncoding.LENGTH_PREFIXED|null[0]
+
+        final object UNKNOWN : pbandk.wkt/FeatureSet.MessageEncoding // pbandk.wkt/FeatureSet.MessageEncoding.UNKNOWN|null[0]
+    }
+
+    sealed class RepeatedFieldEncoding : pbandk/Message.Enum { // pbandk.wkt/FeatureSet.RepeatedFieldEncoding|null[0]
+        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
+
+        open val name // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.name|{}name[0]
+            open fun <get-name>(): kotlin/String? // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.name.<get-name>|<get-name>(){}[0]
+        open val value // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.value|{}value[0]
+            open fun <get-value>(): kotlin/Int // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.value.<get-value>|<get-value>(){}[0]
+
+        open fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.equals|equals(kotlin.Any?){}[0]
+        open fun hashCode(): kotlin/Int // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.hashCode|hashCode(){}[0]
+        open fun toString(): kotlin/String // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.toString|toString(){}[0]
+
+        final class UNRECOGNIZED : pbandk.wkt/FeatureSet.RepeatedFieldEncoding { // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.UNRECOGNIZED|null[0]
+            constructor <init>(kotlin/Int) // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.UNRECOGNIZED.<init>|<init>(kotlin.Int){}[0]
+        }
+
+        final object Companion : pbandk/Message.Enum.Companion<pbandk.wkt/FeatureSet.RepeatedFieldEncoding> { // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.Companion|null[0]
+            final val values // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.Companion.values|{}values[0]
+                final fun <get-values>(): kotlin.collections/List<pbandk.wkt/FeatureSet.RepeatedFieldEncoding> // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.Companion.values.<get-values>|<get-values>(){}[0]
+
+            final fun fromName(kotlin/String): pbandk.wkt/FeatureSet.RepeatedFieldEncoding // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.Companion.fromName|fromName(kotlin.String){}[0]
+            final fun fromValue(kotlin/Int): pbandk.wkt/FeatureSet.RepeatedFieldEncoding // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.Companion.fromValue|fromValue(kotlin.Int){}[0]
+        }
+
+        final object EXPANDED : pbandk.wkt/FeatureSet.RepeatedFieldEncoding // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.EXPANDED|null[0]
+
+        final object PACKED : pbandk.wkt/FeatureSet.RepeatedFieldEncoding // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.PACKED|null[0]
+
+        final object UNKNOWN : pbandk.wkt/FeatureSet.RepeatedFieldEncoding // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.UNKNOWN|null[0]
+    }
+
+    sealed class Utf8Validation : pbandk/Message.Enum { // pbandk.wkt/FeatureSet.Utf8Validation|null[0]
+        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FeatureSet.Utf8Validation.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
+
+        open val name // pbandk.wkt/FeatureSet.Utf8Validation.name|{}name[0]
+            open fun <get-name>(): kotlin/String? // pbandk.wkt/FeatureSet.Utf8Validation.name.<get-name>|<get-name>(){}[0]
+        open val value // pbandk.wkt/FeatureSet.Utf8Validation.value|{}value[0]
+            open fun <get-value>(): kotlin/Int // pbandk.wkt/FeatureSet.Utf8Validation.value.<get-value>|<get-value>(){}[0]
+
+        open fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FeatureSet.Utf8Validation.equals|equals(kotlin.Any?){}[0]
+        open fun hashCode(): kotlin/Int // pbandk.wkt/FeatureSet.Utf8Validation.hashCode|hashCode(){}[0]
+        open fun toString(): kotlin/String // pbandk.wkt/FeatureSet.Utf8Validation.toString|toString(){}[0]
+
+        final class UNRECOGNIZED : pbandk.wkt/FeatureSet.Utf8Validation { // pbandk.wkt/FeatureSet.Utf8Validation.UNRECOGNIZED|null[0]
+            constructor <init>(kotlin/Int) // pbandk.wkt/FeatureSet.Utf8Validation.UNRECOGNIZED.<init>|<init>(kotlin.Int){}[0]
+        }
+
+        final object Companion : pbandk/Message.Enum.Companion<pbandk.wkt/FeatureSet.Utf8Validation> { // pbandk.wkt/FeatureSet.Utf8Validation.Companion|null[0]
+            final val values // pbandk.wkt/FeatureSet.Utf8Validation.Companion.values|{}values[0]
+                final fun <get-values>(): kotlin.collections/List<pbandk.wkt/FeatureSet.Utf8Validation> // pbandk.wkt/FeatureSet.Utf8Validation.Companion.values.<get-values>|<get-values>(){}[0]
+
+            final fun fromName(kotlin/String): pbandk.wkt/FeatureSet.Utf8Validation // pbandk.wkt/FeatureSet.Utf8Validation.Companion.fromName|fromName(kotlin.String){}[0]
+            final fun fromValue(kotlin/Int): pbandk.wkt/FeatureSet.Utf8Validation // pbandk.wkt/FeatureSet.Utf8Validation.Companion.fromValue|fromValue(kotlin.Int){}[0]
+        }
+
+        final object NONE : pbandk.wkt/FeatureSet.Utf8Validation // pbandk.wkt/FeatureSet.Utf8Validation.NONE|null[0]
+
+        final object UTF8_VALIDATION_UNKNOWN : pbandk.wkt/FeatureSet.Utf8Validation // pbandk.wkt/FeatureSet.Utf8Validation.UTF8_VALIDATION_UNKNOWN|null[0]
+
+        final object VERIFY : pbandk.wkt/FeatureSet.Utf8Validation // pbandk.wkt/FeatureSet.Utf8Validation.VERIFY|null[0]
+    }
+
+    final object Companion : pbandk/Message.Companion<pbandk.wkt/FeatureSet> { // pbandk.wkt/FeatureSet.Companion|null[0]
+        final val defaultInstance // pbandk.wkt/FeatureSet.Companion.defaultInstance|{}defaultInstance[0]
+            final fun <get-defaultInstance>(): pbandk.wkt/FeatureSet // pbandk.wkt/FeatureSet.Companion.defaultInstance.<get-defaultInstance>|<get-defaultInstance>(){}[0]
+        final val descriptor // pbandk.wkt/FeatureSet.Companion.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/FeatureSet> // pbandk.wkt/FeatureSet.Companion.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun decodeWith(pbandk/MessageDecoder): pbandk.wkt/FeatureSet // pbandk.wkt/FeatureSet.Companion.decodeWith|decodeWith(pbandk.MessageDecoder){}[0]
+    }
+}
+
+final class pbandk.wkt/FeatureSetDefaults : pbandk/Message { // pbandk.wkt/FeatureSetDefaults|null[0]
+    constructor <init>(kotlin.collections/List<pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault> = ..., pbandk.wkt/Edition? = ..., pbandk.wkt/Edition? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/FeatureSetDefaults.<init>|<init>(kotlin.collections.List<pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault>;pbandk.wkt.Edition?;pbandk.wkt.Edition?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+
+    final val defaults // pbandk.wkt/FeatureSetDefaults.defaults|{}defaults[0]
+        final fun <get-defaults>(): kotlin.collections/List<pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault> // pbandk.wkt/FeatureSetDefaults.defaults.<get-defaults>|<get-defaults>(){}[0]
+    final val descriptor // pbandk.wkt/FeatureSetDefaults.descriptor|{}descriptor[0]
+        final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/FeatureSetDefaults> // pbandk.wkt/FeatureSetDefaults.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val maximumEdition // pbandk.wkt/FeatureSetDefaults.maximumEdition|{}maximumEdition[0]
+        final fun <get-maximumEdition>(): pbandk.wkt/Edition? // pbandk.wkt/FeatureSetDefaults.maximumEdition.<get-maximumEdition>|<get-maximumEdition>(){}[0]
+    final val minimumEdition // pbandk.wkt/FeatureSetDefaults.minimumEdition|{}minimumEdition[0]
+        final fun <get-minimumEdition>(): pbandk.wkt/Edition? // pbandk.wkt/FeatureSetDefaults.minimumEdition.<get-minimumEdition>|<get-minimumEdition>(){}[0]
+    final val protoSize // pbandk.wkt/FeatureSetDefaults.protoSize|{}protoSize[0]
+        final fun <get-protoSize>(): kotlin/Int // pbandk.wkt/FeatureSetDefaults.protoSize.<get-protoSize>|<get-protoSize>(){}[0]
+    final val unknownFields // pbandk.wkt/FeatureSetDefaults.unknownFields|{}unknownFields[0]
+        final fun <get-unknownFields>(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FeatureSetDefaults.unknownFields.<get-unknownFields>|<get-unknownFields>(){}[0]
+
+    final fun component1(): kotlin.collections/List<pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault> // pbandk.wkt/FeatureSetDefaults.component1|component1(){}[0]
+    final fun component2(): pbandk.wkt/Edition? // pbandk.wkt/FeatureSetDefaults.component2|component2(){}[0]
+    final fun component3(): pbandk.wkt/Edition? // pbandk.wkt/FeatureSetDefaults.component3|component3(){}[0]
+    final fun component4(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FeatureSetDefaults.component4|component4(){}[0]
+    final fun copy(kotlin.collections/List<pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault> = ..., pbandk.wkt/Edition? = ..., pbandk.wkt/Edition? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...): pbandk.wkt/FeatureSetDefaults // pbandk.wkt/FeatureSetDefaults.copy|copy(kotlin.collections.List<pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault>;pbandk.wkt.Edition?;pbandk.wkt.Edition?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FeatureSetDefaults.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // pbandk.wkt/FeatureSetDefaults.hashCode|hashCode(){}[0]
+    final fun plus(pbandk/Message?): pbandk.wkt/FeatureSetDefaults // pbandk.wkt/FeatureSetDefaults.plus|plus(pbandk.Message?){}[0]
+    final fun toString(): kotlin/String // pbandk.wkt/FeatureSetDefaults.toString|toString(){}[0]
+
+    final class FeatureSetEditionDefault : pbandk/Message { // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault|null[0]
+        constructor <init>(pbandk.wkt/Edition? = ..., pbandk.wkt/FeatureSet? = ..., pbandk.wkt/FeatureSet? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.<init>|<init>(pbandk.wkt.Edition?;pbandk.wkt.FeatureSet?;pbandk.wkt.FeatureSet?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+
+        final val descriptor // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault> // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+        final val edition // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.edition|{}edition[0]
+            final fun <get-edition>(): pbandk.wkt/Edition? // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.edition.<get-edition>|<get-edition>(){}[0]
+        final val fixedFeatures // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.fixedFeatures|{}fixedFeatures[0]
+            final fun <get-fixedFeatures>(): pbandk.wkt/FeatureSet? // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.fixedFeatures.<get-fixedFeatures>|<get-fixedFeatures>(){}[0]
+        final val overridableFeatures // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.overridableFeatures|{}overridableFeatures[0]
+            final fun <get-overridableFeatures>(): pbandk.wkt/FeatureSet? // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.overridableFeatures.<get-overridableFeatures>|<get-overridableFeatures>(){}[0]
+        final val protoSize // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.protoSize|{}protoSize[0]
+            final fun <get-protoSize>(): kotlin/Int // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.protoSize.<get-protoSize>|<get-protoSize>(){}[0]
+        final val unknownFields // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.unknownFields|{}unknownFields[0]
+            final fun <get-unknownFields>(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.unknownFields.<get-unknownFields>|<get-unknownFields>(){}[0]
+
+        final fun component1(): pbandk.wkt/Edition? // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.component1|component1(){}[0]
+        final fun component2(): pbandk.wkt/FeatureSet? // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.component2|component2(){}[0]
+        final fun component3(): pbandk.wkt/FeatureSet? // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.component3|component3(){}[0]
+        final fun component4(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.component4|component4(){}[0]
+        final fun copy(pbandk.wkt/Edition? = ..., pbandk.wkt/FeatureSet? = ..., pbandk.wkt/FeatureSet? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...): pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.copy|copy(pbandk.wkt.Edition?;pbandk.wkt.FeatureSet?;pbandk.wkt.FeatureSet?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.hashCode|hashCode(){}[0]
+        final fun plus(pbandk/Message?): pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.plus|plus(pbandk.Message?){}[0]
+        final fun toString(): kotlin/String // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.toString|toString(){}[0]
+
+        final object Companion : pbandk/Message.Companion<pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault> { // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.Companion|null[0]
+            final val defaultInstance // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.Companion.defaultInstance|{}defaultInstance[0]
+                final fun <get-defaultInstance>(): pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.Companion.defaultInstance.<get-defaultInstance>|<get-defaultInstance>(){}[0]
+            final val descriptor // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.Companion.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault> // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.Companion.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun decodeWith(pbandk/MessageDecoder): pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault // pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault.Companion.decodeWith|decodeWith(pbandk.MessageDecoder){}[0]
+        }
+    }
+
+    final object Companion : pbandk/Message.Companion<pbandk.wkt/FeatureSetDefaults> { // pbandk.wkt/FeatureSetDefaults.Companion|null[0]
+        final val defaultInstance // pbandk.wkt/FeatureSetDefaults.Companion.defaultInstance|{}defaultInstance[0]
+            final fun <get-defaultInstance>(): pbandk.wkt/FeatureSetDefaults // pbandk.wkt/FeatureSetDefaults.Companion.defaultInstance.<get-defaultInstance>|<get-defaultInstance>(){}[0]
+        final val descriptor // pbandk.wkt/FeatureSetDefaults.Companion.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/FeatureSetDefaults> // pbandk.wkt/FeatureSetDefaults.Companion.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun decodeWith(pbandk/MessageDecoder): pbandk.wkt/FeatureSetDefaults // pbandk.wkt/FeatureSetDefaults.Companion.decodeWith|decodeWith(pbandk.MessageDecoder){}[0]
     }
 }
 
@@ -1336,14 +1751,22 @@ final class pbandk.wkt/FieldMask : pbandk/Message { // pbandk.wkt/FieldMask|null
 }
 
 final class pbandk.wkt/FieldOptions : pbandk/ExtendableMessage { // pbandk.wkt/FieldOptions|null[0]
-    constructor <init>(pbandk.wkt/FieldOptions.CType? = ..., kotlin/Boolean? = ..., pbandk.wkt/FieldOptions.JSType? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/FieldOptions.<init>|<init>(pbandk.wkt.FieldOptions.CType?;kotlin.Boolean?;pbandk.wkt.FieldOptions.JSType?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    constructor <init>(pbandk.wkt/FieldOptions.CType? = ..., kotlin/Boolean? = ..., pbandk.wkt/FieldOptions.JSType? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., pbandk.wkt/FieldOptions.OptionRetention? = ..., kotlin.collections/List<pbandk.wkt/FieldOptions.OptionTargetType> = ..., kotlin.collections/List<pbandk.wkt/FieldOptions.EditionDefault> = ..., pbandk.wkt/FeatureSet? = ..., pbandk.wkt/FieldOptions.FeatureSupport? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/FieldOptions.<init>|<init>(pbandk.wkt.FieldOptions.CType?;kotlin.Boolean?;pbandk.wkt.FieldOptions.JSType?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;pbandk.wkt.FieldOptions.OptionRetention?;kotlin.collections.List<pbandk.wkt.FieldOptions.OptionTargetType>;kotlin.collections.List<pbandk.wkt.FieldOptions.EditionDefault>;pbandk.wkt.FeatureSet?;pbandk.wkt.FieldOptions.FeatureSupport?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
 
     final val ctype // pbandk.wkt/FieldOptions.ctype|{}ctype[0]
         final fun <get-ctype>(): pbandk.wkt/FieldOptions.CType? // pbandk.wkt/FieldOptions.ctype.<get-ctype>|<get-ctype>(){}[0]
+    final val debugRedact // pbandk.wkt/FieldOptions.debugRedact|{}debugRedact[0]
+        final fun <get-debugRedact>(): kotlin/Boolean? // pbandk.wkt/FieldOptions.debugRedact.<get-debugRedact>|<get-debugRedact>(){}[0]
     final val deprecated // pbandk.wkt/FieldOptions.deprecated|{}deprecated[0]
         final fun <get-deprecated>(): kotlin/Boolean? // pbandk.wkt/FieldOptions.deprecated.<get-deprecated>|<get-deprecated>(){}[0]
     final val descriptor // pbandk.wkt/FieldOptions.descriptor|{}descriptor[0]
         final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/FieldOptions> // pbandk.wkt/FieldOptions.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val editionDefaults // pbandk.wkt/FieldOptions.editionDefaults|{}editionDefaults[0]
+        final fun <get-editionDefaults>(): kotlin.collections/List<pbandk.wkt/FieldOptions.EditionDefault> // pbandk.wkt/FieldOptions.editionDefaults.<get-editionDefaults>|<get-editionDefaults>(){}[0]
+    final val featureSupport // pbandk.wkt/FieldOptions.featureSupport|{}featureSupport[0]
+        final fun <get-featureSupport>(): pbandk.wkt/FieldOptions.FeatureSupport? // pbandk.wkt/FieldOptions.featureSupport.<get-featureSupport>|<get-featureSupport>(){}[0]
+    final val features // pbandk.wkt/FieldOptions.features|{}features[0]
+        final fun <get-features>(): pbandk.wkt/FeatureSet? // pbandk.wkt/FieldOptions.features.<get-features>|<get-features>(){}[0]
     final val jstype // pbandk.wkt/FieldOptions.jstype|{}jstype[0]
         final fun <get-jstype>(): pbandk.wkt/FieldOptions.JSType? // pbandk.wkt/FieldOptions.jstype.<get-jstype>|<get-jstype>(){}[0]
     final val lazy // pbandk.wkt/FieldOptions.lazy|{}lazy[0]
@@ -1352,27 +1775,112 @@ final class pbandk.wkt/FieldOptions : pbandk/ExtendableMessage { // pbandk.wkt/F
         final fun <get-packed>(): kotlin/Boolean? // pbandk.wkt/FieldOptions.packed.<get-packed>|<get-packed>(){}[0]
     final val protoSize // pbandk.wkt/FieldOptions.protoSize|{}protoSize[0]
         final fun <get-protoSize>(): kotlin/Int // pbandk.wkt/FieldOptions.protoSize.<get-protoSize>|<get-protoSize>(){}[0]
+    final val retention // pbandk.wkt/FieldOptions.retention|{}retention[0]
+        final fun <get-retention>(): pbandk.wkt/FieldOptions.OptionRetention? // pbandk.wkt/FieldOptions.retention.<get-retention>|<get-retention>(){}[0]
+    final val targets // pbandk.wkt/FieldOptions.targets|{}targets[0]
+        final fun <get-targets>(): kotlin.collections/List<pbandk.wkt/FieldOptions.OptionTargetType> // pbandk.wkt/FieldOptions.targets.<get-targets>|<get-targets>(){}[0]
     final val uninterpretedOption // pbandk.wkt/FieldOptions.uninterpretedOption|{}uninterpretedOption[0]
         final fun <get-uninterpretedOption>(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/FieldOptions.uninterpretedOption.<get-uninterpretedOption>|<get-uninterpretedOption>(){}[0]
     final val unknownFields // pbandk.wkt/FieldOptions.unknownFields|{}unknownFields[0]
         final fun <get-unknownFields>(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FieldOptions.unknownFields.<get-unknownFields>|<get-unknownFields>(){}[0]
+    final val unverifiedLazy // pbandk.wkt/FieldOptions.unverifiedLazy|{}unverifiedLazy[0]
+        final fun <get-unverifiedLazy>(): kotlin/Boolean? // pbandk.wkt/FieldOptions.unverifiedLazy.<get-unverifiedLazy>|<get-unverifiedLazy>(){}[0]
     final val weak // pbandk.wkt/FieldOptions.weak|{}weak[0]
         final fun <get-weak>(): kotlin/Boolean? // pbandk.wkt/FieldOptions.weak.<get-weak>|<get-weak>(){}[0]
 
     final fun component1(): pbandk.wkt/FieldOptions.CType? // pbandk.wkt/FieldOptions.component1|component1(){}[0]
+    final fun component10(): kotlin.collections/List<pbandk.wkt/FieldOptions.OptionTargetType> // pbandk.wkt/FieldOptions.component10|component10(){}[0]
+    final fun component11(): kotlin.collections/List<pbandk.wkt/FieldOptions.EditionDefault> // pbandk.wkt/FieldOptions.component11|component11(){}[0]
+    final fun component12(): pbandk.wkt/FeatureSet? // pbandk.wkt/FieldOptions.component12|component12(){}[0]
+    final fun component13(): pbandk.wkt/FieldOptions.FeatureSupport? // pbandk.wkt/FieldOptions.component13|component13(){}[0]
+    final fun component14(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/FieldOptions.component14|component14(){}[0]
+    final fun component15(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FieldOptions.component15|component15(){}[0]
+    final fun component16(): pbandk/ExtensionFieldSet // pbandk.wkt/FieldOptions.component16|component16(){}[0]
     final fun component2(): kotlin/Boolean? // pbandk.wkt/FieldOptions.component2|component2(){}[0]
     final fun component3(): pbandk.wkt/FieldOptions.JSType? // pbandk.wkt/FieldOptions.component3|component3(){}[0]
     final fun component4(): kotlin/Boolean? // pbandk.wkt/FieldOptions.component4|component4(){}[0]
     final fun component5(): kotlin/Boolean? // pbandk.wkt/FieldOptions.component5|component5(){}[0]
     final fun component6(): kotlin/Boolean? // pbandk.wkt/FieldOptions.component6|component6(){}[0]
-    final fun component7(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/FieldOptions.component7|component7(){}[0]
-    final fun component8(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FieldOptions.component8|component8(){}[0]
-    final fun component9(): pbandk/ExtensionFieldSet // pbandk.wkt/FieldOptions.component9|component9(){}[0]
-    final fun copy(pbandk.wkt/FieldOptions.CType? = ..., kotlin/Boolean? = ..., pbandk.wkt/FieldOptions.JSType? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/FieldOptions // pbandk.wkt/FieldOptions.copy|copy(pbandk.wkt.FieldOptions.CType?;kotlin.Boolean?;pbandk.wkt.FieldOptions.JSType?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    final fun component7(): kotlin/Boolean? // pbandk.wkt/FieldOptions.component7|component7(){}[0]
+    final fun component8(): kotlin/Boolean? // pbandk.wkt/FieldOptions.component8|component8(){}[0]
+    final fun component9(): pbandk.wkt/FieldOptions.OptionRetention? // pbandk.wkt/FieldOptions.component9|component9(){}[0]
+    final fun copy(pbandk.wkt/FieldOptions.CType? = ..., kotlin/Boolean? = ..., pbandk.wkt/FieldOptions.JSType? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., pbandk.wkt/FieldOptions.OptionRetention? = ..., kotlin.collections/List<pbandk.wkt/FieldOptions.OptionTargetType> = ..., kotlin.collections/List<pbandk.wkt/FieldOptions.EditionDefault> = ..., pbandk.wkt/FeatureSet? = ..., pbandk.wkt/FieldOptions.FeatureSupport? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/FieldOptions // pbandk.wkt/FieldOptions.copy|copy(pbandk.wkt.FieldOptions.CType?;kotlin.Boolean?;pbandk.wkt.FieldOptions.JSType?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;pbandk.wkt.FieldOptions.OptionRetention?;kotlin.collections.List<pbandk.wkt.FieldOptions.OptionTargetType>;kotlin.collections.List<pbandk.wkt.FieldOptions.EditionDefault>;pbandk.wkt.FeatureSet?;pbandk.wkt.FieldOptions.FeatureSupport?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FieldOptions.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // pbandk.wkt/FieldOptions.hashCode|hashCode(){}[0]
     final fun plus(pbandk/Message?): pbandk.wkt/FieldOptions // pbandk.wkt/FieldOptions.plus|plus(pbandk.Message?){}[0]
     final fun toString(): kotlin/String // pbandk.wkt/FieldOptions.toString|toString(){}[0]
+
+    final class EditionDefault : pbandk/Message { // pbandk.wkt/FieldOptions.EditionDefault|null[0]
+        constructor <init>(pbandk.wkt/Edition? = ..., kotlin/String? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/FieldOptions.EditionDefault.<init>|<init>(pbandk.wkt.Edition?;kotlin.String?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+
+        final val descriptor // pbandk.wkt/FieldOptions.EditionDefault.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/FieldOptions.EditionDefault> // pbandk.wkt/FieldOptions.EditionDefault.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+        final val edition // pbandk.wkt/FieldOptions.EditionDefault.edition|{}edition[0]
+            final fun <get-edition>(): pbandk.wkt/Edition? // pbandk.wkt/FieldOptions.EditionDefault.edition.<get-edition>|<get-edition>(){}[0]
+        final val protoSize // pbandk.wkt/FieldOptions.EditionDefault.protoSize|{}protoSize[0]
+            final fun <get-protoSize>(): kotlin/Int // pbandk.wkt/FieldOptions.EditionDefault.protoSize.<get-protoSize>|<get-protoSize>(){}[0]
+        final val unknownFields // pbandk.wkt/FieldOptions.EditionDefault.unknownFields|{}unknownFields[0]
+            final fun <get-unknownFields>(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FieldOptions.EditionDefault.unknownFields.<get-unknownFields>|<get-unknownFields>(){}[0]
+        final val value // pbandk.wkt/FieldOptions.EditionDefault.value|{}value[0]
+            final fun <get-value>(): kotlin/String? // pbandk.wkt/FieldOptions.EditionDefault.value.<get-value>|<get-value>(){}[0]
+
+        final fun component1(): pbandk.wkt/Edition? // pbandk.wkt/FieldOptions.EditionDefault.component1|component1(){}[0]
+        final fun component2(): kotlin/String? // pbandk.wkt/FieldOptions.EditionDefault.component2|component2(){}[0]
+        final fun component3(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FieldOptions.EditionDefault.component3|component3(){}[0]
+        final fun copy(pbandk.wkt/Edition? = ..., kotlin/String? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...): pbandk.wkt/FieldOptions.EditionDefault // pbandk.wkt/FieldOptions.EditionDefault.copy|copy(pbandk.wkt.Edition?;kotlin.String?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FieldOptions.EditionDefault.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // pbandk.wkt/FieldOptions.EditionDefault.hashCode|hashCode(){}[0]
+        final fun plus(pbandk/Message?): pbandk.wkt/FieldOptions.EditionDefault // pbandk.wkt/FieldOptions.EditionDefault.plus|plus(pbandk.Message?){}[0]
+        final fun toString(): kotlin/String // pbandk.wkt/FieldOptions.EditionDefault.toString|toString(){}[0]
+
+        final object Companion : pbandk/Message.Companion<pbandk.wkt/FieldOptions.EditionDefault> { // pbandk.wkt/FieldOptions.EditionDefault.Companion|null[0]
+            final val defaultInstance // pbandk.wkt/FieldOptions.EditionDefault.Companion.defaultInstance|{}defaultInstance[0]
+                final fun <get-defaultInstance>(): pbandk.wkt/FieldOptions.EditionDefault // pbandk.wkt/FieldOptions.EditionDefault.Companion.defaultInstance.<get-defaultInstance>|<get-defaultInstance>(){}[0]
+            final val descriptor // pbandk.wkt/FieldOptions.EditionDefault.Companion.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/FieldOptions.EditionDefault> // pbandk.wkt/FieldOptions.EditionDefault.Companion.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun decodeWith(pbandk/MessageDecoder): pbandk.wkt/FieldOptions.EditionDefault // pbandk.wkt/FieldOptions.EditionDefault.Companion.decodeWith|decodeWith(pbandk.MessageDecoder){}[0]
+        }
+    }
+
+    final class FeatureSupport : pbandk/Message { // pbandk.wkt/FieldOptions.FeatureSupport|null[0]
+        constructor <init>(pbandk.wkt/Edition? = ..., pbandk.wkt/Edition? = ..., kotlin/String? = ..., pbandk.wkt/Edition? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/FieldOptions.FeatureSupport.<init>|<init>(pbandk.wkt.Edition?;pbandk.wkt.Edition?;kotlin.String?;pbandk.wkt.Edition?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+
+        final val deprecationWarning // pbandk.wkt/FieldOptions.FeatureSupport.deprecationWarning|{}deprecationWarning[0]
+            final fun <get-deprecationWarning>(): kotlin/String? // pbandk.wkt/FieldOptions.FeatureSupport.deprecationWarning.<get-deprecationWarning>|<get-deprecationWarning>(){}[0]
+        final val descriptor // pbandk.wkt/FieldOptions.FeatureSupport.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/FieldOptions.FeatureSupport> // pbandk.wkt/FieldOptions.FeatureSupport.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+        final val editionDeprecated // pbandk.wkt/FieldOptions.FeatureSupport.editionDeprecated|{}editionDeprecated[0]
+            final fun <get-editionDeprecated>(): pbandk.wkt/Edition? // pbandk.wkt/FieldOptions.FeatureSupport.editionDeprecated.<get-editionDeprecated>|<get-editionDeprecated>(){}[0]
+        final val editionIntroduced // pbandk.wkt/FieldOptions.FeatureSupport.editionIntroduced|{}editionIntroduced[0]
+            final fun <get-editionIntroduced>(): pbandk.wkt/Edition? // pbandk.wkt/FieldOptions.FeatureSupport.editionIntroduced.<get-editionIntroduced>|<get-editionIntroduced>(){}[0]
+        final val editionRemoved // pbandk.wkt/FieldOptions.FeatureSupport.editionRemoved|{}editionRemoved[0]
+            final fun <get-editionRemoved>(): pbandk.wkt/Edition? // pbandk.wkt/FieldOptions.FeatureSupport.editionRemoved.<get-editionRemoved>|<get-editionRemoved>(){}[0]
+        final val protoSize // pbandk.wkt/FieldOptions.FeatureSupport.protoSize|{}protoSize[0]
+            final fun <get-protoSize>(): kotlin/Int // pbandk.wkt/FieldOptions.FeatureSupport.protoSize.<get-protoSize>|<get-protoSize>(){}[0]
+        final val unknownFields // pbandk.wkt/FieldOptions.FeatureSupport.unknownFields|{}unknownFields[0]
+            final fun <get-unknownFields>(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FieldOptions.FeatureSupport.unknownFields.<get-unknownFields>|<get-unknownFields>(){}[0]
+
+        final fun component1(): pbandk.wkt/Edition? // pbandk.wkt/FieldOptions.FeatureSupport.component1|component1(){}[0]
+        final fun component2(): pbandk.wkt/Edition? // pbandk.wkt/FieldOptions.FeatureSupport.component2|component2(){}[0]
+        final fun component3(): kotlin/String? // pbandk.wkt/FieldOptions.FeatureSupport.component3|component3(){}[0]
+        final fun component4(): pbandk.wkt/Edition? // pbandk.wkt/FieldOptions.FeatureSupport.component4|component4(){}[0]
+        final fun component5(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FieldOptions.FeatureSupport.component5|component5(){}[0]
+        final fun copy(pbandk.wkt/Edition? = ..., pbandk.wkt/Edition? = ..., kotlin/String? = ..., pbandk.wkt/Edition? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...): pbandk.wkt/FieldOptions.FeatureSupport // pbandk.wkt/FieldOptions.FeatureSupport.copy|copy(pbandk.wkt.Edition?;pbandk.wkt.Edition?;kotlin.String?;pbandk.wkt.Edition?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FieldOptions.FeatureSupport.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // pbandk.wkt/FieldOptions.FeatureSupport.hashCode|hashCode(){}[0]
+        final fun plus(pbandk/Message?): pbandk.wkt/FieldOptions.FeatureSupport // pbandk.wkt/FieldOptions.FeatureSupport.plus|plus(pbandk.Message?){}[0]
+        final fun toString(): kotlin/String // pbandk.wkt/FieldOptions.FeatureSupport.toString|toString(){}[0]
+
+        final object Companion : pbandk/Message.Companion<pbandk.wkt/FieldOptions.FeatureSupport> { // pbandk.wkt/FieldOptions.FeatureSupport.Companion|null[0]
+            final val defaultInstance // pbandk.wkt/FieldOptions.FeatureSupport.Companion.defaultInstance|{}defaultInstance[0]
+                final fun <get-defaultInstance>(): pbandk.wkt/FieldOptions.FeatureSupport // pbandk.wkt/FieldOptions.FeatureSupport.Companion.defaultInstance.<get-defaultInstance>|<get-defaultInstance>(){}[0]
+            final val descriptor // pbandk.wkt/FieldOptions.FeatureSupport.Companion.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/FieldOptions.FeatureSupport> // pbandk.wkt/FieldOptions.FeatureSupport.Companion.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun decodeWith(pbandk/MessageDecoder): pbandk.wkt/FieldOptions.FeatureSupport // pbandk.wkt/FieldOptions.FeatureSupport.Companion.decodeWith|decodeWith(pbandk.MessageDecoder){}[0]
+        }
+    }
 
     sealed class CType : pbandk/Message.Enum { // pbandk.wkt/FieldOptions.CType|null[0]
         constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FieldOptions.CType.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
@@ -1436,6 +1944,82 @@ final class pbandk.wkt/FieldOptions : pbandk/ExtendableMessage { // pbandk.wkt/F
         final object JS_STRING : pbandk.wkt/FieldOptions.JSType // pbandk.wkt/FieldOptions.JSType.JS_STRING|null[0]
     }
 
+    sealed class OptionRetention : pbandk/Message.Enum { // pbandk.wkt/FieldOptions.OptionRetention|null[0]
+        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FieldOptions.OptionRetention.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
+
+        open val name // pbandk.wkt/FieldOptions.OptionRetention.name|{}name[0]
+            open fun <get-name>(): kotlin/String? // pbandk.wkt/FieldOptions.OptionRetention.name.<get-name>|<get-name>(){}[0]
+        open val value // pbandk.wkt/FieldOptions.OptionRetention.value|{}value[0]
+            open fun <get-value>(): kotlin/Int // pbandk.wkt/FieldOptions.OptionRetention.value.<get-value>|<get-value>(){}[0]
+
+        open fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FieldOptions.OptionRetention.equals|equals(kotlin.Any?){}[0]
+        open fun hashCode(): kotlin/Int // pbandk.wkt/FieldOptions.OptionRetention.hashCode|hashCode(){}[0]
+        open fun toString(): kotlin/String // pbandk.wkt/FieldOptions.OptionRetention.toString|toString(){}[0]
+
+        final class UNRECOGNIZED : pbandk.wkt/FieldOptions.OptionRetention { // pbandk.wkt/FieldOptions.OptionRetention.UNRECOGNIZED|null[0]
+            constructor <init>(kotlin/Int) // pbandk.wkt/FieldOptions.OptionRetention.UNRECOGNIZED.<init>|<init>(kotlin.Int){}[0]
+        }
+
+        final object Companion : pbandk/Message.Enum.Companion<pbandk.wkt/FieldOptions.OptionRetention> { // pbandk.wkt/FieldOptions.OptionRetention.Companion|null[0]
+            final val values // pbandk.wkt/FieldOptions.OptionRetention.Companion.values|{}values[0]
+                final fun <get-values>(): kotlin.collections/List<pbandk.wkt/FieldOptions.OptionRetention> // pbandk.wkt/FieldOptions.OptionRetention.Companion.values.<get-values>|<get-values>(){}[0]
+
+            final fun fromName(kotlin/String): pbandk.wkt/FieldOptions.OptionRetention // pbandk.wkt/FieldOptions.OptionRetention.Companion.fromName|fromName(kotlin.String){}[0]
+            final fun fromValue(kotlin/Int): pbandk.wkt/FieldOptions.OptionRetention // pbandk.wkt/FieldOptions.OptionRetention.Companion.fromValue|fromValue(kotlin.Int){}[0]
+        }
+
+        final object RETENTION_RUNTIME : pbandk.wkt/FieldOptions.OptionRetention // pbandk.wkt/FieldOptions.OptionRetention.RETENTION_RUNTIME|null[0]
+
+        final object RETENTION_SOURCE : pbandk.wkt/FieldOptions.OptionRetention // pbandk.wkt/FieldOptions.OptionRetention.RETENTION_SOURCE|null[0]
+
+        final object RETENTION_UNKNOWN : pbandk.wkt/FieldOptions.OptionRetention // pbandk.wkt/FieldOptions.OptionRetention.RETENTION_UNKNOWN|null[0]
+    }
+
+    sealed class OptionTargetType : pbandk/Message.Enum { // pbandk.wkt/FieldOptions.OptionTargetType|null[0]
+        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FieldOptions.OptionTargetType.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
+
+        open val name // pbandk.wkt/FieldOptions.OptionTargetType.name|{}name[0]
+            open fun <get-name>(): kotlin/String? // pbandk.wkt/FieldOptions.OptionTargetType.name.<get-name>|<get-name>(){}[0]
+        open val value // pbandk.wkt/FieldOptions.OptionTargetType.value|{}value[0]
+            open fun <get-value>(): kotlin/Int // pbandk.wkt/FieldOptions.OptionTargetType.value.<get-value>|<get-value>(){}[0]
+
+        open fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FieldOptions.OptionTargetType.equals|equals(kotlin.Any?){}[0]
+        open fun hashCode(): kotlin/Int // pbandk.wkt/FieldOptions.OptionTargetType.hashCode|hashCode(){}[0]
+        open fun toString(): kotlin/String // pbandk.wkt/FieldOptions.OptionTargetType.toString|toString(){}[0]
+
+        final class UNRECOGNIZED : pbandk.wkt/FieldOptions.OptionTargetType { // pbandk.wkt/FieldOptions.OptionTargetType.UNRECOGNIZED|null[0]
+            constructor <init>(kotlin/Int) // pbandk.wkt/FieldOptions.OptionTargetType.UNRECOGNIZED.<init>|<init>(kotlin.Int){}[0]
+        }
+
+        final object Companion : pbandk/Message.Enum.Companion<pbandk.wkt/FieldOptions.OptionTargetType> { // pbandk.wkt/FieldOptions.OptionTargetType.Companion|null[0]
+            final val values // pbandk.wkt/FieldOptions.OptionTargetType.Companion.values|{}values[0]
+                final fun <get-values>(): kotlin.collections/List<pbandk.wkt/FieldOptions.OptionTargetType> // pbandk.wkt/FieldOptions.OptionTargetType.Companion.values.<get-values>|<get-values>(){}[0]
+
+            final fun fromName(kotlin/String): pbandk.wkt/FieldOptions.OptionTargetType // pbandk.wkt/FieldOptions.OptionTargetType.Companion.fromName|fromName(kotlin.String){}[0]
+            final fun fromValue(kotlin/Int): pbandk.wkt/FieldOptions.OptionTargetType // pbandk.wkt/FieldOptions.OptionTargetType.Companion.fromValue|fromValue(kotlin.Int){}[0]
+        }
+
+        final object TARGET_TYPE_ENUM : pbandk.wkt/FieldOptions.OptionTargetType // pbandk.wkt/FieldOptions.OptionTargetType.TARGET_TYPE_ENUM|null[0]
+
+        final object TARGET_TYPE_ENUM_ENTRY : pbandk.wkt/FieldOptions.OptionTargetType // pbandk.wkt/FieldOptions.OptionTargetType.TARGET_TYPE_ENUM_ENTRY|null[0]
+
+        final object TARGET_TYPE_EXTENSION_RANGE : pbandk.wkt/FieldOptions.OptionTargetType // pbandk.wkt/FieldOptions.OptionTargetType.TARGET_TYPE_EXTENSION_RANGE|null[0]
+
+        final object TARGET_TYPE_FIELD : pbandk.wkt/FieldOptions.OptionTargetType // pbandk.wkt/FieldOptions.OptionTargetType.TARGET_TYPE_FIELD|null[0]
+
+        final object TARGET_TYPE_FILE : pbandk.wkt/FieldOptions.OptionTargetType // pbandk.wkt/FieldOptions.OptionTargetType.TARGET_TYPE_FILE|null[0]
+
+        final object TARGET_TYPE_MESSAGE : pbandk.wkt/FieldOptions.OptionTargetType // pbandk.wkt/FieldOptions.OptionTargetType.TARGET_TYPE_MESSAGE|null[0]
+
+        final object TARGET_TYPE_METHOD : pbandk.wkt/FieldOptions.OptionTargetType // pbandk.wkt/FieldOptions.OptionTargetType.TARGET_TYPE_METHOD|null[0]
+
+        final object TARGET_TYPE_ONEOF : pbandk.wkt/FieldOptions.OptionTargetType // pbandk.wkt/FieldOptions.OptionTargetType.TARGET_TYPE_ONEOF|null[0]
+
+        final object TARGET_TYPE_SERVICE : pbandk.wkt/FieldOptions.OptionTargetType // pbandk.wkt/FieldOptions.OptionTargetType.TARGET_TYPE_SERVICE|null[0]
+
+        final object TARGET_TYPE_UNKNOWN : pbandk.wkt/FieldOptions.OptionTargetType // pbandk.wkt/FieldOptions.OptionTargetType.TARGET_TYPE_UNKNOWN|null[0]
+    }
+
     final object Companion : pbandk/Message.Companion<pbandk.wkt/FieldOptions> { // pbandk.wkt/FieldOptions.Companion|null[0]
         final val defaultInstance // pbandk.wkt/FieldOptions.Companion.defaultInstance|{}defaultInstance[0]
             final fun <get-defaultInstance>(): pbandk.wkt/FieldOptions // pbandk.wkt/FieldOptions.Companion.defaultInstance.<get-defaultInstance>|<get-defaultInstance>(){}[0]
@@ -1447,12 +2031,14 @@ final class pbandk.wkt/FieldOptions : pbandk/ExtendableMessage { // pbandk.wkt/F
 }
 
 final class pbandk.wkt/FileDescriptorProto : pbandk/Message { // pbandk.wkt/FileDescriptorProto|null[0]
-    constructor <init>(kotlin/String? = ..., kotlin/String? = ..., kotlin.collections/List<kotlin/String> = ..., kotlin.collections/List<kotlin/Int> = ..., kotlin.collections/List<kotlin/Int> = ..., kotlin.collections/List<pbandk.wkt/DescriptorProto> = ..., kotlin.collections/List<pbandk.wkt/EnumDescriptorProto> = ..., kotlin.collections/List<pbandk.wkt/ServiceDescriptorProto> = ..., kotlin.collections/List<pbandk.wkt/FieldDescriptorProto> = ..., pbandk.wkt/FileOptions? = ..., pbandk.wkt/SourceCodeInfo? = ..., kotlin/String? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/FileDescriptorProto.<init>|<init>(kotlin.String?;kotlin.String?;kotlin.collections.List<kotlin.String>;kotlin.collections.List<kotlin.Int>;kotlin.collections.List<kotlin.Int>;kotlin.collections.List<pbandk.wkt.DescriptorProto>;kotlin.collections.List<pbandk.wkt.EnumDescriptorProto>;kotlin.collections.List<pbandk.wkt.ServiceDescriptorProto>;kotlin.collections.List<pbandk.wkt.FieldDescriptorProto>;pbandk.wkt.FileOptions?;pbandk.wkt.SourceCodeInfo?;kotlin.String?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+    constructor <init>(kotlin/String? = ..., kotlin/String? = ..., kotlin.collections/List<kotlin/String> = ..., kotlin.collections/List<kotlin/Int> = ..., kotlin.collections/List<kotlin/Int> = ..., kotlin.collections/List<pbandk.wkt/DescriptorProto> = ..., kotlin.collections/List<pbandk.wkt/EnumDescriptorProto> = ..., kotlin.collections/List<pbandk.wkt/ServiceDescriptorProto> = ..., kotlin.collections/List<pbandk.wkt/FieldDescriptorProto> = ..., pbandk.wkt/FileOptions? = ..., pbandk.wkt/SourceCodeInfo? = ..., kotlin/String? = ..., pbandk.wkt/Edition? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/FileDescriptorProto.<init>|<init>(kotlin.String?;kotlin.String?;kotlin.collections.List<kotlin.String>;kotlin.collections.List<kotlin.Int>;kotlin.collections.List<kotlin.Int>;kotlin.collections.List<pbandk.wkt.DescriptorProto>;kotlin.collections.List<pbandk.wkt.EnumDescriptorProto>;kotlin.collections.List<pbandk.wkt.ServiceDescriptorProto>;kotlin.collections.List<pbandk.wkt.FieldDescriptorProto>;pbandk.wkt.FileOptions?;pbandk.wkt.SourceCodeInfo?;kotlin.String?;pbandk.wkt.Edition?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
 
     final val dependency // pbandk.wkt/FileDescriptorProto.dependency|{}dependency[0]
         final fun <get-dependency>(): kotlin.collections/List<kotlin/String> // pbandk.wkt/FileDescriptorProto.dependency.<get-dependency>|<get-dependency>(){}[0]
     final val descriptor // pbandk.wkt/FileDescriptorProto.descriptor|{}descriptor[0]
         final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/FileDescriptorProto> // pbandk.wkt/FileDescriptorProto.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val edition // pbandk.wkt/FileDescriptorProto.edition|{}edition[0]
+        final fun <get-edition>(): pbandk.wkt/Edition? // pbandk.wkt/FileDescriptorProto.edition.<get-edition>|<get-edition>(){}[0]
     final val enumType // pbandk.wkt/FileDescriptorProto.enumType|{}enumType[0]
         final fun <get-enumType>(): kotlin.collections/List<pbandk.wkt/EnumDescriptorProto> // pbandk.wkt/FileDescriptorProto.enumType.<get-enumType>|<get-enumType>(){}[0]
     final val extension // pbandk.wkt/FileDescriptorProto.extension|{}extension[0]
@@ -1484,7 +2070,8 @@ final class pbandk.wkt/FileDescriptorProto : pbandk/Message { // pbandk.wkt/File
     final fun component10(): pbandk.wkt/FileOptions? // pbandk.wkt/FileDescriptorProto.component10|component10(){}[0]
     final fun component11(): pbandk.wkt/SourceCodeInfo? // pbandk.wkt/FileDescriptorProto.component11|component11(){}[0]
     final fun component12(): kotlin/String? // pbandk.wkt/FileDescriptorProto.component12|component12(){}[0]
-    final fun component13(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FileDescriptorProto.component13|component13(){}[0]
+    final fun component13(): pbandk.wkt/Edition? // pbandk.wkt/FileDescriptorProto.component13|component13(){}[0]
+    final fun component14(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FileDescriptorProto.component14|component14(){}[0]
     final fun component2(): kotlin/String? // pbandk.wkt/FileDescriptorProto.component2|component2(){}[0]
     final fun component3(): kotlin.collections/List<kotlin/String> // pbandk.wkt/FileDescriptorProto.component3|component3(){}[0]
     final fun component4(): kotlin.collections/List<kotlin/Int> // pbandk.wkt/FileDescriptorProto.component4|component4(){}[0]
@@ -1493,7 +2080,7 @@ final class pbandk.wkt/FileDescriptorProto : pbandk/Message { // pbandk.wkt/File
     final fun component7(): kotlin.collections/List<pbandk.wkt/EnumDescriptorProto> // pbandk.wkt/FileDescriptorProto.component7|component7(){}[0]
     final fun component8(): kotlin.collections/List<pbandk.wkt/ServiceDescriptorProto> // pbandk.wkt/FileDescriptorProto.component8|component8(){}[0]
     final fun component9(): kotlin.collections/List<pbandk.wkt/FieldDescriptorProto> // pbandk.wkt/FileDescriptorProto.component9|component9(){}[0]
-    final fun copy(kotlin/String? = ..., kotlin/String? = ..., kotlin.collections/List<kotlin/String> = ..., kotlin.collections/List<kotlin/Int> = ..., kotlin.collections/List<kotlin/Int> = ..., kotlin.collections/List<pbandk.wkt/DescriptorProto> = ..., kotlin.collections/List<pbandk.wkt/EnumDescriptorProto> = ..., kotlin.collections/List<pbandk.wkt/ServiceDescriptorProto> = ..., kotlin.collections/List<pbandk.wkt/FieldDescriptorProto> = ..., pbandk.wkt/FileOptions? = ..., pbandk.wkt/SourceCodeInfo? = ..., kotlin/String? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...): pbandk.wkt/FileDescriptorProto // pbandk.wkt/FileDescriptorProto.copy|copy(kotlin.String?;kotlin.String?;kotlin.collections.List<kotlin.String>;kotlin.collections.List<kotlin.Int>;kotlin.collections.List<kotlin.Int>;kotlin.collections.List<pbandk.wkt.DescriptorProto>;kotlin.collections.List<pbandk.wkt.EnumDescriptorProto>;kotlin.collections.List<pbandk.wkt.ServiceDescriptorProto>;kotlin.collections.List<pbandk.wkt.FieldDescriptorProto>;pbandk.wkt.FileOptions?;pbandk.wkt.SourceCodeInfo?;kotlin.String?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+    final fun copy(kotlin/String? = ..., kotlin/String? = ..., kotlin.collections/List<kotlin/String> = ..., kotlin.collections/List<kotlin/Int> = ..., kotlin.collections/List<kotlin/Int> = ..., kotlin.collections/List<pbandk.wkt/DescriptorProto> = ..., kotlin.collections/List<pbandk.wkt/EnumDescriptorProto> = ..., kotlin.collections/List<pbandk.wkt/ServiceDescriptorProto> = ..., kotlin.collections/List<pbandk.wkt/FieldDescriptorProto> = ..., pbandk.wkt/FileOptions? = ..., pbandk.wkt/SourceCodeInfo? = ..., kotlin/String? = ..., pbandk.wkt/Edition? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...): pbandk.wkt/FileDescriptorProto // pbandk.wkt/FileDescriptorProto.copy|copy(kotlin.String?;kotlin.String?;kotlin.collections.List<kotlin.String>;kotlin.collections.List<kotlin.Int>;kotlin.collections.List<kotlin.Int>;kotlin.collections.List<pbandk.wkt.DescriptorProto>;kotlin.collections.List<pbandk.wkt.EnumDescriptorProto>;kotlin.collections.List<pbandk.wkt.ServiceDescriptorProto>;kotlin.collections.List<pbandk.wkt.FieldDescriptorProto>;pbandk.wkt.FileOptions?;pbandk.wkt.SourceCodeInfo?;kotlin.String?;pbandk.wkt.Edition?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FileDescriptorProto.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // pbandk.wkt/FileDescriptorProto.hashCode|hashCode(){}[0]
     final fun plus(pbandk/Message?): pbandk.wkt/FileDescriptorProto // pbandk.wkt/FileDescriptorProto.plus|plus(pbandk.Message?){}[0]
@@ -1540,7 +2127,7 @@ final class pbandk.wkt/FileDescriptorSet : pbandk/Message { // pbandk.wkt/FileDe
 }
 
 final class pbandk.wkt/FileOptions : pbandk/ExtendableMessage { // pbandk.wkt/FileOptions|null[0]
-    constructor <init>(kotlin/String? = ..., kotlin/String? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., pbandk.wkt/FileOptions.OptimizeMode? = ..., kotlin/String? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/FileOptions.<init>|<init>(kotlin.String?;kotlin.String?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;pbandk.wkt.FileOptions.OptimizeMode?;kotlin.String?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    constructor <init>(kotlin/String? = ..., kotlin/String? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., pbandk.wkt/FileOptions.OptimizeMode? = ..., kotlin/String? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., pbandk.wkt/FeatureSet? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/FileOptions.<init>|<init>(kotlin.String?;kotlin.String?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;pbandk.wkt.FileOptions.OptimizeMode?;kotlin.String?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;pbandk.wkt.FeatureSet?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
 
     final val ccEnableArenas // pbandk.wkt/FileOptions.ccEnableArenas|{}ccEnableArenas[0]
         final fun <get-ccEnableArenas>(): kotlin/Boolean? // pbandk.wkt/FileOptions.ccEnableArenas.<get-ccEnableArenas>|<get-ccEnableArenas>(){}[0]
@@ -1552,6 +2139,8 @@ final class pbandk.wkt/FileOptions : pbandk/ExtendableMessage { // pbandk.wkt/Fi
         final fun <get-deprecated>(): kotlin/Boolean? // pbandk.wkt/FileOptions.deprecated.<get-deprecated>|<get-deprecated>(){}[0]
     final val descriptor // pbandk.wkt/FileOptions.descriptor|{}descriptor[0]
         final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/FileOptions> // pbandk.wkt/FileOptions.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val features // pbandk.wkt/FileOptions.features|{}features[0]
+        final fun <get-features>(): pbandk.wkt/FeatureSet? // pbandk.wkt/FileOptions.features.<get-features>|<get-features>(){}[0]
     final val goPackage // pbandk.wkt/FileOptions.goPackage|{}goPackage[0]
         final fun <get-goPackage>(): kotlin/String? // pbandk.wkt/FileOptions.goPackage.<get-goPackage>|<get-goPackage>(){}[0]
     final val javaGenerateEqualsAndHash // pbandk.wkt/FileOptions.javaGenerateEqualsAndHash|{}javaGenerateEqualsAndHash[0]
@@ -1572,8 +2161,6 @@ final class pbandk.wkt/FileOptions : pbandk/ExtendableMessage { // pbandk.wkt/Fi
         final fun <get-optimizeFor>(): pbandk.wkt/FileOptions.OptimizeMode? // pbandk.wkt/FileOptions.optimizeFor.<get-optimizeFor>|<get-optimizeFor>(){}[0]
     final val phpClassPrefix // pbandk.wkt/FileOptions.phpClassPrefix|{}phpClassPrefix[0]
         final fun <get-phpClassPrefix>(): kotlin/String? // pbandk.wkt/FileOptions.phpClassPrefix.<get-phpClassPrefix>|<get-phpClassPrefix>(){}[0]
-    final val phpGenericServices // pbandk.wkt/FileOptions.phpGenericServices|{}phpGenericServices[0]
-        final fun <get-phpGenericServices>(): kotlin/Boolean? // pbandk.wkt/FileOptions.phpGenericServices.<get-phpGenericServices>|<get-phpGenericServices>(){}[0]
     final val phpMetadataNamespace // pbandk.wkt/FileOptions.phpMetadataNamespace|{}phpMetadataNamespace[0]
         final fun <get-phpMetadataNamespace>(): kotlin/String? // pbandk.wkt/FileOptions.phpMetadataNamespace.<get-phpMetadataNamespace>|<get-phpMetadataNamespace>(){}[0]
     final val phpNamespace // pbandk.wkt/FileOptions.phpNamespace|{}phpNamespace[0]
@@ -1595,7 +2182,7 @@ final class pbandk.wkt/FileOptions : pbandk/ExtendableMessage { // pbandk.wkt/Fi
     final fun component10(): kotlin/Boolean? // pbandk.wkt/FileOptions.component10|component10(){}[0]
     final fun component11(): kotlin/Boolean? // pbandk.wkt/FileOptions.component11|component11(){}[0]
     final fun component12(): kotlin/Boolean? // pbandk.wkt/FileOptions.component12|component12(){}[0]
-    final fun component13(): kotlin/Boolean? // pbandk.wkt/FileOptions.component13|component13(){}[0]
+    final fun component13(): kotlin/String? // pbandk.wkt/FileOptions.component13|component13(){}[0]
     final fun component14(): kotlin/String? // pbandk.wkt/FileOptions.component14|component14(){}[0]
     final fun component15(): kotlin/String? // pbandk.wkt/FileOptions.component15|component15(){}[0]
     final fun component16(): kotlin/String? // pbandk.wkt/FileOptions.component16|component16(){}[0]
@@ -1603,7 +2190,7 @@ final class pbandk.wkt/FileOptions : pbandk/ExtendableMessage { // pbandk.wkt/Fi
     final fun component18(): kotlin/String? // pbandk.wkt/FileOptions.component18|component18(){}[0]
     final fun component19(): kotlin/String? // pbandk.wkt/FileOptions.component19|component19(){}[0]
     final fun component2(): kotlin/String? // pbandk.wkt/FileOptions.component2|component2(){}[0]
-    final fun component20(): kotlin/String? // pbandk.wkt/FileOptions.component20|component20(){}[0]
+    final fun component20(): pbandk.wkt/FeatureSet? // pbandk.wkt/FileOptions.component20|component20(){}[0]
     final fun component21(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/FileOptions.component21|component21(){}[0]
     final fun component22(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/FileOptions.component22|component22(){}[0]
     final fun component23(): pbandk/ExtensionFieldSet // pbandk.wkt/FileOptions.component23|component23(){}[0]
@@ -1614,7 +2201,7 @@ final class pbandk.wkt/FileOptions : pbandk/ExtendableMessage { // pbandk.wkt/Fi
     final fun component7(): kotlin/String? // pbandk.wkt/FileOptions.component7|component7(){}[0]
     final fun component8(): kotlin/Boolean? // pbandk.wkt/FileOptions.component8|component8(){}[0]
     final fun component9(): kotlin/Boolean? // pbandk.wkt/FileOptions.component9|component9(){}[0]
-    final fun copy(kotlin/String? = ..., kotlin/String? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., pbandk.wkt/FileOptions.OptimizeMode? = ..., kotlin/String? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/FileOptions // pbandk.wkt/FileOptions.copy|copy(kotlin.String?;kotlin.String?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;pbandk.wkt.FileOptions.OptimizeMode?;kotlin.String?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    final fun copy(kotlin/String? = ..., kotlin/String? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., pbandk.wkt/FileOptions.OptimizeMode? = ..., kotlin/String? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., pbandk.wkt/FeatureSet? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/FileOptions // pbandk.wkt/FileOptions.copy|copy(kotlin.String?;kotlin.String?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;pbandk.wkt.FileOptions.OptimizeMode?;kotlin.String?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;pbandk.wkt.FeatureSet?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/FileOptions.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // pbandk.wkt/FileOptions.hashCode|hashCode(){}[0]
     final fun plus(pbandk/Message?): pbandk.wkt/FileOptions // pbandk.wkt/FileOptions.plus|plus(pbandk.Message?){}[0]
@@ -1712,7 +2299,7 @@ final class pbandk.wkt/GeneratedCodeInfo : pbandk/Message { // pbandk.wkt/Genera
     final fun toString(): kotlin/String // pbandk.wkt/GeneratedCodeInfo.toString|toString(){}[0]
 
     final class Annotation : pbandk/Message { // pbandk.wkt/GeneratedCodeInfo.Annotation|null[0]
-        constructor <init>(kotlin.collections/List<kotlin/Int> = ..., kotlin/String? = ..., kotlin/Int? = ..., kotlin/Int? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/GeneratedCodeInfo.Annotation.<init>|<init>(kotlin.collections.List<kotlin.Int>;kotlin.String?;kotlin.Int?;kotlin.Int?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+        constructor <init>(kotlin.collections/List<kotlin/Int> = ..., kotlin/String? = ..., kotlin/Int? = ..., kotlin/Int? = ..., pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/GeneratedCodeInfo.Annotation.<init>|<init>(kotlin.collections.List<kotlin.Int>;kotlin.String?;kotlin.Int?;kotlin.Int?;pbandk.wkt.GeneratedCodeInfo.Annotation.Semantic?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
 
         final val begin // pbandk.wkt/GeneratedCodeInfo.Annotation.begin|{}begin[0]
             final fun <get-begin>(): kotlin/Int? // pbandk.wkt/GeneratedCodeInfo.Annotation.begin.<get-begin>|<get-begin>(){}[0]
@@ -1724,6 +2311,8 @@ final class pbandk.wkt/GeneratedCodeInfo : pbandk/Message { // pbandk.wkt/Genera
             final fun <get-path>(): kotlin.collections/List<kotlin/Int> // pbandk.wkt/GeneratedCodeInfo.Annotation.path.<get-path>|<get-path>(){}[0]
         final val protoSize // pbandk.wkt/GeneratedCodeInfo.Annotation.protoSize|{}protoSize[0]
             final fun <get-protoSize>(): kotlin/Int // pbandk.wkt/GeneratedCodeInfo.Annotation.protoSize.<get-protoSize>|<get-protoSize>(){}[0]
+        final val semantic // pbandk.wkt/GeneratedCodeInfo.Annotation.semantic|{}semantic[0]
+            final fun <get-semantic>(): pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic? // pbandk.wkt/GeneratedCodeInfo.Annotation.semantic.<get-semantic>|<get-semantic>(){}[0]
         final val sourceFile // pbandk.wkt/GeneratedCodeInfo.Annotation.sourceFile|{}sourceFile[0]
             final fun <get-sourceFile>(): kotlin/String? // pbandk.wkt/GeneratedCodeInfo.Annotation.sourceFile.<get-sourceFile>|<get-sourceFile>(){}[0]
         final val unknownFields // pbandk.wkt/GeneratedCodeInfo.Annotation.unknownFields|{}unknownFields[0]
@@ -1733,12 +2322,44 @@ final class pbandk.wkt/GeneratedCodeInfo : pbandk/Message { // pbandk.wkt/Genera
         final fun component2(): kotlin/String? // pbandk.wkt/GeneratedCodeInfo.Annotation.component2|component2(){}[0]
         final fun component3(): kotlin/Int? // pbandk.wkt/GeneratedCodeInfo.Annotation.component3|component3(){}[0]
         final fun component4(): kotlin/Int? // pbandk.wkt/GeneratedCodeInfo.Annotation.component4|component4(){}[0]
-        final fun component5(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/GeneratedCodeInfo.Annotation.component5|component5(){}[0]
-        final fun copy(kotlin.collections/List<kotlin/Int> = ..., kotlin/String? = ..., kotlin/Int? = ..., kotlin/Int? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...): pbandk.wkt/GeneratedCodeInfo.Annotation // pbandk.wkt/GeneratedCodeInfo.Annotation.copy|copy(kotlin.collections.List<kotlin.Int>;kotlin.String?;kotlin.Int?;kotlin.Int?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+        final fun component5(): pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic? // pbandk.wkt/GeneratedCodeInfo.Annotation.component5|component5(){}[0]
+        final fun component6(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/GeneratedCodeInfo.Annotation.component6|component6(){}[0]
+        final fun copy(kotlin.collections/List<kotlin/Int> = ..., kotlin/String? = ..., kotlin/Int? = ..., kotlin/Int? = ..., pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...): pbandk.wkt/GeneratedCodeInfo.Annotation // pbandk.wkt/GeneratedCodeInfo.Annotation.copy|copy(kotlin.collections.List<kotlin.Int>;kotlin.String?;kotlin.Int?;kotlin.Int?;pbandk.wkt.GeneratedCodeInfo.Annotation.Semantic?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
         final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/GeneratedCodeInfo.Annotation.equals|equals(kotlin.Any?){}[0]
         final fun hashCode(): kotlin/Int // pbandk.wkt/GeneratedCodeInfo.Annotation.hashCode|hashCode(){}[0]
         final fun plus(pbandk/Message?): pbandk.wkt/GeneratedCodeInfo.Annotation // pbandk.wkt/GeneratedCodeInfo.Annotation.plus|plus(pbandk.Message?){}[0]
         final fun toString(): kotlin/String // pbandk.wkt/GeneratedCodeInfo.Annotation.toString|toString(){}[0]
+
+        sealed class Semantic : pbandk/Message.Enum { // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic|null[0]
+            constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
+
+            open val name // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.name|{}name[0]
+                open fun <get-name>(): kotlin/String? // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.name.<get-name>|<get-name>(){}[0]
+            open val value // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.value|{}value[0]
+                open fun <get-value>(): kotlin/Int // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.value.<get-value>|<get-value>(){}[0]
+
+            open fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.equals|equals(kotlin.Any?){}[0]
+            open fun hashCode(): kotlin/Int // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.hashCode|hashCode(){}[0]
+            open fun toString(): kotlin/String // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.toString|toString(){}[0]
+
+            final class UNRECOGNIZED : pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic { // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.UNRECOGNIZED|null[0]
+                constructor <init>(kotlin/Int) // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.UNRECOGNIZED.<init>|<init>(kotlin.Int){}[0]
+            }
+
+            final object ALIAS : pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.ALIAS|null[0]
+
+            final object Companion : pbandk/Message.Enum.Companion<pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic> { // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.Companion|null[0]
+                final val values // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.Companion.values|{}values[0]
+                    final fun <get-values>(): kotlin.collections/List<pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic> // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.Companion.values.<get-values>|<get-values>(){}[0]
+
+                final fun fromName(kotlin/String): pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.Companion.fromName|fromName(kotlin.String){}[0]
+                final fun fromValue(kotlin/Int): pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.Companion.fromValue|fromValue(kotlin.Int){}[0]
+            }
+
+            final object NONE : pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.NONE|null[0]
+
+            final object SET : pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.SET|null[0]
+        }
 
         final object Companion : pbandk/Message.Companion<pbandk.wkt/GeneratedCodeInfo.Annotation> { // pbandk.wkt/GeneratedCodeInfo.Annotation.Companion|null[0]
             final val defaultInstance // pbandk.wkt/GeneratedCodeInfo.Annotation.Companion.defaultInstance|{}defaultInstance[0]
@@ -1820,6 +2441,70 @@ final class pbandk.wkt/Int64Value : pbandk/Message { // pbandk.wkt/Int64Value|nu
     }
 }
 
+final class pbandk.wkt/JavaFeatures : pbandk/Message { // pbandk.wkt/JavaFeatures|null[0]
+    constructor <init>(kotlin/Boolean? = ..., pbandk.wkt/JavaFeatures.Utf8Validation? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/JavaFeatures.<init>|<init>(kotlin.Boolean?;pbandk.wkt.JavaFeatures.Utf8Validation?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+
+    final val descriptor // pbandk.wkt/JavaFeatures.descriptor|{}descriptor[0]
+        final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/JavaFeatures> // pbandk.wkt/JavaFeatures.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val legacyClosedEnum // pbandk.wkt/JavaFeatures.legacyClosedEnum|{}legacyClosedEnum[0]
+        final fun <get-legacyClosedEnum>(): kotlin/Boolean? // pbandk.wkt/JavaFeatures.legacyClosedEnum.<get-legacyClosedEnum>|<get-legacyClosedEnum>(){}[0]
+    final val protoSize // pbandk.wkt/JavaFeatures.protoSize|{}protoSize[0]
+        final fun <get-protoSize>(): kotlin/Int // pbandk.wkt/JavaFeatures.protoSize.<get-protoSize>|<get-protoSize>(){}[0]
+    final val unknownFields // pbandk.wkt/JavaFeatures.unknownFields|{}unknownFields[0]
+        final fun <get-unknownFields>(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/JavaFeatures.unknownFields.<get-unknownFields>|<get-unknownFields>(){}[0]
+    final val utf8Validation // pbandk.wkt/JavaFeatures.utf8Validation|{}utf8Validation[0]
+        final fun <get-utf8Validation>(): pbandk.wkt/JavaFeatures.Utf8Validation? // pbandk.wkt/JavaFeatures.utf8Validation.<get-utf8Validation>|<get-utf8Validation>(){}[0]
+
+    final fun component1(): kotlin/Boolean? // pbandk.wkt/JavaFeatures.component1|component1(){}[0]
+    final fun component2(): pbandk.wkt/JavaFeatures.Utf8Validation? // pbandk.wkt/JavaFeatures.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/JavaFeatures.component3|component3(){}[0]
+    final fun copy(kotlin/Boolean? = ..., pbandk.wkt/JavaFeatures.Utf8Validation? = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...): pbandk.wkt/JavaFeatures // pbandk.wkt/JavaFeatures.copy|copy(kotlin.Boolean?;pbandk.wkt.JavaFeatures.Utf8Validation?;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/JavaFeatures.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // pbandk.wkt/JavaFeatures.hashCode|hashCode(){}[0]
+    final fun plus(pbandk/Message?): pbandk.wkt/JavaFeatures // pbandk.wkt/JavaFeatures.plus|plus(pbandk.Message?){}[0]
+    final fun toString(): kotlin/String // pbandk.wkt/JavaFeatures.toString|toString(){}[0]
+
+    sealed class Utf8Validation : pbandk/Message.Enum { // pbandk.wkt/JavaFeatures.Utf8Validation|null[0]
+        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/JavaFeatures.Utf8Validation.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
+
+        open val name // pbandk.wkt/JavaFeatures.Utf8Validation.name|{}name[0]
+            open fun <get-name>(): kotlin/String? // pbandk.wkt/JavaFeatures.Utf8Validation.name.<get-name>|<get-name>(){}[0]
+        open val value // pbandk.wkt/JavaFeatures.Utf8Validation.value|{}value[0]
+            open fun <get-value>(): kotlin/Int // pbandk.wkt/JavaFeatures.Utf8Validation.value.<get-value>|<get-value>(){}[0]
+
+        open fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/JavaFeatures.Utf8Validation.equals|equals(kotlin.Any?){}[0]
+        open fun hashCode(): kotlin/Int // pbandk.wkt/JavaFeatures.Utf8Validation.hashCode|hashCode(){}[0]
+        open fun toString(): kotlin/String // pbandk.wkt/JavaFeatures.Utf8Validation.toString|toString(){}[0]
+
+        final class UNRECOGNIZED : pbandk.wkt/JavaFeatures.Utf8Validation { // pbandk.wkt/JavaFeatures.Utf8Validation.UNRECOGNIZED|null[0]
+            constructor <init>(kotlin/Int) // pbandk.wkt/JavaFeatures.Utf8Validation.UNRECOGNIZED.<init>|<init>(kotlin.Int){}[0]
+        }
+
+        final object Companion : pbandk/Message.Enum.Companion<pbandk.wkt/JavaFeatures.Utf8Validation> { // pbandk.wkt/JavaFeatures.Utf8Validation.Companion|null[0]
+            final val values // pbandk.wkt/JavaFeatures.Utf8Validation.Companion.values|{}values[0]
+                final fun <get-values>(): kotlin.collections/List<pbandk.wkt/JavaFeatures.Utf8Validation> // pbandk.wkt/JavaFeatures.Utf8Validation.Companion.values.<get-values>|<get-values>(){}[0]
+
+            final fun fromName(kotlin/String): pbandk.wkt/JavaFeatures.Utf8Validation // pbandk.wkt/JavaFeatures.Utf8Validation.Companion.fromName|fromName(kotlin.String){}[0]
+            final fun fromValue(kotlin/Int): pbandk.wkt/JavaFeatures.Utf8Validation // pbandk.wkt/JavaFeatures.Utf8Validation.Companion.fromValue|fromValue(kotlin.Int){}[0]
+        }
+
+        final object DEFAULT : pbandk.wkt/JavaFeatures.Utf8Validation // pbandk.wkt/JavaFeatures.Utf8Validation.DEFAULT|null[0]
+
+        final object UTF8_VALIDATION_UNKNOWN : pbandk.wkt/JavaFeatures.Utf8Validation // pbandk.wkt/JavaFeatures.Utf8Validation.UTF8_VALIDATION_UNKNOWN|null[0]
+
+        final object VERIFY : pbandk.wkt/JavaFeatures.Utf8Validation // pbandk.wkt/JavaFeatures.Utf8Validation.VERIFY|null[0]
+    }
+
+    final object Companion : pbandk/Message.Companion<pbandk.wkt/JavaFeatures> { // pbandk.wkt/JavaFeatures.Companion|null[0]
+        final val defaultInstance // pbandk.wkt/JavaFeatures.Companion.defaultInstance|{}defaultInstance[0]
+            final fun <get-defaultInstance>(): pbandk.wkt/JavaFeatures // pbandk.wkt/JavaFeatures.Companion.defaultInstance.<get-defaultInstance>|<get-defaultInstance>(){}[0]
+        final val descriptor // pbandk.wkt/JavaFeatures.Companion.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/JavaFeatures> // pbandk.wkt/JavaFeatures.Companion.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun decodeWith(pbandk/MessageDecoder): pbandk.wkt/JavaFeatures // pbandk.wkt/JavaFeatures.Companion.decodeWith|decodeWith(pbandk.MessageDecoder){}[0]
+    }
+}
+
 final class pbandk.wkt/ListValue : pbandk/Message { // pbandk.wkt/ListValue|null[0]
     constructor <init>(kotlin.collections/List<pbandk.wkt/Value> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/ListValue.<init>|<init>(kotlin.collections.List<pbandk.wkt.Value>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
 
@@ -1851,12 +2536,16 @@ final class pbandk.wkt/ListValue : pbandk/Message { // pbandk.wkt/ListValue|null
 }
 
 final class pbandk.wkt/MessageOptions : pbandk/ExtendableMessage { // pbandk.wkt/MessageOptions|null[0]
-    constructor <init>(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/MessageOptions.<init>|<init>(kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    constructor <init>(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., pbandk.wkt/FeatureSet? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/MessageOptions.<init>|<init>(kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;pbandk.wkt.FeatureSet?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
 
     final val deprecated // pbandk.wkt/MessageOptions.deprecated|{}deprecated[0]
         final fun <get-deprecated>(): kotlin/Boolean? // pbandk.wkt/MessageOptions.deprecated.<get-deprecated>|<get-deprecated>(){}[0]
+    final val deprecatedLegacyJsonFieldConflicts // pbandk.wkt/MessageOptions.deprecatedLegacyJsonFieldConflicts|{}deprecatedLegacyJsonFieldConflicts[0]
+        final fun <get-deprecatedLegacyJsonFieldConflicts>(): kotlin/Boolean? // pbandk.wkt/MessageOptions.deprecatedLegacyJsonFieldConflicts.<get-deprecatedLegacyJsonFieldConflicts>|<get-deprecatedLegacyJsonFieldConflicts>(){}[0]
     final val descriptor // pbandk.wkt/MessageOptions.descriptor|{}descriptor[0]
         final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/MessageOptions> // pbandk.wkt/MessageOptions.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val features // pbandk.wkt/MessageOptions.features|{}features[0]
+        final fun <get-features>(): pbandk.wkt/FeatureSet? // pbandk.wkt/MessageOptions.features.<get-features>|<get-features>(){}[0]
     final val mapEntry // pbandk.wkt/MessageOptions.mapEntry|{}mapEntry[0]
         final fun <get-mapEntry>(): kotlin/Boolean? // pbandk.wkt/MessageOptions.mapEntry.<get-mapEntry>|<get-mapEntry>(){}[0]
     final val messageSetWireFormat // pbandk.wkt/MessageOptions.messageSetWireFormat|{}messageSetWireFormat[0]
@@ -1874,10 +2563,12 @@ final class pbandk.wkt/MessageOptions : pbandk/ExtendableMessage { // pbandk.wkt
     final fun component2(): kotlin/Boolean? // pbandk.wkt/MessageOptions.component2|component2(){}[0]
     final fun component3(): kotlin/Boolean? // pbandk.wkt/MessageOptions.component3|component3(){}[0]
     final fun component4(): kotlin/Boolean? // pbandk.wkt/MessageOptions.component4|component4(){}[0]
-    final fun component5(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/MessageOptions.component5|component5(){}[0]
-    final fun component6(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/MessageOptions.component6|component6(){}[0]
-    final fun component7(): pbandk/ExtensionFieldSet // pbandk.wkt/MessageOptions.component7|component7(){}[0]
-    final fun copy(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/MessageOptions // pbandk.wkt/MessageOptions.copy|copy(kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    final fun component5(): kotlin/Boolean? // pbandk.wkt/MessageOptions.component5|component5(){}[0]
+    final fun component6(): pbandk.wkt/FeatureSet? // pbandk.wkt/MessageOptions.component6|component6(){}[0]
+    final fun component7(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/MessageOptions.component7|component7(){}[0]
+    final fun component8(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/MessageOptions.component8|component8(){}[0]
+    final fun component9(): pbandk/ExtensionFieldSet // pbandk.wkt/MessageOptions.component9|component9(){}[0]
+    final fun copy(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., pbandk.wkt/FeatureSet? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/MessageOptions // pbandk.wkt/MessageOptions.copy|copy(kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;pbandk.wkt.FeatureSet?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/MessageOptions.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // pbandk.wkt/MessageOptions.hashCode|hashCode(){}[0]
     final fun plus(pbandk/Message?): pbandk.wkt/MessageOptions // pbandk.wkt/MessageOptions.plus|plus(pbandk.Message?){}[0]
@@ -1987,12 +2678,14 @@ final class pbandk.wkt/MethodDescriptorProto : pbandk/Message { // pbandk.wkt/Me
 }
 
 final class pbandk.wkt/MethodOptions : pbandk/ExtendableMessage { // pbandk.wkt/MethodOptions|null[0]
-    constructor <init>(kotlin/Boolean? = ..., pbandk.wkt/MethodOptions.IdempotencyLevel? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/MethodOptions.<init>|<init>(kotlin.Boolean?;pbandk.wkt.MethodOptions.IdempotencyLevel?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    constructor <init>(kotlin/Boolean? = ..., pbandk.wkt/MethodOptions.IdempotencyLevel? = ..., pbandk.wkt/FeatureSet? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/MethodOptions.<init>|<init>(kotlin.Boolean?;pbandk.wkt.MethodOptions.IdempotencyLevel?;pbandk.wkt.FeatureSet?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
 
     final val deprecated // pbandk.wkt/MethodOptions.deprecated|{}deprecated[0]
         final fun <get-deprecated>(): kotlin/Boolean? // pbandk.wkt/MethodOptions.deprecated.<get-deprecated>|<get-deprecated>(){}[0]
     final val descriptor // pbandk.wkt/MethodOptions.descriptor|{}descriptor[0]
         final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/MethodOptions> // pbandk.wkt/MethodOptions.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val features // pbandk.wkt/MethodOptions.features|{}features[0]
+        final fun <get-features>(): pbandk.wkt/FeatureSet? // pbandk.wkt/MethodOptions.features.<get-features>|<get-features>(){}[0]
     final val idempotencyLevel // pbandk.wkt/MethodOptions.idempotencyLevel|{}idempotencyLevel[0]
         final fun <get-idempotencyLevel>(): pbandk.wkt/MethodOptions.IdempotencyLevel? // pbandk.wkt/MethodOptions.idempotencyLevel.<get-idempotencyLevel>|<get-idempotencyLevel>(){}[0]
     final val protoSize // pbandk.wkt/MethodOptions.protoSize|{}protoSize[0]
@@ -2004,10 +2697,11 @@ final class pbandk.wkt/MethodOptions : pbandk/ExtendableMessage { // pbandk.wkt/
 
     final fun component1(): kotlin/Boolean? // pbandk.wkt/MethodOptions.component1|component1(){}[0]
     final fun component2(): pbandk.wkt/MethodOptions.IdempotencyLevel? // pbandk.wkt/MethodOptions.component2|component2(){}[0]
-    final fun component3(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/MethodOptions.component3|component3(){}[0]
-    final fun component4(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/MethodOptions.component4|component4(){}[0]
-    final fun component5(): pbandk/ExtensionFieldSet // pbandk.wkt/MethodOptions.component5|component5(){}[0]
-    final fun copy(kotlin/Boolean? = ..., pbandk.wkt/MethodOptions.IdempotencyLevel? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/MethodOptions // pbandk.wkt/MethodOptions.copy|copy(kotlin.Boolean?;pbandk.wkt.MethodOptions.IdempotencyLevel?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    final fun component3(): pbandk.wkt/FeatureSet? // pbandk.wkt/MethodOptions.component3|component3(){}[0]
+    final fun component4(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/MethodOptions.component4|component4(){}[0]
+    final fun component5(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/MethodOptions.component5|component5(){}[0]
+    final fun component6(): pbandk/ExtensionFieldSet // pbandk.wkt/MethodOptions.component6|component6(){}[0]
+    final fun copy(kotlin/Boolean? = ..., pbandk.wkt/MethodOptions.IdempotencyLevel? = ..., pbandk.wkt/FeatureSet? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/MethodOptions // pbandk.wkt/MethodOptions.copy|copy(kotlin.Boolean?;pbandk.wkt.MethodOptions.IdempotencyLevel?;pbandk.wkt.FeatureSet?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/MethodOptions.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // pbandk.wkt/MethodOptions.hashCode|hashCode(){}[0]
     final fun plus(pbandk/Message?): pbandk.wkt/MethodOptions // pbandk.wkt/MethodOptions.plus|plus(pbandk.Message?){}[0]
@@ -2121,10 +2815,12 @@ final class pbandk.wkt/OneofDescriptorProto : pbandk/Message { // pbandk.wkt/One
 }
 
 final class pbandk.wkt/OneofOptions : pbandk/ExtendableMessage { // pbandk.wkt/OneofOptions|null[0]
-    constructor <init>(kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/OneofOptions.<init>|<init>(kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    constructor <init>(pbandk.wkt/FeatureSet? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/OneofOptions.<init>|<init>(pbandk.wkt.FeatureSet?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
 
     final val descriptor // pbandk.wkt/OneofOptions.descriptor|{}descriptor[0]
         final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/OneofOptions> // pbandk.wkt/OneofOptions.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val features // pbandk.wkt/OneofOptions.features|{}features[0]
+        final fun <get-features>(): pbandk.wkt/FeatureSet? // pbandk.wkt/OneofOptions.features.<get-features>|<get-features>(){}[0]
     final val protoSize // pbandk.wkt/OneofOptions.protoSize|{}protoSize[0]
         final fun <get-protoSize>(): kotlin/Int // pbandk.wkt/OneofOptions.protoSize.<get-protoSize>|<get-protoSize>(){}[0]
     final val uninterpretedOption // pbandk.wkt/OneofOptions.uninterpretedOption|{}uninterpretedOption[0]
@@ -2132,10 +2828,11 @@ final class pbandk.wkt/OneofOptions : pbandk/ExtendableMessage { // pbandk.wkt/O
     final val unknownFields // pbandk.wkt/OneofOptions.unknownFields|{}unknownFields[0]
         final fun <get-unknownFields>(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/OneofOptions.unknownFields.<get-unknownFields>|<get-unknownFields>(){}[0]
 
-    final fun component1(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/OneofOptions.component1|component1(){}[0]
-    final fun component2(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/OneofOptions.component2|component2(){}[0]
-    final fun component3(): pbandk/ExtensionFieldSet // pbandk.wkt/OneofOptions.component3|component3(){}[0]
-    final fun copy(kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/OneofOptions // pbandk.wkt/OneofOptions.copy|copy(kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    final fun component1(): pbandk.wkt/FeatureSet? // pbandk.wkt/OneofOptions.component1|component1(){}[0]
+    final fun component2(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/OneofOptions.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/OneofOptions.component3|component3(){}[0]
+    final fun component4(): pbandk/ExtensionFieldSet // pbandk.wkt/OneofOptions.component4|component4(){}[0]
+    final fun copy(pbandk.wkt/FeatureSet? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/OneofOptions // pbandk.wkt/OneofOptions.copy|copy(pbandk.wkt.FeatureSet?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/OneofOptions.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // pbandk.wkt/OneofOptions.hashCode|hashCode(){}[0]
     final fun plus(pbandk/Message?): pbandk.wkt/OneofOptions // pbandk.wkt/OneofOptions.plus|plus(pbandk.Message?){}[0]
@@ -2221,12 +2918,14 @@ final class pbandk.wkt/ServiceDescriptorProto : pbandk/Message { // pbandk.wkt/S
 }
 
 final class pbandk.wkt/ServiceOptions : pbandk/ExtendableMessage { // pbandk.wkt/ServiceOptions|null[0]
-    constructor <init>(kotlin/Boolean? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/ServiceOptions.<init>|<init>(kotlin.Boolean?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    constructor <init>(pbandk.wkt/FeatureSet? = ..., kotlin/Boolean? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...) // pbandk.wkt/ServiceOptions.<init>|<init>(pbandk.wkt.FeatureSet?;kotlin.Boolean?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
 
     final val deprecated // pbandk.wkt/ServiceOptions.deprecated|{}deprecated[0]
         final fun <get-deprecated>(): kotlin/Boolean? // pbandk.wkt/ServiceOptions.deprecated.<get-deprecated>|<get-deprecated>(){}[0]
     final val descriptor // pbandk.wkt/ServiceOptions.descriptor|{}descriptor[0]
         final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/ServiceOptions> // pbandk.wkt/ServiceOptions.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val features // pbandk.wkt/ServiceOptions.features|{}features[0]
+        final fun <get-features>(): pbandk.wkt/FeatureSet? // pbandk.wkt/ServiceOptions.features.<get-features>|<get-features>(){}[0]
     final val protoSize // pbandk.wkt/ServiceOptions.protoSize|{}protoSize[0]
         final fun <get-protoSize>(): kotlin/Int // pbandk.wkt/ServiceOptions.protoSize.<get-protoSize>|<get-protoSize>(){}[0]
     final val uninterpretedOption // pbandk.wkt/ServiceOptions.uninterpretedOption|{}uninterpretedOption[0]
@@ -2234,11 +2933,12 @@ final class pbandk.wkt/ServiceOptions : pbandk/ExtendableMessage { // pbandk.wkt
     final val unknownFields // pbandk.wkt/ServiceOptions.unknownFields|{}unknownFields[0]
         final fun <get-unknownFields>(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/ServiceOptions.unknownFields.<get-unknownFields>|<get-unknownFields>(){}[0]
 
-    final fun component1(): kotlin/Boolean? // pbandk.wkt/ServiceOptions.component1|component1(){}[0]
-    final fun component2(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/ServiceOptions.component2|component2(){}[0]
-    final fun component3(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/ServiceOptions.component3|component3(){}[0]
-    final fun component4(): pbandk/ExtensionFieldSet // pbandk.wkt/ServiceOptions.component4|component4(){}[0]
-    final fun copy(kotlin/Boolean? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/ServiceOptions // pbandk.wkt/ServiceOptions.copy|copy(kotlin.Boolean?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
+    final fun component1(): pbandk.wkt/FeatureSet? // pbandk.wkt/ServiceOptions.component1|component1(){}[0]
+    final fun component2(): kotlin/Boolean? // pbandk.wkt/ServiceOptions.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/List<pbandk.wkt/UninterpretedOption> // pbandk.wkt/ServiceOptions.component3|component3(){}[0]
+    final fun component4(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/ServiceOptions.component4|component4(){}[0]
+    final fun component5(): pbandk/ExtensionFieldSet // pbandk.wkt/ServiceOptions.component5|component5(){}[0]
+    final fun copy(pbandk.wkt/FeatureSet? = ..., kotlin/Boolean? = ..., kotlin.collections/List<pbandk.wkt/UninterpretedOption> = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ..., pbandk/ExtensionFieldSet = ...): pbandk.wkt/ServiceOptions // pbandk.wkt/ServiceOptions.copy|copy(pbandk.wkt.FeatureSet?;kotlin.Boolean?;kotlin.collections.List<pbandk.wkt.UninterpretedOption>;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>;pbandk.ExtensionFieldSet){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/ServiceOptions.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // pbandk.wkt/ServiceOptions.hashCode|hashCode(){}[0]
     final fun plus(pbandk/Message?): pbandk.wkt/ServiceOptions // pbandk.wkt/ServiceOptions.plus|plus(pbandk.Message?){}[0]
@@ -2483,10 +3183,12 @@ final class pbandk.wkt/Timestamp : pbandk/Message { // pbandk.wkt/Timestamp|null
 }
 
 final class pbandk.wkt/Type : pbandk/Message { // pbandk.wkt/Type|null[0]
-    constructor <init>(kotlin/String = ..., kotlin.collections/List<pbandk.wkt/Field> = ..., kotlin.collections/List<kotlin/String> = ..., kotlin.collections/List<pbandk.wkt/Option> = ..., pbandk.wkt/SourceContext? = ..., pbandk.wkt/Syntax = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/Type.<init>|<init>(kotlin.String;kotlin.collections.List<pbandk.wkt.Field>;kotlin.collections.List<kotlin.String>;kotlin.collections.List<pbandk.wkt.Option>;pbandk.wkt.SourceContext?;pbandk.wkt.Syntax;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+    constructor <init>(kotlin/String = ..., kotlin.collections/List<pbandk.wkt/Field> = ..., kotlin.collections/List<kotlin/String> = ..., kotlin.collections/List<pbandk.wkt/Option> = ..., pbandk.wkt/SourceContext? = ..., pbandk.wkt/Syntax = ..., kotlin/String = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...) // pbandk.wkt/Type.<init>|<init>(kotlin.String;kotlin.collections.List<pbandk.wkt.Field>;kotlin.collections.List<kotlin.String>;kotlin.collections.List<pbandk.wkt.Option>;pbandk.wkt.SourceContext?;pbandk.wkt.Syntax;kotlin.String;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
 
     final val descriptor // pbandk.wkt/Type.descriptor|{}descriptor[0]
         final fun <get-descriptor>(): pbandk/MessageDescriptor<pbandk.wkt/Type> // pbandk.wkt/Type.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+    final val edition // pbandk.wkt/Type.edition|{}edition[0]
+        final fun <get-edition>(): kotlin/String // pbandk.wkt/Type.edition.<get-edition>|<get-edition>(){}[0]
     final val fields // pbandk.wkt/Type.fields|{}fields[0]
         final fun <get-fields>(): kotlin.collections/List<pbandk.wkt/Field> // pbandk.wkt/Type.fields.<get-fields>|<get-fields>(){}[0]
     final val name // pbandk.wkt/Type.name|{}name[0]
@@ -2510,8 +3212,9 @@ final class pbandk.wkt/Type : pbandk/Message { // pbandk.wkt/Type|null[0]
     final fun component4(): kotlin.collections/List<pbandk.wkt/Option> // pbandk.wkt/Type.component4|component4(){}[0]
     final fun component5(): pbandk.wkt/SourceContext? // pbandk.wkt/Type.component5|component5(){}[0]
     final fun component6(): pbandk.wkt/Syntax // pbandk.wkt/Type.component6|component6(){}[0]
-    final fun component7(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/Type.component7|component7(){}[0]
-    final fun copy(kotlin/String = ..., kotlin.collections/List<pbandk.wkt/Field> = ..., kotlin.collections/List<kotlin/String> = ..., kotlin.collections/List<pbandk.wkt/Option> = ..., pbandk.wkt/SourceContext? = ..., pbandk.wkt/Syntax = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...): pbandk.wkt/Type // pbandk.wkt/Type.copy|copy(kotlin.String;kotlin.collections.List<pbandk.wkt.Field>;kotlin.collections.List<kotlin.String>;kotlin.collections.List<pbandk.wkt.Option>;pbandk.wkt.SourceContext?;pbandk.wkt.Syntax;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
+    final fun component7(): kotlin/String // pbandk.wkt/Type.component7|component7(){}[0]
+    final fun component8(): kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> // pbandk.wkt/Type.component8|component8(){}[0]
+    final fun copy(kotlin/String = ..., kotlin.collections/List<pbandk.wkt/Field> = ..., kotlin.collections/List<kotlin/String> = ..., kotlin.collections/List<pbandk.wkt/Option> = ..., pbandk.wkt/SourceContext? = ..., pbandk.wkt/Syntax = ..., kotlin/String = ..., kotlin.collections/Map<kotlin/Int, pbandk/UnknownField> = ...): pbandk.wkt/Type // pbandk.wkt/Type.copy|copy(kotlin.String;kotlin.collections.List<pbandk.wkt.Field>;kotlin.collections.List<kotlin.String>;kotlin.collections.List<pbandk.wkt.Option>;pbandk.wkt.SourceContext?;pbandk.wkt.Syntax;kotlin.String;kotlin.collections.Map<kotlin.Int,pbandk.UnknownField>){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/Type.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // pbandk.wkt/Type.hashCode|hashCode(){}[0]
     final fun plus(pbandk/Message?): pbandk.wkt/Type // pbandk.wkt/Type.plus|plus(pbandk.Message?){}[0]
@@ -2795,6 +3498,55 @@ final class pbandk/UnknownField { // pbandk/UnknownField|null[0]
     }
 }
 
+sealed class pbandk.wkt/Edition : pbandk/Message.Enum { // pbandk.wkt/Edition|null[0]
+    constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/Edition.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
+
+    open val name // pbandk.wkt/Edition.name|{}name[0]
+        open fun <get-name>(): kotlin/String? // pbandk.wkt/Edition.name.<get-name>|<get-name>(){}[0]
+    open val value // pbandk.wkt/Edition.value|{}value[0]
+        open fun <get-value>(): kotlin/Int // pbandk.wkt/Edition.value.<get-value>|<get-value>(){}[0]
+
+    open fun equals(kotlin/Any?): kotlin/Boolean // pbandk.wkt/Edition.equals|equals(kotlin.Any?){}[0]
+    open fun hashCode(): kotlin/Int // pbandk.wkt/Edition.hashCode|hashCode(){}[0]
+    open fun toString(): kotlin/String // pbandk.wkt/Edition.toString|toString(){}[0]
+
+    final class UNRECOGNIZED : pbandk.wkt/Edition { // pbandk.wkt/Edition.UNRECOGNIZED|null[0]
+        constructor <init>(kotlin/Int) // pbandk.wkt/Edition.UNRECOGNIZED.<init>|<init>(kotlin.Int){}[0]
+    }
+
+    final object Companion : pbandk/Message.Enum.Companion<pbandk.wkt/Edition> { // pbandk.wkt/Edition.Companion|null[0]
+        final val values // pbandk.wkt/Edition.Companion.values|{}values[0]
+            final fun <get-values>(): kotlin.collections/List<pbandk.wkt/Edition> // pbandk.wkt/Edition.Companion.values.<get-values>|<get-values>(){}[0]
+
+        final fun fromName(kotlin/String): pbandk.wkt/Edition // pbandk.wkt/Edition.Companion.fromName|fromName(kotlin.String){}[0]
+        final fun fromValue(kotlin/Int): pbandk.wkt/Edition // pbandk.wkt/Edition.Companion.fromValue|fromValue(kotlin.Int){}[0]
+    }
+
+    final object EDITION_1_TEST_ONLY : pbandk.wkt/Edition // pbandk.wkt/Edition.EDITION_1_TEST_ONLY|null[0]
+
+    final object EDITION_2023 : pbandk.wkt/Edition // pbandk.wkt/Edition.EDITION_2023|null[0]
+
+    final object EDITION_2024 : pbandk.wkt/Edition // pbandk.wkt/Edition.EDITION_2024|null[0]
+
+    final object EDITION_2_TEST_ONLY : pbandk.wkt/Edition // pbandk.wkt/Edition.EDITION_2_TEST_ONLY|null[0]
+
+    final object EDITION_99997_TEST_ONLY : pbandk.wkt/Edition // pbandk.wkt/Edition.EDITION_99997_TEST_ONLY|null[0]
+
+    final object EDITION_99998_TEST_ONLY : pbandk.wkt/Edition // pbandk.wkt/Edition.EDITION_99998_TEST_ONLY|null[0]
+
+    final object EDITION_99999_TEST_ONLY : pbandk.wkt/Edition // pbandk.wkt/Edition.EDITION_99999_TEST_ONLY|null[0]
+
+    final object LEGACY : pbandk.wkt/Edition // pbandk.wkt/Edition.LEGACY|null[0]
+
+    final object MAX : pbandk.wkt/Edition // pbandk.wkt/Edition.MAX|null[0]
+
+    final object PROTO2 : pbandk.wkt/Edition // pbandk.wkt/Edition.PROTO2|null[0]
+
+    final object PROTO3 : pbandk.wkt/Edition // pbandk.wkt/Edition.PROTO3|null[0]
+
+    final object UNKNOWN : pbandk.wkt/Edition // pbandk.wkt/Edition.UNKNOWN|null[0]
+}
+
 sealed class pbandk.wkt/NullValue : pbandk/Message.Enum { // pbandk.wkt/NullValue|null[0]
     constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/NullValue.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
 
@@ -2846,10 +3598,17 @@ sealed class pbandk.wkt/Syntax : pbandk/Message.Enum { // pbandk.wkt/Syntax|null
         final fun fromValue(kotlin/Int): pbandk.wkt/Syntax // pbandk.wkt/Syntax.Companion.fromValue|fromValue(kotlin.Int){}[0]
     }
 
+    final object EDITIONS : pbandk.wkt/Syntax // pbandk.wkt/Syntax.EDITIONS|null[0]
+
     final object PROTO2 : pbandk.wkt/Syntax // pbandk.wkt/Syntax.PROTO2|null[0]
 
     final object PROTO3 : pbandk.wkt/Syntax // pbandk.wkt/Syntax.PROTO3|null[0]
 }
+
+final val pbandk.wkt/java // pbandk.wkt/java|@pbandk.wkt.FeatureSet{}java[0]
+    final fun (pbandk.wkt/FeatureSet).<get-java>(): pbandk.wkt/JavaFeatures? // pbandk.wkt/java.<get-java>|<get-java>@pbandk.wkt.FeatureSet(){}[0]
+final val pbandk.wkt/java // pbandk.wkt/java|{}java[0]
+    final fun <get-java>(): pbandk/FieldDescriptor<pbandk.wkt/FeatureSet, pbandk.wkt/JavaFeatures?> // pbandk.wkt/java.<get-java>|<get-java>(){}[0]
 
 final fun (pbandk.wkt/Any?).pbandk.wkt/orDefault(): pbandk.wkt/Any // pbandk.wkt/orDefault|orDefault@pbandk.wkt.Any?(){}[0]
 final fun (pbandk.wkt/Api?).pbandk.wkt/orDefault(): pbandk.wkt/Api // pbandk.wkt/orDefault|orDefault@pbandk.wkt.Api?(){}[0]
@@ -2868,10 +3627,16 @@ final fun (pbandk.wkt/EnumOptions?).pbandk.wkt/orDefault(): pbandk.wkt/EnumOptio
 final fun (pbandk.wkt/EnumValue?).pbandk.wkt/orDefault(): pbandk.wkt/EnumValue // pbandk.wkt/orDefault|orDefault@pbandk.wkt.EnumValue?(){}[0]
 final fun (pbandk.wkt/EnumValueDescriptorProto?).pbandk.wkt/orDefault(): pbandk.wkt/EnumValueDescriptorProto // pbandk.wkt/orDefault|orDefault@pbandk.wkt.EnumValueDescriptorProto?(){}[0]
 final fun (pbandk.wkt/EnumValueOptions?).pbandk.wkt/orDefault(): pbandk.wkt/EnumValueOptions // pbandk.wkt/orDefault|orDefault@pbandk.wkt.EnumValueOptions?(){}[0]
+final fun (pbandk.wkt/ExtensionRangeOptions.Declaration?).pbandk.wkt/orDefault(): pbandk.wkt/ExtensionRangeOptions.Declaration // pbandk.wkt/orDefault|orDefault@pbandk.wkt.ExtensionRangeOptions.Declaration?(){}[0]
 final fun (pbandk.wkt/ExtensionRangeOptions?).pbandk.wkt/orDefault(): pbandk.wkt/ExtensionRangeOptions // pbandk.wkt/orDefault|orDefault@pbandk.wkt.ExtensionRangeOptions?(){}[0]
+final fun (pbandk.wkt/FeatureSet?).pbandk.wkt/orDefault(): pbandk.wkt/FeatureSet // pbandk.wkt/orDefault|orDefault@pbandk.wkt.FeatureSet?(){}[0]
+final fun (pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault?).pbandk.wkt/orDefault(): pbandk.wkt/FeatureSetDefaults.FeatureSetEditionDefault // pbandk.wkt/orDefault|orDefault@pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault?(){}[0]
+final fun (pbandk.wkt/FeatureSetDefaults?).pbandk.wkt/orDefault(): pbandk.wkt/FeatureSetDefaults // pbandk.wkt/orDefault|orDefault@pbandk.wkt.FeatureSetDefaults?(){}[0]
 final fun (pbandk.wkt/Field?).pbandk.wkt/orDefault(): pbandk.wkt/Field // pbandk.wkt/orDefault|orDefault@pbandk.wkt.Field?(){}[0]
 final fun (pbandk.wkt/FieldDescriptorProto?).pbandk.wkt/orDefault(): pbandk.wkt/FieldDescriptorProto // pbandk.wkt/orDefault|orDefault@pbandk.wkt.FieldDescriptorProto?(){}[0]
 final fun (pbandk.wkt/FieldMask?).pbandk.wkt/orDefault(): pbandk.wkt/FieldMask // pbandk.wkt/orDefault|orDefault@pbandk.wkt.FieldMask?(){}[0]
+final fun (pbandk.wkt/FieldOptions.EditionDefault?).pbandk.wkt/orDefault(): pbandk.wkt/FieldOptions.EditionDefault // pbandk.wkt/orDefault|orDefault@pbandk.wkt.FieldOptions.EditionDefault?(){}[0]
+final fun (pbandk.wkt/FieldOptions.FeatureSupport?).pbandk.wkt/orDefault(): pbandk.wkt/FieldOptions.FeatureSupport // pbandk.wkt/orDefault|orDefault@pbandk.wkt.FieldOptions.FeatureSupport?(){}[0]
 final fun (pbandk.wkt/FieldOptions?).pbandk.wkt/orDefault(): pbandk.wkt/FieldOptions // pbandk.wkt/orDefault|orDefault@pbandk.wkt.FieldOptions?(){}[0]
 final fun (pbandk.wkt/FileDescriptorProto?).pbandk.wkt/orDefault(): pbandk.wkt/FileDescriptorProto // pbandk.wkt/orDefault|orDefault@pbandk.wkt.FileDescriptorProto?(){}[0]
 final fun (pbandk.wkt/FileDescriptorSet?).pbandk.wkt/orDefault(): pbandk.wkt/FileDescriptorSet // pbandk.wkt/orDefault|orDefault@pbandk.wkt.FileDescriptorSet?(){}[0]
@@ -2881,6 +3646,7 @@ final fun (pbandk.wkt/GeneratedCodeInfo.Annotation?).pbandk.wkt/orDefault(): pba
 final fun (pbandk.wkt/GeneratedCodeInfo?).pbandk.wkt/orDefault(): pbandk.wkt/GeneratedCodeInfo // pbandk.wkt/orDefault|orDefault@pbandk.wkt.GeneratedCodeInfo?(){}[0]
 final fun (pbandk.wkt/Int32Value?).pbandk.wkt/orDefault(): pbandk.wkt/Int32Value // pbandk.wkt/orDefault|orDefault@pbandk.wkt.Int32Value?(){}[0]
 final fun (pbandk.wkt/Int64Value?).pbandk.wkt/orDefault(): pbandk.wkt/Int64Value // pbandk.wkt/orDefault|orDefault@pbandk.wkt.Int64Value?(){}[0]
+final fun (pbandk.wkt/JavaFeatures?).pbandk.wkt/orDefault(): pbandk.wkt/JavaFeatures // pbandk.wkt/orDefault|orDefault@pbandk.wkt.JavaFeatures?(){}[0]
 final fun (pbandk.wkt/ListValue?).pbandk.wkt/orDefault(): pbandk.wkt/ListValue // pbandk.wkt/orDefault|orDefault@pbandk.wkt.ListValue?(){}[0]
 final fun (pbandk.wkt/MessageOptions?).pbandk.wkt/orDefault(): pbandk.wkt/MessageOptions // pbandk.wkt/orDefault|orDefault@pbandk.wkt.MessageOptions?(){}[0]
 final fun (pbandk.wkt/Method?).pbandk.wkt/orDefault(): pbandk.wkt/Method // pbandk.wkt/orDefault|orDefault@pbandk.wkt.Method?(){}[0]

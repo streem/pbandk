@@ -4,6 +4,7 @@ import pbandk.ByteArr
 import pbandk.FieldDescriptor
 import pbandk.Message
 import pbandk.MessageEncoder
+import pbandk.MessageEncoding
 import pbandk.MessageMap
 import pbandk.UnknownField
 import pbandk.wkt.BoolValue
@@ -51,7 +52,10 @@ internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEnco
                 BoolValue.Companion -> writeWrapperValue(fieldNum, type, value as Boolean, PlatformSizer::boolSize)
                 StringValue.Companion -> writeWrapperValue(fieldNum, type, value as String, PlatformSizer::stringSize)
                 BytesValue.Companion -> writeWrapperValue(fieldNum, type, value as ByteArr, PlatformSizer::bytesSize)
-                else -> writeMessageValue(fieldNum, value as Message)
+                else -> when (type.encoding) {
+                    MessageEncoding.LENGTH_PREFIXED -> writeLengthPrefixedMessage(fieldNum, value as Message)
+                    MessageEncoding.DELIMITED -> writeDelimitedMessage(fieldNum, value as Message)
+                }
             }
             is FieldDescriptor.Type.Enum<*> -> wireEncoder.writeEnum(fieldNum, value as Message.Enum)
 
@@ -81,9 +85,15 @@ internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEnco
         }
     }
 
-    private fun writeMessageValue(fieldNum: Int, message: Message) {
+    private fun writeLengthPrefixedMessage(fieldNum: Int, message: Message) {
         wireEncoder.writeLengthDelimitedHeader(fieldNum, message.protoSize)
         writeMessage(message)
+    }
+
+    private fun writeDelimitedMessage(fieldNum: Int, message: Message) {
+        wireEncoder.writeGroupStart(fieldNum)
+        writeMessage(message)
+        wireEncoder.writeGroupEnd(fieldNum)
     }
 
     private fun writeRepeatedValue(fieldNum: Int, list: List<*>, valueType: FieldDescriptor.Type, packed: Boolean) {
@@ -108,7 +118,7 @@ internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEnco
                 )
             }.toSet())
         messageMap.forEach {
-            writeMessageValue(fieldNum, it as MessageMap.Entry<*, *>)
+            writeLengthPrefixedMessage(fieldNum, it as MessageMap.Entry<*, *>)
         }
     }
 

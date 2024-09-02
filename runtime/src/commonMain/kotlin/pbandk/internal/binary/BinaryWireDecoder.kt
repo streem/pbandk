@@ -10,6 +10,8 @@ internal interface BinaryWireDecoder {
     /** Reads a value of [type] and returns its bytes without decoding them */
     fun readRawBytes(type: WireType): ByteArray
 
+    fun checkLastTagWas(value: Tag)
+
     fun readDouble(): Double
     fun readFloat(): Float
     fun readInt32(): Int
@@ -26,7 +28,8 @@ internal interface BinaryWireDecoder {
     fun readString(): String
     fun readBytes(): ByteArr
     fun <T : Message.Enum> readEnum(enumCompanion: Message.Enum.Companion<T>): T
-    fun <T : Message> readMessage(messageCompanion: Message.Companion<T>): T
+    fun <T : Message> readLengthPrefixedMessage(messageCompanion: Message.Companion<T>): T
+    fun <T : Message> readDelimitedMessage(messageCompanion: Message.Companion<T>): T
     fun <T : Any> readPackedRepeated(readFn: BinaryWireDecoder.() -> T): Sequence<T>
 
     fun readUnknownFieldValue(wireType: WireType): UnknownField.Value? {

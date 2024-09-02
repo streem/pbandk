@@ -220,6 +220,7 @@ public data class ConformanceResponse(
     public sealed class Result<V>(value: V) : pbandk.Message.OneOf<V>(value) {
         public class ParseError(parseError: String = "") : Result<String>(parseError)
         public class SerializeError(serializeError: String = "") : Result<String>(serializeError)
+        public class TimeoutError(timeoutError: String = "") : Result<String>(timeoutError)
         public class RuntimeError(runtimeError: String = "") : Result<String>(runtimeError)
         public class ProtobufPayload(protobufPayload: pbandk.ByteArr = pbandk.ByteArr.empty) : Result<pbandk.ByteArr>(protobufPayload)
         public class JsonPayload(jsonPayload: String = "") : Result<String>(jsonPayload)
@@ -232,6 +233,8 @@ public data class ConformanceResponse(
         get() = (result as? Result.ParseError)?.value
     val serializeError: String?
         get() = (result as? Result.SerializeError)?.value
+    val timeoutError: String?
+        get() = (result as? Result.TimeoutError)?.value
     val runtimeError: String?
         get() = (result as? Result.RuntimeError)?.value
     val protobufPayload: pbandk.ByteArr?
@@ -256,7 +259,7 @@ public data class ConformanceResponse(
             fullName = "conformance.ConformanceResponse",
             messageClass = pbandk.conformance.pb.ConformanceResponse::class,
             messageCompanion = this,
-            fields = buildList(8) {
+            fields = buildList(9) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -343,6 +346,17 @@ public data class ConformanceResponse(
                         oneofMember = true,
                         jsonName = "textPayload",
                         value = pbandk.conformance.pb.ConformanceResponse::textPayload
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "timeout_error",
+                        number = 9,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "timeoutError",
+                        value = pbandk.conformance.pb.ConformanceResponse::timeoutError
                     )
                 )
             }
@@ -470,6 +484,7 @@ private fun ConformanceResponse.Companion.decodeWithImpl(u: pbandk.MessageDecode
             6 -> result = ConformanceResponse.Result.SerializeError(_fieldValue as String)
             7 -> result = ConformanceResponse.Result.JspbPayload(_fieldValue as String)
             8 -> result = ConformanceResponse.Result.TextPayload(_fieldValue as String)
+            9 -> result = ConformanceResponse.Result.TimeoutError(_fieldValue as String)
         }
     }
 

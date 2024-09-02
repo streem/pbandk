@@ -10,10 +10,11 @@ public sealed class Syntax(override val value: Int, override val name: String? =
 
     public object PROTO2 : Syntax(0, "SYNTAX_PROTO2")
     public object PROTO3 : Syntax(1, "SYNTAX_PROTO3")
+    public object EDITIONS : Syntax(2, "SYNTAX_EDITIONS")
     public class UNRECOGNIZED(value: Int) : Syntax(value)
 
     public companion object : pbandk.Message.Enum.Companion<pbandk.wkt.Syntax> {
-        public val values: List<pbandk.wkt.Syntax> by lazy { listOf(PROTO2, PROTO3) }
+        public val values: List<pbandk.wkt.Syntax> by lazy { listOf(PROTO2, PROTO3, EDITIONS) }
         override fun fromValue(value: Int): pbandk.wkt.Syntax = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
         override fun fromName(name: String): pbandk.wkt.Syntax = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Syntax with name: $name")
     }
@@ -27,6 +28,7 @@ public data class Type(
     val options: List<pbandk.wkt.Option> = emptyList(),
     val sourceContext: pbandk.wkt.SourceContext? = null,
     val syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    val edition: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Type = protoMergeImpl(other)
@@ -40,7 +42,7 @@ public data class Type(
             fullName = "google.protobuf.Type",
             messageClass = pbandk.wkt.Type::class,
             messageCompanion = this,
-            fields = buildList(6) {
+            fields = buildList(7) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -99,6 +101,16 @@ public data class Type(
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
                         jsonName = "syntax",
                         value = pbandk.wkt.Type::syntax
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "edition",
+                        number = 7,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "edition",
+                        value = pbandk.wkt.Type::edition
                     )
                 )
             }
@@ -295,6 +307,7 @@ public data class Enum(
     val options: List<pbandk.wkt.Option> = emptyList(),
     val sourceContext: pbandk.wkt.SourceContext? = null,
     val syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    val edition: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Enum = protoMergeImpl(other)
@@ -308,7 +321,7 @@ public data class Enum(
             fullName = "google.protobuf.Enum",
             messageClass = pbandk.wkt.Enum::class,
             messageCompanion = this,
-            fields = buildList(5) {
+            fields = buildList(6) {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -357,6 +370,16 @@ public data class Enum(
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
                         jsonName = "syntax",
                         value = pbandk.wkt.Enum::syntax
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "edition",
+                        number = 6,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "edition",
+                        value = pbandk.wkt.Enum::edition
                     )
                 )
             }
@@ -483,6 +506,7 @@ private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Type {
     var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
     var sourceContext: pbandk.wkt.SourceContext? = null
     var syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0)
+    var edition = ""
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
@@ -492,11 +516,12 @@ private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Type {
             4 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Option> }
             5 -> sourceContext = _fieldValue as pbandk.wkt.SourceContext
             6 -> syntax = _fieldValue as pbandk.wkt.Syntax
+            7 -> edition = _fieldValue as String
         }
     }
 
     return Type(name, pbandk.ListWithSize.Builder.fixed(fields), pbandk.ListWithSize.Builder.fixed(oneofs), pbandk.ListWithSize.Builder.fixed(options),
-        sourceContext, syntax, unknownFields)
+        sourceContext, syntax, edition, unknownFields)
 }
 
 @pbandk.Export
@@ -563,6 +588,7 @@ private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum {
     var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
     var sourceContext: pbandk.wkt.SourceContext? = null
     var syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0)
+    var edition = ""
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
@@ -571,11 +597,12 @@ private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum {
             3 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as kotlin.sequences.Sequence<pbandk.wkt.Option> }
             4 -> sourceContext = _fieldValue as pbandk.wkt.SourceContext
             5 -> syntax = _fieldValue as pbandk.wkt.Syntax
+            6 -> edition = _fieldValue as String
         }
     }
 
     return Enum(name, pbandk.ListWithSize.Builder.fixed(enumvalue), pbandk.ListWithSize.Builder.fixed(options), sourceContext,
-        syntax, unknownFields)
+        syntax, edition, unknownFields)
 }
 
 @pbandk.Export
