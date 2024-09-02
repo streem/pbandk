@@ -3,6 +3,7 @@ package pbandk.gen
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.pb.CodeGeneratorResponse
 import pbandk.gen.pb.File
+import pbandk.wkt.Edition
 
 private var logDebug = false
 
@@ -32,7 +33,10 @@ internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse 
 
     // Convert to file model and generate the code only for ones requested
     return CodeGeneratorResponse {
-        supportedFeatures = CodeGeneratorResponse.Feature.PROTO3_OPTIONAL.value.toLong()
+        supportedFeatures = CodeGeneratorResponse.Feature.PROTO3_OPTIONAL.value.toLong() or
+                CodeGeneratorResponse.Feature.SUPPORTS_EDITIONS.value.toLong()
+        minimumEdition = Edition.PROTO2.value
+        maximumEdition = Edition.PROTO3.value
         file += request.protoFile.flatMap { protoFile ->
             val packageName = protoFile.`package`
             debug { "Reading ${protoFile.name}, package: $packageName" }
