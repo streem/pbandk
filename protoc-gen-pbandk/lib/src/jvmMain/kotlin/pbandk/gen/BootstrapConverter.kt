@@ -6,7 +6,10 @@ import pbandk.ByteArr
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.pb.CodeGeneratorResponse
 import pbandk.gen.pb.Version
+import pbandk.wkt.Declaration
 import pbandk.wkt.DescriptorProto
+import pbandk.wkt.Edition
+import pbandk.wkt.EditionDefault
 import pbandk.wkt.EnumDescriptorProto
 import pbandk.wkt.EnumOptions
 import pbandk.wkt.EnumReservedRange
@@ -14,6 +17,8 @@ import pbandk.wkt.EnumValueDescriptorProto
 import pbandk.wkt.EnumValueOptions
 import pbandk.wkt.ExtensionRange
 import pbandk.wkt.ExtensionRangeOptions
+import pbandk.wkt.FeatureSet
+import pbandk.wkt.FeatureSupport
 import pbandk.wkt.FieldDescriptorProto
 import pbandk.wkt.FieldOptions
 import pbandk.wkt.FileDescriptorProto
@@ -78,6 +83,9 @@ internal object BootstrapConverter {
                 swiftPrefix = it.swiftPrefix.orNull(it.hasSwiftPrefix())
                 phpClassPrefix = it.phpClassPrefix.orNull(it.hasPhpClassPrefix())
                 phpNamespace = it.phpNamespace.orNull(it.hasPhpNamespace())
+                phpMetadataNamespace = it.phpMetadataNamespace.orNull(it.hasPhpMetadataNamespace())
+                rubyPackage = it.rubyPackage.orNull(it.hasRubyPackage())
+                features = it.features?.convert()
                 uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
             }
         }
@@ -95,6 +103,7 @@ internal object BootstrapConverter {
             }
         }
         syntax = this@convert.syntax.orNull(hasSyntax())
+        edition = this@convert.edition.number.orNull(hasEdition())?.let { Edition.fromValue(it) }
     }
 
     private fun DescriptorProtos.UninterpretedOption.convert() = UninterpretedOption {
@@ -118,7 +127,14 @@ internal object BootstrapConverter {
                 start = it.start.orNull(it.hasStart())
                 end = it.end.orNull(it.hasEnd())
                 options = it.options?.let {
-                    ExtensionRangeOptions { uninterpretedOption += it.uninterpretedOptionList.map { it.convert() } }
+                    ExtensionRangeOptions {
+                        uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
+                        declaration += it.declarationList.map { it.convert() }
+                        features = it.features?.convert()
+                        verification = it.verification?.number?.let {
+                            ExtensionRangeOptions.VerificationState.fromValue(it)
+                        }
+                    }
                 }
             }
         }
@@ -130,6 +146,10 @@ internal object BootstrapConverter {
                     it.noStandardDescriptorAccessor.orNull(it.hasNoStandardDescriptorAccessor())
                 deprecated = it.deprecated.orNull(it.hasDeprecated())
                 mapEntry = it.mapEntry.orNull(it.hasMapEntry())
+                @Suppress("DEPRECATION")
+                deprecatedLegacyJsonFieldConflicts =
+                    it.deprecatedLegacyJsonFieldConflicts.orNull(it.hasDeprecatedLegacyJsonFieldConflicts())
+                features = it.features?.convert()
                 uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
             }
         }
@@ -142,6 +162,25 @@ internal object BootstrapConverter {
         reservedName += reservedNameList
     }
 
+    private fun DescriptorProtos.ExtensionRangeOptions.Declaration.convert() = ExtensionRangeOptions.Declaration {
+        number = this@convert.number.orNull(hasNumber())
+        fullName = this@convert.fullName.orNull(hasFullName())
+        type = this@convert.type.orNull(hasType())
+        reserved = this@convert.reserved.orNull(hasReserved())
+        repeated = this@convert.repeated.orNull(hasRepeated())
+    }
+
+    private fun DescriptorProtos.FeatureSet.convert() = FeatureSet {
+        fieldPresence = this@convert.fieldPresence?.number?.let { FeatureSet.FieldPresence.fromValue(it) }
+        enumType = this@convert.enumType?.number?.let { FeatureSet.EnumType.fromValue(it) }
+        repeatedFieldEncoding = this@convert.repeatedFieldEncoding?.number?.let {
+            FeatureSet.RepeatedFieldEncoding.fromValue(it)
+        }
+        utf8Validation = this@convert.utf8Validation?.number?.let { FeatureSet.Utf8Validation.fromValue(it) }
+        messageEncoding = this@convert.messageEncoding?.number?.let { FeatureSet.MessageEncoding.fromValue(it) }
+        jsonFormat = this@convert.jsonFormat?.number?.let { FeatureSet.JsonFormat.fromValue(it) }
+    }
+
     private fun DescriptorProtos.EnumDescriptorProto.convert() = EnumDescriptorProto {
         name = this@convert.name.orNull(hasName())
         value += this@convert.valueList.map {
@@ -151,6 +190,9 @@ internal object BootstrapConverter {
                 options = it.options?.let {
                     EnumValueOptions {
                         deprecated = it.deprecated.orNull(it.hasDeprecated())
+                        features = it.features?.convert()
+                        debugRedact = it.debugRedact.orNull(it.hasDebugRedact())
+                        featureSupport = it.featureSupport?.convert()
                         uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
                     }
                 }
@@ -160,6 +202,10 @@ internal object BootstrapConverter {
             EnumOptions {
                 allowAlias = it.allowAlias.orNull(it.hasAllowAlias())
                 deprecated = it.deprecated.orNull(it.hasDeprecated())
+                @Suppress("DEPRECATION")
+                deprecatedLegacyJsonFieldConflicts =
+                    it.deprecatedLegacyJsonFieldConflicts.orNull(it.hasDeprecatedLegacyJsonFieldConflicts())
+                features = it.features?.convert()
                 uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
             }
         }
@@ -184,6 +230,7 @@ internal object BootstrapConverter {
                         deprecated = it.deprecated.orNull(it.hasDeprecated())
                         idempotencyLevel =
                             it.idempotencyLevel?.number?.let { MethodOptions.IdempotencyLevel.fromValue(it) }
+                        features = it.features?.convert()
                         uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
                     }
                 }
@@ -193,6 +240,7 @@ internal object BootstrapConverter {
         }
         options = this@convert.options?.let {
             ServiceOptions {
+                features = it.features?.convert()
                 deprecated = it.deprecated.orNull(it.hasDeprecated())
                 uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
             }
@@ -203,6 +251,7 @@ internal object BootstrapConverter {
         name = this@convert.name.orNull(hasName())
         options = this@convert.options?.let {
             OneofOptions {
+                features = it.features?.convert()
                 uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
             }
         }
@@ -211,8 +260,8 @@ internal object BootstrapConverter {
     private fun DescriptorProtos.FieldDescriptorProto.convert() = FieldDescriptorProto {
         name = this@convert.name.orNull(hasName())
         number = this@convert.number.orNull(hasNumber())
-        label = this@convert.label?.number?.let { FieldDescriptorProto.Label.fromValue(it) }
-        type = this@convert.type?.number?.let { FieldDescriptorProto.Type.fromValue(it) }
+        label = this@convert.label.number.orNull(hasLabel())?.let { FieldDescriptorProto.Label.fromValue(it) }
+        type = this@convert.type.number.orNull(hasType())?.let { FieldDescriptorProto.Type.fromValue(it) }
         typeName = this@convert.typeName.orNull(hasTypeName())
         extendee = this@convert.extendee.orNull(hasExtendee())
         defaultValue = this@convert.defaultValue.orNull(hasDefaultValue())
@@ -224,11 +273,34 @@ internal object BootstrapConverter {
                 packed = it.packed.orNull(it.hasPacked())
                 jstype = it.jstype?.number?.let { FieldOptions.JSType.fromValue(it) }
                 lazy = it.lazy.orNull(it.hasLazy())
+                unverifiedLazy = it.unverifiedLazy.orNull(it.hasUnverifiedLazy())
                 deprecated = it.deprecated.orNull(it.hasDeprecated())
                 weak = it.weak.orNull(it.hasWeak())
+                debugRedact = it.debugRedact.orNull(it.hasDebugRedact())
+                retention = it.retention?.number?.let { FieldOptions.OptionRetention.fromValue(it) }
+                targets += it.targetsList.map { FieldOptions.OptionTargetType.fromValue(it.number) }
+                editionDefaults += it.editionDefaultsList.map { it.convert() }
+                features = it.features?.convert()
+                featureSupport = it.featureSupport?.convert()
                 uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
             }
         }
+    }
+
+    private fun DescriptorProtos.FieldOptions.EditionDefault.convert() = FieldOptions.EditionDefault {
+        edition = this@convert.edition?.number?.let { Edition.fromValue(it) }
+        value = this@convert.value.orNull(hasValue())
+    }
+
+    private fun DescriptorProtos.FieldOptions.FeatureSupport.convert() = FieldOptions.FeatureSupport {
+        editionIntroduced = this@convert.editionIntroduced.number.orNull(hasEditionIntroduced())?.let {
+            Edition.fromValue(it)
+        }
+        editionDeprecated = this@convert.editionDeprecated.number.orNull(hasEditionDeprecated())?.let {
+            Edition.fromValue(it)
+        }
+        deprecationWarning = this@convert.deprecationWarning.orNull(hasDeprecationWarning())
+        editionRemoved = this@convert.editionRemoved.number.orNull(hasEditionRemoved())?.let { Edition.fromValue(it) }
     }
 
     private fun CodeGeneratorResponse.convert() = PluginProtos.CodeGeneratorResponse.newBuilder().apply {
