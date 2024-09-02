@@ -24,24 +24,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 
 * Added support for the `wasmJs` platform. (PR [#273])
-* Added support for the 'mingwX64` platform. (PR [#276], fixes [#233]) (thanks @deepthought-64 for the initial PR)
+* Added support for the `mingwX64` platform. (PR [#276], fixes [#233]) (thanks @deepthought-64 for the initial PR)
+* Added support for encoding and decoding proto2 `group` fields. They were deprecated in proto3, but they've been brought back as the "delimited message encoding" feature in Protobuf Editions 2023. (PR [#280])
 
 ### Changed
 
 * Updated dependencies to Kotlin 2.0.10 and kotlinx-serialization 1.7.1. (PR [#270])
+* Updated the protobuf well-known types to include all of the new fields added as of protobuf v28.0. This mainly impacts messages defined in `descriptor.proto`. (PR [#280])
 
 ### Fixed
 
+* Enum value names that would result in an invalid Kotlin identifier after the enum's prefix was stripped will now keep their prefix (e.g. a protobuf enum value named `Edition.EDITION_2023` will be named `EDITION_2023` in Kotlin instead of just `2023`). (PR [#245], fixes [#226]) (thanks @fluxxion82)
 * Reduced the likelihood of getting a `MethodTooLargeException` when generating code for protobuf messages that contain many fields with custom options. (PR [#277], fixes [#252])
 * Removed protobuf.js dependency on Kotlin/JS. This also fixed a bunch of protobuf conformance-related bugs on Kotlin/JS. (PR [#279])
+* Fixed compile errors in generated code when using protobuf extension fields together with Kotlin's Explicit API mode. (PR [#280])
 
+[#226]: https://github.com/streem/pbandk/issues/226
 [#233]: https://github.com/streem/pbandk/issues/233
+[#245]: https://github.com/streem/pbandk/pull/245
 [#252]: https://github.com/streem/pbandk/issues/252
 [#270]: https://github.com/streem/pbandk/pull/270
 [#273]: https://github.com/streem/pbandk/pull/273
 [#276]: https://github.com/streem/pbandk/pull/276
 [#277]: https://github.com/streem/pbandk/pull/277
 [#279]: https://github.com/streem/pbandk/pull/279
+[#280]: https://github.com/streem/pbandk/pull/280
 
 
 ## [0.15.0] - 2024-08-05
