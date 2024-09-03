@@ -230,8 +230,6 @@ final class <#A: pbandk/Message, #B: kotlin/Any?> pbandk/FieldDescriptor { // pb
         final fun <get-options>(): pbandk.wkt/FieldOptions // pbandk/FieldDescriptor.options.<get-options>|<get-options>(){}[0]
 
     sealed class Type { // pbandk/FieldDescriptor.Type|null[0]
-        constructor <init>() // pbandk/FieldDescriptor.Type.<init>|<init>(){}[0]
-
         final class <#A2: kotlin/Any> Repeated : pbandk/FieldDescriptor.Type { // pbandk/FieldDescriptor.Type.Repeated|null[0]
             constructor <init>(pbandk/FieldDescriptor.Type, kotlin/Boolean = ...) // pbandk/FieldDescriptor.Type.Repeated.<init>|<init>(pbandk.FieldDescriptor.Type;kotlin.Boolean){}[0]
 
@@ -252,8 +250,6 @@ final class <#A: pbandk/Message, #B: kotlin/Any?> pbandk/FieldDescriptor { // pb
         }
 
         sealed class <#A2: kotlin/Any> Primitive : pbandk/FieldDescriptor.Type { // pbandk/FieldDescriptor.Type.Primitive|null[0]
-            constructor <init>(#A2) // pbandk/FieldDescriptor.Type.Primitive.<init>|<init>(1:0){}[0]
-
             final class Bool : pbandk/FieldDescriptor.Type.Primitive<kotlin/Boolean> { // pbandk/FieldDescriptor.Type.Primitive.Bool|null[0]
                 constructor <init>(kotlin/Boolean = ...) // pbandk/FieldDescriptor.Type.Primitive.Bool.<init>|<init>(kotlin.Boolean){}[0]
             }
@@ -1071,8 +1067,6 @@ final class pbandk.wkt/ExtensionRangeOptions : pbandk/ExtendableMessage { // pba
     }
 
     sealed class VerificationState : pbandk/Message.Enum { // pbandk.wkt/ExtensionRangeOptions.VerificationState|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/ExtensionRangeOptions.VerificationState.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/ExtensionRangeOptions.VerificationState.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/ExtensionRangeOptions.VerificationState.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/ExtensionRangeOptions.VerificationState.value|{}value[0]
@@ -1146,8 +1140,6 @@ final class pbandk.wkt/FeatureSet : pbandk/ExtendableMessage { // pbandk.wkt/Fea
     final fun toString(): kotlin/String // pbandk.wkt/FeatureSet.toString|toString(){}[0]
 
     sealed class EnumType : pbandk/Message.Enum { // pbandk.wkt/FeatureSet.EnumType|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FeatureSet.EnumType.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/FeatureSet.EnumType.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/FeatureSet.EnumType.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/FeatureSet.EnumType.value|{}value[0]
@@ -1177,8 +1169,6 @@ final class pbandk.wkt/FeatureSet : pbandk/ExtendableMessage { // pbandk.wkt/Fea
     }
 
     sealed class FieldPresence : pbandk/Message.Enum { // pbandk.wkt/FeatureSet.FieldPresence|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FeatureSet.FieldPresence.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/FeatureSet.FieldPresence.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/FeatureSet.FieldPresence.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/FeatureSet.FieldPresence.value|{}value[0]
@@ -1210,8 +1200,6 @@ final class pbandk.wkt/FeatureSet : pbandk/ExtendableMessage { // pbandk.wkt/Fea
     }
 
     sealed class JsonFormat : pbandk/Message.Enum { // pbandk.wkt/FeatureSet.JsonFormat|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FeatureSet.JsonFormat.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/FeatureSet.JsonFormat.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/FeatureSet.JsonFormat.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/FeatureSet.JsonFormat.value|{}value[0]
@@ -1241,8 +1229,6 @@ final class pbandk.wkt/FeatureSet : pbandk/ExtendableMessage { // pbandk.wkt/Fea
     }
 
     sealed class MessageEncoding : pbandk/Message.Enum { // pbandk.wkt/FeatureSet.MessageEncoding|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FeatureSet.MessageEncoding.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/FeatureSet.MessageEncoding.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/FeatureSet.MessageEncoding.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/FeatureSet.MessageEncoding.value|{}value[0]
@@ -1272,8 +1258,6 @@ final class pbandk.wkt/FeatureSet : pbandk/ExtendableMessage { // pbandk.wkt/Fea
     }
 
     sealed class RepeatedFieldEncoding : pbandk/Message.Enum { // pbandk.wkt/FeatureSet.RepeatedFieldEncoding|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/FeatureSet.RepeatedFieldEncoding.value|{}value[0]
@@ -1303,8 +1287,6 @@ final class pbandk.wkt/FeatureSet : pbandk/ExtendableMessage { // pbandk.wkt/Fea
     }
 
     sealed class Utf8Validation : pbandk/Message.Enum { // pbandk.wkt/FeatureSet.Utf8Validation|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FeatureSet.Utf8Validation.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/FeatureSet.Utf8Validation.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/FeatureSet.Utf8Validation.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/FeatureSet.Utf8Validation.value|{}value[0]
@@ -1463,8 +1445,6 @@ final class pbandk.wkt/Field : pbandk/Message { // pbandk.wkt/Field|null[0]
     final fun toString(): kotlin/String // pbandk.wkt/Field.toString|toString(){}[0]
 
     sealed class Cardinality : pbandk/Message.Enum { // pbandk.wkt/Field.Cardinality|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/Field.Cardinality.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/Field.Cardinality.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/Field.Cardinality.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/Field.Cardinality.value|{}value[0]
@@ -1496,8 +1476,6 @@ final class pbandk.wkt/Field : pbandk/Message { // pbandk.wkt/Field|null[0]
     }
 
     sealed class Kind : pbandk/Message.Enum { // pbandk.wkt/Field.Kind|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/Field.Kind.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/Field.Kind.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/Field.Kind.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/Field.Kind.value|{}value[0]
@@ -1619,8 +1597,6 @@ final class pbandk.wkt/FieldDescriptorProto : pbandk/Message { // pbandk.wkt/Fie
     final fun toString(): kotlin/String // pbandk.wkt/FieldDescriptorProto.toString|toString(){}[0]
 
     sealed class Label : pbandk/Message.Enum { // pbandk.wkt/FieldDescriptorProto.Label|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FieldDescriptorProto.Label.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/FieldDescriptorProto.Label.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/FieldDescriptorProto.Label.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/FieldDescriptorProto.Label.value|{}value[0]
@@ -1650,8 +1626,6 @@ final class pbandk.wkt/FieldDescriptorProto : pbandk/Message { // pbandk.wkt/Fie
     }
 
     sealed class Type : pbandk/Message.Enum { // pbandk.wkt/FieldDescriptorProto.Type|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FieldDescriptorProto.Type.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/FieldDescriptorProto.Type.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/FieldDescriptorProto.Type.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/FieldDescriptorProto.Type.value|{}value[0]
@@ -1883,8 +1857,6 @@ final class pbandk.wkt/FieldOptions : pbandk/ExtendableMessage { // pbandk.wkt/F
     }
 
     sealed class CType : pbandk/Message.Enum { // pbandk.wkt/FieldOptions.CType|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FieldOptions.CType.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/FieldOptions.CType.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/FieldOptions.CType.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/FieldOptions.CType.value|{}value[0]
@@ -1914,8 +1886,6 @@ final class pbandk.wkt/FieldOptions : pbandk/ExtendableMessage { // pbandk.wkt/F
     }
 
     sealed class JSType : pbandk/Message.Enum { // pbandk.wkt/FieldOptions.JSType|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FieldOptions.JSType.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/FieldOptions.JSType.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/FieldOptions.JSType.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/FieldOptions.JSType.value|{}value[0]
@@ -1945,8 +1915,6 @@ final class pbandk.wkt/FieldOptions : pbandk/ExtendableMessage { // pbandk.wkt/F
     }
 
     sealed class OptionRetention : pbandk/Message.Enum { // pbandk.wkt/FieldOptions.OptionRetention|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FieldOptions.OptionRetention.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/FieldOptions.OptionRetention.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/FieldOptions.OptionRetention.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/FieldOptions.OptionRetention.value|{}value[0]
@@ -1976,8 +1944,6 @@ final class pbandk.wkt/FieldOptions : pbandk/ExtendableMessage { // pbandk.wkt/F
     }
 
     sealed class OptionTargetType : pbandk/Message.Enum { // pbandk.wkt/FieldOptions.OptionTargetType|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FieldOptions.OptionTargetType.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/FieldOptions.OptionTargetType.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/FieldOptions.OptionTargetType.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/FieldOptions.OptionTargetType.value|{}value[0]
@@ -2208,8 +2174,6 @@ final class pbandk.wkt/FileOptions : pbandk/ExtendableMessage { // pbandk.wkt/Fi
     final fun toString(): kotlin/String // pbandk.wkt/FileOptions.toString|toString(){}[0]
 
     sealed class OptimizeMode : pbandk/Message.Enum { // pbandk.wkt/FileOptions.OptimizeMode|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/FileOptions.OptimizeMode.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/FileOptions.OptimizeMode.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/FileOptions.OptimizeMode.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/FileOptions.OptimizeMode.value|{}value[0]
@@ -2331,8 +2295,6 @@ final class pbandk.wkt/GeneratedCodeInfo : pbandk/Message { // pbandk.wkt/Genera
         final fun toString(): kotlin/String // pbandk.wkt/GeneratedCodeInfo.Annotation.toString|toString(){}[0]
 
         sealed class Semantic : pbandk/Message.Enum { // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic|null[0]
-            constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
             open val name // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.name|{}name[0]
                 open fun <get-name>(): kotlin/String? // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.name.<get-name>|<get-name>(){}[0]
             open val value // pbandk.wkt/GeneratedCodeInfo.Annotation.Semantic.value|{}value[0]
@@ -2465,8 +2427,6 @@ final class pbandk.wkt/JavaFeatures : pbandk/Message { // pbandk.wkt/JavaFeature
     final fun toString(): kotlin/String // pbandk.wkt/JavaFeatures.toString|toString(){}[0]
 
     sealed class Utf8Validation : pbandk/Message.Enum { // pbandk.wkt/JavaFeatures.Utf8Validation|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/JavaFeatures.Utf8Validation.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/JavaFeatures.Utf8Validation.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/JavaFeatures.Utf8Validation.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/JavaFeatures.Utf8Validation.value|{}value[0]
@@ -2708,8 +2668,6 @@ final class pbandk.wkt/MethodOptions : pbandk/ExtendableMessage { // pbandk.wkt/
     final fun toString(): kotlin/String // pbandk.wkt/MethodOptions.toString|toString(){}[0]
 
     sealed class IdempotencyLevel : pbandk/Message.Enum { // pbandk.wkt/MethodOptions.IdempotencyLevel|null[0]
-        constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/MethodOptions.IdempotencyLevel.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
         open val name // pbandk.wkt/MethodOptions.IdempotencyLevel.name|{}name[0]
             open fun <get-name>(): kotlin/String? // pbandk.wkt/MethodOptions.IdempotencyLevel.name.<get-name>|<get-name>(){}[0]
         open val value // pbandk.wkt/MethodOptions.IdempotencyLevel.value|{}value[0]
@@ -3402,8 +3360,6 @@ final class pbandk.wkt/Value : pbandk/Message { // pbandk.wkt/Value|null[0]
     final fun toString(): kotlin/String // pbandk.wkt/Value.toString|toString(){}[0]
 
     sealed class <#A1: kotlin/Any?> Kind : pbandk/Message.OneOf<#A1> { // pbandk.wkt/Value.Kind|null[0]
-        constructor <init>(#A1) // pbandk.wkt/Value.Kind.<init>|<init>(1:0){}[0]
-
         final class BoolValue : pbandk.wkt/Value.Kind<kotlin/Boolean> { // pbandk.wkt/Value.Kind.BoolValue|null[0]
             constructor <init>(kotlin/Boolean = ...) // pbandk.wkt/Value.Kind.BoolValue.<init>|<init>(kotlin.Boolean){}[0]
         }
@@ -3499,8 +3455,6 @@ final class pbandk/UnknownField { // pbandk/UnknownField|null[0]
 }
 
 sealed class pbandk.wkt/Edition : pbandk/Message.Enum { // pbandk.wkt/Edition|null[0]
-    constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/Edition.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
     open val name // pbandk.wkt/Edition.name|{}name[0]
         open fun <get-name>(): kotlin/String? // pbandk.wkt/Edition.name.<get-name>|<get-name>(){}[0]
     open val value // pbandk.wkt/Edition.value|{}value[0]
@@ -3548,8 +3502,6 @@ sealed class pbandk.wkt/Edition : pbandk/Message.Enum { // pbandk.wkt/Edition|nu
 }
 
 sealed class pbandk.wkt/NullValue : pbandk/Message.Enum { // pbandk.wkt/NullValue|null[0]
-    constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/NullValue.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
     open val name // pbandk.wkt/NullValue.name|{}name[0]
         open fun <get-name>(): kotlin/String? // pbandk.wkt/NullValue.name.<get-name>|<get-name>(){}[0]
     open val value // pbandk.wkt/NullValue.value|{}value[0]
@@ -3575,8 +3527,6 @@ sealed class pbandk.wkt/NullValue : pbandk/Message.Enum { // pbandk.wkt/NullValu
 }
 
 sealed class pbandk.wkt/Syntax : pbandk/Message.Enum { // pbandk.wkt/Syntax|null[0]
-    constructor <init>(kotlin/Int, kotlin/String? = ...) // pbandk.wkt/Syntax.<init>|<init>(kotlin.Int;kotlin.String?){}[0]
-
     open val name // pbandk.wkt/Syntax.name|{}name[0]
         open fun <get-name>(): kotlin/String? // pbandk.wkt/Syntax.name.<get-name>|<get-name>(){}[0]
     open val value // pbandk.wkt/Syntax.value|{}value[0]
