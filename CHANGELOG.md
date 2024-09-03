@@ -17,7 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-* Updated dependencies to Kotlin 2.0.10 and kotlinx-serialization 1.7.1. (PR [#270])
+* Updated dependencies to Kotlin 2.0.20 and kotlinx-serialization 1.7.2. (PR [#270], [#281])
 * Updated the protobuf well-known types to include all of the new fields added as of protobuf v28.0. This mainly impacts messages defined in `descriptor.proto`. (PR [#280])
 
 ### Fixed
@@ -37,6 +37,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 [#277]: https://github.com/streem/pbandk/pull/277
 [#279]: https://github.com/streem/pbandk/pull/279
 [#280]: https://github.com/streem/pbandk/pull/280
+[#281]: https://github.com/streem/pbandk/pull/281
 
 
 ## [0.15.0] - 2024-08-05
