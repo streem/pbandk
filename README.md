@@ -6,7 +6,7 @@
 
 Pbandk is a Kotlin Multiplatform code generator and runtime for [Protocol Buffers](https://developers.google.com/protocol-buffers/).
 
-**NOTE**: This is the documentation for the version of pbandk currently in development. **Documentation for the latest stable version** is available at https://github.com/streem/pbandk/blob/v0.15.0/README.md.
+**NOTE**: This is the documentation for the version of pbandk currently in development. **Documentation for the latest stable version** is available at https://github.com/streem/pbandk/blob/v0.16.0/README.md.
 
 ## Summary
 
@@ -311,7 +311,7 @@ section below under "Usage" for more details.
 Pbandk's code generator leverages `protoc`. Download the [latest
 protoc](https://github.com/google/protobuf/releases/latest) and make sure `protoc` is on the `PATH`.
 Then download the [latest released protoc-gen-pbandk self-executing jar
-file](https://repo1.maven.org/maven2/pro/streem/pbandk/protoc-gen-pbandk-jvm/0.15.0/protoc-gen-pbandk-jvm-0.15.0-jvm8.jar) (if you're using a SNAPSHOT build of pbandk, you might want to instead download the [latest SNAPSHOT version of protoc-gen-pbandk-jvm-\*-jvm8.jar](https://s01.oss.sonatype.org/content/repositories/snapshots/pro/streem/pbandk/protoc-gen-pbandk-jvm/)),
+file](https://repo1.maven.org/maven2/pro/streem/pbandk/protoc-gen-pbandk-jvm/0.16.0/protoc-gen-pbandk-jvm-0.16.0-jvm8.jar) (if you're using a SNAPSHOT build of pbandk, you might want to instead download the [latest SNAPSHOT version of protoc-gen-pbandk-jvm-\*-jvm8.jar](https://s01.oss.sonatype.org/content/repositories/snapshots/pro/streem/pbandk/protoc-gen-pbandk-jvm/)),
 rename it to `protoc-gen-pbandk`, make the file executable (`chmod +x protoc-gen-pbandk`), and make sure it is on the `PATH`. To generate code from
 `sample.proto` and put the generated code in `src/main/kotlin`, run:
 
@@ -385,7 +385,7 @@ repositories {
 dependencies {
     // Can be used from the `common` sourceset in a Kotlin Multiplatform project,
     // or from platform-specific JVM, Android, JS, or Native sourcesets/projects.
-    implementation("pro.streem.pbandk:pbandk-runtime:0.16.0-SNAPSHOT")
+    implementation("pro.streem.pbandk:pbandk-runtime:0.16.1-SNAPSHOT")
 }
 ```
 
@@ -400,7 +400,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly("pro.streem.pbandk:protoc-gen-pbandk-lib:0.16.0-SNAPSHOT")
+    compileOnly("pro.streem.pbandk:protoc-gen-pbandk-lib:0.16.1-SNAPSHOT")
 }
 ```
 
@@ -617,7 +617,7 @@ To create a new release:
 1. Update `CHANGELOG.md`: add a date for the release version, and update the release version's GitHub compare link with a tag instead of `HEAD`.
     * Note: if you are releasing a pre-release version (alpha, beta, rc) then you don't need to update `CHANGELOG.md`
 1. Update the pbandk version number in `gradle.properties`, `README.md`, and `examples/*/build.gradle.kts` to remove the `SNAPSHOT` suffix. For example, if the current version is `0.9.0-SNAPSHOT`, then update it to be `0.9.0`.
-1. Comment out the note about the stable version of the documentation that is at the top of `README.md` and update it to point at the new version.
+1. Comment out the note about the stable version of the documentation that is at the top of `README.md` and update it to point at the new version. Also update the link to `protoc-gen-pbandk-jvm` in `README.md` to point at the new version.
 1. Commit the change. E.g.: `git commit -m "Bump to ${VERSION}" -a`.
 1. Tag the new version. E.g.: `git tag -a -m "See https://github.com/streem/pbandk/blob/v${VERSION}/CHANGELOG.md" "v${VERSION}"`.
 
