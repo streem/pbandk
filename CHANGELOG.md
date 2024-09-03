@@ -17,9 +17,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 
 
-## [0.16.0] - Unreleased
+## [0.16.0] - 2024-09-03
 
-[0.16.0]: https://github.com/streem/pbandk/compare/v0.15.0...HEAD
+[0.16.0]: https://github.com/streem/pbandk/compare/v0.15.0...v0.16.0
 
 ### Added
 
