@@ -6,9 +6,7 @@
 
 Pbandk is a Kotlin Multiplatform code generator and runtime for [Protocol Buffers](https://developers.google.com/protocol-buffers/).
 
-<!--
 **NOTE**: This is the documentation for the version of pbandk currently in development. **Documentation for the latest stable version** is available at https://github.com/streem/pbandk/blob/v0.16.0/README.md.
--->
 
 ## Summary
 
@@ -387,7 +385,7 @@ repositories {
 dependencies {
     // Can be used from the `common` sourceset in a Kotlin Multiplatform project,
     // or from platform-specific JVM, Android, JS, or Native sourcesets/projects.
-    implementation("pro.streem.pbandk:pbandk-runtime:0.16.0")
+    implementation("pro.streem.pbandk:pbandk-runtime:0.16.1-SNAPSHOT")
 }
 ```
 
@@ -402,7 +400,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly("pro.streem.pbandk:protoc-gen-pbandk-lib:0.16.0")
+    compileOnly("pro.streem.pbandk:protoc-gen-pbandk-lib:0.16.1-SNAPSHOT")
 }
 ```
 
