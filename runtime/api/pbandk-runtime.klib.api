@@ -4276,8 +4276,6 @@ sealed class <#A: pbandk/Message, #B: kotlin/Any?> pbandk/FieldDescriptor : kotl
 }
 
 sealed class <#A: pbandk/Message> pbandk/FieldSet { // pbandk/FieldSet|null[0]
-    constructor <init>() // pbandk/FieldSet.<init>|<init>(){}[0]
-
     abstract fun contains(pbandk/FieldDescriptor<#A, *>): kotlin/Boolean // pbandk/FieldSet.contains|contains(pbandk.FieldDescriptor<1:0,*>){}[0]
     final fun <#A1: kotlin/Any?> getOrDefault(pbandk/FieldDescriptor<#A, #A1>): #A1 // pbandk/FieldSet.getOrDefault|getOrDefault(pbandk.FieldDescriptor<1:0,0:0>){0§<kotlin.Any?>}[0]
 
@@ -4293,8 +4291,6 @@ sealed class <#A: pbandk/Message> pbandk/FieldSet { // pbandk/FieldSet|null[0]
 }
 
 sealed class <#A: pbandk/Message> pbandk/MutableFieldSet : pbandk/FieldSet<#A> { // pbandk/MutableFieldSet|null[0]
-    constructor <init>() // pbandk/MutableFieldSet.<init>|<init>(){}[0]
-
     abstract fun <#A1: kotlin/Any?, #B1: kotlin/Any> getOrCreate(pbandk/FieldDescriptor.MutableValue<#A, #A1, #B1>): #B1 // pbandk/MutableFieldSet.getOrCreate|getOrCreate(pbandk.FieldDescriptor.MutableValue<1:0,0:0,0:1>){0§<kotlin.Any?>;1§<kotlin.Any>}[0]
     abstract fun <#A1: kotlin/Any?> set(pbandk/FieldDescriptor<#A, #A1>, #A1) // pbandk/MutableFieldSet.set|set(pbandk.FieldDescriptor<1:0,0:0>;0:0){0§<kotlin.Any?>}[0]
     abstract fun remove(pbandk/FieldDescriptor<#A, *>) // pbandk/MutableFieldSet.remove|remove(pbandk.FieldDescriptor<1:0,*>){}[0]
@@ -4302,37 +4298,25 @@ sealed class <#A: pbandk/Message> pbandk/MutableFieldSet : pbandk/FieldSet<#A> {
 }
 
 sealed class pbandk.binary/BinaryFieldValueDecoder { // pbandk.binary/BinaryFieldValueDecoder|null[0]
-    constructor <init>() // pbandk.binary/BinaryFieldValueDecoder.<init>|<init>(){}[0]
-
     sealed class Group : pbandk.binary/BinaryFieldValueDecoder { // pbandk.binary/BinaryFieldValueDecoder.Group|null[0]
-        constructor <init>() // pbandk.binary/BinaryFieldValueDecoder.Group.<init>|<init>(){}[0]
-
         abstract fun decodeValue(): pbandk.binary/WireValue.Group // pbandk.binary/BinaryFieldValueDecoder.Group.decodeValue|decodeValue(){}[0]
     }
 
     sealed class I32 : pbandk.binary/BinaryFieldValueDecoder { // pbandk.binary/BinaryFieldValueDecoder.I32|null[0]
-        constructor <init>() // pbandk.binary/BinaryFieldValueDecoder.I32.<init>|<init>(){}[0]
-
         abstract fun decodeValue(): pbandk.binary/WireValue.I32 // pbandk.binary/BinaryFieldValueDecoder.I32.decodeValue|decodeValue(){}[0]
     }
 
     sealed class I64 : pbandk.binary/BinaryFieldValueDecoder { // pbandk.binary/BinaryFieldValueDecoder.I64|null[0]
-        constructor <init>() // pbandk.binary/BinaryFieldValueDecoder.I64.<init>|<init>(){}[0]
-
         abstract fun decodeValue(): pbandk.binary/WireValue.I64 // pbandk.binary/BinaryFieldValueDecoder.I64.decodeValue|decodeValue(){}[0]
     }
 
     sealed class Len : pbandk.binary/BinaryFieldValueDecoder { // pbandk.binary/BinaryFieldValueDecoder.Len|null[0]
-        constructor <init>() // pbandk.binary/BinaryFieldValueDecoder.Len.<init>|<init>(){}[0]
-
         abstract fun decodeValue(): pbandk.binary/WireValue.Len // pbandk.binary/BinaryFieldValueDecoder.Len.decodeValue|decodeValue(){}[0]
         abstract fun postDecode(kotlin/Int?) // pbandk.binary/BinaryFieldValueDecoder.Len.postDecode|postDecode(kotlin.Int?){}[0]
         abstract fun preDecode(): kotlin/Int? // pbandk.binary/BinaryFieldValueDecoder.Len.preDecode|preDecode(){}[0]
     }
 
     sealed class Varint : pbandk.binary/BinaryFieldValueDecoder { // pbandk.binary/BinaryFieldValueDecoder.Varint|null[0]
-        constructor <init>() // pbandk.binary/BinaryFieldValueDecoder.Varint.<init>|<init>(){}[0]
-
         abstract fun decodeValue(): pbandk.binary/WireValue.Varint // pbandk.binary/BinaryFieldValueDecoder.Varint.decodeValue|decodeValue(){}[0]
     }
 
@@ -4344,8 +4328,6 @@ sealed class pbandk.binary/BinaryFieldValueDecoder { // pbandk.binary/BinaryFiel
 }
 
 sealed class pbandk.json/JsonFieldValueDecoder { // pbandk.json/JsonFieldValueDecoder|null[0]
-    constructor <init>() // pbandk.json/JsonFieldValueDecoder.<init>|<init>(){}[0]
-
     final class Array : pbandk.json/JsonFieldValueDecoder // pbandk.json/JsonFieldValueDecoder.Array|null[0]
 
     final class Boolean : pbandk.json/JsonFieldValueDecoder // pbandk.json/JsonFieldValueDecoder.Boolean|null[0]
@@ -4362,8 +4344,6 @@ sealed class pbandk.json/JsonFieldValueDecoder { // pbandk.json/JsonFieldValueDe
 }
 
 sealed class pbandk/FieldMetadata { // pbandk/FieldMetadata|null[0]
-    constructor <init>(kotlin/String, kotlin/Int, kotlin/String, kotlin/Boolean, kotlin/Boolean, pbandk.wkt/FieldOptions? = ...) // pbandk/FieldMetadata.<init>|<init>(kotlin.String;kotlin.Int;kotlin.String;kotlin.Boolean;kotlin.Boolean;pbandk.wkt.FieldOptions?){}[0]
-
     abstract val fullName // pbandk/FieldMetadata.fullName|{}fullName[0]
         abstract fun <get-fullName>(): kotlin/String // pbandk/FieldMetadata.fullName.<get-fullName>|<get-fullName>(){}[0]
     final val name // pbandk/FieldMetadata.name|{}name[0]

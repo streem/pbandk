@@ -1,5 +1,5 @@
 import com.google.protobuf.gradle.*
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     // The protobuf gradle plugin will fail if the project doesn't include the `java-library`, `java`, or one of the
