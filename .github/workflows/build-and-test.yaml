@@ -101,7 +101,7 @@ jobs:
           find $HOME/.m2/repository -type f
 
       - name: Upload maven artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: maven-artifacts-${{ matrix.os-type }}
           path: ~/.m2/repository
@@ -139,7 +139,7 @@ jobs:
           fi
 
       - name: Upload files necessary to run conformance tests
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: conformance-test-files-${{ matrix.os-type }}
           path: conformance-test-files-${{ matrix.os-type }}.tar
@@ -150,7 +150,7 @@ jobs:
 
       - name: Upload the build report
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: error-report-${{ matrix.os-type }}
           path: build-reports-${{ matrix.os-type }}.zip
@@ -241,7 +241,7 @@ jobs:
           key: ${{ runner.os }}-protobuf-${{ env.PROTOBUF_CONFORMANCE_VERSION }}
 
       - name: Download conformance test files
-        uses: actions/download-artifact@v4.1.7
+        uses: actions/download-artifact@v4
         with:
           name: conformance-test-files-${{ matrix.build-os-type }}
 
@@ -266,7 +266,7 @@ jobs:
         uses: gradle/wrapper-validation-action@v1
 
       - name: Download maven artifacts
-        uses: actions/download-artifact@v4.1.7
+        uses: actions/download-artifact@v4
         with:
           name: maven-artifacts-linux
           path: ~/.m2/repository
