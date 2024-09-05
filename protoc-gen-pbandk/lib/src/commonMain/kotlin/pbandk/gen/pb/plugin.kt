@@ -114,6 +114,7 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
     public val fileToGenerate: List<String>
     public val parameter: String?
     public val protoFile: List<pbandk.wkt.FileDescriptorProto>
+    public val sourceFileDescriptors: List<pbandk.wkt.FileDescriptorProto>
     public val compilerVersion: pbandk.gen.pb.Version?
 
     override operator fun plus(other: pbandk.Message?): pbandk.gen.pb.CodeGeneratorRequest
@@ -131,6 +132,7 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
         fileToGenerate: List<String> = this.fileToGenerate,
         parameter: String? = this.parameter,
         protoFile: List<pbandk.wkt.FileDescriptorProto> = this.protoFile,
+        sourceFileDescriptors: List<pbandk.wkt.FileDescriptorProto> = this.sourceFileDescriptors,
         compilerVersion: pbandk.gen.pb.Version? = this.compilerVersion,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.gen.pb.CodeGeneratorRequest
@@ -181,6 +183,17 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
                 value = pbandk.gen.pb.CodeGeneratorRequest::protoFile,
                 mutableValue = pbandk.gen.pb.MutableCodeGeneratorRequest::protoFile,
             )
+        public val sourceFileDescriptors: pbandk.FieldDescriptor.MutableValue<pbandk.gen.pb.CodeGeneratorRequest, List<pbandk.wkt.FileDescriptorProto>, MutableList<pbandk.wkt.FileDescriptorProto>> =
+            pbandk.FieldDescriptor.ofRepeated(
+                messageDescriptor = pbandk.gen.pb.CodeGeneratorRequest::descriptor,
+                messageMetadata = pbandk.gen.pb.CodeGeneratorRequest.messageMetadata,
+                name = "source_file_descriptors",
+                number = 17,
+                valueType = pbandk.types.message(pbandk.wkt.FileDescriptorProto),
+                jsonName = "sourceFileDescriptors",
+                value = pbandk.gen.pb.CodeGeneratorRequest::sourceFileDescriptors,
+                mutableValue = pbandk.gen.pb.MutableCodeGeneratorRequest::sourceFileDescriptors,
+            )
     }
 
     public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorRequest>() {
@@ -203,6 +216,7 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
                     pbandk.gen.pb.CodeGeneratorRequest.FieldDescriptors.fileToGenerate,
                     pbandk.gen.pb.CodeGeneratorRequest.FieldDescriptors.parameter,
                     pbandk.gen.pb.CodeGeneratorRequest.FieldDescriptors.protoFile,
+                    pbandk.gen.pb.CodeGeneratorRequest.FieldDescriptors.sourceFileDescriptors,
                     pbandk.gen.pb.CodeGeneratorRequest.FieldDescriptors.compilerVersion,
                 ),
             )
@@ -214,12 +228,15 @@ public sealed interface MutableCodeGeneratorRequest : pbandk.gen.pb.CodeGenerato
     public override val fileToGenerate: MutableList<String>
     public override var parameter: String?
     public override val protoFile: MutableList<pbandk.wkt.FileDescriptorProto>
+    public override val sourceFileDescriptors: MutableList<pbandk.wkt.FileDescriptorProto>
     public override var compilerVersion: pbandk.gen.pb.Version?
 }
 
 public sealed interface CodeGeneratorResponse : pbandk.Message {
     public val error: String?
     public val supportedFeatures: Long?
+    public val minimumEdition: Int?
+    public val maximumEdition: Int?
     public val file: List<pbandk.gen.pb.CodeGeneratorResponse.File>
 
     override operator fun plus(other: pbandk.Message?): pbandk.gen.pb.CodeGeneratorResponse
@@ -236,6 +253,8 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
     public fun copy(
         error: String? = this.error,
         supportedFeatures: Long? = this.supportedFeatures,
+        minimumEdition: Int? = this.minimumEdition,
+        maximumEdition: Int? = this.maximumEdition,
         file: List<pbandk.gen.pb.CodeGeneratorResponse.File> = this.file,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.gen.pb.CodeGeneratorResponse
@@ -263,6 +282,28 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
                 jsonName = "supportedFeatures",
                 value = pbandk.gen.pb.CodeGeneratorResponse::supportedFeatures,
                 mutableValue = pbandk.gen.pb.MutableCodeGeneratorResponse::supportedFeatures,
+            )
+        public val minimumEdition: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, Int?> =
+            pbandk.FieldDescriptor.ofOptional(
+                messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse::descriptor,
+                messageMetadata = pbandk.gen.pb.CodeGeneratorResponse.messageMetadata,
+                name = "minimum_edition",
+                number = 3,
+                valueType = pbandk.types.int32(),
+                jsonName = "minimumEdition",
+                value = pbandk.gen.pb.CodeGeneratorResponse::minimumEdition,
+                mutableValue = pbandk.gen.pb.MutableCodeGeneratorResponse::minimumEdition,
+            )
+        public val maximumEdition: pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, Int?> =
+            pbandk.FieldDescriptor.ofOptional(
+                messageDescriptor = pbandk.gen.pb.CodeGeneratorResponse::descriptor,
+                messageMetadata = pbandk.gen.pb.CodeGeneratorResponse.messageMetadata,
+                name = "maximum_edition",
+                number = 4,
+                valueType = pbandk.types.int32(),
+                jsonName = "maximumEdition",
+                value = pbandk.gen.pb.CodeGeneratorResponse::maximumEdition,
+                mutableValue = pbandk.gen.pb.MutableCodeGeneratorResponse::maximumEdition,
             )
         public val file: pbandk.FieldDescriptor.MutableValue<pbandk.gen.pb.CodeGeneratorResponse, List<pbandk.gen.pb.CodeGeneratorResponse.File>, MutableList<pbandk.gen.pb.CodeGeneratorResponse.File>> =
             pbandk.FieldDescriptor.ofRepeated(
@@ -296,6 +337,8 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
                 fields = listOf(
                     pbandk.gen.pb.CodeGeneratorResponse.FieldDescriptors.error,
                     pbandk.gen.pb.CodeGeneratorResponse.FieldDescriptors.supportedFeatures,
+                    pbandk.gen.pb.CodeGeneratorResponse.FieldDescriptors.minimumEdition,
+                    pbandk.gen.pb.CodeGeneratorResponse.FieldDescriptors.maximumEdition,
                     pbandk.gen.pb.CodeGeneratorResponse.FieldDescriptors.file,
                 ),
             )
@@ -335,6 +378,10 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
             value = 1,
             name = "FEATURE_PROTO3_OPTIONAL",
         )
+        public object SUPPORTS_EDITIONS : Feature, pbandk.gen.GeneratedEnumValue<pbandk.gen.pb.CodeGeneratorResponse.Feature>(
+            value = 2,
+            name = "FEATURE_SUPPORTS_EDITIONS",
+        )
         public class UNRECOGNIZED(value: Int? = null, name: String? = null)
             : Feature, pbandk.gen.UnrecognizedEnumValue<pbandk.gen.pb.CodeGeneratorResponse.Feature>(value, name)
 
@@ -346,7 +393,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
                     enumCompanion = this,
                 )
             public val values: List<CodeGeneratorResponse.Feature> by lazy(LazyThreadSafetyMode.PUBLICATION) {
-                listOf(NONE, PROTO3_OPTIONAL)
+                listOf(NONE, PROTO3_OPTIONAL, SUPPORTS_EDITIONS)
             }
 
             override fun fromValue(value: Int): pbandk.gen.pb.CodeGeneratorResponse.Feature =
@@ -468,6 +515,8 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
 public sealed interface MutableCodeGeneratorResponse : pbandk.gen.pb.CodeGeneratorResponse, pbandk.MutableMessage<pbandk.gen.pb.CodeGeneratorResponse> {
     public override var error: String?
     public override var supportedFeatures: Long?
+    public override var minimumEdition: Int?
+    public override var maximumEdition: Int?
     public override val file: MutableList<pbandk.gen.pb.CodeGeneratorResponse.File>
 }
 
@@ -571,19 +620,21 @@ private class MutableVersion_Impl(
     message = "Use CodeGeneratorRequest { } instead",
     replaceWith = ReplaceWith(
         imports = ["pbandk.gen.pb.CodeGeneratorRequest"],
-        expression = "CodeGeneratorRequest {\nthis.fileToGenerate += fileToGenerate\nthis.parameter = parameter\nthis.protoFile += protoFile\nthis.compilerVersion = compilerVersion\nthis.unknownFields += unknownFields\n}",
+        expression = "CodeGeneratorRequest {\nthis.fileToGenerate += fileToGenerate\nthis.parameter = parameter\nthis.protoFile += protoFile\nthis.sourceFileDescriptors += sourceFileDescriptors\nthis.compilerVersion = compilerVersion\nthis.unknownFields += unknownFields\n}",
     )
 )
 public fun CodeGeneratorRequest(
     fileToGenerate: List<String> = emptyList(),
     parameter: String? = null,
     protoFile: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
+    sourceFileDescriptors: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
     compilerVersion: pbandk.gen.pb.Version? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ): pbandk.gen.pb.CodeGeneratorRequest = pbandk.gen.pb.CodeGeneratorRequest {
     this.fileToGenerate += fileToGenerate
     this.parameter = parameter
     this.protoFile += protoFile
+    this.sourceFileDescriptors += sourceFileDescriptors
     this.compilerVersion = compilerVersion
     this.unknownFields += unknownFields
 }
@@ -599,6 +650,7 @@ public fun CodeGeneratorRequest(builderAction: pbandk.gen.pb.MutableCodeGenerato
         fileToGenerate = pbandk.gen.MutableListField(pbandk.gen.pb.CodeGeneratorRequest.FieldDescriptors.fileToGenerate),
         parameter = null,
         protoFile = pbandk.gen.MutableListField(pbandk.gen.pb.CodeGeneratorRequest.FieldDescriptors.protoFile),
+        sourceFileDescriptors = pbandk.gen.MutableListField(pbandk.gen.pb.CodeGeneratorRequest.FieldDescriptors.sourceFileDescriptors),
         compilerVersion = null,
     ).also(builderAction).toCodeGeneratorRequest()
 
@@ -610,6 +662,7 @@ private class CodeGeneratorRequest_Impl(
     override val fileToGenerate: pbandk.gen.ListField<String>,
     override val parameter: String?,
     override val protoFile: pbandk.gen.ListField<pbandk.wkt.FileDescriptorProto>,
+    override val sourceFileDescriptors: pbandk.gen.ListField<pbandk.wkt.FileDescriptorProto>,
     override val compilerVersion: pbandk.gen.pb.Version?,
     unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.gen.pb.CodeGeneratorRequest, pbandk.gen.GeneratedMessage<pbandk.gen.pb.CodeGeneratorRequest>(unknownFields) {
@@ -623,12 +676,14 @@ private class CodeGeneratorRequest_Impl(
         fileToGenerate: List<String>,
         parameter: String?,
         protoFile: List<pbandk.wkt.FileDescriptorProto>,
+        sourceFileDescriptors: List<pbandk.wkt.FileDescriptorProto>,
         compilerVersion: pbandk.gen.pb.Version?,
         unknownFields: Map<Int, pbandk.UnknownField>
     ): pbandk.gen.pb.CodeGeneratorRequest = pbandk.gen.pb.CodeGeneratorRequest {
         this.fileToGenerate += fileToGenerate
         this.parameter = parameter
         this.protoFile += protoFile
+        this.sourceFileDescriptors += sourceFileDescriptors
         this.compilerVersion = compilerVersion
         this.unknownFields += unknownFields
     }
@@ -638,6 +693,7 @@ private class MutableCodeGeneratorRequest_Impl(
     override val fileToGenerate: pbandk.gen.MutableListField<String>,
     override var parameter: String?,
     override val protoFile: pbandk.gen.MutableListField<pbandk.wkt.FileDescriptorProto>,
+    override val sourceFileDescriptors: pbandk.gen.MutableListField<pbandk.wkt.FileDescriptorProto>,
     override var compilerVersion: pbandk.gen.pb.Version?,
 ) : pbandk.gen.pb.MutableCodeGeneratorRequest, pbandk.gen.MutableGeneratedMessage<pbandk.gen.pb.CodeGeneratorRequest>() {
     override val descriptor get() = pbandk.gen.pb.CodeGeneratorRequest.descriptor
@@ -650,6 +706,7 @@ private class MutableCodeGeneratorRequest_Impl(
         fileToGenerate: List<String>,
         parameter: String?,
         protoFile: List<pbandk.wkt.FileDescriptorProto>,
+        sourceFileDescriptors: List<pbandk.wkt.FileDescriptorProto>,
         compilerVersion: pbandk.gen.pb.Version?,
         unknownFields: Map<Int, pbandk.UnknownField>
     ): pbandk.gen.pb.CodeGeneratorRequest = throw UnsupportedOperationException()
@@ -658,6 +715,7 @@ private class MutableCodeGeneratorRequest_Impl(
         fileToGenerate = fileToGenerate.toListField(),
         parameter = parameter,
         protoFile = protoFile.toListField(),
+        sourceFileDescriptors = sourceFileDescriptors.toListField(),
         compilerVersion = compilerVersion,
         unknownFields = unknownFields.toMap()
     )
@@ -667,17 +725,21 @@ private class MutableCodeGeneratorRequest_Impl(
     message = "Use CodeGeneratorResponse { } instead",
     replaceWith = ReplaceWith(
         imports = ["pbandk.gen.pb.CodeGeneratorResponse"],
-        expression = "CodeGeneratorResponse {\nthis.error = error\nthis.supportedFeatures = supportedFeatures\nthis.file += file\nthis.unknownFields += unknownFields\n}",
+        expression = "CodeGeneratorResponse {\nthis.error = error\nthis.supportedFeatures = supportedFeatures\nthis.minimumEdition = minimumEdition\nthis.maximumEdition = maximumEdition\nthis.file += file\nthis.unknownFields += unknownFields\n}",
     )
 )
 public fun CodeGeneratorResponse(
     error: String? = null,
     supportedFeatures: Long? = null,
+    minimumEdition: Int? = null,
+    maximumEdition: Int? = null,
     file: List<pbandk.gen.pb.CodeGeneratorResponse.File> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ): pbandk.gen.pb.CodeGeneratorResponse = pbandk.gen.pb.CodeGeneratorResponse {
     this.error = error
     this.supportedFeatures = supportedFeatures
+    this.minimumEdition = minimumEdition
+    this.maximumEdition = maximumEdition
     this.file += file
     this.unknownFields += unknownFields
 }
@@ -692,6 +754,8 @@ public fun CodeGeneratorResponse(builderAction: pbandk.gen.pb.MutableCodeGenerat
     pbandk.gen.pb.MutableCodeGeneratorResponse_Impl(
         error = null,
         supportedFeatures = null,
+        minimumEdition = null,
+        maximumEdition = null,
         file = pbandk.gen.MutableListField(pbandk.gen.pb.CodeGeneratorResponse.FieldDescriptors.file),
     ).also(builderAction).toCodeGeneratorResponse()
 
@@ -702,6 +766,8 @@ public fun CodeGeneratorResponse?.orDefault(): pbandk.gen.pb.CodeGeneratorRespon
 private class CodeGeneratorResponse_Impl(
     override val error: String?,
     override val supportedFeatures: Long?,
+    override val minimumEdition: Int?,
+    override val maximumEdition: Int?,
     override val file: pbandk.gen.ListField<pbandk.gen.pb.CodeGeneratorResponse.File>,
     unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.gen.pb.CodeGeneratorResponse, pbandk.gen.GeneratedMessage<pbandk.gen.pb.CodeGeneratorResponse>(unknownFields) {
@@ -714,11 +780,15 @@ private class CodeGeneratorResponse_Impl(
     override fun copy(
         error: String?,
         supportedFeatures: Long?,
+        minimumEdition: Int?,
+        maximumEdition: Int?,
         file: List<pbandk.gen.pb.CodeGeneratorResponse.File>,
         unknownFields: Map<Int, pbandk.UnknownField>
     ): pbandk.gen.pb.CodeGeneratorResponse = pbandk.gen.pb.CodeGeneratorResponse {
         this.error = error
         this.supportedFeatures = supportedFeatures
+        this.minimumEdition = minimumEdition
+        this.maximumEdition = maximumEdition
         this.file += file
         this.unknownFields += unknownFields
     }
@@ -727,6 +797,8 @@ private class CodeGeneratorResponse_Impl(
 private class MutableCodeGeneratorResponse_Impl(
     override var error: String?,
     override var supportedFeatures: Long?,
+    override var minimumEdition: Int?,
+    override var maximumEdition: Int?,
     override val file: pbandk.gen.MutableListField<pbandk.gen.pb.CodeGeneratorResponse.File>,
 ) : pbandk.gen.pb.MutableCodeGeneratorResponse, pbandk.gen.MutableGeneratedMessage<pbandk.gen.pb.CodeGeneratorResponse>() {
     override val descriptor get() = pbandk.gen.pb.CodeGeneratorResponse.descriptor
@@ -738,6 +810,8 @@ private class MutableCodeGeneratorResponse_Impl(
     override fun copy(
         error: String?,
         supportedFeatures: Long?,
+        minimumEdition: Int?,
+        maximumEdition: Int?,
         file: List<pbandk.gen.pb.CodeGeneratorResponse.File>,
         unknownFields: Map<Int, pbandk.UnknownField>
     ): pbandk.gen.pb.CodeGeneratorResponse = throw UnsupportedOperationException()
@@ -745,6 +819,8 @@ private class MutableCodeGeneratorResponse_Impl(
     fun toCodeGeneratorResponse() = CodeGeneratorResponse_Impl(
         error = error,
         supportedFeatures = supportedFeatures,
+        minimumEdition = minimumEdition,
+        maximumEdition = maximumEdition,
         file = file.toListField(),
         unknownFields = unknownFields.toMap()
     )

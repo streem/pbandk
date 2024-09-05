@@ -392,6 +392,7 @@ public sealed interface ConformanceResponse : pbandk.Message {
 
     public val parseError: String?
     public val serializeError: String?
+    public val timeoutError: String?
     public val runtimeError: String?
     public val protobufPayload: pbandk.ByteArr?
     public val jsonPayload: String?
@@ -404,6 +405,8 @@ public sealed interface ConformanceResponse : pbandk.Message {
             Result<String>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.ConformanceResponse, String>(parseError, pbandk.conformance.pb.ConformanceResponse.FieldDescriptors.parseError)
         public class SerializeError(serializeError: String = "") :
             Result<String>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.ConformanceResponse, String>(serializeError, pbandk.conformance.pb.ConformanceResponse.FieldDescriptors.serializeError)
+        public class TimeoutError(timeoutError: String = "") :
+            Result<String>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.ConformanceResponse, String>(timeoutError, pbandk.conformance.pb.ConformanceResponse.FieldDescriptors.timeoutError)
         public class RuntimeError(runtimeError: String = "") :
             Result<String>, pbandk.gen.GeneratedOneOf<pbandk.conformance.pb.ConformanceResponse, String>(runtimeError, pbandk.conformance.pb.ConformanceResponse.FieldDescriptors.runtimeError)
         public class ProtobufPayload(protobufPayload: pbandk.ByteArr = pbandk.ByteArr.empty) :
@@ -508,6 +511,17 @@ public sealed interface ConformanceResponse : pbandk.Message {
                 value = pbandk.conformance.pb.ConformanceResponse::textPayload,
                 mutableValue = pbandk.conformance.pb.MutableConformanceResponse::textPayload,
             )
+        public val timeoutError: pbandk.FieldDescriptor<pbandk.conformance.pb.ConformanceResponse, String?> =
+            pbandk.FieldDescriptor.ofOneof(
+                messageDescriptor = pbandk.conformance.pb.ConformanceResponse::descriptor,
+                messageMetadata = pbandk.conformance.pb.ConformanceResponse.messageMetadata,
+                name = "timeout_error",
+                number = 9,
+                valueType = pbandk.types.string(),
+                jsonName = "timeoutError",
+                value = pbandk.conformance.pb.ConformanceResponse::timeoutError,
+                mutableValue = pbandk.conformance.pb.MutableConformanceResponse::timeoutError,
+            )
 
         public val result: pbandk.OneofDescriptor<pbandk.conformance.pb.ConformanceResponse, pbandk.conformance.pb.ConformanceResponse.Result<*>> =
             pbandk.OneofDescriptor.of(
@@ -518,6 +532,7 @@ public sealed interface ConformanceResponse : pbandk.Message {
                 fields = listOf(
                     parseError,
                     serializeError,
+                    timeoutError,
                     runtimeError,
                     protobufPayload,
                     jsonPayload,
@@ -557,6 +572,7 @@ public sealed interface MutableConformanceResponse : pbandk.conformance.pb.Confo
 
     public override var parseError: String?
     public override var serializeError: String?
+    public override var timeoutError: String?
     public override var runtimeError: String?
     public override var protobufPayload: pbandk.ByteArr?
     public override var jsonPayload: String?
@@ -872,6 +888,8 @@ private class ConformanceResponse_Impl(
         get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.ParseError)?.value
     override val serializeError: String?
         get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.SerializeError)?.value
+    override val timeoutError: String?
+        get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.TimeoutError)?.value
     override val runtimeError: String?
         get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.RuntimeError)?.value
     override val protobufPayload: pbandk.ByteArr?
@@ -909,6 +927,9 @@ private class MutableConformanceResponse_Impl(
     override var serializeError: String?
         get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.SerializeError)?.value
         set(value) { result = value?.let { pbandk.conformance.pb.ConformanceResponse.Result.SerializeError(it) } }
+    override var timeoutError: String?
+        get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.TimeoutError)?.value
+        set(value) { result = value?.let { pbandk.conformance.pb.ConformanceResponse.Result.TimeoutError(it) } }
     override var runtimeError: String?
         get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.RuntimeError)?.value
         set(value) { result = value?.let { pbandk.conformance.pb.ConformanceResponse.Result.RuntimeError(it) } }

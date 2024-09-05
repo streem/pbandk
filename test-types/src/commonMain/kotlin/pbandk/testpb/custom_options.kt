@@ -109,10 +109,7 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
                         fieldNum = 1071,
                         values = listOf(
                             pbandk.UnknownField.Value(
-                                wireValue = pbandk.binary.WireValue.len(byteArrayOf(-118, 1, 2, 16, 1))
-                            ),
-                            pbandk.UnknownField.Value(
-                                wireValue = pbandk.binary.WireValue.len(byteArrayOf(114, 2, 16, 10))
+                                wireValue = pbandk.binary.WireValue.len(byteArrayOf(114, 2, 16, 10, -118, 1, 2, 16, 1))
                             ),
                         ),
                     )
@@ -187,10 +184,7 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
                         fieldNum = 1071,
                         values = listOf(
                             pbandk.UnknownField.Value(
-                                wireValue = pbandk.binary.WireValue.len(byteArrayOf(114, 2, 24, 32))
-                            ),
-                            pbandk.UnknownField.Value(
-                                wireValue = pbandk.binary.WireValue.len(byteArrayOf(114, 2, 16, 10))
+                                wireValue = pbandk.binary.WireValue.len(byteArrayOf(114, 4, 16, 10, 24, 32))
                             ),
                         ),
                     )

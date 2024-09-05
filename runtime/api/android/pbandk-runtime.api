@@ -196,6 +196,14 @@ public abstract interface class pbandk/MessageEncoder {
 	public abstract fun writeMessage (Lpbandk/Message;)V
 }
 
+public final class pbandk/MessageEncoding : java/lang/Enum {
+	public static final field DELIMITED Lpbandk/MessageEncoding;
+	public static final field LENGTH_PREFIXED Lpbandk/MessageEncoding;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lpbandk/MessageEncoding;
+	public static fun values ()[Lpbandk/MessageEncoding;
+}
+
 public final class pbandk/MessageExtensionsJvmKt {
 	public static final fun decodeDelimitedFromStream (Lpbandk/Message$Companion;Ljava/io/InputStream;)Lpbandk/Message;
 	public static final fun decodeFromByteBuffer (Lpbandk/Message$Companion;Ljava/nio/ByteBuffer;)Lpbandk/Message;
@@ -326,8 +334,10 @@ public abstract class pbandk/binary/BinaryFieldValueDecoder$I64 : pbandk/binary/
 	public abstract fun decodeValue-ULIXilM ()J
 }
 
-public final class pbandk/binary/BinaryFieldValueDecoder$Len : pbandk/binary/BinaryFieldValueDecoder {
-	public final fun decodeValue-ljb_AeY ()[B
+public abstract class pbandk/binary/BinaryFieldValueDecoder$Len : pbandk/binary/BinaryFieldValueDecoder {
+	public abstract fun decodeValue-ljb_AeY ()[B
+	protected abstract fun postDecode (Ljava/lang/Integer;)V
+	protected abstract fun preDecode ()Ljava/lang/Integer;
 }
 
 public abstract class pbandk/binary/BinaryFieldValueDecoder$Varint : pbandk/binary/BinaryFieldValueDecoder {
@@ -356,7 +366,7 @@ public final class pbandk/binary/WireType {
 public abstract interface class pbandk/binary/WireValue {
 	public static final field Companion Lpbandk/binary/WireValue$Companion;
 	public abstract fun getSize ()I
-	public abstract fun getWireType ()I
+	public abstract fun getWireType-dlALjqw ()I
 }
 
 public final class pbandk/binary/WireValue$Companion {
@@ -371,7 +381,7 @@ public final class pbandk/binary/WireValue$Companion {
 public final class pbandk/binary/WireValue$EndGroup : pbandk/binary/WireValue {
 	public static final field INSTANCE Lpbandk/binary/WireValue$EndGroup;
 	public fun getSize ()I
-	public fun getWireType ()I
+	public fun getWireType-dlALjqw ()I
 }
 
 public final class pbandk/binary/WireValue$Group : pbandk/binary/WireValue {
@@ -381,8 +391,8 @@ public final class pbandk/binary/WireValue$Group : pbandk/binary/WireValue {
 	public static final fun equals-impl0 (Ljava/util/List;Ljava/util/List;)Z
 	public fun getSize ()I
 	public static fun getSize-impl (Ljava/util/List;)I
-	public fun getWireType ()I
-	public static fun getWireType-impl (Ljava/util/List;)I
+	public fun getWireType-dlALjqw ()I
+	public static fun getWireType-dlALjqw (Ljava/util/List;)I
 	public fun hashCode ()I
 	public static fun hashCode-impl (Ljava/util/List;)I
 	public fun toString ()Ljava/lang/String;
@@ -398,8 +408,8 @@ public final class pbandk/binary/WireValue$I32 : pbandk/binary/WireValue {
 	public static final fun equals-impl0 (II)Z
 	public fun getSize ()I
 	public static fun getSize-impl (I)I
-	public fun getWireType ()I
-	public static fun getWireType-impl (I)I
+	public fun getWireType-dlALjqw ()I
+	public static fun getWireType-dlALjqw (I)I
 	public fun hashCode ()I
 	public static fun hashCode-impl (I)I
 	public fun toString ()Ljava/lang/String;
@@ -418,8 +428,8 @@ public final class pbandk/binary/WireValue$I64 : pbandk/binary/WireValue {
 	public static final fun equals-impl0 (JJ)Z
 	public fun getSize ()I
 	public static fun getSize-impl (J)I
-	public fun getWireType ()I
-	public static fun getWireType-impl (J)I
+	public fun getWireType-dlALjqw ()I
+	public static fun getWireType-dlALjqw (J)I
 	public fun hashCode ()I
 	public static fun hashCode-impl (J)I
 	public fun toString ()Ljava/lang/String;
@@ -438,8 +448,8 @@ public final class pbandk/binary/WireValue$Len : pbandk/binary/WireValue {
 	public static final fun equals-impl0 ([B[B)Z
 	public fun getSize ()I
 	public static fun getSize-impl ([B)I
-	public fun getWireType ()I
-	public static fun getWireType-impl ([B)I
+	public fun getWireType-dlALjqw ()I
+	public static fun getWireType-dlALjqw ([B)I
 	public fun hashCode ()I
 	public static fun hashCode-impl ([B)I
 	public fun toString ()Ljava/lang/String;
@@ -458,8 +468,8 @@ public final class pbandk/binary/WireValue$Varint : pbandk/binary/WireValue {
 	public static final fun equals-impl0 (JJ)Z
 	public fun getSize ()I
 	public static fun getSize-impl (J)I
-	public fun getWireType ()I
-	public static fun getWireType-impl (J)I
+	public fun getWireType-dlALjqw ()I
+	public static fun getWireType-dlALjqw (J)I
 	public fun hashCode ()I
 	public static fun hashCode-impl (J)I
 	public fun toString ()Ljava/lang/String;
@@ -555,7 +565,6 @@ public final class pbandk/gen/ListField : java/util/List, kotlin/jvm/internal/ma
 public abstract interface class pbandk/gen/MapField : java/util/Map, kotlin/jvm/internal/markers/KMappedMarker {
 	public static final field Companion Lpbandk/gen/MapField$Companion;
 	public abstract fun asMessages ()Ljava/util/Collection;
-	public abstract fun getEntryCompanion ()Lpbandk/Message$Companion;
 }
 
 public final class pbandk/gen/MapField$Companion {
@@ -626,7 +635,7 @@ public final class pbandk/gen/MutableListField : java/util/List, kotlin/jvm/inte
 }
 
 public abstract interface class pbandk/gen/MutableMapField : java/util/Map, kotlin/jvm/internal/markers/KMutableMap {
-	public abstract fun getEntryCompanion ()Lpbandk/Message$Companion;
+	public abstract fun getEntryDescriptor ()Lpbandk/MessageDescriptor;
 	public abstract fun put (Ljava/util/Map$Entry;)V
 	public abstract fun putAll (Lkotlin/sequences/Sequence;)V
 	public abstract fun toMapField ()Lpbandk/gen/MapField;
@@ -719,6 +728,7 @@ public final class pbandk/types/PrimitivesKt {
 	public static final fun fixed32 ()Lpbandk/types/ValueType;
 	public static final fun fixed64 ()Lpbandk/types/ValueType;
 	public static final fun float ()Lpbandk/types/ValueType;
+	public static final fun group (Lpbandk/Message$Companion;)Lpbandk/types/ValueType;
 	public static final fun int32 ()Lpbandk/types/ValueType;
 	public static final fun int64 ()Lpbandk/types/ValueType;
 	public static final fun message (Lpbandk/Message$Companion;Z)Lpbandk/types/ValueType;
@@ -899,73 +909,87 @@ public final class pbandk/wkt/BytesValue$FieldDescriptors {
 public final class pbandk/wkt/DescriptorKt {
 	public static final fun Annotation (Lpbandk/wkt/GeneratedCodeInfo$Companion;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
 	public static final fun Annotation (Lpbandk/wkt/MutableGeneratedCodeInfo;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
+	public static final fun Declaration (Lpbandk/wkt/ExtensionRangeOptions$Companion;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/ExtensionRangeOptions$Declaration;
+	public static final fun Declaration (Lpbandk/wkt/MutableExtensionRangeOptions;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/ExtensionRangeOptions$Declaration;
 	public static final fun DescriptorProto (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/MessageOptions;Ljava/util/List;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/DescriptorProto;
 	public static final fun DescriptorProto (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/DescriptorProto;
 	public static synthetic fun DescriptorProto$default (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/MessageOptions;Ljava/util/List;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/DescriptorProto;
+	public static final fun EditionDefault (Lpbandk/wkt/FieldOptions$Companion;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FieldOptions$EditionDefault;
+	public static final fun EditionDefault (Lpbandk/wkt/MutableFieldOptions;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FieldOptions$EditionDefault;
 	public static final fun EnumDescriptorProto (Ljava/lang/String;Ljava/util/List;Lpbandk/wkt/EnumOptions;Ljava/util/List;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/EnumDescriptorProto;
 	public static final fun EnumDescriptorProto (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/EnumDescriptorProto;
 	public static synthetic fun EnumDescriptorProto$default (Ljava/lang/String;Ljava/util/List;Lpbandk/wkt/EnumOptions;Ljava/util/List;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumDescriptorProto;
-	public static final fun EnumOptions (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/EnumOptions;
+	public static final fun EnumOptions (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/EnumOptions;
 	public static final fun EnumOptions (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/EnumOptions;
-	public static synthetic fun EnumOptions$default (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumOptions;
+	public static synthetic fun EnumOptions$default (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumOptions;
 	public static final fun EnumReservedRange (Lpbandk/wkt/EnumDescriptorProto$Companion;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/EnumDescriptorProto$EnumReservedRange;
 	public static final fun EnumReservedRange (Lpbandk/wkt/MutableEnumDescriptorProto;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/EnumDescriptorProto$EnumReservedRange;
 	public static final fun EnumValueDescriptorProto (Ljava/lang/String;Ljava/lang/Integer;Lpbandk/wkt/EnumValueOptions;Ljava/util/Map;)Lpbandk/wkt/EnumValueDescriptorProto;
 	public static final fun EnumValueDescriptorProto (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/EnumValueDescriptorProto;
 	public static synthetic fun EnumValueDescriptorProto$default (Ljava/lang/String;Ljava/lang/Integer;Lpbandk/wkt/EnumValueOptions;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumValueDescriptorProto;
-	public static final fun EnumValueOptions (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/EnumValueOptions;
+	public static final fun EnumValueOptions (Ljava/lang/Boolean;Lpbandk/wkt/FeatureSet;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$FeatureSupport;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/EnumValueOptions;
 	public static final fun EnumValueOptions (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/EnumValueOptions;
-	public static synthetic fun EnumValueOptions$default (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumValueOptions;
+	public static synthetic fun EnumValueOptions$default (Ljava/lang/Boolean;Lpbandk/wkt/FeatureSet;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$FeatureSupport;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumValueOptions;
 	public static final fun ExtensionRange (Lpbandk/wkt/DescriptorProto$Companion;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/DescriptorProto$ExtensionRange;
 	public static final fun ExtensionRange (Lpbandk/wkt/MutableDescriptorProto;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/DescriptorProto$ExtensionRange;
-	public static final fun ExtensionRangeOptions (Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/ExtensionRangeOptions;
+	public static final fun ExtensionRangeOptions (Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FeatureSet;Lpbandk/wkt/ExtensionRangeOptions$VerificationState;Ljava/util/Map;)Lpbandk/wkt/ExtensionRangeOptions;
 	public static final fun ExtensionRangeOptions (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/ExtensionRangeOptions;
-	public static synthetic fun ExtensionRangeOptions$default (Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ExtensionRangeOptions;
+	public static synthetic fun ExtensionRangeOptions$default (Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FeatureSet;Lpbandk/wkt/ExtensionRangeOptions$VerificationState;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ExtensionRangeOptions;
+	public static final fun FeatureSet (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FeatureSet;
+	public static final fun FeatureSet (Lpbandk/wkt/FeatureSet$FieldPresence;Lpbandk/wkt/FeatureSet$EnumType;Lpbandk/wkt/FeatureSet$RepeatedFieldEncoding;Lpbandk/wkt/FeatureSet$Utf8Validation;Lpbandk/wkt/FeatureSet$MessageEncoding;Lpbandk/wkt/FeatureSet$JsonFormat;Ljava/util/Map;)Lpbandk/wkt/FeatureSet;
+	public static synthetic fun FeatureSet$default (Lpbandk/wkt/FeatureSet$FieldPresence;Lpbandk/wkt/FeatureSet$EnumType;Lpbandk/wkt/FeatureSet$RepeatedFieldEncoding;Lpbandk/wkt/FeatureSet$Utf8Validation;Lpbandk/wkt/FeatureSet$MessageEncoding;Lpbandk/wkt/FeatureSet$JsonFormat;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FeatureSet;
+	public static final fun FeatureSetDefaults (Ljava/util/List;Lpbandk/wkt/Edition;Lpbandk/wkt/Edition;Ljava/util/Map;)Lpbandk/wkt/FeatureSetDefaults;
+	public static final fun FeatureSetDefaults (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FeatureSetDefaults;
+	public static synthetic fun FeatureSetDefaults$default (Ljava/util/List;Lpbandk/wkt/Edition;Lpbandk/wkt/Edition;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FeatureSetDefaults;
+	public static final fun FeatureSetEditionDefault (Lpbandk/wkt/FeatureSetDefaults$Companion;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault;
+	public static final fun FeatureSetEditionDefault (Lpbandk/wkt/MutableFeatureSetDefaults;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault;
+	public static final fun FeatureSupport (Lpbandk/wkt/FieldOptions$Companion;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FieldOptions$FeatureSupport;
+	public static final fun FeatureSupport (Lpbandk/wkt/MutableFieldOptions;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FieldOptions$FeatureSupport;
 	public static final fun FieldDescriptorProto (Ljava/lang/String;Ljava/lang/Integer;Lpbandk/wkt/FieldDescriptorProto$Label;Lpbandk/wkt/FieldDescriptorProto$Type;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lpbandk/wkt/FieldOptions;Ljava/lang/Boolean;Ljava/util/Map;)Lpbandk/wkt/FieldDescriptorProto;
 	public static final fun FieldDescriptorProto (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FieldDescriptorProto;
 	public static synthetic fun FieldDescriptorProto$default (Ljava/lang/String;Ljava/lang/Integer;Lpbandk/wkt/FieldDescriptorProto$Label;Lpbandk/wkt/FieldDescriptorProto$Type;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lpbandk/wkt/FieldOptions;Ljava/lang/Boolean;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldDescriptorProto;
 	public static final fun FieldOptions (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FieldOptions;
-	public static final fun FieldOptions (Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/FieldOptions;
-	public static synthetic fun FieldOptions$default (Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldOptions;
-	public static final fun FileDescriptorProto (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FileOptions;Lpbandk/wkt/SourceCodeInfo;Ljava/lang/String;Ljava/util/Map;)Lpbandk/wkt/FileDescriptorProto;
+	public static final fun FieldOptions (Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$OptionRetention;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FeatureSet;Lpbandk/wkt/FieldOptions$FeatureSupport;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/FieldOptions;
+	public static synthetic fun FieldOptions$default (Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$OptionRetention;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FeatureSet;Lpbandk/wkt/FieldOptions$FeatureSupport;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldOptions;
+	public static final fun FileDescriptorProto (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FileOptions;Lpbandk/wkt/SourceCodeInfo;Ljava/lang/String;Lpbandk/wkt/Edition;Ljava/util/Map;)Lpbandk/wkt/FileDescriptorProto;
 	public static final fun FileDescriptorProto (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FileDescriptorProto;
-	public static synthetic fun FileDescriptorProto$default (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FileOptions;Lpbandk/wkt/SourceCodeInfo;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FileDescriptorProto;
+	public static synthetic fun FileDescriptorProto$default (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FileOptions;Lpbandk/wkt/SourceCodeInfo;Ljava/lang/String;Lpbandk/wkt/Edition;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FileDescriptorProto;
 	public static final fun FileDescriptorSet (Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/FileDescriptorSet;
 	public static final fun FileDescriptorSet (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FileDescriptorSet;
 	public static synthetic fun FileDescriptorSet$default (Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FileDescriptorSet;
-	public static final fun FileOptions (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/FileOptions;
+	public static final fun FileOptions (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/FileOptions;
 	public static final fun FileOptions (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FileOptions;
-	public static synthetic fun FileOptions$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FileOptions;
+	public static synthetic fun FileOptions$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FileOptions;
 	public static final fun GeneratedCodeInfo (Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/GeneratedCodeInfo;
 	public static final fun GeneratedCodeInfo (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/GeneratedCodeInfo;
 	public static synthetic fun GeneratedCodeInfo$default (Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/GeneratedCodeInfo;
 	public static final fun Location (Lpbandk/wkt/MutableSourceCodeInfo;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/SourceCodeInfo$Location;
 	public static final fun Location (Lpbandk/wkt/SourceCodeInfo$Companion;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/SourceCodeInfo$Location;
-	public static final fun MessageOptions (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/MessageOptions;
+	public static final fun MessageOptions (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/MessageOptions;
 	public static final fun MessageOptions (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/MessageOptions;
-	public static synthetic fun MessageOptions$default (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/MessageOptions;
+	public static synthetic fun MessageOptions$default (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/MessageOptions;
 	public static final fun MethodDescriptorProto (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lpbandk/wkt/MethodOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/Map;)Lpbandk/wkt/MethodDescriptorProto;
 	public static final fun MethodDescriptorProto (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/MethodDescriptorProto;
 	public static synthetic fun MethodDescriptorProto$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lpbandk/wkt/MethodOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/MethodDescriptorProto;
-	public static final fun MethodOptions (Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/MethodOptions;
+	public static final fun MethodOptions (Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/MethodOptions;
 	public static final fun MethodOptions (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/MethodOptions;
-	public static synthetic fun MethodOptions$default (Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/MethodOptions;
+	public static synthetic fun MethodOptions$default (Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/MethodOptions;
 	public static final fun NamePart (Lpbandk/wkt/MutableUninterpretedOption;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/UninterpretedOption$NamePart;
 	public static final fun NamePart (Lpbandk/wkt/UninterpretedOption$Companion;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/UninterpretedOption$NamePart;
 	public static final fun OneofDescriptorProto (Ljava/lang/String;Lpbandk/wkt/OneofOptions;Ljava/util/Map;)Lpbandk/wkt/OneofDescriptorProto;
 	public static final fun OneofDescriptorProto (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/OneofDescriptorProto;
 	public static synthetic fun OneofDescriptorProto$default (Ljava/lang/String;Lpbandk/wkt/OneofOptions;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/OneofDescriptorProto;
-	public static final fun OneofOptions (Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/OneofOptions;
 	public static final fun OneofOptions (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/OneofOptions;
-	public static synthetic fun OneofOptions$default (Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/OneofOptions;
+	public static final fun OneofOptions (Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/OneofOptions;
+	public static synthetic fun OneofOptions$default (Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/OneofOptions;
 	public static final fun ReservedRange (Lpbandk/wkt/DescriptorProto$Companion;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/DescriptorProto$ReservedRange;
 	public static final fun ReservedRange (Lpbandk/wkt/MutableDescriptorProto;Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/DescriptorProto$ReservedRange;
 	public static final fun ServiceDescriptorProto (Ljava/lang/String;Ljava/util/List;Lpbandk/wkt/ServiceOptions;Ljava/util/Map;)Lpbandk/wkt/ServiceDescriptorProto;
 	public static final fun ServiceDescriptorProto (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/ServiceDescriptorProto;
 	public static synthetic fun ServiceDescriptorProto$default (Ljava/lang/String;Ljava/util/List;Lpbandk/wkt/ServiceOptions;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ServiceDescriptorProto;
-	public static final fun ServiceOptions (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/ServiceOptions;
 	public static final fun ServiceOptions (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/ServiceOptions;
-	public static synthetic fun ServiceOptions$default (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ServiceOptions;
+	public static final fun ServiceOptions (Lpbandk/wkt/FeatureSet;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/ServiceOptions;
+	public static synthetic fun ServiceOptions$default (Lpbandk/wkt/FeatureSet;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ServiceOptions;
 	public static final fun SourceCodeInfo (Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/SourceCodeInfo;
 	public static final fun SourceCodeInfo (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/SourceCodeInfo;
 	public static synthetic fun SourceCodeInfo$default (Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/SourceCodeInfo;
@@ -980,8 +1004,14 @@ public final class pbandk/wkt/DescriptorKt {
 	public static final fun orDefault (Lpbandk/wkt/EnumOptions;)Lpbandk/wkt/EnumOptions;
 	public static final fun orDefault (Lpbandk/wkt/EnumValueDescriptorProto;)Lpbandk/wkt/EnumValueDescriptorProto;
 	public static final fun orDefault (Lpbandk/wkt/EnumValueOptions;)Lpbandk/wkt/EnumValueOptions;
+	public static final fun orDefault (Lpbandk/wkt/ExtensionRangeOptions$Declaration;)Lpbandk/wkt/ExtensionRangeOptions$Declaration;
 	public static final fun orDefault (Lpbandk/wkt/ExtensionRangeOptions;)Lpbandk/wkt/ExtensionRangeOptions;
+	public static final fun orDefault (Lpbandk/wkt/FeatureSet;)Lpbandk/wkt/FeatureSet;
+	public static final fun orDefault (Lpbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault;)Lpbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault;
+	public static final fun orDefault (Lpbandk/wkt/FeatureSetDefaults;)Lpbandk/wkt/FeatureSetDefaults;
 	public static final fun orDefault (Lpbandk/wkt/FieldDescriptorProto;)Lpbandk/wkt/FieldDescriptorProto;
+	public static final fun orDefault (Lpbandk/wkt/FieldOptions$EditionDefault;)Lpbandk/wkt/FieldOptions$EditionDefault;
+	public static final fun orDefault (Lpbandk/wkt/FieldOptions$FeatureSupport;)Lpbandk/wkt/FieldOptions$FeatureSupport;
 	public static final fun orDefault (Lpbandk/wkt/FieldOptions;)Lpbandk/wkt/FieldOptions;
 	public static final fun orDefault (Lpbandk/wkt/FileDescriptorProto;)Lpbandk/wkt/FileDescriptorProto;
 	public static final fun orDefault (Lpbandk/wkt/FileDescriptorSet;)Lpbandk/wkt/FileDescriptorSet;
@@ -1173,6 +1203,91 @@ public final class pbandk/wkt/DurationKt {
 	public static final fun orDefault (Lpbandk/wkt/Duration;)Lpbandk/wkt/Duration;
 }
 
+public abstract interface class pbandk/wkt/Edition : pbandk/Message$Enum {
+	public static final field Companion Lpbandk/wkt/Edition$Companion;
+	public abstract fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Edition$Companion : pbandk/Message$Enum$Companion {
+	public synthetic fun fromName (Ljava/lang/String;)Lpbandk/Message$Enum;
+	public fun fromName (Ljava/lang/String;)Lpbandk/wkt/Edition;
+	public synthetic fun fromValue (I)Lpbandk/Message$Enum;
+	public fun fromValue (I)Lpbandk/wkt/Edition;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+	public final fun getValues ()Ljava/util/List;
+}
+
+public final class pbandk/wkt/Edition$DefaultImpls {
+	public static fun getDescriptor (Lpbandk/wkt/Edition;)Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Edition$EDITION_1_TEST_ONLY : pbandk/gen/GeneratedEnumValue, pbandk/wkt/Edition {
+	public static final field INSTANCE Lpbandk/wkt/Edition$EDITION_1_TEST_ONLY;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Edition$EDITION_2023 : pbandk/gen/GeneratedEnumValue, pbandk/wkt/Edition {
+	public static final field INSTANCE Lpbandk/wkt/Edition$EDITION_2023;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Edition$EDITION_2024 : pbandk/gen/GeneratedEnumValue, pbandk/wkt/Edition {
+	public static final field INSTANCE Lpbandk/wkt/Edition$EDITION_2024;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Edition$EDITION_2_TEST_ONLY : pbandk/gen/GeneratedEnumValue, pbandk/wkt/Edition {
+	public static final field INSTANCE Lpbandk/wkt/Edition$EDITION_2_TEST_ONLY;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Edition$EDITION_99997_TEST_ONLY : pbandk/gen/GeneratedEnumValue, pbandk/wkt/Edition {
+	public static final field INSTANCE Lpbandk/wkt/Edition$EDITION_99997_TEST_ONLY;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Edition$EDITION_99998_TEST_ONLY : pbandk/gen/GeneratedEnumValue, pbandk/wkt/Edition {
+	public static final field INSTANCE Lpbandk/wkt/Edition$EDITION_99998_TEST_ONLY;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Edition$EDITION_99999_TEST_ONLY : pbandk/gen/GeneratedEnumValue, pbandk/wkt/Edition {
+	public static final field INSTANCE Lpbandk/wkt/Edition$EDITION_99999_TEST_ONLY;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Edition$LEGACY : pbandk/gen/GeneratedEnumValue, pbandk/wkt/Edition {
+	public static final field INSTANCE Lpbandk/wkt/Edition$LEGACY;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Edition$MAX : pbandk/gen/GeneratedEnumValue, pbandk/wkt/Edition {
+	public static final field INSTANCE Lpbandk/wkt/Edition$MAX;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Edition$PROTO2 : pbandk/gen/GeneratedEnumValue, pbandk/wkt/Edition {
+	public static final field INSTANCE Lpbandk/wkt/Edition$PROTO2;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Edition$PROTO3 : pbandk/gen/GeneratedEnumValue, pbandk/wkt/Edition {
+	public static final field INSTANCE Lpbandk/wkt/Edition$PROTO3;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Edition$UNKNOWN : pbandk/gen/GeneratedEnumValue, pbandk/wkt/Edition {
+	public static final field INSTANCE Lpbandk/wkt/Edition$UNKNOWN;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Edition$UNRECOGNIZED : pbandk/gen/UnrecognizedEnumValue, pbandk/wkt/Edition {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
 public abstract interface class pbandk/wkt/Empty : pbandk/Message {
 	public static final field Companion Lpbandk/wkt/Empty$Companion;
 	public abstract fun copy (Ljava/util/Map;)Lpbandk/wkt/Empty;
@@ -1204,9 +1319,10 @@ public final class pbandk/wkt/EmptyKt {
 
 public abstract interface class pbandk/wkt/Enum : pbandk/Message {
 	public static final field Companion Lpbandk/wkt/Enum$Companion;
-	public abstract fun copy (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/util/Map;)Lpbandk/wkt/Enum;
+	public abstract fun copy (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/lang/String;Ljava/util/Map;)Lpbandk/wkt/Enum;
 	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/Enum;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getEdition ()Ljava/lang/String;
 	public abstract fun getEnumvalue ()Ljava/util/List;
 	public abstract fun getName ()Ljava/lang/String;
 	public abstract fun getOptions ()Ljava/util/List;
@@ -1222,11 +1338,12 @@ public final class pbandk/wkt/Enum$Companion : pbandk/Message$Companion {
 }
 
 public final class pbandk/wkt/Enum$DefaultImpls {
-	public static synthetic fun copy$default (Lpbandk/wkt/Enum;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Enum;
+	public static synthetic fun copy$default (Lpbandk/wkt/Enum;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Enum;
 }
 
 public final class pbandk/wkt/Enum$FieldDescriptors {
 	public static final field INSTANCE Lpbandk/wkt/Enum$FieldDescriptors;
+	public final fun getEdition ()Lpbandk/FieldDescriptor;
 	public final fun getEnumvalue ()Lpbandk/FieldDescriptor$MutableValue;
 	public final fun getName ()Lpbandk/FieldDescriptor;
 	public final fun getOptions ()Lpbandk/FieldDescriptor$MutableValue;
@@ -1303,11 +1420,13 @@ public abstract interface class pbandk/wkt/EnumDescriptorProto$MutableEnumReserv
 
 public abstract interface class pbandk/wkt/EnumOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/EnumOptions$Companion;
-	public abstract fun copy (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/EnumOptions;
+	public abstract fun copy (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/EnumOptions;
 	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/EnumOptions;
 	public abstract fun getAllowAlias ()Ljava/lang/Boolean;
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
+	public abstract fun getDeprecatedLegacyJsonFieldConflicts ()Ljava/lang/Boolean;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
 	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/EnumOptions;
 }
@@ -1319,13 +1438,15 @@ public final class pbandk/wkt/EnumOptions$Companion : pbandk/Message$Companion {
 }
 
 public final class pbandk/wkt/EnumOptions$DefaultImpls {
-	public static synthetic fun copy$default (Lpbandk/wkt/EnumOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/EnumOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumOptions;
 }
 
 public final class pbandk/wkt/EnumOptions$FieldDescriptors {
 	public static final field INSTANCE Lpbandk/wkt/EnumOptions$FieldDescriptors;
 	public final fun getAllowAlias ()Lpbandk/FieldDescriptor;
 	public final fun getDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getDeprecatedLegacyJsonFieldConflicts ()Lpbandk/FieldDescriptor;
+	public final fun getFeatures ()Lpbandk/FieldDescriptor;
 	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor$MutableValue;
 }
 
@@ -1387,10 +1508,13 @@ public final class pbandk/wkt/EnumValueDescriptorProto$FieldDescriptors {
 
 public abstract interface class pbandk/wkt/EnumValueOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/EnumValueOptions$Companion;
-	public abstract fun copy (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/EnumValueOptions;
+	public abstract fun copy (Ljava/lang/Boolean;Lpbandk/wkt/FeatureSet;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$FeatureSupport;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/EnumValueOptions;
 	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/EnumValueOptions;
+	public abstract fun getDebugRedact ()Ljava/lang/Boolean;
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getFeatureSupport ()Lpbandk/wkt/FieldOptions$FeatureSupport;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
 	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/EnumValueOptions;
 }
@@ -1402,37 +1526,474 @@ public final class pbandk/wkt/EnumValueOptions$Companion : pbandk/Message$Compan
 }
 
 public final class pbandk/wkt/EnumValueOptions$DefaultImpls {
-	public static synthetic fun copy$default (Lpbandk/wkt/EnumValueOptions;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumValueOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/EnumValueOptions;Ljava/lang/Boolean;Lpbandk/wkt/FeatureSet;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$FeatureSupport;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumValueOptions;
 }
 
 public final class pbandk/wkt/EnumValueOptions$FieldDescriptors {
 	public static final field INSTANCE Lpbandk/wkt/EnumValueOptions$FieldDescriptors;
+	public final fun getDebugRedact ()Lpbandk/FieldDescriptor;
 	public final fun getDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getFeatureSupport ()Lpbandk/FieldDescriptor;
+	public final fun getFeatures ()Lpbandk/FieldDescriptor;
 	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor$MutableValue;
 }
 
 public abstract interface class pbandk/wkt/ExtensionRangeOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/ExtensionRangeOptions$Companion;
-	public abstract fun copy (Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/ExtensionRangeOptions;
+	public abstract fun copy (Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FeatureSet;Lpbandk/wkt/ExtensionRangeOptions$VerificationState;Ljava/util/Map;)Lpbandk/wkt/ExtensionRangeOptions;
 	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/ExtensionRangeOptions;
+	public abstract fun getDeclaration ()Ljava/util/List;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
+	public abstract fun getVerification ()Lpbandk/wkt/ExtensionRangeOptions$VerificationState;
 	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/ExtensionRangeOptions;
 }
 
 public final class pbandk/wkt/ExtensionRangeOptions$Companion : pbandk/Message$Companion {
+	public final fun Declaration (Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/Map;)Lpbandk/wkt/ExtensionRangeOptions$Declaration;
+	public static synthetic fun Declaration$default (Lpbandk/wkt/ExtensionRangeOptions$Companion;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ExtensionRangeOptions$Declaration;
 	public synthetic fun getDefaultInstance ()Lpbandk/Message;
 	public fun getDefaultInstance ()Lpbandk/wkt/ExtensionRangeOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
+public abstract interface class pbandk/wkt/ExtensionRangeOptions$Declaration : pbandk/Message {
+	public static final field Companion Lpbandk/wkt/ExtensionRangeOptions$Declaration$Companion;
+	public abstract fun copy (Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/Map;)Lpbandk/wkt/ExtensionRangeOptions$Declaration;
+	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/ExtensionRangeOptions$Declaration;
+	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getFullName ()Ljava/lang/String;
+	public abstract fun getNumber ()Ljava/lang/Integer;
+	public abstract fun getRepeated ()Ljava/lang/Boolean;
+	public abstract fun getReserved ()Ljava/lang/Boolean;
+	public abstract fun getType ()Ljava/lang/String;
+	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/ExtensionRangeOptions$Declaration;
+}
+
+public final class pbandk/wkt/ExtensionRangeOptions$Declaration$Companion : pbandk/Message$Companion {
+	public synthetic fun getDefaultInstance ()Lpbandk/Message;
+	public fun getDefaultInstance ()Lpbandk/wkt/ExtensionRangeOptions$Declaration;
+	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+}
+
+public final class pbandk/wkt/ExtensionRangeOptions$Declaration$DefaultImpls {
+	public static synthetic fun copy$default (Lpbandk/wkt/ExtensionRangeOptions$Declaration;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ExtensionRangeOptions$Declaration;
+}
+
+public final class pbandk/wkt/ExtensionRangeOptions$Declaration$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/ExtensionRangeOptions$Declaration$FieldDescriptors;
+	public final fun getFullName ()Lpbandk/FieldDescriptor;
+	public final fun getNumber ()Lpbandk/FieldDescriptor;
+	public final fun getRepeated ()Lpbandk/FieldDescriptor;
+	public final fun getReserved ()Lpbandk/FieldDescriptor;
+	public final fun getType ()Lpbandk/FieldDescriptor;
+}
+
 public final class pbandk/wkt/ExtensionRangeOptions$DefaultImpls {
-	public static synthetic fun copy$default (Lpbandk/wkt/ExtensionRangeOptions;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ExtensionRangeOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/ExtensionRangeOptions;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FeatureSet;Lpbandk/wkt/ExtensionRangeOptions$VerificationState;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ExtensionRangeOptions;
 }
 
 public final class pbandk/wkt/ExtensionRangeOptions$FieldDescriptors {
 	public static final field INSTANCE Lpbandk/wkt/ExtensionRangeOptions$FieldDescriptors;
+	public final fun getDeclaration ()Lpbandk/FieldDescriptor$MutableValue;
+	public final fun getFeatures ()Lpbandk/FieldDescriptor;
 	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor$MutableValue;
+	public final fun getVerification ()Lpbandk/FieldDescriptor;
+}
+
+public abstract interface class pbandk/wkt/ExtensionRangeOptions$MutableDeclaration : pbandk/MutableMessage, pbandk/wkt/ExtensionRangeOptions$Declaration {
+	public abstract fun getFullName ()Ljava/lang/String;
+	public abstract fun getNumber ()Ljava/lang/Integer;
+	public abstract fun getRepeated ()Ljava/lang/Boolean;
+	public abstract fun getReserved ()Ljava/lang/Boolean;
+	public abstract fun getType ()Ljava/lang/String;
+	public abstract fun setFullName (Ljava/lang/String;)V
+	public abstract fun setNumber (Ljava/lang/Integer;)V
+	public abstract fun setRepeated (Ljava/lang/Boolean;)V
+	public abstract fun setReserved (Ljava/lang/Boolean;)V
+	public abstract fun setType (Ljava/lang/String;)V
+}
+
+public abstract interface class pbandk/wkt/ExtensionRangeOptions$VerificationState : pbandk/Message$Enum {
+	public static final field Companion Lpbandk/wkt/ExtensionRangeOptions$VerificationState$Companion;
+	public abstract fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/ExtensionRangeOptions$VerificationState$Companion : pbandk/Message$Enum$Companion {
+	public synthetic fun fromName (Ljava/lang/String;)Lpbandk/Message$Enum;
+	public fun fromName (Ljava/lang/String;)Lpbandk/wkt/ExtensionRangeOptions$VerificationState;
+	public synthetic fun fromValue (I)Lpbandk/Message$Enum;
+	public fun fromValue (I)Lpbandk/wkt/ExtensionRangeOptions$VerificationState;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+	public final fun getValues ()Ljava/util/List;
+}
+
+public final class pbandk/wkt/ExtensionRangeOptions$VerificationState$DECLARATION : pbandk/gen/GeneratedEnumValue, pbandk/wkt/ExtensionRangeOptions$VerificationState {
+	public static final field INSTANCE Lpbandk/wkt/ExtensionRangeOptions$VerificationState$DECLARATION;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/ExtensionRangeOptions$VerificationState$DefaultImpls {
+	public static fun getDescriptor (Lpbandk/wkt/ExtensionRangeOptions$VerificationState;)Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/ExtensionRangeOptions$VerificationState$UNRECOGNIZED : pbandk/gen/UnrecognizedEnumValue, pbandk/wkt/ExtensionRangeOptions$VerificationState {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/ExtensionRangeOptions$VerificationState$UNVERIFIED : pbandk/gen/GeneratedEnumValue, pbandk/wkt/ExtensionRangeOptions$VerificationState {
+	public static final field INSTANCE Lpbandk/wkt/ExtensionRangeOptions$VerificationState$UNVERIFIED;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public abstract interface class pbandk/wkt/FeatureSet : pbandk/ExtendableMessage {
+	public static final field Companion Lpbandk/wkt/FeatureSet$Companion;
+	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FeatureSet;
+	public abstract fun copy (Lpbandk/wkt/FeatureSet$FieldPresence;Lpbandk/wkt/FeatureSet$EnumType;Lpbandk/wkt/FeatureSet$RepeatedFieldEncoding;Lpbandk/wkt/FeatureSet$Utf8Validation;Lpbandk/wkt/FeatureSet$MessageEncoding;Lpbandk/wkt/FeatureSet$JsonFormat;Ljava/util/Map;)Lpbandk/wkt/FeatureSet;
+	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getEnumType ()Lpbandk/wkt/FeatureSet$EnumType;
+	public abstract fun getFieldPresence ()Lpbandk/wkt/FeatureSet$FieldPresence;
+	public abstract fun getJsonFormat ()Lpbandk/wkt/FeatureSet$JsonFormat;
+	public abstract fun getMessageEncoding ()Lpbandk/wkt/FeatureSet$MessageEncoding;
+	public abstract fun getRepeatedFieldEncoding ()Lpbandk/wkt/FeatureSet$RepeatedFieldEncoding;
+	public abstract fun getUtf8Validation ()Lpbandk/wkt/FeatureSet$Utf8Validation;
+	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/FeatureSet;
+}
+
+public final class pbandk/wkt/FeatureSet$Companion : pbandk/Message$Companion {
+	public synthetic fun getDefaultInstance ()Lpbandk/Message;
+	public fun getDefaultInstance ()Lpbandk/wkt/FeatureSet;
+	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$DefaultImpls {
+	public static synthetic fun copy$default (Lpbandk/wkt/FeatureSet;Lpbandk/wkt/FeatureSet$FieldPresence;Lpbandk/wkt/FeatureSet$EnumType;Lpbandk/wkt/FeatureSet$RepeatedFieldEncoding;Lpbandk/wkt/FeatureSet$Utf8Validation;Lpbandk/wkt/FeatureSet$MessageEncoding;Lpbandk/wkt/FeatureSet$JsonFormat;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FeatureSet;
+}
+
+public abstract interface class pbandk/wkt/FeatureSet$EnumType : pbandk/Message$Enum {
+	public static final field Companion Lpbandk/wkt/FeatureSet$EnumType$Companion;
+	public abstract fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$EnumType$CLOSED : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$EnumType {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$EnumType$CLOSED;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$EnumType$Companion : pbandk/Message$Enum$Companion {
+	public synthetic fun fromName (Ljava/lang/String;)Lpbandk/Message$Enum;
+	public fun fromName (Ljava/lang/String;)Lpbandk/wkt/FeatureSet$EnumType;
+	public synthetic fun fromValue (I)Lpbandk/Message$Enum;
+	public fun fromValue (I)Lpbandk/wkt/FeatureSet$EnumType;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+	public final fun getValues ()Ljava/util/List;
+}
+
+public final class pbandk/wkt/FeatureSet$EnumType$DefaultImpls {
+	public static fun getDescriptor (Lpbandk/wkt/FeatureSet$EnumType;)Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$EnumType$OPEN : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$EnumType {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$EnumType$OPEN;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$EnumType$UNKNOWN : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$EnumType {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$EnumType$UNKNOWN;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$EnumType$UNRECOGNIZED : pbandk/gen/UnrecognizedEnumValue, pbandk/wkt/FeatureSet$EnumType {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$FieldDescriptors;
+	public final fun getEnumType ()Lpbandk/FieldDescriptor;
+	public final fun getFieldPresence ()Lpbandk/FieldDescriptor;
+	public final fun getJsonFormat ()Lpbandk/FieldDescriptor;
+	public final fun getMessageEncoding ()Lpbandk/FieldDescriptor;
+	public final fun getRepeatedFieldEncoding ()Lpbandk/FieldDescriptor;
+	public final fun getUtf8Validation ()Lpbandk/FieldDescriptor;
+}
+
+public abstract interface class pbandk/wkt/FeatureSet$FieldPresence : pbandk/Message$Enum {
+	public static final field Companion Lpbandk/wkt/FeatureSet$FieldPresence$Companion;
+	public abstract fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$FieldPresence$Companion : pbandk/Message$Enum$Companion {
+	public synthetic fun fromName (Ljava/lang/String;)Lpbandk/Message$Enum;
+	public fun fromName (Ljava/lang/String;)Lpbandk/wkt/FeatureSet$FieldPresence;
+	public synthetic fun fromValue (I)Lpbandk/Message$Enum;
+	public fun fromValue (I)Lpbandk/wkt/FeatureSet$FieldPresence;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+	public final fun getValues ()Ljava/util/List;
+}
+
+public final class pbandk/wkt/FeatureSet$FieldPresence$DefaultImpls {
+	public static fun getDescriptor (Lpbandk/wkt/FeatureSet$FieldPresence;)Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$FieldPresence$EXPLICIT : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$FieldPresence {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$FieldPresence$EXPLICIT;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$FieldPresence$IMPLICIT : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$FieldPresence {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$FieldPresence$IMPLICIT;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$FieldPresence$LEGACY_REQUIRED : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$FieldPresence {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$FieldPresence$LEGACY_REQUIRED;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$FieldPresence$UNKNOWN : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$FieldPresence {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$FieldPresence$UNKNOWN;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$FieldPresence$UNRECOGNIZED : pbandk/gen/UnrecognizedEnumValue, pbandk/wkt/FeatureSet$FieldPresence {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public abstract interface class pbandk/wkt/FeatureSet$JsonFormat : pbandk/Message$Enum {
+	public static final field Companion Lpbandk/wkt/FeatureSet$JsonFormat$Companion;
+	public abstract fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$JsonFormat$ALLOW : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$JsonFormat {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$JsonFormat$ALLOW;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$JsonFormat$Companion : pbandk/Message$Enum$Companion {
+	public synthetic fun fromName (Ljava/lang/String;)Lpbandk/Message$Enum;
+	public fun fromName (Ljava/lang/String;)Lpbandk/wkt/FeatureSet$JsonFormat;
+	public synthetic fun fromValue (I)Lpbandk/Message$Enum;
+	public fun fromValue (I)Lpbandk/wkt/FeatureSet$JsonFormat;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+	public final fun getValues ()Ljava/util/List;
+}
+
+public final class pbandk/wkt/FeatureSet$JsonFormat$DefaultImpls {
+	public static fun getDescriptor (Lpbandk/wkt/FeatureSet$JsonFormat;)Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$JsonFormat$LEGACY_BEST_EFFORT : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$JsonFormat {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$JsonFormat$LEGACY_BEST_EFFORT;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$JsonFormat$UNKNOWN : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$JsonFormat {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$JsonFormat$UNKNOWN;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$JsonFormat$UNRECOGNIZED : pbandk/gen/UnrecognizedEnumValue, pbandk/wkt/FeatureSet$JsonFormat {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public abstract interface class pbandk/wkt/FeatureSet$MessageEncoding : pbandk/Message$Enum {
+	public static final field Companion Lpbandk/wkt/FeatureSet$MessageEncoding$Companion;
+	public abstract fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$MessageEncoding$Companion : pbandk/Message$Enum$Companion {
+	public synthetic fun fromName (Ljava/lang/String;)Lpbandk/Message$Enum;
+	public fun fromName (Ljava/lang/String;)Lpbandk/wkt/FeatureSet$MessageEncoding;
+	public synthetic fun fromValue (I)Lpbandk/Message$Enum;
+	public fun fromValue (I)Lpbandk/wkt/FeatureSet$MessageEncoding;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+	public final fun getValues ()Ljava/util/List;
+}
+
+public final class pbandk/wkt/FeatureSet$MessageEncoding$DELIMITED : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$MessageEncoding {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$MessageEncoding$DELIMITED;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$MessageEncoding$DefaultImpls {
+	public static fun getDescriptor (Lpbandk/wkt/FeatureSet$MessageEncoding;)Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$MessageEncoding$LENGTH_PREFIXED : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$MessageEncoding {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$MessageEncoding$LENGTH_PREFIXED;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$MessageEncoding$UNKNOWN : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$MessageEncoding {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$MessageEncoding$UNKNOWN;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$MessageEncoding$UNRECOGNIZED : pbandk/gen/UnrecognizedEnumValue, pbandk/wkt/FeatureSet$MessageEncoding {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public abstract interface class pbandk/wkt/FeatureSet$RepeatedFieldEncoding : pbandk/Message$Enum {
+	public static final field Companion Lpbandk/wkt/FeatureSet$RepeatedFieldEncoding$Companion;
+	public abstract fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$RepeatedFieldEncoding$Companion : pbandk/Message$Enum$Companion {
+	public synthetic fun fromName (Ljava/lang/String;)Lpbandk/Message$Enum;
+	public fun fromName (Ljava/lang/String;)Lpbandk/wkt/FeatureSet$RepeatedFieldEncoding;
+	public synthetic fun fromValue (I)Lpbandk/Message$Enum;
+	public fun fromValue (I)Lpbandk/wkt/FeatureSet$RepeatedFieldEncoding;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+	public final fun getValues ()Ljava/util/List;
+}
+
+public final class pbandk/wkt/FeatureSet$RepeatedFieldEncoding$DefaultImpls {
+	public static fun getDescriptor (Lpbandk/wkt/FeatureSet$RepeatedFieldEncoding;)Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$RepeatedFieldEncoding$EXPANDED : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$RepeatedFieldEncoding {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$RepeatedFieldEncoding$EXPANDED;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$RepeatedFieldEncoding$PACKED : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$RepeatedFieldEncoding {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$RepeatedFieldEncoding$PACKED;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$RepeatedFieldEncoding$UNKNOWN : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$RepeatedFieldEncoding {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$RepeatedFieldEncoding$UNKNOWN;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$RepeatedFieldEncoding$UNRECOGNIZED : pbandk/gen/UnrecognizedEnumValue, pbandk/wkt/FeatureSet$RepeatedFieldEncoding {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public abstract interface class pbandk/wkt/FeatureSet$Utf8Validation : pbandk/Message$Enum {
+	public static final field Companion Lpbandk/wkt/FeatureSet$Utf8Validation$Companion;
+	public abstract fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$Utf8Validation$Companion : pbandk/Message$Enum$Companion {
+	public synthetic fun fromName (Ljava/lang/String;)Lpbandk/Message$Enum;
+	public fun fromName (Ljava/lang/String;)Lpbandk/wkt/FeatureSet$Utf8Validation;
+	public synthetic fun fromValue (I)Lpbandk/Message$Enum;
+	public fun fromValue (I)Lpbandk/wkt/FeatureSet$Utf8Validation;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+	public final fun getValues ()Ljava/util/List;
+}
+
+public final class pbandk/wkt/FeatureSet$Utf8Validation$DefaultImpls {
+	public static fun getDescriptor (Lpbandk/wkt/FeatureSet$Utf8Validation;)Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$Utf8Validation$NONE : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$Utf8Validation {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$Utf8Validation$NONE;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$Utf8Validation$UNRECOGNIZED : pbandk/gen/UnrecognizedEnumValue, pbandk/wkt/FeatureSet$Utf8Validation {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$Utf8Validation$UTF8_VALIDATION_UNKNOWN : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$Utf8Validation {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$Utf8Validation$UTF8_VALIDATION_UNKNOWN;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSet$Utf8Validation$VERIFY : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FeatureSet$Utf8Validation {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSet$Utf8Validation$VERIFY;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public abstract interface class pbandk/wkt/FeatureSetDefaults : pbandk/Message {
+	public static final field Companion Lpbandk/wkt/FeatureSetDefaults$Companion;
+	public abstract fun copy (Ljava/util/List;Lpbandk/wkt/Edition;Lpbandk/wkt/Edition;Ljava/util/Map;)Lpbandk/wkt/FeatureSetDefaults;
+	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FeatureSetDefaults;
+	public abstract fun getDefaults ()Ljava/util/List;
+	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getMaximumEdition ()Lpbandk/wkt/Edition;
+	public abstract fun getMinimumEdition ()Lpbandk/wkt/Edition;
+	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/FeatureSetDefaults;
+}
+
+public final class pbandk/wkt/FeatureSetDefaults$Companion : pbandk/Message$Companion {
+	public final fun FeatureSetEditionDefault (Lpbandk/wkt/Edition;Lpbandk/wkt/FeatureSet;Lpbandk/wkt/FeatureSet;Ljava/util/Map;)Lpbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault;
+	public static synthetic fun FeatureSetEditionDefault$default (Lpbandk/wkt/FeatureSetDefaults$Companion;Lpbandk/wkt/Edition;Lpbandk/wkt/FeatureSet;Lpbandk/wkt/FeatureSet;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault;
+	public synthetic fun getDefaultInstance ()Lpbandk/Message;
+	public fun getDefaultInstance ()Lpbandk/wkt/FeatureSetDefaults;
+	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSetDefaults$DefaultImpls {
+	public static synthetic fun copy$default (Lpbandk/wkt/FeatureSetDefaults;Ljava/util/List;Lpbandk/wkt/Edition;Lpbandk/wkt/Edition;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FeatureSetDefaults;
+}
+
+public abstract interface class pbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault : pbandk/Message {
+	public static final field Companion Lpbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault$Companion;
+	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault;
+	public abstract fun copy (Lpbandk/wkt/Edition;Lpbandk/wkt/FeatureSet;Lpbandk/wkt/FeatureSet;Ljava/util/Map;)Lpbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault;
+	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getEdition ()Lpbandk/wkt/Edition;
+	public abstract fun getFixedFeatures ()Lpbandk/wkt/FeatureSet;
+	public abstract fun getOverridableFeatures ()Lpbandk/wkt/FeatureSet;
+	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault;
+}
+
+public final class pbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault$Companion : pbandk/Message$Companion {
+	public synthetic fun getDefaultInstance ()Lpbandk/Message;
+	public fun getDefaultInstance ()Lpbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault;
+	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault$DefaultImpls {
+	public static synthetic fun copy$default (Lpbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault;Lpbandk/wkt/Edition;Lpbandk/wkt/FeatureSet;Lpbandk/wkt/FeatureSet;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault;
+}
+
+public final class pbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault$FieldDescriptors;
+	public final fun getEdition ()Lpbandk/FieldDescriptor;
+	public final fun getFixedFeatures ()Lpbandk/FieldDescriptor;
+	public final fun getOverridableFeatures ()Lpbandk/FieldDescriptor;
+}
+
+public final class pbandk/wkt/FeatureSetDefaults$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/FeatureSetDefaults$FieldDescriptors;
+	public final fun getDefaults ()Lpbandk/FieldDescriptor$MutableValue;
+	public final fun getMaximumEdition ()Lpbandk/FieldDescriptor;
+	public final fun getMinimumEdition ()Lpbandk/FieldDescriptor;
+}
+
+public abstract interface class pbandk/wkt/FeatureSetDefaults$MutableFeatureSetEditionDefault : pbandk/MutableMessage, pbandk/wkt/FeatureSetDefaults$FeatureSetEditionDefault {
+	public abstract fun getEdition ()Lpbandk/wkt/Edition;
+	public abstract fun getFixedFeatures ()Lpbandk/wkt/FeatureSet;
+	public abstract fun getOverridableFeatures ()Lpbandk/wkt/FeatureSet;
+	public abstract fun setEdition (Lpbandk/wkt/Edition;)V
+	public abstract fun setFixedFeatures (Lpbandk/wkt/FeatureSet;)V
+	public abstract fun setOverridableFeatures (Lpbandk/wkt/FeatureSet;)V
 }
 
 public abstract interface class pbandk/wkt/Field : pbandk/Message {
@@ -1868,14 +2429,21 @@ public final class pbandk/wkt/FieldMask$FieldDescriptors {
 public abstract interface class pbandk/wkt/FieldOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/FieldOptions$Companion;
 	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FieldOptions;
-	public abstract fun copy (Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/FieldOptions;
+	public abstract fun copy (Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$OptionRetention;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FeatureSet;Lpbandk/wkt/FieldOptions$FeatureSupport;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/FieldOptions;
 	public abstract fun getCtype ()Lpbandk/wkt/FieldOptions$CType;
+	public abstract fun getDebugRedact ()Ljava/lang/Boolean;
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getEditionDefaults ()Ljava/util/List;
+	public abstract fun getFeatureSupport ()Lpbandk/wkt/FieldOptions$FeatureSupport;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getJstype ()Lpbandk/wkt/FieldOptions$JSType;
 	public abstract fun getLazy ()Ljava/lang/Boolean;
 	public abstract fun getPacked ()Ljava/lang/Boolean;
+	public abstract fun getRetention ()Lpbandk/wkt/FieldOptions$OptionRetention;
+	public abstract fun getTargets ()Ljava/util/List;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
+	public abstract fun getUnverifiedLazy ()Ljava/lang/Boolean;
 	public abstract fun getWeak ()Ljava/lang/Boolean;
 	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/FieldOptions;
 }
@@ -1921,23 +2489,90 @@ public final class pbandk/wkt/FieldOptions$CType$UNRECOGNIZED : pbandk/gen/Unrec
 }
 
 public final class pbandk/wkt/FieldOptions$Companion : pbandk/Message$Companion {
+	public final fun EditionDefault (Lpbandk/wkt/Edition;Ljava/lang/String;Ljava/util/Map;)Lpbandk/wkt/FieldOptions$EditionDefault;
+	public static synthetic fun EditionDefault$default (Lpbandk/wkt/FieldOptions$Companion;Lpbandk/wkt/Edition;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldOptions$EditionDefault;
+	public final fun FeatureSupport (Lpbandk/wkt/Edition;Lpbandk/wkt/Edition;Ljava/lang/String;Lpbandk/wkt/Edition;Ljava/util/Map;)Lpbandk/wkt/FieldOptions$FeatureSupport;
+	public static synthetic fun FeatureSupport$default (Lpbandk/wkt/FieldOptions$Companion;Lpbandk/wkt/Edition;Lpbandk/wkt/Edition;Ljava/lang/String;Lpbandk/wkt/Edition;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldOptions$FeatureSupport;
 	public synthetic fun getDefaultInstance ()Lpbandk/Message;
 	public fun getDefaultInstance ()Lpbandk/wkt/FieldOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
 public final class pbandk/wkt/FieldOptions$DefaultImpls {
-	public static synthetic fun copy$default (Lpbandk/wkt/FieldOptions;Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/FieldOptions;Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$OptionRetention;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FeatureSet;Lpbandk/wkt/FieldOptions$FeatureSupport;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldOptions;
+}
+
+public abstract interface class pbandk/wkt/FieldOptions$EditionDefault : pbandk/Message {
+	public static final field Companion Lpbandk/wkt/FieldOptions$EditionDefault$Companion;
+	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FieldOptions$EditionDefault;
+	public abstract fun copy (Lpbandk/wkt/Edition;Ljava/lang/String;Ljava/util/Map;)Lpbandk/wkt/FieldOptions$EditionDefault;
+	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getEdition ()Lpbandk/wkt/Edition;
+	public abstract fun getValue ()Ljava/lang/String;
+	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/FieldOptions$EditionDefault;
+}
+
+public final class pbandk/wkt/FieldOptions$EditionDefault$Companion : pbandk/Message$Companion {
+	public synthetic fun getDefaultInstance ()Lpbandk/Message;
+	public fun getDefaultInstance ()Lpbandk/wkt/FieldOptions$EditionDefault;
+	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$EditionDefault$DefaultImpls {
+	public static synthetic fun copy$default (Lpbandk/wkt/FieldOptions$EditionDefault;Lpbandk/wkt/Edition;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldOptions$EditionDefault;
+}
+
+public final class pbandk/wkt/FieldOptions$EditionDefault$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$EditionDefault$FieldDescriptors;
+	public final fun getEdition ()Lpbandk/FieldDescriptor;
+	public final fun getValue ()Lpbandk/FieldDescriptor;
+}
+
+public abstract interface class pbandk/wkt/FieldOptions$FeatureSupport : pbandk/Message {
+	public static final field Companion Lpbandk/wkt/FieldOptions$FeatureSupport$Companion;
+	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FieldOptions$FeatureSupport;
+	public abstract fun copy (Lpbandk/wkt/Edition;Lpbandk/wkt/Edition;Ljava/lang/String;Lpbandk/wkt/Edition;Ljava/util/Map;)Lpbandk/wkt/FieldOptions$FeatureSupport;
+	public abstract fun getDeprecationWarning ()Ljava/lang/String;
+	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getEditionDeprecated ()Lpbandk/wkt/Edition;
+	public abstract fun getEditionIntroduced ()Lpbandk/wkt/Edition;
+	public abstract fun getEditionRemoved ()Lpbandk/wkt/Edition;
+	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/FieldOptions$FeatureSupport;
+}
+
+public final class pbandk/wkt/FieldOptions$FeatureSupport$Companion : pbandk/Message$Companion {
+	public synthetic fun getDefaultInstance ()Lpbandk/Message;
+	public fun getDefaultInstance ()Lpbandk/wkt/FieldOptions$FeatureSupport;
+	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$FeatureSupport$DefaultImpls {
+	public static synthetic fun copy$default (Lpbandk/wkt/FieldOptions$FeatureSupport;Lpbandk/wkt/Edition;Lpbandk/wkt/Edition;Ljava/lang/String;Lpbandk/wkt/Edition;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldOptions$FeatureSupport;
+}
+
+public final class pbandk/wkt/FieldOptions$FeatureSupport$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$FeatureSupport$FieldDescriptors;
+	public final fun getDeprecationWarning ()Lpbandk/FieldDescriptor;
+	public final fun getEditionDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getEditionIntroduced ()Lpbandk/FieldDescriptor;
+	public final fun getEditionRemoved ()Lpbandk/FieldDescriptor;
 }
 
 public final class pbandk/wkt/FieldOptions$FieldDescriptors {
 	public static final field INSTANCE Lpbandk/wkt/FieldOptions$FieldDescriptors;
 	public final fun getCtype ()Lpbandk/FieldDescriptor;
+	public final fun getDebugRedact ()Lpbandk/FieldDescriptor;
 	public final fun getDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getEditionDefaults ()Lpbandk/FieldDescriptor$MutableValue;
+	public final fun getFeatureSupport ()Lpbandk/FieldDescriptor;
+	public final fun getFeatures ()Lpbandk/FieldDescriptor;
 	public final fun getJstype ()Lpbandk/FieldDescriptor;
 	public final fun getLazy ()Lpbandk/FieldDescriptor;
 	public final fun getPacked ()Lpbandk/FieldDescriptor;
+	public final fun getRetention ()Lpbandk/FieldDescriptor;
+	public final fun getTargets ()Lpbandk/FieldDescriptor$MutableValue;
 	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor$MutableValue;
+	public final fun getUnverifiedLazy ()Lpbandk/FieldDescriptor;
 	public final fun getWeak ()Lpbandk/FieldDescriptor;
 }
 
@@ -1981,6 +2616,139 @@ public final class pbandk/wkt/FieldOptions$JSType$UNRECOGNIZED : pbandk/gen/Unre
 	public fun getDescriptor ()Lpbandk/EnumDescriptor;
 }
 
+public abstract interface class pbandk/wkt/FieldOptions$MutableEditionDefault : pbandk/MutableMessage, pbandk/wkt/FieldOptions$EditionDefault {
+	public abstract fun getEdition ()Lpbandk/wkt/Edition;
+	public abstract fun getValue ()Ljava/lang/String;
+	public abstract fun setEdition (Lpbandk/wkt/Edition;)V
+	public abstract fun setValue (Ljava/lang/String;)V
+}
+
+public abstract interface class pbandk/wkt/FieldOptions$MutableFeatureSupport : pbandk/MutableMessage, pbandk/wkt/FieldOptions$FeatureSupport {
+	public abstract fun getDeprecationWarning ()Ljava/lang/String;
+	public abstract fun getEditionDeprecated ()Lpbandk/wkt/Edition;
+	public abstract fun getEditionIntroduced ()Lpbandk/wkt/Edition;
+	public abstract fun getEditionRemoved ()Lpbandk/wkt/Edition;
+	public abstract fun setDeprecationWarning (Ljava/lang/String;)V
+	public abstract fun setEditionDeprecated (Lpbandk/wkt/Edition;)V
+	public abstract fun setEditionIntroduced (Lpbandk/wkt/Edition;)V
+	public abstract fun setEditionRemoved (Lpbandk/wkt/Edition;)V
+}
+
+public abstract interface class pbandk/wkt/FieldOptions$OptionRetention : pbandk/Message$Enum {
+	public static final field Companion Lpbandk/wkt/FieldOptions$OptionRetention$Companion;
+	public abstract fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionRetention$Companion : pbandk/Message$Enum$Companion {
+	public synthetic fun fromName (Ljava/lang/String;)Lpbandk/Message$Enum;
+	public fun fromName (Ljava/lang/String;)Lpbandk/wkt/FieldOptions$OptionRetention;
+	public synthetic fun fromValue (I)Lpbandk/Message$Enum;
+	public fun fromValue (I)Lpbandk/wkt/FieldOptions$OptionRetention;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+	public final fun getValues ()Ljava/util/List;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionRetention$DefaultImpls {
+	public static fun getDescriptor (Lpbandk/wkt/FieldOptions$OptionRetention;)Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionRetention$RETENTION_RUNTIME : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FieldOptions$OptionRetention {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$OptionRetention$RETENTION_RUNTIME;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionRetention$RETENTION_SOURCE : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FieldOptions$OptionRetention {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$OptionRetention$RETENTION_SOURCE;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionRetention$RETENTION_UNKNOWN : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FieldOptions$OptionRetention {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$OptionRetention$RETENTION_UNKNOWN;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionRetention$UNRECOGNIZED : pbandk/gen/UnrecognizedEnumValue, pbandk/wkt/FieldOptions$OptionRetention {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public abstract interface class pbandk/wkt/FieldOptions$OptionTargetType : pbandk/Message$Enum {
+	public static final field Companion Lpbandk/wkt/FieldOptions$OptionTargetType$Companion;
+	public abstract fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionTargetType$Companion : pbandk/Message$Enum$Companion {
+	public synthetic fun fromName (Ljava/lang/String;)Lpbandk/Message$Enum;
+	public fun fromName (Ljava/lang/String;)Lpbandk/wkt/FieldOptions$OptionTargetType;
+	public synthetic fun fromValue (I)Lpbandk/Message$Enum;
+	public fun fromValue (I)Lpbandk/wkt/FieldOptions$OptionTargetType;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+	public final fun getValues ()Ljava/util/List;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionTargetType$DefaultImpls {
+	public static fun getDescriptor (Lpbandk/wkt/FieldOptions$OptionTargetType;)Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_ENUM : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FieldOptions$OptionTargetType {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_ENUM;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_ENUM_ENTRY : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FieldOptions$OptionTargetType {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_ENUM_ENTRY;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_EXTENSION_RANGE : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FieldOptions$OptionTargetType {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_EXTENSION_RANGE;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_FIELD : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FieldOptions$OptionTargetType {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_FIELD;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_FILE : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FieldOptions$OptionTargetType {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_FILE;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_MESSAGE : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FieldOptions$OptionTargetType {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_MESSAGE;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_METHOD : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FieldOptions$OptionTargetType {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_METHOD;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_ONEOF : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FieldOptions$OptionTargetType {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_ONEOF;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_SERVICE : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FieldOptions$OptionTargetType {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_SERVICE;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_UNKNOWN : pbandk/gen/GeneratedEnumValue, pbandk/wkt/FieldOptions$OptionTargetType {
+	public static final field INSTANCE Lpbandk/wkt/FieldOptions$OptionTargetType$TARGET_TYPE_UNKNOWN;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/FieldOptions$OptionTargetType$UNRECOGNIZED : pbandk/gen/UnrecognizedEnumValue, pbandk/wkt/FieldOptions$OptionTargetType {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
 public final class pbandk/wkt/Field_maskKt {
 	public static final fun FieldMask (Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/FieldMask;
 	public static final fun FieldMask (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FieldMask;
@@ -1990,10 +2758,11 @@ public final class pbandk/wkt/Field_maskKt {
 
 public abstract interface class pbandk/wkt/FileDescriptorProto : pbandk/Message {
 	public static final field Companion Lpbandk/wkt/FileDescriptorProto$Companion;
-	public abstract fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FileOptions;Lpbandk/wkt/SourceCodeInfo;Ljava/lang/String;Ljava/util/Map;)Lpbandk/wkt/FileDescriptorProto;
+	public abstract fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FileOptions;Lpbandk/wkt/SourceCodeInfo;Ljava/lang/String;Lpbandk/wkt/Edition;Ljava/util/Map;)Lpbandk/wkt/FileDescriptorProto;
 	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FileDescriptorProto;
 	public abstract fun getDependency ()Ljava/util/List;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getEdition ()Lpbandk/wkt/Edition;
 	public abstract fun getEnumType ()Ljava/util/List;
 	public abstract fun getExtension ()Ljava/util/List;
 	public abstract fun getMessageType ()Ljava/util/List;
@@ -2015,12 +2784,13 @@ public final class pbandk/wkt/FileDescriptorProto$Companion : pbandk/Message$Com
 }
 
 public final class pbandk/wkt/FileDescriptorProto$DefaultImpls {
-	public static synthetic fun copy$default (Lpbandk/wkt/FileDescriptorProto;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FileOptions;Lpbandk/wkt/SourceCodeInfo;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FileDescriptorProto;
+	public static synthetic fun copy$default (Lpbandk/wkt/FileDescriptorProto;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/FileOptions;Lpbandk/wkt/SourceCodeInfo;Ljava/lang/String;Lpbandk/wkt/Edition;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FileDescriptorProto;
 }
 
 public final class pbandk/wkt/FileDescriptorProto$FieldDescriptors {
 	public static final field INSTANCE Lpbandk/wkt/FileDescriptorProto$FieldDescriptors;
 	public final fun getDependency ()Lpbandk/FieldDescriptor$MutableValue;
+	public final fun getEdition ()Lpbandk/FieldDescriptor;
 	public final fun getEnumType ()Lpbandk/FieldDescriptor$MutableValue;
 	public final fun getExtension ()Lpbandk/FieldDescriptor$MutableValue;
 	public final fun getMessageType ()Lpbandk/FieldDescriptor$MutableValue;
@@ -2060,13 +2830,14 @@ public final class pbandk/wkt/FileDescriptorSet$FieldDescriptors {
 
 public abstract interface class pbandk/wkt/FileOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/FileOptions$Companion;
-	public abstract fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/FileOptions;
+	public abstract fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/FileOptions;
 	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/FileOptions;
 	public abstract fun getCcEnableArenas ()Ljava/lang/Boolean;
 	public abstract fun getCcGenericServices ()Ljava/lang/Boolean;
 	public abstract fun getCsharpNamespace ()Ljava/lang/String;
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getGoPackage ()Ljava/lang/String;
 	public abstract fun getJavaGenerateEqualsAndHash ()Ljava/lang/Boolean;
 	public abstract fun getJavaGenericServices ()Ljava/lang/Boolean;
@@ -2077,7 +2848,6 @@ public abstract interface class pbandk/wkt/FileOptions : pbandk/ExtendableMessag
 	public abstract fun getObjcClassPrefix ()Ljava/lang/String;
 	public abstract fun getOptimizeFor ()Lpbandk/wkt/FileOptions$OptimizeMode;
 	public abstract fun getPhpClassPrefix ()Ljava/lang/String;
-	public abstract fun getPhpGenericServices ()Ljava/lang/Boolean;
 	public abstract fun getPhpMetadataNamespace ()Ljava/lang/String;
 	public abstract fun getPhpNamespace ()Ljava/lang/String;
 	public abstract fun getPyGenericServices ()Ljava/lang/Boolean;
@@ -2094,7 +2864,7 @@ public final class pbandk/wkt/FileOptions$Companion : pbandk/Message$Companion {
 }
 
 public final class pbandk/wkt/FileOptions$DefaultImpls {
-	public static synthetic fun copy$default (Lpbandk/wkt/FileOptions;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FileOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/FileOptions;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FileOptions;
 }
 
 public final class pbandk/wkt/FileOptions$FieldDescriptors {
@@ -2103,6 +2873,7 @@ public final class pbandk/wkt/FileOptions$FieldDescriptors {
 	public final fun getCcGenericServices ()Lpbandk/FieldDescriptor;
 	public final fun getCsharpNamespace ()Lpbandk/FieldDescriptor;
 	public final fun getDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getFeatures ()Lpbandk/FieldDescriptor;
 	public final fun getGoPackage ()Lpbandk/FieldDescriptor;
 	public final fun getJavaGenerateEqualsAndHash ()Lpbandk/FieldDescriptor;
 	public final fun getJavaGenericServices ()Lpbandk/FieldDescriptor;
@@ -2113,7 +2884,6 @@ public final class pbandk/wkt/FileOptions$FieldDescriptors {
 	public final fun getObjcClassPrefix ()Lpbandk/FieldDescriptor;
 	public final fun getOptimizeFor ()Lpbandk/FieldDescriptor;
 	public final fun getPhpClassPrefix ()Lpbandk/FieldDescriptor;
-	public final fun getPhpGenericServices ()Lpbandk/FieldDescriptor;
 	public final fun getPhpMetadataNamespace ()Lpbandk/FieldDescriptor;
 	public final fun getPhpNamespace ()Lpbandk/FieldDescriptor;
 	public final fun getPyGenericServices ()Lpbandk/FieldDescriptor;
@@ -2197,12 +2967,13 @@ public abstract interface class pbandk/wkt/GeneratedCodeInfo : pbandk/Message {
 
 public abstract interface class pbandk/wkt/GeneratedCodeInfo$Annotation : pbandk/Message {
 	public static final field Companion Lpbandk/wkt/GeneratedCodeInfo$Annotation$Companion;
-	public abstract fun copy (Ljava/util/List;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/Map;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
+	public abstract fun copy (Ljava/util/List;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Lpbandk/wkt/GeneratedCodeInfo$Annotation$Semantic;Ljava/util/Map;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
 	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
 	public abstract fun getBegin ()Ljava/lang/Integer;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
 	public abstract fun getEnd ()Ljava/lang/Integer;
 	public abstract fun getPath ()Ljava/util/List;
+	public abstract fun getSemantic ()Lpbandk/wkt/GeneratedCodeInfo$Annotation$Semantic;
 	public abstract fun getSourceFile ()Ljava/lang/String;
 	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
 }
@@ -2214,7 +2985,7 @@ public final class pbandk/wkt/GeneratedCodeInfo$Annotation$Companion : pbandk/Me
 }
 
 public final class pbandk/wkt/GeneratedCodeInfo$Annotation$DefaultImpls {
-	public static synthetic fun copy$default (Lpbandk/wkt/GeneratedCodeInfo$Annotation;Ljava/util/List;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
+	public static synthetic fun copy$default (Lpbandk/wkt/GeneratedCodeInfo$Annotation;Ljava/util/List;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Lpbandk/wkt/GeneratedCodeInfo$Annotation$Semantic;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
 }
 
 public final class pbandk/wkt/GeneratedCodeInfo$Annotation$FieldDescriptors {
@@ -2222,12 +2993,53 @@ public final class pbandk/wkt/GeneratedCodeInfo$Annotation$FieldDescriptors {
 	public final fun getBegin ()Lpbandk/FieldDescriptor;
 	public final fun getEnd ()Lpbandk/FieldDescriptor;
 	public final fun getPath ()Lpbandk/FieldDescriptor$MutableValue;
+	public final fun getSemantic ()Lpbandk/FieldDescriptor;
 	public final fun getSourceFile ()Lpbandk/FieldDescriptor;
 }
 
+public abstract interface class pbandk/wkt/GeneratedCodeInfo$Annotation$Semantic : pbandk/Message$Enum {
+	public static final field Companion Lpbandk/wkt/GeneratedCodeInfo$Annotation$Semantic$Companion;
+	public abstract fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/GeneratedCodeInfo$Annotation$Semantic$ALIAS : pbandk/gen/GeneratedEnumValue, pbandk/wkt/GeneratedCodeInfo$Annotation$Semantic {
+	public static final field INSTANCE Lpbandk/wkt/GeneratedCodeInfo$Annotation$Semantic$ALIAS;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/GeneratedCodeInfo$Annotation$Semantic$Companion : pbandk/Message$Enum$Companion {
+	public synthetic fun fromName (Ljava/lang/String;)Lpbandk/Message$Enum;
+	public fun fromName (Ljava/lang/String;)Lpbandk/wkt/GeneratedCodeInfo$Annotation$Semantic;
+	public synthetic fun fromValue (I)Lpbandk/Message$Enum;
+	public fun fromValue (I)Lpbandk/wkt/GeneratedCodeInfo$Annotation$Semantic;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+	public final fun getValues ()Ljava/util/List;
+}
+
+public final class pbandk/wkt/GeneratedCodeInfo$Annotation$Semantic$DefaultImpls {
+	public static fun getDescriptor (Lpbandk/wkt/GeneratedCodeInfo$Annotation$Semantic;)Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/GeneratedCodeInfo$Annotation$Semantic$NONE : pbandk/gen/GeneratedEnumValue, pbandk/wkt/GeneratedCodeInfo$Annotation$Semantic {
+	public static final field INSTANCE Lpbandk/wkt/GeneratedCodeInfo$Annotation$Semantic$NONE;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/GeneratedCodeInfo$Annotation$Semantic$SET : pbandk/gen/GeneratedEnumValue, pbandk/wkt/GeneratedCodeInfo$Annotation$Semantic {
+	public static final field INSTANCE Lpbandk/wkt/GeneratedCodeInfo$Annotation$Semantic$SET;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/GeneratedCodeInfo$Annotation$Semantic$UNRECOGNIZED : pbandk/gen/UnrecognizedEnumValue, pbandk/wkt/GeneratedCodeInfo$Annotation$Semantic {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
 public final class pbandk/wkt/GeneratedCodeInfo$Companion : pbandk/Message$Companion {
-	public final fun Annotation (Ljava/util/List;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/Map;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
-	public static synthetic fun Annotation$default (Lpbandk/wkt/GeneratedCodeInfo$Companion;Ljava/util/List;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
+	public final fun Annotation (Ljava/util/List;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Lpbandk/wkt/GeneratedCodeInfo$Annotation$Semantic;Ljava/util/Map;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
+	public static synthetic fun Annotation$default (Lpbandk/wkt/GeneratedCodeInfo$Companion;Ljava/util/List;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Lpbandk/wkt/GeneratedCodeInfo$Annotation$Semantic;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
 	public synthetic fun getDefaultInstance ()Lpbandk/Message;
 	public fun getDefaultInstance ()Lpbandk/wkt/GeneratedCodeInfo;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
@@ -2246,9 +3058,11 @@ public abstract interface class pbandk/wkt/GeneratedCodeInfo$MutableAnnotation :
 	public abstract fun getBegin ()Ljava/lang/Integer;
 	public abstract fun getEnd ()Ljava/lang/Integer;
 	public abstract fun getPath ()Ljava/util/List;
+	public abstract fun getSemantic ()Lpbandk/wkt/GeneratedCodeInfo$Annotation$Semantic;
 	public abstract fun getSourceFile ()Ljava/lang/String;
 	public abstract fun setBegin (Ljava/lang/Integer;)V
 	public abstract fun setEnd (Ljava/lang/Integer;)V
+	public abstract fun setSemantic (Lpbandk/wkt/GeneratedCodeInfo$Annotation$Semantic;)V
 	public abstract fun setSourceFile (Ljava/lang/String;)V
 }
 
@@ -2300,6 +3114,83 @@ public final class pbandk/wkt/Int64Value$FieldDescriptors {
 	public final fun getValue ()Lpbandk/FieldDescriptor;
 }
 
+public abstract interface class pbandk/wkt/JavaFeatures : pbandk/Message {
+	public static final field Companion Lpbandk/wkt/JavaFeatures$Companion;
+	public abstract fun copy (Ljava/lang/Boolean;Lpbandk/wkt/JavaFeatures$Utf8Validation;Ljava/util/Map;)Lpbandk/wkt/JavaFeatures;
+	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/JavaFeatures;
+	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getLegacyClosedEnum ()Ljava/lang/Boolean;
+	public abstract fun getUtf8Validation ()Lpbandk/wkt/JavaFeatures$Utf8Validation;
+	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/JavaFeatures;
+}
+
+public final class pbandk/wkt/JavaFeatures$Companion : pbandk/Message$Companion {
+	public synthetic fun getDefaultInstance ()Lpbandk/Message;
+	public fun getDefaultInstance ()Lpbandk/wkt/JavaFeatures;
+	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+}
+
+public final class pbandk/wkt/JavaFeatures$DefaultImpls {
+	public static synthetic fun copy$default (Lpbandk/wkt/JavaFeatures;Ljava/lang/Boolean;Lpbandk/wkt/JavaFeatures$Utf8Validation;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/JavaFeatures;
+}
+
+public final class pbandk/wkt/JavaFeatures$FieldDescriptors {
+	public static final field INSTANCE Lpbandk/wkt/JavaFeatures$FieldDescriptors;
+	public final fun getLegacyClosedEnum ()Lpbandk/FieldDescriptor;
+	public final fun getUtf8Validation ()Lpbandk/FieldDescriptor;
+}
+
+public abstract interface class pbandk/wkt/JavaFeatures$Utf8Validation : pbandk/Message$Enum {
+	public static final field Companion Lpbandk/wkt/JavaFeatures$Utf8Validation$Companion;
+	public abstract fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/JavaFeatures$Utf8Validation$Companion : pbandk/Message$Enum$Companion {
+	public synthetic fun fromName (Ljava/lang/String;)Lpbandk/Message$Enum;
+	public fun fromName (Ljava/lang/String;)Lpbandk/wkt/JavaFeatures$Utf8Validation;
+	public synthetic fun fromValue (I)Lpbandk/Message$Enum;
+	public fun fromValue (I)Lpbandk/wkt/JavaFeatures$Utf8Validation;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+	public final fun getValues ()Ljava/util/List;
+}
+
+public final class pbandk/wkt/JavaFeatures$Utf8Validation$DEFAULT : pbandk/gen/GeneratedEnumValue, pbandk/wkt/JavaFeatures$Utf8Validation {
+	public static final field INSTANCE Lpbandk/wkt/JavaFeatures$Utf8Validation$DEFAULT;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/JavaFeatures$Utf8Validation$DefaultImpls {
+	public static fun getDescriptor (Lpbandk/wkt/JavaFeatures$Utf8Validation;)Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/JavaFeatures$Utf8Validation$UNRECOGNIZED : pbandk/gen/UnrecognizedEnumValue, pbandk/wkt/JavaFeatures$Utf8Validation {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/JavaFeatures$Utf8Validation$UTF8_VALIDATION_UNKNOWN : pbandk/gen/GeneratedEnumValue, pbandk/wkt/JavaFeatures$Utf8Validation {
+	public static final field INSTANCE Lpbandk/wkt/JavaFeatures$Utf8Validation$UTF8_VALIDATION_UNKNOWN;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/JavaFeatures$Utf8Validation$VERIFY : pbandk/gen/GeneratedEnumValue, pbandk/wkt/JavaFeatures$Utf8Validation {
+	public static final field INSTANCE Lpbandk/wkt/JavaFeatures$Utf8Validation$VERIFY;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
+public final class pbandk/wkt/Java_featuresKt {
+	public static final fun JavaFeatures (Ljava/lang/Boolean;Lpbandk/wkt/JavaFeatures$Utf8Validation;Ljava/util/Map;)Lpbandk/wkt/JavaFeatures;
+	public static final fun JavaFeatures (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/JavaFeatures;
+	public static synthetic fun JavaFeatures$default (Ljava/lang/Boolean;Lpbandk/wkt/JavaFeatures$Utf8Validation;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/JavaFeatures;
+	public static final fun getJava ()Lpbandk/FieldDescriptor;
+	public static final fun getJava (Lpbandk/wkt/FeatureSet;)Lpbandk/wkt/JavaFeatures;
+	public static final fun getJava (Lpbandk/wkt/MutableFeatureSet;)Lpbandk/wkt/JavaFeatures;
+	public static final fun orDefault (Lpbandk/wkt/JavaFeatures;)Lpbandk/wkt/JavaFeatures;
+	public static final fun setJava (Lpbandk/wkt/MutableFeatureSet;Lpbandk/wkt/JavaFeatures;)V
+}
+
 public abstract interface class pbandk/wkt/ListValue : pbandk/Message {
 	public static final field Companion Lpbandk/wkt/ListValue$Companion;
 	public abstract fun copy (Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/ListValue;
@@ -2326,10 +3217,12 @@ public final class pbandk/wkt/ListValue$FieldDescriptors {
 
 public abstract interface class pbandk/wkt/MessageOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/MessageOptions$Companion;
-	public abstract fun copy (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/MessageOptions;
+	public abstract fun copy (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/MessageOptions;
 	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/MessageOptions;
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
+	public abstract fun getDeprecatedLegacyJsonFieldConflicts ()Ljava/lang/Boolean;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getMapEntry ()Ljava/lang/Boolean;
 	public abstract fun getMessageSetWireFormat ()Ljava/lang/Boolean;
 	public abstract fun getNoStandardDescriptorAccessor ()Ljava/lang/Boolean;
@@ -2344,12 +3237,14 @@ public final class pbandk/wkt/MessageOptions$Companion : pbandk/Message$Companio
 }
 
 public final class pbandk/wkt/MessageOptions$DefaultImpls {
-	public static synthetic fun copy$default (Lpbandk/wkt/MessageOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/MessageOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/MessageOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/MessageOptions;
 }
 
 public final class pbandk/wkt/MessageOptions$FieldDescriptors {
 	public static final field INSTANCE Lpbandk/wkt/MessageOptions$FieldDescriptors;
 	public final fun getDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getDeprecatedLegacyJsonFieldConflicts ()Lpbandk/FieldDescriptor;
+	public final fun getFeatures ()Lpbandk/FieldDescriptor;
 	public final fun getMapEntry ()Lpbandk/FieldDescriptor;
 	public final fun getMessageSetWireFormat ()Lpbandk/FieldDescriptor;
 	public final fun getNoStandardDescriptorAccessor ()Lpbandk/FieldDescriptor;
@@ -2428,10 +3323,11 @@ public final class pbandk/wkt/MethodDescriptorProto$FieldDescriptors {
 
 public abstract interface class pbandk/wkt/MethodOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/MethodOptions$Companion;
-	public abstract fun copy (Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/MethodOptions;
+	public abstract fun copy (Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/MethodOptions;
 	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/MethodOptions;
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getIdempotencyLevel ()Lpbandk/wkt/MethodOptions$IdempotencyLevel;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
 	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/MethodOptions;
@@ -2444,12 +3340,13 @@ public final class pbandk/wkt/MethodOptions$Companion : pbandk/Message$Companion
 }
 
 public final class pbandk/wkt/MethodOptions$DefaultImpls {
-	public static synthetic fun copy$default (Lpbandk/wkt/MethodOptions;Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/MethodOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/MethodOptions;Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/MethodOptions;
 }
 
 public final class pbandk/wkt/MethodOptions$FieldDescriptors {
 	public static final field INSTANCE Lpbandk/wkt/MethodOptions$FieldDescriptors;
 	public final fun getDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getFeatures ()Lpbandk/FieldDescriptor;
 	public final fun getIdempotencyLevel ()Lpbandk/FieldDescriptor;
 	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor$MutableValue;
 }
@@ -2582,11 +3479,13 @@ public abstract interface class pbandk/wkt/MutableEmpty : pbandk/MutableMessage,
 }
 
 public abstract interface class pbandk/wkt/MutableEnum : pbandk/MutableMessage, pbandk/wkt/Enum {
+	public abstract fun getEdition ()Ljava/lang/String;
 	public abstract fun getEnumvalue ()Ljava/util/List;
 	public abstract fun getName ()Ljava/lang/String;
 	public abstract fun getOptions ()Ljava/util/List;
 	public abstract fun getSourceContext ()Lpbandk/wkt/SourceContext;
 	public abstract fun getSyntax ()Lpbandk/wkt/Syntax;
+	public abstract fun setEdition (Ljava/lang/String;)V
 	public abstract fun setName (Ljava/lang/String;)V
 	public abstract fun setSourceContext (Lpbandk/wkt/SourceContext;)V
 	public abstract fun setSyntax (Lpbandk/wkt/Syntax;)V
@@ -2605,9 +3504,13 @@ public abstract interface class pbandk/wkt/MutableEnumDescriptorProto : pbandk/M
 public abstract interface class pbandk/wkt/MutableEnumOptions : pbandk/MutableExtendableMessage, pbandk/wkt/EnumOptions {
 	public abstract fun getAllowAlias ()Ljava/lang/Boolean;
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
+	public abstract fun getDeprecatedLegacyJsonFieldConflicts ()Ljava/lang/Boolean;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
 	public abstract fun setAllowAlias (Ljava/lang/Boolean;)V
 	public abstract fun setDeprecated (Ljava/lang/Boolean;)V
+	public abstract fun setDeprecatedLegacyJsonFieldConflicts (Ljava/lang/Boolean;)V
+	public abstract fun setFeatures (Lpbandk/wkt/FeatureSet;)V
 }
 
 public abstract interface class pbandk/wkt/MutableEnumValue : pbandk/MutableMessage, pbandk/wkt/EnumValue {
@@ -2628,13 +3531,47 @@ public abstract interface class pbandk/wkt/MutableEnumValueDescriptorProto : pba
 }
 
 public abstract interface class pbandk/wkt/MutableEnumValueOptions : pbandk/MutableExtendableMessage, pbandk/wkt/EnumValueOptions {
+	public abstract fun getDebugRedact ()Ljava/lang/Boolean;
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
+	public abstract fun getFeatureSupport ()Lpbandk/wkt/FieldOptions$FeatureSupport;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
+	public abstract fun setDebugRedact (Ljava/lang/Boolean;)V
 	public abstract fun setDeprecated (Ljava/lang/Boolean;)V
+	public abstract fun setFeatureSupport (Lpbandk/wkt/FieldOptions$FeatureSupport;)V
+	public abstract fun setFeatures (Lpbandk/wkt/FeatureSet;)V
 }
 
 public abstract interface class pbandk/wkt/MutableExtensionRangeOptions : pbandk/MutableExtendableMessage, pbandk/wkt/ExtensionRangeOptions {
+	public abstract fun getDeclaration ()Ljava/util/List;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
+	public abstract fun getVerification ()Lpbandk/wkt/ExtensionRangeOptions$VerificationState;
+	public abstract fun setFeatures (Lpbandk/wkt/FeatureSet;)V
+	public abstract fun setVerification (Lpbandk/wkt/ExtensionRangeOptions$VerificationState;)V
+}
+
+public abstract interface class pbandk/wkt/MutableFeatureSet : pbandk/MutableExtendableMessage, pbandk/wkt/FeatureSet {
+	public abstract fun getEnumType ()Lpbandk/wkt/FeatureSet$EnumType;
+	public abstract fun getFieldPresence ()Lpbandk/wkt/FeatureSet$FieldPresence;
+	public abstract fun getJsonFormat ()Lpbandk/wkt/FeatureSet$JsonFormat;
+	public abstract fun getMessageEncoding ()Lpbandk/wkt/FeatureSet$MessageEncoding;
+	public abstract fun getRepeatedFieldEncoding ()Lpbandk/wkt/FeatureSet$RepeatedFieldEncoding;
+	public abstract fun getUtf8Validation ()Lpbandk/wkt/FeatureSet$Utf8Validation;
+	public abstract fun setEnumType (Lpbandk/wkt/FeatureSet$EnumType;)V
+	public abstract fun setFieldPresence (Lpbandk/wkt/FeatureSet$FieldPresence;)V
+	public abstract fun setJsonFormat (Lpbandk/wkt/FeatureSet$JsonFormat;)V
+	public abstract fun setMessageEncoding (Lpbandk/wkt/FeatureSet$MessageEncoding;)V
+	public abstract fun setRepeatedFieldEncoding (Lpbandk/wkt/FeatureSet$RepeatedFieldEncoding;)V
+	public abstract fun setUtf8Validation (Lpbandk/wkt/FeatureSet$Utf8Validation;)V
+}
+
+public abstract interface class pbandk/wkt/MutableFeatureSetDefaults : pbandk/MutableMessage, pbandk/wkt/FeatureSetDefaults {
+	public abstract fun getDefaults ()Ljava/util/List;
+	public abstract fun getMaximumEdition ()Lpbandk/wkt/Edition;
+	public abstract fun getMinimumEdition ()Lpbandk/wkt/Edition;
+	public abstract fun setMaximumEdition (Lpbandk/wkt/Edition;)V
+	public abstract fun setMinimumEdition (Lpbandk/wkt/Edition;)V
 }
 
 public abstract interface class pbandk/wkt/MutableField : pbandk/MutableMessage, pbandk/wkt/Field {
@@ -2690,22 +3627,35 @@ public abstract interface class pbandk/wkt/MutableFieldMask : pbandk/MutableMess
 
 public abstract interface class pbandk/wkt/MutableFieldOptions : pbandk/MutableExtendableMessage, pbandk/wkt/FieldOptions {
 	public abstract fun getCtype ()Lpbandk/wkt/FieldOptions$CType;
+	public abstract fun getDebugRedact ()Ljava/lang/Boolean;
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
+	public abstract fun getEditionDefaults ()Ljava/util/List;
+	public abstract fun getFeatureSupport ()Lpbandk/wkt/FieldOptions$FeatureSupport;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getJstype ()Lpbandk/wkt/FieldOptions$JSType;
 	public abstract fun getLazy ()Ljava/lang/Boolean;
 	public abstract fun getPacked ()Ljava/lang/Boolean;
+	public abstract fun getRetention ()Lpbandk/wkt/FieldOptions$OptionRetention;
+	public abstract fun getTargets ()Ljava/util/List;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
+	public abstract fun getUnverifiedLazy ()Ljava/lang/Boolean;
 	public abstract fun getWeak ()Ljava/lang/Boolean;
 	public abstract fun setCtype (Lpbandk/wkt/FieldOptions$CType;)V
+	public abstract fun setDebugRedact (Ljava/lang/Boolean;)V
 	public abstract fun setDeprecated (Ljava/lang/Boolean;)V
+	public abstract fun setFeatureSupport (Lpbandk/wkt/FieldOptions$FeatureSupport;)V
+	public abstract fun setFeatures (Lpbandk/wkt/FeatureSet;)V
 	public abstract fun setJstype (Lpbandk/wkt/FieldOptions$JSType;)V
 	public abstract fun setLazy (Ljava/lang/Boolean;)V
 	public abstract fun setPacked (Ljava/lang/Boolean;)V
+	public abstract fun setRetention (Lpbandk/wkt/FieldOptions$OptionRetention;)V
+	public abstract fun setUnverifiedLazy (Ljava/lang/Boolean;)V
 	public abstract fun setWeak (Ljava/lang/Boolean;)V
 }
 
 public abstract interface class pbandk/wkt/MutableFileDescriptorProto : pbandk/MutableMessage, pbandk/wkt/FileDescriptorProto {
 	public abstract fun getDependency ()Ljava/util/List;
+	public abstract fun getEdition ()Lpbandk/wkt/Edition;
 	public abstract fun getEnumType ()Ljava/util/List;
 	public abstract fun getExtension ()Ljava/util/List;
 	public abstract fun getMessageType ()Ljava/util/List;
@@ -2717,6 +3667,7 @@ public abstract interface class pbandk/wkt/MutableFileDescriptorProto : pbandk/M
 	public abstract fun getSourceCodeInfo ()Lpbandk/wkt/SourceCodeInfo;
 	public abstract fun getSyntax ()Ljava/lang/String;
 	public abstract fun getWeakDependency ()Ljava/util/List;
+	public abstract fun setEdition (Lpbandk/wkt/Edition;)V
 	public abstract fun setName (Ljava/lang/String;)V
 	public abstract fun setOptions (Lpbandk/wkt/FileOptions;)V
 	public abstract fun setPackage (Ljava/lang/String;)V
@@ -2733,6 +3684,7 @@ public abstract interface class pbandk/wkt/MutableFileOptions : pbandk/MutableEx
 	public abstract fun getCcGenericServices ()Ljava/lang/Boolean;
 	public abstract fun getCsharpNamespace ()Ljava/lang/String;
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getGoPackage ()Ljava/lang/String;
 	public abstract fun getJavaGenerateEqualsAndHash ()Ljava/lang/Boolean;
 	public abstract fun getJavaGenericServices ()Ljava/lang/Boolean;
@@ -2743,7 +3695,6 @@ public abstract interface class pbandk/wkt/MutableFileOptions : pbandk/MutableEx
 	public abstract fun getObjcClassPrefix ()Ljava/lang/String;
 	public abstract fun getOptimizeFor ()Lpbandk/wkt/FileOptions$OptimizeMode;
 	public abstract fun getPhpClassPrefix ()Ljava/lang/String;
-	public abstract fun getPhpGenericServices ()Ljava/lang/Boolean;
 	public abstract fun getPhpMetadataNamespace ()Ljava/lang/String;
 	public abstract fun getPhpNamespace ()Ljava/lang/String;
 	public abstract fun getPyGenericServices ()Ljava/lang/Boolean;
@@ -2754,6 +3705,7 @@ public abstract interface class pbandk/wkt/MutableFileOptions : pbandk/MutableEx
 	public abstract fun setCcGenericServices (Ljava/lang/Boolean;)V
 	public abstract fun setCsharpNamespace (Ljava/lang/String;)V
 	public abstract fun setDeprecated (Ljava/lang/Boolean;)V
+	public abstract fun setFeatures (Lpbandk/wkt/FeatureSet;)V
 	public abstract fun setGoPackage (Ljava/lang/String;)V
 	public abstract fun setJavaGenerateEqualsAndHash (Ljava/lang/Boolean;)V
 	public abstract fun setJavaGenericServices (Ljava/lang/Boolean;)V
@@ -2764,7 +3716,6 @@ public abstract interface class pbandk/wkt/MutableFileOptions : pbandk/MutableEx
 	public abstract fun setObjcClassPrefix (Ljava/lang/String;)V
 	public abstract fun setOptimizeFor (Lpbandk/wkt/FileOptions$OptimizeMode;)V
 	public abstract fun setPhpClassPrefix (Ljava/lang/String;)V
-	public abstract fun setPhpGenericServices (Ljava/lang/Boolean;)V
 	public abstract fun setPhpMetadataNamespace (Ljava/lang/String;)V
 	public abstract fun setPhpNamespace (Ljava/lang/String;)V
 	public abstract fun setPyGenericServices (Ljava/lang/Boolean;)V
@@ -2791,17 +3742,28 @@ public abstract interface class pbandk/wkt/MutableInt64Value : pbandk/MutableMes
 	public abstract fun setValue (J)V
 }
 
+public abstract interface class pbandk/wkt/MutableJavaFeatures : pbandk/MutableMessage, pbandk/wkt/JavaFeatures {
+	public abstract fun getLegacyClosedEnum ()Ljava/lang/Boolean;
+	public abstract fun getUtf8Validation ()Lpbandk/wkt/JavaFeatures$Utf8Validation;
+	public abstract fun setLegacyClosedEnum (Ljava/lang/Boolean;)V
+	public abstract fun setUtf8Validation (Lpbandk/wkt/JavaFeatures$Utf8Validation;)V
+}
+
 public abstract interface class pbandk/wkt/MutableListValue : pbandk/MutableMessage, pbandk/wkt/ListValue {
 	public abstract fun getValues ()Ljava/util/List;
 }
 
 public abstract interface class pbandk/wkt/MutableMessageOptions : pbandk/MutableExtendableMessage, pbandk/wkt/MessageOptions {
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
+	public abstract fun getDeprecatedLegacyJsonFieldConflicts ()Ljava/lang/Boolean;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getMapEntry ()Ljava/lang/Boolean;
 	public abstract fun getMessageSetWireFormat ()Ljava/lang/Boolean;
 	public abstract fun getNoStandardDescriptorAccessor ()Ljava/lang/Boolean;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
 	public abstract fun setDeprecated (Ljava/lang/Boolean;)V
+	public abstract fun setDeprecatedLegacyJsonFieldConflicts (Ljava/lang/Boolean;)V
+	public abstract fun setFeatures (Lpbandk/wkt/FeatureSet;)V
 	public abstract fun setMapEntry (Ljava/lang/Boolean;)V
 	public abstract fun setMessageSetWireFormat (Ljava/lang/Boolean;)V
 	public abstract fun setNoStandardDescriptorAccessor (Ljava/lang/Boolean;)V
@@ -2840,9 +3802,11 @@ public abstract interface class pbandk/wkt/MutableMethodDescriptorProto : pbandk
 
 public abstract interface class pbandk/wkt/MutableMethodOptions : pbandk/MutableExtendableMessage, pbandk/wkt/MethodOptions {
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getIdempotencyLevel ()Lpbandk/wkt/MethodOptions$IdempotencyLevel;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
 	public abstract fun setDeprecated (Ljava/lang/Boolean;)V
+	public abstract fun setFeatures (Lpbandk/wkt/FeatureSet;)V
 	public abstract fun setIdempotencyLevel (Lpbandk/wkt/MethodOptions$IdempotencyLevel;)V
 }
 
@@ -2861,7 +3825,9 @@ public abstract interface class pbandk/wkt/MutableOneofDescriptorProto : pbandk/
 }
 
 public abstract interface class pbandk/wkt/MutableOneofOptions : pbandk/MutableExtendableMessage, pbandk/wkt/OneofOptions {
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
+	public abstract fun setFeatures (Lpbandk/wkt/FeatureSet;)V
 }
 
 public abstract interface class pbandk/wkt/MutableOption : pbandk/MutableMessage, pbandk/wkt/Option {
@@ -2881,8 +3847,10 @@ public abstract interface class pbandk/wkt/MutableServiceDescriptorProto : pband
 
 public abstract interface class pbandk/wkt/MutableServiceOptions : pbandk/MutableExtendableMessage, pbandk/wkt/ServiceOptions {
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
 	public abstract fun setDeprecated (Ljava/lang/Boolean;)V
+	public abstract fun setFeatures (Lpbandk/wkt/FeatureSet;)V
 }
 
 public abstract interface class pbandk/wkt/MutableSourceCodeInfo : pbandk/MutableMessage, pbandk/wkt/SourceCodeInfo {
@@ -2911,12 +3879,14 @@ public abstract interface class pbandk/wkt/MutableTimestamp : pbandk/MutableMess
 }
 
 public abstract interface class pbandk/wkt/MutableType : pbandk/MutableMessage, pbandk/wkt/Type {
+	public abstract fun getEdition ()Ljava/lang/String;
 	public abstract fun getFields ()Ljava/util/List;
 	public abstract fun getName ()Ljava/lang/String;
 	public abstract fun getOneofs ()Ljava/util/List;
 	public abstract fun getOptions ()Ljava/util/List;
 	public abstract fun getSourceContext ()Lpbandk/wkt/SourceContext;
 	public abstract fun getSyntax ()Lpbandk/wkt/Syntax;
+	public abstract fun setEdition (Ljava/lang/String;)V
 	public abstract fun setName (Ljava/lang/String;)V
 	public abstract fun setSourceContext (Lpbandk/wkt/SourceContext;)V
 	public abstract fun setSyntax (Lpbandk/wkt/Syntax;)V
@@ -3023,9 +3993,10 @@ public final class pbandk/wkt/OneofDescriptorProto$FieldDescriptors {
 
 public abstract interface class pbandk/wkt/OneofOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/OneofOptions$Companion;
-	public abstract fun copy (Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/OneofOptions;
 	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/OneofOptions;
+	public abstract fun copy (Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/OneofOptions;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
 	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/OneofOptions;
 }
@@ -3037,11 +4008,12 @@ public final class pbandk/wkt/OneofOptions$Companion : pbandk/Message$Companion 
 }
 
 public final class pbandk/wkt/OneofOptions$DefaultImpls {
-	public static synthetic fun copy$default (Lpbandk/wkt/OneofOptions;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/OneofOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/OneofOptions;Lpbandk/wkt/FeatureSet;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/OneofOptions;
 }
 
 public final class pbandk/wkt/OneofOptions$FieldDescriptors {
 	public static final field INSTANCE Lpbandk/wkt/OneofOptions$FieldDescriptors;
+	public final fun getFeatures ()Lpbandk/FieldDescriptor;
 	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor$MutableValue;
 }
 
@@ -3101,10 +4073,11 @@ public final class pbandk/wkt/ServiceDescriptorProto$FieldDescriptors {
 
 public abstract interface class pbandk/wkt/ServiceOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/ServiceOptions$Companion;
-	public abstract fun copy (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/ServiceOptions;
 	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/ServiceOptions;
+	public abstract fun copy (Lpbandk/wkt/FeatureSet;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/ServiceOptions;
 	public abstract fun getDeprecated ()Ljava/lang/Boolean;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getFeatures ()Lpbandk/wkt/FeatureSet;
 	public abstract fun getUninterpretedOption ()Ljava/util/List;
 	public abstract fun plus (Lpbandk/Message;)Lpbandk/wkt/ServiceOptions;
 }
@@ -3116,12 +4089,13 @@ public final class pbandk/wkt/ServiceOptions$Companion : pbandk/Message$Companio
 }
 
 public final class pbandk/wkt/ServiceOptions$DefaultImpls {
-	public static synthetic fun copy$default (Lpbandk/wkt/ServiceOptions;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ServiceOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/ServiceOptions;Lpbandk/wkt/FeatureSet;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ServiceOptions;
 }
 
 public final class pbandk/wkt/ServiceOptions$FieldDescriptors {
 	public static final field INSTANCE Lpbandk/wkt/ServiceOptions$FieldDescriptors;
 	public final fun getDeprecated ()Lpbandk/FieldDescriptor;
+	public final fun getFeatures ()Lpbandk/FieldDescriptor;
 	public final fun getUninterpretedOption ()Lpbandk/FieldDescriptor$MutableValue;
 }
 
@@ -3305,6 +4279,11 @@ public final class pbandk/wkt/Syntax$DefaultImpls {
 	public static fun getDescriptor (Lpbandk/wkt/Syntax;)Lpbandk/EnumDescriptor;
 }
 
+public final class pbandk/wkt/Syntax$EDITIONS : pbandk/gen/GeneratedEnumValue, pbandk/wkt/Syntax {
+	public static final field INSTANCE Lpbandk/wkt/Syntax$EDITIONS;
+	public fun getDescriptor ()Lpbandk/EnumDescriptor;
+}
+
 public final class pbandk/wkt/Syntax$PROTO2 : pbandk/gen/GeneratedEnumValue, pbandk/wkt/Syntax {
 	public static final field INSTANCE Lpbandk/wkt/Syntax$PROTO2;
 	public fun getDescriptor ()Lpbandk/EnumDescriptor;
@@ -3357,9 +4336,10 @@ public final class pbandk/wkt/TimestampKt {
 
 public abstract interface class pbandk/wkt/Type : pbandk/Message {
 	public static final field Companion Lpbandk/wkt/Type$Companion;
-	public abstract fun copy (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/util/Map;)Lpbandk/wkt/Type;
+	public abstract fun copy (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/lang/String;Ljava/util/Map;)Lpbandk/wkt/Type;
 	public abstract fun copy (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/Type;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public abstract fun getEdition ()Ljava/lang/String;
 	public abstract fun getFields ()Ljava/util/List;
 	public abstract fun getName ()Ljava/lang/String;
 	public abstract fun getOneofs ()Ljava/util/List;
@@ -3376,11 +4356,12 @@ public final class pbandk/wkt/Type$Companion : pbandk/Message$Companion {
 }
 
 public final class pbandk/wkt/Type$DefaultImpls {
-	public static synthetic fun copy$default (Lpbandk/wkt/Type;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Type;
+	public static synthetic fun copy$default (Lpbandk/wkt/Type;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Type;
 }
 
 public final class pbandk/wkt/Type$FieldDescriptors {
 	public static final field INSTANCE Lpbandk/wkt/Type$FieldDescriptors;
+	public final fun getEdition ()Lpbandk/FieldDescriptor;
 	public final fun getFields ()Lpbandk/FieldDescriptor$MutableValue;
 	public final fun getName ()Lpbandk/FieldDescriptor;
 	public final fun getOneofs ()Lpbandk/FieldDescriptor$MutableValue;
@@ -3390,9 +4371,9 @@ public final class pbandk/wkt/Type$FieldDescriptors {
 }
 
 public final class pbandk/wkt/TypeKt {
-	public static final fun Enum (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/util/Map;)Lpbandk/wkt/Enum;
+	public static final fun Enum (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/lang/String;Ljava/util/Map;)Lpbandk/wkt/Enum;
 	public static final fun Enum (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/Enum;
-	public static synthetic fun Enum$default (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Enum;
+	public static synthetic fun Enum$default (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Enum;
 	public static final fun EnumValue (Ljava/lang/String;ILjava/util/List;Ljava/util/Map;)Lpbandk/wkt/EnumValue;
 	public static final fun EnumValue (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/EnumValue;
 	public static synthetic fun EnumValue$default (Ljava/lang/String;ILjava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumValue;
@@ -3402,9 +4383,9 @@ public final class pbandk/wkt/TypeKt {
 	public static final fun Option (Ljava/lang/String;Lpbandk/wkt/Any;Ljava/util/Map;)Lpbandk/wkt/Option;
 	public static final fun Option (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/Option;
 	public static synthetic fun Option$default (Ljava/lang/String;Lpbandk/wkt/Any;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Option;
-	public static final fun Type (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/util/Map;)Lpbandk/wkt/Type;
+	public static final fun Type (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/lang/String;Ljava/util/Map;)Lpbandk/wkt/Type;
 	public static final fun Type (Lkotlin/jvm/functions/Function1;)Lpbandk/wkt/Type;
-	public static synthetic fun Type$default (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Type;
+	public static synthetic fun Type$default (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lpbandk/wkt/SourceContext;Lpbandk/wkt/Syntax;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/Type;
 	public static final fun orDefault (Lpbandk/wkt/Enum;)Lpbandk/wkt/Enum;
 	public static final fun orDefault (Lpbandk/wkt/EnumValue;)Lpbandk/wkt/EnumValue;
 	public static final fun orDefault (Lpbandk/wkt/Field;)Lpbandk/wkt/Field;

@@ -15,6 +15,10 @@ public sealed interface Syntax : pbandk.Message.Enum {
         value = 1,
         name = "SYNTAX_PROTO3",
     )
+    public object EDITIONS : Syntax, pbandk.gen.GeneratedEnumValue<pbandk.wkt.Syntax>(
+        value = 2,
+        name = "SYNTAX_EDITIONS",
+    )
     public class UNRECOGNIZED(value: Int? = null, name: String? = null)
         : Syntax, pbandk.gen.UnrecognizedEnumValue<pbandk.wkt.Syntax>(value, name)
 
@@ -26,7 +30,7 @@ public sealed interface Syntax : pbandk.Message.Enum {
                 enumCompanion = this,
             )
         public val values: List<Syntax> by lazy(LazyThreadSafetyMode.PUBLICATION) {
-            listOf(PROTO2, PROTO3)
+            listOf(PROTO2, PROTO3, EDITIONS)
         }
 
         override fun fromValue(value: Int): pbandk.wkt.Syntax =
@@ -44,6 +48,7 @@ public sealed interface Type : pbandk.Message {
     public val options: List<pbandk.wkt.Option>
     public val sourceContext: pbandk.wkt.SourceContext?
     public val syntax: pbandk.wkt.Syntax
+    public val edition: String
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Type
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Type>
@@ -63,6 +68,7 @@ public sealed interface Type : pbandk.Message {
         options: List<pbandk.wkt.Option> = this.options,
         sourceContext: pbandk.wkt.SourceContext? = this.sourceContext,
         syntax: pbandk.wkt.Syntax = this.syntax,
+        edition: String = this.edition,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.Type
 
@@ -134,6 +140,17 @@ public sealed interface Type : pbandk.Message {
                 value = pbandk.wkt.Type::syntax,
                 mutableValue = pbandk.wkt.MutableType::syntax,
             )
+        public val edition: pbandk.FieldDescriptor<pbandk.wkt.Type, String> =
+            pbandk.FieldDescriptor.ofSingular(
+                messageDescriptor = pbandk.wkt.Type::descriptor,
+                messageMetadata = pbandk.wkt.Type.messageMetadata,
+                name = "edition",
+                number = 7,
+                valueType = pbandk.types.string(),
+                jsonName = "edition",
+                value = pbandk.wkt.Type::edition,
+                mutableValue = pbandk.wkt.MutableType::edition,
+            )
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Type>() {
@@ -159,6 +176,7 @@ public sealed interface Type : pbandk.Message {
                     pbandk.wkt.Type.FieldDescriptors.options,
                     pbandk.wkt.Type.FieldDescriptors.sourceContext,
                     pbandk.wkt.Type.FieldDescriptors.syntax,
+                    pbandk.wkt.Type.FieldDescriptors.edition,
                 ),
             )
         }
@@ -172,6 +190,7 @@ public sealed interface MutableType : pbandk.wkt.Type, pbandk.MutableMessage<pba
     public override val options: MutableList<pbandk.wkt.Option>
     public override var sourceContext: pbandk.wkt.SourceContext?
     public override var syntax: pbandk.wkt.Syntax
+    public override var edition: String
 }
 
 public sealed interface Field : pbandk.Message {
@@ -526,6 +545,7 @@ public sealed interface Enum : pbandk.Message {
     public val options: List<pbandk.wkt.Option>
     public val sourceContext: pbandk.wkt.SourceContext?
     public val syntax: pbandk.wkt.Syntax
+    public val edition: String
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Enum
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Enum>
@@ -544,6 +564,7 @@ public sealed interface Enum : pbandk.Message {
         options: List<pbandk.wkt.Option> = this.options,
         sourceContext: pbandk.wkt.SourceContext? = this.sourceContext,
         syntax: pbandk.wkt.Syntax = this.syntax,
+        edition: String = this.edition,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.Enum
 
@@ -604,6 +625,17 @@ public sealed interface Enum : pbandk.Message {
                 value = pbandk.wkt.Enum::syntax,
                 mutableValue = pbandk.wkt.MutableEnum::syntax,
             )
+        public val edition: pbandk.FieldDescriptor<pbandk.wkt.Enum, String> =
+            pbandk.FieldDescriptor.ofSingular(
+                messageDescriptor = pbandk.wkt.Enum::descriptor,
+                messageMetadata = pbandk.wkt.Enum.messageMetadata,
+                name = "edition",
+                number = 6,
+                valueType = pbandk.types.string(),
+                jsonName = "edition",
+                value = pbandk.wkt.Enum::edition,
+                mutableValue = pbandk.wkt.MutableEnum::edition,
+            )
     }
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Enum>() {
@@ -628,6 +660,7 @@ public sealed interface Enum : pbandk.Message {
                     pbandk.wkt.Enum.FieldDescriptors.options,
                     pbandk.wkt.Enum.FieldDescriptors.sourceContext,
                     pbandk.wkt.Enum.FieldDescriptors.syntax,
+                    pbandk.wkt.Enum.FieldDescriptors.edition,
                 ),
             )
         }
@@ -640,6 +673,7 @@ public sealed interface MutableEnum : pbandk.wkt.Enum, pbandk.MutableMessage<pba
     public override val options: MutableList<pbandk.wkt.Option>
     public override var sourceContext: pbandk.wkt.SourceContext?
     public override var syntax: pbandk.wkt.Syntax
+    public override var edition: String
 }
 
 public sealed interface EnumValue : pbandk.Message {
@@ -815,7 +849,7 @@ public sealed interface MutableOption : pbandk.wkt.Option, pbandk.MutableMessage
     message = "Use Type { } instead",
     replaceWith = ReplaceWith(
         imports = ["pbandk.wkt.Type"],
-        expression = "Type {\nthis.name = name\nthis.fields += fields\nthis.oneofs += oneofs\nthis.options += options\nthis.sourceContext = sourceContext\nthis.syntax = syntax\nthis.unknownFields += unknownFields\n}",
+        expression = "Type {\nthis.name = name\nthis.fields += fields\nthis.oneofs += oneofs\nthis.options += options\nthis.sourceContext = sourceContext\nthis.syntax = syntax\nthis.edition = edition\nthis.unknownFields += unknownFields\n}",
     )
 )
 public fun Type(
@@ -825,6 +859,7 @@ public fun Type(
     options: List<pbandk.wkt.Option> = emptyList(),
     sourceContext: pbandk.wkt.SourceContext? = null,
     syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    edition: String = "",
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ): pbandk.wkt.Type = pbandk.wkt.Type {
     this.name = name
@@ -833,6 +868,7 @@ public fun Type(
     this.options += options
     this.sourceContext = sourceContext
     this.syntax = syntax
+    this.edition = edition
     this.unknownFields += unknownFields
 }
 
@@ -850,6 +886,7 @@ public fun Type(builderAction: pbandk.wkt.MutableType.() -> Unit): pbandk.wkt.Ty
         options = pbandk.gen.MutableListField(pbandk.wkt.Type.FieldDescriptors.options),
         sourceContext = null,
         syntax = pbandk.wkt.Syntax.fromValue(0),
+        edition = "",
     ).also(builderAction).toType()
 
 @pbandk.Export
@@ -863,6 +900,7 @@ private class Type_Impl(
     override val options: pbandk.gen.ListField<pbandk.wkt.Option>,
     override val sourceContext: pbandk.wkt.SourceContext?,
     override val syntax: pbandk.wkt.Syntax,
+    override val edition: String,
     unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.Type, pbandk.gen.GeneratedMessage<pbandk.wkt.Type>(unknownFields) {
     override val descriptor get() = pbandk.wkt.Type.descriptor
@@ -878,6 +916,7 @@ private class Type_Impl(
         options: List<pbandk.wkt.Option>,
         sourceContext: pbandk.wkt.SourceContext?,
         syntax: pbandk.wkt.Syntax,
+        edition: String,
         unknownFields: Map<Int, pbandk.UnknownField>
     ): pbandk.wkt.Type = pbandk.wkt.Type {
         this.name = name
@@ -886,6 +925,7 @@ private class Type_Impl(
         this.options += options
         this.sourceContext = sourceContext
         this.syntax = syntax
+        this.edition = edition
         this.unknownFields += unknownFields
     }
 }
@@ -897,6 +937,7 @@ private class MutableType_Impl(
     override val options: pbandk.gen.MutableListField<pbandk.wkt.Option>,
     override var sourceContext: pbandk.wkt.SourceContext?,
     override var syntax: pbandk.wkt.Syntax,
+    override var edition: String,
 ) : pbandk.wkt.MutableType, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Type>() {
     override val descriptor get() = pbandk.wkt.Type.descriptor
 
@@ -911,6 +952,7 @@ private class MutableType_Impl(
         options: List<pbandk.wkt.Option>,
         sourceContext: pbandk.wkt.SourceContext?,
         syntax: pbandk.wkt.Syntax,
+        edition: String,
         unknownFields: Map<Int, pbandk.UnknownField>
     ): pbandk.wkt.Type = throw UnsupportedOperationException()
 
@@ -921,6 +963,7 @@ private class MutableType_Impl(
         options = options.toListField(),
         sourceContext = sourceContext,
         syntax = syntax,
+        edition = edition,
         unknownFields = unknownFields.toMap()
     )
 }
@@ -1079,7 +1122,7 @@ private class MutableField_Impl(
     message = "Use Enum { } instead",
     replaceWith = ReplaceWith(
         imports = ["pbandk.wkt.Enum"],
-        expression = "Enum {\nthis.name = name\nthis.enumvalue += enumvalue\nthis.options += options\nthis.sourceContext = sourceContext\nthis.syntax = syntax\nthis.unknownFields += unknownFields\n}",
+        expression = "Enum {\nthis.name = name\nthis.enumvalue += enumvalue\nthis.options += options\nthis.sourceContext = sourceContext\nthis.syntax = syntax\nthis.edition = edition\nthis.unknownFields += unknownFields\n}",
     )
 )
 public fun Enum(
@@ -1088,6 +1131,7 @@ public fun Enum(
     options: List<pbandk.wkt.Option> = emptyList(),
     sourceContext: pbandk.wkt.SourceContext? = null,
     syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    edition: String = "",
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ): pbandk.wkt.Enum = pbandk.wkt.Enum {
     this.name = name
@@ -1095,6 +1139,7 @@ public fun Enum(
     this.options += options
     this.sourceContext = sourceContext
     this.syntax = syntax
+    this.edition = edition
     this.unknownFields += unknownFields
 }
 
@@ -1111,6 +1156,7 @@ public fun Enum(builderAction: pbandk.wkt.MutableEnum.() -> Unit): pbandk.wkt.En
         options = pbandk.gen.MutableListField(pbandk.wkt.Enum.FieldDescriptors.options),
         sourceContext = null,
         syntax = pbandk.wkt.Syntax.fromValue(0),
+        edition = "",
     ).also(builderAction).toEnum()
 
 @pbandk.Export
@@ -1123,6 +1169,7 @@ private class Enum_Impl(
     override val options: pbandk.gen.ListField<pbandk.wkt.Option>,
     override val sourceContext: pbandk.wkt.SourceContext?,
     override val syntax: pbandk.wkt.Syntax,
+    override val edition: String,
     unknownFields: Map<Int, pbandk.UnknownField>
 ) : pbandk.wkt.Enum, pbandk.gen.GeneratedMessage<pbandk.wkt.Enum>(unknownFields) {
     override val descriptor get() = pbandk.wkt.Enum.descriptor
@@ -1137,6 +1184,7 @@ private class Enum_Impl(
         options: List<pbandk.wkt.Option>,
         sourceContext: pbandk.wkt.SourceContext?,
         syntax: pbandk.wkt.Syntax,
+        edition: String,
         unknownFields: Map<Int, pbandk.UnknownField>
     ): pbandk.wkt.Enum = pbandk.wkt.Enum {
         this.name = name
@@ -1144,6 +1192,7 @@ private class Enum_Impl(
         this.options += options
         this.sourceContext = sourceContext
         this.syntax = syntax
+        this.edition = edition
         this.unknownFields += unknownFields
     }
 }
@@ -1154,6 +1203,7 @@ private class MutableEnum_Impl(
     override val options: pbandk.gen.MutableListField<pbandk.wkt.Option>,
     override var sourceContext: pbandk.wkt.SourceContext?,
     override var syntax: pbandk.wkt.Syntax,
+    override var edition: String,
 ) : pbandk.wkt.MutableEnum, pbandk.gen.MutableGeneratedMessage<pbandk.wkt.Enum>() {
     override val descriptor get() = pbandk.wkt.Enum.descriptor
 
@@ -1167,6 +1217,7 @@ private class MutableEnum_Impl(
         options: List<pbandk.wkt.Option>,
         sourceContext: pbandk.wkt.SourceContext?,
         syntax: pbandk.wkt.Syntax,
+        edition: String,
         unknownFields: Map<Int, pbandk.UnknownField>
     ): pbandk.wkt.Enum = throw UnsupportedOperationException()
 
@@ -1176,6 +1227,7 @@ private class MutableEnum_Impl(
         options = options.toListField(),
         sourceContext = sourceContext,
         syntax = syntax,
+        edition = edition,
         unknownFields = unknownFields.toMap()
     )
 }
