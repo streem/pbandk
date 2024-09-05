@@ -115,7 +115,7 @@ private fun isFieldPacked(
     }
 }
 
-@JsExport
+@Export
 public sealed class FieldDescriptor<M : Message, V> private constructor(
     getMessageDescriptor: () -> MessageDescriptor<M>,
     internal val metadata: FieldMetadata,
