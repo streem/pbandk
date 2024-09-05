@@ -102,7 +102,7 @@ public open class CodeGenerator(
             line("$visibility companion object : pbandk.Message.Enum.Companion<${type.kotlinName.fullWithPackage}> {").indented {
                 writeEnumDescriptor(type)
 
-                line("$visibility val values: List<${type.kotlinName.full}> by lazy(LazyThreadSafetyMode.PUBLICATION) {").indented {
+                line("$visibility val values: List<${type.kotlinName.fullWithPackage}> by lazy(LazyThreadSafetyMode.PUBLICATION) {").indented {
                     val chunkedValues = type.values.chunked(5)
                     if (chunkedValues.size <= 1) {
                         line("listOf(${type.values.joinToString(", ") { it.kotlinName }})")
@@ -286,7 +286,7 @@ public open class CodeGenerator(
             }
 
             val oneofFields = type.fields.filterIsInstance<File.Field.OneOf>()
-            val needToChunkOneofs = oneofFields.size > chunkSize
+            val needToChunkOneofs = (oneofFields.size > chunkSize) || needToChunkFields
             if (oneofFields.isNotEmpty()) line()
             oneofFields.forEach { field ->
                 if (needToChunkOneofs) {
@@ -440,7 +440,7 @@ public open class CodeGenerator(
                 line("metadata = messageMetadata,")
                 line("messageClass = ${type.kotlinName.fullWithPackage}::class,")
                 line("messageCompanion = this,")
-                line("builder = ${builderName.parent?.full.orEmpty()}::${builderName.simple},")
+                line("builder = ${builderName.parent?.fullWithPackage.orEmpty()}::${builderName.simple},")
                 if (nonOneofFields.isNotEmpty()) {
                     line("fields = listOf(").indented {
                         nonOneofFields.forEach { line("${it.descriptorName.fullWithPackage},") }

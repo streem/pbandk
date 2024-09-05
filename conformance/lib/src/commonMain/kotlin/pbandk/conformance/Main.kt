@@ -79,7 +79,9 @@ internal fun handleConformanceRequest(req: ConformanceRequest): ConformanceRespo
             jsonConfig = jsonConfig.copy(ignoreUnknownFieldsInInput = true)
         }
 
-        else -> return ConformanceResponse.Result.Skipped("Test category ${req.testCategory.name} is not supported")
+        else -> return ConformanceResponse {
+            skipped = "Test category ${req.testCategory.name} is not supported"
+        }
     }
 
     // Parse
