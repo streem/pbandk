@@ -100,7 +100,7 @@ public sealed interface JavaFeatures : pbandk.Message {
                     enumClass = pbandk.wkt.JavaFeatures.Utf8Validation::class,
                     enumCompanion = this,
                 )
-            public val values: List<JavaFeatures.Utf8Validation> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.JavaFeatures.Utf8Validation> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(UTF8_VALIDATION_UNKNOWN, DEFAULT, VERIFY)
             }
 

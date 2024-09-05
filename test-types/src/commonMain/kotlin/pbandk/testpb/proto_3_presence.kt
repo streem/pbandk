@@ -25,7 +25,7 @@ public sealed interface Proto3PresenceEnum : pbandk.Message.Enum {
                 enumClass = pbandk.testpb.Proto3PresenceEnum::class,
                 enumCompanion = this,
             )
-        public val values: List<Proto3PresenceEnum> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        public val values: List<pbandk.testpb.Proto3PresenceEnum> by lazy(LazyThreadSafetyMode.PUBLICATION) {
             listOf(PROTO3_PRESENCE_ENUM_UNSPECIFIED, PROTO3_PRESENCE_ENUM_SPECIFIED)
         }
 

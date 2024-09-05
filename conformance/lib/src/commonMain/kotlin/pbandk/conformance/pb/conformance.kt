@@ -37,7 +37,7 @@ public sealed interface WireFormat : pbandk.Message.Enum {
                 enumClass = pbandk.conformance.pb.WireFormat::class,
                 enumCompanion = this,
             )
-        public val values: List<WireFormat> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        public val values: List<pbandk.conformance.pb.WireFormat> by lazy(LazyThreadSafetyMode.PUBLICATION) {
             listOf(UNSPECIFIED, PROTOBUF, JSON, JSPB, TEXT_FORMAT)
         }
 
@@ -87,7 +87,7 @@ public sealed interface TestCategory : pbandk.Message.Enum {
                 enumClass = pbandk.conformance.pb.TestCategory::class,
                 enumCompanion = this,
             )
-        public val values: List<TestCategory> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        public val values: List<pbandk.conformance.pb.TestCategory> by lazy(LazyThreadSafetyMode.PUBLICATION) {
             listOf(
                 UNSPECIFIED_TEST, BINARY_TEST, JSON_TEST, JSON_IGNORE_UNKNOWN_PARSING_TEST, JSPB_TEST,
                 TEXT_FORMAT_TEST,

@@ -392,7 +392,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
                     enumClass = pbandk.gen.pb.CodeGeneratorResponse.Feature::class,
                     enumCompanion = this,
                 )
-            public val values: List<CodeGeneratorResponse.Feature> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.gen.pb.CodeGeneratorResponse.Feature> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(NONE, PROTO3_OPTIONAL, SUPPORTS_EDITIONS)
             }
 
@@ -492,7 +492,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
                     metadata = messageMetadata,
                     messageClass = pbandk.gen.pb.CodeGeneratorResponse.File::class,
                     messageCompanion = this,
-                    builder = CodeGeneratorResponse.Companion::File,
+                    builder = pbandk.gen.pb.CodeGeneratorResponse.Companion::File,
                     fields = listOf(
                         pbandk.gen.pb.CodeGeneratorResponse.File.FieldDescriptors.name,
                         pbandk.gen.pb.CodeGeneratorResponse.File.FieldDescriptors.insertionPoint,

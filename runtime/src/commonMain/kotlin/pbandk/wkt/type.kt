@@ -29,7 +29,7 @@ public sealed interface Syntax : pbandk.Message.Enum {
                 enumClass = pbandk.wkt.Syntax::class,
                 enumCompanion = this,
             )
-        public val values: List<Syntax> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        public val values: List<pbandk.wkt.Syntax> by lazy(LazyThreadSafetyMode.PUBLICATION) {
             listOf(PROTO2, PROTO3, EDITIONS)
         }
 
@@ -466,7 +466,7 @@ public sealed interface Field : pbandk.Message {
                     enumClass = pbandk.wkt.Field.Kind::class,
                     enumCompanion = this,
                 )
-            public val values: List<Field.Kind> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.Field.Kind> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(
                     TYPE_UNKNOWN, TYPE_DOUBLE, TYPE_FLOAT, TYPE_INT64, TYPE_UINT64,
                     TYPE_INT32, TYPE_FIXED64, TYPE_FIXED32, TYPE_BOOL, TYPE_STRING,
@@ -513,7 +513,7 @@ public sealed interface Field : pbandk.Message {
                     enumClass = pbandk.wkt.Field.Cardinality::class,
                     enumCompanion = this,
                 )
-            public val values: List<Field.Cardinality> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.Field.Cardinality> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(UNKNOWN, OPTIONAL, REQUIRED, REPEATED)
             }
 

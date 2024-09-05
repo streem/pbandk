@@ -29,7 +29,7 @@ public sealed interface KnownRegex : pbandk.Message.Enum {
                 enumClass = pbandk.testpb.KnownRegex::class,
                 enumCompanion = this,
             )
-        public val values: List<KnownRegex> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        public val values: List<pbandk.testpb.KnownRegex> by lazy(LazyThreadSafetyMode.PUBLICATION) {
             listOf(UNKNOWN, HTTP_HEADER_NAME, HTTP_HEADER_VALUE)
         }
 

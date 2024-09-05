@@ -29,7 +29,7 @@ public sealed interface ForeignEnumProto2 : pbandk.Message.Enum {
                 enumClass = pbandk.conformance.pb.ForeignEnumProto2::class,
                 enumCompanion = this,
             )
-        public val values: List<ForeignEnumProto2> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        public val values: List<pbandk.conformance.pb.ForeignEnumProto2> by lazy(LazyThreadSafetyMode.PUBLICATION) {
             listOf(FOREIGN_FOO, FOREIGN_BAR, FOREIGN_BAZ)
         }
 
@@ -612,28 +612,13 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
         public lateinit var fieldName18_: pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2, Int?>
             private set
 
-        public val oneofField: pbandk.OneofDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2.OneofField<*>> =
-            pbandk.OneofDescriptor.of(
-                messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
-                name = "oneof_field",
-                value = pbandk.conformance.pb.TestAllTypesProto2::oneofField,
-                mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::oneofField,
-                fields = listOf(
-                    oneofUint32,
-                    oneofNestedMessage,
-                    oneofString,
-                    oneofBytes,
-                    oneofBool,
-                    oneofUint64,
-                    oneofFloat,
-                    oneofDouble,
-                    oneofEnum,
-                )
-            )
+        public lateinit var oneofField: pbandk.OneofDescriptor<pbandk.conformance.pb.TestAllTypesProto2, pbandk.conformance.pb.TestAllTypesProto2.OneofField<*>>
+            private set
 
         init {
             addFields0()
             addFields1()
+            addOneofs0()
         }
 
         private fun addFields0() {
@@ -2218,6 +2203,27 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                     mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::fieldName18_,
                 )
         }
+
+        private fun addOneofs0() {
+oneofField =
+                pbandk.OneofDescriptor.of(
+                    messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2::descriptor,
+                    name = "oneof_field",
+                    value = pbandk.conformance.pb.TestAllTypesProto2::oneofField,
+                    mutableValue = pbandk.conformance.pb.MutableTestAllTypesProto2::oneofField,
+                    fields = listOf(
+                        oneofUint32,
+                        oneofNestedMessage,
+                        oneofString,
+                        oneofBytes,
+                        oneofBool,
+                        oneofUint64,
+                        oneofFloat,
+                        oneofDouble,
+                        oneofEnum,
+                    )
+                )
+        }
     }
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2>() {
@@ -2494,7 +2500,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                     enumClass = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum::class,
                     enumCompanion = this,
                 )
-            public val values: List<TestAllTypesProto2.NestedEnum> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(FOO, BAR, BAZ, NEG)
             }
 
@@ -2568,7 +2574,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                     metadata = messageMetadata,
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage::class,
                     messageCompanion = this,
-                    builder = TestAllTypesProto2.Companion::NestedMessage,
+                    builder = pbandk.conformance.pb.TestAllTypesProto2.Companion::NestedMessage,
                     fields = listOf(
                         pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.FieldDescriptors.a,
                         pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.FieldDescriptors.corecursive,
@@ -2645,7 +2651,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                     metadata = messageMetadata,
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.Data::class,
                     messageCompanion = this,
-                    builder = TestAllTypesProto2.Companion::Data,
+                    builder = pbandk.conformance.pb.TestAllTypesProto2.Companion::Data,
                     fields = listOf(
                         pbandk.conformance.pb.TestAllTypesProto2.Data.FieldDescriptors.groupInt32,
                         pbandk.conformance.pb.TestAllTypesProto2.Data.FieldDescriptors.groupUint32,
@@ -2722,7 +2728,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                     metadata = messageMetadata,
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField::class,
                     messageCompanion = this,
-                    builder = TestAllTypesProto2.Companion::MultiWordGroupField,
+                    builder = pbandk.conformance.pb.TestAllTypesProto2.Companion::MultiWordGroupField,
                     fields = listOf(
                         pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField.FieldDescriptors.groupInt32,
                         pbandk.conformance.pb.TestAllTypesProto2.MultiWordGroupField.FieldDescriptors.groupUint32,
@@ -2773,7 +2779,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                     metadata = messageMetadata,
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect::class,
                     messageCompanion = this,
-                    builder = TestAllTypesProto2.Companion::MessageSetCorrect,
+                    builder = pbandk.conformance.pb.TestAllTypesProto2.Companion::MessageSetCorrect,
                 )
             }
         }
@@ -2831,7 +2837,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                     metadata = messageMetadata,
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1::class,
                     messageCompanion = this,
-                    builder = TestAllTypesProto2.Companion::MessageSetCorrectExtension1,
+                    builder = pbandk.conformance.pb.TestAllTypesProto2.Companion::MessageSetCorrectExtension1,
                     fields = listOf(
                         pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1.FieldDescriptors.str,
                     ),
@@ -2902,7 +2908,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage<pbandk.con
                     metadata = messageMetadata,
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2::class,
                     messageCompanion = this,
-                    builder = TestAllTypesProto2.Companion::MessageSetCorrectExtension2,
+                    builder = pbandk.conformance.pb.TestAllTypesProto2.Companion::MessageSetCorrectExtension2,
                     fields = listOf(
                         pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2.FieldDescriptors.i,
                     ),
@@ -3394,7 +3400,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
                     metadata = messageMetadata,
                     messageClass = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup::class,
                     messageCompanion = this,
-                    builder = UnknownToTestAllTypes.Companion::OptionalGroup,
+                    builder = pbandk.conformance.pb.UnknownToTestAllTypes.Companion::OptionalGroup,
                     fields = listOf(
                         pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup.FieldDescriptors.a,
                     ),
@@ -3525,7 +3531,7 @@ public sealed interface EnumOnlyProto2 : pbandk.Message {
                     enumClass = pbandk.conformance.pb.EnumOnlyProto2.Bool::class,
                     enumCompanion = this,
                 )
-            public val values: List<EnumOnlyProto2.Bool> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.conformance.pb.EnumOnlyProto2.Bool> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(K_FALSE, K_TRUE)
             }
 
@@ -4392,7 +4398,7 @@ public sealed interface TestAllRequiredTypesProto2 : pbandk.ExtendableMessage<pb
                     enumClass = pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedEnum::class,
                     enumCompanion = this,
                 )
-            public val values: List<TestAllRequiredTypesProto2.NestedEnum> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedEnum> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(FOO, BAR, BAZ, NEG)
             }
 
@@ -4478,7 +4484,7 @@ public sealed interface TestAllRequiredTypesProto2 : pbandk.ExtendableMessage<pb
                     metadata = messageMetadata,
                     messageClass = pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage::class,
                     messageCompanion = this,
-                    builder = TestAllRequiredTypesProto2.Companion::NestedMessage,
+                    builder = pbandk.conformance.pb.TestAllRequiredTypesProto2.Companion::NestedMessage,
                     fields = listOf(
                         pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage.FieldDescriptors.a,
                         pbandk.conformance.pb.TestAllRequiredTypesProto2.NestedMessage.FieldDescriptors.corecursive,
@@ -4556,7 +4562,7 @@ public sealed interface TestAllRequiredTypesProto2 : pbandk.ExtendableMessage<pb
                     metadata = messageMetadata,
                     messageClass = pbandk.conformance.pb.TestAllRequiredTypesProto2.Data::class,
                     messageCompanion = this,
-                    builder = TestAllRequiredTypesProto2.Companion::Data,
+                    builder = pbandk.conformance.pb.TestAllRequiredTypesProto2.Companion::Data,
                     fields = listOf(
                         pbandk.conformance.pb.TestAllRequiredTypesProto2.Data.FieldDescriptors.groupInt32,
                         pbandk.conformance.pb.TestAllRequiredTypesProto2.Data.FieldDescriptors.groupUint32,
@@ -4607,7 +4613,7 @@ public sealed interface TestAllRequiredTypesProto2 : pbandk.ExtendableMessage<pb
                     metadata = messageMetadata,
                     messageClass = pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrect::class,
                     messageCompanion = this,
-                    builder = TestAllRequiredTypesProto2.Companion::MessageSetCorrect,
+                    builder = pbandk.conformance.pb.TestAllRequiredTypesProto2.Companion::MessageSetCorrect,
                 )
             }
         }
@@ -4664,7 +4670,7 @@ public sealed interface TestAllRequiredTypesProto2 : pbandk.ExtendableMessage<pb
                     metadata = messageMetadata,
                     messageClass = pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension1::class,
                     messageCompanion = this,
-                    builder = TestAllRequiredTypesProto2.Companion::MessageSetCorrectExtension1,
+                    builder = pbandk.conformance.pb.TestAllRequiredTypesProto2.Companion::MessageSetCorrectExtension1,
                     fields = listOf(
                         pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension1.FieldDescriptors.str,
                     ),
@@ -4734,7 +4740,7 @@ public sealed interface TestAllRequiredTypesProto2 : pbandk.ExtendableMessage<pb
                     metadata = messageMetadata,
                     messageClass = pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension2::class,
                     messageCompanion = this,
-                    builder = TestAllRequiredTypesProto2.Companion::MessageSetCorrectExtension2,
+                    builder = pbandk.conformance.pb.TestAllRequiredTypesProto2.Companion::MessageSetCorrectExtension2,
                     fields = listOf(
                         pbandk.conformance.pb.TestAllRequiredTypesProto2.MessageSetCorrectExtension2.FieldDescriptors.i,
                     ),

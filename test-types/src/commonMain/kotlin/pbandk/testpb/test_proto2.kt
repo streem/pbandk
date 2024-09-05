@@ -143,7 +143,7 @@ public sealed interface MessageWithEnum : pbandk.Message {
                     enumClass = pbandk.testpb.MessageWithEnum.EnumType::class,
                     enumCompanion = this,
                 )
-            public val values: List<MessageWithEnum.EnumType> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.testpb.MessageWithEnum.EnumType> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(FOO, BAR)
             }
 
@@ -349,7 +349,7 @@ public sealed interface MessageWithGroup : pbandk.Message {
                     metadata = messageMetadata,
                     messageClass = pbandk.testpb.MessageWithGroup.Foo::class,
                     messageCompanion = this,
-                    builder = MessageWithGroup.Companion::Foo,
+                    builder = pbandk.testpb.MessageWithGroup.Companion::Foo,
                     fields = listOf(
                         pbandk.testpb.MessageWithGroup.Foo.FieldDescriptors.a,
                         pbandk.testpb.MessageWithGroup.Foo.FieldDescriptors.b,
@@ -439,7 +439,7 @@ public sealed interface MessageWithGroup : pbandk.Message {
                     metadata = messageMetadata,
                     messageClass = pbandk.testpb.MessageWithGroup.Bar::class,
                     messageCompanion = this,
-                    builder = MessageWithGroup.Companion::Bar,
+                    builder = pbandk.testpb.MessageWithGroup.Companion::Bar,
                     fields = listOf(
                         pbandk.testpb.MessageWithGroup.Bar.FieldDescriptors.c,
                         pbandk.testpb.MessageWithGroup.Bar.FieldDescriptors.d,
@@ -513,7 +513,7 @@ public sealed interface MessageWithGroup : pbandk.Message {
                         metadata = messageMetadata,
                         messageClass = pbandk.testpb.MessageWithGroup.Bar.NestedGroup::class,
                         messageCompanion = this,
-                        builder = MessageWithGroup.Bar.Companion::NestedGroup,
+                        builder = pbandk.testpb.MessageWithGroup.Bar.Companion::NestedGroup,
                         fields = listOf(
                             pbandk.testpb.MessageWithGroup.Bar.NestedGroup.FieldDescriptors.e,
                         ),

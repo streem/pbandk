@@ -29,7 +29,7 @@ public sealed interface ForeignEnum : pbandk.Message.Enum {
                 enumClass = pbandk.testpb.ForeignEnum::class,
                 enumCompanion = this,
             )
-        public val values: List<ForeignEnum> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        public val values: List<pbandk.testpb.ForeignEnum> by lazy(LazyThreadSafetyMode.PUBLICATION) {
             listOf(FOREIGN_FOO, FOREIGN_BAR, FOREIGN_BAZ)
         }
 
@@ -681,29 +681,13 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
         public lateinit var fieldName18_: pbandk.FieldDescriptor<pbandk.testpb.TestAllTypesProto3, Int>
             private set
 
-        public val oneofField: pbandk.OneofDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.testpb.TestAllTypesProto3.OneofField<*>> =
-            pbandk.OneofDescriptor.of(
-                messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
-                name = "oneof_field",
-                value = pbandk.testpb.TestAllTypesProto3::oneofField,
-                mutableValue = pbandk.testpb.MutableTestAllTypesProto3::oneofField,
-                fields = listOf(
-                    oneofUint32,
-                    oneofNestedMessage,
-                    oneofString,
-                    oneofBytes,
-                    oneofBool,
-                    oneofUint64,
-                    oneofFloat,
-                    oneofDouble,
-                    oneofEnum,
-                    oneofNullValue,
-                )
-            )
+        public lateinit var oneofField: pbandk.OneofDescriptor<pbandk.testpb.TestAllTypesProto3, pbandk.testpb.TestAllTypesProto3.OneofField<*>>
+            private set
 
         init {
             addFields0()
             addFields1()
+            addOneofs0()
         }
 
         private fun addFields0() {
@@ -2475,6 +2459,28 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                     mutableValue = pbandk.testpb.MutableTestAllTypesProto3::fieldName18_,
                 )
         }
+
+        private fun addOneofs0() {
+oneofField =
+                pbandk.OneofDescriptor.of(
+                    messageDescriptor = pbandk.testpb.TestAllTypesProto3::descriptor,
+                    name = "oneof_field",
+                    value = pbandk.testpb.TestAllTypesProto3::oneofField,
+                    mutableValue = pbandk.testpb.MutableTestAllTypesProto3::oneofField,
+                    fields = listOf(
+                        oneofUint32,
+                        oneofNestedMessage,
+                        oneofString,
+                        oneofBytes,
+                        oneofBool,
+                        oneofUint64,
+                        oneofFloat,
+                        oneofDouble,
+                        oneofEnum,
+                        oneofNullValue,
+                    )
+                )
+        }
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.TestAllTypesProto3>() {
@@ -2690,7 +2696,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                     enumClass = pbandk.testpb.TestAllTypesProto3.NestedEnum::class,
                     enumCompanion = this,
                 )
-            public val values: List<TestAllTypesProto3.NestedEnum> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.testpb.TestAllTypesProto3.NestedEnum> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(FOO, BAR, BAZ, NEG)
             }
 
@@ -2740,7 +2746,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                     enumClass = pbandk.testpb.TestAllTypesProto3.AliasedEnum::class,
                     enumCompanion = this,
                 )
-            public val values: List<TestAllTypesProto3.AliasedEnum> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.testpb.TestAllTypesProto3.AliasedEnum> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(
                     ALIAS_FOO, ALIAS_BAR, ALIAS_BAZ, MOO, MOO_,
                     B_AZ,
@@ -2817,7 +2823,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
                     metadata = messageMetadata,
                     messageClass = pbandk.testpb.TestAllTypesProto3.NestedMessage::class,
                     messageCompanion = this,
-                    builder = TestAllTypesProto3.Companion::NestedMessage,
+                    builder = pbandk.testpb.TestAllTypesProto3.Companion::NestedMessage,
                     fields = listOf(
                         pbandk.testpb.TestAllTypesProto3.NestedMessage.FieldDescriptors.a,
                         pbandk.testpb.TestAllTypesProto3.NestedMessage.FieldDescriptors.corecursive,
@@ -3159,7 +3165,7 @@ public sealed interface EnumOnlyProto3 : pbandk.Message {
                     enumClass = pbandk.testpb.EnumOnlyProto3.Bool::class,
                     enumCompanion = this,
                 )
-            public val values: List<EnumOnlyProto3.Bool> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.testpb.EnumOnlyProto3.Bool> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(K_FALSE, K_TRUE)
             }
 

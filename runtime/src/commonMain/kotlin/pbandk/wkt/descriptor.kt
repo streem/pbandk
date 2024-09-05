@@ -65,7 +65,7 @@ public sealed interface Edition : pbandk.Message.Enum {
                 enumClass = pbandk.wkt.Edition::class,
                 enumCompanion = this,
             )
-        public val values: List<Edition> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        public val values: List<pbandk.wkt.Edition> by lazy(LazyThreadSafetyMode.PUBLICATION) {
             listOf(
                 UNKNOWN, LEGACY, PROTO2, PROTO3, EDITION_2023,
                 EDITION_2024, EDITION_1_TEST_ONLY, EDITION_2_TEST_ONLY, EDITION_99997_TEST_ONLY, EDITION_99998_TEST_ONLY,
@@ -679,7 +679,7 @@ public sealed interface DescriptorProto : pbandk.Message {
                     metadata = messageMetadata,
                     messageClass = pbandk.wkt.DescriptorProto.ExtensionRange::class,
                     messageCompanion = this,
-                    builder = DescriptorProto.Companion::ExtensionRange,
+                    builder = pbandk.wkt.DescriptorProto.Companion::ExtensionRange,
                     fields = listOf(
                         pbandk.wkt.DescriptorProto.ExtensionRange.FieldDescriptors.start,
                         pbandk.wkt.DescriptorProto.ExtensionRange.FieldDescriptors.end,
@@ -758,7 +758,7 @@ public sealed interface DescriptorProto : pbandk.Message {
                     metadata = messageMetadata,
                     messageClass = pbandk.wkt.DescriptorProto.ReservedRange::class,
                     messageCompanion = this,
-                    builder = DescriptorProto.Companion::ReservedRange,
+                    builder = pbandk.wkt.DescriptorProto.Companion::ReservedRange,
                     fields = listOf(
                         pbandk.wkt.DescriptorProto.ReservedRange.FieldDescriptors.start,
                         pbandk.wkt.DescriptorProto.ReservedRange.FieldDescriptors.end,
@@ -931,7 +931,7 @@ public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage<pbandk.
                     enumClass = pbandk.wkt.ExtensionRangeOptions.VerificationState::class,
                     enumCompanion = this,
                 )
-            public val values: List<ExtensionRangeOptions.VerificationState> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.ExtensionRangeOptions.VerificationState> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(DECLARATION, UNVERIFIED)
             }
 
@@ -1044,7 +1044,7 @@ public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage<pbandk.
                     metadata = messageMetadata,
                     messageClass = pbandk.wkt.ExtensionRangeOptions.Declaration::class,
                     messageCompanion = this,
-                    builder = ExtensionRangeOptions.Companion::Declaration,
+                    builder = pbandk.wkt.ExtensionRangeOptions.Companion::Declaration,
                     fields = listOf(
                         pbandk.wkt.ExtensionRangeOptions.Declaration.FieldDescriptors.number,
                         pbandk.wkt.ExtensionRangeOptions.Declaration.FieldDescriptors.fullName,
@@ -1356,7 +1356,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
                     enumClass = pbandk.wkt.FieldDescriptorProto.Type::class,
                     enumCompanion = this,
                 )
-            public val values: List<FieldDescriptorProto.Type> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.FieldDescriptorProto.Type> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(
                     DOUBLE, FLOAT, INT64, UINT64, INT32,
                     FIXED64, FIXED32, BOOL, STRING, GROUP,
@@ -1399,7 +1399,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
                     enumClass = pbandk.wkt.FieldDescriptorProto.Label::class,
                     enumCompanion = this,
                 )
-            public val values: List<FieldDescriptorProto.Label> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.FieldDescriptorProto.Label> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(OPTIONAL, REPEATED, REQUIRED)
             }
 
@@ -1695,7 +1695,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
                     metadata = messageMetadata,
                     messageClass = pbandk.wkt.EnumDescriptorProto.EnumReservedRange::class,
                     messageCompanion = this,
-                    builder = EnumDescriptorProto.Companion::EnumReservedRange,
+                    builder = pbandk.wkt.EnumDescriptorProto.Companion::EnumReservedRange,
                     fields = listOf(
                         pbandk.wkt.EnumDescriptorProto.EnumReservedRange.FieldDescriptors.start,
                         pbandk.wkt.EnumDescriptorProto.EnumReservedRange.FieldDescriptors.end,
@@ -2408,7 +2408,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage<pbandk.wkt.FileOp
                     enumClass = pbandk.wkt.FileOptions.OptimizeMode::class,
                     enumCompanion = this,
                 )
-            public val values: List<FileOptions.OptimizeMode> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.FileOptions.OptimizeMode> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(SPEED, CODE_SIZE, LITE_RUNTIME)
             }
 
@@ -2907,7 +2907,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
                     enumClass = pbandk.wkt.FieldOptions.CType::class,
                     enumCompanion = this,
                 )
-            public val values: List<FieldOptions.CType> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.FieldOptions.CType> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(STRING, CORD, STRING_PIECE)
             }
 
@@ -2945,7 +2945,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
                     enumClass = pbandk.wkt.FieldOptions.JSType::class,
                     enumCompanion = this,
                 )
-            public val values: List<FieldOptions.JSType> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.FieldOptions.JSType> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(JS_NORMAL, JS_STRING, JS_NUMBER)
             }
 
@@ -2983,7 +2983,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
                     enumClass = pbandk.wkt.FieldOptions.OptionRetention::class,
                     enumCompanion = this,
                 )
-            public val values: List<FieldOptions.OptionRetention> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.FieldOptions.OptionRetention> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(RETENTION_UNKNOWN, RETENTION_RUNTIME, RETENTION_SOURCE)
             }
 
@@ -3049,7 +3049,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
                     enumClass = pbandk.wkt.FieldOptions.OptionTargetType::class,
                     enumCompanion = this,
                 )
-            public val values: List<FieldOptions.OptionTargetType> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.FieldOptions.OptionTargetType> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(
                     TARGET_TYPE_UNKNOWN, TARGET_TYPE_FILE, TARGET_TYPE_EXTENSION_RANGE, TARGET_TYPE_MESSAGE, TARGET_TYPE_FIELD,
                     TARGET_TYPE_ONEOF, TARGET_TYPE_ENUM, TARGET_TYPE_ENUM_ENTRY, TARGET_TYPE_SERVICE, TARGET_TYPE_METHOD,
@@ -3126,7 +3126,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
                     metadata = messageMetadata,
                     messageClass = pbandk.wkt.FieldOptions.EditionDefault::class,
                     messageCompanion = this,
-                    builder = FieldOptions.Companion::EditionDefault,
+                    builder = pbandk.wkt.FieldOptions.Companion::EditionDefault,
                     fields = listOf(
                         pbandk.wkt.FieldOptions.EditionDefault.FieldDescriptors.edition,
                         pbandk.wkt.FieldOptions.EditionDefault.FieldDescriptors.value,
@@ -3229,7 +3229,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage<pbandk.wkt.Field
                     metadata = messageMetadata,
                     messageClass = pbandk.wkt.FieldOptions.FeatureSupport::class,
                     messageCompanion = this,
-                    builder = FieldOptions.Companion::FeatureSupport,
+                    builder = pbandk.wkt.FieldOptions.Companion::FeatureSupport,
                     fields = listOf(
                         pbandk.wkt.FieldOptions.FeatureSupport.FieldDescriptors.editionIntroduced,
                         pbandk.wkt.FieldOptions.FeatureSupport.FieldDescriptors.editionDeprecated,
@@ -3810,7 +3810,7 @@ public sealed interface MethodOptions : pbandk.ExtendableMessage<pbandk.wkt.Meth
                     enumClass = pbandk.wkt.MethodOptions.IdempotencyLevel::class,
                     enumCompanion = this,
                 )
-            public val values: List<MethodOptions.IdempotencyLevel> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.MethodOptions.IdempotencyLevel> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(IDEMPOTENCY_UNKNOWN, NO_SIDE_EFFECTS, IDEMPOTENT)
             }
 
@@ -4049,7 +4049,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
                     metadata = messageMetadata,
                     messageClass = pbandk.wkt.UninterpretedOption.NamePart::class,
                     messageCompanion = this,
-                    builder = UninterpretedOption.Companion::NamePart,
+                    builder = pbandk.wkt.UninterpretedOption.Companion::NamePart,
                     fields = listOf(
                         pbandk.wkt.UninterpretedOption.NamePart.FieldDescriptors.namePart,
                         pbandk.wkt.UninterpretedOption.NamePart.FieldDescriptors.isExtension,
@@ -4232,7 +4232,7 @@ public sealed interface FeatureSet : pbandk.ExtendableMessage<pbandk.wkt.Feature
                     enumClass = pbandk.wkt.FeatureSet.FieldPresence::class,
                     enumCompanion = this,
                 )
-            public val values: List<FeatureSet.FieldPresence> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.FeatureSet.FieldPresence> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(UNKNOWN, EXPLICIT, IMPLICIT, LEGACY_REQUIRED)
             }
 
@@ -4270,7 +4270,7 @@ public sealed interface FeatureSet : pbandk.ExtendableMessage<pbandk.wkt.Feature
                     enumClass = pbandk.wkt.FeatureSet.EnumType::class,
                     enumCompanion = this,
                 )
-            public val values: List<FeatureSet.EnumType> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.FeatureSet.EnumType> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(UNKNOWN, OPEN, CLOSED)
             }
 
@@ -4308,7 +4308,7 @@ public sealed interface FeatureSet : pbandk.ExtendableMessage<pbandk.wkt.Feature
                     enumClass = pbandk.wkt.FeatureSet.RepeatedFieldEncoding::class,
                     enumCompanion = this,
                 )
-            public val values: List<FeatureSet.RepeatedFieldEncoding> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.FeatureSet.RepeatedFieldEncoding> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(UNKNOWN, PACKED, EXPANDED)
             }
 
@@ -4346,7 +4346,7 @@ public sealed interface FeatureSet : pbandk.ExtendableMessage<pbandk.wkt.Feature
                     enumClass = pbandk.wkt.FeatureSet.Utf8Validation::class,
                     enumCompanion = this,
                 )
-            public val values: List<FeatureSet.Utf8Validation> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.FeatureSet.Utf8Validation> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(UTF8_VALIDATION_UNKNOWN, VERIFY, NONE)
             }
 
@@ -4384,7 +4384,7 @@ public sealed interface FeatureSet : pbandk.ExtendableMessage<pbandk.wkt.Feature
                     enumClass = pbandk.wkt.FeatureSet.MessageEncoding::class,
                     enumCompanion = this,
                 )
-            public val values: List<FeatureSet.MessageEncoding> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.FeatureSet.MessageEncoding> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(UNKNOWN, LENGTH_PREFIXED, DELIMITED)
             }
 
@@ -4422,7 +4422,7 @@ public sealed interface FeatureSet : pbandk.ExtendableMessage<pbandk.wkt.Feature
                     enumClass = pbandk.wkt.FeatureSet.JsonFormat::class,
                     enumCompanion = this,
                 )
-            public val values: List<FeatureSet.JsonFormat> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            public val values: List<pbandk.wkt.FeatureSet.JsonFormat> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                 listOf(UNKNOWN, ALLOW, LEGACY_BEST_EFFORT)
             }
 
@@ -4623,7 +4623,7 @@ public sealed interface FeatureSetDefaults : pbandk.Message {
                     metadata = messageMetadata,
                     messageClass = pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault::class,
                     messageCompanion = this,
-                    builder = FeatureSetDefaults.Companion::FeatureSetEditionDefault,
+                    builder = pbandk.wkt.FeatureSetDefaults.Companion::FeatureSetEditionDefault,
                     fields = listOf(
                         pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault.FieldDescriptors.edition,
                         pbandk.wkt.FeatureSetDefaults.FeatureSetEditionDefault.FieldDescriptors.overridableFeatures,
@@ -4834,7 +4834,7 @@ public sealed interface SourceCodeInfo : pbandk.Message {
                     metadata = messageMetadata,
                     messageClass = pbandk.wkt.SourceCodeInfo.Location::class,
                     messageCompanion = this,
-                    builder = SourceCodeInfo.Companion::Location,
+                    builder = pbandk.wkt.SourceCodeInfo.Companion::Location,
                     fields = listOf(
                         pbandk.wkt.SourceCodeInfo.Location.FieldDescriptors.path,
                         pbandk.wkt.SourceCodeInfo.Location.FieldDescriptors.span,
@@ -5044,7 +5044,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
                     metadata = messageMetadata,
                     messageClass = pbandk.wkt.GeneratedCodeInfo.Annotation::class,
                     messageCompanion = this,
-                    builder = GeneratedCodeInfo.Companion::Annotation,
+                    builder = pbandk.wkt.GeneratedCodeInfo.Companion::Annotation,
                     fields = listOf(
                         pbandk.wkt.GeneratedCodeInfo.Annotation.FieldDescriptors.path,
                         pbandk.wkt.GeneratedCodeInfo.Annotation.FieldDescriptors.sourceFile,
@@ -5082,7 +5082,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
                         enumClass = pbandk.wkt.GeneratedCodeInfo.Annotation.Semantic::class,
                         enumCompanion = this,
                     )
-                public val values: List<GeneratedCodeInfo.Annotation.Semantic> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+                public val values: List<pbandk.wkt.GeneratedCodeInfo.Annotation.Semantic> by lazy(LazyThreadSafetyMode.PUBLICATION) {
                     listOf(NONE, SET, ALIAS)
                 }
 

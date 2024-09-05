@@ -21,7 +21,7 @@ public sealed interface NullValue : pbandk.Message.Enum {
                 enumClass = pbandk.wkt.NullValue::class,
                 enumCompanion = this,
             )
-        public val values: List<NullValue> by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        public val values: List<pbandk.wkt.NullValue> by lazy(LazyThreadSafetyMode.PUBLICATION) {
             listOf(NULL_VALUE)
         }
 

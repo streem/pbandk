@@ -404,7 +404,7 @@ public sealed interface FooMapEntries : pbandk.Message {
                     metadata = messageMetadata,
                     messageClass = pbandk.testpb.FooMapEntries.MapEntry::class,
                     messageCompanion = this,
-                    builder = FooMapEntries.Companion::MapEntry,
+                    builder = pbandk.testpb.FooMapEntries.Companion::MapEntry,
                     fields = listOf(
                         pbandk.testpb.FooMapEntries.MapEntry.FieldDescriptors.key,
                         pbandk.testpb.FooMapEntries.MapEntry.FieldDescriptors.value,
