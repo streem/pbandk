@@ -30,7 +30,11 @@ tasks.withType<JavaCompile> {
 
 val bootJar by tasks.getting(BootJar::class) {
     archiveClassifier.set("jvm8")
-    launchScript()
+    // The Spring Boot launch script prints a warning about running as root, which corrupts the plugin output. This custom script disables the warning.
+    // Script source: https://github.com/spring-projects/spring-boot/blob/9cf55808fb17daa9277424ecb5305c2b1516c07e/spring-boot-project/spring-boot-tools/spring-boot-loader-tools/src/main/resources/org/springframework/boot/loader/tools/launch.script
+    launchScript {
+        script = file("launch.script")
+    }
 }
 
 publishing {
