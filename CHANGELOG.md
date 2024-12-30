@@ -15,6 +15,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 
+* `protoc-gen-kotlin` can now be run by the `root` user. (PR [#248], fixes [#73]) (thanks @strophy)
+
+[#73]: https://github.com/streem/pbandk/issues/73
+[#248]: https://github.com/streem/pbandk/pull/248
+
 
 ## [0.16.0] - 2024-09-03
 
