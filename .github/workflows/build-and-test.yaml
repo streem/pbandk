@@ -15,7 +15,7 @@ jobs:
         include:
           - os: ubuntu-22.04
             os-type: linux
-          - os: macos-12
+          - os: macos-14
             os-type: macos
       fail-fast: false
     name: Build (${{ matrix.os-type }})
@@ -161,7 +161,7 @@ jobs:
         include:
           - os: ubuntu-22.04
             os-type: linux
-          - os: macos-12
+          - os: macos-14
             os-type: macos
       fail-fast: false
     name: Build conformance test runner (${{ matrix.os-type }})
@@ -212,7 +212,7 @@ jobs:
           - os: ubuntu-22.04
             build-os-type: linux
             platform: linux
-          - os: macos-12
+          - os: macos-14
             build-os-type: macos
             platform: macos
       fail-fast: false
