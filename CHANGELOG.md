@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
+* Added support for the `androidNativeArm32` and `androidNativeArm64` platforms (PR [#293])
+
 ### Changed
 
 ### Fixed
@@ -19,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 [#73]: https://github.com/streem/pbandk/issues/73
 [#248]: https://github.com/streem/pbandk/pull/248
+[#293]: https://github.com/streem/pbandk/pull/293
 
 
 ## [0.16.0] - 2024-09-03

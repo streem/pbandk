@@ -48,8 +48,8 @@ kotlin {
     tvosArm64()
     iosArm64()
     // Tier 3
-    //androidNativeArm32()
-    //androidNativeArm64()
+    androidNativeArm32()
+    androidNativeArm64()
     //androidNativeX86()
     //androidNativeX64()
     mingwX64()
