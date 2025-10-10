@@ -5,9 +5,12 @@
 
 package pbandk.conformance.io
 
+import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.CPointer
 import kotlinx.cinterop.ExperimentalForeignApi
+import kotlinx.cinterop.UnsafeNumber
 import kotlinx.cinterop.addressOf
+import kotlinx.cinterop.convert
 import kotlinx.cinterop.usePinned
 import kotlinx.io.Buffer
 import kotlinx.io.IOException
@@ -34,7 +37,7 @@ internal class StdIoSource(private val file: CPointer<FILE>) : RawSource {
         // Copy bytes from the file to the segment.
         val fd = fileno(file)
         val bytesRead = temporaryBuffer.usePinned { pinned ->
-            read(fd, pinned.addressOf(0), byteCount.toULong())
+            variantRead(pinned.addressOf(0), byteCount.toUInt(), fd).toLong()
         }
 
         sink.write(temporaryBuffer, startIndex = 0, endIndex = bytesRead.toInt())
@@ -52,4 +55,11 @@ internal class StdIoSource(private val file: CPointer<FILE>) : RawSource {
         closed = true
         fclose(file)
     }
+
+    @OptIn(UnsafeNumber::class)
+    internal fun variantRead(
+        target: CPointer<ByteVar>,
+        byteCount: UInt,
+        fd: Int
+    ): UInt = read(fd, target, byteCount.convert()).convert()
 }

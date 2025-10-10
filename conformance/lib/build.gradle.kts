@@ -29,6 +29,10 @@ kotlin {
     } else {
         macosX64()
     }
+
+    androidNativeArm32()
+    androidNativeArm64()
+
     // Uncomment to enable Windows
     // mingwX64("windows")
 

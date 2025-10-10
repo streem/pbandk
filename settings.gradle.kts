@@ -32,5 +32,7 @@ include(":conformance:lib")
 project(":conformance:lib").name = "conformance-lib"
 include(":conformance:jvm")
 project(":conformance:jvm").name = "conformance-jvm"
+include(":conformance:android")
+project(":conformance:android").name = "conformance-android"
 include(":conformance:native")
 project(":conformance:native").name = "conformance-native"

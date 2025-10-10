@@ -31,3 +31,25 @@ if [ "$1" = "macos" ]; then
         exit 1
     fi
 fi
+if [ "$1" = "androidNative" ]; then
+    DEVICE_EXECUTABLE="/data/local/tmp/conformance.kexe"
+    abi_list=$(adb shell getprop ro.product.cpu.abilist)
+    if [[ "$abi_list" == *"arm64-v8a"* ]]; then
+        adb push $DIR/native/build/bin/androidNativeArm64/conformanceReleaseExecutable/conformance.kexe $DEVICE_EXECUTABLE
+        adb shell chmod 777 $DEVICE_EXECUTABLE
+        $CONF_TEST_PATH --enforce_recommended --failure_list $DIR/native/failing_tests.txt $DIR/native/run_android.sh
+        adb shell rm $DEVICE_EXECUTABLE
+    fi
+    if [[ "$abi_list" == *"armeabi"* ]]; then
+        adb push $DIR/native/build/bin/androidNativeArm32/conformanceReleaseExecutable/conformance.kexe $DEVICE_EXECUTABLE
+        adb shell chmod 777 $DEVICE_EXECUTABLE
+        $CONF_TEST_PATH --enforce_recommended --failure_list $DIR/native/failing_tests.txt $DIR/native/run_android.sh
+        adb shell rm $DEVICE_EXECUTABLE
+    fi
+fi
+if [ "$1" = "androidJvm" ]; then
+    DEVICE_APK="/data/local/tmp/conformance.apk"
+    adb push $DIR/android/build/outputs/apk/release/conformance-android-release-unsigned.apk $DEVICE_APK
+    $CONF_TEST_PATH --enforce_recommended --failure_list $DIR/jvm/failing_tests.txt $DIR/android/run.sh
+    adb shell rm $DEVICE_APK
+fi

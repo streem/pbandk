@@ -5,9 +5,12 @@
 
 package pbandk.conformance.io
 
+import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.CPointer
 import kotlinx.cinterop.ExperimentalForeignApi
+import kotlinx.cinterop.UnsafeNumber
 import kotlinx.cinterop.addressOf
+import kotlinx.cinterop.convert
 import kotlinx.cinterop.usePinned
 import kotlinx.io.Buffer
 import kotlinx.io.IOException
@@ -37,7 +40,7 @@ internal class StdIoSink(private val file: CPointer<FILE>) : RawSink {
         val allContent = source.readByteArray(byteCount.toInt())
         // Copy bytes from that segment into the file.
         val bytesWritten = allContent.usePinned { pinned ->
-            fwrite(pinned.addressOf(0), 1u, byteCount.toULong(), file).toLong()
+            variantFwrite(pinned.addressOf(0), byteCount.toUInt(), file).toLong()
         }
         if (bytesWritten < byteCount) {
             throw IOException(errno.toString())
@@ -57,4 +60,11 @@ internal class StdIoSink(private val file: CPointer<FILE>) : RawSink {
             throw IOException(errno.toString())
         }
     }
+
+    @OptIn(UnsafeNumber::class)
+    private fun variantFwrite(
+        source: CPointer<ByteVar>,
+        byteCount: UInt,
+        file: CPointer<FILE>
+    ): UInt = fwrite(source, 1u, byteCount.convert(), file).convert()
 }

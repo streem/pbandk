@@ -13,6 +13,9 @@ kotlin {
         macosX64()
     }
 
+    androidNativeArm32()
+    androidNativeArm64()
+
     targets.withType<KotlinNativeTarget> {
         binaries {
             executable("conformance")
