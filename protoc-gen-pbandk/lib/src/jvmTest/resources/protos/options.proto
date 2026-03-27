@@ -4,3 +4,20 @@ package foobar;
 message Foo {
     int32 deprecated_field = 1 [deprecated = true];
 }
+
+message DeprecatedMessage {
+    option deprecated = true;
+    string value = 1;
+}
+
+enum DeprecatedEnum {
+    option deprecated = true;
+    DEPRECATED_ENUM_UNSPECIFIED = 0;
+    DEPRECATED_ENUM_VALUE = 1;
+}
+
+enum EnumWithDeprecatedValue {
+    ENUM_WITH_DEPRECATED_VALUE_UNSPECIFIED = 0;
+    ENUM_WITH_DEPRECATED_VALUE_OLD = 1 [deprecated = true];
+    ENUM_WITH_DEPRECATED_VALUE_NEW = 2;
+}

@@ -49,6 +49,39 @@ class CodeGeneratorTest {
     }
 
     @Test
+    fun testDeprecatedMessage() {
+        val result = compileProto("options.proto")
+
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+
+        val deprecatedMessageClazz = result.classLoader.loadClass("foobar.DeprecatedMessage").kotlin
+        assertTrue(deprecatedMessageClazz.hasAnnotation<Deprecated>())
+    }
+
+    @Test
+    fun testDeprecatedEnum() {
+        val result = compileProto("options.proto")
+
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+
+        val deprecatedEnumClazz = result.classLoader.loadClass("foobar.DeprecatedEnum").kotlin
+        assertTrue(deprecatedEnumClazz.hasAnnotation<Deprecated>())
+    }
+
+    @Test
+    fun testDeprecatedEnumValue() {
+        val result = compileProto("options.proto")
+
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+
+        val enumClazz = result.classLoader.loadClass("foobar.EnumWithDeprecatedValue").kotlin
+        val deprecatedValue = enumClazz.sealedSubclasses.single { it.simpleName == "OLD" }
+        assertTrue(deprecatedValue.hasAnnotation<Deprecated>())
+        val newValue = enumClazz.sealedSubclasses.single { it.simpleName == "NEW" }
+        assertFalse(newValue.hasAnnotation<Deprecated>())
+    }
+
+    @Test
     fun testOneOf_SameNameField() {
         val result = compileProto("oneof_same_name.proto")
 
