@@ -32,10 +32,23 @@ public open class CodeGenerator(
         fn().also { indent = indent.dropLast(4) }
     }
 
+    protected fun writeKdoc(kdoc: String): CodeGenerator = also {
+        val text = kdoc.replace("\r\n", "\n").trimEnd()
+        if (text.isBlank()) return@also
+
+        line("/**")
+        text.split('\n').forEach { rawLine ->
+            val lineContent = rawLine.trimEnd()
+            if (lineContent.isEmpty()) line(" *") else line(" * $lineContent")
+        }
+        line(" */")
+    }
+
     private fun writeExtension(field: File.Field) {
         when (field) {
             is File.Field.Numbered -> {
                 line()
+                field.kdoc?.let { writeKdoc(it) }
                 addDeprecatedAnnotation(field)
                 line(
                     "$visibility val ${field.extendeeKotlinType}.${field.kotlinFieldName}: ${
@@ -76,6 +89,7 @@ public open class CodeGenerator(
 
     protected fun writeEnumType(type: File.Type.Enum, nested: Boolean = false) {
         line()
+        type.kdoc?.let { writeKdoc(it) }
         // Only mark top-level classes for export, internal classes will be exported transitively
         if (!nested) line("@pbandk.Export")
         // Enums are sealed classes w/ a value and a name, and a companion object with all values
@@ -85,7 +99,10 @@ public open class CodeGenerator(
                 line("override fun hashCode(): Int = value.hashCode()")
                 line("override fun toString(): String = \"${type.kotlinFullTypeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
                 line()
-                type.values.forEach { line("$visibility object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")") }
+                type.values.forEach {
+                    it.kdoc?.let { kdoc -> writeKdoc(kdoc) }
+                    line("$visibility object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")")
+                }
                 line("$visibility class UNRECOGNIZED(value: Int) : ${type.kotlinTypeName}(value)")
                 line()
                 line("$visibility companion object : pbandk.Message.Enum.Companion<${file.kotlinPackageName}.${type.kotlinFullTypeName}> {").indented {
@@ -102,6 +119,7 @@ public open class CodeGenerator(
         if (type.mapEntry) messageInterface += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
 
         line()
+        type.kdoc?.let { writeKdoc(it) }
         // Only mark top-level classes for export, internal classes will be exported transitively
         if (!nested) line("@pbandk.Export")
         line("$visibility data class ${type.kotlinTypeName}(").indented {
@@ -109,10 +127,14 @@ public open class CodeGenerator(
             type.fields.forEach { field ->
                 when (field) {
                     is File.Field.Numbered -> {
+                        field.kdoc?.let { writeKdoc(it) }
                         addDeprecatedAnnotation(field)
                         lineBegin(fieldBegin).writeConstructorField(field).lineEnd(",")
                     }
-                    is File.Field.OneOf -> line("val ${field.kotlinFieldName}: ${field.kotlinTypeName}<*>? = null,")
+                    is File.Field.OneOf -> {
+                        field.kdoc?.let { writeKdoc(it) }
+                        line("val ${field.kotlinFieldName}: ${field.kotlinTypeName}<*>? = null,")
+                    }
                 }
             }
             // The unknown fields
@@ -163,6 +185,7 @@ public open class CodeGenerator(
     protected fun writeOneOfType(oneOf: File.Field.OneOf) {
         line("$visibility sealed class ${oneOf.kotlinTypeName}<V>(value: V) : pbandk.Message.OneOf<V>(value) {").indented {
             oneOf.fields.forEach { field ->
+                field.kdoc?.let { writeKdoc(it) }
                 addDeprecatedAnnotation(field)
                 lineBegin("$visibility class ${oneOf.kotlinFieldTypeNames[field.name]}(")
                 lineMid("${field.kotlinFieldName}: ${field.kotlinValueType(false)}")
@@ -174,6 +197,7 @@ public open class CodeGenerator(
         }.line("}").line()
 
         oneOf.fields.forEach { field ->
+            field.kdoc?.let { writeKdoc(it) }
             addDeprecatedAnnotation(field)
             line("val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?").indented {
                 if (field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")

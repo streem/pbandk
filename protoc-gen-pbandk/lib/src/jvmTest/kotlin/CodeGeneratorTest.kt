@@ -230,6 +230,22 @@ class CodeGeneratorTest {
         assertFails { result.classLoader.loadClass("pbandk.javapackage.Foo").kotlin }
     }
 
+    @Test
+    fun testKdocComments() {
+        val kotlinSource = generateKotlin("comments.proto")
+        assertTrue(kotlinSource.contains("/**"))
+        assertTrue(kotlinSource.contains("Message doc for DocMessage."))
+        assertTrue(kotlinSource.contains("Field doc for int_val."))
+        assertTrue(kotlinSource.contains("Oneof doc for choice."))
+        assertTrue(kotlinSource.contains("Oneof member doc for str_val."))
+        assertTrue(kotlinSource.contains("Enum doc for DocEnum."))
+        assertTrue(kotlinSource.contains("Enum value doc for DOC_ENUM_UNSPECIFIED."))
+
+        // Smoke test: ensure the generated Kotlin compiles.
+        val result = compileProto("comments.proto")
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
+    }
+
     private fun compileProto(inputProto: String, parameter: String? = null): KotlinCompilation.Result {
         val gen = runGenerator(
             CodeGeneratorRequest(
@@ -245,5 +261,16 @@ class CodeGeneratorTest {
             inheritClassPath = true
             messageOutputStream = System.out
         }.compile()
+    }
+
+    private fun generateKotlin(inputProto: String, parameter: String? = null): String {
+        val gen = runGenerator(
+            CodeGeneratorRequest(
+                fileToGenerate = listOf(inputProto),
+                protoFile = fileDescriptorSet,
+                parameter = parameter,
+            )
+        )
+        return gen.file.first().content!!
     }
 }

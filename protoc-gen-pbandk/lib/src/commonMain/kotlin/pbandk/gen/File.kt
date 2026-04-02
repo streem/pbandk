@@ -44,7 +44,8 @@ public data class File(
             val mapEntry: Boolean,
             override val kotlinTypeName: String,
             override val kotlinFullTypeName: String,
-            val extensionRange: List<pbandk.wkt.DescriptorProto.ExtensionRange> = emptyList()
+            val extensionRange: List<pbandk.wkt.DescriptorProto.ExtensionRange> = emptyList(),
+            val kdoc: String? = null
         ) : Type()
 
         public data class Enum(
@@ -52,9 +53,15 @@ public data class File(
             override val fullName: String,
             val values: List<Value>,
             override val kotlinTypeName: String,
-            override val kotlinFullTypeName: String
+            override val kotlinFullTypeName: String,
+            val kdoc: String? = null
         ) : Type() {
-            public data class Value(val number: Int, val name: String, val kotlinValueTypeName: String)
+            public data class Value(
+                val number: Int,
+                val name: String,
+                val kotlinValueTypeName: String,
+                val kdoc: String? = null
+            )
         }
     }
 
@@ -69,6 +76,7 @@ public data class File(
             public abstract val jsonName: String?
             public abstract val options: FieldOptions
             public abstract val extendee: String?
+            public abstract val kdoc: String?
 
             public data class Standard(
                 override val number: Int,
@@ -86,7 +94,8 @@ public data class File(
                 // This can be null when localTypeName is not null which means it is fully qualified and should be looked up
                 val kotlinLocalTypeName: String?,
                 override val options : FieldOptions = FieldOptions.defaultInstance,
-                override val extendee: String? = null
+                override val extendee: String? = null,
+                override val kdoc: String? = null
             ) : Numbered()
 
             public data class Wrapper(
@@ -97,7 +106,8 @@ public data class File(
                 override val jsonName: String?,
                 val wrappedType: Type,
                 override val options : FieldOptions = FieldOptions.defaultInstance,
-                override val extendee: String? = null
+                override val extendee: String? = null,
+                override val kdoc: String? = null
             ) : Numbered() {
                 override val type: Type = Type.MESSAGE
             }
@@ -108,7 +118,8 @@ public data class File(
             val fields: List<Numbered.Standard>,
             val kotlinFieldTypeNames: Map<String, String>,
             override val kotlinFieldName: String,
-            val kotlinTypeName: String
+            val kotlinTypeName: String,
+            val kdoc: String? = null
         ) : Field()
 
         public enum class Type {
