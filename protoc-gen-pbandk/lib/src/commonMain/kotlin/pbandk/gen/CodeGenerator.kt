@@ -78,6 +78,7 @@ public open class CodeGenerator(
         line()
         // Only mark top-level classes for export, internal classes will be exported transitively
         if (!nested) line("@pbandk.Export")
+        if (type.deprecated) line("@Deprecated(message = \"Enum marked deprecated in ${file.name}\")")
         // Enums are sealed classes w/ a value and a name, and a companion object with all values
         line("$visibility sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {")
             .indented {
@@ -85,10 +86,14 @@ public open class CodeGenerator(
                 line("override fun hashCode(): Int = value.hashCode()")
                 line("override fun toString(): String = \"${type.kotlinFullTypeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
                 line()
-                type.values.forEach { line("$visibility object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")") }
+                type.values.forEach {
+                    if (it.deprecated) line("@Deprecated(message = \"Enum value marked deprecated in ${file.name}\")")
+                    line("$visibility object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")")
+                }
                 line("$visibility class UNRECOGNIZED(value: Int) : ${type.kotlinTypeName}(value)")
                 line()
                 line("$visibility companion object : pbandk.Message.Enum.Companion<${file.kotlinPackageName}.${type.kotlinFullTypeName}> {").indented {
+                    if (type.deprecated || type.values.any { it.deprecated }) line("@Suppress(\"DEPRECATION\")")
                     line("$visibility val values: List<${file.kotlinPackageName}.${type.kotlinFullTypeName}> by lazy { listOf(${type.values.joinToString(", ") { it.kotlinValueTypeName }}) }")
                     line("override fun fromValue(value: Int): ${file.kotlinPackageName}.${type.kotlinFullTypeName} = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)")
                     line("override fun fromName(name: String): ${file.kotlinPackageName}.${type.kotlinFullTypeName} = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException(\"No ${type.kotlinTypeName} with name: \$name\")")
@@ -104,6 +109,7 @@ public open class CodeGenerator(
         line()
         // Only mark top-level classes for export, internal classes will be exported transitively
         if (!nested) line("@pbandk.Export")
+        if (type.deprecated) line("@Deprecated(message = \"Message marked deprecated in ${file.name}\")")
         line("$visibility data class ${type.kotlinTypeName}(").indented {
             val fieldBegin = if (type.mapEntry) "override " else ""
             type.fields.forEach { field ->
@@ -298,6 +304,7 @@ public open class CodeGenerator(
         // have to get rid of (i.e. `Person.AddressBook` becomes `PersonAddressBook`).
         line("@pbandk.Export")
         line("@pbandk.JsName(\"orDefaultFor${type.kotlinFullTypeName.replace(".", "")}\")")
+        if (type.deprecated) line("@Suppress(\"DEPRECATION\")")
         line("$visibility fun ${type.kotlinFullTypeName}?.orDefault(): ${type.kotlinTypeNameWithPackage} = this ?: ${type.kotlinFullTypeName}.defaultInstance")
     }
 
@@ -355,8 +362,9 @@ public open class CodeGenerator(
         }
 
         line()
+        if (type.deprecated) line("@Suppress(\"DEPRECATION\")")
         line("private fun ${type.kotlinFullTypeName}.protoMergeImpl(plus: pbandk.Message?): ${type.kotlinFullTypeName} = (plus as? ${type.kotlinFullTypeName})?.let {").indented {
-            if (type.sortedStandardFieldsWithOneOfs().any { it.first.options.deprecated == true }) {
+            if (!type.deprecated && type.sortedStandardFieldsWithOneOfs().any { it.first.options.deprecated == true }) {
                 line("@Suppress(\"DEPRECATION\")")
             }
             line("it.copy(").indented {
@@ -376,7 +384,8 @@ public open class CodeGenerator(
     protected fun writeMessageDecodeWithExtension(type: File.Type.Message) {
         val lineStr = "private fun ${type.kotlinFullTypeName}.Companion." +
             "decodeWithImpl(u: pbandk.MessageDecoder): ${type.kotlinFullTypeName} {"
-        line().line("@Suppress(\"UNCHECKED_CAST\")").line(lineStr).indented {
+        val suppressAnnotation = if (type.deprecated) "@Suppress(\"UNCHECKED_CAST\", \"DEPRECATION\")" else "@Suppress(\"UNCHECKED_CAST\")"
+        line().line(suppressAnnotation).line(lineStr).indented {
             // A bunch of locals for each field, initialized with defaults
             val doneKotlinFields = type.fields.map {
                 when (it) {

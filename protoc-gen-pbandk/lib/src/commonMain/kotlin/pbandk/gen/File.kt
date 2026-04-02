@@ -44,7 +44,8 @@ public data class File(
             val mapEntry: Boolean,
             override val kotlinTypeName: String,
             override val kotlinFullTypeName: String,
-            val extensionRange: List<pbandk.wkt.DescriptorProto.ExtensionRange> = emptyList()
+            val extensionRange: List<pbandk.wkt.DescriptorProto.ExtensionRange> = emptyList(),
+            val deprecated: Boolean = false
         ) : Type()
 
         public data class Enum(
@@ -52,9 +53,10 @@ public data class File(
             override val fullName: String,
             val values: List<Value>,
             override val kotlinTypeName: String,
-            override val kotlinFullTypeName: String
+            override val kotlinFullTypeName: String,
+            val deprecated: Boolean = false
         ) : Type() {
-            public data class Value(val number: Int, val name: String, val kotlinValueTypeName: String)
+            public data class Value(val number: Int, val name: String, val kotlinValueTypeName: String, val deprecated: Boolean = false)
         }
     }
 

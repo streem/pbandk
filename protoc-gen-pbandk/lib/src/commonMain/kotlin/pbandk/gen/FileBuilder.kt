@@ -57,11 +57,13 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                     kotlinValueTypeName = namer.newEnumValueTypeName(
                         enumDesc.name!!,
                         value.name!!,
-                        values.map { it.kotlinValueTypeName })
+                        values.map { it.kotlinValueTypeName }),
+                    deprecated = value.options?.deprecated == true
                 )
             },
             kotlinTypeName = kotlinTypeName,
             kotlinFullTypeName = parentKotlinFullName?.let { "${it}." }.orEmpty() + kotlinTypeName,
+            deprecated = enumDesc.options?.deprecated == true
         )
     }
 
@@ -94,7 +96,8 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             mapEntry = supportMaps && msgDesc.options?.mapEntry == true,
             kotlinTypeName = kotlinTypeName,
             kotlinFullTypeName = kotlinFullTypeName,
-            extensionRange = msgDesc.extensionRange
+            extensionRange = msgDesc.extensionRange,
+            deprecated = msgDesc.options?.deprecated == true
         )
     }
 
