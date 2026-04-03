@@ -1,5 +1,6 @@
 package pbandk.gen
 
+import pbandk.gen.PathKey.Companion.EMPTY_DESCRIPTOR_PATH
 import pbandk.wkt.DescriptorProto
 import pbandk.wkt.EnumDescriptorProto
 import pbandk.wkt.FieldDescriptorProto
@@ -23,7 +24,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 packageName,
                 null,
                 mutableSetOf(),
-                parentDescriptorPath = emptyList(),
+                parentDescriptorPath = EMPTY_DESCRIPTOR_PATH,
                 enumFieldNumber = 5, // FileDescriptorProto.enum_type
                 messageFieldNumber = 4, // FileDescriptorProto.message_type
                 sourceLocations = sourceLocations
@@ -33,7 +34,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                     ctx,
                     fieldDesc,
                     mutableSetOf(),
-                    descriptorPath = listOf(7, index), // FileDescriptorProto.extension
+                    descriptorPath = EMPTY_DESCRIPTOR_PATH.appendDescriptorPath(7, index), // FileDescriptorProto.extension
                     sourceLocations = sourceLocations
                 )
             }
@@ -47,7 +48,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         parentFullName: String?,
         parentKotlinFullName: String?,
         usedTypeNames: MutableSet<String>,
-        parentDescriptorPath: List<Int>,
+        parentDescriptorPath: PathKey,
         enumFieldNumber: Int,
         messageFieldNumber: Int,
         sourceLocations: Map<PathKey, SourceCodeInfo.Location>
@@ -58,7 +59,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             parentFullName,
             parentKotlinFullName,
             usedTypeNames,
-            descriptorPath = parentDescriptorPath + listOf(enumFieldNumber, index),
+            descriptorPath = parentDescriptorPath.appendDescriptorPath(enumFieldNumber, index),
             sourceLocations = sourceLocations
         )
     } + msgTypes.mapIndexed { index, msgDesc ->
@@ -68,7 +69,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             parentFullName,
             parentKotlinFullName,
             usedTypeNames,
-            descriptorPath = parentDescriptorPath + listOf(messageFieldNumber, index),
+            descriptorPath = parentDescriptorPath.appendDescriptorPath(messageFieldNumber, index),
             sourceLocations = sourceLocations
         )
     }
@@ -79,7 +80,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         parentFullName: String?,
         parentKotlinFullName: String?,
         usedTypeNames: MutableSet<String>,
-        descriptorPath: List<Int>,
+        descriptorPath: PathKey,
         sourceLocations: Map<PathKey, SourceCodeInfo.Location>,
     ): File.Type.Enum {
         val kotlinTypeName = namer.newTypeName(enumDesc.name!!, usedTypeNames).also {
@@ -98,7 +99,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                         value.name!!,
                         values.map { it.kotlinValueTypeName }
                     ),
-                    kdoc = kdocForPath(descriptorPath + listOf(2, index), sourceLocations) // EnumDescriptorProto.value
+                    kdoc = kdocForPath(descriptorPath.appendDescriptorPath(2, index), sourceLocations) // EnumDescriptorProto.value
                 )
             },
             kotlinTypeName = kotlinTypeName,
@@ -113,7 +114,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         parentFullName: String?,
         parentKotlinFullName: String?,
         usedTypeNames: MutableSet<String>,
-        descriptorPath: List<Int>,
+        descriptorPath: PathKey,
         sourceLocations: Map<PathKey, SourceCodeInfo.Location>,
     ): File.Type.Message {
         val fullName = parentFullName?.let { "$it." }.orEmpty() + msgDesc.name!!
@@ -151,7 +152,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         ctx: Context,
         msgDesc: DescriptorProto,
         usedTypeNames: MutableSet<String>,
-        messageDescriptorPath: List<Int>,
+        messageDescriptorPath: PathKey,
         sourceLocations: Map<PathKey, SourceCodeInfo.Location>
     ): List<File.Field> {
         val usedFieldNames = mutableSetOf<String>()
@@ -172,7 +173,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 ctx,
                 fieldDesc,
                 usedFieldNames,
-                descriptorPath = messageDescriptorPath + listOf(2, index), // DescriptorProto.field
+                descriptorPath = messageDescriptorPath.appendDescriptorPath(2, index), // DescriptorProto.field
                 sourceLocations = sourceLocations
             )
         } + oneofFieldsByIndex.mapNotNull { (oneofIndex, fields) ->
@@ -186,7 +187,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                     ctx,
                     fieldDesc,
                     usedFieldNames,
-                    descriptorPath = messageDescriptorPath + listOf(2, index), // DescriptorProto.field
+                    descriptorPath = messageDescriptorPath.appendDescriptorPath(2, index), // DescriptorProto.field
                     sourceLocations = sourceLocations
                 )
             } else {
@@ -213,7 +214,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         oneofFields: List<Pair<Int, FieldDescriptorProto>>,
         usedFieldNames: MutableSet<String>,
         usedTypeNames: MutableSet<String>,
-        messageDescriptorPath: List<Int>,
+        messageDescriptorPath: PathKey,
         sourceLocations: Map<PathKey, SourceCodeInfo.Location>
     ): File.Field.OneOf {
         val fields = oneofFields.map { (fieldIndex, fieldDesc) ->
@@ -223,7 +224,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 fieldDesc,
                 mutableSetOf(),
                 oneofField = true,
-                descriptorPath = messageDescriptorPath + listOf(2, fieldIndex), // DescriptorProto.field
+                descriptorPath = messageDescriptorPath.appendDescriptorPath(2, fieldIndex), // DescriptorProto.field
                 sourceLocations = sourceLocations
             ) as File.Field.Numbered.Standard
         }
@@ -239,7 +240,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             kotlinTypeName = namer.newTypeName(oneofName, usedTypeNames).also {
                 usedTypeNames += it
             },
-            kdoc = kdocForPath(messageDescriptorPath + listOf(8, oneofIndex), sourceLocations) // DescriptorProto.oneof_decl
+            kdoc = kdocForPath(messageDescriptorPath.appendDescriptorPath(8, oneofIndex), sourceLocations) // DescriptorProto.oneof_decl
         )
     }
 
@@ -248,7 +249,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         fieldDesc: FieldDescriptorProto,
         usedFieldNames: MutableSet<String>,
         oneofField: Boolean = false,
-        descriptorPath: List<Int>,
+        descriptorPath: PathKey,
         sourceLocations: Map<PathKey, SourceCodeInfo.Location>
     ): File.Field.Numbered {
         val type = fromProto(fieldDesc.type ?: error("Missing field type"))
@@ -389,6 +390,18 @@ internal data class PathKey(val segments: IntArray) {
         other is PathKey && segments.contentEquals(other.segments)
 
     override fun hashCode(): Int = segments.contentHashCode()
+
+    fun appendDescriptorPath(fieldNumber: Int, index: Int): PathKey {
+        val out = IntArray(segments.size + 2)
+        segments.copyInto(out)
+        out[out.size - 2] = fieldNumber
+        out[out.size - 1] = index
+        return PathKey(out)
+    }
+
+    companion object {
+        val EMPTY_DESCRIPTOR_PATH: PathKey = PathKey(IntArray(0))
+    }
 }
 
 private fun sourceCodeLocationIndex(fileDesc: FileDescriptorProto): Map<PathKey, SourceCodeInfo.Location> {
@@ -420,8 +433,8 @@ private fun sourceCodeLocationScore(loc: SourceCodeInfo.Location): Int {
     return score
 }
 
-private fun kdocForPath(path: List<Int>, sourceLocations: Map<PathKey, SourceCodeInfo.Location>): String? {
-    val loc = sourceLocations[PathKey(path.toIntArray())] ?: return null
+private fun kdocForPath(path: PathKey, sourceLocations: Map<PathKey, SourceCodeInfo.Location>): String? {
+    val loc = sourceLocations[path] ?: return null
 
     val blocks = buildList {
         loc.leadingDetachedComments.forEach { detached ->
