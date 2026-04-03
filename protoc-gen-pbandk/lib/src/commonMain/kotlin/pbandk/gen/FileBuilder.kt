@@ -1,14 +1,17 @@
 package pbandk.gen
 
+import pbandk.gen.PathKey.Companion.EMPTY_DESCRIPTOR_PATH
 import pbandk.wkt.DescriptorProto
 import pbandk.wkt.EnumDescriptorProto
 import pbandk.wkt.FieldDescriptorProto
 import pbandk.wkt.FieldOptions
 import pbandk.wkt.FileDescriptorProto
+import pbandk.wkt.SourceCodeInfo
 
 internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boolean = true) {
     fun buildFile(ctx: Context): File {
         val packageName = ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() }
+        val sourceLocations = sourceCodeLocationIndex(ctx.fileDesc)
         return File(
             name = ctx.fileDesc.name!!,
             packageName = packageName,
@@ -20,9 +23,21 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 ctx.fileDesc.messageType,
                 packageName,
                 null,
-                mutableSetOf()
+                mutableSetOf(),
+                parentDescriptorPath = EMPTY_DESCRIPTOR_PATH,
+                enumFieldNumber = 5, // FileDescriptorProto.enum_type
+                messageFieldNumber = 4, // FileDescriptorProto.message_type
+                sourceLocations = sourceLocations
             ),
-            extensions = ctx.fileDesc.extension.map { numberedFieldFromProto(ctx, it, mutableSetOf()) }
+            extensions = ctx.fileDesc.extension.mapIndexed { index, fieldDesc ->
+                numberedFieldFromProto(
+                    ctx,
+                    fieldDesc,
+                    mutableSetOf(),
+                    descriptorPath = EMPTY_DESCRIPTOR_PATH.appendDescriptorPath(7, index), // FileDescriptorProto.extension
+                    sourceLocations = sourceLocations
+                )
+            }
         )
     }
 
@@ -32,9 +47,32 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         msgTypes: List<DescriptorProto>,
         parentFullName: String?,
         parentKotlinFullName: String?,
-        usedTypeNames: MutableSet<String>
-    ) = enumTypes.map { fromProto(ctx, it, parentFullName, parentKotlinFullName, usedTypeNames) } +
-            msgTypes.map { fromProto(ctx, it, parentFullName, parentKotlinFullName, usedTypeNames) }
+        usedTypeNames: MutableSet<String>,
+        parentDescriptorPath: PathKey,
+        enumFieldNumber: Int,
+        messageFieldNumber: Int,
+        sourceLocations: Map<PathKey, SourceCodeInfo.Location>
+    ) = enumTypes.mapIndexed { index, enumDesc ->
+        fromProto(
+            ctx,
+            enumDesc,
+            parentFullName,
+            parentKotlinFullName,
+            usedTypeNames,
+            descriptorPath = parentDescriptorPath.appendDescriptorPath(enumFieldNumber, index),
+            sourceLocations = sourceLocations
+        )
+    } + msgTypes.mapIndexed { index, msgDesc ->
+        fromProto(
+            ctx,
+            msgDesc,
+            parentFullName,
+            parentKotlinFullName,
+            usedTypeNames,
+            descriptorPath = parentDescriptorPath.appendDescriptorPath(messageFieldNumber, index),
+            sourceLocations = sourceLocations
+        )
+    }
 
     protected fun fromProto(
         @Suppress("UNUSED_PARAMETER") ctx: Context,
@@ -42,6 +80,8 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         parentFullName: String?,
         parentKotlinFullName: String?,
         usedTypeNames: MutableSet<String>,
+        descriptorPath: PathKey,
+        sourceLocations: Map<PathKey, SourceCodeInfo.Location>,
     ): File.Type.Enum {
         val kotlinTypeName = namer.newTypeName(enumDesc.name!!, usedTypeNames).also {
             usedTypeNames += it
@@ -50,18 +90,21 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         return File.Type.Enum(
             name = enumDesc.name!!,
             fullName = parentFullName?.let { "$it." }.orEmpty() + enumDesc.name!!,
-            values = enumDesc.value.fold(listOf()) { values, value ->
+            values = enumDesc.value.foldIndexed(emptyList()) { index, values, value ->
                 values + File.Type.Enum.Value(
                     number = value.number!!,
                     name = value.name!!,
                     kotlinValueTypeName = namer.newEnumValueTypeName(
                         enumDesc.name!!,
                         value.name!!,
-                        values.map { it.kotlinValueTypeName })
+                        values.map { it.kotlinValueTypeName }
+                    ),
+                    kdoc = kdocForPath(descriptorPath.appendDescriptorPath(2, index), sourceLocations) // EnumDescriptorProto.value
                 )
             },
             kotlinTypeName = kotlinTypeName,
             kotlinFullTypeName = parentKotlinFullName?.let { "${it}." }.orEmpty() + kotlinTypeName,
+            kdoc = kdocForPath(descriptorPath, sourceLocations),
         )
     }
 
@@ -71,6 +114,8 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         parentFullName: String?,
         parentKotlinFullName: String?,
         usedTypeNames: MutableSet<String>,
+        descriptorPath: PathKey,
+        sourceLocations: Map<PathKey, SourceCodeInfo.Location>,
     ): File.Type.Message {
         val fullName = parentFullName?.let { "$it." }.orEmpty() + msgDesc.name!!
         val kotlinTypeName = namer.newTypeName(msgDesc.name!!, usedTypeNames).also {
@@ -82,61 +127,106 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         return File.Type.Message(
             name = msgDesc.name!!,
             fullName = fullName,
-            fields = fieldsFromProto(ctx, msgDesc, usedNestedTypeNames),
+            fields = fieldsFromProto(ctx, msgDesc, usedNestedTypeNames, descriptorPath, sourceLocations),
             nestedTypes = typesFromProto(
                 ctx,
                 msgDesc.enumType,
                 msgDesc.nestedType,
                 fullName,
                 kotlinFullTypeName,
-                usedNestedTypeNames
+                usedNestedTypeNames,
+                parentDescriptorPath = descriptorPath,
+                enumFieldNumber = 4, // DescriptorProto.enum_type
+                messageFieldNumber = 3, // DescriptorProto.nested_type
+                sourceLocations = sourceLocations
             ),
             mapEntry = supportMaps && msgDesc.options?.mapEntry == true,
             kotlinTypeName = kotlinTypeName,
             kotlinFullTypeName = kotlinFullTypeName,
-            extensionRange = msgDesc.extensionRange
+            extensionRange = msgDesc.extensionRange,
+            kdoc = kdocForPath(descriptorPath, sourceLocations)
         )
     }
 
     protected fun fieldsFromProto(
         ctx: Context,
         msgDesc: DescriptorProto,
-        usedTypeNames: MutableSet<String>
+        usedTypeNames: MutableSet<String>,
+        messageDescriptorPath: PathKey,
+        sourceLocations: Map<PathKey, SourceCodeInfo.Location>
     ): List<File.Field> {
         val usedFieldNames = mutableSetOf<String>()
-        return msgDesc.field
-            // Handle fields that are part of a oneof specially
-            .partition { it.oneofIndex == null }
-            .let { (standardFields, oneofFields) ->
-                standardFields.map {
-                    numberedFieldFromProto(ctx, it, usedFieldNames)
-                } + oneofFields.groupBy { it.oneofIndex!! }
-                    .mapNotNull { (oneofIndex, fields) ->
-                        // "Every proto3 optional field is placed into a one-field oneof.
-                        // We call this a "synthetic" oneof, as it was not present in the source .proto file."
-                        // https://github.com/protocolbuffers/protobuf/blob/master/docs/implementing_proto3_presence.md#background
-                        val synthetic = fields.size == 1 && (fields[0].proto3Optional ?: false)
-                        if (synthetic) {
-                            numberedFieldFromProto(ctx, fields[0], usedFieldNames)
-                        } else {
-                            msgDesc.oneofDecl[oneofIndex].name?.let { oneofName ->
-                                oneofFieldFromProto(ctx, oneofName, fields, usedFieldNames, usedTypeNames)
-                            }
-                        }
-                    }
+        val standardFields = mutableListOf<Pair<Int, FieldDescriptorProto>>()
+        val oneofFieldsByIndex = linkedMapOf<Int, MutableList<Pair<Int, FieldDescriptorProto>>>()
+
+        msgDesc.field.forEachIndexed { index, fieldDesc ->
+            val oneofIndex = fieldDesc.oneofIndex
+            if (oneofIndex == null) {
+                standardFields += index to fieldDesc
+            } else {
+                oneofFieldsByIndex.getOrPut(oneofIndex) { mutableListOf() } += index to fieldDesc
             }
+        }
+
+        return standardFields.map { (index, fieldDesc) ->
+            numberedFieldFromProto(
+                ctx,
+                fieldDesc,
+                usedFieldNames,
+                descriptorPath = messageDescriptorPath.appendDescriptorPath(2, index), // DescriptorProto.field
+                sourceLocations = sourceLocations
+            )
+        } + oneofFieldsByIndex.mapNotNull { (oneofIndex, fields) ->
+            // "Every proto3 optional field is placed into a one-field oneof.
+            // We call this a "synthetic" oneof, as it was not present in the source .proto file."
+            // https://github.com/protocolbuffers/protobuf/blob/master/docs/implementing_proto3_presence.md#background
+            val synthetic = fields.size == 1 && (fields[0].second.proto3Optional ?: false)
+            if (synthetic) {
+                val (index, fieldDesc) = fields[0]
+                numberedFieldFromProto(
+                    ctx,
+                    fieldDesc,
+                    usedFieldNames,
+                    descriptorPath = messageDescriptorPath.appendDescriptorPath(2, index), // DescriptorProto.field
+                    sourceLocations = sourceLocations
+                )
+            } else {
+                msgDesc.oneofDecl.getOrNull(oneofIndex)?.name?.let { oneofName ->
+                    oneofFieldFromProto(
+                        ctx,
+                        oneofName,
+                        oneofIndex,
+                        fields,
+                        usedFieldNames,
+                        usedTypeNames,
+                        messageDescriptorPath,
+                        sourceLocations
+                    )
+                }
+            }
+        }
     }
 
     protected fun oneofFieldFromProto(
         ctx: Context,
         oneofName: String,
-        oneofFields: List<FieldDescriptorProto>,
+        oneofIndex: Int,
+        oneofFields: List<Pair<Int, FieldDescriptorProto>>,
         usedFieldNames: MutableSet<String>,
-        usedTypeNames: MutableSet<String>
+        usedTypeNames: MutableSet<String>,
+        messageDescriptorPath: PathKey,
+        sourceLocations: Map<PathKey, SourceCodeInfo.Location>
     ): File.Field.OneOf {
-        val fields = oneofFields.map {
+        val fields = oneofFields.map { (fieldIndex, fieldDesc) ->
             // wrapper fields are not supposed to be used inside of oneof's
-            numberedFieldFromProto(ctx, it, mutableSetOf(), oneofField = true) as File.Field.Numbered.Standard
+            numberedFieldFromProto(
+                ctx,
+                fieldDesc,
+                mutableSetOf(),
+                oneofField = true,
+                descriptorPath = messageDescriptorPath.appendDescriptorPath(2, fieldIndex), // DescriptorProto.field
+                sourceLocations = sourceLocations
+            ) as File.Field.Numbered.Standard
         }
         return File.Field.OneOf(
             name = oneofName,
@@ -149,7 +239,8 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             },
             kotlinTypeName = namer.newTypeName(oneofName, usedTypeNames).also {
                 usedTypeNames += it
-            }
+            },
+            kdoc = kdocForPath(messageDescriptorPath.appendDescriptorPath(8, oneofIndex), sourceLocations) // DescriptorProto.oneof_decl
         )
     }
 
@@ -157,12 +248,15 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         ctx: Context,
         fieldDesc: FieldDescriptorProto,
         usedFieldNames: MutableSet<String>,
-        oneofField: Boolean = false
+        oneofField: Boolean = false,
+        descriptorPath: PathKey,
+        sourceLocations: Map<PathKey, SourceCodeInfo.Location>
     ): File.Field.Numbered {
         val type = fromProto(fieldDesc.type ?: error("Missing field type"))
         val wrappedType = fieldDesc.typeName
             ?.takeIf { type == File.Field.Type.MESSAGE }
             ?.let { File.Field.Type.WRAPPER_TYPE_NAME_TO_TYPE[it] }
+        val kdoc = kdocForPath(descriptorPath, sourceLocations)
 
         return if (wrappedType != null) {
             File.Field.Numbered.Wrapper(
@@ -175,7 +269,8 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 jsonName = fieldDesc.jsonName,
                 wrappedType = wrappedType,
                 options = fieldDesc.options ?: FieldOptions.defaultInstance,
-                extendee = fieldDesc.extendee
+                extendee = fieldDesc.extendee,
+                kdoc = kdoc
             )
         } else {
             File.Field.Numbered.Standard(
@@ -203,7 +298,8 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                     namer.newTypeName(it, emptySet())
                 },
                 options = fieldDesc.options ?: FieldOptions.defaultInstance,
-                extendee = fieldDesc.extendee
+                extendee = fieldDesc.extendee,
+                kdoc = kdoc
             )
         }
     }
@@ -288,3 +384,73 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
 }
 
 private val FileDescriptorProto.usesProto2Syntax: Boolean get() = syntax == null || syntax == "proto2"
+
+internal data class PathKey(val segments: IntArray) {
+    override fun equals(other: Any?): Boolean =
+        other is PathKey && segments.contentEquals(other.segments)
+
+    override fun hashCode(): Int = segments.contentHashCode()
+
+    fun appendDescriptorPath(fieldNumber: Int, index: Int): PathKey {
+        val out = IntArray(segments.size + 2)
+        segments.copyInto(out)
+        out[out.size - 2] = fieldNumber
+        out[out.size - 1] = index
+        return PathKey(out)
+    }
+
+    companion object {
+        val EMPTY_DESCRIPTOR_PATH: PathKey = PathKey(IntArray(0))
+    }
+}
+
+private fun sourceCodeLocationIndex(fileDesc: FileDescriptorProto): Map<PathKey, SourceCodeInfo.Location> {
+    val locations = fileDesc.sourceCodeInfo?.location ?: return emptyMap()
+    val ret = LinkedHashMap<PathKey, SourceCodeInfo.Location>(locations.size)
+    for (loc in locations) {
+        val key = PathKey(loc.path.toIntArray())
+        val prev = ret[key]
+        if (prev == null) {
+            ret[key] = loc
+        } else {
+            ret[key] = if (sourceCodeLocationScore(loc) >= sourceCodeLocationScore(prev)) loc else prev
+        }
+    }
+    return ret
+}
+
+private fun sourceCodeLocationScore(loc: SourceCodeInfo.Location): Int {
+    val hasDetached = loc.leadingDetachedComments.any(String::isNotBlank)
+    val hasLeading = !loc.leadingComments.isNullOrBlank()
+    val hasTrailing = !loc.trailingComments.isNullOrBlank()
+
+    var score = 0
+
+    if (hasDetached) score += 4 // Prefer leadingDetachedComments
+    if (hasLeading) score += 2 // then leadingComments
+    if (hasTrailing) score += 1 // then trailingComments
+
+    return score
+}
+
+private fun kdocForPath(path: PathKey, sourceLocations: Map<PathKey, SourceCodeInfo.Location>): String? {
+    val loc = sourceLocations[path] ?: return null
+
+    val blocks = buildList {
+        loc.leadingDetachedComments.forEach { detached ->
+            detached.trim().takeIf { it.isNotEmpty() }?.let(::add)
+        }
+        loc.leadingComments?.trim()?.takeIf { it.isNotEmpty() }?.let(::add)
+        if (isEmpty()) {
+            loc.trailingComments?.trim()?.takeIf { it.isNotEmpty() }?.let(::add)
+        }
+    }
+
+    if (blocks.isEmpty()) return null
+
+    return blocks.joinToString("\n\n")
+        .replace("\r\n", "\n")
+        .replace("*/", "*\\\\/")
+        .trim()
+        .takeIf { it.isNotEmpty() }
+}

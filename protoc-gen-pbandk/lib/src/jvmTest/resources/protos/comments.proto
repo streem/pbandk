@@ -1,0 +1,23 @@
+syntax = "proto3";
+package foobar;
+
+// Message doc for DocMessage.
+message DocMessage {
+  // Field doc for int_val.
+  int32 int_val = 1;
+
+  // Oneof doc for choice.
+  oneof choice {
+    // Oneof member doc for str_val.
+    string str_val = 2;
+  }
+}
+
+// Enum doc for DocEnum.
+enum DocEnum {
+  // Enum value doc for DOC_ENUM_UNSPECIFIED.
+  DOC_ENUM_UNSPECIFIED = 0;
+  // Enum value doc for DOC_ENUM_FOO.
+  DOC_ENUM_FOO = 1;
+}
+
